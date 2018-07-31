@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
@@ -23,4 +22,7 @@ storiesOf('Button', module)
 
 storiesOf('Select', module)
   .addDecorator(withKnobs)
-  .add('basic bitches', () => <Select placeholder={text('Placeholder', 'Options')} options={array('Select Options', ['option1', 'option2', 'option3'])}/>)
+  .add(
+    'basic select', 
+    () => <Select placeholder={text('Placeholder', 'Options')} options={array('Select Options', ['option1', 'option2', 'option3'])}/>
+  )
