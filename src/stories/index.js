@@ -26,8 +26,8 @@ storiesOf('Select', module)
     'basic select', 
     () => <Select
     backgroundColor={color('Background Color', '#fff')}
-    placeholder={text('Placeholder', 'Options')} 
-    options={array('Options', ['option1', 'option2', 'option3'])}
+    placeholder={text('Placeholder', 'Options', 'content')} 
+    options={array('Options', ['option1', 'option2', 'option3'], ',', 'content')}
     selectPadding={number('Padding', 5)}
     textColor={color('Text Color', '#000')}
     borderWidth={number('Border Width', 1)}

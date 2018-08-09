@@ -64,7 +64,7 @@ class Select extends React.Component {
 
     return (
       <div className={`select ${expanded ? 'expanded' : ''}`} onBlur={(e) => this.toggleState(false)}>
-        <input className='select__value' placeholder={placeholder} value={selectedValue} onClick={(e) => this.toggleState()} readOnly/>
+        <input className='select__value' placeholder={placeholder} value={selectedValue} onFocus={(e) => this.toggleState(true)} readOnly/>
         <div className={`select__icon`} onClick={(e) => this.toggleState()}>
           <div className='caret'>&gt;</div>
           <div className='triangle' />
@@ -92,7 +92,7 @@ class Select extends React.Component {
               z-index: 1;
               color: ${borderColor};
               right: ${selectPadding - 5}px;
-              top: calc(${fontSize/2 + selectPadding}px - 15%);
+              top: calc(${fontSize/2 + selectPadding}px - 18%);
               width: 19px;
               height: 19px;
               transform: rotate(90deg);
