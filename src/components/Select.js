@@ -15,9 +15,12 @@ class Select extends React.Component {
       borderColor: props.borderColor || '#000',
       borderWidth: props.borderWidth || 1,
       fontSize: props.fontSize || 12,
+      selectFont: props.selectFont || 'sans-serif',
       textColor: props.textColor || '#000',
       selectIcon: props.selectIcon || 'caret',
-      backgroundColor: props.backgroundColor || '#fff'
+      backgroundColor: props.backgroundColor || '#fff',
+      disabled: props.disabled || false,
+      borderRadius: props.borderRadius || 0
     }
   }
 
@@ -27,6 +30,7 @@ class Select extends React.Component {
   }
 
   toggleState(toggleValue) {
+    if(this.state.disabled) return
     this.setState({expanded: typeof toggleValue === 'boolean' ? toggleValue : !this.state.expanded})
   }
 
@@ -38,10 +42,13 @@ class Select extends React.Component {
       selectPadding: props.selectPadding,
       borderWidth: props.borderWidth,
       borderColor: props.borderColor,
+      selectFont: props.selectFont,
       fontSize: props.fontSize,
       textColor: props.textColor,
       selectIcon: props.selectIcon,
-      backgroundColor: props.backgroundColor
+      backgroundColor: props.backgroundColor, 
+      disabled: props.disabled,
+      borderRadius: props.borderRadius
     })
   }
 
@@ -54,16 +61,20 @@ class Select extends React.Component {
       selectPadding,
       borderWidth,
       borderColor,
+      selectFont,
       fontSize,
       textColor,
       selectIcon,
-      backgroundColor
+      backgroundColor,
+      disabled,
+      borderRadius
     } = this.state
 
     const calculatedHeight = (fontSize + 8) * options.length
+    const inputHeight = 2 * Math.round((fontSize + 5)/2)
 
     return (
-      <div className={`select ${expanded ? 'expanded' : ''}`} onBlur={(e) => this.toggleState(false)}>
+      <div className={`select${expanded ? ' expanded' : ''}${disabled ? ' disabled' : ''}`} onBlur={(e) => this.toggleState(false)}>
         <input className='select__value' placeholder={placeholder} value={selectedValue} onFocus={(e) => this.toggleState(true)} readOnly/>
         <div className={`select__icon`} onClick={(e) => this.toggleState()}>
           <div className='caret'>&gt;</div>
@@ -72,7 +83,7 @@ class Select extends React.Component {
         </div>
         <ul className='select__options'>
           {
-            options.map( (option,index) => <li className='select__option' onClick={(e) => this.doSelection(option)} key={option+index} >{option}</li> )
+            options.map( (option,index) => <li tabindex={index} className='select__option' onClick={(e) => this.doSelection(option)} key={option+index} >{option}</li> )
           }
         </ul>
         <style jsx>{`
@@ -84,8 +95,9 @@ class Select extends React.Component {
             border-width: ${borderWidth}px;
             border-style: solid;
             padding: ${selectPadding}px;
-            font-family: sans-serif;
+            font-family: ${selectFont};
             background-color: ${backgroundColor};
+            border-radius: ${borderRadius}px;
             
             &__icon {
               position: absolute;
@@ -160,18 +172,30 @@ class Select extends React.Component {
               border: none;
               color: ${textColor};
               font-size: ${fontSize}px;
+              font-family: ${selectFont};
+              height: ${inputHeight}px;
+              padding: 0;
+              margin: 0;
+              margin-right: 25px;
+              max-width: 100%;
+              text-overflow: ellipsis;
+              width: 120px;
 
               &::placeholder {
                 color: ${textColor};
                 opacity: 0.6;
                 font-size: ${fontSize}px;
+                font-family: ${selectFont};
               }
             }
 
             &__options {
               position: absolute;
+              top: ${inputHeight + 2 + (selectPadding * 2)}px;
+              left: 0;
               height: 0;
-              top: ${fontSize + (selectPadding * 2) + 4}px;
+              min-width: 100%;
+              opacity: 0;
               font-size: ${fontSize}px;              
               font-family: inherit;
               overflow: hidden;
@@ -180,12 +204,15 @@ class Select extends React.Component {
               margin:  0;
               transition: height .2s;
               transition-delay: .1s;
+              box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
             }
 
             &__option {
               cursor: pointer;
               height: ${fontSize + 4}px;
               margin: 2px 0;
+              padding: 0 4px;
+              white-space: nowrap;
 
               &:hover {
                 background-color: #e8eef7;
@@ -194,12 +221,17 @@ class Select extends React.Component {
             &.expanded {
               & > .select__options {
                 height: ${calculatedHeight}px;
+                opacity: 1;
               }
 
               & > .select__icon {
                 transform: rotate(270deg);
               }                
-            }            
+            } 
+            
+            &.disabled {
+              opacity: 0.4;
+            }
           }
         `}</style>
       </div>
