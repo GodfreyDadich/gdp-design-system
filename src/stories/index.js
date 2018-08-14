@@ -10,6 +10,8 @@ import Select from '../components/Select'
 import Image from '../components/Image'
 import ImageWithCaption from '../components/ImageWithCaption'
 import Card from '../components/Card'
+import Breadcrumb from '../components/Breadcrumb'
+import Chips from '../components/Chips'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -98,5 +100,49 @@ storiesOf('Select', module)
       selectIcon={select('Icon', ['triangle','caret','chevron'], 'triangle')}
       disabled={boolean('Disabled', false)}
       borderRadius={number('Rounded Corners', 0, {range: true, min: 0, max: 30, step: 1})}
+    />
+  )
+
+const breadCrumbData = [
+  {
+    title: 'test title 1',
+    link: 'http://google.com'
+  },
+  {
+    title: 'test title 2',
+    link: 'http://google.com'
+  },  
+  {
+    title: 'test title 3',
+    link: 'http://google.com'
+  }
+]
+storiesOf('Navigation', module)
+  .addDecorator(withKnobs)
+  .add(
+    'breadcrumb',
+    () => <Breadcrumb
+      delimiter={text('Separator', '/')}
+      links={breadCrumbData}
+    />
+  )
+
+  const chips = [
+    {
+      title: 'chip 1',
+    },
+    {
+      title: 'chip 2',
+    },  
+    {
+      title: 'chip 3',
+    }
+  ]
+
+storiesOf('Chips', module)
+  .add(
+    'chips',
+    () => <Chips 
+      chips={chips}
     />
   )
