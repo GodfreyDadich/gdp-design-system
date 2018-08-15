@@ -9,6 +9,7 @@ import { Button, Welcome } from '@storybook/react/demo'
 import Select from '../components/Select'
 import Image from '../components/Image'
 import ImageWithCaption from '../components/ImageWithCaption'
+import ImageWithZoom from '../components/ImageWithZoom'
 import Card from '../components/Card'
 import Breadcrumb from '../components/Breadcrumb'
 import Chips from '../components/Chips'
@@ -60,6 +61,18 @@ storiesOf('Image', module)
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+    />
+  )
+  .add(
+    'Image with Zoom',
+    () => <ImageWithZoom 
+      imageTitle={text('Image Title/Alt', 'test')}
+      aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'square')}
+      fullBleed={boolean('fullBleed', false)}
+      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      linkUrl={text('url', '')}
+      // verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
     />
   )
