@@ -1,13 +1,21 @@
 import React from 'react'
 import ImageZoom from 'react-medium-image-zoom'
 
-const alignRef = {
+const vertRef = {
+  'sixteen' : 56.25,
+  'standard' : 75,
+  'cropped' : 39.06,
+  'square' : 100,
+}
+const hAlignRef = {
   'left': 0,
   'center': 50,
   'right': 100,
+}
+const vAlignRef = {
   'top': 0,
-  'center': 50,
-  'bottom': 100
+  'center': 2,
+  'bottom': 1
 }
 
 const ImageWithZoom = ({
@@ -17,28 +25,36 @@ const ImageWithZoom = ({
   imgSource,
   verticalAlign,
   horizontalAlign,
-  classAdd
+  classAdd,
+  stretchH
 }) =>
-
 <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
   <ImageZoom
     image={{
       src: imgSource,
       alt: imageTitle,
-      className: 'img wrappedImage',
-      style: { 
+      className: `img wrappedImage`,
+      style: Object.assign({ 
         width: '100%',
         position: 'absolute',
         top: '0',
         left: '0',
-        width: 'auto',
+        overflow: 'hidden'      
+      }, stretchH ? {
         height: 'auto',
-        maxHeight: '100%',
+        width: '100%',
+        minHeight: '100%',
+        minWidth: '0',
+        marginTop: verticalAlign === 'top' ? '' : `-${vertRef[aspectRatio]/vAlignRef[verticalAlign]}%`,
+        transform: verticalAlign === 'top' ? '' : `translateY(${vertRef[aspectRatio]/vAlignRef[verticalAlign]}%)`
+      } : {
+        height: '100%',
+        width: 'auto',
         minWidth: '100%',
-        overflow: 'hidden',
-        marginLeft: `${alignRef[horizontalAlign]}%`,
-        transform: `translateX(-${alignRef[horizontalAlign]}%)`
-      }
+        minHeight: 0,
+        marginLeft: `${hAlignRef[horizontalAlign]}%`,
+        transform: `translateX(-${hAlignRef[horizontalAlign]}%)`        
+      })
     }}
     zoomImage={{
       src: imgSource,
@@ -73,8 +89,7 @@ const ImageWithZoom = ({
         max-width: 100%;
         height: auto;
         min-height: 100%;
-      }      
+      }
     `}</style>
   </div>  
-
 export default ImageWithZoom

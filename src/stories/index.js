@@ -7,6 +7,7 @@ import { withInfo } from '@storybook/addon-info';
 
 import { Button, Welcome } from '@storybook/react/demo'
 import Select from '../components/Select'
+import SelectNative from '../components/SelectNative'
 import Image from '../components/Image'
 import ImageWithCaption from '../components/ImageWithCaption'
 import ImageWithZoom from '../components/ImageWithZoom'
@@ -66,15 +67,16 @@ storiesOf('Image', module)
   )
   .add(
     'Image with Zoom',
-    () => <ImageWithZoom 
+    () => <div style={{width:'50%', margin:'50px auto'}}><ImageWithZoom 
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'square')}
-      fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
-      linkUrl={text('url', '')}
-      // verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+      aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped' }, 'square')}
+      fullBleed={boolean('Full Bleed', false)}
+      stretchH={boolean('Stretch Horizontal', false)}
+      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
+      // imgSource='https://d11b794nw2x0wi.cloudfront.net/attachments/cjdkx87gb0023njawm9h9o3v6-eye-level-even-0021-patrick.png'
+      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    />
+    /></div>
   )
 
 storiesOf('Card', module)
@@ -99,7 +101,24 @@ storiesOf('Card', module)
 storiesOf('Select', module)
   .addDecorator(withKnobs)
   .add(
-    'basic select', 
+    'Styled Native',
+    () => <SelectNative 
+      selectFont={select('Font', ['sans-serif','serif'], 'sans-serif')}
+      backgroundColor={color('Background Color', '#fff', 'Colors')}
+      placeholder={text('Placeholder', 'Options', 'content')} 
+      options={array('Options', ['option1', 'option2', 'option3'], ',', 'content')}
+      selectPadding={number('Padding', 5)}
+      textColor={color('Text Color', '#000', 'Colors')}
+      borderWidth={number('Border Width', 1)}
+      borderColor={color('Border Color', '#000', 'Colors')}
+      fontSize={number('Font Size', 12)}
+      selectIcon={select('Icon', ['triangle','caret','chevron'], 'triangle')}
+      disabled={boolean('Disabled', false)}
+      borderRadius={number('Rounded Corners', 0, {range: true, min: 0, max: 30, step: 1})}   
+    />
+  )
+  .add(
+    'Styled Custom', 
     () => <Select
       selectFont={select('Font', ['sans-serif','serif'], 'sans-serif')}
       backgroundColor={color('Background Color', '#fff', 'Colors')}
