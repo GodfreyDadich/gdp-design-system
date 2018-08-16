@@ -5,11 +5,11 @@ import CardText from './CardText'
 
 const Card = props => 
 <article>
-  {props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right' ? <CardText {...props} /> : ''}
+  {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
   <div className='cardMedia'>
     <Image {...props} />
   </div>
-  {props.mediaOrientation === 'top' || props.mediaOrientation === 'left' ? <CardText {...props} /> : ''}
+  {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
   <style jsx>{`
     .cardMedia {
       display: inline-block;
