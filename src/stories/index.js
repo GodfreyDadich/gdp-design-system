@@ -159,22 +159,22 @@ storiesOf('Navigation', module)
     />
   )
 
-  const chips = [
-    {
-      title: 'chip 1',
-    },
-    {
-      title: 'chip 2',
-    },  
-    {
-      title: 'chip 3',
-    }
-  ]
+const chips = [
+  'chip 1',
+  'chip 2',  
+  'chip 3',
+]
+
+const chipRemove = toRemove => {
+  chips.splice(toRemove,1)
+}
 
 storiesOf('Chips', module)
+  .addDecorator(withKnobs)
   .add(
     'chips',
     () => <Chips 
-      chips={chips}
+      chips={array('Chips', chips, ',')}
+      closeCallback={chipRemove}
     />
   )
