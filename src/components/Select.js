@@ -83,7 +83,7 @@ class Select extends React.Component {
         </div>
         <ul className='select__options'>
           {
-            options.map( (option,index) => <li tabindex={index} className='select__option' onClick={(e) => this.doSelection(option)} key={option+index} >{option}</li> )
+            options.map( (option,index) => <li tabIndex={index} className='select__option' onClick={(e) => this.doSelection(option)} key={option+index} >{option}</li> )
           }
         </ul>
         <style jsx>{`

@@ -3,7 +3,7 @@ import React from 'react'
 const Breadcrumb = ({delimiter, links}) => (
   <ul className='breadcrumb'>
     { links.map( (link,index) => 
-      <li className='breadcrumb__item'> 
+      <li className='breadcrumb__item' key={`bread-crumb-item-${index}`}> 
         
         {index !== (links.length - 1) ? 
           <a className='breadcrumb__link'href='#'>{link.title}</a> : 

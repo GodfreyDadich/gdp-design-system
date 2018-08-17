@@ -14,19 +14,18 @@ import ImageWithZoom from '../components/ImageWithZoom'
 import Card from '../components/Card'
 import Breadcrumb from '../components/Breadcrumb'
 import Chips from '../components/Chips'
+import Colors from './Colors' 
+import Typography from './Typography' 
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-
-storiesOf('Button', module)
-  .addDecorator(withKnobs)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')} disabled={boolean('Disabled', false)}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+storiesOf('Styles', module)
+  .add(
+    'Colors',
+    () => <Colors />
+  )
+  .add(
+    'Typeography',
+    () => <Typography />
+  )
 
 storiesOf('Image', module)
   .addDecorator(withKnobs)
