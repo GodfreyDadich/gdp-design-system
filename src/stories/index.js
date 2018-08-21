@@ -29,7 +29,7 @@ storiesOf('Styles', module)
 storiesOf('Image', module)
   .add(
     'Image',
-    () => <Image
+    () => <div style={{width:'50%', margin:'50px auto'}}><Image
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'square')}
       fullBleed={boolean('fullBleed', false)}
@@ -37,11 +37,11 @@ storiesOf('Image', module)
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    />
+    /></div>
   )
   .add(
     'Image with Caption',
-    () => <ImageWithCaption
+    () => <div style={{width:'50%', margin:'50px auto'}}><ImageWithCaption
       caption={text('Caption','Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       captionLocation={selectV2('Caption Location', { 
         TopLeft:'topLeft', 
@@ -60,7 +60,7 @@ storiesOf('Image', module)
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    />
+    /></div>
   )
   .add(
     'Image with Zoom',

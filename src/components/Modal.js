@@ -63,7 +63,6 @@ class Modal extends React.Component {
               border: 1px solid transparent;
               border-radius: 10px;
               max-width: 70%;
-              max-height: 50%;
               padding: 24px;
               box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
               z-index: 1010;
@@ -80,7 +79,7 @@ class Modal extends React.Component {
               &__content {
                 position: relative;
                 display: block;
-                height: 50vh;
+                max-height: 85vh;
                 overflow-y: auto;
               }
             }
