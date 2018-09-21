@@ -6,14 +6,16 @@ class Chips extends React.Component {
     super(props)
     this.state = {
       chips: props.chips || [],
-      closeCallback: props.closeCallback || null
     }
+    this.removeChip = this.removeChip.bind(this)
   }
 
   removeChip (toRemove) {
     const newChips = this.state.chips.filter( (chip, index) => index !== toRemove)
     this.setState({chips: newChips})
-    this.state.closeCallback(toRemove)
+    if (typeof this.props.closeCallback === 'function') {
+      this.props.closeCallback(toRemove)
+    }
   }
 
   componentWillReceiveProps(props) {
