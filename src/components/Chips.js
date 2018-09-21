@@ -30,7 +30,7 @@ class Chips extends React.Component {
     <div className='chips'>
 
       {chips.map( (chip, index) => 
-        <div className='chip'>
+        <div className='chip' key={`chip-${index}`}>
           {chip}
           <div className='chip__close' onClick={(e) => this.removeChip(index)}>x</div>
         </div>

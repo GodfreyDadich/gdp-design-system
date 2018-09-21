@@ -8,19 +8,7 @@ class Select extends React.Component {
     super(props)
     this.state = {
       selectedValue : '',
-      options : props.options || ['test'],
-      placeholder : props.placeholder || 'placeholder',
       expanded: props.expanded || false,
-      selectPadding: props.selectPadding || 20,
-      borderColor: props.borderColor || '#000',
-      borderWidth: props.borderWidth || 1,
-      fontSize: props.fontSize || 12,
-      selectFont: props.selectFont || 'sans-serif',
-      textColor: props.textColor || '#000',
-      selectIcon: props.selectIcon || 'caret',
-      backgroundColor: props.backgroundColor || '#fff',
-      disabled: props.disabled || false,
-      borderRadius: props.borderRadius || 0,
       cursor: 0,
       result: []
     }
@@ -39,24 +27,13 @@ class Select extends React.Component {
 
   componentWillReceiveProps (props) {
     this.setState({
-      options: props.options,
-      placeholder: props.placeholder,
-      expanded: props.expanded,
-      selectPadding: props.selectPadding,
-      borderWidth: props.borderWidth,
-      borderColor: props.borderColor,
-      selectFont: props.selectFont,
-      fontSize: props.fontSize,
-      textColor: props.textColor,
-      selectIcon: props.selectIcon,
-      backgroundColor: props.backgroundColor,
-      disabled: props.disabled,
-      borderRadius: props.borderRadius
+      expanded: props.expanded
     })
   }
 
   handleKeyDown (e) {
-    const { cursor, options } = this.state
+    const { cursor } = this.state
+    const { options } = this.props
 
     if (e.keyCode === 38 && cursor > 0) {
       this.setState( prevState => ({
@@ -75,9 +52,13 @@ class Select extends React.Component {
   render () {
     const {
       selectedValue,
+      expanded,
+      cursor
+    } = this.state
+
+    const {
       options,
       placeholder,
-      expanded,
       selectPadding,
       borderWidth,
       borderColor,
@@ -87,9 +68,8 @@ class Select extends React.Component {
       selectIcon,
       backgroundColor,
       disabled,
-      borderRadius,
-      cursor
-    } = this.state
+      borderRadius
+    } = this.props
 
     const calculatedHeight = (fontSize + 8) * options.length
     const inputHeight = 2 * Math.round((fontSize + 5)/2)
@@ -208,13 +188,16 @@ class Select extends React.Component {
                 font-size: ${fontSize}px;
                 font-family: ${selectFont};
               }
+              &::selection {
+                background: transparent;
+              }
             }
 
             &__options {
               position: absolute;
               top: ${inputHeight + 2 + (selectPadding * 2)}px;
               left: 0;
-              height: 0;
+              height: 0px;
               min-width: 100%;
               opacity: 0;
               font-size: ${fontSize}px;              
