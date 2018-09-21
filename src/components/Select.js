@@ -20,21 +20,24 @@ class Select extends React.Component {
       selectIcon: props.selectIcon || 'caret',
       backgroundColor: props.backgroundColor || '#fff',
       disabled: props.disabled || false,
-      borderRadius: props.borderRadius || 0
+      borderRadius: props.borderRadius || 0,
+      cursor: 0,
+      result: []
     }
+    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
 
-  doSelection(newValue) {
-    this.setState({selectedValue: newValue})
-    // this.toggleState(true)
+  doSelection (newValue) {
+    this.setState({ selectedValue: newValue })
+    this.toggleState(false)
   }
 
-  toggleState(toggleValue) {
-    if(this.state.disabled) return
-    this.setState({expanded: typeof toggleValue === 'boolean' ? toggleValue : !this.state.expanded})
+  toggleState (toggleValue) {
+    if (this.state.disabled) return
+    this.setState({ expanded: typeof toggleValue === 'boolean' ? toggleValue : !this.state.expanded })
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps (props) {
     this.setState({
       options: props.options,
       placeholder: props.placeholder,
@@ -46,13 +49,30 @@ class Select extends React.Component {
       fontSize: props.fontSize,
       textColor: props.textColor,
       selectIcon: props.selectIcon,
-      backgroundColor: props.backgroundColor, 
+      backgroundColor: props.backgroundColor,
       disabled: props.disabled,
       borderRadius: props.borderRadius
     })
   }
 
-  render() {
+  handleKeyDown (e) {
+    const { cursor, options } = this.state
+
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor - 1
+      }))
+    } else if (e.keyCode === 40 && cursor < options.length - 1) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor + 1
+      }))
+    }
+    if (e.keyCode === 13) {
+      this.doSelection(options[cursor])
+    }
+  }
+
+  render () {
     const {
       selectedValue,
       options,
@@ -67,7 +87,8 @@ class Select extends React.Component {
       selectIcon,
       backgroundColor,
       disabled,
-      borderRadius
+      borderRadius,
+      cursor
     } = this.state
 
     const calculatedHeight = (fontSize + 8) * options.length
@@ -75,7 +96,7 @@ class Select extends React.Component {
 
     return (
       <div className={`select${expanded ? ' expanded' : ''}${disabled ? ' disabled' : ''}`} onBlur={(e) => this.toggleState(false)}>
-        <input className='select__value' placeholder={placeholder} value={selectedValue} onFocus={(e) => this.toggleState(true)} readOnly/>
+        <input className='select__value' placeholder={placeholder} value={selectedValue} onFocus={(e) => this.toggleState(true)} onKeyDown={this.handleKeyDown} readOnly/>
         <div className={`select__icon`} onClick={(e) => this.toggleState()}>
           <div className='caret'>&gt;</div>
           <div className='triangle' />
@@ -83,7 +104,7 @@ class Select extends React.Component {
         </div>
         <ul className='select__options'>
           {
-            options.map( (option,index) => <li tabIndex={index} className='select__option' onClick={(e) => this.doSelection(option)} key={option+index} >{option}</li> )
+            options.map((option, index) => <li tabIndex={index} className={`select__option ${cursor === index ? 'active' : ''}`} onClick={(e) => this.doSelection(option)} key={option + index} >{option}</li>)
           }
         </ul>
         <style jsx>{`
@@ -214,7 +235,7 @@ class Select extends React.Component {
               padding: 0 4px;
               white-space: nowrap;
 
-              &:hover {
+              &:hover, &.active {
                 background-color: #e8eef7;
               }
             }
