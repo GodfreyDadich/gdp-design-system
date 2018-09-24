@@ -1,6 +1,6 @@
 {
   "name": "gdp-design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "color": "^3.0.0",
@@ -18,7 +18,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
@@ -30,6 +31,7 @@
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "node-sass": "^4.9.2",
+    "standard-version": "^4.4.0",
     "styled-jsx-plugin-sass": "^0.2.4"
   }
 }
