@@ -5,6 +5,9 @@
     "react"
   ],
   "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-assign",
+    "transform-runtime",    
     [
       "styled-jsx/babel",
       {

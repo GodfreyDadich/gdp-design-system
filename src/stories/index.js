@@ -9,13 +9,23 @@ import SelectNative from '../components/SelectNative'
 import Image from '../components/Image'
 import ImageWithCaption from '../components/ImageWithCaption'
 import ImageWithZoom from '../components/ImageWithZoom'
+import Slider from '../components/Slider'
 import Card from '../components/Card'
 import Breadcrumb from '../components/Breadcrumb'
 import Chips from '../components/Chips'
 import Colors from './Colors' 
 import Typography from './Typography' 
 import Modal from '../components/Modal'
+import PodcastEmbed from '../components/PodcastEmbed'
+import InstaEmbed from '../components/InstaEmbed'
 
+const imageGallery = [
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
+]
 storiesOf('Styles', module)
   .add(
     'Colors',
@@ -74,6 +84,22 @@ storiesOf('Image', module)
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
     /></div>
+  )
+  .add(
+    'Image Carousel',
+    () => <div style={{ position: 'relative', height: '500px', width: '50%', margin: '50px auto' }}>
+      <Slider images={imageGallery} />
+      <style>{`
+        .backArrow {
+          position: absolute;
+          left: 0;
+        }
+        .nextArrow {
+          position: absolute;
+          right: 0;
+        }
+      `}</style>
+    </div>
   )
 
 storiesOf('Card', module)
@@ -199,4 +225,12 @@ storiesOf('Modals', module)
         horizontalAlign='center'
       /></Modal>
     </div>
+  )
+
+storiesOf('Media', module)
+  .add('Podcast Embed', () => 
+    <PodcastEmbed />
+  )
+  .add('Instagram Embed', () => 
+    <InstaEmbed />
   )
