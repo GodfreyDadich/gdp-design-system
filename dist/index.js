@@ -1,7 +1,5 @@
 'use strict';
 
-import _Object$defineProperty from 'babel-runtime/core-js/object/define-property';
-import _Object$keys from 'babel-runtime/core-js/object/keys';
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -176,10 +174,9 @@ Object.defineProperty(exports, 'Video', {
 
 var _Type = require('./components/Type');
 
-_Object$keys(_Type).forEach(function (key) {
+Object.keys(_Type).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
-
-  _Object$defineProperty(exports, key, {
+  Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
       return _Type[key];

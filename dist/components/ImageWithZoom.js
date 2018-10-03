@@ -4,9 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _style = require('styled-jsx/style');
 
@@ -58,7 +56,7 @@ var ImageWithZoom = function ImageWithZoom(_ref) {
         src: imgSource,
         alt: imageTitle,
         className: 'img wrappedImage',
-        style: (0, _extends3.default)({
+        style: _extends({
           width: '100%',
           position: 'absolute',
           top: '0',

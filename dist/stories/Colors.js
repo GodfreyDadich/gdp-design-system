@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _keys = require("babel-runtime/core-js/object/keys");
-
-var _keys2 = _interopRequireDefault(_keys);
-
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -28,7 +24,7 @@ function Colors() {
   var colorsArray = [];
   var borderColor = (0, _color.rgba)(_colors2.default.textSecondary, 0.2);
 
-  (0, _keys2.default)(_colors2.default).forEach(function (name) {
+  Object.keys(_colors2.default).forEach(function (name) {
     if (_colors2.default[name]) {
       colorsArray.push(_react2.default.createElement(
         "div",
