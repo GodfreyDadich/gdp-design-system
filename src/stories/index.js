@@ -18,6 +18,7 @@ import Typography from './Typography'
 import Modal from '../components/Modal'
 import PodcastEmbed from '../components/PodcastEmbed'
 import InstaEmbed from '../components/InstaEmbed'
+import Hero from '../components/Hero'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -233,4 +234,15 @@ storiesOf('Media', module)
   )
   .add('Instagram Embed', () => 
     <InstaEmbed />
+  )
+
+storiesOf('Hero', module)
+  .add('Static Image', () =>
+    <Hero type='image' />
+  )
+  .add('Video', () =>
+    <Hero type='video' />
+  )
+  .add('Image with Zoom effect', () =>
+    <Hero type='image' withZoom='true' />
   )

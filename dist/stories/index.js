@@ -32,6 +32,10 @@ var _ImageWithZoom = require('../components/ImageWithZoom');
 
 var _ImageWithZoom2 = _interopRequireDefault(_ImageWithZoom);
 
+var _Slider = require('../components/Slider');
+
+var _Slider2 = _interopRequireDefault(_Slider);
+
 var _Card = require('../components/Card');
 
 var _Card2 = _interopRequireDefault(_Card);
@@ -56,8 +60,21 @@ var _Modal = require('../components/Modal');
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
+var _PodcastEmbed = require('../components/PodcastEmbed');
+
+var _PodcastEmbed2 = _interopRequireDefault(_PodcastEmbed);
+
+var _InstaEmbed = require('../components/InstaEmbed');
+
+var _InstaEmbed2 = _interopRequireDefault(_InstaEmbed);
+
+var _Hero = require('../components/Hero');
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'];
 (0, _react3.storiesOf)('Styles', module).add('Colors', function () {
   return _react2.default.createElement(_Colors2.default, null);
 }).add('Typeography', function () {
@@ -117,6 +134,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       , verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'bottom'),
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
     })
+  );
+}).add('Image Carousel', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { position: 'relative', height: '500px', width: '50%', margin: '50px auto' } },
+    _react2.default.createElement(_Slider2.default, { images: imageGallery }),
+    _react2.default.createElement(
+      'style',
+      null,
+      '\n        .backArrow {\n          position: absolute;\n          left: 0;\n        }\n        .nextArrow {\n          position: absolute;\n          right: 0;\n        }\n      '
+    )
   );
 });
 
@@ -239,4 +267,18 @@ var modalState = true;
       })
     )
   );
+});
+
+(0, _react3.storiesOf)('Media', module).add('Podcast Embed', function () {
+  return _react2.default.createElement(_PodcastEmbed2.default, null);
+}).add('Instagram Embed', function () {
+  return _react2.default.createElement(_InstaEmbed2.default, null);
+});
+
+(0, _react3.storiesOf)('Hero', module).add('Static Image', function () {
+  return _react2.default.createElement(_Hero2.default, { type: 'image' });
+}).add('Video', function () {
+  return _react2.default.createElement(_Hero2.default, { type: 'video' });
+}).add('Image with Zoom effect', function () {
+  return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true' });
 });

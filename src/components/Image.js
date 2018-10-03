@@ -26,6 +26,7 @@ const Image = ({
         background-position-y: ${verticalAlign};
         background-size: cover;
         background-repeat: no-repeat;
+        transition: transform 0.5s;
 
         &.sixteen {
           padding-top: 56.25%;
@@ -38,6 +39,9 @@ const Image = ({
         }
         &.square {
           padding-top: 100%;
+        }
+        &.zoomedIn {
+          transform: scale(1.5);
         }
       }
 

@@ -2,6 +2,7 @@
   "name": "gdp-design-system",
   "version": "0.1.5",
   "private": true,
+  "main": "dist/index.js",
   "dependencies": {
     "color": "^3.0.0",
     "react": "^16.4.1",
