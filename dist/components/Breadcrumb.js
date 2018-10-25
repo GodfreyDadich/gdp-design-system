@@ -20,31 +20,31 @@ var Breadcrumb = function Breadcrumb(_ref) {
   return _react2.default.createElement(
     'ul',
     {
-      className: 'jsx-3421567820' + ' ' + 'breadcrumb'
+      className: 'jsx-3274467532' + ' ' + 'breadcrumb'
     },
     links.map(function (link, index) {
       return _react2.default.createElement(
         'li',
-        { key: 'bread-crumb-item-' + index, className: 'jsx-3421567820' + ' ' + 'breadcrumb__item'
+        { key: 'bread-crumb-item-' + index, className: 'jsx-3274467532' + ' ' + 'breadcrumb__item'
         },
         index !== links.length - 1 ? _react2.default.createElement(
           'a',
-          { href: '#', className: 'jsx-3421567820' + ' ' + 'breadcrumb__link'
+          { href: '#', className: 'jsx-3274467532' + ' ' + 'breadcrumb__link'
           },
           link.title
         ) : link.title,
         index !== links.length - 1 ? _react2.default.createElement(
           'span',
           {
-            className: 'jsx-3421567820' + ' ' + 'delimiter'
+            className: 'jsx-3274467532' + ' ' + 'delimiter'
           },
           delimiter
         ) : ''
       );
     }),
     _react2.default.createElement(_style2.default, {
-      styleId: '3421567820',
-      css: '.breadcrumb.jsx-3421567820{list-style:none;padding:0;margin:0;}.breadcrumb__item.jsx-3421567820{display:inline-block;}.breadcrumb.jsx-3421567820 .delimiter.jsx-3421567820{margin:0 5px;}'
+      styleId: '3274467532',
+      css: '.breadcrumb.jsx-3274467532{list-style:none;padding:0;margin:0;font-family:\'Institut\';font-weight:normal;font-style:normal;font-size:9px;line-height:12px;-webkit-letter-spacing:1.92px;-moz-letter-spacing:1.92px;-ms-letter-spacing:1.92px;letter-spacing:1.92px;}.breadcrumb__item.jsx-3274467532{display:inline-block;}.breadcrumb.jsx-3274467532 .delimiter.jsx-3274467532{margin:0 5px;}'
     })
   );
 };

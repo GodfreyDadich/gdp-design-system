@@ -75,7 +75,7 @@ var Hero = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: 'jsx-3250871479' + ' ' + 'hero'
+          className: 'jsx-1220532613' + ' ' + 'hero'
         },
         function () {
           switch (_this3.props.type) {
@@ -100,8 +100,8 @@ var Hero = function (_React$Component) {
           }
         }(),
         _react2.default.createElement(_style2.default, {
-          styleId: '3250871479',
-          css: ''
+          styleId: '1220532613',
+          css: '.hero.jsx-1220532613{overflow:hidden;}'
         })
       );
     }

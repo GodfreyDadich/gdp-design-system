@@ -70,7 +70,12 @@ var Typography = function Typography(props) {
       _react2.default.createElement(
         _Type.Heading1,
         null,
-        "Top experiences in Asia"
+        _react2.default.createElement(
+          "span",
+          { style: { display: 'block', color: '#7F7F7F' } },
+          "National Geographic"
+        ),
+        " Redefining the nature \u2028of exploration"
       )
     ),
     _react2.default.createElement("br", null),
@@ -244,9 +249,15 @@ var Typography = function Typography(props) {
         )
       ),
       _react2.default.createElement(
-        "div",
-        { style: (0, _typography2.textBodyArticle)() },
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit enim ut metus feugiat, vitae pharetra massa aliquet."
+        "p",
+        null,
+        "Few magazines in the world are as revered as ",
+        _react2.default.createElement(
+          "span",
+          { style: { fontStyle: 'italic' } },
+          "National Geographic"
+        ),
+        ". For 130 years its breathtaking photography and groundbreaking narratives have helped readers discover the world through its pages. While the brand has evolved with a changing industry\u2014building a thriving television network, books and kids divisions, travel business, and social media audience (90+ million Instagram followers and counting)\u2014the magazine itself hadn\u2019t undergone a significant redesign for two decades."
       )
     ),
     _react2.default.createElement("br", null),

@@ -10,7 +10,7 @@ var fontWeightMedium = exports.fontWeightMedium = 600;
 var fontWeightBook = exports.fontWeightBook = fontWeightRegular;
 
 var fontSizeSuper = exports.fontSizeSuper = 88;
-var fontSizeHeading1 = exports.fontSizeHeading1 = 64;
+var fontSizeHeading1 = exports.fontSizeHeading1 = 45;
 var fontSizeHeading2 = exports.fontSizeHeading2 = 48;
 var fontSizeHeading3 = exports.fontSizeHeading3 = 40;
 var fontSizeHeading4 = exports.fontSizeHeading4 = 32;

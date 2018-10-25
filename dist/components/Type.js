@@ -38,13 +38,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: _style2.default.dynamic([['4287946569', [_typography.fontSizeHeading1, _typography.lineHeightHeading1]]]) + ' ' + 'headingOne'
+      className: 'jsx-3054031725' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '4287946569',
-      css: '.headingOne.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeHeading1 + 'px;line-height:' + _typography.lineHeightHeading1 + ';margin:0;}',
-      dynamic: [_typography.fontSizeHeading1, _typography.lineHeightHeading1]
+      styleId: '3054031725',
+      css: '.headingOne.jsx-3054031725{font-family:\'Noe Display\';font-weight:bold;font-size:45px;line-height:43px;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;margin:0;}.headingOne.jsx-3054031725 .clientName.jsx-3054031725{display:block;color:#7F7F7F;}'
     })
   );
 };

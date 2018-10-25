@@ -87,7 +87,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_Image2.default, {
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),
