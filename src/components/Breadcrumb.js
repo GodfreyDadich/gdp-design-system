@@ -17,13 +17,19 @@ const Breadcrumb = ({delimiter, links}) => (
         list-style: none;
         padding: 0;
         margin: 0;
+        font-family: 'Institut';
+        font-weight: normal;
+        font-style: normal;    
+        font-size: 9px;    
+        line-height: 12px;
+        letter-spacing: 1.92px;
 
         &__item {
-          display: inline-block;
+          display: inline-block;          
         }
         .delimiter {
           margin: 0 5px;
-        }
+        }       
       }
     `}</style>
   </ul>

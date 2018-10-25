@@ -60,7 +60,7 @@ const Typography = props =>
 
       <div>
         <div style={styles.smallText}><small>Heading 1 ({fontSizeHeading1})</small></div>
-        <Heading1>Top experiences in Asia</Heading1>
+        <Heading1><span style={{ display: 'block', color: '#7F7F7F'}} >National Geographic</span> Redefining the nature  of exploration</Heading1>
       </div>
 
       <br /><br />
@@ -116,11 +116,9 @@ const Typography = props =>
 
       <div>
         <div style={styles.smallText}><small>Body article ({fontSizeBodyArticle})</small></div>
-        <div style={textBodyArticle()}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
-          mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit
-          enim ut metus feugiat, vitae pharetra massa aliquet.
-        </div>
+        <p>
+        Few magazines in the world are as revered as <span style={{ fontStyle: 'italic' }}>National Geographic</span>. For 130 years its breathtaking photography and groundbreaking narratives have helped readers discover the world through its pages. While the brand has evolved with a changing industry—building a thriving television network, books and kids divisions, travel business, and social media audience (90+ million Instagram followers and counting)—the magazine itself hadn’t undergone a significant redesign for two decades.
+        </p>
       </div>
 
       <br /><br />

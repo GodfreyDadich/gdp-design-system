@@ -75,6 +75,10 @@ const ImageWithCaption = props =>
       }
     }
 
+    .caption-bottomCenter {
+      
+    }
+
     `}</style>
   </figure>
 

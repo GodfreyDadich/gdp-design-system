@@ -5,7 +5,7 @@ export const fontWeightMedium = 600;
 export const fontWeightBook = fontWeightRegular;
 
 export const fontSizeSuper = 88;
-export const fontSizeHeading1 = 64;
+export const fontSizeHeading1 = 45;
 export const fontSizeHeading2 = 48;
 export const fontSizeHeading3 = 40;
 export const fontSizeHeading4 = 32;

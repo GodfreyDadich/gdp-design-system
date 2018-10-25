@@ -16,6 +16,15 @@ const Image = ({
       <img className='wrappedImage' alt={imageTitle} src={imgSource} />
     </ConditionalLink>
     <style jsx>{`
+      .wrappedImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        opacity: 0;
+      }    
       .imageWrap {
         position: relative;
         width: 100%;
@@ -43,17 +52,14 @@ const Image = ({
         &.zoomedIn {
           transform: scale(1.5);
         }
+        &.noAspect {
+          .wrappedImage {
+            position: relative;
+            width: 100%;
+          }
+        }        
       }
 
-      .wrappedImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        height: auto;
-        min-height: 100%;
-        opacity: 0;
-      }      
     `}</style>
   </div>
 

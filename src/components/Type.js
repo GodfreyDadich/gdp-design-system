@@ -33,9 +33,17 @@ export const Heading1 = ({children}) =>
     {children}
     <style jsx>{`
       .headingOne {
-        font-size: ${fontSizeHeading1}px;
-        line-height: ${lineHeightHeading1};
+        font-family: 'Noe Display';
+        font-weight: bold;        
+        font-size: 45px;
+        line-height: 43px;
+        letter-spacing: 0.3px;
         margin: 0;
+
+        .clientName {
+          display: block;
+          color: #7F7F7F;
+        }
       }
     `}</style>
   </h1> 
