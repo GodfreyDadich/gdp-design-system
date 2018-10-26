@@ -29,7 +29,7 @@ const Image = ({
         position: relative;
         overflow: hidden;
         height: auto;
-        background: url(${imgSource});
+        background: ${aspectRatio !== 'noAspect' ? `url(${imgSource})` : '#f2f2f2'};
         background-position-x: ${horizontalAlign};
         background-position-y: ${verticalAlign};
         background-size: cover;
@@ -55,6 +55,7 @@ const Image = ({
           .wrappedImage {
             position: relative;
             width: 100%;
+            opacity: 1;
           }
         }        
       }
