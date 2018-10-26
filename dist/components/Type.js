@@ -38,12 +38,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-3054031725' + ' ' + 'headingOne'
+      className: 'jsx-3155752709' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3054031725',
-      css: '.headingOne.jsx-3054031725{font-family:\'Noe Display\';font-weight:bold;font-size:45px;line-height:43px;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;margin:0;}.headingOne.jsx-3054031725 .clientName.jsx-3054031725{display:block;color:#7F7F7F;}'
+      styleId: '3155752709',
+      css: '.headingOne.jsx-3155752709{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:45px;line-height:43px;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-3155752709 .clientName.jsx-3155752709{display:block;color:#7F7F7F;}.headingOne.jsx-3155752709:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}'
     })
   );
 };
