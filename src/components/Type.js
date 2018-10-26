@@ -94,4 +94,19 @@ export const Heading4 = ({children}) =>
         margin: 0;
       }
     `}</style>
-  </h4> 
+  </h4>
+
+export const Pullquote = ({classAdd, children}) =>
+  <div className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}>
+    {children}
+    <style jsx>{`
+      .pullQuote {
+        font-family: 'Atlas Grotesk';
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 32px;
+        letter-spacing: -0.3px;
+        text-align: center;
+      }
+    `}</style>
+  </div>

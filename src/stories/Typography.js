@@ -40,7 +40,8 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  Heading4
+  Heading4,
+  Pullquote
 } from '../components/Type';
 
 
@@ -133,6 +134,16 @@ const Typography = props =>
       </div>
 
       <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Pull Quote</small></div>
+        <Pullquote classAdd='testadd'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+          mauris sit amet massa interdum bibendum.
+        </Pullquote>
+      </div>
+
+      <br /><br />      
 
       <div>
         <div style={styles.smallText}><small>Body small ({fontSizeBodySmall})</small></div>
