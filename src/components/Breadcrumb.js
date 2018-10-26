@@ -23,6 +23,7 @@ const Breadcrumb = ({delimiter, links}) => (
         font-size: 9px;    
         line-height: 12px;
         letter-spacing: 1.92px;
+        margin-bottom: 16px;
 
         &__item {
           display: inline-block;          

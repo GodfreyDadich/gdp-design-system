@@ -53,6 +53,7 @@ class Hero extends React.Component {
       <style jsx>{`
         .hero {
           overflow: hidden;
+          margin-bottom: 59px;
         }
       `}</style>
     </div>

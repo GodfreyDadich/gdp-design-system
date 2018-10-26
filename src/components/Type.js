@@ -33,16 +33,28 @@ export const Heading1 = ({children}) =>
     {children}
     <style jsx>{`
       .headingOne {
+        position: relative;
         font-family: 'Noe Display';
         font-weight: bold;        
         font-size: 45px;
         line-height: 43px;
         letter-spacing: 0.3px;
-        margin: 0;
+        padding-bottom: 51px;
+        margin: 0 0 35px 0;
 
         .clientName {
           display: block;
           color: #7F7F7F;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: 14.16667%;
+          height: 7px;
+          background-color: #000;
+          bottom: 0;
+          left: 0;
         }
       }
     `}</style>
