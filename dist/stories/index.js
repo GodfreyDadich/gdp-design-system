@@ -202,13 +202,13 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
 
 var breadCrumbData = [{
   title: 'test title 1',
-  link: 'http://google.com'
+  slug: 'http://google.com'
 }, {
   title: 'test title 2',
-  link: 'http://google.com'
+  slug: 'http://google.com'
 }, {
   title: 'test title 3',
-  link: 'http://google.com'
+  slug: 'http://google.com'
 }];
 (0, _react3.storiesOf)('Navigation', module).add('breadcrumb', function () {
   return _react2.default.createElement(_Breadcrumb2.default, {
@@ -276,9 +276,9 @@ var modalState = true;
 });
 
 (0, _react3.storiesOf)('Hero', module).add('Static Image', function () {
-  return _react2.default.createElement(_Hero2.default, { type: 'image' });
+  return _react2.default.createElement(_Hero2.default, { type: 'image', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 }).add('Video', function () {
-  return _react2.default.createElement(_Hero2.default, { type: 'video' });
+  return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://s3-us-west-1.amazonaws.com/gdp-site/videos/ADMN012_Abstract1_Devlin_loop_clip.mp4' });
 }).add('Image with Zoom effect', function () {
-  return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true' });
+  return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 });

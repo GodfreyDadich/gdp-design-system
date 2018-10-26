@@ -84,7 +84,7 @@ var Hero = function (_React$Component) {
                 imageTitle: 'Image Title',
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
-                imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+                imgSource: _this3.props.source,
                 ref: 'hero__image',
                 classAdd: _this3.state.zoomClass });
             case 'video':
@@ -94,7 +94,7 @@ var Hero = function (_React$Component) {
                 fullBleed: 'true',
                 loop: 'true',
                 controls: 'false',
-                vidSource: 'https://s3-us-west-1.amazonaws.com/gdp-site/videos/ADMN012_Abstract1_Devlin_loop_clip.mp4' });
+                vidSource: _this3.props.source });
             default:
               return null;
           }

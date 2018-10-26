@@ -30,17 +30,17 @@ var Image = function Image(_ref) {
   return _react2.default.createElement(
     'div',
     {
-      className: _style2.default.dynamic([['3353143841', [imgSource, horizontalAlign, verticalAlign]]]) + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + ' ' + classAdd)
+      className: _style2.default.dynamic([['1322596981', [imgSource, horizontalAlign, verticalAlign]]]) + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + ' ' + classAdd)
     },
     _react2.default.createElement(
       _ConditionalLink2.default,
       { linkUrl: linkUrl },
-      _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['3353143841', [imgSource, horizontalAlign, verticalAlign]]]) + ' ' + 'wrappedImage'
+      _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['1322596981', [imgSource, horizontalAlign, verticalAlign]]]) + ' ' + 'wrappedImage'
       })
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '3353143841',
-      css: '.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;}.imageWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background:url(' + imgSource + ');background-position-x:' + horizontalAlign + ';background-position-y:' + verticalAlign + ';background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.imageWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.imageWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.imageWrap.cropped.__jsx-style-dynamic-selector{padding-top:39.06%;}.imageWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.imageWrap.zoomedIn.__jsx-style-dynamic-selector{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.imageWrap.noAspect.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{position:relative;width:100%;}',
+      styleId: '1322596981',
+      css: '.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;}.imageWrap.__jsx-style-dynamic-selector{position:relative;overflow:hidden;height:auto;background:url(' + imgSource + ');background-position-x:' + horizontalAlign + ';background-position-y:' + verticalAlign + ';background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.imageWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.imageWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.imageWrap.cropped.__jsx-style-dynamic-selector{padding-top:39.06%;}.imageWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.imageWrap.zoomedIn.__jsx-style-dynamic-selector{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.imageWrap.noAspect.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{position:relative;width:100%;}',
       dynamic: [imgSource, horizontalAlign, verticalAlign]
     })
   );

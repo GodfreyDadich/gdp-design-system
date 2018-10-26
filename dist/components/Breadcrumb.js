@@ -29,7 +29,7 @@ var Breadcrumb = function Breadcrumb(_ref) {
         },
         index !== links.length - 1 ? _react2.default.createElement(
           'a',
-          { href: '#', className: 'jsx-3274467532' + ' ' + 'breadcrumb__link'
+          { href: link.slug, className: 'jsx-3274467532' + ' ' + 'breadcrumb__link'
           },
           link.title
         ) : link.title,
