@@ -6,7 +6,7 @@ const Breadcrumb = ({delimiter, links}) => (
       <li className='breadcrumb__item' key={`bread-crumb-item-${index}`}> 
         
         {index !== (links.length - 1) ? 
-          <a className='breadcrumb__link'href='#'>{link.title}</a> : 
+          <a className='breadcrumb__link'href={link.slug}>{link.title}</a> : 
           link.title
         }
         {index !== (links.length - 1) ? <span className="delimiter">{delimiter}</span> : ''}

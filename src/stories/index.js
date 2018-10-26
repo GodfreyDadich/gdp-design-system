@@ -160,15 +160,15 @@ storiesOf('Select', module)
 const breadCrumbData = [
   {
     title: 'test title 1',
-    link: 'http://google.com'
+    slug: 'http://google.com'
   },
   {
     title: 'test title 2',
-    link: 'http://google.com'
-  },  
+    slug: 'http://google.com'
+  },
   {
     title: 'test title 3',
-    link: 'http://google.com'
+    slug: 'http://google.com'
   }
 ]
 storiesOf('Navigation', module)
@@ -238,11 +238,11 @@ storiesOf('Media', module)
 
 storiesOf('Hero', module)
   .add('Static Image', () =>
-    <Hero type='image' />
+    <Hero type='image' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
   )
   .add('Video', () =>
-    <Hero type='video' />
+    <Hero type='video' source='https://s3-us-west-1.amazonaws.com/gdp-site/videos/ADMN012_Abstract1_Devlin_loop_clip.mp4' />
   )
   .add('Image with Zoom effect', () =>
-    <Hero type='image' withZoom='true' />
+    <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
   )

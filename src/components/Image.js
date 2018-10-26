@@ -27,7 +27,6 @@ const Image = ({
       }    
       .imageWrap {
         position: relative;
-        width: 100%;
         overflow: hidden;
         height: auto;
         background: url(${imgSource});
