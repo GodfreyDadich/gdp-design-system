@@ -50,7 +50,7 @@ export const Heading1 = ({children}) =>
         &:before {
           content: '';
           position: absolute;
-          width: 14.16667%;
+          width: 24.56%;
           height: 7px;
           background-color: #000;
           bottom: 0;
