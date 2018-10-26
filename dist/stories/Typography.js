@@ -293,6 +293,26 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           "small",
           null,
+          "Pull Quote"
+        )
+      ),
+      _react2.default.createElement(
+        _Type.Pullquote,
+        { classAdd: "testadd" },
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum."
+      )
+    ),
+    _react2.default.createElement("br", null),
+    _react2.default.createElement("br", null),
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "div",
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          "small",
+          null,
           "Body small (",
           _typography.fontSizeBodySmall,
           ")"

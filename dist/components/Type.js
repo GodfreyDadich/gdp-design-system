@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _style = require('styled-jsx/style');
 
@@ -92,6 +92,22 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
       styleId: '4278458390',
       css: '.headingFour.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeHeading4 + 'px;line-height:' + _typography.lineHeightHeading4 + ';margin:0;}',
       dynamic: [_typography.fontSizeHeading4, _typography.lineHeightHeading4]
+    })
+  );
+};
+
+var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
+  var classAdd = _ref6.classAdd,
+      children = _ref6.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'jsx-3948341415' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '3948341415',
+      css: '.pullQuote.jsx-3948341415{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:30px;line-height:32px;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;}'
     })
   );
 };
