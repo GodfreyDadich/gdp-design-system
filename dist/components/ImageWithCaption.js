@@ -24,28 +24,21 @@ var ImageWithCaption = function ImageWithCaption(props) {
   return _react2.default.createElement(
     'figure',
     {
-      className: 'jsx-336052325' + ' ' + ('figureWithCaption caption-' + props.captionLocation)
+      className: 'jsx-3761590753' + ' ' + 'figureWithCaption'
     },
-    props.captionLocation.startsWith('top') || props.captionLocation.startsWith('left') ? _react2.default.createElement(
-      'figcaption',
-      {
-        className: 'jsx-336052325' + ' ' + 'captionText'
-      },
-      props.caption
-    ) : '',
     _react2.default.createElement(_Image2.default, _extends({
       classAdd: 'withCaption'
     }, props)),
-    props.captionLocation.startsWith('bottom') || props.captionLocation.startsWith('right') ? _react2.default.createElement(
+    _react2.default.createElement(
       'figcaption',
       {
-        className: 'jsx-336052325' + ' ' + 'captionText'
+        className: 'jsx-3761590753' + ' ' + 'captionText col-6 skip-3'
       },
       props.caption
-    ) : '',
+    ),
     _react2.default.createElement(_style2.default, {
-      styleId: '336052325',
-      css: '.figureWithCaption.jsx-336052325{margin:0;position:relative;}.figureWithCaption.jsx-336052325 .captionText.jsx-336052325{display:inline-block;width:33%;font-size:11px;vertical-align:top;}.figureWithCaption.jsx-336052325 .withCaption.jsx-336052325{display:inline-block;vertical-align:top;}.caption-topRight.jsx-336052325 .captionText.jsx-336052325,.caption-bottomRight.jsx-336052325 .captionText.jsx-336052325{float:right;}.caption-leftBottom.jsx-336052325,.caption-leftTop.jsx-336052325,.caption-rightTop.jsx-336052325,.caption-rightBottom.jsx-336052325{width:66%;}.caption-leftBottom.jsx-336052325 .captionText.jsx-336052325,.caption-leftTop.jsx-336052325 .captionText.jsx-336052325,.caption-rightTop.jsx-336052325 .captionText.jsx-336052325,.caption-rightBottom.jsx-336052325 .captionText.jsx-336052325{position:absolute;top:0;left:0;}.caption-leftTop.jsx-336052325,.caption-leftBottom.jsx-336052325{padding-left:33%;}.caption-leftBottom.jsx-336052325 .captionText.jsx-336052325{top:auto;bottom:0;}.caption-rightTop.jsx-336052325,.caption-rightBottom.jsx-336052325{padding-right:33%;}.caption-rightTop.jsx-336052325 .captionText.jsx-336052325,.caption-rightBottom.jsx-336052325 .captionText.jsx-336052325{right:0;left:auto;}.caption-rightBottom.jsx-336052325 .captionText.jsx-336052325{top:auto;bottom:0;}'
+      styleId: '3761590753',
+      css: '.figureWithCaption.jsx-3761590753{margin:0;position:relative;}.figureWithCaption.jsx-3761590753 .captionText.jsx-3761590753{color:#7F7F81;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
     })
   );
 };

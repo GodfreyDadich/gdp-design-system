@@ -49,7 +49,7 @@ var ImageWithZoom = function ImageWithZoom(_ref) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-442956775' + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + ' ' + classAdd)
+      className: _style2.default.dynamic([['109169153', [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]]]) + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + ' ' + classAdd)
     },
     _react2.default.createElement(_reactMediumImageZoom2.default, {
       image: {
@@ -84,8 +84,9 @@ var ImageWithZoom = function ImageWithZoom(_ref) {
       }
     }),
     _react2.default.createElement(_style2.default, {
-      styleId: '442956775',
-      css: '.imageWrap.jsx-442956775{position:relative;width:100%;overflow:hidden;height:auto;}.imageWrap.sixteen.jsx-442956775{padding-top:56.25%;}.imageWrap.standard.jsx-442956775{padding-top:75%;}.imageWrap.cropped.jsx-442956775{padding-top:39.06%;}.imageWrap.square.jsx-442956775{padding-top:100%;}.wrappedImage.jsx-442956775{position:absolute;top:0;left:0;max-width:100%;height:auto;min-height:100%;}'
+      styleId: '109169153',
+      css: '.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;}.imageWrap.__jsx-style-dynamic-selector{position:relative;overflow:hidden;height:auto;background:' + (aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2') + ';background-position-x:' + horizontalAlign + ';background-position-y:' + verticalAlign + ';background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.imageWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.imageWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.imageWrap.cropped.__jsx-style-dynamic-selector{padding-top:39.06%;}.imageWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.imageWrap.zoomedIn.__jsx-style-dynamic-selector{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.imageWrap.noAspect.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{position:relative;width:100%;opacity:1;}',
+      dynamic: [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]
     })
   );
 };
