@@ -107,6 +107,8 @@ export const Pullquote = ({classAdd, children}) =>
         line-height: 32px;
         letter-spacing: -0.3px;
         text-align: center;
+        margin-top: 89px;
+        margin-bottom: 89px;
       }
     `}</style>
   </div>

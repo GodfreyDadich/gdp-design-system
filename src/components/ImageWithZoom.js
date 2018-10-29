@@ -62,11 +62,25 @@ const ImageWithZoom = ({
     }}
     />
     <style jsx>{`
+      .wrappedImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        opacity: 0;
+      }    
       .imageWrap {
         position: relative;
-        width: 100%;
         overflow: hidden;
         height: auto;
+        background: ${aspectRatio !== 'noAspect' ? `url(${imgSource})` : '#f2f2f2'};
+        background-position-x: ${horizontalAlign};
+        background-position-y: ${verticalAlign};
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: transform 0.5s;
 
         &.sixteen {
           padding-top: 56.25%;
@@ -80,16 +94,18 @@ const ImageWithZoom = ({
         &.square {
           padding-top: 100%;
         }
+        &.zoomedIn {
+          transform: scale(1.5);
+        }
+        &.noAspect {
+          .wrappedImage {
+            position: relative;
+            width: 100%;
+            opacity: 1;
+          }
+        }        
       }
 
-      .wrappedImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: 100%;
-        height: auto;
-        min-height: 100%;
-      }
     `}</style>
   </div>  
 export default ImageWithZoom
