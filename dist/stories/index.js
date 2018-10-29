@@ -101,18 +101,32 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_Image2.default, {
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
-      captionLocation: (0, _addonKnobs.selectV2)('Caption Location', {
-        TopLeft: 'topLeft',
-        TopRight: 'topRight',
-        LeftTop: 'leftTop',
-        LeftBottom: 'leftBottom',
-        BottomLeft: 'bottomLeft',
-        BottomRight: 'bottomRight',
-        RightBottom: 'rightBottom',
-        RightTop: 'rightTop'
-      }, 'topLeft'),
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
+      imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+      linkUrl: (0, _addonKnobs.text)('url', ''),
+      verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
+      horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
+    })
+  );
+}).add('Image with SideBar', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '50px auto' } },
+    _react2.default.createElement(_Image2.default, {
+      sideBar: {
+        text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
+        header: (0, _addonKnobs.text)('Sidebar Header', 'Sidebar Header'),
+        location: (0, _addonKnobs.selectV2)('Sidebar Location', {
+          TopLeft: 'left-top',
+          TopRight: 'right-top',
+          BottomLeft: 'left-bottom',
+          BottomRight: 'right-bottom'
+        }, 'topLeft')
+      },
+      imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),

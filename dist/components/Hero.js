@@ -85,7 +85,6 @@ var Hero = function (_React$Component) {
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
                 imgSource: _this3.props.source,
-                ref: 'hero__image',
                 classAdd: _this3.state.zoomClass });
             case 'video':
               return _react2.default.createElement(_Video2.default, {
