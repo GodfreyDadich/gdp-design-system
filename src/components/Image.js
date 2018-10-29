@@ -9,12 +9,17 @@ const Image = ({
   linkUrl,
   verticalAlign,
   horizontalAlign,
-  classAdd
+  classAdd,
+  caption
 }) =>
-  <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
-    <ConditionalLink linkUrl={linkUrl}>
-      <img className='wrappedImage' alt={imageTitle} src={imgSource} />
-    </ConditionalLink>
+
+  <figure>
+    <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
+      <ConditionalLink linkUrl={linkUrl}>
+        <img className='wrappedImage' alt={imageTitle} src={imgSource} />
+      </ConditionalLink>
+    </div>
+    {caption ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
     <style jsx>{`
       .wrappedImage {
         position: absolute;
@@ -59,8 +64,19 @@ const Image = ({
           }
         }        
       }
-
+      .captionText {
+        color: #7F7F81;
+        font-family: 'Atlas Grotesk';
+        font-weight: 500;
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+        margin-top: 25px;
+        margin-bottom: 89px;
+        text-align: center;
+      }      
     `}</style>
-  </div>
+  </figure>
 
   export default Image

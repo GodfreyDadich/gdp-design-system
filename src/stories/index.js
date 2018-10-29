@@ -52,7 +52,7 @@ storiesOf('Image', module)
   )
   .add(
     'Image with Caption',
-    () => <div style={{width:'50%', margin:'50px auto'}}><ImageWithCaption
+    () => <div style={{width:'50%', margin:'50px auto'}}><Image
       caption={text('Caption','Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       captionLocation={selectV2('Caption Location', { 
         TopLeft:'topLeft', 
