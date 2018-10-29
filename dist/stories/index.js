@@ -99,7 +99,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
   return _react2.default.createElement(
     'div',
     { style: { width: '50%', margin: '50px auto' } },
-    _react2.default.createElement(_ImageWithCaption2.default, {
+    _react2.default.createElement(_Image2.default, {
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
       captionLocation: (0, _addonKnobs.selectV2)('Caption Location', {
         TopLeft: 'topLeft',
