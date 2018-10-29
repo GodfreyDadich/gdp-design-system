@@ -10,17 +10,28 @@ const Image = ({
   verticalAlign,
   horizontalAlign,
   classAdd,
-  caption
+  caption,
+  sideBar
 }) =>
 
-  <figure>
-    <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
+  <figure className={classAdd}>
+    <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}>
       <ConditionalLink linkUrl={linkUrl}>
         <img className='wrappedImage' alt={imageTitle} src={imgSource} />
       </ConditionalLink>
     </div>
-    {caption ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
+    {caption && caption.length > 0 ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
+    {(sideBar && sideBar.text.length > 0)
+      ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
+        {/* {sideBar.header.length > 0 ? <h3 className='sideBar__header'>{sideBar.header}</h3> : ''} */}
+        {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
+      </div>
+      : ''}
     <style jsx>{`
+      figure {
+        position: relative;
+        margin: 0;
+      }
       .wrappedImage {
         position: absolute;
         top: 0;
@@ -65,7 +76,7 @@ const Image = ({
         }        
       }
       .captionText {
-        color: #7F7F81;
+        color: #7F7F7F;
         font-family: 'Atlas Grotesk';
         font-weight: 500;
         display: block;
@@ -75,7 +86,44 @@ const Image = ({
         margin-top: 25px;
         margin-bottom: 89px;
         text-align: center;
-      }      
+      }
+      .sideBar {
+        position: absolute;
+        top: 0;
+        left: -144px;
+        width: 120px;
+        font-family: 'Atlas Grotesk';
+        font-weight: 900;
+        color: #000;
+        
+        &.left-bottom {
+          top: auto;
+          bottom: 0;
+        }
+        &.right-top {
+          left: auto;
+          right: -144px;
+        }
+        &.right-bottom {
+          top: auto;
+          left: auto;
+          right: -144px;
+          bottom: 0;
+        }
+
+        &__header {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+        &__text {
+          display: block;
+          border-top: 7px solid #000;
+          padding-top: 9px;
+          font-size: 12px;
+          line-height: 12.8px;
+          letter-spacing: -0.1px;
+        }
+      }
     `}</style>
   </figure>
 

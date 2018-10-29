@@ -54,18 +54,30 @@ storiesOf('Image', module)
     'Image with Caption',
     () => <div style={{width:'50%', margin:'50px auto'}}><Image
       caption={text('Caption','Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-      captionLocation={selectV2('Caption Location', { 
-        TopLeft:'topLeft', 
-        TopRight:'topRight', 
-        LeftTop:'leftTop', 
-        LeftBottom:'leftBottom',
-        BottomLeft: 'bottomLeft',
-        BottomRight: 'bottomRight',
-        RightBottom: 'rightBottom',
-        RightTop: 'rightTop'
-      }, 'topLeft')}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'square')}
+      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+      fullBleed={boolean('fullBleed', false)}
+      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      linkUrl={text('url', '')}
+      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+    /></div>
+  )
+  .add(
+    'Image with SideBar',
+    () => <div style={{width:'50%', margin:'50px auto'}}><Image
+      sideBar={{ 
+        text: text('Sidebar Text','Smaller length, Sidebar text area.'),
+        header: text('Sidebar Header','Sidebar Header'),
+        location: selectV2('Sidebar Location', { 
+          TopLeft: 'left-top',
+          TopRight: 'right-top',
+          BottomLeft: 'left-bottom',
+          BottomRight: 'right-bottom'
+        }, 'topLeft')
+      }}
+      imageTitle={text('Image Title/Alt', 'test')}
+      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       linkUrl={text('url', '')}

@@ -35,8 +35,7 @@ class Hero extends React.Component {
               imageTitle='Image Title'
               aspectRatio='sixteen'
               fullBleed='true'
-              imgSource={this.props.source} 
-              ref='hero__image'
+              imgSource={this.props.source}
               classAdd={this.state.zoomClass} />
           case 'video':
             return <Video
