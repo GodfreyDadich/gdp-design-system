@@ -1,11 +1,15 @@
 import React from 'react'
+import ReactPlayer from 'react-player'
 
-const Video = ({vidSource, controls, loop}) =>
-  <div className='vidWrap sixteen'>
-    <video loop autoplay='true' muted='true' className='wrappedVideo'>
-      <source src={vidSource} type="video/mp4"/>
-      Your browser does not support the video tag.
-    </video>
+const vidStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0
+}
+
+const Video = ({ vidSource, classAdd, controls, loop, autoplay }) =>
+  <div className={`vidWrap sixteen ${classAdd}`}>
+    <ReactPlayer url={vidSource} autoplay={autoplay} loop={loop} controls={controls} width='100%' height='100%' style={vidStyle} />
 
     <style jsx>{`
     .vidWrap {
