@@ -23,14 +23,13 @@ const Image = ({
     {caption && caption.length > 0 ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
     {(sideBar && sideBar.text.length > 0)
       ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
-        {/* {sideBar.header.length > 0 ? <h3 className='sideBar__header'>{sideBar.header}</h3> : ''} */}
+        {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
         {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
       </div>
       : ''}
     <style jsx>{`
       figure {
         position: relative;
-        margin: 0;
       }
       .wrappedImage {
         position: absolute;
@@ -90,8 +89,8 @@ const Image = ({
       .sideBar {
         position: absolute;
         top: 0;
-        left: -144px;
-        width: 120px;
+        left: -126px;
+        width: 102px;
         font-family: 'Atlas Grotesk';
         font-weight: 900;
         color: #000;
@@ -102,17 +101,18 @@ const Image = ({
         }
         &.right-top {
           left: auto;
-          right: -144px;
+          right: -126px;
         }
         &.right-bottom {
           top: auto;
           left: auto;
-          right: -144px;
+          right: -126px;
           bottom: 0;
         }
 
-        &__header {
-          font-size: 20px;
+        &__logo {
+          display: block;
+          width: 100%;
           margin-bottom: 12px;
         }
         &__text {
@@ -122,6 +122,10 @@ const Image = ({
           font-size: 12px;
           line-height: 12.8px;
           letter-spacing: -0.1px;
+
+          p {
+            margin: 0;
+          }
         }
       }
     `}</style>

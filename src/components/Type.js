@@ -101,7 +101,6 @@ export const Pullquote = ({classAdd, children}) =>
     {children}
     <style jsx>{`
       .pullQuote {
-        color: rgb(151, 151, 151);
         font-family: 'Atlas Grotesk';
         font-weight: bold;
         font-size: 30px;

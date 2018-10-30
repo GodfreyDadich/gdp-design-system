@@ -117,7 +117,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     _react2.default.createElement(_Image2.default, {
       sideBar: {
         text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
-        header: (0, _addonKnobs.text)('Sidebar Header', 'Sidebar Header'),
+        image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
         location: (0, _addonKnobs.selectV2)('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',

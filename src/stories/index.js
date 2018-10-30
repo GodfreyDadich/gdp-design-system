@@ -68,7 +68,7 @@ storiesOf('Image', module)
     () => <div style={{width:'50%', margin:'50px auto'}}><Image
       sideBar={{ 
         text: text('Sidebar Text','Smaller length, Sidebar text area.'),
-        header: text('Sidebar Header','Sidebar Header'),
+        image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
         location: selectV2('Sidebar Location', { 
           TopLeft: 'left-top',
           TopRight: 'right-top',
