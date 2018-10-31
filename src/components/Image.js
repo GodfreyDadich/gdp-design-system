@@ -14,8 +14,8 @@ const Image = ({
   sideBar
 }) =>
 
-  <figure className={classAdd}>
-    <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}>
+  <figure>
+    <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
       <ConditionalLink linkUrl={linkUrl}>
         <img className='wrappedImage' alt={imageTitle} src={imgSource} />
       </ConditionalLink>

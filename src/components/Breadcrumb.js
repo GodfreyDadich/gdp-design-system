@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Breadcrumb = ({delimiter, links}) => (
+const Breadcrumb = ({delimiter, links, linkLast}) => (
   <ul className='breadcrumb'>
     { links.map( (link,index) => 
-      <li className='breadcrumb__item' key={`bread-crumb-item-${index}`}> 
-        
-        {index !== (links.length - 1) ? 
-          <a className='breadcrumb__link'href={link.slug}>{link.title}</a> : 
+      <li className='breadcrumb__item' key={`bread-crumb-item-${index}`}>
+        {index !== (linkLast ? links.length : (links.length - 1)) ?
+          <a className='breadcrumb__link'href={link.slug}>{link.title}</a> :
           link.title
         }
         {index !== (links.length - 1) ? <span className="delimiter">{delimiter}</span> : ''}

@@ -21,7 +21,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var vidStyle = {
   position: 'absolute',
   top: 0,
-  left: 0
+  left: 0,
+  backgroundColor: 'tranparent'
 };
 
 var Video = function Video(_ref) {
@@ -32,14 +33,18 @@ var Video = function Video(_ref) {
       autoplay = _ref.autoplay;
   return _react2.default.createElement(
     'div',
-    {
-      className: 'jsx-1708626508' + ' ' + ('vidWrap sixteen ' + classAdd)
-    },
-    _react2.default.createElement(_reactPlayer2.default, { url: vidSource, autoplay: autoplay, loop: loop, controls: controls, width: '100%', height: '100%', style: vidStyle }),
-    _react2.default.createElement(_style2.default, {
-      styleId: '1708626508',
-      css: '.vidWrap.jsx-1708626508{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;}.vidWrap.sixteen.jsx-1708626508{padding-top:56.25%;}.vidWrap.standard.jsx-1708626508{padding-top:75%;}.vidWrap.cropped.jsx-1708626508{padding-top:39.06%;}.vidWrap.square.jsx-1708626508{padding-top:100%;}.wrappedVideo.jsx-1708626508{position:absolute;top:0;left:0;width:100%;height:100%;}'
-    })
+    { className: 'video ' + classAdd },
+    _react2.default.createElement(
+      'div',
+      {
+        className: 'jsx-2625870952' + ' ' + 'vidWrap sixteen'
+      },
+      _react2.default.createElement(_reactPlayer2.default, { url: vidSource, autoplay: autoplay, loop: loop, controls: controls, width: '100%', height: '100%', style: vidStyle }),
+      _react2.default.createElement(_style2.default, {
+        styleId: '2625870952',
+        css: '.vidWrap.jsx-2625870952{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;}.vidWrap.sixteen.jsx-2625870952{padding-top:56.25%;}.vidWrap.standard.jsx-2625870952{padding-top:75%;}.vidWrap.cropped.jsx-2625870952{padding-top:39.06%;}.vidWrap.square.jsx-2625870952{padding-top:100%;}.wrappedVideo.jsx-2625870952{position:absolute;top:0;left:0;width:100%;height:100%;}'
+      })
+    )
   );
 };
 
