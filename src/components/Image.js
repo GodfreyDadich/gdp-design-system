@@ -19,14 +19,14 @@ const Image = ({
       <ConditionalLink linkUrl={linkUrl}>
         <img className='wrappedImage' alt={imageTitle} src={imgSource} />
       </ConditionalLink>
+      {(sideBar && sideBar.text.length > 0)
+        ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
+          {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+          {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
+        </div>
+        : ''}
     </div>
     {caption && caption.length > 0 ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
-    {(sideBar && sideBar.text.length > 0)
-      ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
-        {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
-        {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
-      </div>
-      : ''}
     <style jsx>{`
       figure {
         position: relative;
@@ -42,7 +42,6 @@ const Image = ({
       }    
       .imageWrap {
         position: relative;
-        overflow: hidden;
         height: auto;
         background: ${aspectRatio !== 'noAspect' ? `url(${imgSource})` : '#f2f2f2'};
         background-position-x: ${horizontalAlign};
