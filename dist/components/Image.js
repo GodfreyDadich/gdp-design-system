@@ -32,12 +32,12 @@ var Image = function Image(_ref) {
   return _react2.default.createElement(
     'figure',
     {
-      className: _style2.default.dynamic([['428438538', [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]]]) + ' ' + (classAdd || '')
+      className: _style2.default.dynamic([['428438538', [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]]])
     },
     _react2.default.createElement(
       'div',
       {
-        className: _style2.default.dynamic([['428438538', [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]]]) + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''))
+        className: _style2.default.dynamic([['428438538', [aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2', horizontalAlign, verticalAlign]]]) + ' ' + ('imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + ' ' + classAdd)
       },
       _react2.default.createElement(
         _ConditionalLink2.default,

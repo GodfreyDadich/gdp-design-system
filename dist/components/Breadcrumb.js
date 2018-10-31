@@ -16,7 +16,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Breadcrumb = function Breadcrumb(_ref) {
   var delimiter = _ref.delimiter,
-      links = _ref.links;
+      links = _ref.links,
+      linkLast = _ref.linkLast;
   return _react2.default.createElement(
     'ul',
     {
@@ -27,7 +28,7 @@ var Breadcrumb = function Breadcrumb(_ref) {
         'li',
         { key: 'bread-crumb-item-' + index, className: 'jsx-2222158845' + ' ' + 'breadcrumb__item'
         },
-        index !== links.length - 1 ? _react2.default.createElement(
+        index !== (linkLast ? links.length : links.length - 1) ? _react2.default.createElement(
           'a',
           { href: link.slug, className: 'jsx-2222158845' + ' ' + 'breadcrumb__link'
           },
