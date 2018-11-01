@@ -81,19 +81,22 @@ var Hero = function (_React$Component) {
           switch (_this3.props.type) {
             case 'image':
               return _react2.default.createElement(_Image2.default, {
-                imageTitle: 'Image Title',
+                imageTitle: _this3.props.title,
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
                 imgSource: _this3.props.source,
                 classAdd: _this3.state.zoomClass });
             case 'video':
               return _react2.default.createElement(_Video2.default, {
-                videoTitle: 'Video Title',
+                videoTitle: _this3.props.title,
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
-                loop: 'true',
-                controls: 'false',
-                vidSource: _this3.props.source });
+                controls: false,
+                autoplay: true,
+                loop: false,
+                vidSource: '' + _this3.props.source,
+                isHero: true
+              });
             default:
               return null;
           }

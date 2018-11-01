@@ -8,11 +8,30 @@ const vidStyle = {
   backgroundColor: 'tranparent'
 }
 
-const Video = ({ vidSource, classAdd, controls, loop, autoplay }) =>
+const videoReady = ({ player }) => {
+  player.player.callPlayer('pause')
+}
+const Video = ({ vidSource, classAdd, controls, loop, autoplay, config, isHero }) =>
   <div className={`video ${classAdd}`}>
     <div className={`vidWrap sixteen`}>
-      <ReactPlayer url={vidSource} autoplay={autoplay} loop={loop} controls={controls} width='100%' height='100%' style={vidStyle} />
-
+      {isHero ? 
+        <iframe
+          src={`https://player.vimeo.com/video/${vidSource.split('.com/')[1]}?background=1&loop=0`}
+          width='100%' height='100%'
+          style={vidStyle}
+          frameborder='0' /> 
+        : <ReactPlayer
+          url={vidSource}
+          playing={autoplay}
+          loop={loop}
+          controls={controls}
+          width='100%'
+          height='100%'
+          style={vidStyle}
+          config={config}
+          onReady={videoReady}
+        />
+      }
       <style jsx>{`
       .vidWrap {
         position: relative;

@@ -25,12 +25,19 @@ var vidStyle = {
   backgroundColor: 'tranparent'
 };
 
-var Video = function Video(_ref) {
-  var vidSource = _ref.vidSource,
-      classAdd = _ref.classAdd,
-      controls = _ref.controls,
-      loop = _ref.loop,
-      autoplay = _ref.autoplay;
+var videoReady = function videoReady(_ref) {
+  var player = _ref.player;
+
+  player.player.callPlayer('pause');
+};
+var Video = function Video(_ref2) {
+  var vidSource = _ref2.vidSource,
+      classAdd = _ref2.classAdd,
+      controls = _ref2.controls,
+      loop = _ref2.loop,
+      autoplay = _ref2.autoplay,
+      config = _ref2.config,
+      isHero = _ref2.isHero;
   return _react2.default.createElement(
     'div',
     { className: 'video ' + classAdd },
@@ -39,7 +46,22 @@ var Video = function Video(_ref) {
       {
         className: 'jsx-2625870952' + ' ' + 'vidWrap sixteen'
       },
-      _react2.default.createElement(_reactPlayer2.default, { url: vidSource, autoplay: autoplay, loop: loop, controls: controls, width: '100%', height: '100%', style: vidStyle }),
+      isHero ? _react2.default.createElement('iframe', {
+        src: 'https://player.vimeo.com/video/' + vidSource.split('.com/')[1] + '?background=1&loop=0',
+        width: '100%', height: '100%',
+        style: vidStyle,
+        frameborder: '0', className: 'jsx-2625870952'
+      }) : _react2.default.createElement(_reactPlayer2.default, {
+        url: vidSource,
+        playing: autoplay,
+        loop: loop,
+        controls: controls,
+        width: '100%',
+        height: '100%',
+        style: vidStyle,
+        config: config,
+        onReady: videoReady
+      }),
       _react2.default.createElement(_style2.default, {
         styleId: '2625870952',
         css: '.vidWrap.jsx-2625870952{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;}.vidWrap.sixteen.jsx-2625870952{padding-top:56.25%;}.vidWrap.standard.jsx-2625870952{padding-top:75%;}.vidWrap.cropped.jsx-2625870952{padding-top:39.06%;}.vidWrap.square.jsx-2625870952{padding-top:100%;}.wrappedVideo.jsx-2625870952{position:absolute;top:0;left:0;width:100%;height:100%;}'

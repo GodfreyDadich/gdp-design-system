@@ -253,7 +253,7 @@ storiesOf('Hero', module)
     <Hero type='image' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
   )
   .add('Video', () =>
-    <Hero type='video' source='https://s3-us-west-1.amazonaws.com/gdp-site/videos/ADMN012_Abstract1_Devlin_loop_clip.mp4' />
+    <Hero type='video' source='https://vimeo.com/298426246' />
   )
   .add('Image with Zoom effect', () =>
     <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />

@@ -32,19 +32,22 @@ class Hero extends React.Component {
         switch (this.props.type) {
           case 'image':
             return <Image
-              imageTitle='Image Title'
+              imageTitle={this.props.title}
               aspectRatio='sixteen'
               fullBleed='true'
               imgSource={this.props.source}
               classAdd={this.state.zoomClass} />
           case 'video':
             return <Video
-              videoTitle='Video Title'
+              videoTitle={this.props.title}
               aspectRatio='sixteen'
               fullBleed='true'
-              loop='true'
-              controls='false'
-              vidSource={this.props.source} />
+              controls={false}
+              autoplay
+              loop={false}
+              vidSource={`${this.props.source}`}
+              isHero
+            />
           default:
             return null
         }
