@@ -18,9 +18,12 @@ const Breadcrumb = ({delimiter, links, linkLast}) => (
         margin: 0;
         font-family: 'Institut';
         font-weight: normal;
-        font-style: normal;    
+        font-style: normal;   
+        
+        font-size: 0.7vw;
+        
         font-size: 9px;    
-        line-height: 12px;
+        line-height: 1.33;
         letter-spacing: 1.92px;
         margin-bottom: 16px;
 

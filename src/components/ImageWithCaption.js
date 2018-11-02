@@ -18,8 +18,11 @@ const ImageWithCaption = props =>
         font-family: 'Atlas Grotesk';
         font-weight: 500;
         display: block;
+
+        font-size: 0.94vw;
+
         font-size: 12px;
-        line-height: 16px;
+        line-height: 1.35;
         letter-spacing: 0.2px;
         margin-top: 25px;
         margin-bottom: 89px;

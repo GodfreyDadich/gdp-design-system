@@ -24,7 +24,7 @@ var ImageWithCaption = function ImageWithCaption(props) {
   return _react2.default.createElement(
     'figure',
     {
-      className: 'jsx-3761590753' + ' ' + 'figureWithCaption'
+      className: 'jsx-455269060' + ' ' + 'figureWithCaption'
     },
     _react2.default.createElement(_Image2.default, _extends({
       classAdd: 'withCaption'
@@ -32,13 +32,13 @@ var ImageWithCaption = function ImageWithCaption(props) {
     _react2.default.createElement(
       'figcaption',
       {
-        className: 'jsx-3761590753' + ' ' + 'captionText col-6 skip-3'
+        className: 'jsx-455269060' + ' ' + 'captionText col-6 skip-3'
       },
       props.caption
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '3761590753',
-      css: '.figureWithCaption.jsx-3761590753{margin:0;position:relative;}.figureWithCaption.jsx-3761590753 .captionText.jsx-3761590753{color:#7F7F81;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
+      styleId: '455269060',
+      css: '.figureWithCaption.jsx-455269060{margin:0;position:relative;}.figureWithCaption.jsx-455269060 .captionText.jsx-455269060{color:#7F7F81;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:0.94vw;font-size:12px;line-height:1.35;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
     })
   );
 };

@@ -38,12 +38,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-3155752709' + ' ' + 'headingOne'
+      className: 'jsx-1139845342' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3155752709',
-      css: '.headingOne.jsx-3155752709{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:45px;line-height:43px;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-3155752709 .clientName.jsx-3155752709{display:block;color:#7F7F7F;}.headingOne.jsx-3155752709:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}'
+      styleId: '1139845342',
+      css: '.headingOne.jsx-1139845342{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;font-size:45px;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-1139845342 .clientName.jsx-1139845342{display:block;color:#7F7F7F;}.headingOne.jsx-1139845342:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}'
     })
   );
 };
@@ -102,12 +102,12 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-3126774684' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+      className: 'jsx-123373769' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3126774684',
-      css: '.pullQuote.jsx-3126774684{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:30px;line-height:32px;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
+      styleId: '123373769',
+      css: '.pullQuote.jsx-123373769{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;font-size:30px;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
     })
   );
 };
