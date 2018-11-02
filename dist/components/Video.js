@@ -37,7 +37,7 @@ var Video = function Video(_ref2) {
       loop = _ref2.loop,
       autoplay = _ref2.autoplay,
       config = _ref2.config,
-      isHero = _ref2.isHero;
+      chromeLess = _ref2.chromeLess;
   return _react2.default.createElement(
     'div',
     { className: 'video ' + classAdd },
@@ -46,8 +46,8 @@ var Video = function Video(_ref2) {
       {
         className: 'jsx-2625870952' + ' ' + 'vidWrap sixteen'
       },
-      isHero ? _react2.default.createElement('iframe', {
-        src: 'https://player.vimeo.com/video/' + vidSource.split('.com/')[1] + '?background=1&loop=0&autoplay=0',
+      chromeLess ? _react2.default.createElement('iframe', {
+        src: 'https://player.vimeo.com/video/' + vidSource.split('.com/')[1] + '?background=1&loop=' + (loop ? '1' : '0') + '&autoplay=' + (autoplay ? '1' : '0'),
         width: '100%', height: '100%',
         style: vidStyle,
         frameborder: '0', className: 'jsx-2625870952'

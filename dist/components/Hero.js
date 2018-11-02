@@ -95,7 +95,7 @@ var Hero = function (_React$Component) {
                 autoplay: true,
                 loop: false,
                 vidSource: '' + _this3.props.source,
-                isHero: true
+                chromeLess: true
               });
             default:
               return null;

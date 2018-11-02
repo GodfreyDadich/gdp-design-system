@@ -46,7 +46,7 @@ class Hero extends React.Component {
               autoplay
               loop={false}
               vidSource={`${this.props.source}`}
-              isHero
+              chromeLess
             />
           default:
             return null

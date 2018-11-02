@@ -11,12 +11,12 @@ const vidStyle = {
 const videoReady = ({ player }) => {
   player.player.callPlayer('pause')
 }
-const Video = ({ vidSource, classAdd, controls, loop, autoplay, config, isHero }) =>
+const Video = ({ vidSource, classAdd, controls, loop, autoplay, config, chromeLess }) =>
   <div className={`video ${classAdd}`}>
     <div className={`vidWrap sixteen`}>
-      {isHero ? 
+      {chromeLess ?
         <iframe
-          src={`https://player.vimeo.com/video/${vidSource.split('.com/')[1]}?background=1&loop=0&autoplay=0`}
+          src={`https://player.vimeo.com/video/${vidSource.split('.com/')[1]}?background=1&loop=${loop ? '1' : '0'}&autoplay=${autoplay ? '1' : '0'}`}
           width='100%' height='100%'
           style={vidStyle}
           frameborder='0' />
