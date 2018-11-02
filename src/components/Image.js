@@ -11,13 +11,15 @@ const Image = ({
   horizontalAlign,
   classAdd,
   caption,
-  sideBar
+  sideBar,
+  imgHover
 }) =>
 
-  <figure>
+  <figure className={imgHover ? ' hoverWrap' : ''}>
     <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
       <ConditionalLink linkUrl={linkUrl}>
         <img className='wrappedImage' alt={imageTitle} src={imgSource} />
+        {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
       </ConditionalLink>
       {(sideBar && sideBar.text.length > 0)
         ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
@@ -125,9 +127,32 @@ const Image = ({
           p {
             margin: 0;
           }
+        }      
+      }
+      .hoverWrap .noAspect{
+        .wrappedImage {
+          transition: opacity 0.4s;
+
+          &:first-child {
+            opacity: 1;
+          }
         }
+        &:hover {
+          .wrappedImage:first-child {
+            opacity: 0;
+          }
+          .wrappedImage.imageHover {
+            opacity: 1;
+          }
+        }
+        .wrappedImage.imageHover {
+          position: absolute;
+          top: 0;
+          opacity: 0;
+          z-index: 10;
+        } 
       }
     `}</style>
   </figure>
 
-  export default Image
+export default Image

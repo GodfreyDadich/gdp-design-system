@@ -7,6 +7,10 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _style = require('styled-jsx/style');
+
+var _style2 = _interopRequireDefault(_style);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -105,25 +109,39 @@ var Slider = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
       return _react2.default.createElement(
         'div',
-        { className: 'slider', style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown },
+        {
+          className: 'jsx-1340607723' + ' ' + ('sliderWrap ' + this.props.aspectRatio)
+        },
         _react2.default.createElement(
           'div',
-          { className: 'slider-wrapper',
-            style: {
-              transform: 'translateX(' + this.state.translateValue + 'px)',
-              transition: 'transform ease-out 0.45s',
-              width: '100%',
-              height: '100%',
-              whiteSpace: 'nowrap'
-            } },
-          this.props.images.map(function (image, i) {
-            return _react2.default.createElement(_Slide2.default, { key: i, image: image });
-          })
+          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-1340607723' + ' ' + 'slider'
+          },
+          _react2.default.createElement(
+            'div',
+            {
+              style: {
+                transform: 'translateX(' + this.state.translateValue + 'px)',
+                transition: 'transform ease-out 0.45s',
+                width: '100%',
+                height: '100%',
+                whiteSpace: 'nowrap'
+              }, className: 'jsx-1340607723' + ' ' + 'slider-wrapper'
+            },
+            this.props.images.map(function (image, i) {
+              return _react2.default.createElement(_Slide2.default, { key: i, image: image, renderImage: _this4.props.aspectRatio === 'noAspect' });
+            })
+          ),
+          _react2.default.createElement(_SliderArrows.LeftArrow, { clickAction: this.goToPrevSlide }),
+          _react2.default.createElement(_SliderArrows.RightArrow, { clickAction: this.goToNextSlide })
         ),
-        _react2.default.createElement(_SliderArrows.LeftArrow, { clickAction: this.goToPrevSlide }),
-        _react2.default.createElement(_SliderArrows.RightArrow, { clickAction: this.goToNextSlide })
+        _react2.default.createElement(_style2.default, {
+          styleId: '1340607723',
+          css: '.slider.jsx-1340607723{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-1340607723{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-1340607723{padding-top:56.25%;}.sliderWrap.standard.jsx-1340607723{padding-top:75%;}.sliderWrap.cropped.jsx-1340607723{padding-top:39.06%;}.sliderWrap.square.jsx-1340607723{padding-top:100%;}.sliderWrap.zoomedIn.jsx-1340607723{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-1340607723 .slider.jsx-1340607723{position:relative;width:100%;opacity:1;}'
+        })
       );
     }
   }]);

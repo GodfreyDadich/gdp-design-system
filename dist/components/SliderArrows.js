@@ -14,8 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var RightArrow = exports.RightArrow = function RightArrow(props) {
   return _react2.default.createElement(
     'div',
-    { className: 'nextArrow', onClick: props.clickAction },
-    ' >',
+    { className: 'nextArrow', onClick: props.clickAction, style: { position: 'absolute', top: '0', right: '0', width: '50%', height: '100%', overflow: 'hidden' } },
     _react2.default.createElement('i', { className: 'fa fa-arrow-right fa-2x', 'aria-hidden': 'true' })
   );
 };
@@ -28,8 +27,7 @@ var LeftArrow = exports.LeftArrow = function LeftArrow(props) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'backArrow', onClick: props.clickAction },
-    ' <',
+      className: 'backArrow', onClick: props.clickAction, style: { position: 'absolute', top: '0', left: '0', width: '50%', height: '100%', overflow: 'hidden' } },
     _react2.default.createElement('i', { className: 'fa fa-arrow-left fa-2x', 'aria-hidden': 'true' })
   );
 };

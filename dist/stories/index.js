@@ -149,11 +149,29 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
     })
   );
+}).add('Image with Hover', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '50px auto' } },
+    _react2.default.createElement(_Image2.default, {
+      imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
+      fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
+      imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+      imgHover: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
+      linkUrl: (0, _addonKnobs.text)('url', ''),
+      verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
+      horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
+    })
+  );
 }).add('Image Carousel', function () {
   return _react2.default.createElement(
     'div',
-    { style: { position: 'relative', height: '500px', width: '50%', margin: '50px auto' } },
-    _react2.default.createElement(_Slider2.default, { images: imageGallery }),
+    { style: { width: '50%', margin: '50px auto' } },
+    _react2.default.createElement(_Slider2.default, {
+      images: imageGallery,
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')
+    }),
     _react2.default.createElement(
       'style',
       null,

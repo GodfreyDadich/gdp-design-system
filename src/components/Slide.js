@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Slide = ({ image }) => {
+const Slide = ({ image, renderImage }) => {
   const styles = {
     backgroundImage: `url(${image})`,
     backgroundSize: 'cover',
@@ -8,9 +8,10 @@ const Slide = ({ image }) => {
     backgroundPosition: 'center center',
     width: '100%',
     height: '100%',
-    display: 'inline-block'
+    display: 'inline-block',
+    verticalAlign: 'top'
   }
-  return <div className='slide' style={styles} />
+  return <div className='slide' style={styles}>{ renderImage ? <img src={image} style={{ width: '100%' }}/> : '' }</div>
 }
 
 export default Slide

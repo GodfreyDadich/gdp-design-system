@@ -98,10 +98,27 @@ storiesOf('Image', module)
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
     /></div>
   )
+
+  .add(
+    'Image with Hover',
+    () => <div style={{width:'50%', margin:'50px auto'}}><Image
+      imageTitle={text('Image Title/Alt', 'test')}
+      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'square')}
+      fullBleed={boolean('fullBleed', false)}
+      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      imgHover='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
+      linkUrl={text('url', '')}
+      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+    /></div>
+  )  
   .add(
     'Image Carousel',
-    () => <div style={{ position: 'relative', height: '500px', width: '50%', margin: '50px auto' }}>
-      <Slider images={imageGallery} />
+    () => <div style={{width:'50%', margin:'50px auto'}}>
+      <Slider 
+        images={imageGallery}
+        aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+      />
       <style>{`
         .backArrow {
           position: absolute;

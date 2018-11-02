@@ -47,7 +47,7 @@ var Video = function Video(_ref2) {
         className: 'jsx-2625870952' + ' ' + 'vidWrap sixteen'
       },
       isHero ? _react2.default.createElement('iframe', {
-        src: 'https://player.vimeo.com/video/' + vidSource.split('.com/')[1] + '?background=1&loop=0',
+        src: 'https://player.vimeo.com/video/' + vidSource.split('.com/')[1] + '?background=1&loop=0&autoplay=0',
         width: '100%', height: '100%',
         style: vidStyle,
         frameborder: '0', className: 'jsx-2625870952'
