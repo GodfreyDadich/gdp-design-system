@@ -24,10 +24,6 @@ var _Image = require('../components/Image');
 
 var _Image2 = _interopRequireDefault(_Image);
 
-var _ImageWithCaption = require('../components/ImageWithCaption');
-
-var _ImageWithCaption2 = _interopRequireDefault(_ImageWithCaption);
-
 var _ImageWithZoom = require('../components/ImageWithZoom');
 
 var _ImageWithZoom2 = _interopRequireDefault(_ImageWithZoom);
@@ -140,7 +136,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_ImageWithZoom2.default, {
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('Full Bleed', false),
       stretchH: (0, _addonKnobs.boolean)('Stretch Horizontal', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'

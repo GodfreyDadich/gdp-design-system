@@ -1,111 +1,89 @@
 import React from 'react'
+import ImageWrap from './ImageWrap'
 import ImageZoom from 'react-medium-image-zoom'
 
-const vertRef = {
-  'sixteen' : 56.25,
-  'standard' : 75,
-  'cropped' : 39.06,
-  'square' : 100,
-}
-const hAlignRef = {
-  'left': 0,
-  'center': 50,
-  'right': 100,
-}
-const vAlignRef = {
-  'top': 0,
-  'center': 2,
-  'bottom': 1
-}
+class ImageWithZoom extends React.Component {
 
-const ImageWithZoom = ({
-  imageTitle,
-  aspectRatio,
-  fullBleed,
-  imgSource,
-  verticalAlign,
-  horizontalAlign,
-  classAdd,
-  stretchH
-}) =>
-<div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''} ${classAdd}`}>
-  <ImageZoom
-    image={{
-      src: imgSource,
-      alt: imageTitle,
-      className: `img wrappedImage`,
-      style: Object.assign({ 
-        width: '100%',
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        overflow: 'hidden'      
-      }, stretchH ? {
-        height: 'auto',
-        width: '100%',
-        minHeight: '100%',
-        minWidth: '0',
-        marginTop: verticalAlign === 'top' ? '' : `-${vertRef[aspectRatio]/vAlignRef[verticalAlign]}%`,
-        transform: verticalAlign === 'top' ? '' : `translateY(${vertRef[aspectRatio]/vAlignRef[verticalAlign]}%)`
-      } : {
-        height: '100%',
-        width: 'auto',
-        minWidth: '100%',
-        minHeight: 0,
-        marginLeft: `${hAlignRef[horizontalAlign]}%`,
-        transform: `translateX(-${hAlignRef[horizontalAlign]}%)`        
-      })
-    }}
-    zoomImage={{
-      src: imgSource,
-      alt: imageTitle
-    }}
-    />
-    <style jsx>{`
-      .wrappedImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        height: auto;
-        min-height: 100%;
-        opacity: 0;
-      }    
-      .imageWrap {
-        position: relative;
-        overflow: hidden;
-        height: auto;
-        background: ${aspectRatio !== 'noAspect' ? `url(${imgSource})` : '#f2f2f2'};
-        background-position-x: ${horizontalAlign};
-        background-position-y: ${verticalAlign};
-        background-size: cover;
-        background-repeat: no-repeat;
-        transition: transform 0.5s;
+  render () {
+    const vertRef = {
+      'sixteen': 56.25,
+      'standard': 75,
+      'cropped': 39.06,
+      'square': 100,
+    }
+    const hAlignRef = {
+      'left': 0,
+      'center': 50,
+      'right': 100
+    }
+    const vAlignRef = {
+      'top': 0,
+      'center': 2,
+      'bottom': 1
+    }
 
-        &.sixteen {
-          padding-top: 56.25%;
-        }
-        &.standard {
-          padding-top: 75%;
-        }
-        &.cropped {
-          padding-top: 39.06%;
-        }
-        &.square {
-          padding-top: 100%;
-        }
-        &.zoomedIn {
-          transform: scale(1.5);
-        }
-        &.noAspect {
+    const {
+      imageTitle,
+      aspectRatio,
+      imgSource,
+      verticalAlign,
+      horizontalAlign,
+      stretchH
+    } = this.props
+
+    return (
+      <ImageWrap {...this.props}>
+        <ImageZoom
+          image={{
+            src: imgSource,
+            alt: imageTitle,
+            className: `img wrappedImage`,
+            style: Object.assign({ 
+              width: '100%',
+              position: aspectRatio !== 'noAspect' ? 'absolute' : 'relative',
+              opacity: aspectRatio !== 'noAspect' ? '0' : '1',
+              top: '0',
+              left: '0',
+              overflow: 'hidden'      
+            }, stretchH ? {
+              height: 'auto',
+              width: '100%',
+              minHeight: '100%',
+              minWidth: '0',
+              marginTop: verticalAlign === 'top' ? '' : `-${vertRef[aspectRatio] / vAlignRef[verticalAlign]}%`,
+              transform: verticalAlign === 'top' ? '' : `translateY(${vertRef[aspectRatio] / vAlignRef[verticalAlign]}%)`
+            } : {
+              height: '100%',
+              width: 'auto',
+              minWidth: '100%',
+              minHeight: 0,
+              marginLeft: `${hAlignRef[horizontalAlign]}%`,
+              transform: `translateX(-${hAlignRef[horizontalAlign]}%)`
+            })
+          }}
+          zoomImage={{
+            src: imgSource,
+            alt: imageTitle
+          }}
+        />
+        <style jsx>{`
           .wrappedImage {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: auto;
+            min-height: 100%;
+            opacity: 0;
+            ${aspectRatio === 'noAspect'
+        ? `position: relative;
             width: 100%;
             opacity: 1;
-          }
-        }        
-      }
-
-    `}</style>
-  </div>  
+            ` : ''}            
+          }  
+          `}</style>
+      </ImageWrap>
+    )
+  }
+}
 export default ImageWithZoom

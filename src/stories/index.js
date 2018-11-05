@@ -7,7 +7,6 @@ import { Button, Welcome } from '@storybook/react/demo'
 import Select from '../components/Select'
 import SelectNative from '../components/SelectNative'
 import Image from '../components/Image'
-import ImageWithCaption from '../components/ImageWithCaption'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
 import Card from '../components/Card'
@@ -89,7 +88,7 @@ storiesOf('Image', module)
     'Image with Zoom',
     () => <div style={{width:'50%', margin:'50px auto'}}><ImageWithZoom 
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped' }, 'sixteen')}
+      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
       fullBleed={boolean('Full Bleed', false)}
       stretchH={boolean('Stretch Horizontal', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
