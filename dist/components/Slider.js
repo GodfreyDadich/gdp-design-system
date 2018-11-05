@@ -132,13 +132,13 @@ var Slider = function (_Component) {
       var _this5 = this;
 
       return _react2.default.createElement(
-        'div',
+        'figure',
         {
-          className: 'jsx-1692029130' + ' ' + ('sliderWrap ' + this.props.aspectRatio)
+          className: 'jsx-572483240' + ' ' + ('sliderWrap ' + this.props.aspectRatio + (this.props.fullBleed ? ' full-bleed' : ''))
         },
         _react2.default.createElement(
           'div',
-          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-1692029130' + ' ' + 'slider'
+          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-572483240' + ' ' + 'slider'
           },
           _react2.default.createElement(
             'div',
@@ -149,7 +149,7 @@ var Slider = function (_Component) {
                 width: '100%',
                 height: '100%',
                 whiteSpace: 'nowrap'
-              }, className: 'jsx-1692029130' + ' ' + 'slider-wrapper'
+              }, className: 'jsx-572483240' + ' ' + 'slider-wrapper'
             },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement(_Slide2.default, { key: i, image: image, renderImage: _this5.props.aspectRatio === 'noAspect' });
@@ -158,21 +158,28 @@ var Slider = function (_Component) {
           _react2.default.createElement(
             'ul',
             {
-              className: 'jsx-1692029130' + ' ' + 'slideDots'
+              className: 'jsx-572483240' + ' ' + 'slideDots'
             },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement('li', { key: 'slide-dot-for-' + i, onClick: function onClick() {
                   return _this5.goToSlide(i);
-                }, className: 'jsx-1692029130' + ' ' + ('slideDot ' + _this5.currentDot(i))
+                }, className: 'jsx-572483240' + ' ' + ('slideDot ' + _this5.currentDot(i))
               });
             })
           ),
           _react2.default.createElement(_SliderArrows.LeftArrow, { clickAction: this.goToPrevSlide }),
           _react2.default.createElement(_SliderArrows.RightArrow, { clickAction: this.goToNextSlide })
         ),
+        this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+          'figcaption',
+          {
+            className: 'jsx-572483240' + ' ' + 'captionText col-6 skip-3'
+          },
+          this.props.caption
+        ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '1692029130',
-          css: '.slider.jsx-1692029130{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-1692029130{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-1692029130{padding-top:56.25%;}.sliderWrap.standard.jsx-1692029130{padding-top:75%;}.sliderWrap.cropped.jsx-1692029130{padding-top:39.06%;}.sliderWrap.square.jsx-1692029130{padding-top:100%;}.sliderWrap.zoomedIn.jsx-1692029130{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-1692029130 .slider.jsx-1692029130{position:relative;width:100%;opacity:1;}.slideDots.jsx-1692029130{position:absolute;bottom:10px;width:100%;padding:0;margin:0;text-align:center;z-index:102;}.slideDot.jsx-1692029130{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid #fff;margin:0 5px;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}.slideDot.jsx-1692029130:hover.jsx-1692029130:before,.slideDot.current.jsx-1692029130:before{content:\'\';position:absolute;top:2px;left:2px;width:6px;height:6px;background-color:#fff;border-radius:50%;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}'
+          styleId: '572483240',
+          css: '.slider.jsx-572483240{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-572483240{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-572483240{padding-top:56.25%;}.sliderWrap.standard.jsx-572483240{padding-top:75%;}.sliderWrap.cropped.jsx-572483240{padding-top:39.06%;}.sliderWrap.square.jsx-572483240{padding-top:100%;}.sliderWrap.zoomedIn.jsx-572483240{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-572483240 .slider.jsx-572483240{position:relative;width:100%;opacity:1;}.slideDots.jsx-572483240{position:absolute;bottom:10px;width:100%;padding:0;margin:0;text-align:center;z-index:102;}.slideDot.jsx-572483240{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid #fff;margin:0 5px;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}.slideDot.jsx-572483240:hover.jsx-572483240:before,.slideDot.current.jsx-572483240:before{content:\'\';position:absolute;top:2px;left:2px;width:6px;height:6px;background-color:#fff;border-radius:50%;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}.captionText.jsx-572483240{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
         })
       );
     }

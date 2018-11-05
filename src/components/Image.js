@@ -1,5 +1,6 @@
 import React from 'react'
 import ConditionalLink from './ConditionalLink'
+import { Caption } from './Type'
 
 const Image = ({
   imageTitle,
@@ -28,7 +29,7 @@ const Image = ({
         </div>
         : ''}
     </div>
-    {caption && caption.length > 0 ? <figcaption className='captionText col-6 skip-3'>{caption}</figcaption> : ''}
+    {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
     <style jsx>{`
       figure {
         position: relative;
@@ -74,18 +75,6 @@ const Image = ({
             opacity: 1;
           }
         }        
-      }
-      .captionText {
-        color: #7F7F7F;
-        font-family: 'Atlas Grotesk';
-        font-weight: 500;
-        display: block;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0.2px;
-        margin-top: 25px;
-        margin-bottom: 89px;
-        text-align: center;
       }
       .sideBar {
         position: absolute;

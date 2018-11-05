@@ -112,3 +112,22 @@ export const Pullquote = ({classAdd, children}) =>
       }
     `}</style>
   </div>
+
+export const Caption = ({ classAdd, children }) =>
+  <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
+    {children}
+    <style jsx>{`
+      .captionText {
+        color: #7F7F7F;
+        font-family: 'Atlas Grotesk';
+        font-weight: 500;
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+        margin-top: 25px;
+        margin-bottom: 89px;
+        text-align: center;
+      }  
+    `}</style>
+  </figcaption>

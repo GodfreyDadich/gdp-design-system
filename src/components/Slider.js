@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slide from './Slide'
 import { RightArrow, LeftArrow } from './SliderArrows'
+import { Caption } from './Type'
 
 export default class Slider extends Component {
   constructor (props) {
@@ -77,7 +78,7 @@ export default class Slider extends Component {
 
   render () {
     return (
-      <div className={`sliderWrap ${this.props.aspectRatio}`}>
+      <figure className={`sliderWrap ${this.props.aspectRatio}${this.props.fullBleed ? ' full-bleed' : ''}`}>
         <div className='slider' style={{ width: '100%', height: '100%', overflow: 'hidden' }} onKeyDown={this.onKeyDown}>
           <div className='slider-wrapper'
             style={{
@@ -103,6 +104,7 @@ export default class Slider extends Component {
           <LeftArrow clickAction={this.goToPrevSlide} />
           <RightArrow clickAction={this.goToNextSlide} />
         </div>
+        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{this.props.caption}</Caption> : ''}
         <style jsx>{`
         .slider {
           position: absolute;
@@ -149,6 +151,7 @@ export default class Slider extends Component {
           margin: 0;
           text-align: center;
           z-index: 102;
+          opacity: 0.75;
         }
         .slideDot {
           position: relative;
@@ -172,9 +175,9 @@ export default class Slider extends Component {
             border-radius: 50%;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
           }
-        }
+        }       
       `}</style>
-      </div>
+      </figure>
     )
   }
 }
