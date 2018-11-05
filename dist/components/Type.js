@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _style = require('styled-jsx/style');
 
@@ -108,6 +108,22 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
     _react2.default.createElement(_style2.default, {
       styleId: '2273996777',
       css: '.pullQuote.jsx-2273996777{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
+    })
+  );
+};
+
+var Caption = exports.Caption = function Caption(_ref7) {
+  var classAdd = _ref7.classAdd,
+      children = _ref7.children;
+  return _react2.default.createElement(
+    'figcaption',
+    {
+      className: 'jsx-2788025357' + ' ' + ('captionText' + (classAdd ? ' ' + classAdd : ''))
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '2788025357',
+      css: '.captionText.jsx-2788025357{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
     })
   );
 };
