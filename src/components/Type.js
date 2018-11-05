@@ -36,10 +36,7 @@ export const Heading1 = ({children}) =>
         position: relative;
         font-family: 'Noe Display';
         font-weight: bold;
-
         font-size: 3.52vw;
-
-        font-size: 45px;
         line-height: 0.97;
         letter-spacing: 0.3px;
         padding-bottom: 51px;
@@ -106,10 +103,7 @@ export const Pullquote = ({classAdd, children}) =>
       .pullQuote {
         font-family: 'Atlas Grotesk';
         font-weight: bold;
-
         font-size: 2.34vw;
-        
-        font-size: 30px;
         line-height: 1.06;         
         letter-spacing: -0.3px;
         text-align: center;

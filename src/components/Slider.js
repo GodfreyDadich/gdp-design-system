@@ -44,6 +44,16 @@ export default class Slider extends Component {
     }))
   }
 
+  goToSlide (slideNum, clickRef) {
+    console.log(clickRef)
+    if (slideNum !== this.state.currentIndex) {
+      this.setState(() => ({
+        currentIndex: slideNum,
+        translateValue: -(slideNum * this.slideWidth())
+      }))
+    }
+  }
+
   handleKeyDown (e) {
     if (e.keyCode === 39) {
       this.goToNextSlide()
@@ -59,6 +69,10 @@ export default class Slider extends Component {
 
   componentDidMount () {
     document.addEventListener('keydown', this.handleKeyDown, false)
+  }
+
+  currentDot (index) {
+    return this.state.currentIndex === index ? 'current' : ''
   }
 
   render () {
@@ -79,6 +93,13 @@ export default class Slider extends Component {
               ))
             }
           </div>
+          <ul className='slideDots'>
+            {
+              this.props.images.map((image, i) => (
+                <li className={`slideDot ${this.currentDot(i)}`} key={`slide-dot-for-${i}`} onClick={() => this.goToSlide(i)} />
+              ))
+            }
+          </ul>
           <LeftArrow clickAction={this.goToPrevSlide} />
           <RightArrow clickAction={this.goToNextSlide} />
         </div>
@@ -119,6 +140,38 @@ export default class Slider extends Component {
               opacity: 1;
             }
           }        
+        }
+        .slideDots {
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          z-index: 102;
+        }
+        .slideDot {
+          position: relative;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          margin: 0 5px;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+          &:hover:before,
+          &.current:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          }
         }
       `}</style>
       </div>
