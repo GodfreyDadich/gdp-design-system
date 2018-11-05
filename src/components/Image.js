@@ -2,6 +2,7 @@ import React from 'react'
 import ConditionalLink from './ConditionalLink'
 import ImageWrap from './ImageWrap'
 import { Caption } from './Type'
+import LazyLoad from 'react-lazy-load'
 
 class Image extends React.Component {
 
@@ -19,10 +20,12 @@ class Image extends React.Component {
     return (
       <figure className={imgHover ? ' hoverWrap' : ''}>
         <ImageWrap {...this.props}>
-          <ConditionalLink linkUrl={linkUrl}>
-            <img className='wrappedImage' alt={imageTitle} src={imgSource} />
-            {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
-          </ConditionalLink>
+          <LazyLoad offsetVertical={500} debounce={false}>
+            <ConditionalLink linkUrl={linkUrl}>
+              <img className='wrappedImage' alt={imageTitle} src={imgSource} />
+              {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
+            </ConditionalLink>
+          </LazyLoad>
           {(sideBar && sideBar.text.length > 0)
             ? <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
               {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}

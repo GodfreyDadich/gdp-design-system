@@ -145,13 +145,13 @@ export default class Slider extends Component {
         }
         .slideDots {
           position: absolute;
-          bottom: 10px;
+          bottom: 25px;
           width: 100%;
           padding: 0;
           margin: 0;
           text-align: center;
           z-index: 102;
-          opacity: 0.75;
+          opacity: 0.75;  
         }
         .slideDot {
           position: relative;
@@ -159,21 +159,13 @@ export default class Slider extends Component {
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          border: 1px solid #fff;
+          background: #fff;
+          opacity: 0.3;
           margin: 0 5px;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 
-          &:hover:before,
-          &.current:before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 6px;
-            height: 6px;
-            background-color: #fff;
-            border-radius: 50%;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          &:hover,
+          &.current {
+            opacity: 1;
           }
         }       
       `}</style>

@@ -20,9 +20,15 @@ var _ImageWrap = require('./ImageWrap');
 
 var _ImageWrap2 = _interopRequireDefault(_ImageWrap);
 
+var _ConditionalLink = require('./ConditionalLink');
+
+var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
+
 var _reactMediumImageZoom = require('react-medium-image-zoom');
 
 var _reactMediumImageZoom2 = _interopRequireDefault(_reactMediumImageZoom);
+
+var _Type = require('./Type');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63,52 +69,85 @@ var ImageWithZoom = function (_React$Component) {
 
       var _props = this.props,
           imageTitle = _props.imageTitle,
-          aspectRatio = _props.aspectRatio,
           imgSource = _props.imgSource,
+          linkUrl = _props.linkUrl,
+          caption = _props.caption,
+          sideBar = _props.sideBar,
+          aspectRatio = _props.aspectRatio,
+          stretchH = _props.stretchH,
           verticalAlign = _props.verticalAlign,
-          horizontalAlign = _props.horizontalAlign,
-          stretchH = _props.stretchH;
+          horizontalAlign = _props.horizontalAlign;
 
 
       return _react2.default.createElement(
-        _ImageWrap2.default,
-        this.props,
-        _react2.default.createElement(_reactMediumImageZoom2.default, {
-          image: {
-            src: imgSource,
-            alt: imageTitle,
-            className: 'img wrappedImage',
-            style: _extends({
-              width: '100%',
-              position: aspectRatio !== 'noAspect' ? 'absolute' : 'relative',
-              opacity: aspectRatio !== 'noAspect' ? '0' : '1',
-              top: '0',
-              left: '0',
-              overflow: 'hidden'
-            }, stretchH ? {
-              height: 'auto',
-              width: '100%',
-              minHeight: '100%',
-              minWidth: '0',
-              marginTop: verticalAlign === 'top' ? '' : '-' + vertRef[aspectRatio] / vAlignRef[verticalAlign] + '%',
-              transform: verticalAlign === 'top' ? '' : 'translateY(' + vertRef[aspectRatio] / vAlignRef[verticalAlign] + '%)'
-            } : {
-              height: '100%',
-              width: 'auto',
-              minWidth: '100%',
-              minHeight: 0,
-              marginLeft: hAlignRef[horizontalAlign] + '%',
-              transform: 'translateX(-' + hAlignRef[horizontalAlign] + '%)'
+        'figure',
+        {
+          className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'zoomFigure'
+        },
+        _react2.default.createElement(
+          _ImageWrap2.default,
+          this.props,
+          _react2.default.createElement(
+            _ConditionalLink2.default,
+            { linkUrl: linkUrl },
+            _react2.default.createElement(_reactMediumImageZoom2.default, {
+              image: {
+                src: imgSource,
+                alt: imageTitle,
+                className: 'img wrappedImage',
+                style: _extends({
+                  width: '100%',
+                  position: aspectRatio !== 'noAspect' ? 'absolute' : 'relative',
+                  opacity: aspectRatio !== 'noAspect' ? '0' : '1',
+                  top: '0',
+                  left: '0',
+                  overflow: 'hidden'
+                }, stretchH ? {
+                  height: 'auto',
+                  width: '100%',
+                  minHeight: '100%',
+                  minWidth: '0',
+                  marginTop: verticalAlign === 'top' ? '' : '-' + vertRef[aspectRatio] / vAlignRef[verticalAlign] + '%',
+                  transform: verticalAlign === 'top' ? '' : 'translateY(' + vertRef[aspectRatio] / vAlignRef[verticalAlign] + '%)'
+                } : {
+                  height: '100%',
+                  width: 'auto',
+                  minWidth: '100%',
+                  minHeight: 0,
+                  marginLeft: hAlignRef[horizontalAlign] + '%',
+                  transform: 'translateX(-' + hAlignRef[horizontalAlign] + '%)'
+                })
+              },
+              zoomImage: {
+                src: imgSource,
+                alt: imageTitle
+              }
             })
-          },
-          zoomImage: {
-            src: imgSource,
-            alt: imageTitle
-          }
-        }),
+          ),
+          sideBar && sideBar.text.length > 0 ? _react2.default.createElement(
+            'div',
+            {
+              className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+            },
+            sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'sideBar__logo'
+            }) : '',
+            sideBar.text.length > 0 ? _react2.default.createElement(
+              'span',
+              {
+                className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'sideBar__text'
+              },
+              sideBar.text
+            ) : ''
+          ) : ''
+        ),
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-3' },
+          caption
+        ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '534420782',
-          css: '.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;' + (aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '') + ';}',
+          styleId: '2499155560',
+          css: 'figure.__jsx-style-dynamic-selector{position:relative;}.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;' + (aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '') + ';}.sideBar.__jsx-style-dynamic-selector{position:absolute;top:0;left:-126px;width:102px;font-family:\'Atlas Grotesk\';font-weight:900;color:#000;}.sideBar.left-bottom.__jsx-style-dynamic-selector{top:auto;bottom:0;}.sideBar.right-top.__jsx-style-dynamic-selector{left:auto;right:-126px;}.sideBar.right-bottom.__jsx-style-dynamic-selector{top:auto;left:auto;right:-126px;bottom:0;}.sideBar__logo.__jsx-style-dynamic-selector{display:block;width:100%;margin-bottom:12px;}.sideBar__text.__jsx-style-dynamic-selector{display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__text.__jsx-style-dynamic-selector p.__jsx-style-dynamic-selector{margin:0;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{-webkit-transition:opacity 0.4s;transition:opacity 0.4s;width:100%;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:0;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.imageHover.__jsx-style-dynamic-selector{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.imageHover.__jsx-style-dynamic-selector{position:absolute;top:0;opacity:0;z-index:10;}',
           dynamic: [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']
         })
       );

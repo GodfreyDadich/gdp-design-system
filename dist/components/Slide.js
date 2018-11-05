@@ -22,7 +22,8 @@ var Slide = function Slide(_ref) {
     width: '100%',
     height: '100%',
     display: 'inline-block',
-    verticalAlign: 'top'
+    verticalAlign: 'top',
+    backgroundColor: '#f2f2f2'
   };
   return _react2.default.createElement(
     'div',

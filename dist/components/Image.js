@@ -24,6 +24,10 @@ var _ImageWrap2 = _interopRequireDefault(_ImageWrap);
 
 var _Type = require('./Type');
 
+var _reactLazyLoad = require('react-lazy-load');
+
+var _reactLazyLoad2 = _interopRequireDefault(_reactLazyLoad);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63,12 +67,16 @@ var Image = function (_React$Component) {
           _ImageWrap2.default,
           this.props,
           _react2.default.createElement(
-            _ConditionalLink2.default,
-            { linkUrl: linkUrl },
-            _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
-            }),
-            imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
-            }) : ''
+            _reactLazyLoad2.default,
+            { offsetVertical: 500, debounce: false },
+            _react2.default.createElement(
+              _ConditionalLink2.default,
+              { linkUrl: linkUrl },
+              _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
+              }),
+              imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['2499155560', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
+              }) : ''
+            )
           ),
           sideBar && sideBar.text.length > 0 ? _react2.default.createElement(
             'div',
