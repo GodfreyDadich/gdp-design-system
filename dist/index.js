@@ -172,6 +172,15 @@ Object.defineProperty(exports, 'Video', {
   }
 });
 
+var _HoverVideo = require('./components/HoverVideo');
+
+Object.defineProperty(exports, 'HoverVideo', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_HoverVideo).default;
+  }
+});
+
 var _Type = require('./components/Type');
 
 Object.keys(_Type).forEach(function (key) {

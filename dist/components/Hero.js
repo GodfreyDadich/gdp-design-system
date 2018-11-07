@@ -94,8 +94,15 @@ var Hero = function (_React$Component) {
                 controls: false,
                 autoplay: true,
                 loop: false,
-                vidSource: '' + _this3.props.source,
-                chromeLess: true
+                vidSource: _this3.props.source,
+                config: {
+                  vimeo: {
+                    playerOptions: {
+                      background: 1
+                    },
+                    preload: true
+                  }
+                }
               });
             default:
               return null;

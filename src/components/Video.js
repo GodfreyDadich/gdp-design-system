@@ -8,62 +8,91 @@ const vidStyle = {
   backgroundColor: 'tranparent'
 }
 
-const videoReady = ({ player }) => {
-  player.player.callPlayer('pause')
+class Video extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      playing: this.props.autoplay
+    }
+    this.play = this.play.bind(this)
+    this.pause = this.pause.bind(this)
+  }
+
+  play () {
+    this.setState({
+      playing: true
+    })
+  }
+  pause () {
+    this.setState({
+      playing: false
+    })
+  }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.isVisible && nextProps.hoverPlay) {
+      this.play()
+    }
+  }
+
+  videoReadyPause ({ player }) { // pauses the player on load if autoplay isn't set to true
+    player.player.callPlayer('pause')
+  }
+
+  render () {
+    const { vidSource, classAdd, controls, autoplay, loop, config, hoverPlay } = this.props
+    const { playing } = this.state
+    return (
+      <div className={`video ${classAdd}`}>
+        <div className={`vidWrap sixteen`}
+          onMouseEnter={hoverPlay ? this.play : undefined}
+          onMouseLeave={hoverPlay ? this.pause : undefined}
+        >
+          <ReactPlayer
+            url={`${vidSource}`}
+            playing={playing}
+            loop={loop}
+            controls={controls}
+            width='100%'
+            height='100%'
+            style={vidStyle}
+            config={config}
+            onReady={autoplay ? null : this.videoReadyPause}
+          />
+          <style jsx>{`
+            .vidWrap {
+              position: relative;
+              width: 100%;
+              overflow: hidden;
+              height: auto;
+              background-size: cover;
+              background-repeat: no-repeat;
+
+              &.sixteen {
+                padding-top: 56.25%;
+              }
+              &.standard {
+                padding-top: 75%;
+              }
+              &.cropped {
+                padding-top: 39.06%;
+              }
+              &.square {
+                padding-top: 100%;
+              }
+            }
+
+            .wrappedVideo {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }      
+            `}</style>
+        </div>
+      </div>
+    )
+  }
 }
-const Video = ({ vidSource, classAdd, controls, loop, autoplay, config, chromeLess }) =>
-  <div className={`video ${classAdd}`}>
-    <div className={`vidWrap sixteen`}>
-      {chromeLess ?
-        <iframe
-          src={`https://player.vimeo.com/video/${vidSource.split('.com/')[1]}?background=1&loop=${loop ? '1' : '0'}&autoplay=${autoplay ? '1' : '0'}`}
-          width='100%' height='100%'
-          style={vidStyle}
-          frameborder='0' />
-        : <ReactPlayer
-          url={vidSource}
-          playing={autoplay}
-          loop={loop}
-          controls={controls}
-          width='100%'
-          height='100%'
-          style={vidStyle}
-          config={config}
-          onReady={videoReady}
-        />
-      }
-      <style jsx>{`
-      .vidWrap {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        height: auto;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        &.sixteen {
-          padding-top: 56.25%;
-        }
-        &.standard {
-          padding-top: 75%;
-        }
-        &.cropped {
-          padding-top: 39.06%;
-        }
-        &.square {
-          padding-top: 100%;
-        }
-      }
-
-      .wrappedVideo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }      
-      `}</style>
-    </div>
-  </div>
 
 export default Video

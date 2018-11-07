@@ -45,8 +45,15 @@ class Hero extends React.Component {
               controls={false}
               autoplay
               loop={false}
-              vidSource={`${this.props.source}`}
-              chromeLess
+              vidSource={this.props.source}
+              config={{
+                vimeo: {
+                  playerOptions: {
+                    background: 1
+                  },
+                  preload: true
+                }
+              }}
             />
           default:
             return null

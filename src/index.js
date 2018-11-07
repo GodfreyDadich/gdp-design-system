@@ -17,5 +17,5 @@ export { default as Slider } from './components/Slider'
 export { default as RightArrow } from './components/SliderArrows'
 export { default as LeftArrow } from './components/SliderArrows'
 export { default as Video } from './components/Video'
-
+export { default as HoverVideo } from './components/HoverVideo'
 export * from './components/Type'

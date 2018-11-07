@@ -18,6 +18,7 @@ import Modal from '../components/Modal'
 import PodcastEmbed from '../components/PodcastEmbed'
 import InstaEmbed from '../components/InstaEmbed'
 import Hero from '../components/Hero'
+import HoverVideo from '../components/HoverVideo'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -239,29 +240,30 @@ let modalState = true
 storiesOf('Modals', module)
   .add('Modal Window', () => 
     <div><p> this is some test content for below the modal</p>{modalState.toString()}
-        <Modal
+      <Modal
         closeCallback={modalClosed}
-        modalVisible={boolean('Toggle modal', modalState)}
-        ><Card
-        cardTitle='Test Title'
-        cardSubTitle='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
-        cardContent='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
-        linkText='Test Link'
-        linkUrl=''
-        mediaOrientation='top'
-        imageTitle='test'
-        aspectRatio='standard'
-        imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
-        horizontalAlign='center'
-      /></Modal>
+        modalVisible={boolean('Toggle modal', modalState)}>
+        <Card
+          cardTitle='Test Title'
+          cardSubTitle='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
+          cardContent='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
+          linkText='Test Link'
+          linkUrl=''
+          mediaOrientation='top'
+          imageTitle='test'
+          aspectRatio='standard'
+          imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+          horizontalAlign='center'
+        />
+      </Modal>
     </div>
   )
 
 storiesOf('Media', module)
-  .add('Podcast Embed', () => 
+  .add('Podcast Embed', () =>
     <PodcastEmbed />
   )
-  .add('Instagram Embed', () => 
+  .add('Instagram Embed', () =>
     <InstaEmbed />
   )
 
@@ -274,4 +276,16 @@ storiesOf('Hero', module)
   )
   .add('Image with Zoom effect', () =>
     <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
+  )
+
+storiesOf('Video', module)
+  .add('Hover Video', () =>
+    <div style={{ paddingTop: '150vh', paddingBottom: '100vh' }}>
+      <HoverVideo
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        source='https://vimeo.com/298426246'
+      />
+    </div>
   )

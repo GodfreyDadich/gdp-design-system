@@ -68,6 +68,10 @@ var _Hero = require('../components/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
+var _HoverVideo = require('../components/HoverVideo');
+
+var _HoverVideo2 = _interopRequireDefault(_HoverVideo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'];
@@ -280,8 +284,7 @@ var modalState = true;
       _Modal2.default,
       {
         closeCallback: modalClosed,
-        modalVisible: (0, _addonKnobs.boolean)('Toggle modal', modalState)
-      },
+        modalVisible: (0, _addonKnobs.boolean)('Toggle modal', modalState) },
       _react2.default.createElement(_Card2.default, {
         cardTitle: 'Test Title',
         cardSubTitle: 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.',
@@ -310,4 +313,17 @@ var modalState = true;
   return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://vimeo.com/298426246' });
 }).add('Image with Zoom effect', function () {
   return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
+});
+
+(0, _react3.storiesOf)('Video', module).add('Hover Video', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { paddingTop: '150vh', paddingBottom: '100vh' } },
+    _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      source: 'https://vimeo.com/298426246'
+    })
+  );
 });
