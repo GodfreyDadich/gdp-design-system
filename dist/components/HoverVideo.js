@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -18,21 +20,12 @@ var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var HoverVideo = function HoverVideo(_ref) {
-  var title = _ref.title,
-      aspectRatio = _ref.aspectRatio,
-      fullBleed = _ref.fullBleed,
-      source = _ref.source;
+var HoverVideo = function HoverVideo(props) {
   return _react2.default.createElement(
     _reactOnScreen2.default,
-    { once: true },
-    _react2.default.createElement(_Video2.default, {
-      videoTitle: title,
-      aspectRatio: aspectRatio,
-      fullBleed: fullBleed,
-      vidSource: source,
+    { once: true, className: 'hoverVid' },
+    _react2.default.createElement(_Video2.default, _extends({}, props, {
       hoverPlay: true,
-      loadLazy: true,
       autoplay: false,
       config: {
         vimeo: {
@@ -42,7 +35,7 @@ var HoverVideo = function HoverVideo(_ref) {
           preload: false
         }
       }
-    })
+    }))
   );
 };
 

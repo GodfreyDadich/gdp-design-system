@@ -285,7 +285,7 @@ storiesOf('Video', module)
         title=''
         aspectRatio='sixteen'
         fullBleed={false}
-        source='https://vimeo.com/298426246'
+        vidSource='https://vimeo.com/298426246'
       />
     </div>
   )
