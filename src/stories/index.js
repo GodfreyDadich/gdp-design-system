@@ -280,12 +280,10 @@ storiesOf('Hero', module)
 
 storiesOf('Video', module)
   .add('Hover Video', () =>
-    <div style={{ paddingTop: '150vh', paddingBottom: '100vh' }}>
-      <HoverVideo
-        title=''
-        aspectRatio='sixteen'
-        fullBleed={false}
-        vidSource='https://vimeo.com/298426246'
-      />
-    </div>
+    <HoverVideo
+      title=''
+      aspectRatio='sixteen'
+      fullBleed={false}
+      vidSource='https://vimeo.com/298426246'
+    />
   )

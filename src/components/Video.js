@@ -12,10 +12,12 @@ class Video extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      playing: this.props.autoplay
+      playing: false,
+      player: undefined
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
+    this.videoReadyPause = this.videoReadyPause.bind(this)
   }
 
   play () {
@@ -27,15 +29,17 @@ class Video extends React.Component {
     this.setState({
       playing: false
     })
-  }
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.isVisible && nextProps.hoverPlay) {
-      this.play()
-    }
+    this.state.player.stop()
   }
 
   videoReadyPause ({ player }) { // pauses the player on load if autoplay isn't set to true
-    player.player.callPlayer('pause')
+    player.player.pause()
+    player.player.stop()
+    this.setState({
+      player: player.player
+    })
+
+    // this.state.player.stop()
   }
 
   render () {
