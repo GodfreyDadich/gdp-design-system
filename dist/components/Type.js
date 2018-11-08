@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SideBar = exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _style = require('styled-jsx/style');
 
@@ -124,6 +124,29 @@ var Caption = exports.Caption = function Caption(_ref7) {
     _react2.default.createElement(_style2.default, {
       styleId: '2788025357',
       css: '.captionText.jsx-2788025357{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
+    })
+  );
+};
+
+var SideBar = exports.SideBar = function SideBar(_ref8) {
+  var sideBar = _ref8.sideBar;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'jsx-3431542970' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+    },
+    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-3431542970' + ' ' + 'sideBar__logo'
+    }) : '',
+    sideBar.text.length > 0 ? _react2.default.createElement(
+      'span',
+      {
+        className: 'jsx-3431542970' + ' ' + 'sideBar__text'
+      },
+      sideBar.text
+    ) : '',
+    _react2.default.createElement(_style2.default, {
+      styleId: '3431542970',
+      css: '.sideBar.jsx-3431542970{position:absolute;top:0;left:-126px;width:102px;font-family:\'Atlas Grotesk\';font-weight:900;color:#000;}.sideBar.left-bottom.jsx-3431542970{top:auto;bottom:0;}.sideBar.right-top.jsx-3431542970{left:auto;right:-126px;}.sideBar.right-bottom.jsx-3431542970{top:auto;left:auto;right:-126px;bottom:0;}.sideBar__logo.jsx-3431542970{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-3431542970{display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__text.jsx-3431542970 p.jsx-3431542970{margin:0;}'
     })
   );
 };

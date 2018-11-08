@@ -22,6 +22,8 @@ var _reactPlayer = require('react-player');
 
 var _reactPlayer2 = _interopRequireDefault(_reactPlayer);
 
+var _Type = require('./Type');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -96,18 +98,24 @@ var Video = function (_React$Component) {
           loop = _props.loop,
           config = _props.config,
           hoverPlay = _props.hoverPlay,
-          thumb = _props.thumb;
+          thumb = _props.thumb,
+          caption = _props.caption,
+          sideBar = _props.sideBar,
+          _props$aspectRatio = _props.aspectRatio,
+          aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio;
       var playing = this.state.playing;
 
       return _react2.default.createElement(
         'div',
-        { className: 'video ' + classAdd },
+        {
+          className: _style2.default.dynamic([['2473716235', [thumb]]]) + ' ' + ('video ' + classAdd)
+        },
         _react2.default.createElement(
           'div',
           {
             onMouseEnter: hoverPlay ? this.play : undefined,
             onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: _style2.default.dynamic([['17147628', [thumb]]]) + ' ' + 'vidWrap sixteen'
+            className: _style2.default.dynamic([['2473716235', [thumb]]]) + ' ' + ('vidWrap ' + aspectRatio)
           },
           _react2.default.createElement(
             _reactLazyLoad2.default,
@@ -123,13 +131,19 @@ var Video = function (_React$Component) {
               config: config,
               onReady: autoplay ? null : this.videoReadyPause
             })
-          ),
-          _react2.default.createElement(_style2.default, {
-            styleId: '17147628',
-            css: '.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:39.06%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
-            dynamic: [thumb]
-          })
-        )
+          )
+        ),
+        sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : '',
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-3' },
+          caption
+        ) : '',
+        _react2.default.createElement(_style2.default, {
+          styleId: '2473716235',
+          css: '.video.__jsx-style-dynamic-selector{position:relative;}.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:41.67%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
+          dynamic: [thumb]
+        })
       );
     }
   }]);

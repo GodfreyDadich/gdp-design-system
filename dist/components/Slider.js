@@ -136,11 +136,11 @@ var Slider = function (_Component) {
       return _react2.default.createElement(
         'figure',
         {
-          className: 'jsx-3564342445' + ' ' + ('sliderWrap ' + this.props.aspectRatio + (this.props.fullBleed ? ' full-bleed' : ''))
+          className: 'jsx-157794080' + ' ' + ('sliderWrap ' + this.props.aspectRatio + (this.props.fullBleed ? ' full-bleed' : ''))
         },
         _react2.default.createElement(
           'div',
-          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-3564342445' + ' ' + 'slider'
+          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-157794080' + ' ' + 'slider'
           },
           _react2.default.createElement(
             'div',
@@ -151,7 +151,7 @@ var Slider = function (_Component) {
                 width: '100%',
                 height: '100%',
                 whiteSpace: 'nowrap'
-              }, className: 'jsx-3564342445' + ' ' + 'slider-wrapper'
+              }, className: 'jsx-157794080' + ' ' + 'slider-wrapper'
             },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement(_Slide2.default, { key: i, image: image, renderImage: _this5.props.aspectRatio === 'noAspect' });
@@ -160,12 +160,12 @@ var Slider = function (_Component) {
           _react2.default.createElement(
             'ul',
             {
-              className: 'jsx-3564342445' + ' ' + 'slideDots'
+              className: 'jsx-157794080' + ' ' + 'slideDots'
             },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement('li', { key: 'slide-dot-for-' + i, onClick: function onClick() {
                   return _this5.goToSlide(i);
-                }, className: 'jsx-3564342445' + ' ' + ('slideDot ' + _this5.currentDot(i))
+                }, className: 'jsx-157794080' + ' ' + ('slideDot ' + _this5.currentDot(i))
               });
             })
           ),
@@ -178,8 +178,8 @@ var Slider = function (_Component) {
           this.props.caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '3564342445',
-          css: '.slider.jsx-3564342445{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-3564342445{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-3564342445{padding-top:56.25%;}.sliderWrap.standard.jsx-3564342445{padding-top:75%;}.sliderWrap.cropped.jsx-3564342445{padding-top:39.06%;}.sliderWrap.square.jsx-3564342445{padding-top:100%;}.sliderWrap.zoomedIn.jsx-3564342445{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-3564342445 .slider.jsx-3564342445{position:relative;width:100%;opacity:1;}.slideDots.jsx-3564342445{position:absolute;bottom:25px;width:100%;padding:0;margin:0;text-align:center;z-index:102;opacity:0.75;}.slideDot.jsx-3564342445{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0.3;margin:0 5px;}.slideDot.jsx-3564342445:hover,.slideDot.current.jsx-3564342445{opacity:1;}'
+          styleId: '157794080',
+          css: '.slider.jsx-157794080{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-157794080{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-157794080{padding-top:56.25%;}.sliderWrap.standard.jsx-157794080{padding-top:75%;}.sliderWrap.cropped.jsx-157794080{padding-top:41.67%;}.sliderWrap.square.jsx-157794080{padding-top:100%;}.sliderWrap.zoomedIn.jsx-157794080{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-157794080 .slider.jsx-157794080{position:relative;width:100%;opacity:1;}.slideDots.jsx-157794080{position:absolute;bottom:25px;width:100%;padding:0;margin:0;text-align:center;z-index:102;opacity:0.75;}.slideDot.jsx-157794080{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0.3;margin:0 5px;}.slideDot.jsx-157794080:hover,.slideDot.current.jsx-157794080{opacity:1;}'
         })
       );
     }
