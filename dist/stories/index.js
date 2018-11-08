@@ -316,14 +316,10 @@ var modalState = true;
 });
 
 (0, _react3.storiesOf)('Video', module).add('Hover Video', function () {
-  return _react2.default.createElement(
-    'div',
-    { style: { paddingTop: '150vh', paddingBottom: '100vh' } },
-    _react2.default.createElement(_HoverVideo2.default, {
-      title: '',
-      aspectRatio: 'sixteen',
-      fullBleed: false,
-      vidSource: 'https://vimeo.com/298426246'
-    })
-  );
+  return _react2.default.createElement(_HoverVideo2.default, {
+    title: '',
+    aspectRatio: 'sixteen',
+    fullBleed: false,
+    vidSource: 'https://vimeo.com/298426246'
+  });
 });

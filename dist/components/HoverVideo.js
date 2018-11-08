@@ -14,29 +14,22 @@ var _Video = require('./Video');
 
 var _Video2 = _interopRequireDefault(_Video);
 
-var _reactOnScreen = require('react-on-screen');
-
-var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HoverVideo = function HoverVideo(props) {
-  return _react2.default.createElement(
-    _reactOnScreen2.default,
-    { once: true, className: 'hoverVid' },
-    _react2.default.createElement(_Video2.default, _extends({}, props, {
-      hoverPlay: true,
-      autoplay: false,
-      config: {
-        vimeo: {
-          playerOptions: {
-            background: 1
-          },
-          preload: false
-        }
+  return _react2.default.createElement(_Video2.default, _extends({}, props, {
+    hoverPlay: true,
+    playing: false,
+    loop: true,
+    config: {
+      vimeo: {
+        playerOptions: {
+          background: 1
+        },
+        preload: true
       }
-    }))
-  );
+    }
+  }));
 };
 
 exports.default = HoverVideo;

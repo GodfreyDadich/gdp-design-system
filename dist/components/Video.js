@@ -42,10 +42,12 @@ var Video = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).call(this, props));
 
     _this.state = {
-      playing: _this.props.autoplay
+      playing: false,
+      player: undefined
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
+    _this.videoReadyPause = _this.videoReadyPause.bind(_this);
     return _this;
   }
 
@@ -62,20 +64,20 @@ var Video = function (_React$Component) {
       this.setState({
         playing: false
       });
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.isVisible && nextProps.hoverPlay) {
-        this.play();
-      }
+      this.state.player.stop();
     }
   }, {
     key: 'videoReadyPause',
     value: function videoReadyPause(_ref) {
       var player = _ref.player;
       // pauses the player on load if autoplay isn't set to true
-      player.player.callPlayer('pause');
+      player.player.pause();
+      player.player.stop();
+      this.setState({
+        player: player.player
+      });
+
+      // this.state.player.stop()
     }
   }, {
     key: 'render',
