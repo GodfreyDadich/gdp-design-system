@@ -6,13 +6,16 @@ const HoverVideo = props =>
     {...props}
     hoverPlay
     playing={false}
-    loop
+    autoplay={false}
+    classAdd={`hoverVid${props.classAdd ? ' ' + props.classAdd : ''}`}
     config={{
       vimeo: {
         playerOptions: {
-          background: 1
+          background: 1,
+          autopause: true,
+          autoplay: false
         },
-        preload: true
+        preload: false
       }
     }}
   />

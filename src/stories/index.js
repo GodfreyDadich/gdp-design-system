@@ -272,7 +272,7 @@ storiesOf('Hero', module)
     <Hero type='image' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
   )
   .add('Video', () =>
-    <Hero type='video' source='https://vimeo.com/298426246' />
+    <Hero type='video' source='https://vimeo.com/298058381' thumb='https://i.vimeocdn.com/video/735885971_1000.jpg' />
   )
   .add('Image with Zoom effect', () =>
     <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
@@ -280,10 +280,34 @@ storiesOf('Hero', module)
 
 storiesOf('Video', module)
   .add('Hover Video', () =>
-    <HoverVideo
-      title=''
-      aspectRatio='sixteen'
-      fullBleed={false}
-      vidSource='https://vimeo.com/298426246'
-    />
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <HoverVideo
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543193'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+      />
+      <HoverVideo
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543203'
+        thumb='https://i.vimeocdn.com/video/737702558_1000.jpg'
+      />
+      <HoverVideo
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543207'
+        thumb='https://i.vimeocdn.com/video/737702396_1000.jpg'
+      />
+      <HoverVideo
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543215'
+        thumb='https://i.vimeocdn.com/video/737702269_1000.jpg'
+      />
+    </div>
   )

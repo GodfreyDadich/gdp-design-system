@@ -1,4 +1,5 @@
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import ReactPlayer from 'react-player'
 
 const vidStyle = {
@@ -24,6 +25,9 @@ class Video extends React.Component {
     this.setState({
       playing: true
     })
+    if (this.state.player) {
+      this.state.player.callPlayer('setLoop', true)
+    }
   }
   pause () {
     this.setState({
@@ -35,15 +39,14 @@ class Video extends React.Component {
   videoReadyPause ({ player }) { // pauses the player on load if autoplay isn't set to true
     player.player.pause()
     player.player.stop()
+
     this.setState({
       player: player.player
     })
-
-    // this.state.player.stop()
   }
 
   render () {
-    const { vidSource, classAdd, controls, autoplay, loop, config, hoverPlay } = this.props
+    const { vidSource, classAdd, controls, autoplay, loop, config, hoverPlay, thumb } = this.props
     const { playing } = this.state
     return (
       <div className={`video ${classAdd}`}>
@@ -51,17 +54,19 @@ class Video extends React.Component {
           onMouseEnter={hoverPlay ? this.play : undefined}
           onMouseLeave={hoverPlay ? this.pause : undefined}
         >
-          <ReactPlayer
-            url={`${vidSource}`}
-            playing={playing}
-            loop={loop}
-            controls={controls}
-            width='100%'
-            height='100%'
-            style={vidStyle}
-            config={config}
-            onReady={autoplay ? null : this.videoReadyPause}
-          />
+          <LazyLoad offsetVertical={500} debounce={false}>
+            <ReactPlayer
+              url={`${vidSource}`}
+              playing={playing}
+              loop={loop}
+              controls={controls}
+              width='100%'  
+              height='100%'
+              style={vidStyle}
+              config={config}
+              onReady={autoplay ? null : this.videoReadyPause}
+            />
+          </LazyLoad>
           <style jsx>{`
             .vidWrap {
               position: relative;
@@ -70,6 +75,7 @@ class Video extends React.Component {
               height: auto;
               background-size: cover;
               background-repeat: no-repeat;
+              background-image: url(${thumb});
 
               &.sixteen {
                 padding-top: 56.25%;
