@@ -310,16 +310,42 @@ var modalState = true;
 (0, _react3.storiesOf)('Hero', module).add('Static Image', function () {
   return _react2.default.createElement(_Hero2.default, { type: 'image', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 }).add('Video', function () {
-  return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://vimeo.com/298426246' });
+  return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://vimeo.com/298058381', thumb: 'https://i.vimeocdn.com/video/735885971_1000.jpg' });
 }).add('Image with Zoom effect', function () {
   return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 });
 
 (0, _react3.storiesOf)('Video', module).add('Hover Video', function () {
-  return _react2.default.createElement(_HoverVideo2.default, {
-    title: '',
-    aspectRatio: 'sixteen',
-    fullBleed: false,
-    vidSource: 'https://vimeo.com/298426246'
-  });
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '10px auto' } },
+    _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543193',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+    }),
+    _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543203',
+      thumb: 'https://i.vimeocdn.com/video/737702558_1000.jpg'
+    }),
+    _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543207',
+      thumb: 'https://i.vimeocdn.com/video/737702396_1000.jpg'
+    }),
+    _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543215',
+      thumb: 'https://i.vimeocdn.com/video/737702269_1000.jpg'
+    })
+  );
 });

@@ -95,6 +95,7 @@ var Hero = function (_React$Component) {
                 autoplay: true,
                 loop: false,
                 vidSource: _this3.props.source,
+                thumb: _this3.props.thumb,
                 config: {
                   vimeo: {
                     playerOptions: {

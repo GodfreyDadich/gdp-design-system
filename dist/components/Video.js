@@ -14,6 +14,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactLazyLoad = require('react-lazy-load');
+
+var _reactLazyLoad2 = _interopRequireDefault(_reactLazyLoad);
+
 var _reactPlayer = require('react-player');
 
 var _reactPlayer2 = _interopRequireDefault(_reactPlayer);
@@ -57,6 +61,9 @@ var Video = function (_React$Component) {
       this.setState({
         playing: true
       });
+      if (this.state.player) {
+        this.state.player.callPlayer('setLoop', true);
+      }
     }
   }, {
     key: 'pause',
@@ -73,11 +80,10 @@ var Video = function (_React$Component) {
       // pauses the player on load if autoplay isn't set to true
       player.player.pause();
       player.player.stop();
+
       this.setState({
         player: player.player
       });
-
-      // this.state.player.stop()
     }
   }, {
     key: 'render',
@@ -89,7 +95,8 @@ var Video = function (_React$Component) {
           autoplay = _props.autoplay,
           loop = _props.loop,
           config = _props.config,
-          hoverPlay = _props.hoverPlay;
+          hoverPlay = _props.hoverPlay,
+          thumb = _props.thumb;
       var playing = this.state.playing;
 
       return _react2.default.createElement(
@@ -100,22 +107,27 @@ var Video = function (_React$Component) {
           {
             onMouseEnter: hoverPlay ? this.play : undefined,
             onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: 'jsx-795023566' + ' ' + 'vidWrap sixteen'
+            className: _style2.default.dynamic([['17147628', [thumb]]]) + ' ' + 'vidWrap sixteen'
           },
-          _react2.default.createElement(_reactPlayer2.default, {
-            url: '' + vidSource,
-            playing: playing,
-            loop: loop,
-            controls: controls,
-            width: '100%',
-            height: '100%',
-            style: vidStyle,
-            config: config,
-            onReady: autoplay ? null : this.videoReadyPause
-          }),
+          _react2.default.createElement(
+            _reactLazyLoad2.default,
+            { offsetVertical: 500, debounce: false },
+            _react2.default.createElement(_reactPlayer2.default, {
+              url: '' + vidSource,
+              playing: playing,
+              loop: loop,
+              controls: controls,
+              width: '100%',
+              height: '100%',
+              style: vidStyle,
+              config: config,
+              onReady: autoplay ? null : this.videoReadyPause
+            })
+          ),
           _react2.default.createElement(_style2.default, {
-            styleId: '795023566',
-            css: '.vidWrap.jsx-795023566{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;}.vidWrap.sixteen.jsx-795023566{padding-top:56.25%;}.vidWrap.standard.jsx-795023566{padding-top:75%;}.vidWrap.cropped.jsx-795023566{padding-top:39.06%;}.vidWrap.square.jsx-795023566{padding-top:100%;}.wrappedVideo.jsx-795023566{position:absolute;top:0;left:0;width:100%;height:100%;}'
+            styleId: '17147628',
+            css: '.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:39.06%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
+            dynamic: [thumb]
           })
         )
       );
