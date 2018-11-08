@@ -127,7 +127,7 @@ export default class Slider extends Component {
             padding-top: 75%;
           }
           &.cropped {
-            padding-top: 39.06%;
+            padding-top: 41.67%;
           }
           &.square {
             padding-top: 100%;

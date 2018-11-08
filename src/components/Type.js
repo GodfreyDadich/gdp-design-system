@@ -131,3 +131,54 @@ export const Caption = ({ classAdd, children }) =>
       }  
     `}</style>
   </figcaption>
+
+export const SideBar = ({ sideBar }) =>
+  <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
+    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+    {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
+
+    <style jsx>{`
+    .sideBar {
+      position: absolute;
+      top: 0;
+      left: -126px;
+      width: 102px;
+      font-family: 'Atlas Grotesk';
+      font-weight: 900;
+      color: #000;
+      
+      &.left-bottom {
+        top: auto;
+        bottom: 0;
+      }
+      &.right-top {
+        left: auto;
+        right: -126px;
+      }
+      &.right-bottom {
+        top: auto;
+        left: auto;
+        right: -126px;
+        bottom: 0;
+      }
+
+      &__logo {
+        display: block;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+      &__text {
+        display: block;
+        border-top: 7px solid #000;
+        padding-top: 9px;
+        font-size: 12px;
+        line-height: 12.8px;
+        letter-spacing: -0.1px;
+
+        p {
+          margin: 0;
+        }
+      }      
+    }    
+    `}</style>
+  </div>

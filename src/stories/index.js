@@ -19,6 +19,7 @@ import PodcastEmbed from '../components/PodcastEmbed'
 import InstaEmbed from '../components/InstaEmbed'
 import Hero from '../components/Hero'
 import HoverVideo from '../components/HoverVideo'
+import Video from '../components/Video'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -279,8 +280,68 @@ storiesOf('Hero', module)
   )
 
 storiesOf('Video', module)
+  .add('Video Element', () => 
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543193'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+      />
+      <Video
+        title=''
+        aspectRatio='cropped'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299756718'
+        thumb='https://i.vimeocdn.com/video/737947212_1000.jpg'
+      />
+    </div>
+  )
+  .add('Video With Caption', () => 
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543193'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        caption={text('Caption','Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+      />
+    </div>
+  )
+
+  .add('Video With Sidebar', () => 
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299543193'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        sideBar={{ 
+          text: text('Sidebar Text','Smaller length, Sidebar text area.'),
+          image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+          location: selectV2('Sidebar Location', {
+            TopLeft: 'left-top',
+            TopRight: 'right-top',
+            BottomLeft: 'left-bottom',
+            BottomRight: 'right-bottom'
+          }, 'topLeft')
+        }}
+      />
+    </div>
+  )
+
   .add('Hover Video', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
+      <HoverVideo
+        title=''
+        aspectRatio='cropped'
+        fullBleed={false}
+        vidSource='https://vimeo.com/299756718'
+        thumb='https://i.vimeocdn.com/video/737947212_1000.jpg'
+      />
       <HoverVideo
         title=''
         aspectRatio='sixteen'

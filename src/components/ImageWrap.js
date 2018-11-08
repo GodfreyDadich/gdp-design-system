@@ -22,7 +22,7 @@ const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, hori
           padding-top: 75%;
         }
         &.cropped {
-          padding-top: 39.06%;
+          padding-top: 41.67%;
         }
         &.square {
           padding-top: 100%;

@@ -1,6 +1,7 @@
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
 import ReactPlayer from 'react-player'
+import { Caption, SideBar } from './Type'
 
 const vidStyle = {
   position: 'absolute',
@@ -46,11 +47,23 @@ class Video extends React.Component {
   }
 
   render () {
-    const { vidSource, classAdd, controls, autoplay, loop, config, hoverPlay, thumb } = this.props
+    const {
+      vidSource,
+      classAdd,
+      controls,
+      autoplay,
+      loop,
+      config,
+      hoverPlay,
+      thumb,
+      caption,
+      sideBar,
+      aspectRatio = 'sixteen'
+    } = this.props
     const { playing } = this.state
     return (
       <div className={`video ${classAdd}`}>
-        <div className={`vidWrap sixteen`}
+        <div className={`vidWrap ${aspectRatio}`}
           onMouseEnter={hoverPlay ? this.play : undefined}
           onMouseLeave={hoverPlay ? this.pause : undefined}
         >
@@ -60,14 +73,22 @@ class Video extends React.Component {
               playing={playing}
               loop={loop}
               controls={controls}
-              width='100%'  
+              width='100%'
               height='100%'
               style={vidStyle}
               config={config}
               onReady={autoplay ? null : this.videoReadyPause}
             />
           </LazyLoad>
-          <style jsx>{`
+        </div>
+        {sideBar
+          ? <SideBar sideBar={sideBar} />
+          : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
+        <style jsx>{`
+            .video {
+              position: relative;
+            }
             .vidWrap {
               position: relative;
               width: 100%;
@@ -84,13 +105,12 @@ class Video extends React.Component {
                 padding-top: 75%;
               }
               &.cropped {
-                padding-top: 39.06%;
+                padding-top: 41.67%;
               }
               &.square {
                 padding-top: 100%;
               }
             }
-
             .wrappedVideo {
               position: absolute;
               top: 0;
@@ -99,7 +119,6 @@ class Video extends React.Component {
               height: 100%;
             }      
             `}</style>
-        </div>
       </div>
     )
   }
