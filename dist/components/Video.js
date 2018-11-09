@@ -121,7 +121,7 @@ var Video = function (_React$Component) {
           },
           _react2.default.createElement(
             _reactLazyLoad2.default,
-            { offsetVertical: 500, debounce: false },
+            { offsetVertical: 1000, debounce: false },
             _react2.default.createElement(_reactPlayer2.default, {
               url: '' + vidSource,
               playing: playing,

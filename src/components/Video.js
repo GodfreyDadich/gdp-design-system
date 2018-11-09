@@ -69,7 +69,7 @@ class Video extends React.Component {
           onMouseEnter={hoverPlay ? this.play : undefined}
           onMouseLeave={hoverPlay ? this.pause : undefined}
         >
-          <LazyLoad offsetVertical={500} debounce={false}>
+          <LazyLoad offsetVertical={1000} debounce={false}>
             <ReactPlayer
               url={`${vidSource}`}
               playing={playing}
