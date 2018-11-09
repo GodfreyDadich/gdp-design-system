@@ -73,7 +73,9 @@ var Video = function (_React$Component) {
       this.setState({
         playing: false
       });
-      this.state.player.stop();
+      if (this.state.player) {
+        this.state.player.stop();
+      }
     }
   }, {
     key: 'videoReadyPause',
@@ -108,14 +110,14 @@ var Video = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: _style2.default.dynamic([['2473716235', [thumb]]]) + ' ' + ('video ' + classAdd)
+          className: _style2.default.dynamic([['3106243758', [thumb]]]) + ' ' + ('video ' + classAdd)
         },
         _react2.default.createElement(
           'div',
           {
             onMouseEnter: hoverPlay ? this.play : undefined,
             onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: _style2.default.dynamic([['2473716235', [thumb]]]) + ' ' + ('vidWrap ' + aspectRatio)
+            className: _style2.default.dynamic([['3106243758', [thumb]]]) + ' ' + ('vidWrap ' + aspectRatio)
           },
           _react2.default.createElement(
             _reactLazyLoad2.default,
@@ -140,8 +142,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '2473716235',
-          css: '.video.__jsx-style-dynamic-selector{position:relative;}.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:41.67%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
+          styleId: '3106243758',
+          css: '.video.__jsx-style-dynamic-selector{position:relative;}.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:41.67%;}.vidWrap.cinema.__jsx-style-dynamic-selector{padding-top:46.88%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
           dynamic: [thumb]
         })
       );
