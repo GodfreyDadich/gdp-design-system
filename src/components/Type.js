@@ -16,9 +16,8 @@ import {
   // fontSizeUppercase,
 } from "../styles/typography";
 
-export const HeadingSuper = ({children}) => 
-  <h1 className='super'>
-    {children}
+export const HeadingSuper = ({children}) =>
+  <h1 className='super' dangerouslySetInnerHTML={{ __html: children }} >
     <style jsx>{`
       .super {
         font-size: ${fontSizeSuper}px;
@@ -28,9 +27,8 @@ export const HeadingSuper = ({children}) =>
     `}</style>
   </h1>
 
-export const Heading1 = ({children}) => 
-  <h1 className='headingOne'>
-    {children}
+export const Heading1 = ({children}) =>
+  <h1 className='headingOne' dangerouslySetInnerHTML={{ __html: children }} >
     <style jsx>{`
       .headingOne {
         position: relative;
@@ -58,7 +56,7 @@ export const Heading1 = ({children}) =>
         }
       }
     `}</style>
-  </h1> 
+  </h1>
   
 export const Heading2 = ({children}) => 
   <h2 className='headingTwo'>
@@ -82,9 +80,9 @@ export const Heading3 = ({children}) =>
         margin: 0;
       }
     `}</style>
-  </h3> 
+  </h3>
 
-export const Heading4 = ({children}) => 
+export const Heading4 = ({ children }) => 
   <h4 className='headingFour'>
     {children}
     <style jsx>{`
@@ -96,7 +94,7 @@ export const Heading4 = ({children}) =>
     `}</style>
   </h4>
 
-export const Pullquote = ({classAdd, children}) =>
+export const Pullquote = ({ classAdd, children }) =>
   <div className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}>
     {children}
     <style jsx>{`

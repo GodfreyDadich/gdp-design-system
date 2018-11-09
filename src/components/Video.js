@@ -34,7 +34,9 @@ class Video extends React.Component {
     this.setState({
       playing: false
     })
-    this.state.player.stop()
+    if (this.state.player) {
+      this.state.player.stop()
+    }
   }
 
   videoReadyPause ({ player }) { // pauses the player on load if autoplay isn't set to true
@@ -106,6 +108,9 @@ class Video extends React.Component {
               }
               &.cropped {
                 padding-top: 41.67%;
+              }
+              &.cinema {
+                padding-top: 46.88%;
               }
               &.square {
                 padding-top: 100%;
