@@ -17,7 +17,8 @@ import {
 } from "../styles/typography";
 
 export const HeadingSuper = ({children}) =>
-  <h1 className='super' dangerouslySetInnerHTML={{ __html: children }} >
+  <h1 className='super' >
+    {children}
     <style jsx>{`
       .super {
         font-size: ${fontSizeSuper}px;
@@ -28,7 +29,8 @@ export const HeadingSuper = ({children}) =>
   </h1>
 
 export const Heading1 = ({children}) =>
-  <h1 className='headingOne' dangerouslySetInnerHTML={{ __html: children }} >
+  <h1 className='headingOne' >
+    {children}
     <style jsx>{`
       .headingOne {
         position: relative;
