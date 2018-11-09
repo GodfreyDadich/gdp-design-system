@@ -21,8 +21,10 @@ var HeadingSuper = exports.HeadingSuper = function HeadingSuper(_ref) {
   var children = _ref.children;
   return _react2.default.createElement(
     'h1',
-    { dangerouslySetInnerHTML: { __html: children }, className: _style2.default.dynamic([['3711590880', [_typography.fontSizeSuper, _typography.lineHeightSuper]]]) + ' ' + 'super'
+    {
+      className: _style2.default.dynamic([['3711590880', [_typography.fontSizeSuper, _typography.lineHeightSuper]]]) + ' ' + 'super'
     },
+    children,
     _react2.default.createElement(_style2.default, {
       styleId: '3711590880',
       css: '.super.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeSuper + 'px;line-height:' + _typography.lineHeightSuper + ';margin:0;}',
@@ -35,8 +37,10 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   var children = _ref2.children;
   return _react2.default.createElement(
     'h1',
-    { dangerouslySetInnerHTML: { __html: children }, className: 'jsx-2255199418' + ' ' + 'headingOne'
+    {
+      className: 'jsx-2255199418' + ' ' + 'headingOne'
     },
+    children,
     _react2.default.createElement(_style2.default, {
       styleId: '2255199418',
       css: '.headingOne.jsx-2255199418{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-2255199418 .clientName.jsx-2255199418{display:block;color:#7F7F7F;}.headingOne.jsx-2255199418:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}'
