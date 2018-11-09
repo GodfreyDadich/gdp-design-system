@@ -36,7 +36,6 @@ var ImageWrap = function ImageWrap(_ref) {
         backgroundRepeat: 'no-repeat',
         position: 'relative',
         height: 'auto',
-        transition: 'transform 0.5s',
         overflow: '' + (!sideBar ? 'hidden' : 'visible'),
         paddingTop: paddingRef[aspectRatio]
       }

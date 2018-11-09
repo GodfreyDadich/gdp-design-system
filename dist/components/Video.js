@@ -49,11 +49,13 @@ var Video = function (_React$Component) {
 
     _this.state = {
       playing: false,
-      player: undefined
+      player: undefined,
+      vidSource: ''
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
     _this.videoReadyPause = _this.videoReadyPause.bind(_this);
+    _this.loadVideo = _this.loadVideo.bind(_this);
     return _this;
   }
 
@@ -82,6 +84,7 @@ var Video = function (_React$Component) {
     value: function videoReadyPause(_ref) {
       var player = _ref.player;
       // pauses the player on load if autoplay isn't set to true
+      console.log(' player ready ');
       player.player.pause();
       player.player.stop();
 
@@ -90,8 +93,24 @@ var Video = function (_React$Component) {
       });
     }
   }, {
+    key: 'loadVideo',
+    value: function loadVideo(vidSource, hoverPlay) {
+      var _this2 = this;
+
+      this.setState({
+        vidSource: vidSource
+      });
+      if (!hoverPlay) {
+        setTimeout(function () {
+          _this2.refs.hoverCover.style.display = 'none';
+        }, 1000);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       var _props = this.props,
           vidSource = _props.vidSource,
           classAdd = _props.classAdd,
@@ -110,20 +129,32 @@ var Video = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: _style2.default.dynamic([['3106243758', [thumb]]]) + ' ' + ('video ' + classAdd)
+          className: 'jsx-117689316' + ' ' + ('video ' + classAdd)
         },
         _react2.default.createElement(
-          'div',
+          _reactLazyLoad2.default,
           {
-            onMouseEnter: hoverPlay ? this.play : undefined,
-            onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: _style2.default.dynamic([['3106243758', [thumb]]]) + ' ' + ('vidWrap ' + aspectRatio)
-          },
+            offsetVertical: 500,
+            debounce: false,
+            onContentVisible: function onContentVisible() {
+              _this3.loadVideo(vidSource, hoverPlay);
+            } },
           _react2.default.createElement(
-            _reactLazyLoad2.default,
-            { offsetVertical: 1000, debounce: false },
+            'div',
+            {
+              onMouseEnter: hoverPlay ? this.play : undefined,
+              onMouseLeave: hoverPlay ? this.pause : undefined,
+              className: 'jsx-117689316' + ' ' + ('vidWrap ' + aspectRatio)
+            },
+            _react2.default.createElement('div', {
+              ref: 'hoverCover',
+
+              style: {
+                backgroundImage: 'url(' + thumb + ')'
+              }, className: 'jsx-117689316' + ' ' + 'hoverCover'
+            }),
             _react2.default.createElement(_reactPlayer2.default, {
-              url: '' + vidSource,
+              url: autoplay ? vidSource : this.state.vidSource,
               playing: playing,
               loop: loop,
               controls: controls,
@@ -142,9 +173,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '3106243758',
-          css: '.video.__jsx-style-dynamic-selector{position:relative;}.vidWrap.__jsx-style-dynamic-selector{position:relative;width:100%;overflow:hidden;height:auto;background-size:cover;background-repeat:no-repeat;background-image:url(' + thumb + ');}.vidWrap.sixteen.__jsx-style-dynamic-selector{padding-top:56.25%;}.vidWrap.standard.__jsx-style-dynamic-selector{padding-top:75%;}.vidWrap.cropped.__jsx-style-dynamic-selector{padding-top:41.67%;}.vidWrap.cinema.__jsx-style-dynamic-selector{padding-top:46.88%;}.vidWrap.square.__jsx-style-dynamic-selector{padding-top:100%;}.wrappedVideo.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;width:100%;height:100%;}',
-          dynamic: [thumb]
+          styleId: '117689316',
+          css: '.video.jsx-117689316{position:relative;}.vidWrap.jsx-117689316{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-117689316{padding-top:56.25%;}.vidWrap.standard.jsx-117689316{padding-top:75%;}.vidWrap.cropped.jsx-117689316{padding-top:41.67%;}.vidWrap.cinema.jsx-117689316{padding-top:46.88%;}.vidWrap.square.jsx-117689316{padding-top:100%;}.wrappedVideo.jsx-117689316,.hoverCover.jsx-117689316{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.hoverCover.jsx-117689316{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;}.hoverCover.jsx-117689316:hover{opacity:0;}'
         })
       );
     }

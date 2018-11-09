@@ -376,7 +376,7 @@ var modalState = true;
 }).add('Hover Video', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '50%', margin: '10px auto' } },
+    { style: { width: '50%', margin: '1000px auto 0' } },
     _react2.default.createElement(_HoverVideo2.default, {
       title: '',
       aspectRatio: 'cropped',
