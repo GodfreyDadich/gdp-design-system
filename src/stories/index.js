@@ -334,7 +334,7 @@ storiesOf('Video', module)
   )
 
   .add('Hover Video', () =>
-    <div style={{ width: '50%', margin: '10px auto' }}>
+    <div style={{ width: '50%', margin: '1000px auto 0' }}>
       <HoverVideo
         title=''
         aspectRatio='cropped'
