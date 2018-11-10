@@ -76,6 +76,10 @@ var _Video = require('../components/Video');
 
 var _Video2 = _interopRequireDefault(_Video);
 
+var _DeviceVideo = require('../components/DeviceVideo');
+
+var _DeviceVideo2 = _interopRequireDefault(_DeviceVideo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'];
@@ -371,6 +375,16 @@ var modalState = true;
           BottomRight: 'right-bottom'
         }, 'topLeft')
       }
+    })
+  );
+}).add('Device Video', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '10px auto' } },
+    _react2.default.createElement(_DeviceVideo2.default, {
+      title: '',
+      vidSource: 'https://vimeo.com/299978313',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
     })
   );
 }).add('Hover Video', function () {

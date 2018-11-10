@@ -79,14 +79,14 @@ class Video extends React.Component {
     return (
       <div className={`video ${classAdd}`}>
         <LazyLoad
-          offsetVertical={500}
+          offsetVertical={1000}
           debounce={false}
           onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >
           <div className={`vidWrap ${aspectRatio}`}
             onMouseEnter={hoverPlay ? this.play : undefined}
             onMouseLeave={hoverPlay ? this.pause : undefined}
           >
-            <div 
+            <div
               ref='hoverCover'
               className='hoverCover'
               style={{
@@ -129,7 +129,7 @@ class Video extends React.Component {
                 padding-top: 41.67%;
               }
               &.cinema {
-                padding-top: 46.88%;
+                padding-top: 46.89%;
               }
               &.square {
                 padding-top: 100%;

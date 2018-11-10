@@ -20,6 +20,7 @@ import InstaEmbed from '../components/InstaEmbed'
 import Hero from '../components/Hero'
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
+import DeviceVideo from '../components/DeviceVideo'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -329,6 +330,16 @@ storiesOf('Video', module)
             BottomRight: 'right-bottom'
           }, 'topLeft')
         }}
+      />
+    </div>
+  )
+
+  .add('Device Video', () => 
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <DeviceVideo
+        title=''
+        vidSource='https://vimeo.com/299978313'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
       />
     </div>
   )

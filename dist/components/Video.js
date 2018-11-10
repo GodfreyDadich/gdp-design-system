@@ -129,12 +129,12 @@ var Video = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: 'jsx-117689316' + ' ' + ('video ' + classAdd)
+          className: 'jsx-3624280518' + ' ' + ('video ' + classAdd)
         },
         _react2.default.createElement(
           _reactLazyLoad2.default,
           {
-            offsetVertical: 500,
+            offsetVertical: 1000,
             debounce: false,
             onContentVisible: function onContentVisible() {
               _this3.loadVideo(vidSource, hoverPlay);
@@ -144,14 +144,14 @@ var Video = function (_React$Component) {
             {
               onMouseEnter: hoverPlay ? this.play : undefined,
               onMouseLeave: hoverPlay ? this.pause : undefined,
-              className: 'jsx-117689316' + ' ' + ('vidWrap ' + aspectRatio)
+              className: 'jsx-3624280518' + ' ' + ('vidWrap ' + aspectRatio)
             },
             _react2.default.createElement('div', {
               ref: 'hoverCover',
 
               style: {
                 backgroundImage: 'url(' + thumb + ')'
-              }, className: 'jsx-117689316' + ' ' + 'hoverCover'
+              }, className: 'jsx-3624280518' + ' ' + 'hoverCover'
             }),
             _react2.default.createElement(_reactPlayer2.default, {
               url: autoplay ? vidSource : this.state.vidSource,
@@ -173,8 +173,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '117689316',
-          css: '.video.jsx-117689316{position:relative;}.vidWrap.jsx-117689316{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-117689316{padding-top:56.25%;}.vidWrap.standard.jsx-117689316{padding-top:75%;}.vidWrap.cropped.jsx-117689316{padding-top:41.67%;}.vidWrap.cinema.jsx-117689316{padding-top:46.88%;}.vidWrap.square.jsx-117689316{padding-top:100%;}.wrappedVideo.jsx-117689316,.hoverCover.jsx-117689316{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.hoverCover.jsx-117689316{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;}.hoverCover.jsx-117689316:hover{opacity:0;}'
+          styleId: '3624280518',
+          css: '.video.jsx-3624280518{position:relative;}.vidWrap.jsx-3624280518{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-3624280518{padding-top:56.25%;}.vidWrap.standard.jsx-3624280518{padding-top:75%;}.vidWrap.cropped.jsx-3624280518{padding-top:41.67%;}.vidWrap.cinema.jsx-3624280518{padding-top:46.89%;}.vidWrap.square.jsx-3624280518{padding-top:100%;}.wrappedVideo.jsx-3624280518,.hoverCover.jsx-3624280518{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.hoverCover.jsx-3624280518{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;}.hoverCover.jsx-3624280518:hover{opacity:0;}'
         })
       );
     }
