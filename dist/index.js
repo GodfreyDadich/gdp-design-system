@@ -181,6 +181,15 @@ Object.defineProperty(exports, 'HoverVideo', {
   }
 });
 
+var _DeviceVideo = require('./components/DeviceVideo');
+
+Object.defineProperty(exports, 'DeviceVideo', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_DeviceVideo).default;
+  }
+});
+
 var _Type = require('./components/Type');
 
 Object.keys(_Type).forEach(function (key) {
