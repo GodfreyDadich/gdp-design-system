@@ -78,14 +78,14 @@ class Video extends React.Component {
     const { playing } = this.state
     return (
       <div className={`video ${classAdd}`}>
-        <LazyLoad
-          offsetVertical={1000}
-          debounce={false}
-          onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >
-          <div className={`vidWrap ${aspectRatio}`}
-            onMouseEnter={hoverPlay ? this.play : undefined}
-            onMouseLeave={hoverPlay ? this.pause : undefined}
-          >
+        <div className={`vidWrap ${aspectRatio}`}
+          onMouseEnter={hoverPlay ? this.play : undefined}
+          onMouseLeave={hoverPlay ? this.pause : undefined}
+        >
+          <LazyLoad
+            offsetVertical={1000}
+            debounce={false}
+            onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >        
             <div
               ref='hoverCover'
               className='hoverCover'
@@ -103,8 +103,9 @@ class Video extends React.Component {
               config={config}
               onReady={autoplay ? null : this.videoReadyPause}
             />
-          </div>
-        </LazyLoad>
+          </LazyLoad>
+
+        </div>
         {sideBar
           ? <SideBar sideBar={sideBar} />
           : ''}

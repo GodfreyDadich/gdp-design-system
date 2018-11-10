@@ -132,20 +132,20 @@ var Video = function (_React$Component) {
           className: 'jsx-3624280518' + ' ' + ('video ' + classAdd)
         },
         _react2.default.createElement(
-          _reactLazyLoad2.default,
+          'div',
           {
-            offsetVertical: 1000,
-            debounce: false,
-            onContentVisible: function onContentVisible() {
-              _this3.loadVideo(vidSource, hoverPlay);
-            } },
+            onMouseEnter: hoverPlay ? this.play : undefined,
+            onMouseLeave: hoverPlay ? this.pause : undefined,
+            className: 'jsx-3624280518' + ' ' + ('vidWrap ' + aspectRatio)
+          },
           _react2.default.createElement(
-            'div',
+            _reactLazyLoad2.default,
             {
-              onMouseEnter: hoverPlay ? this.play : undefined,
-              onMouseLeave: hoverPlay ? this.pause : undefined,
-              className: 'jsx-3624280518' + ' ' + ('vidWrap ' + aspectRatio)
-            },
+              offsetVertical: 1000,
+              debounce: false,
+              onContentVisible: function onContentVisible() {
+                _this3.loadVideo(vidSource, hoverPlay);
+              } },
             _react2.default.createElement('div', {
               ref: 'hoverCover',
 
