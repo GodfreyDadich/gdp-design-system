@@ -146,24 +146,30 @@ var Video = function (_React$Component) {
               onContentVisible: function onContentVisible() {
                 _this3.loadVideo(vidSource, hoverPlay);
               } },
-            _react2.default.createElement('div', {
-              ref: 'hoverCover',
+            _react2.default.createElement(
+              'div',
+              {
+                className: 'jsx-3624280518'
+              },
+              _react2.default.createElement('div', {
+                ref: 'hoverCover',
 
-              style: {
-                backgroundImage: 'url(' + thumb + ')'
-              }, className: 'jsx-3624280518' + ' ' + 'hoverCover'
-            }),
-            _react2.default.createElement(_reactPlayer2.default, {
-              url: autoplay ? vidSource : this.state.vidSource,
-              playing: playing,
-              loop: loop,
-              controls: controls,
-              width: '100%',
-              height: '100%',
-              style: vidStyle,
-              config: config,
-              onReady: autoplay ? null : this.videoReadyPause
-            })
+                style: {
+                  backgroundImage: 'url(' + thumb + ')'
+                }, className: 'jsx-3624280518' + ' ' + 'hoverCover'
+              }),
+              _react2.default.createElement(_reactPlayer2.default, {
+                url: autoplay ? vidSource : this.state.vidSource,
+                playing: playing,
+                loop: loop,
+                controls: controls,
+                width: '100%',
+                height: '100%',
+                style: vidStyle,
+                config: config,
+                onReady: autoplay ? null : this.videoReadyPause
+              })
+            )
           )
         ),
         sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : '',

@@ -85,24 +85,26 @@ class Video extends React.Component {
           <LazyLoad
             offsetVertical={1000}
             debounce={false}
-            onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >        
-            <div
-              ref='hoverCover'
-              className='hoverCover'
-              style={{
-                backgroundImage: `url(${thumb})`
-              }} />
-            <ReactPlayer
-              url={autoplay ? vidSource : this.state.vidSource}
-              playing={playing}
-              loop={loop}
-              controls={controls}
-              width='100%'
-              height='100%'
-              style={vidStyle}
-              config={config}
-              onReady={autoplay ? null : this.videoReadyPause}
-            />
+            onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >
+            <div>
+              <div
+                ref='hoverCover'
+                className='hoverCover'
+                style={{
+                  backgroundImage: `url(${thumb})`
+                }} />
+              <ReactPlayer
+                url={autoplay ? vidSource : this.state.vidSource}
+                playing={playing}
+                loop={loop}
+                controls={controls}
+                width='100%'
+                height='100%'
+                style={vidStyle}
+                config={config}
+                onReady={autoplay ? null : this.videoReadyPause}
+              />
+            </div>
           </LazyLoad>
 
         </div>
