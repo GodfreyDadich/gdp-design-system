@@ -16,12 +16,16 @@ class Video extends React.Component {
     this.state = {
       playing: false,
       player: undefined,
-      vidSource: ''
+      vidSource: '',
+      hoverPlay: props.hoverPlay,
+      autoplay: props.autoplay
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
-    this.videoReadyPause = this.videoReadyPause.bind(this)
+    this.videoReady = this.videoReady.bind(this)
     this.loadVideo = this.loadVideo.bind(this)
+    this.videoOnPlay = this.videoOnPlay.bind(this)
+    this.videoOnEnd = this.videoOnEnd.bind(this)
   }
 
   play () {
@@ -41,11 +45,15 @@ class Video extends React.Component {
     }
   }
 
-  videoReadyPause ({ player }) { // pauses the player on load if autoplay isn't set to true
+  videoReady ({ player }) { // pauses the player on load if autoplay isn't set to true
     console.log(' player ready ')
-    player.player.pause()
-    player.player.stop()
-
+    if (!this.state.autoplay) {
+      player.player.pause()
+      player.player.stop()
+    }
+    if (!this.state.hoverPlay && !this.state.autoplay) {
+      this.refs.hoverCover.style.display = 'none'
+    }
     this.setState({
       player: player.player
     })
@@ -54,11 +62,14 @@ class Video extends React.Component {
     this.setState({
       vidSource: vidSource
     })
+  }
+  videoOnPlay (hoverPlay) {
     if (!hoverPlay) {
-      setTimeout(() => {
-        this.refs.hoverCover.style.display = 'none'
-      }, 1000)
+      this.refs.hoverCover.style.display = 'none'
     }
+  }
+  videoOnEnd (hoverPlay) {
+
   }
 
   render () {
@@ -102,7 +113,9 @@ class Video extends React.Component {
                 height='100%'
                 style={vidStyle}
                 config={config}
-                onReady={autoplay ? null : this.videoReadyPause}
+                onReady={this.videoReady}
+                onPlay={() => { this.videoOnPlay(hoverPlay) }}
+                onEnded={() => { this.videoOnEnd(hoverPlay) }}
               />
             </div>
           </LazyLoad>
@@ -152,9 +165,11 @@ class Video extends React.Component {
               z-index: 20;
               background-size: cover;
               background-repeat: no-repeat;
+              transition: 0s opacity;
 
               &:hover {
                 opacity: 0;
+                transition-delay:.2s;
               }
             }
             `}</style>

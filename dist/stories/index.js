@@ -318,7 +318,7 @@ var modalState = true;
 (0, _react3.storiesOf)('Hero', module).add('Static Image', function () {
   return _react2.default.createElement(_Hero2.default, { type: 'image', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 }).add('Video', function () {
-  return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://vimeo.com/298058381', thumb: 'https://i.vimeocdn.com/video/735885971_1000.jpg' });
+  return _react2.default.createElement(_Hero2.default, { type: 'video', source: 'https://vimeo.com/299978304', thumb: 'https://i.vimeocdn.com/video/738220216_1000.jpg' });
 }).add('Image with Zoom effect', function () {
   return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 });

@@ -24,10 +24,11 @@ var ImageWrap = function ImageWrap(_ref) {
       imgSource = _ref.imgSource,
       horizontalAlign = _ref.horizontalAlign,
       verticalAlign = _ref.verticalAlign,
-      sideBar = _ref.sideBar;
+      sideBar = _ref.sideBar,
+      opacity = _ref.opacity;
   return _react2.default.createElement(
     'div',
-    { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : '') + (classAdd ? ' ' + classAdd : ''),
+    { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
       style: {
         background: '' + (aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2'),
         backgroundSize: 'cover',
@@ -36,6 +37,8 @@ var ImageWrap = function ImageWrap(_ref) {
         backgroundRepeat: 'no-repeat',
         position: 'relative',
         height: 'auto',
+        opacity: opacity,
+        transition: 'opacity .5s',
         overflow: '' + (!sideBar ? 'hidden' : 'visible'),
         paddingTop: paddingRef[aspectRatio]
       }

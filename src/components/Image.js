@@ -5,7 +5,19 @@ import { Caption, SideBar } from './Type'
 import LazyLoad from 'react-lazy-load'
 
 class Image extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      opacity: 0
+    }
+    this.displayImage = this.displayImage.bind(this)
+  }
 
+  displayImage () {
+    this.setState({
+      opacity: 1
+    })
+  }
   render () {
     const {
       imageTitle,
@@ -14,13 +26,17 @@ class Image extends React.Component {
       caption,
       sideBar,
       imgHover,
-      aspectRatio
+      aspectRatio,
+      classAdd
     } = this.props
 
     return (
-      <figure className={imgHover ? ' hoverWrap' : ''}>
-        <ImageWrap {...this.props}>
-          <LazyLoad offsetVertical={500} debounce={false}>
+      <figure className={`${imgHover ? 'hoverWrap' : ''}${classAdd ? ' ' + classAdd : ''}`}>
+        <ImageWrap {...this.props} opacity={this.state.opacity}>
+          <LazyLoad
+            offsetVertical={500}
+            debounce={false}
+            onContentVisible={this.displayImage}>
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />
               {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
@@ -46,7 +62,7 @@ class Image extends React.Component {
             ${aspectRatio === 'noAspect'
         ? `position: relative;
             width: 100%;
-            opacity: 1;
+            opacity: ${this.state.opacity};
             ` : ''}            
           }
           

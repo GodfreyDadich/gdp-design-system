@@ -50,12 +50,16 @@ var Video = function (_React$Component) {
     _this.state = {
       playing: false,
       player: undefined,
-      vidSource: ''
+      vidSource: '',
+      hoverPlay: props.hoverPlay,
+      autoplay: props.autoplay
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
-    _this.videoReadyPause = _this.videoReadyPause.bind(_this);
+    _this.videoReady = _this.videoReady.bind(_this);
     _this.loadVideo = _this.loadVideo.bind(_this);
+    _this.videoOnPlay = _this.videoOnPlay.bind(_this);
+    _this.videoOnEnd = _this.videoOnEnd.bind(_this);
     return _this;
   }
 
@@ -80,14 +84,18 @@ var Video = function (_React$Component) {
       }
     }
   }, {
-    key: 'videoReadyPause',
-    value: function videoReadyPause(_ref) {
+    key: 'videoReady',
+    value: function videoReady(_ref) {
       var player = _ref.player;
       // pauses the player on load if autoplay isn't set to true
       console.log(' player ready ');
-      player.player.pause();
-      player.player.stop();
-
+      if (!this.state.autoplay) {
+        player.player.pause();
+        player.player.stop();
+      }
+      if (!this.state.hoverPlay && !this.state.autoplay) {
+        this.refs.hoverCover.style.display = 'none';
+      }
       this.setState({
         player: player.player
       });
@@ -95,21 +103,24 @@ var Video = function (_React$Component) {
   }, {
     key: 'loadVideo',
     value: function loadVideo(vidSource, hoverPlay) {
-      var _this2 = this;
-
       this.setState({
         vidSource: vidSource
       });
+    }
+  }, {
+    key: 'videoOnPlay',
+    value: function videoOnPlay(hoverPlay) {
       if (!hoverPlay) {
-        setTimeout(function () {
-          _this2.refs.hoverCover.style.display = 'none';
-        }, 1000);
+        this.refs.hoverCover.style.display = 'none';
       }
     }
   }, {
+    key: 'videoOnEnd',
+    value: function videoOnEnd(hoverPlay) {}
+  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var _props = this.props,
           vidSource = _props.vidSource,
@@ -129,14 +140,14 @@ var Video = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: 'jsx-3624280518' + ' ' + ('video ' + classAdd)
+          className: 'jsx-2664932041' + ' ' + ('video ' + classAdd)
         },
         _react2.default.createElement(
           'div',
           {
             onMouseEnter: hoverPlay ? this.play : undefined,
             onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: 'jsx-3624280518' + ' ' + ('vidWrap ' + aspectRatio)
+            className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
           },
           _react2.default.createElement(
             _reactLazyLoad2.default,
@@ -144,19 +155,19 @@ var Video = function (_React$Component) {
               offsetVertical: 1000,
               debounce: false,
               onContentVisible: function onContentVisible() {
-                _this3.loadVideo(vidSource, hoverPlay);
+                _this2.loadVideo(vidSource, hoverPlay);
               } },
             _react2.default.createElement(
               'div',
               {
-                className: 'jsx-3624280518'
+                className: 'jsx-2664932041'
               },
               _react2.default.createElement('div', {
                 ref: 'hoverCover',
 
                 style: {
                   backgroundImage: 'url(' + thumb + ')'
-                }, className: 'jsx-3624280518' + ' ' + 'hoverCover'
+                }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
               }),
               _react2.default.createElement(_reactPlayer2.default, {
                 url: autoplay ? vidSource : this.state.vidSource,
@@ -167,7 +178,13 @@ var Video = function (_React$Component) {
                 height: '100%',
                 style: vidStyle,
                 config: config,
-                onReady: autoplay ? null : this.videoReadyPause
+                onReady: this.videoReady,
+                onPlay: function onPlay() {
+                  _this2.videoOnPlay(hoverPlay);
+                },
+                onEnded: function onEnded() {
+                  _this2.videoOnEnd(hoverPlay);
+                }
               })
             )
           )
@@ -179,8 +196,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '3624280518',
-          css: '.video.jsx-3624280518{position:relative;}.vidWrap.jsx-3624280518{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-3624280518{padding-top:56.25%;}.vidWrap.standard.jsx-3624280518{padding-top:75%;}.vidWrap.cropped.jsx-3624280518{padding-top:41.67%;}.vidWrap.cinema.jsx-3624280518{padding-top:46.89%;}.vidWrap.square.jsx-3624280518{padding-top:100%;}.wrappedVideo.jsx-3624280518,.hoverCover.jsx-3624280518{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.hoverCover.jsx-3624280518{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;}.hoverCover.jsx-3624280518:hover{opacity:0;}'
+          styleId: '2664932041',
+          css: '.video.jsx-2664932041{position:relative;}.vidWrap.jsx-2664932041{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-2664932041{padding-top:56.25%;}.vidWrap.standard.jsx-2664932041{padding-top:75%;}.vidWrap.cropped.jsx-2664932041{padding-top:41.67%;}.vidWrap.cinema.jsx-2664932041{padding-top:46.89%;}.vidWrap.square.jsx-2664932041{padding-top:100%;}.wrappedVideo.jsx-2664932041,.hoverCover.jsx-2664932041{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.hoverCover.jsx-2664932041{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;-webkit-transition:0s opacity;transition:0s opacity;}.hoverCover.jsx-2664932041:hover{opacity:0;-webkit-transition-delay:.2s;transition-delay:.2s;}'
         })
       );
     }
