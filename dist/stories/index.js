@@ -76,9 +76,9 @@ var _Video = require('../components/Video');
 
 var _Video2 = _interopRequireDefault(_Video);
 
-var _DeviceVideo = require('../components/DeviceVideo');
+var _Device = require('../components/Device');
 
-var _DeviceVideo2 = _interopRequireDefault(_DeviceVideo);
+var _Device2 = _interopRequireDefault(_Device);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -126,6 +126,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       sideBar: {
         text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+        isQuote: true,
         location: (0, _addonKnobs.selectV2)('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',
@@ -156,6 +157,25 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       , verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'bottom'),
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
     })
+  );
+}).add('Device Image', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '10px auto' } },
+    _react2.default.createElement(
+      _Device2.default,
+      { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black') },
+      _react2.default.createElement(_Image2.default, {
+        imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
+        aspectRatio: 'standard',
+        imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+        verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
+        horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
+      })
+    )
   );
 }).add('Image with Hover', function () {
   return _react2.default.createElement(
@@ -368,6 +388,7 @@ var modalState = true;
       sideBar: {
         text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+        isQuote: true,
         location: (0, _addonKnobs.selectV2)('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',
@@ -381,11 +402,19 @@ var modalState = true;
   return _react2.default.createElement(
     'div',
     { style: { width: '50%', margin: '10px auto' } },
-    _react2.default.createElement(_DeviceVideo2.default, {
-      title: '',
-      vidSource: 'https://vimeo.com/299978313',
-      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-    })
+    _react2.default.createElement(
+      _Device2.default,
+      { deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black') },
+      _react2.default.createElement(_Video2.default, {
+        title: '',
+        aspectRatio: 'standard',
+        vidSource: 'https://vimeo.com/299978313',
+        thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+      })
+    )
   );
 }).add('Hover Video', function () {
   return _react2.default.createElement(

@@ -181,12 +181,12 @@ Object.defineProperty(exports, 'HoverVideo', {
   }
 });
 
-var _DeviceVideo = require('./components/DeviceVideo');
+var _Device = require('./components/Device');
 
-Object.defineProperty(exports, 'DeviceVideo', {
+Object.defineProperty(exports, 'Device', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_DeviceVideo).default;
+    return _interopRequireDefault(_Device).default;
   }
 });
 

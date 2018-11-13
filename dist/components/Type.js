@@ -133,20 +133,20 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-3431542970' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+      className: 'jsx-1764097510' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
     },
-    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-3431542970' + ' ' + 'sideBar__logo'
+    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1764097510' + ' ' + 'sideBar__logo'
     }) : '',
     sideBar.text.length > 0 ? _react2.default.createElement(
       'span',
       {
-        className: 'jsx-3431542970' + ' ' + 'sideBar__text'
+        className: 'jsx-1764097510' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
       },
       sideBar.text
     ) : '',
     _react2.default.createElement(_style2.default, {
-      styleId: '3431542970',
-      css: '.sideBar.jsx-3431542970{position:absolute;top:0;left:-126px;width:102px;font-family:\'Atlas Grotesk\';font-weight:900;color:#000;}.sideBar.left-bottom.jsx-3431542970{top:auto;bottom:0;}.sideBar.right-top.jsx-3431542970{left:auto;right:-126px;}.sideBar.right-bottom.jsx-3431542970{top:auto;left:auto;right:-126px;bottom:0;}.sideBar__logo.jsx-3431542970{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-3431542970{display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__text.jsx-3431542970 p.jsx-3431542970{margin:0;}'
+      styleId: '1764097510',
+      css: '@charset "UTF-8";.sideBar.jsx-1764097510{position:absolute;top:0;left:-126px;width:102px;font-family:\'Atlas Grotesk\';font-weight:900;color:#000;}.sideBar.left-bottom.jsx-1764097510{top:auto;bottom:0;}.sideBar.right-top.jsx-1764097510{left:auto;right:-126px;}.sideBar.right-bottom.jsx-1764097510{top:auto;left:auto;right:-126px;bottom:0;}.sideBar__logo.jsx-1764097510{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1764097510{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__text.isQuote.jsx-1764097510:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1764097510:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1764097510 p.jsx-1764097510{margin:0;}'
     })
   );
 };

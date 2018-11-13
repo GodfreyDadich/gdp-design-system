@@ -28,9 +28,10 @@ var ImageWrap = function ImageWrap(_ref) {
       opacity = _ref.opacity;
   return _react2.default.createElement(
     'div',
-    { className: 'imageWrap ' + (fullBleed ? 'fullBleed' : ''),
+    { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
       style: {
-        background: '' + (aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : '#f2f2f2'),
+        backgroundImage: '' + (aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : ''),
+        backgroundColor: '#f2f2f2',
         backgroundSize: 'cover',
         backgroundPositionX: horizontalAlign,
         backgroundPositionY: verticalAlign,

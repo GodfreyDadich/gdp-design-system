@@ -59,7 +59,7 @@ var Video = function (_React$Component) {
     _this.videoReady = _this.videoReady.bind(_this);
     _this.loadVideo = _this.loadVideo.bind(_this);
     _this.videoOnPlay = _this.videoOnPlay.bind(_this);
-    _this.videoOnEnd = _this.videoOnEnd.bind(_this);
+    // this.videoOnEnd = this.videoOnEnd.bind(this)
     return _this;
   }
 
@@ -102,21 +102,22 @@ var Video = function (_React$Component) {
     }
   }, {
     key: 'loadVideo',
-    value: function loadVideo(vidSource, hoverPlay) {
+    value: function loadVideo(vidSource) {
       this.setState({
         vidSource: vidSource
       });
     }
   }, {
     key: 'videoOnPlay',
-    value: function videoOnPlay(hoverPlay) {
-      if (!hoverPlay) {
+    value: function videoOnPlay() {
+      if (!this.state.hoverPlay) {
         this.refs.hoverCover.style.display = 'none';
       }
     }
-  }, {
-    key: 'videoOnEnd',
-    value: function videoOnEnd(hoverPlay) {}
+    // videoOnEnd (hoverPlay) {
+
+    // }
+
   }, {
     key: 'render',
     value: function render() {
@@ -139,53 +140,54 @@ var Video = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        {
-          className: 'jsx-2664932041' + ' ' + ('video ' + classAdd)
+        { style: { position: 'relative' }, className: 'jsx-2664932041'
         },
         _react2.default.createElement(
           'div',
           {
-            onMouseEnter: hoverPlay ? this.play : undefined,
-            onMouseLeave: hoverPlay ? this.pause : undefined,
-            className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+            className: 'jsx-2664932041' + ' ' + ('video ' + classAdd)
           },
           _react2.default.createElement(
-            _reactLazyLoad2.default,
+            'div',
             {
-              offsetVertical: 1000,
-              debounce: false,
-              onContentVisible: function onContentVisible() {
-                _this2.loadVideo(vidSource, hoverPlay);
-              } },
+              onMouseEnter: hoverPlay ? this.play : undefined,
+              onMouseLeave: hoverPlay ? this.pause : undefined,
+              className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+            },
             _react2.default.createElement(
-              'div',
+              _reactLazyLoad2.default,
               {
-                className: 'jsx-2664932041'
-              },
-              _react2.default.createElement('div', {
-                ref: 'hoverCover',
-
-                style: {
-                  backgroundImage: 'url(' + thumb + ')'
-                }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
-              }),
-              _react2.default.createElement(_reactPlayer2.default, {
-                url: autoplay ? vidSource : this.state.vidSource,
-                playing: playing,
-                loop: loop,
-                controls: controls,
-                width: '100%',
-                height: '100%',
-                style: vidStyle,
-                config: config,
-                onReady: this.videoReady,
-                onPlay: function onPlay() {
-                  _this2.videoOnPlay(hoverPlay);
+                offsetVertical: 1000,
+                debounce: false,
+                onContentVisible: function onContentVisible() {
+                  _this2.loadVideo(vidSource);
+                } },
+              _react2.default.createElement(
+                'div',
+                {
+                  className: 'jsx-2664932041'
                 },
-                onEnded: function onEnded() {
-                  _this2.videoOnEnd(hoverPlay);
-                }
-              })
+                _react2.default.createElement('div', {
+                  ref: 'hoverCover',
+
+                  style: {
+                    backgroundImage: 'url(' + thumb + ')'
+                  }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
+                }),
+                _react2.default.createElement(_reactPlayer2.default, {
+                  url: autoplay ? vidSource : this.state.vidSource,
+                  playing: playing,
+                  loop: loop,
+                  controls: controls,
+                  width: '100%',
+                  height: '100%',
+                  style: vidStyle,
+                  config: config,
+                  onReady: this.videoReady,
+                  onPlay: this.videoOnPlay
+                  // onEnded={() => { this.videoOnEnd(hoverPlay) }}
+                })
+              )
             )
           )
         ),
