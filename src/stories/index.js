@@ -20,7 +20,7 @@ import InstaEmbed from '../components/InstaEmbed'
 import Hero from '../components/Hero'
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
-import DeviceVideo from '../components/DeviceVideo'
+import Device from '../components/Device'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -67,10 +67,11 @@ storiesOf('Image', module)
   )
   .add(
     'Image with SideBar',
-    () => <div style={{width:'50%', margin:'50px auto'}}><Image
+    () => <div style={{ width: '50%', margin: '50px auto' }}><Image
       sideBar={{ 
         text: text('Sidebar Text','Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+        isQuote: true,
         location: selectV2('Sidebar Location', { 
           TopLeft: 'left-top',
           TopRight: 'right-top',
@@ -79,7 +80,7 @@ storiesOf('Image', module)
         }, 'topLeft')
       }}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+      aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped' }, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       linkUrl={text('url', '')}
@@ -99,6 +100,24 @@ storiesOf('Image', module)
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
     /></div>
+  )
+
+
+  .add('Device Image', () =>
+    <div style={{ width: '50%', margin: '10px auto' }}>
+      <Device deviceColor={selectV2('Device Color', {
+        black: 'black',
+        white: 'white'
+      }, 'black')}>
+        <Image
+          imageTitle={text('Image Title/Alt', 'test')}
+          aspectRatio='standard'
+          imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+          verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+          horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+        />
+      </Device>
+    </div>
   )
 
   .add(
@@ -323,6 +342,7 @@ storiesOf('Video', module)
         sideBar={{ 
           text: text('Sidebar Text','Smaller length, Sidebar text area.'),
           image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+          isQuote: true,
           location: selectV2('Sidebar Location', {
             TopLeft: 'left-top',
             TopRight: 'right-top',
@@ -334,13 +354,19 @@ storiesOf('Video', module)
     </div>
   )
 
-  .add('Device Video', () => 
+  .add('Device Video', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
-      <DeviceVideo
-        title=''
-        vidSource='https://vimeo.com/299978313'
-        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-      />
+      <Device deviceColor={selectV2('Device Color', {
+        black: 'black',
+        white: 'white'
+      }, 'black')}>
+        <Video
+          title=''
+          aspectRatio='standard'
+          vidSource='https://vimeo.com/299978313'
+          thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        />
+      </Device>
     </div>
   )
 

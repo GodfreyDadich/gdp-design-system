@@ -40,6 +40,7 @@ class Image extends React.Component {
         <style jsx>{`
           figure {
             position: relative;
+            margin: 0;
           }
           .wrappedImage {
             position: absolute;

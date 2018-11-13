@@ -7,9 +7,10 @@ const paddingRef = {
   square: '100%'
 }
 const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, horizontalAlign, verticalAlign, sideBar, opacity }) =>
-  <div className={`imageWrap ${fullBleed ? 'fullBleed' : ''}`}
+  <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
     style={{
-      background: `${aspectRatio !== 'noAspect' ? `url(${imgSource})` : '#f2f2f2'}`,
+      backgroundImage: `${aspectRatio !== 'noAspect' ? `url(${imgSource})` : ''}`,
+      backgroundColor: '#f2f2f2',
       backgroundSize: 'cover',
       backgroundPositionX: horizontalAlign,
       backgroundPositionY: verticalAlign,

@@ -25,7 +25,7 @@ class Video extends React.Component {
     this.videoReady = this.videoReady.bind(this)
     this.loadVideo = this.loadVideo.bind(this)
     this.videoOnPlay = this.videoOnPlay.bind(this)
-    this.videoOnEnd = this.videoOnEnd.bind(this)
+    // this.videoOnEnd = this.videoOnEnd.bind(this)
   }
 
   play () {
@@ -58,19 +58,19 @@ class Video extends React.Component {
       player: player.player
     })
   }
-  loadVideo (vidSource, hoverPlay) {
+  loadVideo (vidSource) {
     this.setState({
       vidSource: vidSource
     })
   }
-  videoOnPlay (hoverPlay) {
-    if (!hoverPlay) {
+  videoOnPlay () {
+    if (!this.state.hoverPlay) {
       this.refs.hoverCover.style.display = 'none'
     }
   }
-  videoOnEnd (hoverPlay) {
+  // videoOnEnd (hoverPlay) {
 
-  }
+  // }
 
   render () {
     const {
@@ -88,38 +88,40 @@ class Video extends React.Component {
     } = this.props
     const { playing } = this.state
     return (
-      <div className={`video ${classAdd}`}>
-        <div className={`vidWrap ${aspectRatio}`}
-          onMouseEnter={hoverPlay ? this.play : undefined}
-          onMouseLeave={hoverPlay ? this.pause : undefined}
-        >
-          <LazyLoad
-            offsetVertical={1000}
-            debounce={false}
-            onContentVisible={() => { this.loadVideo(vidSource, hoverPlay) }} >
-            <div>
-              <div
-                ref='hoverCover'
-                className='hoverCover'
-                style={{
-                  backgroundImage: `url(${thumb})`
-                }} />
-              <ReactPlayer
-                url={autoplay ? vidSource : this.state.vidSource}
-                playing={playing}
-                loop={loop}
-                controls={controls}
-                width='100%'
-                height='100%'
-                style={vidStyle}
-                config={config}
-                onReady={this.videoReady}
-                onPlay={() => { this.videoOnPlay(hoverPlay) }}
-                onEnded={() => { this.videoOnEnd(hoverPlay) }}
-              />
-            </div>
-          </LazyLoad>
+      <div style={{ position: 'relative' }}>
+        <div className={`video ${classAdd}`}>
+          <div className={`vidWrap ${aspectRatio}`}
+            onMouseEnter={hoverPlay ? this.play : undefined}
+            onMouseLeave={hoverPlay ? this.pause : undefined}
+          >
+            <LazyLoad
+              offsetVertical={1000}
+              debounce={false}
+              onContentVisible={() => { this.loadVideo(vidSource) }} >
+              <div>
+                <div
+                  ref='hoverCover'
+                  className='hoverCover'
+                  style={{
+                    backgroundImage: `url(${thumb})`
+                  }} />
+                <ReactPlayer
+                  url={autoplay ? vidSource : this.state.vidSource}
+                  playing={playing}
+                  loop={loop}
+                  controls={controls}
+                  width='100%'
+                  height='100%'
+                  style={vidStyle}
+                  config={config}
+                  onReady={this.videoReady}
+                  onPlay={this.videoOnPlay}
+                  // onEnded={() => { this.videoOnEnd(hoverPlay) }}
+                />
+              </div>
+            </LazyLoad>
 
+          </div>
         </div>
         {sideBar
           ? <SideBar sideBar={sideBar} />

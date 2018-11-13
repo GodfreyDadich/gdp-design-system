@@ -135,7 +135,7 @@ export const Caption = ({ classAdd, children }) =>
 export const SideBar = ({ sideBar }) =>
   <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
     {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
-    {sideBar.text.length > 0 ? <span className='sideBar__text'>{sideBar.text}</span> : ''}
+    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
 
     <style jsx>{`
     .sideBar {
@@ -168,12 +168,22 @@ export const SideBar = ({ sideBar }) =>
         margin-bottom: 12px;
       }
       &__text {
+        position: relative;
         display: block;
         border-top: 7px solid #000;
         padding-top: 9px;
         font-size: 12px;
         line-height: 12.8px;
         letter-spacing: -0.1px;
+
+        &.isQuote:before {
+          content: '“';
+          margin-left: -7px;
+        }
+        &.isQuote:after {
+          content: '”';
+          margin-right: -7px;
+        }        
 
         p {
           margin: 0;
