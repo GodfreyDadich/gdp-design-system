@@ -62,13 +62,15 @@ var Image = function (_React$Component) {
       return _react2.default.createElement(
         'figure',
         {
-          className: _style2.default.dynamic([['2534896143', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('' + (imgHover ? 'hoverWrap' : '') + (classAdd ? ' ' + classAdd : ''))
+          className: _style2.default.dynamic([['2534896143', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ((imgHover ? 'hoverWrap' : '') || '')
         },
         _react2.default.createElement(
           _reactLazyLoad2.default,
           {
             offsetVertical: 500,
-            debounce: false },
+            debounce: false,
+            className: classAdd
+          },
           _react2.default.createElement(
             _ImageWrap2.default,
             this.props,

@@ -19,10 +19,12 @@ class Image extends React.Component {
     } = this.props
 
     return (
-      <figure className={`${imgHover ? 'hoverWrap' : ''}${classAdd ? ' ' + classAdd : ''}`}>
+      <figure className={imgHover ? 'hoverWrap' : ''}>
         <LazyLoad
           offsetVertical={500}
-          debounce={false} >
+          debounce={false}
+          className={classAdd}
+        >
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />
