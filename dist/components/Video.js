@@ -140,12 +140,13 @@ var Video = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: { position: 'relative' }, className: 'jsx-2664932041'
+        {
+          className: 'jsx-2664932041' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : ''))
         },
         _react2.default.createElement(
           'div',
           {
-            className: 'jsx-2664932041' + ' ' + ('video ' + classAdd)
+            className: 'jsx-2664932041' + ' ' + ('' + classAdd)
           },
           _react2.default.createElement(
             'div',
@@ -189,9 +190,9 @@ var Video = function (_React$Component) {
                 })
               )
             )
-          )
+          ),
+          sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : ''
         ),
-        sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : '',
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
           { classAdd: 'col-6 skip-3' },

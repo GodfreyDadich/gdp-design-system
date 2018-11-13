@@ -88,8 +88,8 @@ class Video extends React.Component {
     } = this.props
     const { playing } = this.state
     return (
-      <div style={{ position: 'relative' }}>
-        <div className={`video ${classAdd}`}>
+      <div className={`video${hoverPlay ? ' hoverVid' : ''}`}>
+        <div className={`${classAdd}`}>
           <div className={`vidWrap ${aspectRatio}`}
             onMouseEnter={hoverPlay ? this.play : undefined}
             onMouseLeave={hoverPlay ? this.pause : undefined}
