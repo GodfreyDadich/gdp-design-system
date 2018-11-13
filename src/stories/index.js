@@ -105,7 +105,7 @@ storiesOf('Image', module)
 
   .add('Device Image', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
-      <Device deviceColor={selectV2('Device Color', {
+      <Device classAdd='test' deviceColor={selectV2('Device Color', {
         black: 'black',
         white: 'white'
       }, 'black')}>
