@@ -356,14 +356,24 @@ storiesOf('Video', module)
 
   .add('Device Video', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
-      <Device deviceColor={selectV2('Device Color', {
-        black: 'black',
-        white: 'white'
-      }, 'black')}>
+      <Device
+        deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
         <Video
           title=''
           aspectRatio='standard'
           vidSource='https://vimeo.com/299978313'
+          autoplay
+          loop
+          config={{
+            vimeo: {
+              playerOptions: {
+                background: 1
+              }
+            }
+          }}
           thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         />
       </Device>

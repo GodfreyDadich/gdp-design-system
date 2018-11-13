@@ -48,7 +48,7 @@ var Video = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).call(this, props));
 
     _this.state = {
-      playing: false,
+      playing: props.autoplay,
       player: undefined,
       vidSource: '',
       hoverPlay: props.hoverPlay,
@@ -93,7 +93,7 @@ var Video = function (_React$Component) {
         player.player.pause();
         player.player.stop();
       }
-      if (!this.state.hoverPlay && !this.state.autoplay) {
+      if (!this.state.hoverPlay) {
         this.refs.hoverCover.style.display = 'none';
       }
       this.setState({
@@ -150,48 +150,54 @@ var Video = function (_React$Component) {
           },
           _react2.default.createElement(
             'div',
-            {
-              onMouseEnter: hoverPlay ? this.play : undefined,
-              onMouseLeave: hoverPlay ? this.pause : undefined,
-              className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+            { style: { position: 'relative' }, className: 'jsx-2664932041'
             },
+            ' ',
             _react2.default.createElement(
-              _reactLazyLoad2.default,
+              'div',
               {
-                offsetVertical: 1000,
-                debounce: false,
-                onContentVisible: function onContentVisible() {
-                  _this2.loadVideo(vidSource);
-                } },
+                onMouseEnter: hoverPlay ? this.play : undefined,
+                onMouseLeave: hoverPlay ? this.pause : undefined,
+                className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+              },
               _react2.default.createElement(
-                'div',
+                _reactLazyLoad2.default,
                 {
-                  className: 'jsx-2664932041'
-                },
-                _react2.default.createElement('div', {
-                  ref: 'hoverCover',
+                  offsetVertical: 1000,
+                  debounce: false,
+                  onContentVisible: function onContentVisible() {
+                    _this2.loadVideo(vidSource);
+                  } },
+                _react2.default.createElement(
+                  'div',
+                  {
+                    className: 'jsx-2664932041'
+                  },
+                  _react2.default.createElement('div', {
+                    ref: 'hoverCover',
 
-                  style: {
-                    backgroundImage: 'url(' + thumb + ')'
-                  }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
-                }),
-                _react2.default.createElement(_reactPlayer2.default, {
-                  url: autoplay ? vidSource : this.state.vidSource,
-                  playing: playing,
-                  loop: loop,
-                  controls: controls,
-                  width: '100%',
-                  height: '100%',
-                  style: vidStyle,
-                  config: config,
-                  onReady: this.videoReady,
-                  onPlay: this.videoOnPlay
-                  // onEnded={() => { this.videoOnEnd(hoverPlay) }}
-                })
+                    style: {
+                      backgroundImage: 'url(' + thumb + ')'
+                    }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
+                  }),
+                  _react2.default.createElement(_reactPlayer2.default, {
+                    url: autoplay ? vidSource : this.state.vidSource,
+                    playing: playing,
+                    loop: loop,
+                    controls: controls,
+                    width: '100%',
+                    height: '100%',
+                    style: vidStyle,
+                    config: config,
+                    onReady: this.videoReady,
+                    onPlay: this.videoOnPlay
+                    // onEnded={() => { this.videoOnEnd(hoverPlay) }}
+                  })
+                )
               )
-            )
-          ),
-          sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : ''
+            ),
+            sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : ''
+          )
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,

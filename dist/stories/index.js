@@ -404,7 +404,8 @@ var modalState = true;
     { style: { width: '50%', margin: '10px auto' } },
     _react2.default.createElement(
       _Device2.default,
-      { deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+      {
+        deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
           black: 'black',
           white: 'white'
         }, 'black') },
@@ -412,6 +413,15 @@ var modalState = true;
         title: '',
         aspectRatio: 'standard',
         vidSource: 'https://vimeo.com/299978313',
+        autoplay: true,
+        loop: true,
+        config: {
+          vimeo: {
+            playerOptions: {
+              background: 1
+            }
+          }
+        },
         thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
       })
     )

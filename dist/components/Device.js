@@ -8,6 +8,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Type = require('./Type');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var devices = {
@@ -18,6 +20,7 @@ var devices = {
 var Device = function Device(_ref) {
   var deviceColor = _ref.deviceColor,
       classAdd = _ref.classAdd,
+      caption = _ref.caption,
       children = _ref.children;
   return _react2.default.createElement(
     'div',
@@ -39,7 +42,12 @@ var Device = function Device(_ref) {
           height: '87.71%'
         } },
       children
-    )
+    ),
+    caption && caption.length > 0 ? _react2.default.createElement(
+      _Type.Caption,
+      { classAdd: 'col-6 skip-3' },
+      caption
+    ) : ''
   );
 };
 
