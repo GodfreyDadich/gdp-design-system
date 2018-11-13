@@ -122,10 +122,10 @@ class Video extends React.Component {
             </LazyLoad>
 
           </div>
+          {sideBar
+            ? <SideBar sideBar={sideBar} />
+            : ''}
         </div>
-        {sideBar
-          ? <SideBar sideBar={sideBar} />
-          : ''}
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
         <style jsx>{`
             .video {
