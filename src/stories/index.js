@@ -77,7 +77,7 @@ storiesOf('Image', module)
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
           BottomRight: 'right-bottom'
-        }, 'topLeft')
+        }, 'top-left')
       }}
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped' }, 'noAspect')}
@@ -348,7 +348,7 @@ storiesOf('Video', module)
             TopRight: 'right-top',
             BottomLeft: 'left-bottom',
             BottomRight: 'right-bottom'
-          }, 'topLeft')
+          }, 'top-left')
         }}
       />
     </div>
@@ -377,6 +377,7 @@ storiesOf('Video', module)
           thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         />
       </Device>
+      
     </div>
   )
 

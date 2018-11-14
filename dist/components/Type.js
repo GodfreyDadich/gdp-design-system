@@ -133,7 +133,6 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'sideBar',
       style: {
         position: 'absolute',
         top: sideBar.location.includes('top') ? '0px' : 'auto',
@@ -144,12 +143,14 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
         fontFamily: 'Atlas Grotesk',
         fontWeight: '900',
         color: '#000'
-      }
+      },
+      className: 'jsx-1625430629' + ' ' + 'sideBar'
     },
-    sideBar.image ? _react2.default.createElement('img', { className: 'sideBar__logo', src: sideBar.image, style: { display: 'block', width: '100%', marginBottom: '12px' } }) : '',
+    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, style: { display: 'block', width: '100%', marginBottom: '12px' }, className: 'jsx-1625430629' + ' ' + 'sideBar__logo'
+    }) : '',
     sideBar.text.length > 0 ? _react2.default.createElement(
       'span',
-      { className: 'sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''),
+      {
         style: {
           position: 'relative',
           display: 'block',
@@ -158,13 +159,13 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
           fontSize: '12px',
           lineHeight: '12.8px',
           letterSpacing: '-0.1px'
-        } },
+        }, className: 'jsx-1625430629' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+      },
       sideBar.text
     ) : '',
-    _react2.default.createElement(
-      'style',
-      null,
-      '\n      .isQuote:before {\n        content: \'\u201C\';\n        margin-left: -7px;\n      }\n      .isQuote:after {\n        content: \'\u201D\';\n        margin-right: -7px;\n      }        \n\n      p {\n        margin: 0;\n      }'
-    )
+    _react2.default.createElement(_style2.default, {
+      styleId: '1625430629',
+      css: '@charset "UTF-8";.isQuote.jsx-1625430629:before{content:\'\u201C\';margin-left:-7px;}.isQuote.jsx-1625430629:after{content:\'\u201D\';margin-right:-7px;}p.jsx-1625430629{margin:0;}'
+    })
   );
 };

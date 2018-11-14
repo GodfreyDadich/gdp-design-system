@@ -159,7 +159,7 @@ export const SideBar = ({ sideBar }) =>
         letterSpacing: '-0.1px'
       }}>{sideBar.text}</span> : ''}
 
-    <style>
+    <style jsx>
       {`
       .isQuote:before {
         content: '“';

@@ -132,7 +132,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
           BottomRight: 'right-bottom'
-        }, 'topLeft')
+        }, 'top-left')
       },
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
       aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
@@ -394,7 +394,7 @@ var modalState = true;
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
           BottomRight: 'right-bottom'
-        }, 'topLeft')
+        }, 'top-left')
       }
     })
   );
