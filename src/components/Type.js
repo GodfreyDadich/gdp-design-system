@@ -158,20 +158,4 @@ export const SideBar = ({ sideBar }) =>
         lineHeight: '12.8px',
         letterSpacing: '-0.1px'
       }}>{sideBar.text}</span> : ''}
-
-    <style jsx>
-      {`
-      .isQuote:before {
-        content: '“';
-        margin-left: -7px;
-      }
-      .isQuote:after {
-        content: '”';
-        margin-right: -7px;
-      }        
-
-      p {
-        margin: 0;
-      }`}
-    </style>
   </div>
