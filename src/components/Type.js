@@ -133,62 +133,44 @@ export const Caption = ({ classAdd, children }) =>
   </figcaption>
 
 export const SideBar = ({ sideBar }) =>
-  <div className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}>
-    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+  <div
+    className={`sideBar`}
+    style={{
+      position: 'absolute',
+      top: sideBar.location.includes('top') ? '0px' : 'auto',
+      bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+      left: sideBar.location.includes('left') ? '-135px' : 'auto',
+      right: sideBar.location.includes('right') ? '-135px' : 'auto',
+      width: '111px',
+      fontFamily: 'Atlas Grotesk',
+      fontWeight: '900',
+      color: '#000'
+    }}
+  >
+    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} style={{ display: 'block', width: '100%', marginBottom: '12px' }} /> : ''}
     {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
 
-    <style jsx>{`
-    .sideBar {
-      position: absolute;
-      top: 0;
-      left: -126px;
-      width: 102px;
-      font-family: 'Atlas Grotesk';
-      font-weight: 900;
-      color: #000;
-      
-      &.left-bottom {
-        top: auto;
-        bottom: 0;
-      }
-      &.right-top {
-        left: auto;
-        right: -126px;
-      }
-      &.right-bottom {
-        top: auto;
-        left: auto;
-        right: -126px;
-        bottom: 0;
-      }
+    <style>{`
+    .sideBar__text {
+      position: relative;
+      display: block;
+      border-top: 7px solid #000;
+      padding-top: 9px;
+      font-size: 12px;
+      line-height: 12.8px;
+      letter-spacing: -0.1px;  
+    }
+    .isQuote:before {
+      content: '“';
+      margin-left: -7px;
+    }
+    .isQuote:after {
+      content: '”';
+      margin-right: -7px;
+    }        
 
-      &__logo {
-        display: block;
-        width: 100%;
-        margin-bottom: 12px;
-      }
-      &__text {
-        position: relative;
-        display: block;
-        border-top: 7px solid #000;
-        padding-top: 9px;
-        font-size: 12px;
-        line-height: 12.8px;
-        letter-spacing: -0.1px;
-
-        &.isQuote:before {
-          content: '“';
-          margin-left: -7px;
-        }
-        &.isQuote:after {
-          content: '”';
-          margin-right: -7px;
-        }        
-
-        p {
-          margin: 0;
-        }
-      }      
-    }    
-    `}</style>
+    p {
+      margin: 0;
+    } `}
+    </style>
   </div>
