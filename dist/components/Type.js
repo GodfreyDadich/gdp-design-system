@@ -133,20 +133,29 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-1764097510' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+      className: 'sideBar',
+      style: {
+        position: 'absolute',
+        top: sideBar.location.includes('top') ? '0px' : 'auto',
+        bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+        left: sideBar.location.includes('left') ? '-135px' : 'auto',
+        right: sideBar.location.includes('right') ? '-135px' : 'auto',
+        width: '111px',
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: '900',
+        color: '#000'
+      }
     },
-    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1764097510' + ' ' + 'sideBar__logo'
-    }) : '',
+    sideBar.image ? _react2.default.createElement('img', { className: 'sideBar__logo', src: sideBar.image, style: { display: 'block', width: '100%', marginBottom: '12px' } }) : '',
     sideBar.text.length > 0 ? _react2.default.createElement(
       'span',
-      {
-        className: 'jsx-1764097510' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
-      },
+      { className: 'sideBar__text' + (sideBar.isQuote ? ' isQuote' : '') },
       sideBar.text
     ) : '',
-    _react2.default.createElement(_style2.default, {
-      styleId: '1764097510',
-      css: '@charset "UTF-8";.sideBar.jsx-1764097510{position:absolute;top:0;left:-126px;width:102px;font-family:\'Atlas Grotesk\';font-weight:900;color:#000;}.sideBar.left-bottom.jsx-1764097510{top:auto;bottom:0;}.sideBar.right-top.jsx-1764097510{left:auto;right:-126px;}.sideBar.right-bottom.jsx-1764097510{top:auto;left:auto;right:-126px;bottom:0;}.sideBar__logo.jsx-1764097510{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1764097510{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__text.isQuote.jsx-1764097510:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1764097510:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1764097510 p.jsx-1764097510{margin:0;}'
-    })
+    _react2.default.createElement(
+      'style',
+      null,
+      '\n    .sideBar__text {\n      position: relative;\n      display: block;\n      border-top: 7px solid #000;\n      padding-top: 9px;\n      font-size: 12px;\n      line-height: 12.8px;\n      letter-spacing: -0.1px;  \n    }\n    .isQuote:before {\n      content: \'\u201C\';\n      margin-left: -7px;\n    }\n    .isQuote:after {\n      content: \'\u201D\';\n      margin-right: -7px;\n    }        \n\n    p {\n      margin: 0;\n    } '
+    )
   );
 };
