@@ -149,13 +149,22 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
     sideBar.image ? _react2.default.createElement('img', { className: 'sideBar__logo', src: sideBar.image, style: { display: 'block', width: '100%', marginBottom: '12px' } }) : '',
     sideBar.text.length > 0 ? _react2.default.createElement(
       'span',
-      { className: 'sideBar__text' + (sideBar.isQuote ? ' isQuote' : '') },
+      { className: 'sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''),
+        style: {
+          position: 'relative',
+          display: 'block',
+          borderTop: '7px solid #000',
+          paddingTop: '9px',
+          fontSize: '12px',
+          lineHeight: '12.8px',
+          letterSpacing: '-0.1px'
+        } },
       sideBar.text
     ) : '',
     _react2.default.createElement(
       'style',
       null,
-      '\n    .sideBar__text {\n      position: relative;\n      display: block;\n      border-top: 7px solid #000;\n      padding-top: 9px;\n      font-size: 12px;\n      line-height: 12.8px;\n      letter-spacing: -0.1px;  \n    }\n    .isQuote:before {\n      content: \'\u201C\';\n      margin-left: -7px;\n    }\n    .isQuote:after {\n      content: \'\u201D\';\n      margin-right: -7px;\n    }        \n\n    p {\n      margin: 0;\n    } '
+      '\n      .isQuote:before {\n        content: \'\u201C\';\n        margin-left: -7px;\n      }\n      .isQuote:after {\n        content: \'\u201D\';\n        margin-right: -7px;\n      }        \n\n      p {\n        margin: 0;\n      }'
     )
   );
 };

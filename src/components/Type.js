@@ -148,29 +148,30 @@ export const SideBar = ({ sideBar }) =>
     }}
   >
     {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} style={{ display: 'block', width: '100%', marginBottom: '12px' }} /> : ''}
-    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
+    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}
+      style={{
+        position: 'relative',
+        display: 'block',
+        borderTop: '7px solid #000',
+        paddingTop: '9px',
+        fontSize: '12px',
+        lineHeight: '12.8px',
+        letterSpacing: '-0.1px'
+      }}>{sideBar.text}</span> : ''}
 
-    <style>{`
-    .sideBar__text {
-      position: relative;
-      display: block;
-      border-top: 7px solid #000;
-      padding-top: 9px;
-      font-size: 12px;
-      line-height: 12.8px;
-      letter-spacing: -0.1px;  
-    }
-    .isQuote:before {
-      content: '“';
-      margin-left: -7px;
-    }
-    .isQuote:after {
-      content: '”';
-      margin-right: -7px;
-    }        
+    <style>
+      {`
+      .isQuote:before {
+        content: '“';
+        margin-left: -7px;
+      }
+      .isQuote:after {
+        content: '”';
+        margin-right: -7px;
+      }        
 
-    p {
-      margin: 0;
-    } `}
+      p {
+        margin: 0;
+      }`}
     </style>
   </div>
