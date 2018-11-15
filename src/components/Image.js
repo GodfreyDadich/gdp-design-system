@@ -21,7 +21,7 @@ class Image extends React.Component {
 
     return (
       <figure className={imgHover ? 'hoverWrap' : ''}>
-        <TrackVisibility once partialVisibility>
+        <TrackVisibility once partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />

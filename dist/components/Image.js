@@ -68,7 +68,7 @@ var Image = function (_React$Component) {
         },
         _react2.default.createElement(
           _reactOnScreen2.default,
-          { once: true, partialVisibility: true },
+          { once: true, partialVisibility: true, className: classAdd },
           _react2.default.createElement(
             _ImageWrap2.default,
             this.props,
