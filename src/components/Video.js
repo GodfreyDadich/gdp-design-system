@@ -124,7 +124,7 @@ class Video extends React.Component {
 
             </div>
             {sideBar
-              ? <SideBar sideBar={sideBar} />
+              ? <SideBar sideBar={sideBar} isVisible />
               : ''}
           </div>
         </div>

@@ -196,7 +196,7 @@ var Video = function (_React$Component) {
                 )
               )
             ),
-            sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : ''
+            sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar, isVisible: true }) : ''
           )
         ),
         caption && caption.length > 0 ? _react2.default.createElement(

@@ -1,4 +1,6 @@
 import React from 'react'
+import TrackVisibility from 'react-on-screen'
+
 import {
   fontSizeSuper, lineHeightSuper,
   fontSizeHeading1, lineHeightHeading1,
@@ -133,6 +135,8 @@ export const Caption = ({ classAdd, children }) =>
   </figcaption>
 
 export const SideBar = ({ sideBar, isVisible }) =>
+  <TrackVisibility once partialVisibility>
+  {({ isVisible }) => 
   <div
     className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}
     style={{
@@ -145,7 +149,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
       color: '#000',
       opacity: isVisible ? 1 : 0,
       transition: 'opacity 0.5s, top 0.5s',
-      transitionDelay: '1.75s;'
+      transitionDelay: '.5s'
     }}
   >
     {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
@@ -197,4 +201,5 @@ export const SideBar = ({ sideBar, isVisible }) =>
       }      
     }    
     `}</style>
-  </div>
+  </div>}
+  </TrackVisibility>

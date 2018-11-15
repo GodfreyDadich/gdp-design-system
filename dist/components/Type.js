@@ -13,6 +13,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactOnScreen = require('react-on-screen');
+
+var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
+
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -132,34 +136,41 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
   var sideBar = _ref8.sideBar,
       isVisible = _ref8.isVisible;
   return _react2.default.createElement(
-    'div',
-    {
-      style: {
-        position: 'absolute',
-        top: isVisible ? '0px' : '15px',
-        left: '-135px',
-        width: '111px',
-        fontFamily: 'Atlas Grotesk',
-        fontWeight: '900',
-        color: '#000',
-        opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.5s, top 0.5s',
-        transitionDelay: '1.75s;'
-      },
-      className: 'jsx-1539373454' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
-    },
-    sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1539373454' + ' ' + 'sideBar__logo'
-    }) : '',
-    sideBar.text.length > 0 ? _react2.default.createElement(
-      'span',
-      {
-        className: 'jsx-1539373454' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
-      },
-      sideBar.text
-    ) : '',
-    _react2.default.createElement(_style2.default, {
-      styleId: '1539373454',
-      css: '@charset "UTF-8";.sideBar.left-bottom.jsx-1539373454{top:auto;bottom:0;}.sideBar.right-top.jsx-1539373454{left:auto;right:-135px;}.sideBar.right-bottom.jsx-1539373454{top:auto;left:auto;right:-135px;bottom:0;}.sideBar__logo.jsx-1539373454{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1539373454{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-1539373454:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1539373454:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1539373454 p.jsx-1539373454{margin:0;}'
-    })
+    _reactOnScreen2.default,
+    { once: true, partialVisibility: true },
+    function (_ref9) {
+      var isVisible = _ref9.isVisible;
+      return _react2.default.createElement(
+        'div',
+        {
+          style: {
+            position: 'absolute',
+            top: isVisible ? '0px' : '15px',
+            left: '-135px',
+            width: '111px',
+            fontFamily: 'Atlas Grotesk',
+            fontWeight: '900',
+            color: '#000',
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.5s, top 0.5s',
+            transitionDelay: '.5s'
+          },
+          className: 'jsx-1539373454' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+        },
+        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1539373454' + ' ' + 'sideBar__logo'
+        }) : '',
+        sideBar.text.length > 0 ? _react2.default.createElement(
+          'span',
+          {
+            className: 'jsx-1539373454' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+          },
+          sideBar.text
+        ) : '',
+        _react2.default.createElement(_style2.default, {
+          styleId: '1539373454',
+          css: '@charset "UTF-8";.sideBar.left-bottom.jsx-1539373454{top:auto;bottom:0;}.sideBar.right-top.jsx-1539373454{left:auto;right:-135px;}.sideBar.right-bottom.jsx-1539373454{top:auto;left:auto;right:-135px;bottom:0;}.sideBar__logo.jsx-1539373454{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1539373454{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-1539373454:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1539373454:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1539373454 p.jsx-1539373454{margin:0;}'
+        })
+      );
+    }
   );
 };
