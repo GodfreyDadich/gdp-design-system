@@ -138,17 +138,20 @@ export const SideBar = ({ sideBar, isVisible }) =>
   <TrackVisibility once partialVisibility>
   {({ isVisible }) => 
   <div
-    className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}
+    className={`sideBar ${sideBar.location ? sideBar.location : 'left-top'}`}
     style={{
       position: 'absolute',
-      top: isVisible ? '0px' : '15px',
-      left: '-135px',
+      marginTop: isVisible ? '0px' : '15px',
+      top: sideBar.location.includes('top') ? '0px' : 'auto',
+      bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+      left: sideBar.location.includes('left') ? '-135px' : 'auto',
+      right: sideBar.location.includes('right') ? '-135px' : 'auto',
       width: '111px',
       fontFamily: 'Atlas Grotesk',
       fontWeight: '900',
       color: '#000',
       opacity: isVisible ? 1 : 0,
-      transition: 'opacity 0.5s, top 0.5s',
+      transition: 'opacity 0.5s, margin-top 0.5s',
       transitionDelay: '.5s'
     }}
   >
@@ -157,21 +160,6 @@ export const SideBar = ({ sideBar, isVisible }) =>
 
     <style jsx>{`
     .sideBar {
-      &.left-bottom {
-        top: auto;
-        bottom: 0;
-      }
-      &.right-top {
-        left: auto;
-        right: -135px;
-      }
-      &.right-bottom {
-        top: auto;
-        left: auto;
-        right: -135px;
-        bottom: 0;
-      }
-
       &__logo {
         display: block;
         width: 100%;

@@ -145,30 +145,33 @@ var SideBar = exports.SideBar = function SideBar(_ref8) {
         {
           style: {
             position: 'absolute',
-            top: isVisible ? '0px' : '15px',
-            left: '-135px',
+            marginTop: isVisible ? '0px' : '15px',
+            top: sideBar.location.includes('top') ? '0px' : 'auto',
+            bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+            left: sideBar.location.includes('left') ? '-135px' : 'auto',
+            right: sideBar.location.includes('right') ? '-135px' : 'auto',
             width: '111px',
             fontFamily: 'Atlas Grotesk',
             fontWeight: '900',
             color: '#000',
             opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.5s, top 0.5s',
+            transition: 'opacity 0.5s, margin-top 0.5s',
             transitionDelay: '.5s'
           },
-          className: 'jsx-1539373454' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'topLeft'))
+          className: 'jsx-1898069175' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },
-        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1539373454' + ' ' + 'sideBar__logo'
+        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1898069175' + ' ' + 'sideBar__logo'
         }) : '',
         sideBar.text.length > 0 ? _react2.default.createElement(
           'span',
           {
-            className: 'jsx-1539373454' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+            className: 'jsx-1898069175' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
           },
           sideBar.text
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '1539373454',
-          css: '@charset "UTF-8";.sideBar.left-bottom.jsx-1539373454{top:auto;bottom:0;}.sideBar.right-top.jsx-1539373454{left:auto;right:-135px;}.sideBar.right-bottom.jsx-1539373454{top:auto;left:auto;right:-135px;bottom:0;}.sideBar__logo.jsx-1539373454{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1539373454{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-1539373454:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1539373454:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1539373454 p.jsx-1539373454{margin:0;}'
+          styleId: '1898069175',
+          css: '@charset "UTF-8";.sideBar__logo.jsx-1898069175{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1898069175{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-1898069175:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1898069175:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1898069175 p.jsx-1898069175{margin:0;}'
         })
       );
     }
