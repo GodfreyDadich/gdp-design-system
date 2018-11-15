@@ -30,7 +30,7 @@ var ImageWrap = function ImageWrap(_ref) {
     'div',
     { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
       style: {
-        backgroundImage: '' + (aspectRatio !== 'noAspect' ? 'url(' + imgSource + ')' : ''),
+        backgroundImage: '' + (aspectRatio !== 'noAspect' && isVisible ? 'url(' + imgSource + ')' : ''),
         backgroundColor: '#f2f2f2',
         backgroundSize: 'cover',
         backgroundPositionX: horizontalAlign,
@@ -46,7 +46,7 @@ var ImageWrap = function ImageWrap(_ref) {
         transitionDelay: '0.25s'
       }
     },
-    children
+    _react2.default.cloneElement(children, { isVisible: isVisible })
   );
 };
 

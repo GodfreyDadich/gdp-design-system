@@ -28,9 +28,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Card = function Card(props) {
   return _react2.default.createElement(
-    'article',
+    'div',
     {
-      className: _style2.default.dynamic([['184887790', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%']]])
+      className: _style2.default.dynamic([['184887790', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%']]]) + ' ' + (props.classAdd || '')
     },
     !!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && _react2.default.createElement(_CardText2.default, props),
     _react2.default.createElement(

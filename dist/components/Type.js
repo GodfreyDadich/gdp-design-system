@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SideBar = exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _style = require('styled-jsx/style');
 
@@ -132,46 +132,106 @@ var Caption = exports.Caption = function Caption(_ref7) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref8) {
-  var sideBar = _ref8.sideBar,
-      isVisible = _ref8.isVisible;
+var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
+  var classAdd = _ref8.classAdd,
+      children = _ref8.children;
+  return _react2.default.createElement(
+    'h4',
+    {
+      className: classAdd,
+      style: {
+        position: 'relative',
+        display: 'block',
+        fontFamily: 'Atlas Grotesk',
+        fontSize: '12px',
+        fontWeight: 'bold',
+        letterSpacing: '0.22px',
+        lineHeight: '16px',
+        margin: '23px 0 0'
+      }
+    },
+    children
+  );
+};
+
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
+  var classAdd = _ref9.classAdd,
+      children = _ref9.children;
+  return _react2.default.createElement(
+    'h5',
+    {
+      className: classAdd,
+      style: {
+        position: 'relative',
+        display: 'block',
+        fontFamily: 'Atlas Grotesk',
+        fontSize: '12px',
+        fontWeight: '500',
+        letterSpacing: '0.22px',
+        lineHeight: '16px',
+        margin: '0px',
+        color: 'rgb(127,127,127)'
+      }
+    },
+    children
+  );
+};
+
+var CardContent = exports.CardContent = function CardContent(_ref10) {
+  var classAdd = _ref10.classAdd,
+      children = _ref10.children;
+  return _react2.default.createElement(
+    'p',
+    {
+      className: classAdd },
+    children
+  );
+};
+
+var SideBar = exports.SideBar = function SideBar(_ref11) {
+  var sideBar = _ref11.sideBar,
+      isVisible = _ref11.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
-    { once: true, partialVisibility: true },
-    function (_ref9) {
-      var isVisible = _ref9.isVisible;
+    { once: true, partialVisibility: true,
+      style: {
+        position: 'absolute',
+        top: sideBar.location.includes('top') ? '0px' : 'auto',
+        bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+        left: sideBar.location.includes('left') ? '-135px' : 'auto',
+        right: sideBar.location.includes('right') ? '-135px' : 'auto'
+      }
+    },
+    function (_ref12) {
+      var isVisible = _ref12.isVisible;
       return _react2.default.createElement(
         'div',
         {
           style: {
-            position: 'absolute',
-            marginTop: isVisible ? '0px' : '15px',
-            top: sideBar.location.includes('top') ? '0px' : 'auto',
-            bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
-            left: sideBar.location.includes('left') ? '-135px' : 'auto',
-            right: sideBar.location.includes('right') ? '-135px' : 'auto',
+            position: 'relative',
+            top: isVisible ? '0px' : '15px',
             width: '111px',
             fontFamily: 'Atlas Grotesk',
             fontWeight: '900',
             color: '#000',
             opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.5s, margin-top 0.5s',
-            transitionDelay: '.5s'
+            transition: 'opacity 0.5s, top 0.5s',
+            transitionDelay: '.40s'
           },
-          className: 'jsx-1898069175' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
+          className: 'jsx-581407050' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },
-        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-1898069175' + ' ' + 'sideBar__logo'
+        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-581407050' + ' ' + 'sideBar__logo'
         }) : '',
         sideBar.text.length > 0 ? _react2.default.createElement(
           'span',
           {
-            className: 'jsx-1898069175' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+            className: 'jsx-581407050' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
           },
           sideBar.text
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '1898069175',
-          css: '@charset "UTF-8";.sideBar__logo.jsx-1898069175{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-1898069175{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-1898069175:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-1898069175:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-1898069175 p.jsx-1898069175{margin:0;}'
+          styleId: '581407050',
+          css: '@charset "UTF-8";.sideBar__logo.jsx-581407050{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-581407050{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-581407050:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-581407050:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-581407050 p.jsx-581407050{margin:0;}'
         })
       );
     }
