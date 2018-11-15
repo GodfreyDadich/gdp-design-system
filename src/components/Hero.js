@@ -35,6 +35,8 @@ class Hero extends React.Component {
               imageTitle={this.props.title}
               aspectRatio='sixteen'
               fullBleed='true'
+              verticalAlign='center'
+              horizontalAlign='center'
               imgSource={this.props.source}
               classAdd={this.state.zoomClass} />
           case 'video':

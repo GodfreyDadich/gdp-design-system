@@ -4,7 +4,7 @@ import Image from './Image'
 import CardText from './CardText'
 
 const Card = props => 
-<article>
+<div className={props.classAdd} >
   {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
   <div className='cardMedia'>
     <Image {...props} />
@@ -16,6 +16,6 @@ const Card = props =>
       width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%'};
     }
   `}</style>
-</article>
+</div>
 
 export default Card

@@ -84,6 +84,8 @@ var Hero = function (_React$Component) {
                 imageTitle: _this3.props.title,
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
+                verticalAlign: 'center',
+                horizontalAlign: 'center',
                 imgSource: _this3.props.source,
                 classAdd: _this3.state.zoomClass });
             case 'video':

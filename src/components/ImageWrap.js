@@ -9,7 +9,7 @@ const paddingRef = {
 const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible }) =>
   <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
     style={{
-      backgroundImage: `${aspectRatio !== 'noAspect' ? `url(${imgSource})` : ''}`,
+      backgroundImage: `${aspectRatio !== 'noAspect' && isVisible ? `url(${imgSource})` : ''}`,
       backgroundColor: '#f2f2f2',
       backgroundSize: 'cover',
       backgroundPositionX: horizontalAlign,
@@ -25,7 +25,7 @@ const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, hori
       transitionDelay: '0.25s'
     }}
   >
-    {children}
+    {React.cloneElement(children, { isVisible: isVisible })}
   </div>
 
 export default ImageWrap

@@ -134,60 +134,99 @@ export const Caption = ({ classAdd, children }) =>
     `}</style>
   </figcaption>
 
+export const CardTitle = ({ classAdd, children }) =>
+  <h4
+    className={classAdd}
+    style={{
+      position: 'relative',
+      display: 'block',
+      fontFamily: 'Atlas Grotesk',
+      fontSize: '12px',
+      fontWeight: 'bold',
+      letterSpacing: '0.22px',
+      lineHeight: '16px',
+      margin: '23px 0 0'
+    }}
+  >{children}</h4>
+
+export const CardSubTitle = ({ classAdd, children }) =>
+  <h5
+    className={classAdd}
+    style={{
+      position: 'relative',
+      display: 'block',
+      fontFamily: 'Atlas Grotesk',
+      fontSize: '12px',
+      fontWeight: '500',
+      letterSpacing: '0.22px',
+      lineHeight: '16px',
+      margin: '0px',
+      color: 'rgb(127,127,127)'
+    }}
+  >{children}</h5>
+
+export const CardContent = ({ classAdd, children }) =>
+  <p
+    className={classAdd}>{children}</p>
+
 export const SideBar = ({ sideBar, isVisible }) =>
-  <TrackVisibility once partialVisibility>
-  {({ isVisible }) => 
-  <div
-    className={`sideBar ${sideBar.location ? sideBar.location : 'left-top'}`}
+  <TrackVisibility once partialVisibility
     style={{
       position: 'absolute',
-      marginTop: isVisible ? '0px' : '15px',
       top: sideBar.location.includes('top') ? '0px' : 'auto',
       bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
       left: sideBar.location.includes('left') ? '-135px' : 'auto',
-      right: sideBar.location.includes('right') ? '-135px' : 'auto',
-      width: '111px',
-      fontFamily: 'Atlas Grotesk',
-      fontWeight: '900',
-      color: '#000',
-      opacity: isVisible ? 1 : 0,
-      transition: 'opacity 0.5s, margin-top 0.5s',
-      transitionDelay: '.5s'
+      right: sideBar.location.includes('right') ? '-135px' : 'auto'
     }}
   >
-    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
-    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
+    {({ isVisible }) =>
+      <div
+        className={`sideBar ${sideBar.location ? sideBar.location : 'left-top'}`}
+        style={{
+          position: 'relative',
+          top: isVisible ? '0px' : '15px',
+          width: '111px',
+          fontFamily: 'Atlas Grotesk',
+          fontWeight: '900',
+          color: '#000',
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.5s, top 0.5s',
+          transitionDelay: '.40s'
+        }}
+      >
+        {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+        {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
 
-    <style jsx>{`
-    .sideBar {
-      &__logo {
-        display: block;
-        width: 100%;
-        margin-bottom: 12px;
-      }
-      &__text {
-        position: relative;
-        display: block;
-        border-top: 7px solid #000;
-        padding-top: 9px;
-        font-size: 12px;
-        line-height: 12.8px;
-        letter-spacing: -0.4px;
+        <style jsx>{`
+        .sideBar {
+          &__logo {
+            display: block;
+            width: 100%;
+            margin-bottom: 12px;
+          }
+          &__text {
+            position: relative;
+            display: block;
+            border-top: 7px solid #000;
+            padding-top: 9px;
+            font-size: 12px;
+            line-height: 12.8px;
+            letter-spacing: -0.4px;
 
-        &.isQuote:before {
-          content: '“';
-          margin-left: -7px;
-        }
-        &.isQuote:after {
-          content: '”';
-          margin-right: -7px;
-        }        
+            &.isQuote:before {
+              content: '“';
+              margin-left: -7px;
+            }
+            &.isQuote:after {
+              content: '”';
+              margin-right: -7px;
+            }        
 
-        p {
-          margin: 0;
-        }
-      }      
-    }    
-    `}</style>
-  </div>}
+            p {
+              margin: 0;
+            }
+          }      
+        }    
+        `}</style>
+      </div>}
   </TrackVisibility>
