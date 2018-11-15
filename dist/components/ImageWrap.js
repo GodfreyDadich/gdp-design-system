@@ -25,7 +25,7 @@ var ImageWrap = function ImageWrap(_ref) {
       horizontalAlign = _ref.horizontalAlign,
       verticalAlign = _ref.verticalAlign,
       sideBar = _ref.sideBar,
-      opacity = _ref.opacity;
+      isVisible = _ref.isVisible;
   return _react2.default.createElement(
     'div',
     { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
@@ -39,7 +39,11 @@ var ImageWrap = function ImageWrap(_ref) {
         position: 'relative',
         height: 'auto',
         overflow: '' + (!sideBar ? 'hidden' : 'visible'),
-        paddingTop: paddingRef[aspectRatio]
+        paddingTop: paddingRef[aspectRatio],
+        opacity: isVisible ? 1 : 0,
+        top: isVisible ? '0px' : '15px',
+        transition: 'opacity 0.5s, top 0.5s',
+        transitionDelay: '0.25s'
       }
     },
     children

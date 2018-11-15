@@ -21,31 +21,31 @@ var Breadcrumb = function Breadcrumb(_ref) {
   return _react2.default.createElement(
     'ul',
     {
-      className: 'jsx-1996684739' + ' ' + 'breadcrumb'
+      className: 'jsx-2250778284' + ' ' + 'breadcrumb'
     },
     links.map(function (link, index) {
       return _react2.default.createElement(
         'li',
-        { key: 'bread-crumb-item-' + index, className: 'jsx-1996684739' + ' ' + 'breadcrumb__item'
+        { key: 'bread-crumb-item-' + index, className: 'jsx-2250778284' + ' ' + 'breadcrumb__item'
         },
         index !== (linkLast ? links.length : links.length - 1) ? _react2.default.createElement(
           'a',
-          { href: link.slug, className: 'jsx-1996684739' + ' ' + 'breadcrumb__link'
+          { href: link.slug, className: 'jsx-2250778284' + ' ' + 'breadcrumb__link'
           },
           link.title
         ) : link.title,
         index !== links.length - 1 ? _react2.default.createElement(
           'span',
           {
-            className: 'jsx-1996684739' + ' ' + 'delimiter'
+            className: 'jsx-2250778284' + ' ' + 'delimiter'
           },
           delimiter
         ) : ''
       );
     }),
     _react2.default.createElement(_style2.default, {
-      styleId: '1996684739',
-      css: '.breadcrumb.jsx-1996684739{list-style:none;padding:0;margin:0;font-family:\'Institut\';font-weight:normal;font-style:normal;font-size:0.7vw;font-size:9px;line-height:1.33;-webkit-letter-spacing:1.92px;-moz-letter-spacing:1.92px;-ms-letter-spacing:1.92px;letter-spacing:1.92px;margin-bottom:16px;}.breadcrumb__item.jsx-1996684739{display:inline-block;}.breadcrumb.jsx-1996684739 .delimiter.jsx-1996684739{margin:0 5px;}'
+      styleId: '2250778284',
+      css: '.breadcrumb.jsx-2250778284{list-style:none;padding:0;margin:0;font-family:\'Institut\';font-weight:normal;font-style:normal;font-size:0.7vw;font-size:9px;line-height:1.33;-webkit-letter-spacing:1.92px;-moz-letter-spacing:1.92px;-ms-letter-spacing:1.92px;letter-spacing:1.92px;margin-bottom:16px;}.breadcrumb__item.jsx-2250778284{display:inline-block;}.breadcrumb.jsx-2250778284 .delimiter.jsx-2250778284{margin:0 5px;}'
     })
   );
 };

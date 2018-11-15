@@ -132,30 +132,69 @@ export const Caption = ({ classAdd, children }) =>
     `}</style>
   </figcaption>
 
-export const SideBar = ({ sideBar }) =>
+export const SideBar = ({ sideBar, isVisible }) =>
   <div
-    className={`sideBar`}
+    className={`sideBar ${sideBar.location ? sideBar.location : 'topLeft'}`}
     style={{
       position: 'absolute',
-      top: sideBar.location.includes('top') ? '0px' : 'auto',
-      bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
-      left: sideBar.location.includes('left') ? '-135px' : 'auto',
-      right: sideBar.location.includes('right') ? '-135px' : 'auto',
+      top: isVisible ? '0px' : '15px',
+      left: '-135px',
       width: '111px',
       fontFamily: 'Atlas Grotesk',
       fontWeight: '900',
-      color: '#000'
+      color: '#000',
+      opacity: isVisible ? 1 : 0,
+      transition: 'opacity 0.5s, top 0.5s',
+      transitionDelay: '1.75s;'
     }}
   >
-    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} style={{ display: 'block', width: '100%', marginBottom: '12px' }} /> : ''}
-    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}
-      style={{
-        position: 'relative',
-        display: 'block',
-        borderTop: '7px solid #000',
-        paddingTop: '9px',
-        fontSize: '12px',
-        lineHeight: '12.8px',
-        letterSpacing: '-0.1px'
-      }}>{sideBar.text}</span> : ''}
+    {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+    {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
+
+    <style jsx>{`
+    .sideBar {
+      &.left-bottom {
+        top: auto;
+        bottom: 0;
+      }
+      &.right-top {
+        left: auto;
+        right: -135px;
+      }
+      &.right-bottom {
+        top: auto;
+        left: auto;
+        right: -135px;
+        bottom: 0;
+      }
+
+      &__logo {
+        display: block;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+      &__text {
+        position: relative;
+        display: block;
+        border-top: 7px solid #000;
+        padding-top: 9px;
+        font-size: 12px;
+        line-height: 12.8px;
+        letter-spacing: -0.4px;
+
+        &.isQuote:before {
+          content: '“';
+          margin-left: -7px;
+        }
+        &.isQuote:after {
+          content: '”';
+          margin-right: -7px;
+        }        
+
+        p {
+          margin: 0;
+        }
+      }      
+    }    
+    `}</style>
   </div>

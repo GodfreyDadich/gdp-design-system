@@ -2,7 +2,8 @@ import React from 'react'
 import ConditionalLink from './ConditionalLink'
 import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
-import LazyLoad from 'react-lazy-load'
+// import LazyLoad from 'react-lazy-load'
+import TrackVisibility from 'react-on-screen'
 
 class Image extends React.Component {
 
@@ -20,21 +21,17 @@ class Image extends React.Component {
 
     return (
       <figure className={imgHover ? 'hoverWrap' : ''}>
-        <LazyLoad
-          offsetVertical={500}
-          debounce={false}
-          className={classAdd}
-        >
+        <TrackVisibility once partialVisibility>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />
               {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
               {(sideBar && sideBar.text.length > 0)
-                ? <SideBar sideBar={sideBar} />
+                ? <SideBar sideBar={sideBar} isVisible />
                 : ''}
             </ConditionalLink>
           </ImageWrap>
-        </LazyLoad>
+        </TrackVisibility>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
         <style jsx>{`

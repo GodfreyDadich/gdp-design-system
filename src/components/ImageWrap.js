@@ -6,7 +6,7 @@ const paddingRef = {
   cropped: '41.67%',
   square: '100%'
 }
-const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, horizontalAlign, verticalAlign, sideBar, opacity }) =>
+const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible }) =>
   <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
     style={{
       backgroundImage: `${aspectRatio !== 'noAspect' ? `url(${imgSource})` : ''}`,
@@ -18,7 +18,11 @@ const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, hori
       position: 'relative',
       height: 'auto',
       overflow: `${!sideBar ? 'hidden' : 'visible'}`,
-      paddingTop: paddingRef[aspectRatio]
+      paddingTop: paddingRef[aspectRatio],
+      opacity: isVisible ? 1 : 0,
+      top: isVisible ? '0px' : '15px',
+      transition: 'opacity 0.5s, top 0.5s',
+      transitionDelay: '0.25s'
     }}
   >
     {children}

@@ -24,9 +24,9 @@ var _ImageWrap2 = _interopRequireDefault(_ImageWrap);
 
 var _Type = require('./Type');
 
-var _reactLazyLoad = require('react-lazy-load');
+var _reactOnScreen = require('react-on-screen');
 
-var _reactLazyLoad2 = _interopRequireDefault(_reactLazyLoad);
+var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,6 +35,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import LazyLoad from 'react-lazy-load'
+
 
 var Image = function (_React$Component) {
   _inherits(Image, _React$Component);
@@ -65,12 +67,8 @@ var Image = function (_React$Component) {
           className: _style2.default.dynamic([['3223823214', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ((imgHover ? 'hoverWrap' : '') || '')
         },
         _react2.default.createElement(
-          _reactLazyLoad2.default,
-          {
-            offsetVertical: 500,
-            debounce: false,
-            className: classAdd
-          },
+          _reactOnScreen2.default,
+          { once: true, partialVisibility: true },
           _react2.default.createElement(
             _ImageWrap2.default,
             this.props,
@@ -81,7 +79,7 @@ var Image = function (_React$Component) {
               }),
               imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['3223823214', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
               }) : '',
-              sideBar && sideBar.text.length > 0 ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar }) : ''
+              sideBar && sideBar.text.length > 0 ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar, isVisible: true }) : ''
             )
           )
         ),

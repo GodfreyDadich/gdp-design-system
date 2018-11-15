@@ -30,6 +30,7 @@ const Breadcrumb = ({delimiter, links, linkLast}) => (
         &__item {
           display: inline-block;          
         }
+        
         .delimiter {
           margin: 0 5px;
         }       
