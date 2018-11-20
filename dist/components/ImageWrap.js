@@ -46,7 +46,7 @@ var ImageWrap = function ImageWrap(_ref) {
         transitionDelay: '0.25s'
       }
     },
-    _react2.default.cloneElement(children, { isVisible: isVisible })
+    isVisible ? _react2.default.cloneElement(children) : ''
   );
 };
 

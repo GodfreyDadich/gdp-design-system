@@ -14,15 +14,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactLazyLoad = require('react-lazy-load');
-
-var _reactLazyLoad2 = _interopRequireDefault(_reactLazyLoad);
-
 var _reactPlayer = require('react-player');
 
 var _reactPlayer2 = _interopRequireDefault(_reactPlayer);
 
 var _Type = require('./Type');
+
+var _reactOnScreen = require('react-on-screen');
+
+var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -144,30 +144,29 @@ var Video = function (_React$Component) {
           className: 'jsx-2664932041' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : ''))
         },
         _react2.default.createElement(
-          'div',
-          {
-            className: 'jsx-2664932041' + ' ' + ('' + classAdd)
-          },
-          _react2.default.createElement(
-            'div',
-            { style: { position: 'relative' }, className: 'jsx-2664932041'
-            },
-            ' ',
-            _react2.default.createElement(
+          _reactOnScreen2.default,
+          { once: true, partialVisibility: true, className: classAdd },
+          function (_ref2) {
+            var isVisible = _ref2.isVisible;
+            return _react2.default.createElement(
               'div',
               {
-                onMouseEnter: hoverPlay ? this.play : undefined,
-                onMouseLeave: hoverPlay ? this.pause : undefined,
-                className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+                style: {
+                  position: 'relative',
+                  top: isVisible ? '0px' : '15px',
+                  opacity: isVisible ? '1' : '0',
+                  transition: 'opacity 0.5s, top 0.5s',
+                  transitionDelay: '0.25s'
+                },
+                className: 'jsx-2664932041'
               },
               _react2.default.createElement(
-                _reactLazyLoad2.default,
+                'div',
                 {
-                  offsetVertical: 1000,
-                  debounce: false,
-                  onContentVisible: function onContentVisible() {
-                    _this2.loadVideo(vidSource);
-                  } },
+                  onMouseEnter: hoverPlay ? _this2.play : undefined,
+                  onMouseLeave: hoverPlay ? _this2.pause : undefined,
+                  className: 'jsx-2664932041' + ' ' + ('vidWrap ' + aspectRatio)
+                },
                 _react2.default.createElement(
                   'div',
                   {
@@ -177,11 +176,11 @@ var Video = function (_React$Component) {
                     ref: 'hoverCover',
 
                     style: {
-                      backgroundImage: 'url(' + thumb + ')'
+                      backgroundImage: 'url(' + (isVisible ? thumb : '') + ')'
                     }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
                   }),
                   _react2.default.createElement(_reactPlayer2.default, {
-                    url: autoplay ? vidSource : this.state.vidSource,
+                    url: isVisible ? vidSource : '',
                     playing: playing,
                     loop: loop,
                     controls: controls,
@@ -189,15 +188,15 @@ var Video = function (_React$Component) {
                     height: '100%',
                     style: vidStyle,
                     config: config,
-                    onReady: this.videoReady,
-                    onPlay: this.videoOnPlay
+                    onReady: _this2.videoReady,
+                    onPlay: _this2.videoOnPlay
                     // onEnded={() => { this.videoOnEnd(hoverPlay) }}
                   })
                 )
-              )
-            ),
-            sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar, isVisible: true }) : ''
-          )
+              ),
+              sideBar ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar, isVisible: true }) : ''
+            );
+          }
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
