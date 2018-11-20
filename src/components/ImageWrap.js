@@ -25,7 +25,7 @@ const ImageWrap = ({ aspectRatio, fullBleed, classAdd, children, imgSource, hori
       transitionDelay: '0.25s'
     }}
   >
-    {React.cloneElement(children, { isVisible: isVisible })}
+    { isVisible ? React.cloneElement(children) : ''}
   </div>
 
 export default ImageWrap

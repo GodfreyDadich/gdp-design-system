@@ -1,7 +1,7 @@
 import React from 'react'
-import LazyLoad from 'react-lazy-load'
 import ReactPlayer from 'react-player'
 import { Caption, SideBar } from './Type'
+import TrackVisibility from 'react-on-screen'
 
 const vidStyle = {
   position: 'absolute',
@@ -89,25 +89,30 @@ class Video extends React.Component {
     const { playing } = this.state
     return (
       <div className={`video${hoverPlay ? ' hoverVid' : ''}`}>
-        <div className={`${classAdd}`}>
-          <div style={{ position: 'relative' }}> {/* needed in case of sidebar */}
-            <div className={`vidWrap ${aspectRatio}`}
-              onMouseEnter={hoverPlay ? this.play : undefined}
-              onMouseLeave={hoverPlay ? this.pause : undefined}
+        <TrackVisibility once partialVisibility className={classAdd}>
+          {({ isVisible }) =>
+            <div
+              style={{
+                position: 'relative',
+                top: isVisible ? '0px' : '15px',
+                opacity: isVisible ? '1' : '0',
+                transition: 'opacity 0.5s, top 0.5s',
+                transitionDelay: '0.25s'
+              }}
             >
-              <LazyLoad
-                offsetVertical={1000}
-                debounce={false}
-                onContentVisible={() => { this.loadVideo(vidSource) }} >
+              <div className={`vidWrap ${aspectRatio}`}
+                onMouseEnter={hoverPlay ? this.play : undefined}
+                onMouseLeave={hoverPlay ? this.pause : undefined}
+              >
                 <div>
                   <div
                     ref='hoverCover'
                     className='hoverCover'
                     style={{
-                      backgroundImage: `url(${thumb})`
+                      backgroundImage: `url(${isVisible ? thumb : ''})`
                     }} />
                   <ReactPlayer
-                    url={autoplay ? vidSource : this.state.vidSource}
+                    url={isVisible ? vidSource : ''}
                     playing={playing}
                     loop={loop}
                     controls={controls}
@@ -120,14 +125,13 @@ class Video extends React.Component {
                     // onEnded={() => { this.videoOnEnd(hoverPlay) }}
                   />
                 </div>
-              </LazyLoad>
-
+              </div>
+              {sideBar
+                ? <SideBar sideBar={sideBar} isVisible />
+                : ''}
             </div>
-            {sideBar
-              ? <SideBar sideBar={sideBar} isVisible />
-              : ''}
-          </div>
-        </div>
+          }
+        </TrackVisibility>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
         <style jsx>{`
             .video {
