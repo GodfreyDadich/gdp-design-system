@@ -176,11 +176,11 @@ var Video = function (_React$Component) {
                     ref: 'hoverCover',
 
                     style: {
-                      backgroundImage: 'url(' + (isVisible ? thumb : '') + ')'
+                      backgroundImage: 'url(' + (isVisible && !autoplay ? thumb : '') + ')'
                     }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
                   }),
                   _react2.default.createElement(_reactPlayer2.default, {
-                    url: isVisible ? vidSource : '',
+                    url: autoplay ? vidSource : isVisible ? vidSource : '',
                     playing: playing,
                     loop: loop,
                     controls: controls,
