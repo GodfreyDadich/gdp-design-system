@@ -109,10 +109,10 @@ class Video extends React.Component {
                     ref='hoverCover'
                     className='hoverCover'
                     style={{
-                      backgroundImage: `url(${isVisible ? thumb : ''})`
+                      backgroundImage: `url(${isVisible && !autoplay ? thumb : ''})`
                     }} />
                   <ReactPlayer
-                    url={isVisible ? vidSource : ''}
+                    url={autoplay ? vidSource : isVisible ? vidSource : ''}
                     playing={playing}
                     loop={loop}
                     controls={controls}
