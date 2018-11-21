@@ -12,22 +12,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Slide = function Slide(_ref) {
   var image = _ref.image,
-      renderImage = _ref.renderImage;
+      renderImage = _ref.renderImage,
+      classAdd = _ref.classAdd;
 
   var styles = {
     backgroundImage: 'url(' + image + ')',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    width: '100%',
-    height: '100%',
+    width: renderImage ? 'auto' : '100%',
+    height: renderImage ? 'auto' : '100%',
     display: 'inline-block',
     verticalAlign: 'top',
-    backgroundColor: '#f2f2f2'
+    backgroundColor: '#f2f2f2',
+    position: 'relative'
   };
   return _react2.default.createElement(
     'div',
-    { className: 'slide', style: styles },
+    { className: 'slide ' + !!classAdd, style: styles },
     renderImage ? _react2.default.createElement('img', { src: image, style: { width: '100%' } }) : ''
   );
 };

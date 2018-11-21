@@ -32,6 +32,10 @@ var _Slider = require('../components/Slider');
 
 var _Slider2 = _interopRequireDefault(_Slider);
 
+var _RevealCarousel = require('../components/RevealCarousel');
+
+var _RevealCarousel2 = _interopRequireDefault(_RevealCarousel);
+
 var _Card = require('../components/Card');
 
 var _Card2 = _interopRequireDefault(_Card);
@@ -192,7 +196,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
     })
   );
-}).add('Image Carousel', function () {
+}).add('Image Slider', function () {
   return _react2.default.createElement(
     'div',
     { style: { width: '50%', margin: '50px auto' } },
@@ -206,6 +210,16 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       null,
       '\n        .backArrow {\n          position: absolute;\n          left: 0;\n        }\n        .nextArrow {\n          position: absolute;\n          right: 0;\n        }\n      '
     )
+  );
+}).add('Image Carousel (Reveal)', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '75%', margin: '50px auto' } },
+    _react2.default.createElement(_RevealCarousel2.default, {
+      images: imageGallery,
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+    })
   );
 });
 

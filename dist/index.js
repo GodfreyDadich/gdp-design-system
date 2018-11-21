@@ -148,6 +148,15 @@ Object.defineProperty(exports, 'Slider', {
   }
 });
 
+var _RevealCarousel = require('./components/RevealCarousel');
+
+Object.defineProperty(exports, 'RevealCarousel', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_RevealCarousel).default;
+  }
+});
+
 var _SliderArrows = require('./components/SliderArrows');
 
 Object.defineProperty(exports, 'RightArrow', {

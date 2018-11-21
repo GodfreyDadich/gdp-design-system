@@ -24,7 +24,7 @@ var Device = function Device(_ref) {
       children = _ref.children;
   return _react2.default.createElement(
     'div',
-    { className: '' + classAdd + (caption && caption.length > 0 ? ' withCaption' : ''),
+    { className: classAdd,
       style: {
         position: 'relative',
         backgroundImage: 'url(data:image/svg+xml,' + devices[deviceColor] + ')',
