@@ -20,7 +20,7 @@ class Image extends React.Component {
     } = this.props
 
     return (
-      <figure className={imgHover ? 'hoverWrap' : ''}>
+      <figure className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
         <TrackVisibility once partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>

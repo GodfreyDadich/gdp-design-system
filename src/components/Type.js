@@ -128,7 +128,6 @@ export const Caption = ({ classAdd, children }) =>
         line-height: 16px;
         letter-spacing: 0.2px;
         margin-top: 25px;
-        margin-bottom: 89px;
         text-align: center;
       }  
     `}</style>

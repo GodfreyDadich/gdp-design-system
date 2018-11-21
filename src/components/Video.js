@@ -88,7 +88,7 @@ class Video extends React.Component {
     } = this.props
     const { playing } = this.state
     return (
-      <div className={`video${hoverPlay ? ' hoverVid' : ''}`}>
+      <div className={`video${hoverPlay ? ' hoverVid' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
         <TrackVisibility once partialVisibility className={classAdd}>
           {({ isVisible }) =>
             <div
