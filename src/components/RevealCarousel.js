@@ -94,7 +94,7 @@ export default class RevealCarousel extends Component {
   }
   render () {
     return (
-      <figure className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}`}>
+      <figure className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
         <div className={`carousel__container ${this.props.aspectRatio} ${this.state.teaseState}`}>
           <LeftArrow
             clickAction={this.goToPrevSlide}

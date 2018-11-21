@@ -148,7 +148,7 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'figure',
         {
-          className: 'jsx-4056277571' + ' ' + ('carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : ''))
+          className: 'jsx-4056277571' + ' ' + ('carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           'div',
