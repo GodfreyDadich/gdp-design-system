@@ -9,6 +9,7 @@ import SelectNative from '../components/SelectNative'
 import Image from '../components/Image'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
+import RevealCarousel from '../components/RevealCarousel'
 import Card from '../components/Card'
 import Breadcrumb from '../components/Breadcrumb'
 import Chips from '../components/Chips'
@@ -134,8 +135,8 @@ storiesOf('Image', module)
     /></div>
   )  
   .add(
-    'Image Carousel',
-    () => <div style={{width:'50%', margin:'50px auto'}}>
+    'Image Slider',
+    () => <div style={{ width: '50%', margin: '50px auto' }}>
       <Slider 
         images={imageGallery}
         aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
@@ -153,6 +154,17 @@ storiesOf('Image', module)
       `}</style>
     </div>
   )
+
+  .add(
+    'Image Carousel (Reveal)',
+    () => <div style={{ width: '75%', margin: '50px auto' }}>
+      <RevealCarousel 
+        images={imageGallery}
+        aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+      />
+    </div>
+  )  
 
 storiesOf('Card', module)
   .add(

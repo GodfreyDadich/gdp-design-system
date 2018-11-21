@@ -7,7 +7,7 @@ const devices = {
 }
 
 const Device = ({ deviceColor, classAdd, caption, children }) =>
-  <div className={`${classAdd}${caption && caption.length > 0 ? ' withCaption' : ''}`}
+  <div className={classAdd}
     style={{
       position: 'relative',
       backgroundImage: `url(data:image/svg+xml,${devices[deviceColor]})`,
