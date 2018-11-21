@@ -148,12 +148,12 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'figure',
         {
-          className: 'jsx-4056277571' + ' ' + ('carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''))
+          className: 'jsx-4182329977' + ' ' + ('carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           'div',
           {
-            className: 'jsx-4056277571' + ' ' + ('carousel__container ' + this.props.aspectRatio + ' ' + this.state.teaseState)
+            className: 'jsx-4182329977' + ' ' + ('carousel__container ' + this.props.aspectRatio + ' ' + this.state.teaseState)
           },
           _react2.default.createElement(_SliderArrows.LeftArrow, {
             clickAction: this.goToPrevSlide,
@@ -168,12 +168,12 @@ var RevealCarousel = function (_Component) {
           _react2.default.createElement(
             'div',
             {
-              className: 'jsx-4056277571' + ' ' + 'carousel__images-container'
+              className: 'jsx-4182329977' + ' ' + 'carousel__images-container'
             },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement(
                 'div',
-                { key: 'carouselImage' + i, className: 'jsx-4056277571' + ' ' + (_this2.getCarouselClass(i) || '')
+                { key: 'carouselImage' + i, className: 'jsx-4182329977' + ' ' + (_this2.getCarouselClass(i) || '')
                 },
                 _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this2.props.aspectRatio === 'noAspect' })
               );
@@ -186,8 +186,8 @@ var RevealCarousel = function (_Component) {
           this.props.caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '4056277571',
-          css: '.carouselWrapper.jsx-4056277571{position:relative;width:100%;height:100%;}.carousel__container.jsx-4056277571{position:relative;height:100%;width:100%;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}.carousel__container.sixteen.jsx-4056277571{padding-top:56.25%;}.carousel__container.standard.jsx-4056277571{padding-top:75%;}.carousel__container.cropped.jsx-4056277571{padding-top:41.67%;}.carousel__container.square.jsx-4056277571{padding-top:100%;}.carousel__container.zoomedIn.jsx-4056277571{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.carousel__container.noAspect.jsx-4056277571 .carousel__images-container.jsx-4056277571{position:relative;width:100%;}.carousel__container.noAspect.jsx-4056277571 .carousel__images-container.jsx-4056277571 .carousel__image.jsx-4056277571{height:auto;width:auto;}.carousel__container.tease-next.jsx-4056277571 .next.jsx-4056277571{z-index:8;-webkit-transform:translateX(93%) translateZ(0);-ms-transform:translateX(93%) translateZ(0);transform:translateX(93%) translateZ(0);}.carousel__container.tease-prev.jsx-4056277571 .prev.jsx-4056277571{-webkit-transform:translateX(-93%) translateZ(0);-ms-transform:translateX(-93%) translateZ(0);transform:translateX(-93%) translateZ(0);}.carousel__images-container.jsx-4056277571{position:absolute;top:0;left:0;width:100%;height:100%;-webkit-transition:-webkit-transform .3s ease;-webkit-transition:transform .3s ease;transition:transform .3s ease;}.carousel__image.jsx-4056277571{display:none;height:100%;position:absolute;width:100%;z-index:3;}.carousel__image.active.jsx-4056277571{display:block;-webkit-transition:none;transition:none;z-index:7;}.carousel__image.prev.jsx-4056277571,.carousel__image.next.jsx-4056277571{display:block;overflow:hidden;top:0;z-index:9;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.carousel__image.prev.jsx-4056277571{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateX(-100%) translateZ(0);-ms-transform:translateX(-100%) translateZ(0);transform:translateX(-100%) translateZ(0);width:100%;}.carousel__image.next.jsx-4056277571{-webkit-transform:translateX(100%) translateZ(0);-ms-transform:translateX(100%) translateZ(0);transform:translateX(100%) translateZ(0);}'
+          styleId: '4182329977',
+          css: '.carouselWrapper.jsx-4182329977{position:relative;width:100%;height:100%;}.carousel__container.jsx-4182329977{position:relative;height:100%;width:100%;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}.carousel__container.sixteen.jsx-4182329977{padding-top:56.25%;}.carousel__container.standard.jsx-4182329977{padding-top:75%;}.carousel__container.cropped.jsx-4182329977{padding-top:41.67%;}.carousel__container.square.jsx-4182329977{padding-top:100%;}.carousel__container.zoomedIn.jsx-4182329977{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.carousel__container.noAspect.jsx-4182329977 .carousel__images-container.jsx-4182329977{position:relative;width:100%;}.carousel__container.noAspect.jsx-4182329977 .carousel__images-container.jsx-4182329977 .carousel__image.jsx-4182329977{height:auto;width:auto;}.carousel__container.tease-next.jsx-4182329977 .next.jsx-4182329977{z-index:8;-webkit-transform:translateX(93%) translateZ(0);-ms-transform:translateX(93%) translateZ(0);transform:translateX(93%) translateZ(0);box-shadow:-2px 0px 30px 0px rgba(0,0,0,0.23);}.carousel__container.tease-prev.jsx-4182329977 .prev.jsx-4182329977{-webkit-transform:translateX(-93%) translateZ(0);-ms-transform:translateX(-93%) translateZ(0);transform:translateX(-93%) translateZ(0);box-shadow:2px 0px 30px 0px rgba(0,0,0,0.23);}.carousel__images-container.jsx-4182329977{position:absolute;top:0;left:0;width:100%;height:100%;-webkit-transition:-webkit-transform .3s ease,box-shadow .3s ease;-webkit-transition:transform .3s ease,box-shadow .3s ease;transition:transform .3s ease,box-shadow .3s ease;}.carousel__image.jsx-4182329977{display:none;height:100%;position:absolute;width:100%;z-index:3;}.carousel__image.active.jsx-4182329977{display:block;-webkit-transition:none;transition:none;z-index:7;}.carousel__image.prev.jsx-4182329977,.carousel__image.next.jsx-4182329977{display:block;overflow:hidden;top:0;z-index:9;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.carousel__image.prev.jsx-4182329977{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateX(-100%) translateZ(0);-ms-transform:translateX(-100%) translateZ(0);transform:translateX(-100%) translateZ(0);width:100%;box-shadow:2px 0px 30px 0px rgba(0,0,0,0);}.carousel__image.next.jsx-4182329977{-webkit-transform:translateX(100%) translateZ(0);-ms-transform:translateX(100%) translateZ(0);transform:translateX(100%) translateZ(0);box-shadow:-2px 0px 30px 0px rgba(0,0,0,0);}'
         })
       );
     }

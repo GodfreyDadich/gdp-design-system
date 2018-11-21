@@ -169,11 +169,13 @@ export default class RevealCarousel extends Component {
               .next {
                 z-index: 8;
                 transform: translateX(93%) translateZ(0);
+                box-shadow: -2px 0px 30px 0px rgba(0,0,0,0.23)
               }
             }
             &.tease-prev {
               .prev {
                 transform: translateX(-93%) translateZ(0);
+                box-shadow: 2px 0px 30px 0px rgba(0,0,0,0.23)
               }
             }                             
           }          
@@ -184,7 +186,7 @@ export default class RevealCarousel extends Component {
             left: 0;
             width: 100%;
             height: 100%;
-            transition: transform .3s ease;
+            transition: transform .3s ease, box-shadow .3s ease;
           }
 
           &__image {
@@ -212,9 +214,11 @@ export default class RevealCarousel extends Component {
               backface-visibility: hidden;
               transform: translateX(-100%) translateZ(0);
               width: 100%;
+              box-shadow: 2px 0px 30px 0px rgba(0,0,0,0)
             }
             &.next {
               transform: translateX(100%) translateZ(0);
+              box-shadow: -2px 0px 30px 0px rgba(0,0,0,0)
             }
           }         
         }
