@@ -141,7 +141,7 @@ var Video = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         {
-          className: 'jsx-2664932041' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : ''))
+          className: 'jsx-2664932041' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           _reactOnScreen2.default,

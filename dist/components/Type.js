@@ -122,12 +122,12 @@ var Caption = exports.Caption = function Caption(_ref7) {
   return _react2.default.createElement(
     'figcaption',
     {
-      className: 'jsx-2788025357' + ' ' + ('captionText' + (classAdd ? ' ' + classAdd : ''))
+      className: 'jsx-38033030' + ' ' + ('captionText' + (classAdd ? ' ' + classAdd : ''))
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2788025357',
-      css: '.captionText.jsx-2788025357{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;margin-bottom:89px;text-align:center;}'
+      styleId: '38033030',
+      css: '.captionText.jsx-38033030{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;text-align:center;}'
     })
   );
 };
