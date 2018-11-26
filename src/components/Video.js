@@ -18,14 +18,15 @@ class Video extends React.Component {
       player: undefined,
       vidSource: '',
       hoverPlay: props.hoverPlay,
-      autoplay: props.autoplay
+      autoplay: props.autoplay,
+      coverVisible: true
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.videoReady = this.videoReady.bind(this)
     this.loadVideo = this.loadVideo.bind(this)
     this.videoOnPlay = this.videoOnPlay.bind(this)
-    // this.videoOnEnd = this.videoOnEnd.bind(this)
+    this.videoOnEnd = this.videoOnEnd.bind(this)
   }
 
   play () {
@@ -51,8 +52,10 @@ class Video extends React.Component {
       player.player.pause()
       player.player.stop()
     }
-    if (!this.state.hoverPlay) {
-      this.refs.hoverCover.style.display = 'none'
+    if (!this.state.hoverPlay && !this.state.autoplay) {
+      this.setState({
+        coverVisible: false
+      })
     }
     this.setState({
       player: player.player
@@ -65,12 +68,18 @@ class Video extends React.Component {
   }
   videoOnPlay () {
     if (!this.state.hoverPlay) {
-      this.refs.hoverCover.style.display = 'none'
+      this.setState({
+        coverVisible: false
+      })
     }
   }
-  // videoOnEnd (hoverPlay) {
-
-  // }
+  videoOnEnd () {
+    if (!this.state.hoverPlay && this.state.autoplay) {
+      this.setState({
+        coverVisible: true
+      })
+    }
+  }
 
   render () {
     const {
@@ -109,7 +118,8 @@ class Video extends React.Component {
                     ref='hoverCover'
                     className='hoverCover'
                     style={{
-                      backgroundImage: `url(${isVisible && !autoplay ? thumb : ''})`
+                      backgroundImage: `url(${isVisible ? thumb : ''})`,
+                      display: this.state.coverVisible ? 'inline-block' : 'none'
                     }} />
                   <ReactPlayer
                     url={autoplay ? vidSource : isVisible ? vidSource : ''}
@@ -122,7 +132,7 @@ class Video extends React.Component {
                     config={config}
                     onReady={this.videoReady}
                     onPlay={this.videoOnPlay}
-                    // onEnded={() => { this.videoOnEnd(hoverPlay) }}
+                    onEnded={this.videoOnEnd}
                   />
                 </div>
               </div>
