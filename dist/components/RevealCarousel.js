@@ -5,11 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _style = require('styled-jsx/style');
-
-var _style2 = _interopRequireDefault(_style);
 
 var _react = require('react');
 
@@ -22,6 +20,8 @@ var _Slide = require('./Slide');
 var _Slide2 = _interopRequireDefault(_Slide);
 
 var _Type = require('./Type');
+
+var _aspectRatio = require('../utils/aspectRatio');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46,7 +46,7 @@ var RevealCarousel = function (_Component) {
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-    _this.getCarouselClass = _this.getCarouselClass.bind(_this);
+    _this.getCarouselStyle = _this.getCarouselStyle.bind(_this);
     _this.hoverTeasePrev = _this.hoverTeasePrev.bind(_this);
     _this.hoverTeaseNext = _this.hoverTeaseNext.bind(_this);
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
@@ -124,20 +124,42 @@ var RevealCarousel = function (_Component) {
       });
     }
   }, {
-    key: 'getCarouselClass',
-    value: function getCarouselClass(index) {
+    key: 'getCarouselStyle',
+    value: function getCarouselStyle(index) {
       var active = this.state.currentIndex;
       var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.images.length - 1;
       var next = this.state.currentIndex + 1 <= this.props.images.length - 1 ? this.state.currentIndex + 1 : 0;
       switch (index) {
         case active:
-          return 'carousel__image active';
+          return {
+            display: 'block',
+            transition: 'none',
+            zIndex: '7'
+          };
         case prev:
-          return 'carousel__image prev';
+          return {
+            display: 'block',
+            overflow: 'hidden',
+            top: '0',
+            zIndex: '9',
+            transition: 'transform 0.5s',
+            backfaceVisibility: 'hidden',
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-93%) translateZ(0' : 'translateX(-100%) translateZ(0)',
+            width: '100%',
+            boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'
+          };
         case next:
-          return 'carousel__image next';
+          return {
+            display: 'block',
+            overflow: 'hidden',
+            top: '0',
+            zIndex: this.state.teaseState === 'tease-next' ? '8' : '9',
+            transition: 'transform 0.5s',
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(93%) translateZ(0)' : 'translateX(100%) translateZ(0)',
+            boxShadow: this.state.teaseState === 'tease-next' ? '-2px 0px 30px 0px rgba(0,0,0,0.23)' : '-2px 0px 30px 0px rgba(0,0,0,0)'
+          };
         default:
-          return 'carousel__image';
+          return '';
       }
     }
   }, {
@@ -148,13 +170,25 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'figure',
         {
-          className: 'jsx-4182329977' + ' ' + ('carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''))
-        },
+          style: {
+            position: 'relative',
+            width: '100%',
+            height: '100%'
+          },
+          className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
         _react2.default.createElement(
           'div',
           {
-            className: 'jsx-4182329977' + ' ' + ('carousel__container ' + this.props.aspectRatio + ' ' + this.state.teaseState)
-          },
+            style: {
+              position: 'relative',
+              height: '100%',
+              width: '100%',
+              overflow: 'hidden',
+              touchAction: 'pan-y',
+              userSelect: 'none',
+              paddingTop: (0, _aspectRatio.getPaddingTop)(this.props.aspectRatio)
+            },
+            className: 'carousel__container ' + this.state.teaseState },
           _react2.default.createElement(_SliderArrows.LeftArrow, {
             clickAction: this.goToPrevSlide,
             over: this.hoverTeasePrev,
@@ -168,13 +202,27 @@ var RevealCarousel = function (_Component) {
           _react2.default.createElement(
             'div',
             {
-              className: 'jsx-4182329977' + ' ' + 'carousel__images-container'
-            },
+              style: {
+                position: this.props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                transition: 'transform .3s ease, box-shadow .3s ease'
+              },
+              className: 'carousel__images-container' },
             this.props.images.map(function (image, i) {
               return _react2.default.createElement(
                 'div',
-                { key: 'carouselImage' + i, className: 'jsx-4182329977' + ' ' + (_this2.getCarouselClass(i) || '')
-                },
+                {
+                  key: 'carouselImage' + i,
+                  style: _extends({
+                    display: 'none',
+                    height: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    width: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    position: 'absolute',
+                    zIndex: '3'
+                  }, _this2.getCarouselStyle(i)) },
                 _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this2.props.aspectRatio === 'noAspect' })
               );
             })
@@ -184,11 +232,7 @@ var RevealCarousel = function (_Component) {
           _Type.Caption,
           { classAdd: 'col-6 skip-3' },
           this.props.caption
-        ) : '',
-        _react2.default.createElement(_style2.default, {
-          styleId: '4182329977',
-          css: '.carouselWrapper.jsx-4182329977{position:relative;width:100%;height:100%;}.carousel__container.jsx-4182329977{position:relative;height:100%;width:100%;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}.carousel__container.sixteen.jsx-4182329977{padding-top:56.25%;}.carousel__container.standard.jsx-4182329977{padding-top:75%;}.carousel__container.cropped.jsx-4182329977{padding-top:41.67%;}.carousel__container.square.jsx-4182329977{padding-top:100%;}.carousel__container.zoomedIn.jsx-4182329977{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.carousel__container.noAspect.jsx-4182329977 .carousel__images-container.jsx-4182329977{position:relative;width:100%;}.carousel__container.noAspect.jsx-4182329977 .carousel__images-container.jsx-4182329977 .carousel__image.jsx-4182329977{height:auto;width:auto;}.carousel__container.tease-next.jsx-4182329977 .next.jsx-4182329977{z-index:8;-webkit-transform:translateX(93%) translateZ(0);-ms-transform:translateX(93%) translateZ(0);transform:translateX(93%) translateZ(0);box-shadow:-2px 0px 30px 0px rgba(0,0,0,0.23);}.carousel__container.tease-prev.jsx-4182329977 .prev.jsx-4182329977{-webkit-transform:translateX(-93%) translateZ(0);-ms-transform:translateX(-93%) translateZ(0);transform:translateX(-93%) translateZ(0);box-shadow:2px 0px 30px 0px rgba(0,0,0,0.23);}.carousel__images-container.jsx-4182329977{position:absolute;top:0;left:0;width:100%;height:100%;-webkit-transition:-webkit-transform .3s ease,box-shadow .3s ease;-webkit-transition:transform .3s ease,box-shadow .3s ease;transition:transform .3s ease,box-shadow .3s ease;}.carousel__image.jsx-4182329977{display:none;height:100%;position:absolute;width:100%;z-index:3;}.carousel__image.active.jsx-4182329977{display:block;-webkit-transition:none;transition:none;z-index:7;}.carousel__image.prev.jsx-4182329977,.carousel__image.next.jsx-4182329977{display:block;overflow:hidden;top:0;z-index:9;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.carousel__image.prev.jsx-4182329977{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateX(-100%) translateZ(0);-ms-transform:translateX(-100%) translateZ(0);transform:translateX(-100%) translateZ(0);width:100%;box-shadow:2px 0px 30px 0px rgba(0,0,0,0);}.carousel__image.next.jsx-4182329977{-webkit-transform:translateX(100%) translateZ(0);-ms-transform:translateX(100%) translateZ(0);transform:translateX(100%) translateZ(0);box-shadow:-2px 0px 30px 0px rgba(0,0,0,0);}'
-        })
+        ) : ''
       );
     }
   }]);
