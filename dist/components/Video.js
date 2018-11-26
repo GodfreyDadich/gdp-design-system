@@ -52,14 +52,15 @@ var Video = function (_React$Component) {
       player: undefined,
       vidSource: '',
       hoverPlay: props.hoverPlay,
-      autoplay: props.autoplay
+      autoplay: props.autoplay,
+      coverVisible: true
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
     _this.videoReady = _this.videoReady.bind(_this);
     _this.loadVideo = _this.loadVideo.bind(_this);
     _this.videoOnPlay = _this.videoOnPlay.bind(_this);
-    // this.videoOnEnd = this.videoOnEnd.bind(this)
+    _this.videoOnEnd = _this.videoOnEnd.bind(_this);
     return _this;
   }
 
@@ -93,8 +94,10 @@ var Video = function (_React$Component) {
         player.player.pause();
         player.player.stop();
       }
-      if (!this.state.hoverPlay) {
-        this.refs.hoverCover.style.display = 'none';
+      if (!this.state.hoverPlay && !this.state.autoplay) {
+        this.setState({
+          coverVisible: false
+        });
       }
       this.setState({
         player: player.player
@@ -111,13 +114,20 @@ var Video = function (_React$Component) {
     key: 'videoOnPlay',
     value: function videoOnPlay() {
       if (!this.state.hoverPlay) {
-        this.refs.hoverCover.style.display = 'none';
+        this.setState({
+          coverVisible: false
+        });
       }
     }
-    // videoOnEnd (hoverPlay) {
-
-    // }
-
+  }, {
+    key: 'videoOnEnd',
+    value: function videoOnEnd() {
+      if (!this.state.hoverPlay && this.state.autoplay) {
+        this.setState({
+          coverVisible: true
+        });
+      }
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -176,7 +186,8 @@ var Video = function (_React$Component) {
                     ref: 'hoverCover',
 
                     style: {
-                      backgroundImage: 'url(' + (isVisible && !autoplay ? thumb : '') + ')'
+                      backgroundImage: 'url(' + (isVisible ? thumb : '') + ')',
+                      display: _this2.state.coverVisible ? 'inline-block' : 'none'
                     }, className: 'jsx-2664932041' + ' ' + 'hoverCover'
                   }),
                   _react2.default.createElement(_reactPlayer2.default, {
@@ -189,8 +200,8 @@ var Video = function (_React$Component) {
                     style: vidStyle,
                     config: config,
                     onReady: _this2.videoReady,
-                    onPlay: _this2.videoOnPlay
-                    // onEnded={() => { this.videoOnEnd(hoverPlay) }}
+                    onPlay: _this2.videoOnPlay,
+                    onEnded: _this2.videoOnEnd
                   })
                 )
               ),

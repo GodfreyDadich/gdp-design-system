@@ -101,7 +101,10 @@ var Hero = function (_React$Component) {
                 config: {
                   vimeo: {
                     playerOptions: {
-                      background: 1
+                      background: 1,
+                      transparent: 0,
+                      muted: 1,
+                      autoplay: 1
                     },
                     preload: true
                   }
