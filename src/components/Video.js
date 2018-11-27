@@ -184,10 +184,13 @@ class Video extends React.Component {
               background-size: cover;
               background-repeat: no-repeat;
               transition: 0s opacity;
-
-              &:hover {
-                opacity: 0;
-                transition-delay:.2s;
+            }
+            .hoverVid {
+              .vidWrap:hover {
+                .hoverCover {
+                  opacity: 0;
+                  transition-delay:.2s;
+                }
               }
             }
             `}</style>

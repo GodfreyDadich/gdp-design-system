@@ -19,7 +19,7 @@ const Card = props =>
     <style jsx>{`
       .cardMedia {
         display: inline-block;
-        width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%'};
+        width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
       }
     `}</style>
   </div>
