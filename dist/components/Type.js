@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _style = require('styled-jsx/style');
 
 var _style2 = _interopRequireDefault(_style);
@@ -53,50 +55,56 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
 };
 
 var Heading2 = exports.Heading2 = function Heading2(_ref3) {
-  var children = _ref3.children;
+  var children = _ref3.children,
+      style = _ref3.style;
   return _react2.default.createElement(
     'h2',
     {
-      className: _style2.default.dynamic([['3510317954', [_typography.fontSizeHeading2, _typography.lineHeightHeading2]]]) + ' ' + 'headingTwo'
-    },
-    children,
-    _react2.default.createElement(_style2.default, {
-      styleId: '3510317954',
-      css: '.headingTwo.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeHeading2 + 'px;line-height:' + _typography.lineHeightHeading2 + ';margin:0;}',
-      dynamic: [_typography.fontSizeHeading2, _typography.lineHeightHeading2]
-    })
+      style: _extends({
+        fontSize: _typography.fontSizeHeading2 / 1280 * 100 + 'vw',
+        lineHeight: 1,
+        margin: 0
+      }, style),
+      className: 'headingTwo' },
+    children
   );
 };
 
 var Heading3 = exports.Heading3 = function Heading3(_ref4) {
-  var children = _ref4.children;
+  var children = _ref4.children,
+      style = _ref4.style;
   return _react2.default.createElement(
     'h3',
     {
-      className: _style2.default.dynamic([['3872319389', [_typography.fontSizeHeading3, _typography.lineHeightHeading3]]]) + ' ' + 'headingThree'
+      className: 'headingThree',
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: 'bold',
+        fontSize: _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
+        lineHeight: 1,
+        margin: 0
+      }, style)
     },
-    children,
-    _react2.default.createElement(_style2.default, {
-      styleId: '3872319389',
-      css: '.headingThree.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeHeading3 + 'px;line-height:' + _typography.lineHeightHeading3 + ';margin:0;}',
-      dynamic: [_typography.fontSizeHeading3, _typography.lineHeightHeading3]
-    })
+    children
   );
 };
 
 var Heading4 = exports.Heading4 = function Heading4(_ref5) {
-  var children = _ref5.children;
+  var children = _ref5.children,
+      style = _ref5.style;
   return _react2.default.createElement(
     'h4',
     {
-      className: _style2.default.dynamic([['4278458390', [_typography.fontSizeHeading4, _typography.lineHeightHeading4]]]) + ' ' + 'headingFour'
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: 'bold',
+        fontSize: _typography.fontSizeHeading4 / 1280 * 100 + 'vw',
+        lineHeight: 1,
+        margin: 0
+      }, style),
+      className: 'headingFour'
     },
-    children,
-    _react2.default.createElement(_style2.default, {
-      styleId: '4278458390',
-      css: '.headingFour.__jsx-style-dynamic-selector{font-size:' + _typography.fontSizeHeading4 + 'px;line-height:' + _typography.lineHeightHeading4 + ';margin:0;}',
-      dynamic: [_typography.fontSizeHeading4, _typography.lineHeightHeading4]
-    })
+    children
   );
 };
 
@@ -106,12 +114,12 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-2273996777' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+      className: 'jsx-448456293' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2273996777',
-      css: '.pullQuote.jsx-2273996777{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
+      styleId: '448456293',
+      css: '.pullQuote.jsx-448456293{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
     })
   );
 };

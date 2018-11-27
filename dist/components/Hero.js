@@ -85,6 +85,7 @@ var Hero = function (_React$Component) {
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
                 verticalAlign: 'center',
+                skipIntro: true,
                 horizontalAlign: 'center',
                 imgSource: _this3.props.source,
                 classAdd: _this3.state.zoomClass });
@@ -95,6 +96,7 @@ var Hero = function (_React$Component) {
                 fullBleed: 'true',
                 controls: false,
                 autoplay: true,
+                skipIntro: true,
                 loop: false,
                 vidSource: _this3.props.source,
                 thumb: _this3.props.thumb,

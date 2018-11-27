@@ -141,6 +141,7 @@ var Video = function (_React$Component) {
           loop = _props.loop,
           config = _props.config,
           hoverPlay = _props.hoverPlay,
+          skipIntro = _props.skipIntro,
           thumb = _props.thumb,
           caption = _props.caption,
           sideBar = _props.sideBar,
@@ -163,7 +164,7 @@ var Video = function (_React$Component) {
               {
                 style: {
                   position: 'relative',
-                  top: isVisible ? '0px' : '15px',
+                  top: isVisible || skipIntro ? '0px' : '15px',
                   opacity: isVisible ? '1' : '0',
                   transition: 'opacity 0.5s, top 0.5s',
                   transitionDelay: '0.25s'

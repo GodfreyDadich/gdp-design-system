@@ -175,6 +175,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       _react2.default.createElement(_Image2.default, {
         imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
         aspectRatio: 'standard',
+        skipIntro: true,
         imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
         verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
         horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
@@ -429,6 +430,7 @@ var modalState = true;
         vidSource: 'https://vimeo.com/299978313',
         autoplay: true,
         loop: true,
+        skipIntro: true,
         config: {
           vimeo: {
             playerOptions: {
