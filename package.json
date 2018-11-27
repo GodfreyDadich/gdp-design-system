@@ -1,6 +1,6 @@
 {
   "name": "gdp-design-system",
-  "version": "0.1.69",
+  "version": "0.1.70",
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
