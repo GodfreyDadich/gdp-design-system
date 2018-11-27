@@ -62,40 +62,43 @@ export const Heading1 = ({children}) =>
     `}</style>
   </h1>
   
-export const Heading2 = ({children}) => 
-  <h2 className='headingTwo'>
+export const Heading2 = ({ children, style }) =>
+  <h2
+    style={Object.assign({
+      fontSize: (fontSizeHeading2 / 1280) * 100 + 'vw',
+      lineHeight: 1,
+      margin: 0
+    }, style)}
+    className='headingTwo'>
     {children}
-    <style jsx>{`
-      .headingTwo {
-        font-size: ${fontSizeHeading2}px;
-        line-height: ${lineHeightHeading2};
-        margin: 0;
-      }
-    `}</style>
   </h2>
 
-export const Heading3 = ({children}) => 
-  <h3 className='headingThree'>
+export const Heading3 = ({ children, style }) =>
+  <h3
+    className='headingThree'
+    style={Object.assign({
+      fontFamily: 'Atlas Grotesk',
+      fontWeight: 'bold',
+      fontSize: (fontSizeHeading3 / 1280) * 100 + 'vw',
+      lineHeight: 1,
+      margin: 0
+    }, style)}
+  >
     {children}
-    <style jsx>{`
-      .headingThree {
-        font-size: ${fontSizeHeading3}px;
-        line-height: ${lineHeightHeading3};
-        margin: 0;
-      }
-    `}</style>
   </h3>
 
-export const Heading4 = ({ children }) => 
-  <h4 className='headingFour'>
+export const Heading4 = ({ children, style }) =>
+  <h4
+    style={Object.assign({
+      fontFamily: 'Atlas Grotesk',
+      fontWeight: 'bold',
+      fontSize: (fontSizeHeading4 / 1280) * 100 + 'vw',
+      lineHeight: 1,
+      margin: 0
+    }, style)}
+    className='headingFour'
+  >
     {children}
-    <style jsx>{`
-      .headingFour {
-        font-size: ${fontSizeHeading4}px;
-        line-height: ${lineHeightHeading4};
-        margin: 0;
-      }
-    `}</style>
   </h4>
 
 export const Pullquote = ({ classAdd, children }) =>
@@ -110,7 +113,7 @@ export const Pullquote = ({ classAdd, children }) =>
         letter-spacing: -0.3px;
         text-align: center;
         margin-top: 89px;
-        margin-bottom: 89px;       
+        margin-bottom: 89px;
       }
     `}</style>
   </div>
