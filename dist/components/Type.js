@@ -56,7 +56,8 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
 
 var Heading2 = exports.Heading2 = function Heading2(_ref3) {
   var children = _ref3.children,
-      style = _ref3.style;
+      style = _ref3.style,
+      className = _ref3.className;
   return _react2.default.createElement(
     'h2',
     {
@@ -65,25 +66,27 @@ var Heading2 = exports.Heading2 = function Heading2(_ref3) {
         lineHeight: 1,
         margin: 0
       }, style),
-      className: 'headingTwo' },
+      className: className
+    },
     children
   );
 };
 
 var Heading3 = exports.Heading3 = function Heading3(_ref4) {
   var children = _ref4.children,
-      style = _ref4.style;
+      style = _ref4.style,
+      className = _ref4.className;
   return _react2.default.createElement(
     'h3',
     {
-      className: 'headingThree',
       style: _extends({
         fontFamily: 'Atlas Grotesk',
         fontWeight: 'bold',
         fontSize: _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
         lineHeight: 1,
         margin: 0
-      }, style)
+      }, style),
+      className: className
     },
     children
   );
