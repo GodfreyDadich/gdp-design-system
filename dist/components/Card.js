@@ -38,21 +38,21 @@ var Card = function Card(props) {
   return _react2.default.createElement(
     'div',
     {
-      className: _style2.default.dynamic([['1927751783', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%']]]) + ' ' + (props.classAdd || '')
+      className: _style2.default.dynamic([['1004407848', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%']]]) + ' ' + (props.classAdd || '')
     },
     !!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && _react2.default.createElement(_CardText2.default, props),
     _react2.default.createElement(
       'div',
       {
-        className: _style2.default.dynamic([['1927751783', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%']]]) + ' ' + 'cardMedia'
+        className: _style2.default.dynamic([['1004407848', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%']]]) + ' ' + 'cardMedia'
       },
       _react2.default.createElement(_Image2.default, imagePropsObject(props))
     ),
     !!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && _react2.default.createElement(_CardText2.default, props),
     _react2.default.createElement(_style2.default, {
-      styleId: '1927751783',
-      css: '.cardMedia.__jsx-style-dynamic-selector{display:inline-block;width:' + (props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%') + ';}',
-      dynamic: [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '50%' : '100%']
+      styleId: '1004407848',
+      css: '.cardMedia.__jsx-style-dynamic-selector{display:inline-block;width:' + (props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%') + ';}',
+      dynamic: [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%']
     })
   );
 };
