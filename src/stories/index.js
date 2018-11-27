@@ -113,6 +113,7 @@ storiesOf('Image', module)
         <Image
           imageTitle={text('Image Title/Alt', 'test')}
           aspectRatio='standard'
+          skipIntro
           imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
           verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
           horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
@@ -379,6 +380,7 @@ storiesOf('Video', module)
           vidSource='https://vimeo.com/299978313'
           autoplay
           loop
+          skipIntro
           config={{
             vimeo: {
               playerOptions: {

@@ -90,6 +90,7 @@ class Video extends React.Component {
       loop,
       config,
       hoverPlay,
+      skipIntro,
       thumb,
       caption,
       sideBar,
@@ -103,7 +104,7 @@ class Video extends React.Component {
             <div
               style={{
                 position: 'relative',
-                top: isVisible ? '0px' : '15px',
+                top: isVisible || skipIntro ? '0px' : '15px',
                 opacity: isVisible ? '1' : '0',
                 transition: 'opacity 0.5s, top 0.5s',
                 transitionDelay: '0.25s'

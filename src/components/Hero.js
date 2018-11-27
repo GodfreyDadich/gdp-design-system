@@ -36,6 +36,7 @@ class Hero extends React.Component {
               aspectRatio='sixteen'
               fullBleed='true'
               verticalAlign='center'
+              skipIntro
               horizontalAlign='center'
               imgSource={this.props.source}
               classAdd={this.state.zoomClass} />
@@ -46,6 +47,7 @@ class Hero extends React.Component {
               fullBleed='true'
               controls={false}
               autoplay
+              skipIntro
               loop={false}
               vidSource={this.props.source}
               thumb={this.props.thumb}
