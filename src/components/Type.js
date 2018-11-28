@@ -81,23 +81,25 @@ export const Heading3 = ({ children, style, className }) =>
       fontWeight: 'bold',
       fontSize: (fontSizeHeading3 / 1280) * 100 + 'vw',
       lineHeight: 1,
-      margin: 0
+      marginTop: 0,
+      marginBottom: 0
     }, style)}
     className={className}
   >
     {children}
   </h3>
 
-export const Heading4 = ({ children, style }) =>
+export const Heading4 = ({ children, style, className }) =>
   <h4
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
       fontSize: (fontSizeHeading4 / 1280) * 100 + 'vw',
       lineHeight: 1,
-      margin: 0
+      marginTop: 0,
+      marginBottom: 0
     }, style)}
-    className='headingFour'
+    className={className}
   >
     {children}
   </h4>

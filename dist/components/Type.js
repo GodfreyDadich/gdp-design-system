@@ -84,7 +84,8 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
         fontWeight: 'bold',
         fontSize: _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
         lineHeight: 1,
-        margin: 0
+        marginTop: 0,
+        marginBottom: 0
       }, style),
       className: className
     },
@@ -94,7 +95,8 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
 
 var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   var children = _ref5.children,
-      style = _ref5.style;
+      style = _ref5.style,
+      className = _ref5.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -103,9 +105,10 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
         fontWeight: 'bold',
         fontSize: _typography.fontSizeHeading4 / 1280 * 100 + 'vw',
         lineHeight: 1,
-        margin: 0
+        marginTop: 0,
+        marginBottom: 0
       }, style),
-      className: 'headingFour'
+      className: className
     },
     children
   );
