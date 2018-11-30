@@ -89,60 +89,52 @@ export default class CircularCarousel extends Component {
     switch (index) {
       case active :
         return {
-          display: 'block',
-          opacity: 1,
-          transition: 'transform 0.75s',
           zIndex: '10'
         }
       case prev :
         return {
-          display: 'block',
-          opacity: 1,
-          top: '0',
-          zIndex: '9',
-          transition: 'transform 0.75s',
-          backfaceVisibility: 'hidden',
-          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-45%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-50%) translateZ(0) scale(0.75, 0.75)',
+          zIndex: this.state.direction === 'prev' ? '9' : '8',
+          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)',
         }
       case next :
         return {
-          display: 'block',
-          opacity: 1,
-          top: '0',
-          zIndex: '8',
-          transition: 'transform 0.75s',
-          transform: this.state.teaseState === 'tease-next' ? 'translateX(145%) translateZ(0) scale(0.8, 0.8)' : 'translateX(150%) translateZ(0) scale(0.75, 0.75)',
+          zIndex: this.state.direction === 'next' ? '9' : '8',
+          transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)',
         }
       default :
         return {
-          display: 'block',
-          opacity: 0,
-          top: '0',
-          zIndex: '8',
-          transition: 'transform 0.75s',
-          backfaceVisibility: 'hidden',
-          transform: this.state.direction === 'prev' ? 'translateX(-80%) translateZ(0) scale(0.5, 0.5)' : 'translateX(155%) translateZ(0) scale(0.5, 0.5)',
+          zIndex: '6',
+          transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)',
         }
     }
   }
   render () {
+    const {
+      style = {},
+      fullBleed,
+      caption,
+      aspectRatio,
+      children
+    } = this.props
     return (
       <div
-        style={{
+        style={Object.assign(style, {
           position: 'relative',
           width: '100%',
-          height: '100%'
-        }}
-        className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
+          height: '100%',
+          overflow: 'visible'
+        })}
+        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
         <div
           style={{
             position: 'relative',
             height: '100%',
             width: '100%',
-            overflow: 'hidden',
+            overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: getPaddingTop(this.props.aspectRatio)
+            paddingTop: getPaddingTop(aspectRatio),
+            backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
           <LeftArrow
@@ -166,16 +158,18 @@ export default class CircularCarousel extends Component {
             }}
             className='carousel__images-container'>
             {
-              this.props.children.map((child, i) => (
+              children.map((child, i) => (
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    display: 'none',
-                    height: '50%',
+                    display: 'block',
                     width: '50%',
+                    verticalAlign: 'middle',
                     position: 'absolute',
                     transform: 'translateX(50%)',
-                    zIndex: '3'
+                    transition: 'transform 0.75s',
+                    zIndex: '3',
+                    top: '10%'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child)}
                 </div>
@@ -186,7 +180,7 @@ export default class CircularCarousel extends Component {
 
         </div>
 
-        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{this.props.caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
       </div>
     )
   }
