@@ -172,10 +172,98 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
-        images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+        aspectRatio='sixteen'
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-      />
+      >
+        <Device classAdd='test' deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
+          <Video
+            title=''
+            aspectRatio='standard'
+            vidSource='https://vimeo.com/299978313'
+            autoplay
+            loop
+            skipIntro
+            config={{
+              vimeo: {
+                playerOptions: {
+                  background: 1,
+                  transparent: 0
+                }
+              }
+            }}
+            thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          />
+        </Device>
+        <Device classAdd='test' deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
+          <Video
+            title=''
+            aspectRatio='standard'
+            vidSource='https://vimeo.com/299978313'
+            autoplay
+            loop
+            skipIntro
+            config={{
+              vimeo: {
+                playerOptions: {
+                  background: 1,
+                  transparent: 0
+                }
+              }
+            }}
+            thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          />
+        </Device>
+        <Device classAdd='test' deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
+          <Video
+            title=''
+            aspectRatio='standard'
+            vidSource='https://vimeo.com/299978313'
+            autoplay
+            loop
+            skipIntro
+            config={{
+              vimeo: {
+                playerOptions: {
+                  background: 1,
+                  transparent: 0
+                }
+              }
+            }}
+            thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          />
+        </Device>
+        <Device classAdd='test' deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
+          <Video
+            title=''
+            aspectRatio='standard'
+            vidSource='https://vimeo.com/299978313'
+            autoplay
+            loop
+            skipIntro
+            config={{
+              vimeo: {
+                playerOptions: {
+                  background: 1,
+                  transparent: 0
+                }
+              }
+            }}
+            thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          />
+        </Device>        
+      </CircularCarousel>
     </div>
   )
 
@@ -396,7 +484,8 @@ storiesOf('Video', module)
           config={{
             vimeo: {
               playerOptions: {
-                background: 1
+                background: 1,
+                transparent: 0
               }
             }
           }}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
-import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 
@@ -25,7 +24,7 @@ export default class CircularCarousel extends Component {
   goToPrevSlide () {
     if (this.state.currentIndex === 0) {
       return this.setState({
-        currentIndex: this.props.images.length - 1,
+        currentIndex: this.props.children.length - 1,
         teaseState: '',
         direction: 'prev'
       })
@@ -39,7 +38,7 @@ export default class CircularCarousel extends Component {
   }
 
   goToNextSlide () {
-    if (this.state.currentIndex === this.props.images.length - 1) {
+    if (this.state.currentIndex === this.props.children.length - 1) {
       return this.setState({
         currentIndex: 0,
         teaseState: '',
@@ -85,19 +84,20 @@ export default class CircularCarousel extends Component {
 
   getCarouselStyle (index) {
     const active = this.state.currentIndex
-    const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.images.length - 1
-    const next = this.state.currentIndex + 1 <= this.props.images.length - 1 ? this.state.currentIndex + 1 : 0
+    const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
+    const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
     switch (index) {
       case active :
         return {
           display: 'block',
+          opacity: 1,
           transition: 'transform 0.75s',
           zIndex: '10'
         }
       case prev :
         return {
           display: 'block',
-          overflow: 'hidden',
+          opacity: 1,
           top: '0',
           zIndex: '9',
           transition: 'transform 0.75s',
@@ -107,7 +107,7 @@ export default class CircularCarousel extends Component {
       case next :
         return {
           display: 'block',
-          overflow: 'hidden',
+          opacity: 1,
           top: '0',
           zIndex: '8',
           transition: 'transform 0.75s',
@@ -115,8 +115,8 @@ export default class CircularCarousel extends Component {
         }
       default :
         return {
-          display: 'none',
-          overflow: 'hidden',
+          display: 'block',
+          opacity: 0,
           top: '0',
           zIndex: '8',
           transition: 'transform 0.75s',
@@ -127,7 +127,7 @@ export default class CircularCarousel extends Component {
   }
   render () {
     return (
-      <figure
+      <div
         style={{
           position: 'relative',
           width: '100%',
@@ -157,7 +157,7 @@ export default class CircularCarousel extends Component {
           />
           <div
             style={{
-              position: this.props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+              position: 'absolute',
               top: '0',
               left: '0',
               width: '100%',
@@ -166,7 +166,7 @@ export default class CircularCarousel extends Component {
             }}
             className='carousel__images-container'>
             {
-              this.props.images.map((image, i) => (
+              this.props.children.map((child, i) => (
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
@@ -177,7 +177,7 @@ export default class CircularCarousel extends Component {
                     transform: 'translateX(50%)',
                     zIndex: '3'
                   }, this.getCarouselStyle(i))}>
-                  <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={this.props.aspectRatio === 'noAspect'} />
+                  {React.cloneElement(child)}
                 </div>
               ))
             }
@@ -187,7 +187,7 @@ export default class CircularCarousel extends Component {
         </div>
 
         {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{this.props.caption}</Caption> : ''}
-      </figure>
+      </div>
     )
   }
 }

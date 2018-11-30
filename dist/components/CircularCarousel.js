@@ -31,17 +31,18 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var RevealCarousel = function (_Component) {
-  _inherits(RevealCarousel, _Component);
+var CircularCarousel = function (_Component) {
+  _inherits(CircularCarousel, _Component);
 
-  function RevealCarousel(props) {
-    _classCallCheck(this, RevealCarousel);
+  function CircularCarousel(props) {
+    _classCallCheck(this, CircularCarousel);
 
-    var _this = _possibleConstructorReturn(this, (RevealCarousel.__proto__ || Object.getPrototypeOf(RevealCarousel)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CircularCarousel.__proto__ || Object.getPrototypeOf(CircularCarousel)).call(this, props));
 
     _this.state = {
       currentIndex: 0,
-      teaseState: ''
+      teaseState: '',
+      direction: 'next'
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -53,20 +54,22 @@ var RevealCarousel = function (_Component) {
     return _this;
   }
 
-  _createClass(RevealCarousel, [{
+  _createClass(CircularCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
       if (this.state.currentIndex === 0) {
         return this.setState({
           currentIndex: this.props.images.length - 1,
-          teaseState: ''
+          teaseState: '',
+          direction: 'prev'
         });
       }
 
       this.setState(function (prevState) {
         return {
           currentIndex: prevState.currentIndex - 1,
-          teaseState: ''
+          teaseState: '',
+          direction: 'prev'
         };
       });
     }
@@ -76,14 +79,16 @@ var RevealCarousel = function (_Component) {
       if (this.state.currentIndex === this.props.images.length - 1) {
         return this.setState({
           currentIndex: 0,
-          teaseState: ''
+          teaseState: '',
+          direction: 'next'
         });
       }
 
       this.setState(function (prevState) {
         return {
           currentIndex: prevState.currentIndex + 1,
-          teaseState: ''
+          teaseState: '',
+          direction: 'next'
         };
       });
     }
@@ -133,8 +138,8 @@ var RevealCarousel = function (_Component) {
         case active:
           return {
             display: 'block',
-            transition: 'none',
-            zIndex: '7'
+            transition: 'transform 0.75s',
+            zIndex: '10'
           };
         case prev:
           return {
@@ -144,22 +149,27 @@ var RevealCarousel = function (_Component) {
             zIndex: '9',
             transition: 'transform 0.75s',
             backfaceVisibility: 'hidden',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-93%) translateZ(0' : 'translateX(-100%) translateZ(0)',
-            width: '100%',
-            boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-45%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             display: 'block',
             overflow: 'hidden',
             top: '0',
-            zIndex: this.state.teaseState === 'tease-next' ? '8' : '9',
+            zIndex: '8',
             transition: 'transform 0.75s',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(93%) translateZ(0)' : 'translateX(100%) translateZ(0)',
-            boxShadow: this.state.teaseState === 'tease-next' ? '-2px 0px 30px 0px rgba(0,0,0,0.23)' : '-2px 0px 30px 0px rgba(0,0,0,0)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(145%) translateZ(0) scale(0.8, 0.8)' : 'translateX(150%) translateZ(0) scale(0.75, 0.75)'
           };
         default:
-          return '';
+          return {
+            display: 'none',
+            overflow: 'hidden',
+            top: '0',
+            zIndex: '8',
+            transition: 'transform 0.75s',
+            backfaceVisibility: 'hidden',
+            transform: this.state.direction === 'prev' ? 'translateX(-80%) translateZ(0) scale(0.5, 0.5)' : 'translateX(155%) translateZ(0) scale(0.5, 0.5)'
+          };
       }
     }
   }, {
@@ -218,9 +228,10 @@ var RevealCarousel = function (_Component) {
                   key: 'carouselImage' + i,
                   style: _extends({
                     display: 'none',
-                    height: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
-                    width: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    height: '50%',
+                    width: '50%',
                     position: 'absolute',
+                    transform: 'translateX(50%)',
                     zIndex: '3'
                   }, _this2.getCarouselStyle(i)) },
                 _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this2.props.aspectRatio === 'noAspect' })
@@ -237,7 +248,7 @@ var RevealCarousel = function (_Component) {
     }
   }]);
 
-  return RevealCarousel;
+  return CircularCarousel;
 }(_react.Component);
 
-exports.default = RevealCarousel;
+exports.default = CircularCarousel;

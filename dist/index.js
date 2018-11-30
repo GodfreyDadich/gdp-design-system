@@ -157,6 +157,15 @@ Object.defineProperty(exports, 'RevealCarousel', {
   }
 });
 
+var _CircularCarousel = require('./components/CircularCarousel');
+
+Object.defineProperty(exports, 'CircularCarousel', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CircularCarousel).default;
+  }
+});
+
 var _SliderArrows = require('./components/SliderArrows');
 
 Object.defineProperty(exports, 'RightArrow', {

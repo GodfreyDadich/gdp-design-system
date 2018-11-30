@@ -36,6 +36,10 @@ var _RevealCarousel = require('../components/RevealCarousel');
 
 var _RevealCarousel2 = _interopRequireDefault(_RevealCarousel);
 
+var _CircularCarousel = require('../components/CircularCarousel');
+
+var _CircularCarousel2 = _interopRequireDefault(_CircularCarousel);
+
 var _Card = require('../components/Card');
 
 var _Card2 = _interopRequireDefault(_Card);
@@ -83,6 +87,8 @@ var _Video2 = _interopRequireDefault(_Video);
 var _Device = require('../components/Device');
 
 var _Device2 = _interopRequireDefault(_Device);
+
+var _reactScrollParallax = require('react-scroll-parallax');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -218,7 +224,17 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     { style: { width: '75%', margin: '50px auto' } },
     _react2.default.createElement(_RevealCarousel2.default, {
       images: imageGallery,
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+    })
+  );
+}).add('Image Carousel (Circular)', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '75%', margin: '50px auto' } },
+    _react2.default.createElement(_CircularCarousel2.default, {
+      images: imageGallery,
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
     })
   );
@@ -481,5 +497,48 @@ var modalState = true;
       vidSource: 'https://vimeo.com/299543215',
       thumb: 'https://i.vimeocdn.com/video/737702269_1000.jpg'
     })
+  );
+});
+
+(0, _react3.storiesOf)('Parallax', module).add('Parallax Test', function () {
+  return _react2.default.createElement(
+    _reactScrollParallax.ParallaxProvider,
+    null,
+    _react2.default.createElement(
+      _reactScrollParallax.Parallax,
+      {
+        offsetYMax: 20,
+        offsetYMin: -20,
+        slowerScrollRate: true
+      },
+      _react2.default.createElement(_Video2.default, {
+        title: '',
+        aspectRatio: 'sixteen',
+        fullBleed: false,
+        vidSource: 'https://vimeo.com/299543193',
+        thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+        classAdd: 'skip-1 col-3'
+      })
+    ),
+    _react2.default.createElement(
+      _reactScrollParallax.Parallax,
+      {
+        offsetYMax: 20,
+        offsetYMin: -20
+      },
+      _react2.default.createElement(_Card2.default, {
+        cardTitle: 'Test Title',
+        cardSubTitle: 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.',
+        cardContent: 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.',
+        linkText: 'Test Link',
+        linkUrl: '',
+        mediaOrientation: 'top',
+        imageTitle: 'test',
+        aspectRatio: 'standard',
+        imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+        horizontalAlign: 'center',
+        classAdd: 'skip-3 col-3'
+      })
+    )
   );
 });
