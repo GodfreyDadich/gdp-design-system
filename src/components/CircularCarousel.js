@@ -4,13 +4,14 @@ import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 
-export default class RevealCarousel extends Component {
+export default class CircularCarousel extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       currentIndex: 0,
-      teaseState: ''
+      teaseState: '',
+      direction: 'next'
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -25,13 +26,15 @@ export default class RevealCarousel extends Component {
     if (this.state.currentIndex === 0) {
       return this.setState({
         currentIndex: this.props.images.length - 1,
-        teaseState: ''
+        teaseState: '',
+        direction: 'prev'
       })
     }
 
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex - 1,
-      teaseState: ''
+      teaseState: '',
+      direction: 'prev'
     }))
   }
 
@@ -39,13 +42,15 @@ export default class RevealCarousel extends Component {
     if (this.state.currentIndex === this.props.images.length - 1) {
       return this.setState({
         currentIndex: 0,
-        teaseState: ''
+        teaseState: '',
+        direction: 'next'
       })
     }
 
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex + 1,
-      teaseState: ''
+      teaseState: '',
+      direction: 'next'
     }))
   }
 
@@ -86,8 +91,8 @@ export default class RevealCarousel extends Component {
       case active :
         return {
           display: 'block',
-          transition: 'none',
-          zIndex: '7'
+          transition: 'transform 0.75s',
+          zIndex: '10'
         }
       case prev :
         return {
@@ -97,22 +102,27 @@ export default class RevealCarousel extends Component {
           zIndex: '9',
           transition: 'transform 0.75s',
           backfaceVisibility: 'hidden',
-          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-93%) translateZ(0' : 'translateX(-100%) translateZ(0)',
-          width: '100%',
-          boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'     
+          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-45%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-50%) translateZ(0) scale(0.75, 0.75)',
         }
       case next :
         return {
           display: 'block',
           overflow: 'hidden',
           top: '0',
-          zIndex: this.state.teaseState === 'tease-next' ? '8' : '9',
+          zIndex: '8',
           transition: 'transform 0.75s',
-          transform: this.state.teaseState === 'tease-next' ? 'translateX(93%) translateZ(0)' : 'translateX(100%) translateZ(0)',
-          boxShadow: this.state.teaseState === 'tease-next' ? '-2px 0px 30px 0px rgba(0,0,0,0.23)' : '-2px 0px 30px 0px rgba(0,0,0,0)'
+          transform: this.state.teaseState === 'tease-next' ? 'translateX(145%) translateZ(0) scale(0.8, 0.8)' : 'translateX(150%) translateZ(0) scale(0.75, 0.75)',
         }
       default :
-        return ''
+        return {
+          display: 'none',
+          overflow: 'hidden',
+          top: '0',
+          zIndex: '8',
+          transition: 'transform 0.75s',
+          backfaceVisibility: 'hidden',
+          transform: this.state.direction === 'prev' ? 'translateX(-80%) translateZ(0) scale(0.5, 0.5)' : 'translateX(155%) translateZ(0) scale(0.5, 0.5)',
+        }
     }
   }
   render () {
@@ -161,9 +171,10 @@ export default class RevealCarousel extends Component {
                   key={`carouselImage${i}`}
                   style={Object.assign({
                     display: 'none',
-                    height: this.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
-                    width: this.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    height: '50%',
+                    width: '50%',
                     position: 'absolute',
+                    transform: 'translateX(50%)',
                     zIndex: '3'
                   }, this.getCarouselStyle(i))}>
                   <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={this.props.aspectRatio === 'noAspect'} />

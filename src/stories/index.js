@@ -10,6 +10,7 @@ import Image from '../components/Image'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
 import RevealCarousel from '../components/RevealCarousel'
+import CircularCarousel from '../components/CircularCarousel'
 import Card from '../components/Card'
 import Breadcrumb from '../components/Breadcrumb'
 import Chips from '../components/Chips'
@@ -22,6 +23,7 @@ import Hero from '../components/Hero'
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
 import Device from '../components/Device'
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -159,13 +161,23 @@ storiesOf('Image', module)
   .add(
     'Image Carousel (Reveal)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
-      <RevealCarousel 
+      <RevealCarousel
         images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
     </div>
-  )  
+  )
+  .add(
+    'Image Carousel (Circular)',
+    () => <div style={{ width: '75%', margin: '50px auto' }}>
+      <CircularCarousel
+        images={imageGallery}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'noAspect')}
+        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+      />
+    </div>
+  )
 
 storiesOf('Card', module)
   .add(
@@ -433,4 +445,43 @@ storiesOf('Video', module)
         thumb='https://i.vimeocdn.com/video/737702269_1000.jpg'
       />
     </div>
+  )
+
+storiesOf('Parallax', module)
+  .add('Parallax Test', () =>
+    <ParallaxProvider>
+      <Parallax
+        offsetYMax={20}
+        offsetYMin={-20}
+        slowerScrollRate
+      >
+        <Video
+          title=''
+          aspectRatio='sixteen'
+          fullBleed={false}
+          vidSource='https://vimeo.com/299543193'
+          thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          classAdd='skip-1 col-3'
+        />
+      </Parallax>
+
+      <Parallax
+        offsetYMax={20}
+        offsetYMin={-20}
+      >
+        <Card
+          cardTitle='Test Title'
+          cardSubTitle='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
+          cardContent='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
+          linkText='Test Link'
+          linkUrl=''
+          mediaOrientation='top'
+          imageTitle='test'
+          aspectRatio='standard'
+          imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+          horizontalAlign='center'
+          classAdd='skip-3 col-3'
+        />
+      </Parallax>
+    </ParallaxProvider>
   )
