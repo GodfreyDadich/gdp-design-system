@@ -10,7 +10,8 @@ export default class CircularCarousel extends Component {
     this.state = {
       currentIndex: 0,
       teaseState: '',
-      direction: 'next'
+      direction: 'next',
+      lastIndex: this.props.children.length - 2
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -22,35 +23,25 @@ export default class CircularCarousel extends Component {
   }
 
   goToPrevSlide () {
-    if (this.state.currentIndex === 0) {
-      return this.setState({
-        currentIndex: this.props.children.length - 1,
-        teaseState: '',
-        direction: 'prev'
-      })
-    }
-
     this.setState(prevState => ({
-      currentIndex: prevState.currentIndex - 1,
+      currentIndex: this.state.currentIndex === 0 ? this.props.children.length - 1 : prevState.currentIndex - 1,
       teaseState: '',
-      direction: 'prev'
+      direction: 'prev',
+      lastIndex: prevState.lastIndex === 0 ? this.props.children.length - 1 : prevState.lastIndex - 1
     }))
   }
 
   goToNextSlide () {
-    if (this.state.currentIndex === this.props.children.length - 1) {
-      return this.setState({
-        currentIndex: 0,
-        teaseState: '',
-        direction: 'next'
-      })
-    }
+    const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
 
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1,
-      teaseState: '',
-      direction: 'next'
-    }))
+    this.setState(prevState => {
+      return {
+        currentIndex: nextSlide,
+        teaseState: '',
+        direction: 'next',
+        lastIndex: prevState.lastIndex === this.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+      }
+    })
   }
 
   handleKeyDown (e) {
@@ -86,25 +77,41 @@ export default class CircularCarousel extends Component {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
+    const last = this.state.lastIndex
+    console.log(`prev: ${prev} last: ${last} active: ${active}`)
     switch (index) {
       case active :
         return {
-          zIndex: '10'
+          opacity: '1',
+          zIndex: '10'  
         }
       case prev :
         return {
+          opacity: '1',
           zIndex: this.state.direction === 'prev' ? '9' : '8',
+          transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
           transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)',
         }
       case next :
         return {
+          opacity: '1',
           zIndex: this.state.direction === 'next' ? '9' : '8',
+          transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
           transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)',
+        }
+      case last :
+        return {
+          opacity: '1',
+          zIndex: '6',
+          transition: 'transform 0.75s',
+          transform: this.state.direction === 'prev' ? 'translateX(200%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-100%) translateZ(0) scale(0.5, 0.5)'
         }
       default :
         return {
+          opacity: '1',
           zIndex: '6',
-          transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)',
+          transition: 'none',
+          transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
@@ -169,7 +176,7 @@ export default class CircularCarousel extends Component {
                     transform: 'translateX(50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
-                    top: '10%'
+                    top: '15%'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child)}
                 </div>

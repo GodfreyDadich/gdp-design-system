@@ -262,7 +262,7 @@ storiesOf('Image', module)
             }}
             thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
           />
-        </Device>        
+        </Device>
       </CircularCarousel>
     </div>
   )
