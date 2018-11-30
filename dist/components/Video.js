@@ -89,7 +89,6 @@ var Video = function (_React$Component) {
     value: function videoReady(_ref) {
       var player = _ref.player;
       // pauses the player on load if autoplay isn't set to true
-      console.log(' player ready ');
       if (!this.state.autoplay) {
         player.player.pause();
         player.player.stop();

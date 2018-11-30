@@ -232,11 +232,109 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
   return _react2.default.createElement(
     'div',
     { style: { width: '75%', margin: '50px auto' } },
-    _react2.default.createElement(_CircularCarousel2.default, {
-      images: imageGallery,
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
-      caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
-    })
+    _react2.default.createElement(
+      _CircularCarousel2.default,
+      {
+        aspectRatio: 'sixteen',
+        caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+      },
+      _react2.default.createElement(
+        _Device2.default,
+        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+            black: 'black',
+            white: 'white'
+          }, 'black') },
+        _react2.default.createElement(_Video2.default, {
+          title: '',
+          aspectRatio: 'standard',
+          vidSource: 'https://vimeo.com/299978313',
+          autoplay: true,
+          loop: true,
+          skipIntro: true,
+          config: {
+            vimeo: {
+              playerOptions: {
+                background: 1,
+                transparent: 0
+              }
+            }
+          },
+          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+        })
+      ),
+      _react2.default.createElement(
+        _Device2.default,
+        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+            black: 'black',
+            white: 'white'
+          }, 'black') },
+        _react2.default.createElement(_Video2.default, {
+          title: '',
+          aspectRatio: 'standard',
+          vidSource: 'https://vimeo.com/299978313',
+          autoplay: true,
+          loop: true,
+          skipIntro: true,
+          config: {
+            vimeo: {
+              playerOptions: {
+                background: 1,
+                transparent: 0
+              }
+            }
+          },
+          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+        })
+      ),
+      _react2.default.createElement(
+        _Device2.default,
+        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+            black: 'black',
+            white: 'white'
+          }, 'black') },
+        _react2.default.createElement(_Video2.default, {
+          title: '',
+          aspectRatio: 'standard',
+          vidSource: 'https://vimeo.com/299978313',
+          autoplay: true,
+          loop: true,
+          skipIntro: true,
+          config: {
+            vimeo: {
+              playerOptions: {
+                background: 1,
+                transparent: 0
+              }
+            }
+          },
+          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+        })
+      ),
+      _react2.default.createElement(
+        _Device2.default,
+        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+            black: 'black',
+            white: 'white'
+          }, 'black') },
+        _react2.default.createElement(_Video2.default, {
+          title: '',
+          aspectRatio: 'standard',
+          vidSource: 'https://vimeo.com/299978313',
+          autoplay: true,
+          loop: true,
+          skipIntro: true,
+          config: {
+            vimeo: {
+              playerOptions: {
+                background: 1,
+                transparent: 0
+              }
+            }
+          },
+          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+        })
+      )
+    )
   );
 });
 
@@ -450,7 +548,8 @@ var modalState = true;
         config: {
           vimeo: {
             playerOptions: {
-              background: 1
+              background: 1,
+              transparent: 0
             }
           }
         },

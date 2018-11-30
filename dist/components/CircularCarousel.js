@@ -15,10 +15,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _SliderArrows = require('./SliderArrows');
 
-var _Slide = require('./Slide');
-
-var _Slide2 = _interopRequireDefault(_Slide);
-
 var _Type = require('./Type');
 
 var _aspectRatio = require('../utils/aspectRatio');
@@ -59,7 +55,7 @@ var CircularCarousel = function (_Component) {
     value: function goToPrevSlide() {
       if (this.state.currentIndex === 0) {
         return this.setState({
-          currentIndex: this.props.images.length - 1,
+          currentIndex: this.props.children.length - 1,
           teaseState: '',
           direction: 'prev'
         });
@@ -76,7 +72,7 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'goToNextSlide',
     value: function goToNextSlide() {
-      if (this.state.currentIndex === this.props.images.length - 1) {
+      if (this.state.currentIndex === this.props.children.length - 1) {
         return this.setState({
           currentIndex: 0,
           teaseState: '',
@@ -132,43 +128,27 @@ var CircularCarousel = function (_Component) {
     key: 'getCarouselStyle',
     value: function getCarouselStyle(index) {
       var active = this.state.currentIndex;
-      var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.images.length - 1;
-      var next = this.state.currentIndex + 1 <= this.props.images.length - 1 ? this.state.currentIndex + 1 : 0;
+      var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1;
+      var next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0;
       switch (index) {
         case active:
           return {
-            display: 'block',
-            transition: 'transform 0.75s',
             zIndex: '10'
           };
         case prev:
           return {
-            display: 'block',
-            overflow: 'hidden',
-            top: '0',
-            zIndex: '9',
-            transition: 'transform 0.75s',
-            backfaceVisibility: 'hidden',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-45%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-50%) translateZ(0) scale(0.75, 0.75)'
+            zIndex: this.state.direction === 'prev' ? '9' : '8',
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
-            display: 'block',
-            overflow: 'hidden',
-            top: '0',
-            zIndex: '8',
-            transition: 'transform 0.75s',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(145%) translateZ(0) scale(0.8, 0.8)' : 'translateX(150%) translateZ(0) scale(0.75, 0.75)'
+            zIndex: this.state.direction === 'next' ? '9' : '8',
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)'
           };
         default:
           return {
-            display: 'none',
-            overflow: 'hidden',
-            top: '0',
-            zIndex: '8',
-            transition: 'transform 0.75s',
-            backfaceVisibility: 'hidden',
-            transform: this.state.direction === 'prev' ? 'translateX(-80%) translateZ(0) scale(0.5, 0.5)' : 'translateX(155%) translateZ(0) scale(0.5, 0.5)'
+            zIndex: '6',
+            transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
@@ -177,15 +157,24 @@ var CircularCarousel = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var _props = this.props,
+          _props$style = _props.style,
+          style = _props$style === undefined ? {} : _props$style,
+          fullBleed = _props.fullBleed,
+          caption = _props.caption,
+          aspectRatio = _props.aspectRatio,
+          children = _props.children;
+
       return _react2.default.createElement(
-        'figure',
+        'div',
         {
-          style: {
+          style: _extends(style, {
             position: 'relative',
             width: '100%',
-            height: '100%'
-          },
-          className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
+            height: '100%',
+            overflow: 'visible'
+          }),
+          className: 'carouselWrapper ' + (fullBleed ? ' full-bleed' : '') + (caption && caption.length > 0 ? ' withCaption' : '') },
         _react2.default.createElement(
           'div',
           {
@@ -193,10 +182,11 @@ var CircularCarousel = function (_Component) {
               position: 'relative',
               height: '100%',
               width: '100%',
-              overflow: 'hidden',
+              overflow: 'visible',
               touchAction: 'pan-y',
               userSelect: 'none',
-              paddingTop: (0, _aspectRatio.getPaddingTop)(this.props.aspectRatio)
+              paddingTop: (0, _aspectRatio.getPaddingTop)(aspectRatio),
+              backgroundColor: 'rgb(242,242,242)'
             },
             className: 'carousel__container ' + this.state.teaseState },
           _react2.default.createElement(_SliderArrows.LeftArrow, {
@@ -213,7 +203,7 @@ var CircularCarousel = function (_Component) {
             'div',
             {
               style: {
-                position: this.props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+                position: 'absolute',
                 top: '0',
                 left: '0',
                 width: '100%',
@@ -221,28 +211,30 @@ var CircularCarousel = function (_Component) {
                 transition: 'transform .3s ease, box-shadow .3s ease'
               },
               className: 'carousel__images-container' },
-            this.props.images.map(function (image, i) {
+            children.map(function (child, i) {
               return _react2.default.createElement(
                 'div',
                 {
                   key: 'carouselImage' + i,
                   style: _extends({
-                    display: 'none',
-                    height: '50%',
+                    display: 'block',
                     width: '50%',
+                    verticalAlign: 'middle',
                     position: 'absolute',
                     transform: 'translateX(50%)',
-                    zIndex: '3'
+                    transition: 'transform 0.75s',
+                    zIndex: '3',
+                    top: '10%'
                   }, _this2.getCarouselStyle(i)) },
-                _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this2.props.aspectRatio === 'noAspect' })
+                _react2.default.cloneElement(child)
               );
             })
           )
         ),
-        this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+        caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
           { classAdd: 'col-6 skip-3' },
-          this.props.caption
+          caption
         ) : ''
       );
     }
