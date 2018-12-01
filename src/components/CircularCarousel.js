@@ -78,12 +78,11 @@ export default class CircularCarousel extends Component {
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
     const last = this.state.lastIndex
-    console.log(`prev: ${prev} last: ${last} active: ${active}`)
     switch (index) {
       case active :
         return {
           opacity: '1',
-          zIndex: '10'  
+          zIndex: '10'
         }
       case prev :
         return {
@@ -121,17 +120,16 @@ export default class CircularCarousel extends Component {
       fullBleed,
       caption,
       aspectRatio,
-      children
+      children,
+      classAdd
     } = this.props
     return (
       <div
         style={Object.assign(style, {
           position: 'relative',
-          width: '100%',
-          height: '100%',
           overflow: 'visible'
         })}
-        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
           style={{
             position: 'relative',

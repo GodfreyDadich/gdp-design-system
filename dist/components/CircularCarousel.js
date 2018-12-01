@@ -124,7 +124,6 @@ var CircularCarousel = function (_Component) {
       var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1;
       var next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0;
       var last = this.state.lastIndex;
-      console.log('prev: ' + prev + ' last: ' + last + ' active: ' + active);
       switch (index) {
         case active:
           return {
@@ -172,18 +171,17 @@ var CircularCarousel = function (_Component) {
           fullBleed = _props.fullBleed,
           caption = _props.caption,
           aspectRatio = _props.aspectRatio,
-          children = _props.children;
+          children = _props.children,
+          classAdd = _props.classAdd;
 
       return _react2.default.createElement(
         'div',
         {
           style: _extends(style, {
             position: 'relative',
-            width: '100%',
-            height: '100%',
             overflow: 'visible'
           }),
-          className: 'carouselWrapper ' + (fullBleed ? ' full-bleed' : '') + (caption && caption.length > 0 ? ' withCaption' : '') },
+          className: 'carouselWrapper ' + (fullBleed ? ' full-bleed' : '') + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
         _react2.default.createElement(
           'div',
           {
