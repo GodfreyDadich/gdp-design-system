@@ -23,6 +23,7 @@ import Hero from '../components/Hero'
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
 import Device from '../components/Device'
+import Loader from '../components/Loader'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 const imageGallery = [
@@ -573,4 +574,9 @@ storiesOf('Parallax', module)
         />
       </Parallax>
     </ParallaxProvider>
+  )
+
+storiesOf('Loader', module)
+  .add('Parallax Test', () =>
+    <div style={{width: '50%'}} ><Loader /> </div>
   )

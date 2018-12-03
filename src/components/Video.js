@@ -2,6 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
+import Loader from './Loader'
 
 const vidStyle = {
   position: 'absolute',
@@ -19,12 +20,12 @@ class Video extends React.Component {
       vidSource: '',
       hoverPlay: props.hoverPlay,
       autoplay: props.autoplay,
-      coverVisible: true
+      coverVisible: true,
+      isLoading: true
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.videoReady = this.videoReady.bind(this)
-    this.loadVideo = this.loadVideo.bind(this)
     this.videoOnPlay = this.videoOnPlay.bind(this)
     this.videoOnEnd = this.videoOnEnd.bind(this)
   }
@@ -51,24 +52,17 @@ class Video extends React.Component {
       player.player.pause()
       player.player.stop()
     }
-    if (!this.state.hoverPlay && !this.state.autoplay) {
-      this.setState({
-        coverVisible: false
-      })
-    }
     this.setState({
-      player: player.player
-    })
-  }
-  loadVideo (vidSource) {
-    this.setState({
-      vidSource: vidSource
+      player: player.player,
+      coverVisible: this.state.hoverPlay || this.state.autoplay,
+      isLoading: this.state.autoplay
     })
   }
   videoOnPlay () {
     if (!this.state.hoverPlay) {
       this.setState({
-        coverVisible: false
+        coverVisible: false,
+        isLoading: false
       })
     }
   }
@@ -118,9 +112,11 @@ class Video extends React.Component {
                     ref='hoverCover'
                     className='hoverCover'
                     style={{
-                      backgroundImage: `url(${isVisible ? thumb : ''})`,
+                      backgroundImage: this.state.isLoading ? '' : `url(${isVisible ? thumb : ''})`,
+                      backgroundColor: '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
-                    }} />
+                    }}>
+                    { this.state.isLoading ? <Loader /> : '' } </div>
                   <ReactPlayer
                     url={autoplay ? vidSource : isVisible ? vidSource : ''}
                     playing={playing}

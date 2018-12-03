@@ -59,7 +59,7 @@ class Hero extends React.Component {
                     muted: 1,
                     autoplay: 1
                   },
-                  preload: true
+                  preload: false
                 }
               }}
             />
