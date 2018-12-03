@@ -51,6 +51,7 @@ class Hero extends React.Component {
               loop={false}
               vidSource={this.props.source}
               thumb={this.props.thumb}
+              loader
               config={{
                 vimeo: {
                   playerOptions: {

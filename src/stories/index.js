@@ -578,5 +578,5 @@ storiesOf('Parallax', module)
 
 storiesOf('Loader', module)
   .add('Parallax Test', () =>
-    <div style={{width: '50%'}} ><Loader /> </div>
+    <div style={{width: '100%'}} ><Loader /> </div>
   )

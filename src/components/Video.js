@@ -21,7 +21,7 @@ class Video extends React.Component {
       hoverPlay: props.hoverPlay,
       autoplay: props.autoplay,
       coverVisible: true,
-      isLoading: true
+      isLoading: props.loader
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -55,7 +55,7 @@ class Video extends React.Component {
     this.setState({
       player: player.player,
       coverVisible: this.state.hoverPlay || this.state.autoplay,
-      isLoading: this.state.autoplay
+      isLoading: this.state.isLoading ? this.state.autoplay : false
     })
   }
   videoOnPlay () {
@@ -112,7 +112,8 @@ class Video extends React.Component {
                     ref='hoverCover'
                     className='hoverCover'
                     style={{
-                      backgroundImage: this.state.isLoading ? '' : `url(${isVisible ? thumb : ''})`,
+                      backgroundImage: `url(${thumb})`,
+                      backgroundPosition: `${isVisible && !this.state.isLoading ? '0' : '100vw'}`,
                       backgroundColor: '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>

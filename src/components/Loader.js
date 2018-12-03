@@ -14,9 +14,9 @@ const Loader = () => {
         .loader {
           position: relative;
           display: block;
-          width: 10%;
+          width: 100px;
           margin: 0 auto;
-          top: 40%;
+          top: calc( 50% - 100px);
         }
         #dadich {
           animation: rotateForward 3s infinite ease-out;
@@ -42,10 +42,10 @@ const Loader = () => {
         }  
         @keyframes fadeInOut {
           0% {
-            opacity: 0.5;
+            opacity: 0;
           }
-          20% {
-            opacity: 0.5;
+          30% {
+            opacity: 0;
           }          
           33% {
               opacity: 1;
