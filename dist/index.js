@@ -208,6 +208,15 @@ Object.defineProperty(exports, 'Device', {
   }
 });
 
+var _Loader = require('./components/Loader');
+
+Object.defineProperty(exports, 'Loader', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Loader).default;
+  }
+});
+
 var _Type = require('./components/Type');
 
 Object.keys(_Type).forEach(function (key) {

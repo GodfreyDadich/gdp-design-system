@@ -100,6 +100,7 @@ var Hero = function (_React$Component) {
                 loop: false,
                 vidSource: _this3.props.source,
                 thumb: _this3.props.thumb,
+                loader: true,
                 config: {
                   vimeo: {
                     playerOptions: {
@@ -108,7 +109,7 @@ var Hero = function (_React$Component) {
                       muted: 1,
                       autoplay: 1
                     },
-                    preload: true
+                    preload: false
                   }
                 }
               });

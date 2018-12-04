@@ -88,6 +88,10 @@ var _Device = require('../components/Device');
 
 var _Device2 = _interopRequireDefault(_Device);
 
+var _Loader = require('../components/Loader');
+
+var _Loader2 = _interopRequireDefault(_Loader);
+
 var _reactScrollParallax = require('react-scroll-parallax');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -639,5 +643,14 @@ var modalState = true;
         classAdd: 'skip-3 col-3'
       })
     )
+  );
+});
+
+(0, _react3.storiesOf)('Loader', module).add('Parallax Test', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '100%' } },
+    _react2.default.createElement(_Loader2.default, null),
+    ' '
   );
 });

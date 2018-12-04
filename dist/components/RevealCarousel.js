@@ -208,7 +208,7 @@ var RevealCarousel = function (_Component) {
                 left: '0',
                 width: '100%',
                 height: '100%',
-                transition: 'transform .3s ease, box-shadow .3s ease'
+                transition: 'transform .75s ease, box-shadow .3s ease'
               },
               className: 'carousel__images-container' },
             this.props.images.map(function (image, i) {

@@ -24,6 +24,10 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
+var _Loader = require('./Loader');
+
+var _Loader2 = _interopRequireDefault(_Loader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53,12 +57,12 @@ var Video = function (_React$Component) {
       vidSource: '',
       hoverPlay: props.hoverPlay,
       autoplay: props.autoplay,
-      coverVisible: true
+      coverVisible: true,
+      isLoading: props.loader
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
     _this.videoReady = _this.videoReady.bind(_this);
-    _this.loadVideo = _this.loadVideo.bind(_this);
     _this.videoOnPlay = _this.videoOnPlay.bind(_this);
     _this.videoOnEnd = _this.videoOnEnd.bind(_this);
     return _this;
@@ -93,20 +97,10 @@ var Video = function (_React$Component) {
         player.player.pause();
         player.player.stop();
       }
-      if (!this.state.hoverPlay && !this.state.autoplay) {
-        this.setState({
-          coverVisible: false
-        });
-      }
       this.setState({
-        player: player.player
-      });
-    }
-  }, {
-    key: 'loadVideo',
-    value: function loadVideo(vidSource) {
-      this.setState({
-        vidSource: vidSource
+        player: player.player,
+        coverVisible: this.state.hoverPlay || this.state.autoplay,
+        isLoading: this.state.isLoading ? this.state.autoplay : false
       });
     }
   }, {
@@ -114,7 +108,8 @@ var Video = function (_React$Component) {
     value: function videoOnPlay() {
       if (!this.state.hoverPlay) {
         this.setState({
-          coverVisible: false
+          coverVisible: false,
+          isLoading: false
         });
       }
     }
@@ -182,14 +177,21 @@ var Video = function (_React$Component) {
                   {
                     className: 'jsx-2939278764'
                   },
-                  _react2.default.createElement('div', {
-                    ref: 'hoverCover',
+                  _react2.default.createElement(
+                    'div',
+                    {
+                      ref: 'hoverCover',
 
-                    style: {
-                      backgroundImage: 'url(' + (isVisible ? thumb : '') + ')',
-                      display: _this2.state.coverVisible ? 'inline-block' : 'none'
-                    }, className: 'jsx-2939278764' + ' ' + 'hoverCover'
-                  }),
+                      style: {
+                        backgroundImage: 'url(' + thumb + ')',
+                        backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? '0' : '100vw'),
+                        backgroundColor: '#000',
+                        display: _this2.state.coverVisible ? 'inline-block' : 'none'
+                      }, className: 'jsx-2939278764' + ' ' + 'hoverCover'
+                    },
+                    _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
+                    ' '
+                  ),
                   _react2.default.createElement(_reactPlayer2.default, {
                     url: autoplay ? vidSource : isVisible ? vidSource : '',
                     playing: playing,
