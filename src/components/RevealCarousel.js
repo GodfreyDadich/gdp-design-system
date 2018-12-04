@@ -10,7 +10,8 @@ export default class RevealCarousel extends Component {
 
     this.state = {
       currentIndex: 0,
-      teaseState: ''
+      teaseState: '',
+      hoverPause: false
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -22,31 +23,29 @@ export default class RevealCarousel extends Component {
   }
 
   goToPrevSlide () {
-    if (this.state.currentIndex === 0) {
-      return this.setState({
-        currentIndex: this.props.images.length - 1,
-        teaseState: ''
-      })
-    }
-
     this.setState(prevState => ({
-      currentIndex: prevState.currentIndex - 1,
-      teaseState: ''
+      currentIndex: this.state.currentIndex === 0 ? this.props.images.length - 1 : prevState.currentIndex - 1,
+      teaseState: '',
+      hoverPause: true
     }))
+    setTimeout(() => {
+      this.setState({
+        hoverPause: false
+      })
+    }, 1000)
   }
 
   goToNextSlide () {
-    if (this.state.currentIndex === this.props.images.length - 1) {
-      return this.setState({
-        currentIndex: 0,
-        teaseState: ''
-      })
-    }
-
     this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1,
-      teaseState: ''
+      currentIndex: (this.state.currentIndex === this.props.images.length - 1) ? 0 : prevState.currentIndex + 1,
+      teaseState: '',
+      hoverPause: true
     }))
+    setTimeout(() => {
+      this.setState({
+        hoverPause: false
+      })
+    }, 1000)
   }
 
   handleKeyDown (e) {
@@ -64,12 +63,12 @@ export default class RevealCarousel extends Component {
 
   hoverTeasePrev () {
     this.setState({
-      teaseState: 'tease-prev'
+      teaseState: this.state.hoverPause ? '' : 'tease-prev'
     })
   }
   hoverTeaseNext () {
     this.setState({
-      teaseState: 'tease-next'
+      teaseState: this.state.hoverPause ? '' : 'tease-next'
     })
   }
   hoverTeaseReset () {
@@ -86,33 +85,31 @@ export default class RevealCarousel extends Component {
       case active :
         return {
           display: 'block',
-          transition: 'none',
-          zIndex: '7'
+          transition: 'transform 0.75s',
+          zIndex: this.state.teaseState !== '' ? '7' : '10'
         }
       case prev :
         return {
           display: 'block',
-          overflow: 'hidden',
-          top: '0',
-          zIndex: '9',
-          transition: 'transform 0.75s',
+          zIndex: this.state.teaseState === 'tease-prev' ? '9' : '6',
           backfaceVisibility: 'hidden',
           transform: this.state.teaseState === 'tease-prev' ? 'translateX(-93%) translateZ(0' : 'translateX(-100%) translateZ(0)',
-          width: '100%',
-          boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'     
+          transition: this.state.teaseState === 'tease-prev' ? 'transform 0.75s' : 'transform 0s',
+          transitionDelay: this.state.teaseState === 'tease-prev' ? '0s' : '0.76s',
+          boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'
         }
       case next :
         return {
           display: 'block',
-          overflow: 'hidden',
-          top: '0',
-          zIndex: this.state.teaseState === 'tease-next' ? '8' : '9',
-          transition: 'transform 0.75s',
+          zIndex: this.state.teaseState === 'tease-next' ? '8' : '6',
+          transition: this.state.teaseState === 'tease-next' ? 'transform 0.75s' : 'transform 0s',
+          transitionDelay: this.state.teaseState === 'tease-next' ? '0s' : '0.76s',
           transform: this.state.teaseState === 'tease-next' ? 'translateX(93%) translateZ(0)' : 'translateX(100%) translateZ(0)',
           boxShadow: this.state.teaseState === 'tease-next' ? '-2px 0px 30px 0px rgba(0,0,0,0.23)' : '-2px 0px 30px 0px rgba(0,0,0,0)'
         }
       default :
-        return ''
+        return {
+        }
     }
   }
   render () {
@@ -161,9 +158,11 @@ export default class RevealCarousel extends Component {
                   key={`carouselImage${i}`}
                   style={Object.assign({
                     display: 'none',
-                    height: this.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
-                    width: this.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    height: '100%',
+                    width: '100%',
                     position: 'absolute',
+                    top: 0,
+                    overflow: 'hidden',
                     zIndex: '3'
                   }, this.getCarouselStyle(i))}>
                   <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={this.props.aspectRatio === 'noAspect'} />
