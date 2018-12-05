@@ -41,7 +41,8 @@ var RevealCarousel = function (_Component) {
 
     _this.state = {
       currentIndex: 0,
-      teaseState: ''
+      teaseState: '',
+      hoverPause: false
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -56,36 +57,38 @@ var RevealCarousel = function (_Component) {
   _createClass(RevealCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
-      if (this.state.currentIndex === 0) {
-        return this.setState({
-          currentIndex: this.props.images.length - 1,
-          teaseState: ''
-        });
-      }
+      var _this2 = this;
 
       this.setState(function (prevState) {
         return {
-          currentIndex: prevState.currentIndex - 1,
-          teaseState: ''
+          currentIndex: _this2.state.currentIndex === 0 ? _this2.props.images.length - 1 : prevState.currentIndex - 1,
+          teaseState: '',
+          hoverPause: true
         };
       });
+      setTimeout(function () {
+        _this2.setState({
+          hoverPause: false
+        });
+      }, 1000);
     }
   }, {
     key: 'goToNextSlide',
     value: function goToNextSlide() {
-      if (this.state.currentIndex === this.props.images.length - 1) {
-        return this.setState({
-          currentIndex: 0,
-          teaseState: ''
-        });
-      }
+      var _this3 = this;
 
       this.setState(function (prevState) {
         return {
-          currentIndex: prevState.currentIndex + 1,
-          teaseState: ''
+          currentIndex: _this3.state.currentIndex === _this3.props.images.length - 1 ? 0 : prevState.currentIndex + 1,
+          teaseState: '',
+          hoverPause: true
         };
       });
+      setTimeout(function () {
+        _this3.setState({
+          hoverPause: false
+        });
+      }, 1000);
     }
   }, {
     key: 'handleKeyDown',
@@ -106,14 +109,14 @@ var RevealCarousel = function (_Component) {
     key: 'hoverTeasePrev',
     value: function hoverTeasePrev() {
       this.setState({
-        teaseState: 'tease-prev'
+        teaseState: this.state.hoverPause ? '' : 'tease-prev'
       });
     }
   }, {
     key: 'hoverTeaseNext',
     value: function hoverTeaseNext() {
       this.setState({
-        teaseState: 'tease-next'
+        teaseState: this.state.hoverPause ? '' : 'tease-next'
       });
     }
   }, {
@@ -133,39 +136,36 @@ var RevealCarousel = function (_Component) {
         case active:
           return {
             display: 'block',
-            transition: 'none',
-            zIndex: '7'
+            transition: 'transform 0.75s',
+            zIndex: this.state.teaseState !== '' ? '7' : '10'
           };
         case prev:
           return {
             display: 'block',
-            overflow: 'hidden',
-            top: '0',
-            zIndex: '9',
-            transition: 'transform 0.75s',
+            zIndex: this.state.teaseState === 'tease-prev' ? '9' : '6',
             backfaceVisibility: 'hidden',
             transform: this.state.teaseState === 'tease-prev' ? 'translateX(-93%) translateZ(0' : 'translateX(-100%) translateZ(0)',
-            width: '100%',
+            transition: this.state.teaseState === 'tease-prev' ? 'transform 0.75s' : 'transform 0s',
+            transitionDelay: this.state.teaseState === 'tease-prev' ? '0s' : '0.76s',
             boxShadow: this.state.teaseState === 'tease-prev' ? '2px 0px 30px 0px rgba(0,0,0,0.23)' : '2px 0px 30px 0px rgba(0,0,0,0)'
           };
         case next:
           return {
             display: 'block',
-            overflow: 'hidden',
-            top: '0',
-            zIndex: this.state.teaseState === 'tease-next' ? '8' : '9',
-            transition: 'transform 0.75s',
+            zIndex: this.state.teaseState === 'tease-next' ? '8' : '6',
+            transition: this.state.teaseState === 'tease-next' ? 'transform 0.75s' : 'transform 0s',
+            transitionDelay: this.state.teaseState === 'tease-next' ? '0s' : '0.76s',
             transform: this.state.teaseState === 'tease-next' ? 'translateX(93%) translateZ(0)' : 'translateX(100%) translateZ(0)',
             boxShadow: this.state.teaseState === 'tease-next' ? '-2px 0px 30px 0px rgba(0,0,0,0.23)' : '-2px 0px 30px 0px rgba(0,0,0,0)'
           };
         default:
-          return '';
+          return {};
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         'figure',
@@ -218,12 +218,14 @@ var RevealCarousel = function (_Component) {
                   key: 'carouselImage' + i,
                   style: _extends({
                     display: 'none',
-                    height: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
-                    width: _this2.props.aspectRatio === 'noAspect' ? 'auto' : '100%',
+                    height: '100%',
+                    width: '100%',
                     position: 'absolute',
+                    top: 0,
+                    overflow: 'hidden',
                     zIndex: '3'
-                  }, _this2.getCarouselStyle(i)) },
-                _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this2.props.aspectRatio === 'noAspect' })
+                  }, _this4.getCarouselStyle(i)) },
+                _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this4.props.aspectRatio === 'noAspect' })
               );
             })
           )

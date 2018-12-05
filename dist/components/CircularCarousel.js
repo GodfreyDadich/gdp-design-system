@@ -233,7 +233,7 @@ var CircularCarousel = function (_Component) {
                     zIndex: '3',
                     top: '15%'
                   }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child)
+                _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
               );
             })
           )

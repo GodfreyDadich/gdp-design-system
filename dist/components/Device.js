@@ -21,7 +21,8 @@ var Device = function Device(_ref) {
   var deviceColor = _ref.deviceColor,
       classAdd = _ref.classAdd,
       caption = _ref.caption,
-      children = _ref.children;
+      children = _ref.children,
+      active = _ref.active;
   return _react2.default.createElement(
     'div',
     { className: classAdd,
@@ -42,7 +43,7 @@ var Device = function Device(_ref) {
           left: '8.12%',
           width: '83.95%'
         } },
-      children
+      _react2.default.cloneElement(children, { active: active })
     ),
     caption && caption.length > 0 ? _react2.default.createElement(
       _Type.Caption,

@@ -252,9 +252,9 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
           title: '',
           aspectRatio: 'standard',
           vidSource: 'https://vimeo.com/299978313',
-          autoplay: true,
-          loop: true,
           skipIntro: true,
+          loop: true,
+          hoverPlay: true,
           config: {
             vimeo: {
               playerOptions: {
@@ -276,9 +276,9 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
           title: '',
           aspectRatio: 'standard',
           vidSource: 'https://vimeo.com/299978313',
-          autoplay: true,
-          loop: true,
           skipIntro: true,
+          loop: true,
+          hoverPlay: true,
           config: {
             vimeo: {
               playerOptions: {
@@ -300,9 +300,9 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
           title: '',
           aspectRatio: 'standard',
           vidSource: 'https://vimeo.com/299978313',
-          autoplay: true,
-          loop: true,
           skipIntro: true,
+          loop: true,
+          hoverPlay: true,
           config: {
             vimeo: {
               playerOptions: {
@@ -324,9 +324,9 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
           title: '',
           aspectRatio: 'standard',
           vidSource: 'https://vimeo.com/299978313',
-          autoplay: true,
-          loop: true,
           skipIntro: true,
+          loop: true,
+          hoverPlay: true,
           config: {
             vimeo: {
               playerOptions: {
@@ -646,7 +646,7 @@ var modalState = true;
   );
 });
 
-(0, _react3.storiesOf)('Loader', module).add('Parallax Test', function () {
+(0, _react3.storiesOf)('Loader', module).add('Logo Loader', function () {
   return _react2.default.createElement(
     'div',
     { style: { width: '100%' } },
