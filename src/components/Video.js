@@ -15,13 +15,14 @@ class Video extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      playing: props.autoplay,
+      playing: props.autoplay || false,
       player: undefined,
       vidSource: '',
-      hoverPlay: props.hoverPlay,
-      autoplay: props.autoplay,
+      hoverPlay: props.hoverPlay || false,
+      autoplay: props.autoplay || false,
       coverVisible: true,
-      isLoading: props.loader
+      isLoading: props.loader,
+      active: props.active || false
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -35,6 +36,7 @@ class Video extends React.Component {
       playing: true
     })
     if (this.state.player) {
+      this.state.player.callPlayer('setCurrentTime', 0)
       this.state.player.callPlayer('setLoop', true)
     }
   }
@@ -54,7 +56,7 @@ class Video extends React.Component {
     }
     this.setState({
       player: player.player,
-      coverVisible: this.state.hoverPlay || this.state.autoplay,
+      coverVisible: (this.state.hoverPlay && !this.state.active) || this.state.autoplay,
       isLoading: this.state.isLoading ? this.state.autoplay : false
     })
   }
@@ -74,6 +76,24 @@ class Video extends React.Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.active && !this.state.playing) {
+      this.setState({
+        playing: true,
+        coverVisible: false
+      })
+      this.play()
+    } else if (!nextProps.active && this.state.playing ) {
+      if (this.state.player) {
+        this.state.player.stop()
+      }
+      this.setState({
+        playing: false,
+        coverVisible: true
+      })
+    }
+  }
+
   render () {
     const {
       vidSource,
@@ -87,6 +107,7 @@ class Video extends React.Component {
       thumb,
       caption,
       sideBar,
+      active,
       aspectRatio = 'sixteen'
     } = this.props
     const { playing } = this.state
@@ -103,14 +124,11 @@ class Video extends React.Component {
                 transitionDelay: '0.25s'
               }}
             >
-              <div className={`vidWrap ${aspectRatio}`}
-                onMouseEnter={hoverPlay ? this.play : undefined}
-                onMouseLeave={hoverPlay ? this.pause : undefined}
-              >
+              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`}>
                 <div>
                   <div
-                    ref='hoverCover'
-                    className='hoverCover'
+                    ref='videoCover'
+                    className='videoCover'
                     style={{
                       backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? '0' : '100vw'}`,
@@ -167,7 +185,7 @@ class Video extends React.Component {
               }
             }
             .wrappedVideo,
-            .hoverCover {
+            .videoCover {
               position: absolute;
               top: 0;
               left: 0;
@@ -175,7 +193,7 @@ class Video extends React.Component {
               height: 100%;
               z-index: 15;
             }      
-            .hoverCover {
+            .videoCover {
               opacity: 1;
               z-index: 20;
               background-size: cover;
@@ -183,8 +201,8 @@ class Video extends React.Component {
               transition: 0s opacity;
             }
             .hoverVid {
-              .vidWrap:hover {
-                .hoverCover {
+              .vidWrap.active {
+                .videoCover {
                   opacity: 0;
                   transition-delay:.2s;
                 }

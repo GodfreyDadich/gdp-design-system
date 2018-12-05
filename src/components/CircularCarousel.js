@@ -176,7 +176,7 @@ export default class CircularCarousel extends Component {
                     zIndex: '3',
                     top: '15%'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child)}
+                  {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
                 </div>
               ))
             }

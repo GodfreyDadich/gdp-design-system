@@ -19,15 +19,15 @@ const Loader = () => {
           top: calc( 50% - 100px);
         }
         #dadich {
-          animation: rotateForward 3s infinite ease-out;
+          animation: rotateForward 2.5s infinite ease-out;
           transform-origin: 53% 63%;
         }
         #godfrey {
-          animation: rotateForward 3s infinite ease-out;
+          animation: rotateForward 2.5s infinite ease-out;
           transform-origin: 50% 40%;
         }
         #blue-chip {
-          animation: fadeInOut 3s infinite ease-out;
+          animation: fadeInOut 2.5s infinite ease-out;
         }
         @keyframes rotateForward {
           0% {
@@ -44,10 +44,10 @@ const Loader = () => {
           0% {
             opacity: 0;
           }
-          30% {
+          31% {
             opacity: 0;
           }          
-          33% {
+          40% {
               opacity: 1;
           }
           100% {

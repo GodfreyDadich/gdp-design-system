@@ -184,9 +184,9 @@ storiesOf('Image', module)
             title=''
             aspectRatio='standard'
             vidSource='https://vimeo.com/299978313'
-            autoplay
-            loop
             skipIntro
+            loop
+            hoverPlay
             config={{
               vimeo: {
                 playerOptions: {
@@ -206,9 +206,9 @@ storiesOf('Image', module)
             title=''
             aspectRatio='standard'
             vidSource='https://vimeo.com/299978313'
-            autoplay
-            loop
             skipIntro
+            loop
+            hoverPlay
             config={{
               vimeo: {
                 playerOptions: {
@@ -228,9 +228,9 @@ storiesOf('Image', module)
             title=''
             aspectRatio='standard'
             vidSource='https://vimeo.com/299978313'
-            autoplay
-            loop
             skipIntro
+            loop
+            hoverPlay
             config={{
               vimeo: {
                 playerOptions: {
@@ -250,9 +250,9 @@ storiesOf('Image', module)
             title=''
             aspectRatio='standard'
             vidSource='https://vimeo.com/299978313'
-            autoplay
-            loop
             skipIntro
+            loop
+            hoverPlay
             config={{
               vimeo: {
                 playerOptions: {
@@ -577,6 +577,6 @@ storiesOf('Parallax', module)
   )
 
 storiesOf('Loader', module)
-  .add('Parallax Test', () =>
+  .add('Logo Loader', () =>
     <div style={{width: '100%'}} ><Loader /> </div>
   )
