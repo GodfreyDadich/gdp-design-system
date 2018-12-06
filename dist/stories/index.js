@@ -92,6 +92,14 @@ var _Loader = require('../components/Loader');
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
+var _Gilmore = require('../components/Gilmore');
+
+var _Gilmore2 = _interopRequireDefault(_Gilmore);
+
+var _Toast = require('../components/Toast');
+
+var _Toast2 = _interopRequireDefault(_Toast);
+
 var _reactScrollParallax = require('react-scroll-parallax');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -428,7 +436,9 @@ var modalClosed = function modalClosed() {
   console.log('modal closed from parent');
   modalState = false;
 };
-
+var toastCallback = function toastCallback() {
+  console.log('callback');
+};
 var modalState = true;
 
 (0, _react3.storiesOf)('Modals', module).add('Modal Window', function () {
@@ -459,6 +469,17 @@ var modalState = true;
         horizontalAlign: 'center'
       })
     )
+  );
+}).add('Toast', function () {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_Toast2.default, {
+      active: (0, _addonKnobs.boolean)('Toggle Toast', true),
+      callback: toastCallback,
+      header: (0, _addonKnobs.text)('Header', 'Email address copied to clipboard'),
+      message: (0, _addonKnobs.text)('Message', 'apply@godfreydadich.com')
+    })
   );
 });
 
@@ -651,6 +672,15 @@ var modalState = true;
     'div',
     { style: { width: '100%' } },
     _react2.default.createElement(_Loader2.default, null),
+    ' '
+  );
+});
+
+(0, _react3.storiesOf)('Gilmore', module).add('Gilmore Animation', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '75%' } },
+    _react2.default.createElement(_Gilmore2.default, null),
     ' '
   );
 });

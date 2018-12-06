@@ -59,7 +59,8 @@ var Video = function (_React$Component) {
       autoplay: props.autoplay || false,
       coverVisible: true,
       isLoading: props.loader,
-      active: props.active || false
+      active: props.active || false,
+      playerReady: false
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
@@ -102,7 +103,8 @@ var Video = function (_React$Component) {
       this.setState({
         player: player.player,
         coverVisible: this.state.hoverPlay && !this.state.active || this.state.autoplay,
-        isLoading: this.state.isLoading ? this.state.autoplay : false
+        isLoading: this.state.isLoading ? this.state.autoplay : false,
+        playerReady: true
       });
     }
   }, {
@@ -161,14 +163,20 @@ var Video = function (_React$Component) {
           caption = _props.caption,
           sideBar = _props.sideBar,
           active = _props.active,
+          mouseOverAction = _props.mouseOverAction,
+          mouseOutAction = _props.mouseOutAction,
           _props$aspectRatio = _props.aspectRatio,
           aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio;
-      var playing = this.state.playing;
+      var _state = this.state,
+          playing = _state.playing,
+          playerReady = _state.playerReady;
 
       return _react2.default.createElement(
         'div',
         {
-          className: 'jsx-2802572614' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
+          onMouseEnter: mouseOverAction,
+          onMouseLeave: mouseOutAction,
+          className: 'jsx-1678861617' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (playerReady ? ' playerReady' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           _reactOnScreen2.default,
@@ -185,17 +193,17 @@ var Video = function (_React$Component) {
                   transition: 'opacity 0.5s, top 0.5s',
                   transitionDelay: '0.25s'
                 },
-                className: 'jsx-2802572614'
+                className: 'jsx-1678861617'
               },
               _react2.default.createElement(
                 'div',
                 {
-                  className: 'jsx-2802572614' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
+                  className: 'jsx-1678861617' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
                 },
                 _react2.default.createElement(
                   'div',
                   {
-                    className: 'jsx-2802572614'
+                    className: 'jsx-1678861617'
                   },
                   _react2.default.createElement(
                     'div',
@@ -207,7 +215,7 @@ var Video = function (_React$Component) {
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? '0' : '100vw'),
                         backgroundColor: '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
-                      }, className: 'jsx-2802572614' + ' ' + 'videoCover'
+                      }, className: 'jsx-1678861617' + ' ' + 'videoCover'
                     },
                     _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
                     ' '
@@ -237,8 +245,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '2802572614',
-          css: '.video.jsx-2802572614{position:relative;}.vidWrap.jsx-2802572614{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-2802572614{padding-top:56.25%;}.vidWrap.standard.jsx-2802572614{padding-top:75%;}.vidWrap.cropped.jsx-2802572614{padding-top:41.67%;}.vidWrap.cinema.jsx-2802572614{padding-top:46.89%;}.vidWrap.square.jsx-2802572614{padding-top:100%;}.wrappedVideo.jsx-2802572614,.videoCover.jsx-2802572614{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.videoCover.jsx-2802572614{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;-webkit-transition:0s opacity;transition:0s opacity;}.hoverVid.jsx-2802572614 .vidWrap.active.jsx-2802572614 .videoCover.jsx-2802572614{opacity:0;-webkit-transition-delay:.2s;transition-delay:.2s;}'
+          styleId: '1678861617',
+          css: '.video.jsx-1678861617{position:relative;}.vidWrap.jsx-1678861617{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-1678861617{padding-top:56.25%;}.vidWrap.standard.jsx-1678861617{padding-top:75%;}.vidWrap.cropped.jsx-1678861617{padding-top:41.67%;}.vidWrap.cinema.jsx-1678861617{padding-top:46.89%;}.vidWrap.square.jsx-1678861617{padding-top:100%;}.wrappedVideo.jsx-1678861617,.videoCover.jsx-1678861617{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.videoCover.jsx-1678861617{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;-webkit-transition:0s opacity;transition:0s opacity;-webkit-transition-delay:.2s;transition-delay:.2s;}.hoverVid.playerReady.jsx-1678861617 .vidWrap.active.jsx-1678861617 .videoCover.jsx-1678861617{opacity:0;}'
         })
       );
     }

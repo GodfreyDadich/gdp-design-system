@@ -36,47 +36,43 @@ var HoverVideo = function (_React$Component) {
       hover: false
     };
 
-    _this.updateHoverState = _this.updateHoverState.bind(_this);
+    _this.hoverOver = _this.hoverOver.bind(_this);
+    _this.hoverOut = _this.hoverOut.bind(_this);
     return _this;
   }
 
   _createClass(HoverVideo, [{
-    key: 'updateHoverState',
-    value: function updateHoverState(hover) {
-      this.setState({ hover: hover });
+    key: 'hoverOver',
+    value: function hoverOver() {
+      this.setState({ hover: true });
+    }
+  }, {
+    key: 'hoverOut',
+    value: function hoverOut() {
+      this.setState({ hover: false });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'div',
-        {
-          onMouseEnter: function onMouseEnter() {
-            return _this2.updateHoverState(true);
-          },
-          onMouseLeave: function onMouseLeave() {
-            return _this2.updateHoverState(false);
-          } },
-        _react2.default.createElement(_Video2.default, _extends({}, this.props, {
-          hoverPlay: true,
-          playing: false,
-          autoplay: false,
-          active: this.state.hover,
-          classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
-          config: {
-            vimeo: {
-              playerOptions: {
-                background: 1,
-                autopause: true,
-                autoplay: false
-              },
-              preload: false
-            }
+      return _react2.default.createElement(_Video2.default, _extends({}, this.props, {
+        hoverPlay: true,
+        playing: false,
+        autoplay: false,
+        active: this.state.hover,
+        mouseOverAction: this.hoverOver,
+        mouseOutAction: this.hoverOut,
+        classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
+        config: {
+          vimeo: {
+            playerOptions: {
+              background: 1,
+              autopause: true,
+              autoplay: false
+            },
+            preload: false
           }
-        }))
-      );
+        }
+      }));
     }
   }]);
 
