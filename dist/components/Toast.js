@@ -70,7 +70,6 @@ var Toast = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      console.log('props comin');
       if (nextProps.active !== this.state.active) {
         this.startTimer();
         this.openToast();

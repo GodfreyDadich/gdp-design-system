@@ -103,6 +103,15 @@ Object.defineProperty(exports, 'Modal', {
   }
 });
 
+var _Toast = require('./components/Toast');
+
+Object.defineProperty(exports, 'Toast', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Toast).default;
+  }
+});
+
 var _PodcastEmbed = require('./components/PodcastEmbed');
 
 Object.defineProperty(exports, 'PodcastEmbed', {
