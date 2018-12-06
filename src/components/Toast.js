@@ -23,7 +23,9 @@ class Toast extends React.Component {
     this.setState({
       active: false
     })
-    this.props.callback()
+    if (typeof this.props.callback === 'function') {
+      this.props.callback()
+    }
   }
   startTimer () {
     if (this.timer) {
@@ -61,7 +63,8 @@ class Toast extends React.Component {
           backgroundColor: 'rgb(72,255,0)',
           borderRadius: '7px',
           padding: '20px 40px',
-          transition: 'bottom 0.75s, opacity 0.75s'
+          transition: 'bottom 0.75s, opacity 0.75s',
+          zIndex: '9999'
         }}
         className='toast'
       >
@@ -73,7 +76,7 @@ class Toast extends React.Component {
             display: 'inline-block',
             verticalAlign: 'middle'
           }}
-          viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFF" cx="15" cy="15" r="15"/><path d="M11,16.5060194 C12.0257687,17.0691545 14.2957686,20 14.2957686,20 C14.2957686,20 16,13.4119807 20,10" stroke="#48FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+          viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd"><circle fill="#FFF" cx="15" cy="15" r="15"/><path d="M11,16.5060194 C12.0257687,17.0691545 14.2957686,20 14.2957686,20 C14.2957686,20 16,13.4119807 20,10" stroke="#48FF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g></svg>
         <div
           className='toast-content'
           style={{
@@ -84,7 +87,12 @@ class Toast extends React.Component {
           }}
         >
           <Heading4 style={{ fontSize: '19px', marginBottom: '5px' }}>{header}</Heading4>
-          <span>{message}</span>
+          <span style={{
+            fontFamily: 'Atlas Grotesk',
+            fontWeight: '300',
+            fontSize: '14px',
+            lineHeight: '1.42'
+          }}>{message}</span>
         </div>
         <div className='close' onClick={this.closeToast}
           style={{
@@ -95,7 +103,8 @@ class Toast extends React.Component {
             fontWeight: 'normal',
             fontStyle: 'normal',
             fontSize: '10px',
-            lineHeight: '1.33'
+            lineHeight: '1.33',
+            cursor: 'pointer'
           }}
         >close</div>
       </div>

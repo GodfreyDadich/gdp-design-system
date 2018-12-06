@@ -50,7 +50,9 @@ var Toast = function (_React$Component) {
       this.setState({
         active: false
       });
-      this.props.callback();
+      if (typeof this.props.callback === 'function') {
+        this.props.callback();
+      }
     }
   }, {
     key: 'startTimer',
@@ -94,7 +96,8 @@ var Toast = function (_React$Component) {
             backgroundColor: 'rgb(72,255,0)',
             borderRadius: '7px',
             padding: '20px 40px',
-            transition: 'bottom 0.75s, opacity 0.75s'
+            transition: 'bottom 0.75s, opacity 0.75s',
+            zIndex: '9999'
           },
           className: 'toast'
         },
@@ -110,9 +113,9 @@ var Toast = function (_React$Component) {
             viewBox: '0 0 30 30', xmlns: 'http://www.w3.org/2000/svg' },
           _react2.default.createElement(
             'g',
-            { fill: 'none', 'fill-rule': 'evenodd' },
+            { fill: 'none', fillRule: 'evenodd' },
             _react2.default.createElement('circle', { fill: '#FFF', cx: '15', cy: '15', r: '15' }),
-            _react2.default.createElement('path', { d: 'M11,16.5060194 C12.0257687,17.0691545 14.2957686,20 14.2957686,20 C14.2957686,20 16,13.4119807 20,10', stroke: '#48FF00', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })
+            _react2.default.createElement('path', { d: 'M11,16.5060194 C12.0257687,17.0691545 14.2957686,20 14.2957686,20 C14.2957686,20 16,13.4119807 20,10', stroke: '#48FF00', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' })
           )
         ),
         _react2.default.createElement(
@@ -133,7 +136,12 @@ var Toast = function (_React$Component) {
           ),
           _react2.default.createElement(
             'span',
-            null,
+            { style: {
+                fontFamily: 'Atlas Grotesk',
+                fontWeight: '300',
+                fontSize: '14px',
+                lineHeight: '1.42'
+              } },
             message
           )
         ),
@@ -148,7 +156,8 @@ var Toast = function (_React$Component) {
               fontWeight: 'normal',
               fontStyle: 'normal',
               fontSize: '10px',
-              lineHeight: '1.33'
+              lineHeight: '1.33',
+              cursor: 'pointer'
             }
           },
           'close'
