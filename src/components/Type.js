@@ -146,10 +146,10 @@ export const CardTitle = ({ classAdd, children }) =>
       position: 'relative',
       display: 'block',
       fontFamily: 'Atlas Grotesk',
-      fontSize: '12px',
+      fontSize: '19px',
       fontWeight: 'bold',
-      letterSpacing: '0.22px',
-      lineHeight: '16px',
+      letterSpacing: '-0.2px',
+      lineHeight: '22px',
       margin: '23px 0 0'
     }}
   >{children}</h4>
@@ -161,10 +161,10 @@ export const CardSubTitle = ({ classAdd, children }) =>
       position: 'relative',
       display: 'block',
       fontFamily: 'Atlas Grotesk',
-      fontSize: '12px',
+      fontSize: '19px',
       fontWeight: '500',
-      letterSpacing: '0.22px',
-      lineHeight: '16px',
+      letterSpacing: '-0.2px',
+      lineHeight: '22px',
       margin: '0px',
       color: 'rgb(127,127,127)'
     }}

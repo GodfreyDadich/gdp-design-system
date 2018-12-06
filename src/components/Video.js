@@ -22,7 +22,8 @@ class Video extends React.Component {
       autoplay: props.autoplay || false,
       coverVisible: true,
       isLoading: props.loader,
-      active: props.active || false
+      active: props.active || false,
+      playerReady: false
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -57,7 +58,8 @@ class Video extends React.Component {
     this.setState({
       player: player.player,
       coverVisible: (this.state.hoverPlay && !this.state.active) || this.state.autoplay,
-      isLoading: this.state.isLoading ? this.state.autoplay : false
+      isLoading: this.state.isLoading ? this.state.autoplay : false,
+      playerReady: true
     })
   }
   videoOnPlay () {
@@ -108,11 +110,17 @@ class Video extends React.Component {
       caption,
       sideBar,
       active,
+      mouseOverAction,
+      mouseOutAction,
       aspectRatio = 'sixteen'
     } = this.props
-    const { playing } = this.state
+    const { playing, playerReady } = this.state
     return (
-      <div className={`video${hoverPlay ? ' hoverVid' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+      <div
+        onMouseEnter={mouseOverAction}
+        onMouseLeave={mouseOutAction}
+        className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
+      >
         <TrackVisibility once partialVisibility className={classAdd}>
           {({ isVisible }) =>
             <div
@@ -199,12 +207,12 @@ class Video extends React.Component {
               background-size: cover;
               background-repeat: no-repeat;
               transition: 0s opacity;
+              transition-delay:.2s;
             }
-            .hoverVid {
+            .hoverVid.playerReady {
               .vidWrap.active {
                 .videoCover {
                   opacity: 0;
-                  transition-delay:.2s;
                 }
               }
             }

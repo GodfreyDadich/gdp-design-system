@@ -24,6 +24,8 @@ import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
 import Device from '../components/Device'
 import Loader from '../components/Loader'
+import Gilmore from '../components/Gilmore'
+import Toast from '../components/Toast'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 const imageGallery = [
@@ -364,12 +366,13 @@ storiesOf('Chips', module)
     />
   )
 
-
 const modalClosed = () => {
   console.log('modal closed from parent')
   modalState = false
 }
-
+const toastCallback = () => {
+  console.log('callback')
+}
 let modalState = true
 
 storiesOf('Modals', module)
@@ -391,6 +394,16 @@ storiesOf('Modals', module)
           horizontalAlign='center'
         />
       </Modal>
+    </div>
+  )
+  .add('Toast', () =>
+    <div>
+      <Toast
+        active={boolean('Toggle Toast', true)}
+        callback={toastCallback}
+        header={text('Header', 'Email address copied to clipboard')}
+        message={text('Message', 'apply@godfreydadich.com')}
+      />
     </div>
   )
 
@@ -579,4 +592,9 @@ storiesOf('Parallax', module)
 storiesOf('Loader', module)
   .add('Logo Loader', () =>
     <div style={{width: '100%'}} ><Loader /> </div>
+  )
+
+storiesOf('Gilmore', module)
+  .add('Gilmore Animation', () =>
+    <div style={{width: '75%'}} ><Gilmore /> </div>
   )
