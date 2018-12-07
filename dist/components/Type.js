@@ -224,7 +224,7 @@ var SideBar = exports.SideBar = function SideBar(_ref11) {
           style: {
             position: 'relative',
             top: isVisible ? '0px' : '15px',
-            width: '111px',
+            width: '116px',
             fontFamily: 'Atlas Grotesk',
             fontWeight: '900',
             color: '#000',
@@ -232,20 +232,26 @@ var SideBar = exports.SideBar = function SideBar(_ref11) {
             transition: 'opacity 0.5s, top 0.5s',
             transitionDelay: '.40s'
           },
-          className: 'jsx-581407050' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
+          className: 'jsx-890879870' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },
-        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-581407050' + ' ' + 'sideBar__logo'
+        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-890879870' + ' ' + 'sideBar__logo'
         }) : '',
         sideBar.text.length > 0 ? _react2.default.createElement(
           'span',
           {
-            className: 'jsx-581407050' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+            className: 'jsx-890879870' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
           },
           sideBar.text
         ) : '',
+        sideBar.quoter ? _react2.default.createElement(
+          'span',
+          { style: { display: 'block', marginTop: '5px' }, className: 'jsx-890879870'
+          },
+          sideBar.quoter
+        ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '581407050',
-          css: '@charset "UTF-8";.sideBar__logo.jsx-581407050{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-581407050{position:relative;display:block;border-top:7px solid #000;padding-top:9px;font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.4px;-moz-letter-spacing:-0.4px;-ms-letter-spacing:-0.4px;letter-spacing:-0.4px;}.sideBar__text.isQuote.jsx-581407050:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-581407050:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-581407050 p.jsx-581407050{margin:0;}'
+          styleId: '890879870',
+          css: '@charset "UTF-8";.sideBar.jsx-890879870{font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__logo.jsx-890879870{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-890879870{position:relative;display:block;border-top:7px solid #000;padding-top:9px;}.sideBar__text.isQuote.jsx-890879870:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-890879870:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-890879870 p.jsx-890879870{margin:0;}'
         })
       );
     }

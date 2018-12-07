@@ -190,7 +190,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
         style={{
           position: 'relative',
           top: isVisible ? '0px' : '15px',
-          width: '111px',
+          width: '116px',
           fontFamily: 'Atlas Grotesk',
           fontWeight: '900',
           color: '#000',
@@ -200,10 +200,17 @@ export const SideBar = ({ sideBar, isVisible }) =>
         }}
       >
         {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
-        {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>{sideBar.text}</span> : ''}
+        {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
+          {sideBar.text}
+        </span> : ''}
+        {sideBar.quoter ? <span style={{ display: 'block', marginTop: '5px' }}>{sideBar.quoter}</span> : ''}
 
         <style jsx>{`
         .sideBar {
+          font-size: 12px;
+          line-height: 12.8px;
+          letter-spacing: -0.1px;
+                    
           &__logo {
             display: block;
             width: 100%;
@@ -214,9 +221,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
             display: block;
             border-top: 7px solid #000;
             padding-top: 9px;
-            font-size: 12px;
-            line-height: 12.8px;
-            letter-spacing: -0.4px;
+
 
             &.isQuote:before {
               content: '“';
