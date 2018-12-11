@@ -1,5 +1,6 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
+import { isMobile } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -79,8 +80,8 @@ export const Heading3 = ({ children, style, className }) =>
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      fontSize: (fontSizeHeading3 / 1280) * 100 + 'vw',
-      lineHeight: 1,
+      fontSize: isMobile ? '19px' : (fontSizeHeading3 / 1280) * 100 + 'vw',
+      lineHeight: isMobile ? '22px' : 1,
       marginTop: 0,
       marginBottom: 0
     }, style)}
@@ -94,8 +95,8 @@ export const Heading4 = ({ children, style, className }) =>
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      fontSize: (fontSizeHeading4 / 1280) * 100 + 'vw',
-      lineHeight: 1,
+      fontSize: isMobile ? '19px' : (fontSizeHeading4 / 1280) * 100 + 'vw',
+      lineHeight: isMobile ? 1.2 : 1,
       marginTop: 0,
       marginBottom: 0
     }, style)}
@@ -146,11 +147,11 @@ export const CardTitle = ({ classAdd, children }) =>
       position: 'relative',
       display: 'block',
       fontFamily: 'Atlas Grotesk',
-      fontSize: '19px',
+      fontSize: isMobile ? '12px' : '19px',
       fontWeight: 'bold',
-      letterSpacing: '-0.2px',
-      lineHeight: '22px',
-      margin: '23px 0 0'
+      letterSpacing: isMobile ? '0.2px' : '-0.2px',
+      lineHeight: isMobile ? '16px' : '22px',
+      margin: isMobile ? '15px 0 0' : '23px 0 0'
     }}
   >{children}</h4>
 
@@ -161,10 +162,10 @@ export const CardSubTitle = ({ classAdd, children }) =>
       position: 'relative',
       display: 'block',
       fontFamily: 'Atlas Grotesk',
-      fontSize: '19px',
+      fontSize: isMobile ? '12px' : '19px',
       fontWeight: '500',
-      letterSpacing: '-0.2px',
-      lineHeight: '22px',
+      letterSpacing: isMobile ? '0.2px' : '-0.2px',
+      lineHeight: isMobile ? '16px' : '22px',
       margin: '0px',
       color: 'rgb(127,127,127)'
     }}
@@ -196,7 +197,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           color: '#000',
           opacity: isVisible ? 1 : 0,
           transition: 'opacity 0.5s, top 0.5s',
-          transitionDelay: '.40s'
+          transitionDelay: '1s'
         }}
       >
         {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}

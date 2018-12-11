@@ -6,6 +6,7 @@
   "dependencies": {
     "color": "^3.0.0",
     "react": "^16.4.1",
+    "react-device-detect": "^1.6.1",
     "react-dom": "^16.4.1",
     "react-lazy-load": "^3.0.13",
     "react-medium-image-zoom": "^3.0.13",

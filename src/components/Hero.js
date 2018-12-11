@@ -23,34 +23,33 @@ class Hero extends React.Component {
     const {
       type,
       source,
-      withZoom,
       title,
-      loop
+      thumb
     } = this.props
     return (<div className='hero'>
       {(() => {
-        switch (this.props.type) {
+        switch (type) {
           case 'image':
             return <Image
-              imageTitle={this.props.title}
+              imageTitle={title}
               aspectRatio='sixteen'
               fullBleed='true'
               verticalAlign='center'
               skipIntro
               horizontalAlign='center'
-              imgSource={this.props.source}
+              imgSource={source}
               classAdd={this.state.zoomClass} />
           case 'video':
             return <Video
-              videoTitle={this.props.title}
+              videoTitle={title}
               aspectRatio='sixteen'
               fullBleed='true'
               controls={false}
               autoplay
               skipIntro
               loop={false}
-              vidSource={this.props.source}
-              thumb={this.props.thumb}
+              vidSource={source}
+              thumb={thumb}
               loader
               config={{
                 vimeo: {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Heading4 } from './Type'
+import { isMobile } from 'react-device-detect'
 
 class Toast extends React.Component {
   constructor (props) {
@@ -59,7 +60,8 @@ class Toast extends React.Component {
           position: 'fixed',
           bottom: active ? '22px' : '-140px',
           opacity: active ? 1 : 0,
-          right: '42px',
+          right: isMobile ? '24px' : '42px',
+          width: isMobile ? 'calc( 100% - 48px )' : 'auto',
           backgroundColor: 'rgb(72,255,0)',
           borderRadius: '7px',
           padding: '20px 40px',
