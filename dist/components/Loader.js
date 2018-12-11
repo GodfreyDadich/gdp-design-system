@@ -40,7 +40,7 @@ var Loader = function Loader() {
     }),
     _react2.default.createElement(
       "g",
-      { "clip-path": "url(#a)", id: "blue-chip", className: "jsx-593601611"
+      { clipPath: "url(#a)", id: "blue-chip", className: "jsx-593601611"
       },
       _react2.default.createElement("path", { d: "M743.66,148.4a1.86,1.86,0,0,1,1.9,1.91V668.63a1.86,1.86,0,0,1-1.9,1.9H595.5c-144.18,0-261.06-116.88-261.06-261.06S451.32,148.4,595.5,148.4Z", fill: "#0c8f93", className: "jsx-593601611"
       })

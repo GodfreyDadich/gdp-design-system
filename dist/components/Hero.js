@@ -68,9 +68,8 @@ var Hero = function (_React$Component) {
       var _props = this.props,
           type = _props.type,
           source = _props.source,
-          withZoom = _props.withZoom,
           title = _props.title,
-          loop = _props.loop;
+          thumb = _props.thumb;
 
       return _react2.default.createElement(
         'div',
@@ -78,28 +77,28 @@ var Hero = function (_React$Component) {
           className: 'jsx-2634941183' + ' ' + 'hero'
         },
         function () {
-          switch (_this3.props.type) {
+          switch (type) {
             case 'image':
               return _react2.default.createElement(_Image2.default, {
-                imageTitle: _this3.props.title,
+                imageTitle: title,
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
                 verticalAlign: 'center',
                 skipIntro: true,
                 horizontalAlign: 'center',
-                imgSource: _this3.props.source,
+                imgSource: source,
                 classAdd: _this3.state.zoomClass });
             case 'video':
               return _react2.default.createElement(_Video2.default, {
-                videoTitle: _this3.props.title,
+                videoTitle: title,
                 aspectRatio: 'sixteen',
                 fullBleed: 'true',
                 controls: false,
                 autoplay: true,
                 skipIntro: true,
                 loop: false,
-                vidSource: _this3.props.source,
-                thumb: _this3.props.thumb,
+                vidSource: source,
+                thumb: thumb,
                 loader: true,
                 config: {
                   vimeo: {

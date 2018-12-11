@@ -19,6 +19,8 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
+var _reactDeviceDetect = require('react-device-detect');
+
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -82,8 +84,8 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
         fontWeight: 'bold',
-        fontSize: _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
-        lineHeight: 1,
+        fontSize: _reactDeviceDetect.isMobile ? '19px' : _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
+        lineHeight: _reactDeviceDetect.isMobile ? '22px' : 1,
         marginTop: 0,
         marginBottom: 0
       }, style),
@@ -103,8 +105,8 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
         fontWeight: 'bold',
-        fontSize: _typography.fontSizeHeading4 / 1280 * 100 + 'vw',
-        lineHeight: 1,
+        fontSize: _reactDeviceDetect.isMobile ? '19px' : _typography.fontSizeHeading4 / 1280 * 100 + 'vw',
+        lineHeight: _reactDeviceDetect.isMobile ? 1.2 : 1,
         marginTop: 0,
         marginBottom: 0
       }, style),
@@ -157,11 +159,11 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
         position: 'relative',
         display: 'block',
         fontFamily: 'Atlas Grotesk',
-        fontSize: '19px',
+        fontSize: _reactDeviceDetect.isMobile ? '12px' : '19px',
         fontWeight: 'bold',
-        letterSpacing: '-0.2px',
-        lineHeight: '22px',
-        margin: '23px 0 0'
+        letterSpacing: _reactDeviceDetect.isMobile ? '0.2px' : '-0.2px',
+        lineHeight: _reactDeviceDetect.isMobile ? '16px' : '22px',
+        margin: _reactDeviceDetect.isMobile ? '15px 0 0' : '23px 0 0'
       }
     },
     children
@@ -179,10 +181,10 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
         position: 'relative',
         display: 'block',
         fontFamily: 'Atlas Grotesk',
-        fontSize: '19px',
+        fontSize: _reactDeviceDetect.isMobile ? '12px' : '19px',
         fontWeight: '500',
-        letterSpacing: '-0.2px',
-        lineHeight: '22px',
+        letterSpacing: _reactDeviceDetect.isMobile ? '0.2px' : '-0.2px',
+        lineHeight: _reactDeviceDetect.isMobile ? '16px' : '22px',
         margin: '0px',
         color: 'rgb(127,127,127)'
       }
@@ -230,7 +232,7 @@ var SideBar = exports.SideBar = function SideBar(_ref11) {
             color: '#000',
             opacity: isVisible ? 1 : 0,
             transition: 'opacity 0.5s, top 0.5s',
-            transitionDelay: '.40s'
+            transitionDelay: '1s'
           },
           className: 'jsx-890879870' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },

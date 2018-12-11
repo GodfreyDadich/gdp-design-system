@@ -191,7 +191,7 @@ var Video = function (_React$Component) {
                   top: isVisible || skipIntro ? '0px' : '15px',
                   opacity: isVisible ? '1' : '0',
                   transition: 'opacity 0.5s, top 0.5s',
-                  transitionDelay: '0.25s'
+                  transitionDelay: '0.75s'
                 },
                 className: 'jsx-1678861617'
               },
