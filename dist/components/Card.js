@@ -37,8 +37,7 @@ var imagePropsObject = function imagePropsObject(props) {
 var Card = function Card(props) {
   return _react2.default.createElement(
     'div',
-    {
-      className: _style2.default.dynamic([['1004407848', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%']]]) + ' ' + (props.classAdd || '')
+    { style: props.style, className: _style2.default.dynamic([['1004407848', [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%']]]) + ' ' + (props.classAdd || '')
     },
     !!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && _react2.default.createElement(_CardText2.default, props),
     _react2.default.createElement(

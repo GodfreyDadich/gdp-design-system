@@ -19,8 +19,6 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
-var _reactDeviceDetect = require('react-device-detect');
-
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -46,12 +44,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-2255199418' + ' ' + 'headingOne'
+      className: 'jsx-659084679' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2255199418',
-      css: '.headingOne.jsx-2255199418{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-2255199418 .clientName.jsx-2255199418{display:block;color:#7F7F7F;}.headingOne.jsx-2255199418:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}'
+      styleId: '659084679',
+      css: '.headingOne.jsx-659084679{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-659084679 .clientName.jsx-659084679{display:block;color:#7F7F7F;}.headingOne.jsx-659084679:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-659084679{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-659084679:before{width:calc(50% - 16px) !important;}}'
     })
   );
 };
@@ -84,14 +82,16 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
         fontWeight: 'bold',
-        fontSize: _reactDeviceDetect.isMobile ? '19px' : _typography.fontSizeHeading3 / 1280 * 100 + 'vw',
-        lineHeight: _reactDeviceDetect.isMobile ? '22px' : 1,
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: className
+      className: 'jsx-4116183534' + ' ' + ('heading3 ' + className)
     },
-    children
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '4116183534',
+      css: '.heading3.jsx-4116183534{font-size:2.03vw;line-height:1;}@media only screen and (max-width:500px){.heading3.jsx-4116183534{font-size:19px;line-height:22px;}}'
+    })
   );
 };
 
@@ -105,14 +105,16 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
         fontWeight: 'bold',
-        fontSize: _reactDeviceDetect.isMobile ? '19px' : _typography.fontSizeHeading4 / 1280 * 100 + 'vw',
-        lineHeight: _reactDeviceDetect.isMobile ? 1.2 : 1,
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: className
+      className: 'jsx-1115100298' + ' ' + ('heading4 ' + className)
     },
-    children
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '1115100298',
+      css: '.heading4.jsx-1115100298{font-size:1.48vw;line-height:1;}@media only screen and (max-width:500px){.heading4.jsx-1115100298{font-size:19px;line-height:22px;}}'
+    })
   );
 };
 
@@ -154,12 +156,12 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
   return _react2.default.createElement(
     'h4',
     {
-      className: 'jsx-859907502' + ' ' + ('cardTitle ' + classAdd)
+      className: 'jsx-4045664524' + ' ' + ('cardTitle ' + classAdd)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '859907502',
-      css: '.cardTitle.jsx-859907502{position:relative;display:block;font-family:\'Atlas Grotesk\';font-weight:bold;font-size:19px;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;line-height:22px;margin:23px 0 0;}@media only screen and (max-width:500px){.cardTitle.jsx-859907502{font-size:12px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;line-height:16px;margin:15px 0 0;}}'
+      styleId: '4045664524',
+      css: '.cardTitle.jsx-4045664524{position:relative;display:block;font-family:\'Atlas Grotesk\';font-size:19px;font-weight:bold;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;line-height:22px;margin:23px 0 0;}@media only screen and (max-width:500px){.cardTitle.jsx-4045664524{font-size:12px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;line-height:16px;margin:15px 0 0;}}'
     })
   );
 };
@@ -170,20 +172,13 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
   return _react2.default.createElement(
     'h5',
     {
-      className: classAdd,
-      style: {
-        position: 'relative',
-        display: 'block',
-        fontFamily: 'Atlas Grotesk',
-        fontSize: _reactDeviceDetect.isMobile ? '12px' : '19px',
-        fontWeight: '500',
-        letterSpacing: _reactDeviceDetect.isMobile ? '0.2px' : '-0.2px',
-        lineHeight: _reactDeviceDetect.isMobile ? '16px' : '22px',
-        margin: '0px',
-        color: 'rgb(127,127,127)'
-      }
+      className: 'jsx-943579489' + ' ' + ('cardSubtitle ' + classAdd)
     },
-    children
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '943579489',
+      css: '.cardSubtitle.jsx-943579489{position:relative;display:block;font-family:\'Atlas Grotesk\';font-size:19px;font-weight:500;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;line-height:22px;margin:0;color:#7f7f7f;}@media only screen and (max-width:500px){.cardSubtitle.jsx-943579489{font-size:12px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;line-height:16px;}}'
+    })
   );
 };
 

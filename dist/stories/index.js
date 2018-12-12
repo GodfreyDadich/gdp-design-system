@@ -96,6 +96,10 @@ var _Gilmore = require('../components/Gilmore');
 
 var _Gilmore2 = _interopRequireDefault(_Gilmore);
 
+var _GilmoreMobile = require('../components/GilmoreMobile');
+
+var _GilmoreMobile2 = _interopRequireDefault(_GilmoreMobile);
+
 var _Toast = require('../components/Toast');
 
 var _Toast2 = _interopRequireDefault(_Toast);
@@ -682,6 +686,13 @@ var modalState = true;
     'div',
     { style: { width: '75%' } },
     _react2.default.createElement(_Gilmore2.default, null),
+    ' '
+  );
+}).add('Gilmore Mobile', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '30%', height: '100vh' } },
+    _react2.default.createElement(_GilmoreMobile2.default, null),
     ' '
   );
 });

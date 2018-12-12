@@ -226,6 +226,15 @@ Object.defineProperty(exports, 'Loader', {
   }
 });
 
+var _GilmoreMobile = require('./components/GilmoreMobile');
+
+Object.defineProperty(exports, 'GilmoreMobile', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_GilmoreMobile).default;
+  }
+});
+
 var _Type = require('./components/Type');
 
 Object.keys(_Type).forEach(function (key) {
