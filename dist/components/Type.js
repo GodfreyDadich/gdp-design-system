@@ -138,12 +138,12 @@ var Caption = exports.Caption = function Caption(_ref7) {
   return _react2.default.createElement(
     'figcaption',
     {
-      className: 'jsx-38033030' + ' ' + ('captionText' + (classAdd ? ' ' + classAdd : ''))
+      className: 'jsx-3317793550' + ' ' + ('captionText' + (classAdd ? ' ' + classAdd : ''))
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '38033030',
-      css: '.captionText.jsx-38033030{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;text-align:center;}'
+      styleId: '3317793550',
+      css: '.captionText.jsx-3317793550{color:#7F7F7F;font-family:\'Atlas Grotesk\';font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;margin-top:25px;text-align:center;}@media only screen and (max-width:500px){.captionText.jsx-3317793550{margin-top:15px;}}'
     })
   );
 };
@@ -154,19 +154,13 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
   return _react2.default.createElement(
     'h4',
     {
-      className: classAdd,
-      style: {
-        position: 'relative',
-        display: 'block',
-        fontFamily: 'Atlas Grotesk',
-        fontSize: _reactDeviceDetect.isMobile ? '12px' : '19px',
-        fontWeight: 'bold',
-        letterSpacing: _reactDeviceDetect.isMobile ? '0.2px' : '-0.2px',
-        lineHeight: _reactDeviceDetect.isMobile ? '16px' : '22px',
-        margin: _reactDeviceDetect.isMobile ? '15px 0 0' : '23px 0 0'
-      }
+      className: 'jsx-859907502' + ' ' + ('cardTitle ' + classAdd)
     },
-    children
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '859907502',
+      css: '.cardTitle.jsx-859907502{position:relative;display:block;font-family:\'Atlas Grotesk\';font-weight:bold;font-size:19px;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;line-height:22px;margin:23px 0 0;}@media only screen and (max-width:500px){.cardTitle.jsx-859907502{font-size:12px;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;line-height:16px;margin:15px 0 0;}}'
+    })
   );
 };
 
