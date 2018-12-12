@@ -10,7 +10,7 @@ const imagePropsObject = props => {
 }
 
 const Card = props =>
-  <div className={props.classAdd} >
+  <div className={props.classAdd} style={props.style} >
     {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
     <div className='cardMedia'>
       <Image {...imagePropsObject(props)} />

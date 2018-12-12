@@ -25,6 +25,7 @@ import Video from '../components/Video'
 import Device from '../components/Device'
 import Loader from '../components/Loader'
 import Gilmore from '../components/Gilmore'
+import GilmoreMobile from '../components/GilmoreMobile'
 import Toast from '../components/Toast'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
@@ -598,4 +599,7 @@ storiesOf('Loader', module)
 storiesOf('Gilmore', module)
   .add('Gilmore Animation', () =>
     <div style={{width: '75%'}} ><Gilmore /> </div>
+  )
+  .add('Gilmore Mobile', () =>
+    <div style={{ width: '30%', height: '100vh' }} ><GilmoreMobile /> </div>
   )

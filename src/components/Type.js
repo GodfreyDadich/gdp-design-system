@@ -1,6 +1,5 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
-import { isMobile } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -59,10 +58,19 @@ export const Heading1 = ({children}) =>
           bottom: 0;
           left: 0;
         }
+        @media only screen and (max-width: 500px) {
+          font-size: 12vw !important;
+          padding-bottom: 35px !important;
+          margin-bottom: 28px !important;
+
+          &:before {
+            width: calc(50% - 16px) !important;
+          }
+        }     
       }
     `}</style>
   </h1>
-  
+
 export const Heading2 = ({ children, style, className }) =>
   <h2
     style={Object.assign({
@@ -80,14 +88,23 @@ export const Heading3 = ({ children, style, className }) =>
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      fontSize: isMobile ? '19px' : (fontSizeHeading3 / 1280) * 100 + 'vw',
-      lineHeight: isMobile ? '22px' : 1,
       marginTop: 0,
       marginBottom: 0
     }, style)}
-    className={className}
+    className={`heading3 ${className}`}
   >
     {children}
+    <style jsx>{`
+      .heading3 {
+        font-size: 2.03vw;
+        line-height: 1;    
+
+        @media only screen and (max-width: 500px) {
+          font-size: 19px;
+          line-height: 22px;
+        }  
+      }    
+    `}</style>
   </h3>
 
 export const Heading4 = ({ children, style, className }) =>
@@ -95,14 +112,23 @@ export const Heading4 = ({ children, style, className }) =>
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      fontSize: isMobile ? '19px' : (fontSizeHeading4 / 1280) * 100 + 'vw',
-      lineHeight: isMobile ? 1.2 : 1,
       marginTop: 0,
       marginBottom: 0
     }, style)}
-    className={className}
+    className={`heading4 ${className}`}
   >
     {children}
+    <style jsx>{`
+      .heading4 {
+        font-size: 1.48vw;
+        line-height: 1;
+        
+        @media only screen and (max-width: 500px) {
+          font-size: 19px;
+          line-height: 22px;
+        }                  
+      }
+    `}</style>
   </h4>
 
 export const Pullquote = ({ classAdd, children }) =>
@@ -153,37 +179,46 @@ export const CardTitle = ({ classAdd, children }) =>
         position: relative;
         display: block;
         font-family: 'Atlas Grotesk';
-        font-weight: bold;
         font-size: 19px;
+        font-weight: bold;
         letter-spacing: -0.2px;
         line-height: 22px;
         margin: 23px 0 0;
-        
+
         @media only screen and (max-width: 500px) {
           font-size: 12px;
           letter-spacing: 0.2px;
           line-height: 16px;
           margin: 15px 0 0;
-        }
-      }  
+        }  
+      }    
     `}</style>
   </h4>
 
 export const CardSubTitle = ({ classAdd, children }) =>
   <h5
-    className={classAdd}
-    style={{
-      position: 'relative',
-      display: 'block',
-      fontFamily: 'Atlas Grotesk',
-      fontSize: isMobile ? '12px' : '19px',
-      fontWeight: '500',
-      letterSpacing: isMobile ? '0.2px' : '-0.2px',
-      lineHeight: isMobile ? '16px' : '22px',
-      margin: '0px',
-      color: 'rgb(127,127,127)'
-    }}
-  >{children}</h5>
+    className={`cardSubtitle ${classAdd}`}
+  >{children}
+    <style jsx>{`
+      .cardSubtitle {
+        position: relative;
+        display: block;
+        font-family: 'Atlas Grotesk';
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: -0.2px;
+        line-height: 22px;
+        margin: 0;
+        color: rgb(127,127,127);
+
+        @media only screen and (max-width: 500px) {
+          font-size: 12px;
+          letter-spacing: 0.2px;
+          line-height: 16px;
+        }  
+      }    
+    `}</style>
+  </h5>
 
 export const CardContent = ({ classAdd, children }) =>
   <p
