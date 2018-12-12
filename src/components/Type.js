@@ -136,24 +136,38 @@ export const Caption = ({ classAdd, children }) =>
         letter-spacing: 0.2px;
         margin-top: 25px;
         text-align: center;
+        
+        @media only screen and (max-width: 500px) {
+          margin-top: 15px;
+        }
       }  
     `}</style>
   </figcaption>
 
 export const CardTitle = ({ classAdd, children }) =>
   <h4
-    className={classAdd}
-    style={{
-      position: 'relative',
-      display: 'block',
-      fontFamily: 'Atlas Grotesk',
-      fontSize: isMobile ? '12px' : '19px',
-      fontWeight: 'bold',
-      letterSpacing: isMobile ? '0.2px' : '-0.2px',
-      lineHeight: isMobile ? '16px' : '22px',
-      margin: isMobile ? '15px 0 0' : '23px 0 0'
-    }}
-  >{children}</h4>
+    className={`cardTitle ${classAdd}`}
+  >{children}
+    <style jsx>{`
+      .cardTitle {
+        position: relative;
+        display: block;
+        font-family: 'Atlas Grotesk';
+        font-weight: bold;
+        font-size: 19px;
+        letter-spacing: -0.2px;
+        line-height: 22px;
+        margin: 23px 0 0;
+        
+        @media only screen and (max-width: 500px) {
+          font-size: 12px;
+          letter-spacing: 0.2px;
+          line-height: 16px;
+          margin: 15px 0 0;
+        }
+      }  
+    `}</style>
+  </h4>
 
 export const CardSubTitle = ({ classAdd, children }) =>
   <h5
