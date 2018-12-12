@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.82"></a>
+## [0.1.82](https://github.com/GodfreyDadich/gdp-design-system/compare/v0.1.81...v0.1.82) (2018-12-12)
+
+
+
 <a name="0.1.81"></a>
 ## [0.1.81](https://github.com/GodfreyDadich/gdp-design-system/compare/v0.1.80...v0.1.81) (2018-12-11)
 
