@@ -78,6 +78,10 @@ var Toast = function (_React$Component) {
         this.startTimer();
         this.openToast();
       }
+
+      this.setState({
+        isMobile: true
+      });
     }
   }, {
     key: 'render',
@@ -92,13 +96,13 @@ var Toast = function (_React$Component) {
         {
           style: {
             position: 'fixed',
-            bottom: active ? '22px' : '-140px',
+            bottom: active ? this.state.isMobile ? '0px' : '22px' : '-140px',
             opacity: active ? 1 : 0,
-            right: _reactDeviceDetect.isMobile ? '24px' : '42px',
-            width: _reactDeviceDetect.isMobile ? 'calc( 100% - 48px )' : 'auto',
+            right: this.state.isMobile ? '0' : '42px',
+            width: this.state.isMobile ? 'calc( 100% - 48px)' : 'auto',
             backgroundColor: 'rgb(72,255,0)',
             borderRadius: '7px',
-            padding: '20px 40px',
+            padding: this.state.isMobile ? '10px 24px' : '20px 40px',
             transition: 'bottom 0.75s, opacity 0.75s',
             zIndex: '9999'
           },
@@ -134,7 +138,7 @@ var Toast = function (_React$Component) {
           },
           _react2.default.createElement(
             _Type.Heading4,
-            { style: { fontSize: '19px', marginBottom: '5px' } },
+            { style: { fontSize: this.state.isMobile ? '12px' : '19px', marginBottom: this.state.isMobile ? '0' : '5px' } },
             header
           ),
           _react2.default.createElement(
@@ -142,7 +146,7 @@ var Toast = function (_React$Component) {
             { style: {
                 fontFamily: 'Atlas Grotesk',
                 fontWeight: '300',
-                fontSize: '14px',
+                fontSize: this.state.isMobile ? '10px' : '14px',
                 lineHeight: '1.42'
               } },
             message

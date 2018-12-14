@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _style = require('styled-jsx/style');
@@ -28,6 +30,8 @@ var _Loader = require('./Loader');
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
+var _reactDeviceDetect = require('react-device-detect');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40,7 +44,9 @@ var vidStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
-  backgroundColor: 'tranparent'
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'transparent'
 };
 
 var Video = function (_React$Component) {
@@ -60,7 +66,9 @@ var Video = function (_React$Component) {
       coverVisible: true,
       isLoading: props.loader,
       active: props.active || false,
-      playerReady: false
+      playerReady: false,
+      noInteract: props.config ? props.config.vimeo.playerOptions.background : false,
+      isMobile: true
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
@@ -102,7 +110,7 @@ var Video = function (_React$Component) {
       }
       this.setState({
         player: player.player,
-        coverVisible: this.state.hoverPlay && !this.state.active || this.state.autoplay,
+        coverVisible: this.state.hoverPlay || this.state.autoplay,
         isLoading: this.state.isLoading ? this.state.autoplay : false,
         playerReady: true
       });
@@ -127,12 +135,18 @@ var Video = function (_React$Component) {
       }
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.setState({
+        isMobile: _reactDeviceDetect.isMobile
+      });
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.active && !this.state.playing) {
         this.setState({
-          playing: true,
-          coverVisible: false
+          playing: true
         });
         this.play();
       } else if (!nextProps.active && this.state.playing) {
@@ -169,14 +183,15 @@ var Video = function (_React$Component) {
           aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio;
       var _state = this.state,
           playing = _state.playing,
-          playerReady = _state.playerReady;
+          playerReady = _state.playerReady,
+          noInteract = _state.noInteract;
 
       return _react2.default.createElement(
         'div',
         {
           onMouseEnter: mouseOverAction,
           onMouseLeave: mouseOutAction,
-          className: 'jsx-1678861617' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (playerReady ? ' playerReady' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
+          className: 'jsx-746418569' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (playerReady ? ' playerReady' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           _reactOnScreen2.default,
@@ -193,17 +208,17 @@ var Video = function (_React$Component) {
                   transition: 'opacity 0.5s, top 0.5s',
                   transitionDelay: '0.75s'
                 },
-                className: 'jsx-1678861617'
+                className: 'jsx-746418569'
               },
               _react2.default.createElement(
                 'div',
                 {
-                  className: 'jsx-1678861617' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
+                  className: 'jsx-746418569' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
                 },
                 _react2.default.createElement(
                   'div',
                   {
-                    className: 'jsx-1678861617'
+                    className: 'jsx-746418569'
                   },
                   _react2.default.createElement(
                     'div',
@@ -212,22 +227,22 @@ var Video = function (_React$Component) {
 
                       style: {
                         backgroundImage: 'url(' + thumb + ')',
-                        backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? '0' : '100vw'),
+                        backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
                         backgroundColor: '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
-                      }, className: 'jsx-1678861617' + ' ' + 'videoCover'
+                      }, className: 'jsx-746418569' + ' ' + 'videoCover'
                     },
                     _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
                     ' '
                   ),
-                  _react2.default.createElement(_reactPlayer2.default, {
+                  _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
                     url: autoplay ? vidSource : isVisible ? vidSource : '',
                     playing: playing,
                     loop: loop,
                     controls: controls,
                     width: '100%',
                     height: '100%',
-                    style: vidStyle,
+                    style: noInteract ? _extends(vidStyle, { pointerEvents: 'none' }) : vidStyle,
                     config: config,
                     onReady: _this2.videoReady,
                     onPlay: _this2.videoOnPlay,
@@ -245,8 +260,8 @@ var Video = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '1678861617',
-          css: '.video.jsx-1678861617{position:relative;}.vidWrap.jsx-1678861617{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-1678861617{padding-top:56.25%;}.vidWrap.standard.jsx-1678861617{padding-top:75%;}.vidWrap.cropped.jsx-1678861617{padding-top:41.67%;}.vidWrap.cinema.jsx-1678861617{padding-top:46.89%;}.vidWrap.square.jsx-1678861617{padding-top:100%;}.wrappedVideo.jsx-1678861617,.videoCover.jsx-1678861617{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.videoCover.jsx-1678861617{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;-webkit-transition:0s opacity;transition:0s opacity;-webkit-transition-delay:.2s;transition-delay:.2s;}.hoverVid.playerReady.jsx-1678861617 .vidWrap.active.jsx-1678861617 .videoCover.jsx-1678861617{opacity:0;}'
+          styleId: '746418569',
+          css: '.video.jsx-746418569{position:relative;}.vidWrap.jsx-746418569{position:relative;width:100%;overflow:hidden;height:auto;}.vidWrap.sixteen.jsx-746418569{padding-top:56.25%;}.vidWrap.standard.jsx-746418569{padding-top:75%;}.vidWrap.cropped.jsx-746418569{padding-top:41.67%;}.vidWrap.cinema.jsx-746418569{padding-top:46.89%;}.vidWrap.square.jsx-746418569{padding-top:100%;}.wrappedVideo.jsx-746418569,.videoCover.jsx-746418569{position:absolute;top:0;left:0;width:100%;height:100%;z-index:15;}.videoCover.jsx-746418569{opacity:1;z-index:20;background-size:cover;background-repeat:no-repeat;-webkit-transition:0.2s opacity;transition:0.2s opacity;}.hoverVid.playerReady.jsx-746418569 .vidWrap.active.jsx-746418569 .videoCover.jsx-746418569{opacity:0;}'
         })
       );
     }
