@@ -28,20 +28,19 @@ var Device = function Device(_ref) {
     { className: classAdd,
       style: {
         position: 'relative',
-        backgroundImage: 'url(data:image/svg+xml,' + devices[deviceColor] + ')',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
         paddingTop: '71.4%',
         borderRadius: '6.5%',
+        overflow: 'hidden',
         boxShadow: 'rgba(0, 0, 0, 0.2) -4px 22px 16px -8px'
       } },
     _react2.default.createElement(
       'div',
       { style: {
           position: 'absolute',
-          top: '6.1%',
+          top: '5.6%',
           left: '8.12%',
-          width: '83.95%'
+          width: '85%',
+          zIndex: '21'
         } },
       _react2.default.cloneElement(children, { active: active })
     ),
@@ -49,7 +48,18 @@ var Device = function Device(_ref) {
       _Type.Caption,
       { classAdd: 'col-6 skip-3' },
       caption
-    ) : ''
+    ) : '',
+    _react2.default.createElement('div', { style: {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        zIndex: '22',
+        backgroundImage: 'url(data:image/svg+xml,' + devices[deviceColor] + ')',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      } })
   );
 };
 

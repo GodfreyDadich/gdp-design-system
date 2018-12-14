@@ -46,7 +46,7 @@ class Toast extends React.Component {
     }
 
     this.setState({
-      isMobile: true
+      isMobile: isMobile
     })
   }
 

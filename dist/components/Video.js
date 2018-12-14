@@ -67,7 +67,6 @@ var Video = function (_React$Component) {
       isLoading: props.loader,
       active: props.active || false,
       playerReady: false,
-      noInteract: props.config ? props.config.vimeo.playerOptions.background : false,
       isMobile: true
     };
     _this.play = _this.play.bind(_this);
@@ -183,8 +182,7 @@ var Video = function (_React$Component) {
           aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio;
       var _state = this.state,
           playing = _state.playing,
-          playerReady = _state.playerReady,
-          noInteract = _state.noInteract;
+          playerReady = _state.playerReady;
 
       return _react2.default.createElement(
         'div',
@@ -228,7 +226,7 @@ var Video = function (_React$Component) {
                       style: {
                         backgroundImage: 'url(' + thumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
-                        backgroundColor: '#000',
+                        backgroundColor: hoverPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
                       }, className: 'jsx-746418569' + ' ' + 'videoCover'
                     },
@@ -242,7 +240,7 @@ var Video = function (_React$Component) {
                     controls: controls,
                     width: '100%',
                     height: '100%',
-                    style: noInteract ? _extends(vidStyle, { pointerEvents: 'none' }) : vidStyle,
+                    style: hoverPlay ? _extends(vidStyle, { pointerEvents: 'none' }) : vidStyle,
                     config: config,
                     onReady: _this2.videoReady,
                     onPlay: _this2.videoOnPlay,

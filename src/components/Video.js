@@ -27,7 +27,6 @@ class Video extends React.Component {
       isLoading: props.loader,
       active: props.active || false,
       playerReady: false,
-      noInteract: props.config ? props.config.vimeo.playerOptions.background : false,
       isMobile: true
     }
     this.play = this.play.bind(this)
@@ -95,7 +94,7 @@ class Video extends React.Component {
         playing: true
       })
       this.play()
-    } else if (!nextProps.active && this.state.playing ) {
+    } else if (!nextProps.active && this.state.playing) {
       if (this.state.player) {
         this.state.player.stop()
       }
@@ -124,7 +123,7 @@ class Video extends React.Component {
       mouseOutAction,
       aspectRatio = 'sixteen'
     } = this.props
-    const { playing, playerReady, noInteract } = this.state
+    const { playing, playerReady } = this.state
     return (
       <div
         onMouseEnter={mouseOverAction}
@@ -150,7 +149,7 @@ class Video extends React.Component {
                     style={{
                       backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: '#000',
+                      backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>
                     { this.state.isLoading ? <Loader /> : '' } </div>
@@ -162,7 +161,7 @@ class Video extends React.Component {
                       controls={controls}
                       width='100%'
                       height='100%'
-                      style={noInteract ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
+                      style={hoverPlay ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
                       config={config}
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}

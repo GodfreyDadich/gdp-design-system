@@ -80,7 +80,7 @@ var Toast = function (_React$Component) {
       }
 
       this.setState({
-        isMobile: true
+        isMobile: _reactDeviceDetect.isMobile
       });
     }
   }, {
