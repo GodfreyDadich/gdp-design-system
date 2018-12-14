@@ -44,6 +44,10 @@ class Toast extends React.Component {
       this.startTimer()
       this.openToast()
     }
+
+    this.setState({
+      isMobile: true
+    })
   }
 
   render () {
@@ -58,13 +62,13 @@ class Toast extends React.Component {
       <div
         style={{
           position: 'fixed',
-          bottom: active ? '22px' : '-140px',
+          bottom: active ? this.state.isMobile ? '0px' : '22px' : '-140px',
           opacity: active ? 1 : 0,
-          right: isMobile ? '24px' : '42px',
-          width: isMobile ? 'calc( 100% - 48px )' : 'auto',
+          right: this.state.isMobile ? '0' : '42px',
+          width: this.state.isMobile ? 'calc( 100% - 48px)' : 'auto',
           backgroundColor: 'rgb(72,255,0)',
           borderRadius: '7px',
-          padding: '20px 40px',
+          padding: this.state.isMobile ? '10px 24px' : '20px 40px',
           transition: 'bottom 0.75s, opacity 0.75s',
           zIndex: '9999'
         }}
@@ -88,11 +92,11 @@ class Toast extends React.Component {
             margin: '15px 40px 15px 20px'
           }}
         >
-          <Heading4 style={{ fontSize: '19px', marginBottom: '5px' }}>{header}</Heading4>
+          <Heading4 style={{ fontSize: this.state.isMobile ? '12px' : '19px', marginBottom: this.state.isMobile ? '0' : '5px' }}>{header}</Heading4>
           <span style={{
             fontFamily: 'Atlas Grotesk',
             fontWeight: '300',
-            fontSize: '14px',
+            fontSize: this.state.isMobile ? '10px' : '14px',
             lineHeight: '1.42'
           }}>{message}</span>
         </div>

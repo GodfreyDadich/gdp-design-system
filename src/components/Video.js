@@ -3,12 +3,15 @@ import ReactPlayer from 'react-player'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import Loader from './Loader'
+import { isMobile } from 'react-device-detect'
 
 const vidStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
-  backgroundColor: 'tranparent'
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'transparent'
 }
 
 class Video extends React.Component {
@@ -23,7 +26,9 @@ class Video extends React.Component {
       coverVisible: true,
       isLoading: props.loader,
       active: props.active || false,
-      playerReady: false
+      playerReady: false,
+      noInteract: props.config ? props.config.vimeo.playerOptions.background : false,
+      isMobile: true
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -57,7 +62,7 @@ class Video extends React.Component {
     }
     this.setState({
       player: player.player,
-      coverVisible: (this.state.hoverPlay && !this.state.active) || this.state.autoplay,
+      coverVisible: this.state.hoverPlay || this.state.autoplay,
       isLoading: this.state.isLoading ? this.state.autoplay : false,
       playerReady: true
     })
@@ -78,11 +83,16 @@ class Video extends React.Component {
     }
   }
 
+  componentDidMount () {
+    this.setState({
+      isMobile: isMobile
+    })
+  }
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.active && !this.state.playing) {
       this.setState({
-        playing: true,
-        coverVisible: false
+        playing: true
       })
       this.play()
     } else if (!nextProps.active && this.state.playing ) {
@@ -114,7 +124,7 @@ class Video extends React.Component {
       mouseOutAction,
       aspectRatio = 'sixteen'
     } = this.props
-    const { playing, playerReady } = this.state
+    const { playing, playerReady, noInteract } = this.state
     return (
       <div
         onMouseEnter={mouseOverAction}
@@ -139,24 +149,26 @@ class Video extends React.Component {
                     className='videoCover'
                     style={{
                       backgroundImage: `url(${thumb})`,
-                      backgroundPosition: `${isVisible && !this.state.isLoading ? '0' : '100vw'}`,
+                      backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>
                     { this.state.isLoading ? <Loader /> : '' } </div>
-                  <ReactPlayer
-                    url={autoplay ? vidSource : isVisible ? vidSource : ''}
-                    playing={playing}
-                    loop={loop}
-                    controls={controls}
-                    width='100%'
-                    height='100%'
-                    style={vidStyle}
-                    config={config}
-                    onReady={this.videoReady}
-                    onPlay={this.videoOnPlay}
-                    onEnded={this.videoOnEnd}
-                  />
+                  { this.state.isMobile && hoverPlay ? ''
+                    : <ReactPlayer
+                      url={autoplay ? vidSource : isVisible ? vidSource : ''}
+                      playing={playing}
+                      loop={loop}
+                      controls={controls}
+                      width='100%'
+                      height='100%'
+                      style={noInteract ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
+                      config={config}
+                      onReady={this.videoReady}
+                      onPlay={this.videoOnPlay}
+                      onEnded={this.videoOnEnd}
+                    />
+                  }
                 </div>
               </div>
               {sideBar
@@ -206,8 +218,7 @@ class Video extends React.Component {
               z-index: 20;
               background-size: cover;
               background-repeat: no-repeat;
-              transition: 0s opacity;
-              transition-delay:.2s;
+              transition: 0.2s opacity;
             }
             .hoverVid.playerReady {
               .vidWrap.active {
