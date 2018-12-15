@@ -27,7 +27,8 @@ class Video extends React.Component {
       isLoading: props.loader,
       active: props.active || false,
       playerReady: false,
-      isMobile: true
+      isMobile: true,
+      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1)
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -75,11 +76,11 @@ class Video extends React.Component {
     }
   }
   videoOnEnd () {
-    if (!this.state.hoverPlay && this.state.autoplay) {
-      this.setState({
-        coverVisible: true
-      })
-    }
+    // if (!this.state.hoverPlay && this.state.autoplay) {
+    //   this.setState({
+    //     coverVisible: true
+    //   })
+    // }
   }
 
   componentDidMount () {
@@ -161,7 +162,7 @@ class Video extends React.Component {
                       controls={controls}
                       width='100%'
                       height='100%'
-                      style={hoverPlay ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
+                      style={this.state.mouseIgnore ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
                       config={config}
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}

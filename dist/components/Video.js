@@ -67,7 +67,8 @@ var Video = function (_React$Component) {
       isLoading: props.loader,
       active: props.active || false,
       playerReady: false,
-      isMobile: true
+      isMobile: true,
+      mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
@@ -127,11 +128,11 @@ var Video = function (_React$Component) {
   }, {
     key: 'videoOnEnd',
     value: function videoOnEnd() {
-      if (!this.state.hoverPlay && this.state.autoplay) {
-        this.setState({
-          coverVisible: true
-        });
-      }
+      // if (!this.state.hoverPlay && this.state.autoplay) {
+      //   this.setState({
+      //     coverVisible: true
+      //   })
+      // }
     }
   }, {
     key: 'componentDidMount',
@@ -240,7 +241,7 @@ var Video = function (_React$Component) {
                     controls: controls,
                     width: '100%',
                     height: '100%',
-                    style: hoverPlay ? _extends(vidStyle, { pointerEvents: 'none' }) : vidStyle,
+                    style: _this2.state.mouseIgnore ? _extends(vidStyle, { pointerEvents: 'none' }) : vidStyle,
                     config: config,
                     onReady: _this2.videoReady,
                     onPlay: _this2.videoOnPlay,
