@@ -181,7 +181,6 @@ class Video extends React.Component {
         <style jsx>{`
             .video {
               position: relative;
-              display: inline-block;
             }
             .vidWrap {
               position: relative;
