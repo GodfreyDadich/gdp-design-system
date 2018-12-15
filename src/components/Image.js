@@ -38,6 +38,7 @@ class Image extends React.Component {
           figure {
             position: relative;
             margin: 0;
+            display: inline-block;
           }
           .wrappedImage {
             position: absolute;

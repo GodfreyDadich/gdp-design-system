@@ -162,7 +162,7 @@ class Video extends React.Component {
                       controls={controls}
                       width='100%'
                       height='100%'
-                      style={this.state.mouseIgnore ? Object.assign(vidStyle, { pointerEvents: 'none' }) : vidStyle}
+                      style={vidStyle}
                       config={config}
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}
@@ -181,6 +181,7 @@ class Video extends React.Component {
         <style jsx>{`
             .video {
               position: relative;
+              display: inline-block;
             }
             .vidWrap {
               position: relative;
