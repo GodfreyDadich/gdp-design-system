@@ -133,21 +133,31 @@ export const Heading4 = ({ children, style, className }) =>
   </h4>
 
 export const Pullquote = ({ classAdd, children }) =>
-  <div className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}>
-    {children}
-    <style jsx>{`
-      .pullQuote {
-        font-family: 'Atlas Grotesk';
-        font-weight: bold;
-        font-size: 2.34vw;
-        line-height: 1.06;         
-        letter-spacing: -0.3px;
-        text-align: center;
-        margin-top: 89px;
-        margin-bottom: 89px;
-      }
-    `}</style>
-  </div>
+  <TrackVisibility once partialVisibility>
+    {({ isVisible }) => 
+      <div 
+        className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}
+        style={{
+          marginTop: isVisible ? '89px' : '104px',
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.5s, margin-top 0.5s'        
+        }}
+      >
+        {children}
+        <style jsx>{`
+          .pullQuote {
+            font-family: 'Atlas Grotesk';
+            font-weight: bold;
+            font-size: 2.34vw;
+            line-height: 1.06;         
+            letter-spacing: -0.3px;
+            text-align: center;
+            margin-bottom: 89px;
+          }
+        `}</style>
+      </div>
+    }
+  </TrackVisibility>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >

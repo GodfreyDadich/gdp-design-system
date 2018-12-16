@@ -117,6 +117,7 @@ class Video extends React.Component {
       thumb,
       caption,
       sideBar,
+      style,
       active,
       mouseOverAction,
       mouseOutAction,
@@ -127,6 +128,7 @@ class Video extends React.Component {
       <div
         onMouseEnter={mouseOverAction}
         onMouseLeave={mouseOutAction}
+        style={style}
         className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
       >
         <TrackVisibility once partialVisibility className={classAdd}>

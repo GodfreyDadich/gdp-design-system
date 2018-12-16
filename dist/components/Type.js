@@ -122,21 +122,33 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
   var classAdd = _ref6.classAdd,
       children = _ref6.children;
   return _react2.default.createElement(
-    'div',
-    {
-      className: 'jsx-448456293' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
-    },
-    children,
-    _react2.default.createElement(_style2.default, {
-      styleId: '448456293',
-      css: '.pullQuote.jsx-448456293{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-top:89px;margin-bottom:89px;}'
-    })
+    _reactOnScreen2.default,
+    { once: true, partialVisibility: true },
+    function (_ref7) {
+      var isVisible = _ref7.isVisible;
+      return _react2.default.createElement(
+        'div',
+        {
+          style: {
+            marginTop: isVisible ? '89px' : '104px',
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.5s, margin-top 0.5s'
+          },
+          className: 'jsx-2097290294' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+        },
+        children,
+        _react2.default.createElement(_style2.default, {
+          styleId: '2097290294',
+          css: '.pullQuote.jsx-2097290294{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}'
+        })
+      );
+    }
   );
 };
 
-var Caption = exports.Caption = function Caption(_ref7) {
-  var classAdd = _ref7.classAdd,
-      children = _ref7.children;
+var Caption = exports.Caption = function Caption(_ref8) {
+  var classAdd = _ref8.classAdd,
+      children = _ref8.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -150,9 +162,9 @@ var Caption = exports.Caption = function Caption(_ref7) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
-  var classAdd = _ref8.classAdd,
-      children = _ref8.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref9) {
+  var classAdd = _ref9.classAdd,
+      children = _ref9.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -166,9 +178,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
-  var classAdd = _ref9.classAdd,
-      children = _ref9.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref10) {
+  var classAdd = _ref10.classAdd,
+      children = _ref10.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -182,9 +194,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref10) {
-  var classAdd = _ref10.classAdd,
-      children = _ref10.children;
+var CardContent = exports.CardContent = function CardContent(_ref11) {
+  var classAdd = _ref11.classAdd,
+      children = _ref11.children;
   return _react2.default.createElement(
     'p',
     {
@@ -193,9 +205,9 @@ var CardContent = exports.CardContent = function CardContent(_ref10) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref11) {
-  var sideBar = _ref11.sideBar,
-      isVisible = _ref11.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref12) {
+  var sideBar = _ref12.sideBar,
+      isVisible = _ref12.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -207,8 +219,8 @@ var SideBar = exports.SideBar = function SideBar(_ref11) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref12) {
-      var isVisible = _ref12.isVisible;
+    function (_ref13) {
+      var isVisible = _ref13.isVisible;
       return _react2.default.createElement(
         'div',
         {

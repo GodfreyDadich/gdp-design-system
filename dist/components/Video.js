@@ -172,6 +172,7 @@ var Video = function (_React$Component) {
           thumb = _props.thumb,
           caption = _props.caption,
           sideBar = _props.sideBar,
+          style = _props.style,
           active = _props.active,
           mouseOverAction = _props.mouseOverAction,
           mouseOutAction = _props.mouseOutAction,
@@ -186,6 +187,7 @@ var Video = function (_React$Component) {
         {
           onMouseEnter: mouseOverAction,
           onMouseLeave: mouseOutAction,
+          style: style,
           className: 'jsx-746418569' + ' ' + ('video' + (hoverPlay ? ' hoverVid' : '') + (playerReady ? ' playerReady' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
