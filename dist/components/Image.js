@@ -64,11 +64,11 @@ var Image = function (_React$Component) {
 
       return _react2.default.createElement(
         'figure',
-        { style: style, className: _style2.default.dynamic([['2242264825', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('' + (caption && caption.length > 0 ? ' withCaption' : ''))
+        { style: style, className: _style2.default.dynamic([['2242264825', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('' + (imgHover ? 'hoverWrap' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           _reactOnScreen2.default,
-          { once: true, partialVisibility: true, className: '' + (classAdd ? ' ' + classAdd : '') },
+          { once: true, partialVisibility: true, className: classAdd },
           _react2.default.createElement(
             _ImageWrap2.default,
             this.props,

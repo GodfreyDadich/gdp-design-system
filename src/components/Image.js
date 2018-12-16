@@ -20,8 +20,8 @@ class Image extends React.Component {
     } = this.props
 
     return (
-      <figure style={style} className={`${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-        <TrackVisibility once partialVisibility className={`${classAdd ? ' ' + classAdd : ''}`}>
+      <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+        <TrackVisibility once partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />
