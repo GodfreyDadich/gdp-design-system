@@ -428,6 +428,9 @@ storiesOf('Hero', module)
     <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
   )
 
+const videoEnded = function () {
+  console.log('video over')
+}
 storiesOf('Video', module)
   .add('Video Element', () => 
     <div style={{ width: '50%', margin: '10px auto' }}>
@@ -437,6 +440,7 @@ storiesOf('Video', module)
         fullBleed={false}
         vidSource='https://vimeo.com/299543193'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        onEnd={videoEnded}
       />
       <Video
         title=''

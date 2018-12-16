@@ -126,11 +126,9 @@ var Video = function (_React$Component) {
   }, {
     key: 'videoOnEnd',
     value: function videoOnEnd() {
-      // if (!this.state.hoverPlay && this.state.autoplay) {
-      //   this.setState({
-      //     coverVisible: true
-      //   })
-      // }
+      if (typeof this.props.onEnd === 'function') {
+        this.props.onEnd();
+      }
     }
   }, {
     key: 'componentDidMount',

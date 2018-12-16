@@ -502,6 +502,9 @@ var modalState = true;
   return _react2.default.createElement(_Hero2.default, { type: 'image', withZoom: 'true', source: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' });
 });
 
+var videoEnded = function videoEnded() {
+  console.log('video over');
+};
 (0, _react3.storiesOf)('Video', module).add('Video Element', function () {
   return _react2.default.createElement(
     'div',
@@ -511,7 +514,8 @@ var modalState = true;
       aspectRatio: 'sixteen',
       fullBleed: false,
       vidSource: 'https://vimeo.com/299543193',
-      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+      onEnd: videoEnded
     }),
     _react2.default.createElement(_Video2.default, {
       title: '',
