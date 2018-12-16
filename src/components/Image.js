@@ -6,7 +6,6 @@ import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 
 class Image extends React.Component {
-
   render () {
     const {
       imageTitle,
@@ -16,12 +15,13 @@ class Image extends React.Component {
       sideBar,
       imgHover,
       aspectRatio,
-      classAdd
+      classAdd,
+      style
     } = this.props
 
     return (
-      <figure className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-        <TrackVisibility once partialVisibility className={classAdd}>
+      <figure style={style} className={`${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+        <TrackVisibility once partialVisibility className={`${classAdd ? ' ' + classAdd : ''}`}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />
@@ -38,7 +38,7 @@ class Image extends React.Component {
           figure {
             position: relative;
             margin: 0;
-            display: inline-block;
+            display: block;
           }
           .wrappedImage {
             position: absolute;

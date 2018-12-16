@@ -44,12 +44,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-659084679' + ' ' + 'headingOne'
+      className: 'jsx-3230879822' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '659084679',
-      css: '.headingOne.jsx-659084679{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;}.headingOne.jsx-659084679 .clientName.jsx-659084679{display:block;color:#7F7F7F;}.headingOne.jsx-659084679:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-659084679{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-659084679:before{width:calc(50% - 16px) !important;}}'
+      styleId: '3230879822',
+      css: '.headingOne.jsx-3230879822{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3230879822 .clientName.jsx-3230879822{display:block;color:#7F7F7F;}.headingOne.jsx-3230879822:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3230879822{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3230879822:before{width:calc(50% - 16px) !important;}}'
     })
   );
 };

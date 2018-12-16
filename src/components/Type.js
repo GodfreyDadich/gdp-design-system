@@ -43,6 +43,7 @@ export const Heading1 = ({children}) =>
         letter-spacing: 0.3px;
         padding-bottom: 51px;
         margin: 0 0 35px 0;
+        color: #000;
 
         .clientName {
           display: block;
