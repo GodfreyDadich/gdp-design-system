@@ -43,7 +43,7 @@ var ImageWrap = function ImageWrap(_ref) {
         opacity: isVisible ? 1 : 0,
         top: isVisible || skipIntro ? '0px' : '15px',
         transition: 'opacity 0.5s, top 0.5s',
-        transitionDelay: '0.75s'
+        transitionDelay: '1s'
       }
     },
     isVisible ? _react2.default.cloneElement(children) : ''

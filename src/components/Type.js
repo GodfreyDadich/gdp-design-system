@@ -133,7 +133,7 @@ export const Heading4 = ({ children, style, className }) =>
   </h4>
 
 export const Pullquote = ({ classAdd, children }) =>
-  <TrackVisibility once partialVisibility>
+  <TrackVisibility once>
     {({ isVisible }) => 
       <div 
         className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}
@@ -257,7 +257,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           color: '#000',
           opacity: isVisible ? 1 : 0,
           transition: 'opacity 0.5s, top 0.5s',
-          transitionDelay: '1s'
+          transitionDelay: '1.25s'
         }}
       >
         {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}

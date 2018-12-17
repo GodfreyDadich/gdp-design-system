@@ -123,7 +123,7 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
       children = _ref6.children;
   return _react2.default.createElement(
     _reactOnScreen2.default,
-    { once: true, partialVisibility: true },
+    { once: true },
     function (_ref7) {
       var isVisible = _ref7.isVisible;
       return _react2.default.createElement(
@@ -233,7 +233,7 @@ var SideBar = exports.SideBar = function SideBar(_ref12) {
             color: '#000',
             opacity: isVisible ? 1 : 0,
             transition: 'opacity 0.5s, top 0.5s',
-            transitionDelay: '1s'
+            transitionDelay: '1.25s'
           },
           className: 'jsx-890879870' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },
