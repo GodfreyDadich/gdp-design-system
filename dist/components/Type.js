@@ -19,6 +19,10 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
+var _ConditionalLink = require('./ConditionalLink');
+
+var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
+
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44,12 +48,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-2267457056' + ' ' + 'headingOne'
+      className: 'jsx-3193586607' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2267457056',
-      css: '.headingOne.jsx-2267457056{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-2267457056 .clientName.jsx-2267457056{display:block;color:#7F7F7F;}.headingOne.jsx-2267457056:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-2267457056{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-2267457056:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:1024px){.headingOne.jsx-2267457056{font-size:3.9vw !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-2267457056:before{width:calc(50% - 16px) !important;}}'
+      styleId: '3193586607',
+      css: 'headingOne.jsx-3193586607{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}headingOne.jsx-3193586607 .clientName.jsx-3193586607{display:block;color:#7F7F7F;}headingOne.jsx-3193586607:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){headingOne.jsx-3193586607{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}headingOne.jsx-3193586607:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){headingOne.jsx-3193586607{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}headingOne.jsx-3193586607:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
@@ -237,21 +241,25 @@ var SideBar = exports.SideBar = function SideBar(_ref12) {
           },
           className: 'jsx-890879870' + ' ' + ('sideBar ' + (sideBar.location ? sideBar.location : 'left-top'))
         },
-        sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-890879870' + ' ' + 'sideBar__logo'
-        }) : '',
-        sideBar.text.length > 0 ? _react2.default.createElement(
-          'span',
-          {
-            className: 'jsx-890879870' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
-          },
-          sideBar.text
-        ) : '',
-        sideBar.quoter ? _react2.default.createElement(
-          'span',
-          { style: { display: 'block', marginTop: '5px' }, className: 'jsx-890879870'
-          },
-          sideBar.quoter
-        ) : '',
+        _react2.default.createElement(
+          _ConditionalLink2.default,
+          { linkUrl: sideBar.link },
+          sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-890879870' + ' ' + 'sideBar__logo'
+          }) : '',
+          sideBar.text.length > 0 ? _react2.default.createElement(
+            'span',
+            {
+              className: 'jsx-890879870' + ' ' + ('sideBar__text' + (sideBar.isQuote ? ' isQuote' : ''))
+            },
+            sideBar.text
+          ) : '',
+          sideBar.quoter ? _react2.default.createElement(
+            'span',
+            { style: { display: 'block', marginTop: '5px' }, className: 'jsx-890879870'
+            },
+            sideBar.quoter
+          ) : ''
+        ),
         _react2.default.createElement(_style2.default, {
           styleId: '890879870',
           css: '@charset "UTF-8";.sideBar.jsx-890879870{font-size:12px;line-height:12.8px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}.sideBar__logo.jsx-890879870{display:block;width:100%;margin-bottom:12px;}.sideBar__text.jsx-890879870{position:relative;display:block;border-top:7px solid #000;padding-top:9px;}.sideBar__text.isQuote.jsx-890879870:before{content:\'\u201C\';margin-left:-7px;}.sideBar__text.isQuote.jsx-890879870:after{content:\'\u201D\';margin-right:-7px;}.sideBar__text.jsx-890879870 p.jsx-890879870{margin:0;}'

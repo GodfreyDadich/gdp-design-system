@@ -1,5 +1,6 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
+import ConditionalLink from './ConditionalLink'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -34,7 +35,7 @@ export const Heading1 = ({children}) =>
   <h1 className='headingOne' >
     {children}
     <style jsx>{`
-      .headingOne {
+      headingOne {
         position: relative;
         font-family: 'Noe Display';
         font-weight: bold;
@@ -68,13 +69,13 @@ export const Heading1 = ({children}) =>
             width: calc(50% - 16px) !important;
           }
         }  
-        @media only screen and (max-width: 1024px) {
-          font-size: 3.9vw !important;
+        @media only screen and (max-width: 769px) {
+          font-size: 40px !important;
           padding-bottom: 41px !important;
           margin-bottom: 28px !important;
 
           &:before {
-            width: calc(50% - 16px) !important;
+            width: calc(((100vw - 60px) / 4) - 12px) !important;
           }
         }             
       }
@@ -269,11 +270,13 @@ export const SideBar = ({ sideBar, isVisible }) =>
           transitionDelay: '1.25s'
         }}
       >
-        {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
-        {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
-          {sideBar.text}
-        </span> : ''}
-        {sideBar.quoter ? <span style={{ display: 'block', marginTop: '5px' }}>{sideBar.quoter}</span> : ''}
+        <ConditionalLink linkUrl={sideBar.link}>
+          {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
+          {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
+            {sideBar.text}
+          </span> : ''}
+          {sideBar.quoter ? <span style={{ display: 'block', marginTop: '5px' }}>{sideBar.quoter}</span> : ''}
+        </ConditionalLink>
 
         <style jsx>{`
         .sideBar {

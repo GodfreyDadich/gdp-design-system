@@ -153,6 +153,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
         text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
         isQuote: true,
+        // link: 'http://www.google.com',
         quoter: (0, _addonKnobs.text)('Quoter', '—Blaine'),
         location: (0, _addonKnobs.selectV2)('Sidebar Location', {
           TopLeft: 'left-top',
