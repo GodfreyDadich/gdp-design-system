@@ -20,7 +20,8 @@ const Device = ({ deviceColor, classAdd, caption, children, active }) =>
       top: '5.6%',
       left: '8.12%',
       width: '85%',
-      zIndex: '21'
+      zIndex: '21',
+      backgroundColor: '#000'
     }}>{React.cloneElement(children, { active })}</div>
     {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
     <div style={{

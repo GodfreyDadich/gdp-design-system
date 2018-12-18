@@ -62,7 +62,7 @@ class Video extends React.Component {
     }
     this.setState({
       player: player.player,
-      coverVisible: this.state.hoverPlay || this.state.autoplay,
+      coverVisible: this.state.hoverPlay,
       isLoading: this.state.isLoading ? this.state.autoplay : false,
       playerReady: true
     })
@@ -158,6 +158,8 @@ class Video extends React.Component {
                     : <ReactPlayer
                       url={autoplay ? vidSource : isVisible ? vidSource : ''}
                       playing={playing}
+                      volume={autoplay ? 0 : 1}
+                      muted={autoplay}
                       loop={loop}
                       controls={controls}
                       width='100%'

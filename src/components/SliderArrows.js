@@ -8,7 +8,17 @@ export const RightArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{ position: 'absolute', top: '0', right: '0', width: '50%', height: '100%', overflow: 'hidden', zIndex: '101', cursor: 'pointer' }}>
+      style={{ 
+        position: 'absolute',
+        top: '0',
+        right: '0',
+        width: '50%',
+        height: '100%',
+        overflow: 'hidden',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}>
       <i className='fa fa-arrow-right fa-2x' aria-hidden='true' />
     </div>
   )
@@ -26,7 +36,17 @@ export const LeftArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{ position: 'absolute', top: '0', left: '0', width: '50%', height: '100%', overflow: 'hidden', zIndex: '101', cursor: 'pointer' }}>
+      style={{ 
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '50%',
+        height: '100%',
+        overflow: 'hidden',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}>
       <i className='fa fa-arrow-left fa-2x' aria-hidden='true' />
     </div>
   )
