@@ -174,7 +174,7 @@ export default class RevealCarousel extends Component {
 
         </div>
 
-        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{this.props.caption}</Caption> : ''}
+        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
       </figure>
     )
   }

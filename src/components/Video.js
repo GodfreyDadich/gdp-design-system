@@ -179,7 +179,7 @@ class Video extends React.Component {
             </div>
           }
         </TrackVisibility>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         <style jsx>{`
             .video {
               position: relative;

@@ -104,7 +104,7 @@ export default class Slider extends Component {
           <LeftArrow clickAction={this.goToPrevSlide} />
           <RightArrow clickAction={this.goToNextSlide} />
         </div>
-        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{this.props.caption}</Caption> : ''}
+        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
         <style jsx>{`
         .slider {
           position: absolute;

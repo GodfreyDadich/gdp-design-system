@@ -255,7 +255,7 @@ var Video = function (_React$Component) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-3' },
+          { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {

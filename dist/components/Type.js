@@ -89,12 +89,12 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-4116183534' + ' ' + ('heading3 ' + className)
+      className: 'jsx-3263637809' + ' ' + ('heading3 ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '4116183534',
-      css: '.heading3.jsx-4116183534{font-size:2.03vw;line-height:1;}@media only screen and (max-width:500px){.heading3.jsx-4116183534{font-size:19px;line-height:22px;}}'
+      styleId: '3263637809',
+      css: '.heading3.jsx-3263637809{font-size:2.03vw;line-height:1;}@media only screen and (max-width:768px){.heading3.jsx-3263637809{font-size:19px;line-height:22px;}}'
     })
   );
 };
@@ -112,12 +112,12 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-1115100298' + ' ' + ('heading4 ' + className)
+      className: 'jsx-1830967501' + ' ' + ('heading4 ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '1115100298',
-      css: '.heading4.jsx-1115100298{font-size:1.48vw;line-height:1;}@media only screen and (max-width:500px){.heading4.jsx-1115100298{font-size:19px;line-height:22px;}}'
+      styleId: '1830967501',
+      css: '.heading4.jsx-1830967501{font-size:1.48vw;line-height:1;}@media only screen and (max-width:768px){.heading4.jsx-1830967501{font-size:19px;line-height:22px;}}'
     })
   );
 };

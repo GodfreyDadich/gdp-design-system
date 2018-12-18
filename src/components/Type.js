@@ -110,7 +110,7 @@ export const Heading3 = ({ children, style, className }) =>
         font-size: 2.03vw;
         line-height: 1;    
 
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 768px) {
           font-size: 19px;
           line-height: 22px;
         }  
@@ -134,7 +134,7 @@ export const Heading4 = ({ children, style, className }) =>
         font-size: 1.48vw;
         line-height: 1;
         
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 768px) {
           font-size: 19px;
           line-height: 22px;
         }                  

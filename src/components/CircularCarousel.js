@@ -185,7 +185,7 @@ export default class CircularCarousel extends Component {
 
         </div>
 
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
     )
   }
