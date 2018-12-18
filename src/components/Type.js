@@ -67,7 +67,16 @@ export const Heading1 = ({children}) =>
           &:before {
             width: calc(50% - 16px) !important;
           }
-        }     
+        }  
+        @media only screen and (max-width: 1024px) {
+          font-size: 3.9vw !important;
+          padding-bottom: 41px !important;
+          margin-bottom: 28px !important;
+
+          &:before {
+            width: calc(50% - 16px) !important;
+          }
+        }             
       }
     `}</style>
   </h1>
@@ -133,9 +142,9 @@ export const Heading4 = ({ children, style, className }) =>
   </h4>
 
 export const Pullquote = ({ classAdd, children }) =>
-  <TrackVisibility once>
-    {({ isVisible }) => 
-      <div 
+  <TrackVisibility once style={{ marginTop: 0 }}>
+    {({ isVisible }) =>
+      <div
         className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}
         style={{
           marginTop: isVisible ? '89px' : '104px',

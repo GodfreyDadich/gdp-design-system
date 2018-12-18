@@ -44,12 +44,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-3230879822' + ' ' + 'headingOne'
+      className: 'jsx-2267457056' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3230879822',
-      css: '.headingOne.jsx-3230879822{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3230879822 .clientName.jsx-3230879822{display:block;color:#7F7F7F;}.headingOne.jsx-3230879822:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3230879822{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3230879822:before{width:calc(50% - 16px) !important;}}'
+      styleId: '2267457056',
+      css: '.headingOne.jsx-2267457056{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-2267457056 .clientName.jsx-2267457056{display:block;color:#7F7F7F;}.headingOne.jsx-2267457056:before{content:\'\';position:absolute;width:24.56%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-2267457056{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-2267457056:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:1024px){.headingOne.jsx-2267457056{font-size:3.9vw !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-2267457056:before{width:calc(50% - 16px) !important;}}'
     })
   );
 };
@@ -123,7 +123,7 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
       children = _ref6.children;
   return _react2.default.createElement(
     _reactOnScreen2.default,
-    { once: true },
+    { once: true, style: { marginTop: 0 } },
     function (_ref7) {
       var isVisible = _ref7.isVisible;
       return _react2.default.createElement(
