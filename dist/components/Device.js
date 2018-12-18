@@ -40,7 +40,8 @@ var Device = function Device(_ref) {
           top: '5.6%',
           left: '8.12%',
           width: '85%',
-          zIndex: '21'
+          zIndex: '21',
+          backgroundColor: '#000'
         } },
       _react2.default.cloneElement(children, { active: active })
     ),

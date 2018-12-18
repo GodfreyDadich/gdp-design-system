@@ -108,7 +108,7 @@ var Video = function (_React$Component) {
       }
       this.setState({
         player: player.player,
-        coverVisible: this.state.hoverPlay || this.state.autoplay,
+        coverVisible: this.state.hoverPlay,
         isLoading: this.state.isLoading ? this.state.autoplay : false,
         playerReady: true
       });
@@ -235,6 +235,8 @@ var Video = function (_React$Component) {
                   _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
                     url: autoplay ? vidSource : isVisible ? vidSource : '',
                     playing: playing,
+                    volume: autoplay ? 0 : 1,
+                    muted: autoplay,
                     loop: loop,
                     controls: controls,
                     width: '100%',

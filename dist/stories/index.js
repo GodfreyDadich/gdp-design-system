@@ -514,6 +514,9 @@ var videoEnded = function videoEnded() {
       title: '',
       aspectRatio: 'sixteen',
       fullBleed: false,
+      autoplay: true,
+      volume: 0,
+      muted: true,
       vidSource: 'https://vimeo.com/299543193',
       thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
       onEnd: videoEnded
