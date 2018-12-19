@@ -46,7 +46,6 @@ class Image extends React.Component {
             left: 0;
             min-width: 100%;
             height: auto;
-            min-height: 100%;
             opacity: 0;
             ${aspectRatio === 'noAspect'
         ? `position: relative;

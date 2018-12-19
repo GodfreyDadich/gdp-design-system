@@ -64,7 +64,7 @@ var Image = function (_React$Component) {
 
       return _react2.default.createElement(
         'figure',
-        { style: style, className: _style2.default.dynamic([['2242264825', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('' + (imgHover ? 'hoverWrap' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
+        { style: style, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + ('' + (imgHover ? 'hoverWrap' : '') + (caption && caption.length > 0 ? ' withCaption' : ''))
         },
         _react2.default.createElement(
           _reactOnScreen2.default,
@@ -75,9 +75,9 @@ var Image = function (_React$Component) {
             _react2.default.createElement(
               _ConditionalLink2.default,
               { linkUrl: linkUrl },
-              _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['2242264825', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
+              _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
               }),
-              imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['2242264825', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
+              imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
               }) : '',
               sideBar && sideBar.text.length > 0 ? _react2.default.createElement(_Type.SideBar, { sideBar: sideBar, isVisible: true }) : ''
             )
@@ -89,8 +89,8 @@ var Image = function (_React$Component) {
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
-          styleId: '2242264825',
-          css: 'figure.__jsx-style-dynamic-selector{position:relative;margin:0;display:block;}.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;min-height:100%;opacity:0;' + (aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '') + ';}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{-webkit-transition:opacity 0.4s;transition:opacity 0.4s;width:100%;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:0;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.imageHover.__jsx-style-dynamic-selector{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.imageHover.__jsx-style-dynamic-selector{position:absolute;top:0;opacity:0;z-index:10;}',
+          styleId: '3442743642',
+          css: 'figure.__jsx-style-dynamic-selector{position:relative;margin:0;display:block;}.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;opacity:0;' + (aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '') + ';}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{-webkit-transition:opacity 0.4s;transition:opacity 0.4s;width:100%;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:0;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.imageHover.__jsx-style-dynamic-selector{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.imageHover.__jsx-style-dynamic-selector{position:absolute;top:0;opacity:0;z-index:10;}',
           dynamic: [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']
         })
       );
