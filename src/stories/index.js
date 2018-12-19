@@ -434,15 +434,14 @@ const videoEnded = function () {
 }
 storiesOf('Video', module)
   .add('Video Element', () => 
-    <div style={{ width: '50%', margin: '10px auto' }}>
+    <div style={{ width: '50%', margin: '10px auto', paddingTop: '100vh' }}>
       <Video
         title=''
         aspectRatio='sixteen'
         fullBleed={false}
         autoplay
         volume={0}
-        muted
-        vidSource='https://vimeo.com/299543193'
+        vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         onEnd={videoEnded}
       />
@@ -601,7 +600,7 @@ storiesOf('Parallax', module)
 
 storiesOf('Loader', module)
   .add('Logo Loader', () =>
-    <div style={{width: '100%'}} ><Loader /> </div>
+    <div style={{width: '100%', height: '50vh' }} ><Loader /> </div>
   )
 
 storiesOf('Gilmore', module)

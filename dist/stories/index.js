@@ -509,15 +509,14 @@ var videoEnded = function videoEnded() {
 (0, _react3.storiesOf)('Video', module).add('Video Element', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '50%', margin: '10px auto' } },
+    { style: { width: '50%', margin: '10px auto', paddingTop: '100vh' } },
     _react2.default.createElement(_Video2.default, {
       title: '',
       aspectRatio: 'sixteen',
       fullBleed: false,
       autoplay: true,
       volume: 0,
-      muted: true,
-      vidSource: 'https://vimeo.com/299543193',
+      vidSource: 'https://vimeo.com/299777569',
       thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
       onEnd: videoEnded
     }),
@@ -683,7 +682,7 @@ var videoEnded = function videoEnded() {
 (0, _react3.storiesOf)('Loader', module).add('Logo Loader', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '100%' } },
+    { style: { width: '100%', height: '50vh' } },
     _react2.default.createElement(_Loader2.default, null),
     ' '
   );
