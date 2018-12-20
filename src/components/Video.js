@@ -4,6 +4,7 @@ import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import Loader from './Loader'
 import { isMobile } from 'react-device-detect'
+import supportsWebP from 'supports-webp'
 
 const vidStyle = {
   position: 'absolute',
@@ -28,7 +29,8 @@ class Video extends React.Component {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
-      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1)
+      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1),
+      videoThumb: ''
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -56,13 +58,14 @@ class Video extends React.Component {
   }
 
   videoReady ({ player }) { // pauses the player on load if autoplay isn't set to true
-    player.player.pause()
-    player.player.stop()    
+    this.pause()
+    player.player.stop()
     this.setState({
       player: player.player,
       coverVisible: this.state.hoverPlay,
       isLoading: this.state.isLoading ? this.state.autoplay : false,
-      playerReady: true
+      playerReady: true,
+      playing: this.state.autoplay
     })
   }
   videoOnPlay () {
@@ -81,7 +84,8 @@ class Video extends React.Component {
 
   componentDidMount () {
     this.setState({
-      isMobile: isMobile
+      isMobile: isMobile,
+      videoThumb: this.translateThumbUrl(this.props.thumb)
     })
   }
 
@@ -103,9 +107,10 @@ class Video extends React.Component {
   }
 
   translateThumbUrl (thumbUrl) {
+    const ext = supportsWebP ? 'webp' : 'jpg'
     // check for webp after integration
     const vidID = thumbUrl.split('video/')[1].split('_')[0]
-    return `https://i.vimeocdn.com/video/${vidID}.jpg?mw=4400&mh=3259&q=70`
+    return `https://i.vimeocdn.com/video/${vidID}.${ext}?mw=4400&mh=3259&q=70`
   }
 
   render () {
@@ -118,7 +123,6 @@ class Video extends React.Component {
       config,
       hoverPlay,
       skipIntro,
-      thumb,
       caption,
       sideBar,
       style,
@@ -128,6 +132,7 @@ class Video extends React.Component {
       aspectRatio = 'sixteen'
     } = this.props
     const { playing, playerReady } = this.state
+
     return (
       <div
         onMouseEnter={mouseOverAction}
@@ -152,7 +157,7 @@ class Video extends React.Component {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${this.translateThumbUrl(thumb)})`,
+                      backgroundImage: `url(${this.state.videoThumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
