@@ -30,6 +30,10 @@ var _Loader2 = _interopRequireDefault(_Loader);
 
 var _reactDeviceDetect = require('react-device-detect');
 
+var _supportsWebp = require('supports-webp');
+
+var _supportsWebp2 = _interopRequireDefault(_supportsWebp);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66,7 +70,8 @@ var Video = function (_React$Component) {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
-      mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1
+      mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1,
+      videoThumb: ''
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
@@ -102,13 +107,14 @@ var Video = function (_React$Component) {
     value: function videoReady(_ref) {
       var player = _ref.player;
       // pauses the player on load if autoplay isn't set to true
-      player.player.pause();
+      this.pause();
       player.player.stop();
       this.setState({
         player: player.player,
         coverVisible: this.state.hoverPlay,
         isLoading: this.state.isLoading ? this.state.autoplay : false,
-        playerReady: true
+        playerReady: true,
+        playing: this.state.autoplay
       });
     }
   }, {
@@ -132,7 +138,8 @@ var Video = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({
-        isMobile: _reactDeviceDetect.isMobile
+        isMobile: _reactDeviceDetect.isMobile,
+        videoThumb: this.translateThumbUrl(this.props.thumb)
       });
     }
   }, {
@@ -156,9 +163,10 @@ var Video = function (_React$Component) {
   }, {
     key: 'translateThumbUrl',
     value: function translateThumbUrl(thumbUrl) {
+      var ext = _supportsWebp2.default ? 'webp' : 'jpg';
       // check for webp after integration
       var vidID = thumbUrl.split('video/')[1].split('_')[0];
-      return 'https://i.vimeocdn.com/video/' + vidID + '.jpg?mw=4400&mh=3259&q=70';
+      return 'https://i.vimeocdn.com/video/' + vidID + '.' + ext + '?mw=4400&mh=3259&q=70';
     }
   }, {
     key: 'render',
@@ -174,7 +182,6 @@ var Video = function (_React$Component) {
           config = _props.config,
           hoverPlay = _props.hoverPlay,
           skipIntro = _props.skipIntro,
-          thumb = _props.thumb,
           caption = _props.caption,
           sideBar = _props.sideBar,
           style = _props.style,
@@ -186,6 +193,7 @@ var Video = function (_React$Component) {
       var _state = this.state,
           playing = _state.playing,
           playerReady = _state.playerReady;
+
 
       return _react2.default.createElement(
         'div',
@@ -228,7 +236,7 @@ var Video = function (_React$Component) {
                       ref: 'videoCover',
 
                       style: {
-                        backgroundImage: 'url(' + _this2.translateThumbUrl(thumb) + ')',
+                        backgroundImage: 'url(' + _this2.state.videoThumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
                         backgroundColor: hoverPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
