@@ -102,6 +102,12 @@ class Video extends React.Component {
     }
   }
 
+  translateThumbUrl (thumbUrl) {
+    // check for webp after integration
+    const vidID = thumbUrl.split('video/')[1].split('_')[0]
+    return `https://i.vimeocdn.com/video/${vidID}.jpg?mw=4400&mh=3259&q=70`
+  }
+
   render () {
     const {
       vidSource,
@@ -146,7 +152,7 @@ class Video extends React.Component {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${thumb})`,
+                      backgroundImage: `url(${this.translateThumbUrl(thumb)})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'

@@ -154,6 +154,13 @@ var Video = function (_React$Component) {
       }
     }
   }, {
+    key: 'translateThumbUrl',
+    value: function translateThumbUrl(thumbUrl) {
+      // check for webp after integration
+      var vidID = thumbUrl.split('video/')[1].split('_')[0];
+      return 'https://i.vimeocdn.com/video/' + vidID + '.jpg?mw=4400&mh=3259&q=70';
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -221,7 +228,7 @@ var Video = function (_React$Component) {
                       ref: 'videoCover',
 
                       style: {
-                        backgroundImage: 'url(' + thumb + ')',
+                        backgroundImage: 'url(' + _this2.translateThumbUrl(thumb) + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
                         backgroundColor: hoverPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
