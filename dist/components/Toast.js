@@ -100,6 +100,7 @@ var Toast = function (_React$Component) {
             opacity: active ? 1 : 0,
             right: this.state.isMobile ? '0' : '42px',
             width: this.state.isMobile ? 'calc( 100% - 48px)' : 'auto',
+            maxWidth: '500px',
             backgroundColor: 'rgb(72,255,0)',
             borderRadius: '7px',
             padding: this.state.isMobile ? '10px 24px' : '20px 40px',
@@ -138,16 +139,29 @@ var Toast = function (_React$Component) {
           },
           _react2.default.createElement(
             _Type.Heading4,
-            { style: { fontSize: this.state.isMobile ? '12px' : '19px', marginBottom: this.state.isMobile ? '0' : '5px' } },
+            { style: {
+                display: 'block',
+                fontSize: this.state.isMobile ? '12px' : '19px',
+                marginBottom: this.state.isMobile ? '0' : '5px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: this.state.isMobile ? '230px' : '320px'
+              } },
             header
           ),
           _react2.default.createElement(
             'span',
             { style: {
+                display: 'block',
                 fontFamily: 'Atlas Grotesk',
                 fontWeight: '300',
                 fontSize: this.state.isMobile ? '10px' : '14px',
-                lineHeight: '1.42'
+                lineHeight: '1.42',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: this.state.isMobile ? '230px' : '320px'
               } },
             message
           )

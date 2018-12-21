@@ -92,9 +92,13 @@ var _Loader = require('../components/Loader');
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
-var _Gilmore = require('../components/Gilmore');
+var _GilmoreWave = require('../components/GilmoreWave');
 
-var _Gilmore2 = _interopRequireDefault(_Gilmore);
+var _GilmoreWave2 = _interopRequireDefault(_GilmoreWave);
+
+var _GilmoreExpand = require('../components/GilmoreExpand');
+
+var _GilmoreExpand2 = _interopRequireDefault(_GilmoreExpand);
 
 var _GilmoreMobile = require('../components/GilmoreMobile');
 
@@ -688,11 +692,18 @@ var videoEnded = function videoEnded() {
   );
 });
 
-(0, _react3.storiesOf)('Gilmore', module).add('Gilmore Animation', function () {
+(0, _react3.storiesOf)('Gilmore', module).add('Gilmore Wave Animation', function () {
   return _react2.default.createElement(
     'div',
     { style: { width: '75%' } },
-    _react2.default.createElement(_Gilmore2.default, null),
+    _react2.default.createElement(_GilmoreWave2.default, null),
+    ' '
+  );
+}).add('Gilmore Expand Animation', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '75%' } },
+    _react2.default.createElement(_GilmoreExpand2.default, null),
     ' '
   );
 }).add('Gilmore Mobile', function () {
