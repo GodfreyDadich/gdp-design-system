@@ -138,12 +138,12 @@ var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
             opacity: isVisible ? 1 : 0,
             transition: 'opacity 0.5s, margin-top 0.5s'
           },
-          className: 'jsx-2097290294' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+          className: 'jsx-2013111602' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
         },
         children,
         _react2.default.createElement(_style2.default, {
-          styleId: '2097290294',
-          css: '.pullQuote.jsx-2097290294{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}'
+          styleId: '2013111602',
+          css: '.pullQuote.jsx-2013111602{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}@media only screen and (max-width:768px){.pullQuote.jsx-2013111602{font-size:3.34vw;}}'
         })
       );
     }

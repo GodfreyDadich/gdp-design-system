@@ -67,15 +67,6 @@ Object.defineProperty(exports, 'Image', {
   }
 });
 
-var _ImageWithCaption = require('./components/ImageWithCaption');
-
-Object.defineProperty(exports, 'ImageWithCaption', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_ImageWithCaption).default;
-  }
-});
-
 var _ImageWithZoom = require('./components/ImageWithZoom');
 
 Object.defineProperty(exports, 'ImageWithZoom', {
