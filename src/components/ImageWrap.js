@@ -10,7 +10,6 @@ const ImageWrap = ({ aspectRatio, fullBleed, children, imgSource, horizontalAlig
   <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
     style={{
       backgroundImage: `${aspectRatio !== 'noAspect' && isVisible ? `url(${imgSource})` : ''}`,
-      backgroundColor: '#f2f2f2',
       backgroundSize: 'cover',
       backgroundPositionX: horizontalAlign,
       backgroundPositionY: verticalAlign,
