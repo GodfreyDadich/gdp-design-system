@@ -25,13 +25,14 @@ var ImageWrap = function ImageWrap(_ref) {
       verticalAlign = _ref.verticalAlign,
       sideBar = _ref.sideBar,
       isVisible = _ref.isVisible,
-      skipIntro = _ref.skipIntro;
+      skipIntro = _ref.skipIntro,
+      backgroundSize = _ref.backgroundSize;
   return _react2.default.createElement(
     'div',
     { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
       style: {
         backgroundImage: '' + (aspectRatio !== 'noAspect' && isVisible ? 'url(' + imgSource + ')' : ''),
-        backgroundSize: 'cover',
+        backgroundSize: backgroundSize || 'cover',
         backgroundPositionX: horizontalAlign,
         backgroundPositionY: verticalAlign,
         backgroundRepeat: 'no-repeat',
