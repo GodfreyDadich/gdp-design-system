@@ -22,6 +22,10 @@ var _Video = require('./Video');
 
 var _Video2 = _interopRequireDefault(_Video);
 
+var _supportsWebp = require('supports-webp');
+
+var _supportsWebp2 = _interopRequireDefault(_supportsWebp);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,7 +43,9 @@ var Hero = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, props));
 
     _this.state = {
-      zoomClass: ''
+      zoomClass: '',
+      heroReady: false,
+      imgSource: ''
     };
     return _this;
   }
@@ -50,6 +56,10 @@ var Hero = function (_React$Component) {
       if (this.props.type === 'image' && this.props.withZoom === 'true') {
         this.initZoom();
       }
+      this.setState({
+        heroReady: true,
+        imgSource: _supportsWebp2.default && this.props.type === 'image' && this.props.source.includes('d36aj1cv2i74vd') ? this.props.source.replace('/attachments', '/filters:format(webp)/attachments') : this.props.source
+      });
     }
   }, {
     key: 'initZoom',
@@ -70,6 +80,10 @@ var Hero = function (_React$Component) {
           source = _props.source,
           title = _props.title,
           thumb = _props.thumb;
+      var _state = this.state,
+          heroReady = _state.heroReady,
+          imgSource = _state.imgSource;
+
 
       return _react2.default.createElement(
         'div',
@@ -86,7 +100,7 @@ var Hero = function (_React$Component) {
                 verticalAlign: 'center',
                 skipIntro: true,
                 horizontalAlign: 'center',
-                imgSource: source,
+                imgSource: heroReady ? imgSource : '',
                 classAdd: _this3.state.zoomClass });
             case 'video':
               return _react2.default.createElement(_Video2.default, {
