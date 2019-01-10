@@ -100,6 +100,10 @@ var _GilmoreExpand = require('../components/GilmoreExpand');
 
 var _GilmoreExpand2 = _interopRequireDefault(_GilmoreExpand);
 
+var _GilmoreExpand3 = require('../components/GilmoreExpand2');
+
+var _GilmoreExpand4 = _interopRequireDefault(_GilmoreExpand3);
+
 var _GilmoreMobile = require('../components/GilmoreMobile');
 
 var _GilmoreMobile2 = _interopRequireDefault(_GilmoreMobile);
@@ -122,7 +126,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
 (0, _react3.storiesOf)('Image', module).add('Image', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '50%', margin: '50px auto' } },
+    { style: { width: '50%', margin: '110vh auto' } },
     _react2.default.createElement(_Image2.default, {
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
       aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
@@ -704,6 +708,13 @@ var videoEnded = function videoEnded() {
     'div',
     { style: { width: '75%' } },
     _react2.default.createElement(_GilmoreExpand2.default, null),
+    ' '
+  );
+}).add('Gilmore Expand 2 Animation', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '75%' } },
+    _react2.default.createElement(_GilmoreExpand4.default, null),
     ' '
   );
 }).add('Gilmore Mobile', function () {
