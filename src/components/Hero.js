@@ -1,18 +1,25 @@
 import React from 'react'
 import Image from './Image'
 import Video from './Video'
+import supportsWebP from 'supports-webp'
 
 class Hero extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      zoomClass: ''
+      zoomClass: '',
+      heroReady: false,
+      imgSource: ''
     }
   }
   componentDidMount () {
     if (this.props.type === 'image' && this.props.withZoom === 'true') {
       this.initZoom()
     }
+    this.setState({
+      heroReady: true,
+      imgSource: supportsWebP && this.props.type === 'image' && this.props.source.includes('d36aj1cv2i74vd') ? this.props.source.replace('/attachments', '/filters:format(webp)/attachments') : this.props.source
+    })
   }
   initZoom () {
     setTimeout(() => {
@@ -26,6 +33,12 @@ class Hero extends React.Component {
       title,
       thumb
     } = this.props
+
+    const {
+      heroReady,
+      imgSource
+    } = this.state
+
     return (<div className='hero'>
       {(() => {
         switch (type) {
@@ -37,7 +50,7 @@ class Hero extends React.Component {
               verticalAlign='center'
               skipIntro
               horizontalAlign='center'
-              imgSource={source}
+              imgSource={heroReady ? imgSource : ''}
               classAdd={this.state.zoomClass} />
           case 'video':
             return <Video
