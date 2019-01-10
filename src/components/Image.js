@@ -2,9 +2,10 @@ import React from 'react'
 import ConditionalLink from './ConditionalLink'
 import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
-// import LazyLoad from 'react-lazy-load'
 import TrackVisibility from 'react-on-screen'
+import supportsWebP from 'supports-webp'
 
+// d36aj1cv2i74vd
 class Image extends React.Component {
   render () {
     const {
@@ -21,7 +22,7 @@ class Image extends React.Component {
 
     return (
       <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-        <TrackVisibility once partialVisibility className={classAdd}>
+        <TrackVisibility partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               <img className='wrappedImage' alt={imageTitle} src={imgSource} />

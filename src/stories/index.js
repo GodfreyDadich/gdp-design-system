@@ -26,6 +26,7 @@ import Device from '../components/Device'
 import Loader from '../components/Loader'
 import GilmoreWave from '../components/GilmoreWave'
 import GilmoreExpand from '../components/GilmoreExpand'
+import GilmoreExpand2 from '../components/GilmoreExpand2'
 import GilmoreMobile from '../components/GilmoreMobile'
 import Toast from '../components/Toast'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
@@ -50,7 +51,7 @@ storiesOf('Styles', module)
 storiesOf('Image', module)
   .add(
     'Image',
-    () => <div style={{width:'50%', margin:'50px auto'}}><Image
+    () => <div style={{width:'50%', margin:'110vh auto'}}><Image
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={selectV2('Aspect Ratio', { NoAspect:'noAspect', SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'square')}
       fullBleed={boolean('fullBleed', false)}
@@ -611,6 +612,9 @@ storiesOf('Gilmore', module)
   .add('Gilmore Expand Animation', () =>
     <div style={{width: '75%'}} ><GilmoreExpand /> </div>
   )  
+  .add('Gilmore Expand 2 Animation', () =>
+    <div style={{width: '75%'}} ><GilmoreExpand2 /> </div>
+  )    
   .add('Gilmore Mobile', () =>
     <div style={{ width: '30%', height: '100vh' }} ><GilmoreMobile /> </div>
   )

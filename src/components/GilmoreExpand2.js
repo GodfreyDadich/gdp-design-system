@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GilmoreWave = () => {
+const GilmoreExpand2 = () => {
   return (
     <div style={{
       position: 'relative',
@@ -44,71 +44,44 @@ const GilmoreWave = () => {
           top: calc( 50% - 100px);
         }
         #GDP_Logo {
-          animation: logoAnimation 2.5s ease-out;
+          // animation: logoAnimation 2.5s ease-out;
           transform-origin: 44px 50%;
           z-index: 9999;
         }
         #_8 { 
-          animation: firstMoon 2.5s ease-out;
+          animation: firstMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_7 { 
-          animation: secondMoon 2.5s ease-out;
+          animation: secondMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_6 { 
-          animation: thirdMoon 2.5s ease-out;
+          animation: thirdMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_5 { 
-          animation: fourthMoon 2.5s ease-out;
+          animation: fourthMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_4 { 
-          animation: fifthMoon 2.5s ease-out;
+          animation: fifthMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_3 { 
-          animation: sixthMoon 2.5s ease-out;
+          animation: sixthMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_2 { 
-          animation: seventhMoon 2.5s ease-out;
+          animation: seventhMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
         #_1 { 
-          animation: eighthMoon 2.5s ease-out;
+          animation: eighthMoon 2.0s ease-out;
           transform-origin: 50% 50%;
         }
                                                       
-        @keyframes logoAnimation {
-          // 0% {
-          //   transform: translate(60%, 0%) scale(5);
-          // }
-          // 25% {
-          //   transform: translate(60%, 0%) scale(5);
-          // }          
-          // 33% {
-          //   transform: translate(60%, 0%) scale(5);
-          // }
-          // 39% {
-          //   transform: translate(65%, -5%) scale(5);
-          // } 
-          // 42% {
-          //   transform: translate(70%, -10%) scale(5);
-          // } 
-          // 48% {
-          //   transform: translate(75%, -15%) scale(5);
-          // } 
-          // 52% {
-          //   transform: translate(80%, -18%) scale(5);
-          // }                                        
-          // 54% {
-          //   transform: translate(85%, -20%) scale(3);
-          // } 
-          // 56% {
-          //   transform: translate(110%, 0%) scale(2);
-          // }                    
+        @keyframes logoAnimation {                   
           0% {
             transform: translate(90%, 0%) rotate(45deg) scale(1);
           }
@@ -124,182 +97,90 @@ const GilmoreWave = () => {
         }  
         @keyframes firstMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.15) translate(48%, -50%);
+            transform: translateX(-47%) scale(0.1);
           }           
-          70% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.15) translate(48%, -50%);
+          20% {
+            transform: translateX(-47%) scale(0.1);
           } 
-          71% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.15) translate(48%, -50%);
-          }
-          80% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          35% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes secondMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          72% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-47%) scale(0.12);
+          }           
+          22% {
+            transform: translateX(-47%) scale(0.12);
           } 
-          73% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          82% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          37% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes thirdMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          74% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-46%) scale(0.14);
+          }           
+          24% {
+            transform: translateX(-46%) scale(0.14);
           } 
-          75% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          84% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          39% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes fourthMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-45%) scale(0.16);
+          }           
+          26% {
+            transform: translateX(-45%) scale(0.16);
           } 
-          76% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          } 
-          77% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          86% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          41% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes fifthMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-43%) scale(0.2);
+          }           
+          28% {
+            transform: translateX(-43%) scale(0.2);
           } 
-          77% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          } 
-          78% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          87% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          43% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes sixthMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-40%) scale(0.23);
+          }           
+          30% {
+            transform: translateX(-40%) scale(0.23);
           } 
-          78% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          } 
-          79% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          88% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          45% {
+            transform: translateX(0%) scale(1);
           }
         }
         @keyframes seventhMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-36%) scale(0.3);
+          }           
+          32% {
+            transform: translateX(-36%) scale(0.3);
           } 
-          79% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          } 
-          80% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          89% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          47% {
+            transform: translateX(0%) scale(1);
           }
         } 
         @keyframes eighthMoon {
           0% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
+            transform: translateX(-27%) scale(0.45);
+          }           
+          34% {
+            transform: translateX(-27%) scale(0.45);
           } 
-          80% {
-            opacity: 0;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          } 
-          81% {
-            opacity: 1;
-            transform: rotate(27deg) scale(0.25) translate(48%, -50%);
-          }
-          88% {
-            transform: rotate(0deg) scale(1) translate(-3, 0);
-            opacity: 1;
-          } 
-          91% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
-          }          
-          100% {
-            transform: rotate(0deg) scale(1) translate(0, 0);
-            opacity: 1;
+          49% {
+            transform: translateX(0%) scale(1);
           }
         }                                                                
       `}</style>    
@@ -307,4 +188,4 @@ const GilmoreWave = () => {
   )
 }
 
-export default GilmoreWave
+export default GilmoreExpand2
