@@ -68,22 +68,22 @@ const GilmoreWave = props => {
           background-repeat: no-repeat;
 
           &.animated {
-            animation: logoAnimation 1.75s;
+            animation: logoAnimation 1.5s;
           }
         }
 
         #_circle.animated {
-          animation: circleAnimation 1.75s ease-out;
+          animation: circleAnimation 1.5s ease-out;
           transform-origin: 44px 50%;
           z-index: 9999;
-          animation-timing-function: cubic-bezier(.21,.07,.76,1.39);
+          animation-timing-function: cubic-bezier(.2,.31,.52,1.49);
         }
         #_8 {
           // transform: rotate(35deg) scale(0.45) translate(48%, -80%);
           transform-origin: 25% 50%;
 
           &.animated { 
-            animation: firstMoon 1.75s ease-out;
+            animation: firstMoon 1.5s ease-out;
           }
         }
         #_7 {
@@ -91,7 +91,7 @@ const GilmoreWave = props => {
           transform-origin: 50% 50%;
 
           &.animated { 
-            animation: secondMoon 1.75s ease-out;
+            animation: secondMoon 1.5s ease-out;
           }
         }
         #_6 {
@@ -99,7 +99,7 @@ const GilmoreWave = props => {
           // transform: rotate(25deg) scale(0.5) translate(18%,-12%);
 
           &.animated { 
-            animation: thirdMoon 1.75s ease-out;
+            animation: thirdMoon 1.5s ease-out;
           }
         }
         #_5 {
@@ -107,7 +107,7 @@ const GilmoreWave = props => {
           // transform: rotate(19deg) scale(0.55) translate(17%,-7%);
 
           &.animated { 
-            animation: fourthMoon 1.75s ease-out;
+            animation: fourthMoon 1.5s ease-out;
           }
         }
         #_4 {
@@ -115,7 +115,7 @@ const GilmoreWave = props => {
           // transform: rotate(18deg) scale(0.6) translate(25%,-12%);
 
           &.animated {           
-            animation: fifthMoon 1.75s ease-out;
+            animation: fifthMoon 1.5s ease-out;
           }
         }
         #_3 {
@@ -123,7 +123,7 @@ const GilmoreWave = props => {
           // transform: rotate(18deg) scale(0.65) translate(31%,-20%);
 
           &.animated { 
-            animation: sixthMoon 1.75s ease-out;
+            animation: sixthMoon 1.5s ease-out;
           }
         }
         #_2 {
@@ -131,7 +131,7 @@ const GilmoreWave = props => {
           // transform: rotate(19deg) scale(0.7) translate(35%,-22%);
 
           &.animated { 
-            animation: seventhMoon 1.75s ease-out;
+            animation: seventhMoon 1.5s ease-out;
           }
         }
         #_1 {
@@ -139,7 +139,7 @@ const GilmoreWave = props => {
           // transform: rotate(12deg) scale(0.75) translate(39%,-19%);
 
           &.animated { 
-            animation: eighthMoon 1.75s ease-out;
+            animation: eighthMoon 1.5s ease-out;
           }
         }
 
