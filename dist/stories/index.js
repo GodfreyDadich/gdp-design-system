@@ -699,8 +699,8 @@ var videoEnded = function videoEnded() {
 (0, _react3.storiesOf)('Gilmore', module).add('Gilmore Wave Animation', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '75%' } },
-    _react2.default.createElement(_GilmoreWave2.default, null),
+    { style: { width: '100%' } },
+    _react2.default.createElement(_GilmoreWave2.default, { animated: (0, _addonKnobs.boolean)('animated', false) }),
     ' '
   );
 }).add('Gilmore Expand Animation', function () {
