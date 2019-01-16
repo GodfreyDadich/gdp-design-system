@@ -607,7 +607,7 @@ storiesOf('Loader', module)
 
 storiesOf('Gilmore', module)
   .add('Gilmore Wave Animation', () =>
-    <div style={{width: '75%'}} ><GilmoreWave /> </div>
+    <div style={{width: '100%'}} ><GilmoreWave animated={boolean('animated', false)} /> </div>
   )
   .add('Gilmore Expand Animation', () =>
     <div style={{width: '75%'}} ><GilmoreExpand /> </div>
