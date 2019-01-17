@@ -720,7 +720,7 @@ var videoEnded = function videoEnded() {
 }).add('Gilmore Mobile', function () {
   return _react2.default.createElement(
     'div',
-    { style: { width: '30%', height: '100vh' } },
+    { style: { width: '30%', height: '100vh', background: '#000' } },
     _react2.default.createElement(_GilmoreMobile2.default, null),
     ' '
   );

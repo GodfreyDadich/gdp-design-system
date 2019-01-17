@@ -616,5 +616,5 @@ storiesOf('Gilmore', module)
     <div style={{width: '75%'}} ><GilmoreExpand2 /> </div>
   )    
   .add('Gilmore Mobile', () =>
-    <div style={{ width: '30%', height: '100vh' }} ><GilmoreMobile /> </div>
+    <div style={{ width: '30%', height: '100vh', background: '#000' }} ><GilmoreMobile /> </div>
   )
