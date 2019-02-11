@@ -45,7 +45,11 @@ var Hero = function (_React$Component) {
     _this.state = {
       zoomClass: '',
       heroReady: false,
-      imgSource: ''
+      imgSource: '',
+      source: props.source,
+      title: props.title,
+      thumb: props.thumb,
+      type: props.type
     };
     return _this;
   }
@@ -62,6 +66,19 @@ var Hero = function (_React$Component) {
       });
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.source !== this.props.source) {
+        this.setState({
+          imgSource: _supportsWebp2.default && nextProps.type === 'image' && nextProps.source.includes('d36aj1cv2i74vd') ? nextProps.source.replace('/attachments', '/filters:format(webp)/attachments') : nextProps.source,
+          source: nextProps.source,
+          title: nextProps.title,
+          thumb: nextProps.thumb,
+          type: nextProps.type
+        });
+      }
+    }
+  }, {
     key: 'initZoom',
     value: function initZoom() {
       var _this2 = this;
@@ -75,14 +92,13 @@ var Hero = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var _props = this.props,
-          type = _props.type,
-          source = _props.source,
-          title = _props.title,
-          thumb = _props.thumb;
       var _state = this.state,
+          source = _state.source,
+          title = _state.title,
+          thumb = _state.thumb,
           heroReady = _state.heroReady,
-          imgSource = _state.imgSource;
+          imgSource = _state.imgSource,
+          type = _state.type;
 
 
       return _react2.default.createElement(
