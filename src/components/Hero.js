@@ -9,7 +9,11 @@ class Hero extends React.Component {
     this.state = {
       zoomClass: '',
       heroReady: false,
-      imgSource: ''
+      imgSource: '',
+      source: props.source,
+      title: props.title,
+      thumb: props.thumb,
+      type: props.type
     }
   }
   componentDidMount () {
@@ -21,6 +25,17 @@ class Hero extends React.Component {
       imgSource: supportsWebP && this.props.type === 'image' && this.props.source.includes('d36aj1cv2i74vd') ? this.props.source.replace('/attachments', '/filters:format(webp)/attachments') : this.props.source
     })
   }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.source !== this.props.source) {
+      this.setState({
+        imgSource: supportsWebP && nextProps.type === 'image' && nextProps.source.includes('d36aj1cv2i74vd') ? nextProps.source.replace('/attachments', '/filters:format(webp)/attachments') : nextProps.source,
+        source: nextProps.source,
+        title: nextProps.title,
+        thumb: nextProps.thumb,
+        type: nextProps.type
+      })
+    }
+  }
   initZoom () {
     setTimeout(() => {
       this.setState({ zoomClass: 'zoomedIn' })
@@ -28,15 +43,12 @@ class Hero extends React.Component {
   }
   render () {
     const {
-      type,
       source,
       title,
-      thumb
-    } = this.props
-
-    const {
+      thumb,
       heroReady,
-      imgSource
+      imgSource,
+      type
     } = this.state
 
     return (<div className='hero'>
