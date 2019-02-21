@@ -21,9 +21,9 @@ const Loader = () => {
           .loader {
             position: absolute;
             display: block;
-            width: 80px;
-            top: calc( 50% - 80px);
-            left: calc( 50% - 80px);
+            width: 4vw;
+            top: calc( 50% - 4vw);
+            left: calc( 50% - 4vw);
           }
           #dadich {
             animation: rotateForward 2.5s infinite ease-out;

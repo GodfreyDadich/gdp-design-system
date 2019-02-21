@@ -29,8 +29,7 @@ class Video extends React.Component {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
-      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1),
-      videoThumb: ''
+      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1)
     }
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -84,8 +83,7 @@ class Video extends React.Component {
 
   componentDidMount () {
     this.setState({
-      isMobile: isMobile,
-      videoThumb: this.translateThumbUrl(this.props.thumb)
+      isMobile: isMobile
     })
   }
 
@@ -129,7 +127,8 @@ class Video extends React.Component {
       active,
       mouseOverAction,
       mouseOutAction,
-      aspectRatio = 'sixteen'
+      aspectRatio = 'sixteen',
+      thumb
     } = this.props
     const { playing, playerReady } = this.state
 
@@ -157,7 +156,7 @@ class Video extends React.Component {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${this.state.videoThumb})`,
+                      backgroundImage: `url(${this.translateThumbUrl(thumb)})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'

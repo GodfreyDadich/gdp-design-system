@@ -70,8 +70,7 @@ var Video = function (_React$Component) {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
-      mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1,
-      videoThumb: ''
+      mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1
     };
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
@@ -138,8 +137,7 @@ var Video = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({
-        isMobile: _reactDeviceDetect.isMobile,
-        videoThumb: this.translateThumbUrl(this.props.thumb)
+        isMobile: _reactDeviceDetect.isMobile
       });
     }
   }, {
@@ -189,7 +187,8 @@ var Video = function (_React$Component) {
           mouseOverAction = _props.mouseOverAction,
           mouseOutAction = _props.mouseOutAction,
           _props$aspectRatio = _props.aspectRatio,
-          aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio;
+          aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio,
+          thumb = _props.thumb;
       var _state = this.state,
           playing = _state.playing,
           playerReady = _state.playerReady;
@@ -236,7 +235,7 @@ var Video = function (_React$Component) {
                       ref: 'videoCover',
 
                       style: {
-                        backgroundImage: 'url(' + _this2.state.videoThumb + ')',
+                        backgroundImage: 'url(' + _this2.translateThumbUrl(thumb) + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
                         backgroundColor: hoverPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
