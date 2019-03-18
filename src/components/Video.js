@@ -128,6 +128,7 @@ class Video extends React.Component {
       mouseOverAction,
       mouseOutAction,
       aspectRatio = 'sixteen',
+      customPadding = '0',
       thumb
     } = this.props
     const { playing, playerReady } = this.state
@@ -150,7 +151,7 @@ class Video extends React.Component {
                 transitionDelay: '0.75s'
               }}
             >
-              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`}>
+              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`} style={aspectRatio === 'custom' ? {paddingTop: customPadding} : {} }>
                 <div>
                   <div
                     ref='videoCover'
