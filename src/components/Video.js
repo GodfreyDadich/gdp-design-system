@@ -127,6 +127,7 @@ class Video extends React.Component {
       active,
       mouseOverAction,
       mouseOutAction,
+      muted = true,
       aspectRatio = 'sixteen',
       customPadding = '0',
       thumb
@@ -151,7 +152,7 @@ class Video extends React.Component {
                 transitionDelay: '0.75s'
               }}
             >
-              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`} style={aspectRatio === 'custom' ? {paddingTop: customPadding} : {} }>
+              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`} style={aspectRatio === 'custom' ? { paddingTop: customPadding } : {}}>
                 <div>
                   <div
                     ref='videoCover'
@@ -168,7 +169,7 @@ class Video extends React.Component {
                       url={autoplay ? vidSource : isVisible ? vidSource : ''}
                       playing={playing}
                       volume={autoplay ? 0 : 1}
-                      muted={autoplay}
+                      muted={muted}
                       loop={loop}
                       controls={controls}
                       width='100%'
