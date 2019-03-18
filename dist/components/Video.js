@@ -188,6 +188,8 @@ var Video = function (_React$Component) {
           mouseOutAction = _props.mouseOutAction,
           _props$aspectRatio = _props.aspectRatio,
           aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio,
+          _props$customPadding = _props.customPadding,
+          customPadding = _props$customPadding === undefined ? '0' : _props$customPadding,
           thumb = _props.thumb;
       var _state = this.state,
           playing = _state.playing,
@@ -221,8 +223,7 @@ var Video = function (_React$Component) {
               },
               _react2.default.createElement(
                 'div',
-                {
-                  className: 'jsx-746418569' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
+                { style: aspectRatio === 'custom' ? { paddingTop: customPadding } : {}, className: 'jsx-746418569' + ' ' + ('vidWrap ' + aspectRatio + (active ? ' active' : ''))
                 },
                 _react2.default.createElement(
                   'div',

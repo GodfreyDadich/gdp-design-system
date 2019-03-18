@@ -607,6 +607,12 @@ var videoEnded = function videoEnded() {
     'div',
     { style: { width: '50%', margin: '1000px auto 0' } },
     _react2.default.createElement(_HoverVideo2.default, {
+      vidSource: 'https://player.vimeo.com/video/324374859',
+      thumb: 'https://i.vimeocdn.com/video/767777887.webp?mw=1800&mh=1121&q=70',
+      aspectRatio: 'custom',
+      customPadding: '62%'
+    }),
+    _react2.default.createElement(_HoverVideo2.default, {
       title: '',
       aspectRatio: 'cropped',
       fullBleed: false,
@@ -619,13 +625,6 @@ var videoEnded = function videoEnded() {
       fullBleed: false,
       vidSource: 'https://vimeo.com/299543193',
       thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-    }),
-    _react2.default.createElement(_HoverVideo2.default, {
-      title: '',
-      aspectRatio: 'sixteen',
-      fullBleed: false,
-      vidSource: 'https://vimeo.com/299543203',
-      thumb: 'https://i.vimeocdn.com/video/737702558_1000.jpg'
     }),
     _react2.default.createElement(_HoverVideo2.default, {
       title: '',
