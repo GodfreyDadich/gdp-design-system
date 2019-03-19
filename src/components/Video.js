@@ -230,12 +230,15 @@ class Video extends React.Component {
               z-index: 20;
               background-size: cover;
               background-repeat: no-repeat;
-              transition: 0.2s opacity;
+              transition: opacity 0s;
+              transition-delay: 0s;
             }
             .hoverVid.playerReady {
               .vidWrap.active {
                 .videoCover {
                   opacity: 0;
+                  transition: opacity 0.2s;
+                  transition-delay: 0.15s;
                 }
               }
             }
