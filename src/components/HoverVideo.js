@@ -6,7 +6,7 @@ class HoverVideo extends React.Component {
     super(props)
 
     this.state = {
-      hover: false
+      hover: props.autoplay
     }
 
     this.hoverOver = this.hoverOver.bind(this)
@@ -35,8 +35,8 @@ class HoverVideo extends React.Component {
           vimeo: {
             playerOptions: {
               background: 1,
-              autopause: true,
-              autoplay: false
+              autopause: !this.props.autoplay || true,
+              autoplay: this.props.autoplay || false
             },
             preload: false
           }

@@ -527,13 +527,13 @@ storiesOf('Video', module)
         vidSource='https://player.vimeo.com/video/324374859'
         thumb='https://i.vimeocdn.com/video/767777887'
         aspectRatio='custom'
+        autoplay
         customPadding='62%'
       />
       <HoverVideo
         title=''
         aspectRatio='cropped'
         fullBleed={false}
-        autoplay
         vidSource='https://vimeo.com/299756718'
         thumb='https://i.vimeocdn.com/video/737947212_1000.jpg'
       />
