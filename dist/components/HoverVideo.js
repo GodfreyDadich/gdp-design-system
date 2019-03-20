@@ -57,7 +57,7 @@ var HoverVideo = function (_React$Component) {
       return _react2.default.createElement(_Video2.default, _extends({}, this.props, {
         hoverPlay: true,
         playing: false,
-        autoplay: false,
+        autoplay: this.props.autoplay || false,
         active: this.state.hover,
         mouseOverAction: this.hoverOver,
         mouseOutAction: this.hoverOut,

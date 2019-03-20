@@ -70,6 +70,8 @@ var Video = function (_React$Component) {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
+      isMobileOnly: true,
+      thumb: '',
       mouseIgnore: _this.props.config && _this.props.config.vimeo.playerOptions.background === 1
     };
     _this.play = _this.play.bind(_this);
@@ -137,7 +139,9 @@ var Video = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({
-        isMobile: _reactDeviceDetect.isMobile
+        isMobile: _reactDeviceDetect.isMobile,
+        isMobileOnly: _reactDeviceDetect.isMobileOnly,
+        thumb: this.translateThumbUrl(this.props.thumb, _reactDeviceDetect.isMobileOnly)
       });
     }
   }, {
@@ -160,11 +164,11 @@ var Video = function (_React$Component) {
     }
   }, {
     key: 'translateThumbUrl',
-    value: function translateThumbUrl(thumbUrl) {
+    value: function translateThumbUrl(thumbUrl, isMobileOnly) {
       var ext = _supportsWebp2.default ? 'webp' : 'jpg';
-      // check for webp after integration
       var vidID = thumbUrl.split('video/')[1].split('_')[0];
-      return 'https://i.vimeocdn.com/video/' + vidID + '.' + ext + '?mw=4400&mh=3259&q=70';
+      var imgParams = isMobileOnly ? 'mw=400&q=70' : 'mw=2800&q=70';
+      return 'https://i.vimeocdn.com/video/' + vidID + '.' + ext + '?' + imgParams;
     }
   }, {
     key: 'render',
@@ -191,11 +195,11 @@ var Video = function (_React$Component) {
           _props$aspectRatio = _props.aspectRatio,
           aspectRatio = _props$aspectRatio === undefined ? 'sixteen' : _props$aspectRatio,
           _props$customPadding = _props.customPadding,
-          customPadding = _props$customPadding === undefined ? '0' : _props$customPadding,
-          thumb = _props.thumb;
+          customPadding = _props$customPadding === undefined ? '0' : _props$customPadding;
       var _state = this.state,
           playing = _state.playing,
-          playerReady = _state.playerReady;
+          playerReady = _state.playerReady,
+          thumb = _state.thumb;
 
 
       return _react2.default.createElement(
@@ -238,7 +242,7 @@ var Video = function (_React$Component) {
                       ref: 'videoCover',
 
                       style: {
-                        backgroundImage: 'url(' + _this2.translateThumbUrl(thumb) + ')',
+                        backgroundImage: 'url(' + thumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
                         backgroundColor: hoverPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
