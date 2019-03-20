@@ -533,6 +533,7 @@ storiesOf('Video', module)
         title=''
         aspectRatio='cropped'
         fullBleed={false}
+        autoplay
         vidSource='https://vimeo.com/299756718'
         thumb='https://i.vimeocdn.com/video/737947212_1000.jpg'
       />

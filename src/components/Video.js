@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import Loader from './Loader'
-import { isMobile } from 'react-device-detect'
+import { isMobile, isMobileOnly } from 'react-device-detect'
 import supportsWebP from 'supports-webp'
 
 const vidStyle = {
@@ -29,6 +29,8 @@ class Video extends React.Component {
       active: props.active || false,
       playerReady: false,
       isMobile: true,
+      isMobileOnly: true,
+      thumb: '',
       mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1)
     }
     this.play = this.play.bind(this)
@@ -83,7 +85,9 @@ class Video extends React.Component {
 
   componentDidMount () {
     this.setState({
-      isMobile: isMobile
+      isMobile: isMobile,
+      isMobileOnly: isMobileOnly,
+      thumb: this.translateThumbUrl(this.props.thumb, isMobileOnly)
     })
   }
 
@@ -104,11 +108,11 @@ class Video extends React.Component {
     }
   }
 
-  translateThumbUrl (thumbUrl) {
+  translateThumbUrl (thumbUrl, isMobileOnly) {
     const ext = supportsWebP ? 'webp' : 'jpg'
-    // check for webp after integration
     const vidID = thumbUrl.split('video/')[1].split('_')[0]
-    return `https://i.vimeocdn.com/video/${vidID}.${ext}?mw=4400&mh=3259&q=70`
+    const imgParams = isMobileOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
+    return `https://i.vimeocdn.com/video/${vidID}.${ext}?${imgParams}`
   }
 
   render () {
@@ -129,10 +133,13 @@ class Video extends React.Component {
       mouseOutAction,
       muted = true,
       aspectRatio = 'sixteen',
-      customPadding = '0',
-      thumb
+      customPadding = '0'
     } = this.props
-    const { playing, playerReady } = this.state
+    const {
+      playing,
+      playerReady,
+      thumb
+    } = this.state
 
     return (
       <div
@@ -158,7 +165,7 @@ class Video extends React.Component {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${this.translateThumbUrl(thumb)})`,
+                      backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
