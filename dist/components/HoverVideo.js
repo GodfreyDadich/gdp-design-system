@@ -33,7 +33,7 @@ var HoverVideo = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (HoverVideo.__proto__ || Object.getPrototypeOf(HoverVideo)).call(this, props));
 
     _this.state = {
-      hover: false
+      hover: props.autoplay
     };
 
     _this.hoverOver = _this.hoverOver.bind(_this);
@@ -66,8 +66,8 @@ var HoverVideo = function (_React$Component) {
           vimeo: {
             playerOptions: {
               background: 1,
-              autopause: true,
-              autoplay: false
+              autopause: !this.props.autoplay || true,
+              autoplay: this.props.autoplay || false
             },
             preload: false
           }

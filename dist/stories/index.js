@@ -610,13 +610,13 @@ var videoEnded = function videoEnded() {
       vidSource: 'https://player.vimeo.com/video/324374859',
       thumb: 'https://i.vimeocdn.com/video/767777887',
       aspectRatio: 'custom',
+      autoplay: true,
       customPadding: '62%'
     }),
     _react2.default.createElement(_HoverVideo2.default, {
       title: '',
       aspectRatio: 'cropped',
       fullBleed: false,
-      autoplay: true,
       vidSource: 'https://vimeo.com/299756718',
       thumb: 'https://i.vimeocdn.com/video/737947212_1000.jpg'
     }),
