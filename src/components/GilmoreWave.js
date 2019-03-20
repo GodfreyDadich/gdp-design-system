@@ -14,7 +14,7 @@ const GilmoreWave = props => {
           overflow: 'visible',
           width: '55%',
           position: 'absolute',
-          top: '20%',
+          top: '10%',
           left: '10.63%'
         }}
       ><defs><clipPath id="clipPath"><path fill="none" d="M27.83 434a.16.16 0 0 1-.16-.16V391a.15.15 0 0 1 .16-.15h12.26a21.6 21.6 0 1 1 0 43.2z"/></clipPath></defs><title>Gilmore_Flat_RGB_hp_v3</title>
@@ -32,7 +32,7 @@ const GilmoreWave = props => {
         style={{
           position: 'absolute',
           right: '8.63%',
-          top: '52.3%',
+          top: '42.3%',
           width: '16.8%',
           height: '11%'
         }}
@@ -43,7 +43,7 @@ const GilmoreWave = props => {
           position: 'absolute',
           width: '4.25%',
           height: '11%',
-          top: '51.5%',
+          top: '41.5%',
           left: '10.7%',
           backgroundImage: 'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3Cpath%20id%3D%22a%22%20d%3D%22M0%200H100V100H0z%22/%3E%3C/defs%3E%3CclipPath%20id%3D%22b%22%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20overflow%3D%22visible%22/%3E%3C/clipPath%3E%3Cpath%20d%3D%22M50%2C100c27.6%2C0%2C50-22.4%2C50-50S77.6%2C0%2C50%2C0S0%2C22.4%2C0%2C50S22.4%2C100%2C50%2C100%22%20clipPath%3D%22url%28%23b%29%22%20fill%3D%22%2300ad68%22/%3E%3Cpath%20d%3D%22M68.8%2C13.7c0%2C0%2C0.2%2C0%2C0.2%2C0.2v47.9c0%2C0%2C0%2C0.2-0.2%2C0.2H55.1C41.8%2C62.1%2C31%2C51.3%2C31%2C37.9s10.8-24.2%2C24.2-24.2%20H68.8z%22%20clipPath%3D%22url%28%23b%29%22%20fill%3D%22%23231f20%22/%3E%3Cpath%20d%3D%22M31.2%2C86.3c0%2C0-0.2%2C0-0.2-0.2V38.2c0%2C0%2C0-0.2%2C0.2-0.2h13.7C58.2%2C37.9%2C69%2C48.7%2C69%2C62.1S58.2%2C86.3%2C44.9%2C86.3%20H31.2z%22%20clipPath%3D%22url%28%23b%29%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M55.1%2C62.1h13.7C69%2C62.1%2C69%2C62%2C69%2C62c-0.1-13.3-10.9-24-24.2-24H31.1C31%2C37.9%2C31%2C38%2C31%2C38%20C31%2C51.3%2C41.8%2C62.1%2C55.1%2C62.1%22%20clipPath%3D%22url%28%23b%29%22%20fill%3D%22%230c8f93%22/%3E%3C/svg%3E")',
           backgroundRepeat: 'no-repeat',
