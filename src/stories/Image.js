@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, boolean, number, array, color, select, selectV2, button } from '@storybook/addon-knobs';
+import { text, boolean, select, selectV2 } from '@storybook/addon-knobs';
 import Image from '../components/Image'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
