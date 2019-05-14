@@ -19,12 +19,6 @@ const breadCrumbData = [
 
 const Layered = ({ source, title, subtitle }) => (
   <div className='layeredHero'>
-    <svg id='gdpLogo' width="7vw" height="7vh" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 64C49.664 64 64 49.664 64 32C64 14.336 49.664 0 32 0C14.336 0 0 14.336 0 32C0 49.664 14.336 64 32 64Z" fill="#00AD68" />
-      <path d="M43.392 8.95996C43.392 8.95996 43.52 8.95996 43.52 9.08716V39.5523C43.52 39.5523 43.52 39.6795 43.392 39.6795H34.624C26.112 39.7431 19.2 32.8742 19.2 24.3515C19.2 15.8289 26.112 8.95996 34.688 8.95996H43.392Z" fill="#231F20" />
-      <path d="M19.328 55.0398C19.328 55.0398 19.2 55.0398 19.2 54.9126V24.4475C19.2 24.4475 19.2 24.3203 19.328 24.3203H28.096C36.608 24.2567 43.52 31.1256 43.52 39.6482C43.52 48.1709 36.608 55.0398 28.096 55.0398H19.328Z" fill="white" />
-      <path d="M34.624 39.6798H43.392C43.52 39.6798 43.52 39.6162 43.52 39.6162C43.456 31.1551 36.544 24.3481 28.032 24.3481H19.264C19.2 24.2845 19.2 24.3481 19.2 24.3481C19.2 32.8092 26.112 39.6798 34.624 39.6798Z" fill="#0C8F93" />
-    </svg>
     <div className='layeredHero__image'>
       <img src={source} alt="wired" />
     </div>
@@ -83,10 +77,6 @@ const Layered = ({ source, title, subtitle }) => (
               letter-spacing: .01vw;
             }
           }
-        }
-        #gdpLogo {
-          position: absolute;
-          margin: .3vh 1vw;
         }
       `}
     </style>
