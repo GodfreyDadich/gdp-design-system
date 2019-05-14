@@ -61,7 +61,7 @@ const Typography = props =>
 
       <div>
         <div style={styles.smallText}><small>Heading 1 ({fontSizeHeading1})</small></div>
-        <Heading1><span style={{ display: 'block', color: '#7F7F7F'}} >National Geographic</span> Redefining the nature  of exploration</Heading1>
+        <Heading1><span style={{ display: 'block', color: '#7F7F7F'}} >National Geographic</span> Redefining the nature of exploration</Heading1>
       </div>
 
       <br /><br />

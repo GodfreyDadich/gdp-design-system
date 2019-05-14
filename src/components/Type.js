@@ -35,7 +35,7 @@ export const Heading1 = ({children}) =>
   <h1 className='headingOne' >
     {children}
     <style jsx>{`
-      headingOne {
+      .headingOne {
         position: relative;
         font-family: 'Noe Display';
         font-weight: bold;
@@ -54,7 +54,8 @@ export const Heading1 = ({children}) =>
         &:before {
           content: '';
           position: absolute;
-          width: 24.56%;
+          width: 24.56vw;
+          max-width: 33%;
           height: 7px;
           background-color: #000;
           bottom: 0;
