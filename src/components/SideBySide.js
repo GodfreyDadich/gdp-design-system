@@ -1,38 +1,21 @@
-import React from 'react';
-import Breadcrumb from './Breadcrumb';
-import { text } from '@storybook/addon-knobs';
+import React from 'react'
+import Breadcrumb from './Breadcrumb'
 
-const breadCrumbData = [
-  {
-    title: 'home',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'work',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'wired',
-    slug: 'http://google.com'
-  }
-]
-
-const SideBySide = ({ source, title, subtitle }) => (
+const SideBySide = ({ source, title, subtitle, breadCrumbData, delimiter }) => (
   <div className='sideBySideHero'>
-      <div className='sideBySideHero__image'>
-        <img src={source} alt="wired" />
-      </div>
-      <div className='sideBySideHero__title'>
-        <Breadcrumb delimiter={text('Separator', '/')}
-          links={breadCrumbData} />
-        <p id='sideBySideHero__title__main'>
-          {title}
-        </p>
-        <p id='sideBySideHero__title__sub'>
-          {subtitle}
-        </p>
-        <div id='sideBySideHero__title__border'></div>
-      </div>
+    <div className='sideBySideHero__image'>
+      <img src={source} alt='wired' />
+    </div>
+    <div className='sideBySideHero__title'>
+      <Breadcrumb delimiter={delimiter} links={breadCrumbData} />
+      <p className='sideBySideHero__title__main'>
+        {title}
+      </p>
+      <p className='sideBySideHero__title__sub'>
+        {subtitle}
+      </p>
+      <div className='sideBySideHero__title__border' />
+    </div>
     <style jsx>
       {`
         .sideBySideHero {
@@ -40,17 +23,17 @@ const SideBySide = ({ source, title, subtitle }) => (
           display: flex;
           width: 100vw;
 
-          .sideBySideHero__image {
+          &__image {
             width:50vw; 
             overflow: hidden; 
             margin:0; 
+            img {
+              display:block;  
+              margin:0 -38.885%;
+              width:177.777%;
+            }
           }
-         .sideBySideHero__image img {
-            display:block;  
-            margin:0 -38.885%;
-            width:177.777%;
-          }
-          .sideBySideHero__title {
+          &__title {
             height: 100%;
             width: 50vw;
             background-color: #F2F2F2;
@@ -59,17 +42,17 @@ const SideBySide = ({ source, title, subtitle }) => (
             padding-left: 8vw;
             padding-right: 8vw; 
 
-            #sideBySideHero__title__border {
+            &__border {
               border-top: solid 1vh;
               width: 14vw;
             }
-            #sideBySideHero__title__main {
+            &__main {
               font-size: 3.1vw;
               margin: 5vh 0 0 0;
               color: grey;
               letter-spacing: .01vw;
             }
-            #sideBySideHero__title__sub {
+            &__sub {
               margin: 1vw 0 3vw 0;
               font-size: 3.1vw;
               line-height: 3.2vw;
@@ -82,4 +65,4 @@ const SideBySide = ({ source, title, subtitle }) => (
   </div>
 )
 
-export default SideBySide;
+export default SideBySide

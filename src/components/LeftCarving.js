@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Sidebar = ({ copy, content1, content2, subtitle }) => (
   <div className='leftCarving'>
@@ -6,8 +6,7 @@ const Sidebar = ({ copy, content1, content2, subtitle }) => (
       <p className='mainContent__subtitle'>{subtitle}</p>
       {content1}
       <figure className='leftCarving__content'>
-        <div id='leftCarving__content__border'>
-        </div>
+        <div id='leftCarving__content__border' />
         {copy}
       </figure>
       {content2}
@@ -57,4 +56,4 @@ const Sidebar = ({ copy, content1, content2, subtitle }) => (
   </div>
 )
 
-export default Sidebar;
+export default Sidebar

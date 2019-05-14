@@ -1,37 +1,20 @@
-import React from 'react';
-import Breadcrumb from './Breadcrumb';
-import { text } from '@storybook/addon-knobs';
+import React from 'react'
+import Breadcrumb from './Breadcrumb'
 
-const breadCrumbData = [
-  {
-    title: 'home',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'work',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'wired',
-    slug: 'http://google.com'
-  }
-]
-
-const Layered = ({ source, title, subtitle }) => (
+const Layered = ({ source, title, subtitle, breadCrumbData, delimiter }) => (
   <div className='layeredHero'>
     <div className='layeredHero__image'>
-      <img src={source} alt="wired" />
+      <img src={source} alt='wired' />
     </div>
     <div className='layeredHero__content'>
-      <Breadcrumb delimiter={text('Separator', '/')}
-        links={breadCrumbData} />
-      <p id='layeredHero__content__mainTitle'>
+      <Breadcrumb delimiter={delimiter} links={breadCrumbData} />
+      <p className='layeredHero__content__mainTitle'>
         {title}
       </p>
-      <p id='layeredHero__content__subtitle'>
+      <p className='layeredHero__content__subtitle'>
         {subtitle}
       </p>
-      <div id='layeredHero__content__border'></div>
+      <div className='layeredHero__content__border' />
     </div>
     <style jsx>
       {`
@@ -39,17 +22,18 @@ const Layered = ({ source, title, subtitle }) => (
           display: flex;
           width: 100vw;
 
-          .layeredHero__image {
+          &__image {
             width:50vw; 
             overflow: hidden; 
             margin:0; 
-          }
-          .layeredHero__image img {
-            display:block;  
-            margin:0 -25.875%;
-            width: 75vw;
+
+            img {
+              display:block;  
+              margin:0 -25.875%;
+              width: 75vw;
+            }
            }
-           .layeredHero__content {
+           &__content {
             background-color: #F2F2F2;
             font-family: Noe Display;
             margin: auto;
@@ -60,17 +44,17 @@ const Layered = ({ source, title, subtitle }) => (
             padding-right: 7vw;
             transform: translateY(2%) translateX(-17%);
 
-            #layeredHero__content__border {
+            &__border {
               border-top: solid 1vh;
               width: 14vw;
             }
-            #layeredHero__content__mainTitle {
+            &__mainTitle {
               font-size: 3.1vw;
               margin: 5vh 0 0 0;
               color: grey;
               letter-spacing: .01vw;
             }
-            #layeredHero__content__subtitle {
+            &__subtitle {
               margin: 1vw 0 3vw 0;
               font-size: 3.1vw;
               line-height: 3.2vw;
@@ -83,4 +67,4 @@ const Layered = ({ source, title, subtitle }) => (
   </div>
 )
 
-export default Layered;
+export default Layered
