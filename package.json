@@ -44,7 +44,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.14.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^4.12.0",
     "standard-version": "^4.4.0",
     "styled-jsx-plugin-sass": "^0.2.4"
   }
