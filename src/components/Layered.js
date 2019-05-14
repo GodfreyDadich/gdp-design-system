@@ -1,5 +1,6 @@
 import React from 'react'
 import Breadcrumb from './Breadcrumb'
+import { Heading1 } from './Type'
 
 const Layered = ({ source, title, subtitle, breadCrumbData, delimiter }) => (
   <div className='layeredHero'>
@@ -8,13 +9,10 @@ const Layered = ({ source, title, subtitle, breadCrumbData, delimiter }) => (
     </div>
     <div className='layeredHero__content'>
       <Breadcrumb delimiter={delimiter} links={breadCrumbData} />
-      <p className='layeredHero__content__mainTitle'>
-        {title}
-      </p>
-      <p className='layeredHero__content__subtitle'>
+      <Heading1>
+        <span style={{ display: 'block', color: '#7f7f7f' }}>{title}</span>
         {subtitle}
-      </p>
-      <div className='layeredHero__content__border' />
+      </Heading1>
     </div>
     <style jsx>
       {`
@@ -43,23 +41,6 @@ const Layered = ({ source, title, subtitle, breadCrumbData, delimiter }) => (
             padding-left: 7vw;
             padding-right: 7vw;
             transform: translateY(2%) translateX(-17%);
-
-            &__border {
-              border-top: solid 1vh;
-              width: 14vw;
-            }
-            &__mainTitle {
-              font-size: 3.1vw;
-              margin: 5vh 0 0 0;
-              color: grey;
-              letter-spacing: .01vw;
-            }
-            &__subtitle {
-              margin: 1vw 0 3vw 0;
-              font-size: 3.1vw;
-              line-height: 3.2vw;
-              letter-spacing: .01vw;
-            }
           }
         }
       `}
