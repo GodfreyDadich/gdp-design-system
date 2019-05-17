@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 <a name="1.0.22-beta"></a>
 ## [1.0.22-beta](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.20...v1.0.22-beta) (2019-05-17)
 
@@ -14,6 +15,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.0.21"></a>
 ## [1.0.21](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.20...v1.0.21) (2019-05-17)
+=======
+<a name="1.0.21"></a>
+## [1.0.21](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.20...v1.0.21) (2019-03-20)
+>>>>>>> e5045f73821273a946e4b83d4ea1589e3e191cce
 
 
 
