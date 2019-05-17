@@ -75,7 +75,7 @@ var Typography = function Typography(props) {
           { style: { display: 'block', color: '#7F7F7F' } },
           "National Geographic"
         ),
-        " Redefining the nature \u2028of exploration"
+        " Redefining the nature of exploration"
       )
     ),
     _react2.default.createElement("br", null),
