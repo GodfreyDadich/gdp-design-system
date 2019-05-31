@@ -1,11 +1,17 @@
-## GDP UI DESIGN SYSTEM
+# GDP UI DESIGN SYSTEM
 
-```npm run storybook```
+## Run Locally
+### `npm install`
+### `npm run storybook`
 
-### Set Release 
+## Deploy to Github Pages
+This stands as a visual reference for the teams as to what modules we have working.
+Please run each time a new module or feature is added.
+### `npm run deploy-storybook`
 
-Example
-
-```npm run release -- --release-as 1.0.22-beta```
-
-```git push origin tag v1.0.22-beta```
+## Build tag
+Build code
+### `npm run buildit`
+Iterate version and build tag
+### `npm run release`
+Don't forget to push your tag if you want to use it in an application
