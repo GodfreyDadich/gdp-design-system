@@ -49,15 +49,6 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
-var _Footer = require('./components/Footer');
-
-Object.defineProperty(exports, 'Footer', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Footer).default;
-  }
-});
-
 var _Hero = require('./components/Hero');
 
 Object.defineProperty(exports, 'Hero', {
@@ -85,15 +76,6 @@ Object.defineProperty(exports, 'ImageWithZoom', {
   }
 });
 
-var _Inset = require('./components/Inset');
-
-Object.defineProperty(exports, 'Inset', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Inset).default;
-  }
-});
-
 var _InstaEmbed = require('./components/InstaEmbed');
 
 Object.defineProperty(exports, 'InstaEmbed', {
@@ -103,39 +85,12 @@ Object.defineProperty(exports, 'InstaEmbed', {
   }
 });
 
-var _Layered = require('./components/Layered');
-
-Object.defineProperty(exports, 'Layered', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Layered).default;
-  }
-});
-
-var _LeftCarving = require('./components/LeftCarving');
-
-Object.defineProperty(exports, 'LeftCarving', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_LeftCarving).default;
-  }
-});
-
 var _Modal = require('./components/Modal');
 
 Object.defineProperty(exports, 'Modal', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_Modal).default;
-  }
-});
-
-var _NarrationBlock = require('./components/NarrationBlock');
-
-Object.defineProperty(exports, 'NarrationBlock', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_NarrationBlock).default;
   }
 });
 
@@ -172,24 +127,6 @@ Object.defineProperty(exports, 'SelectNative', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_SelectNative).default;
-  }
-});
-
-var _Sidebar = require('./components/Sidebar');
-
-Object.defineProperty(exports, 'Sidebar', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Sidebar).default;
-  }
-});
-
-var _SideBySide = require('./components/SideBySide');
-
-Object.defineProperty(exports, 'SideBySide', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_SideBySide).default;
   }
 });
 
