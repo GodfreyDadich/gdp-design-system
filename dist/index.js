@@ -76,12 +76,30 @@ Object.defineProperty(exports, 'ImageWithZoom', {
   }
 });
 
+var _Inset = require('./components/Inset');
+
+Object.defineProperty(exports, 'Inset', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Inset).default;
+  }
+});
+
 var _InstaEmbed = require('./components/InstaEmbed');
 
 Object.defineProperty(exports, 'InstaEmbed', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_InstaEmbed).default;
+  }
+});
+
+var _Layered = require('./components/Layered');
+
+Object.defineProperty(exports, 'Layered', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Layered).default;
   }
 });
 
@@ -127,6 +145,15 @@ Object.defineProperty(exports, 'SelectNative', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_SelectNative).default;
+  }
+});
+
+var _SideBySide = require('./components/SideBySide');
+
+Object.defineProperty(exports, 'SideBySide', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_SideBySide).default;
   }
 });
 
