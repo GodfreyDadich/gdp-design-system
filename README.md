@@ -1,6 +1,5 @@
 # GDP UI DESIGN SYSTEM
 
-
 ## Run Locally
 ### `npm install`
 ### `npm run storybook`

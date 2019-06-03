@@ -5,7 +5,7 @@ import ConditionalLink from './ConditionalLink'
 import {
   fontSizeSuper, lineHeightSuper,
   fontSizeHeading1, lineHeightHeading1,
-  fontSizeHeading2, lineHeightHeading2, 
+  fontSizeHeading2, lineHeightHeading2,
   fontSizeHeading3, lineHeightHeading3,
   fontSizeHeading4, lineHeightHeading4,
   // fontSizeHeading5,
@@ -19,7 +19,7 @@ import {
   // fontSizeUppercase,
 } from "../styles/typography";
 
-export const HeadingSuper = ({children}) =>
+export const HeadingSuper = ({ children }) =>
   <h1 className='super' >
     {children}
     <style jsx>{`
@@ -31,7 +31,7 @@ export const HeadingSuper = ({children}) =>
     `}</style>
   </h1>
 
-export const Heading1 = ({children}) =>
+export const Heading1 = ({ children }) =>
   <h1 className='headingOne' >
     {children}
     <style jsx>{`
@@ -151,7 +151,7 @@ export const Pullquote = ({ classAdd, children }) =>
         style={{
           marginTop: isVisible ? '89px' : '104px',
           opacity: isVisible ? 1 : 0,
-          transition: 'opacity 0.5s, margin-top 0.5s'        
+          transition: 'opacity 0.5s, margin-top 0.5s'
         }}
       >
         {children}
@@ -318,3 +318,138 @@ export const SideBar = ({ sideBar, isVisible }) =>
         `}</style>
       </div>}
   </TrackVisibility>
+
+export const LeftCarving = ({ children }) =>
+  <figure className='leftCarving'>
+    <div id='leftCarving__border' />
+    {children}
+    <style jsx>{`
+    .leftCarving {
+      font-family: Atlas Grotesk;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.8vw;
+      line-height: 2.1vw;
+      padding-top: 11px;
+      padding-bottom: 4.5px;
+      letter-spacing: -0.25px;
+      color: #333;
+      float: left;
+      max-width: 48%;
+      margin: .6vw -8vw .7vw 3vw;
+      transform: translateX(-10vw);
+      border-top: 5px solid #000;
+      
+      @media screen and (min-width: 1200px) {
+        margin: .6vw -6.5vw .1vw 3vw;
+        transform: translateX(-8vw);
+        border-top: 5.5px solid #000;
+        font-size: 22px;
+        line-height: 26px;
+        }
+
+      @media screen and (max-width: 600px) {
+        border-top: 4px solid #000;
+        padding-top: 7px;
+        }
+
+  }
+  `}</style>
+  </figure>
+
+export const QuoteBlock = ({ children }) =>
+  <div className='quoteBlock' >
+    <div className='backgroundBlock' />
+    <p className='quoteBlock__content'>
+      <div id='quoteBlock__content__border' />
+      {children}
+    </p>
+    <style jsx>{`
+    .quoteBlock {
+      display: block;
+      margin: auto;
+      height: 21.4vw;
+      padding: 5vw 0;
+
+      .quoteBlock__content {
+        width: 45vw;
+        font-family: Atlas Grotesk;
+        font-weight: 600;
+        font-size: 2vw;
+        line-height: 2.2vw;
+        position: relative;
+        transform: translateX(30%) translateY(92%);
+        letter-spacing: .02vw;
+        display: inline-block;
+        bottom: 45%;
+      }
+    }
+    .backgroundBlock {
+      width: 27vw;
+      height: 21.4vw;
+      display: inline-block;
+      position: absolute;
+      background-color: #F2F2F2;
+    }
+    #quoteBlock__content__border {
+      border-top: solid 6px;
+      width: 21vw;
+      padding-bottom: 1.4vw;
+
+      @media screen and (min-width: 1200px) {
+        border-top: solid 7px;
+        }
+
+      @media screen and (max-width: 800px) {
+        border-top: solid 4px;
+        width: 21vw;
+        padding-bottom: 1.4vw;
+        }
+    }
+      `}</style>
+  </div>
+
+export const SidebarQuote = ({ children }) =>
+  <div className='sidebar'>
+    <p className='sidebar__content'>
+      <div id='sidebar__content__border'>
+      </div>
+      {children}
+    </p>
+    <style jsx>{`
+  .sidebar {
+    display: inline-block;
+    padding: 0 21px 0 0;
+    vertical-align: top;
+
+    #sidebar__content__border {
+      border-top: .5vw solid;
+      width: 12.2vw;
+      padding-bottom: 1vw;
+
+      @media screen and (min-width: 1622px) {
+        border-top: 8px solid;
+        width: 197px;
+        padding-bottom: 17px;
+        }
+    }
+    .sidebar__content {
+      margin-top: 7px;
+      width: 12.3vw;
+      font-family: Atlas Grotesk;
+      font-weight: 600;
+      font-size: 1.2vw;
+      line-height: 1.4vw;
+      letter-spacing: .01vw;
+      display: inline-block;
+
+      @media screen and (min-width: 1622px) {
+        margin-top: 4px;
+        width: 205px;
+        font-size: 19.5px;
+        line-height: 23px;
+        }
+      }
+    }
+  `}</style>
+  </div>
