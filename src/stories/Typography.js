@@ -199,7 +199,7 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>Quote Block</small></div>
-      <div style={{ width: '70%', margin: 'auto' }}>
+      <div>
         <QuoteBlock>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </QuoteBlock>

@@ -358,13 +358,21 @@ export const LeftCarving = ({ children }) =>
   </figure>
 
 export const QuoteBlock = ({ children }) =>
-  <div className='quoteBlock' >
-    <div className='backgroundBlock' />
-    <p className='quoteBlock__content'>
-      <div id='quoteBlock__content__border' />
-      {children}
-    </p>
-    <style jsx>{`
+  <TrackVisibility once partialVisibility
+    style={{ marginTop: 0 }}>
+    {({ isVisible }) =>
+      <div className='quoteBlock'
+        style={{
+          marginTop: isVisible ? '0px' : '15px',
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.5s, margin-top 0.5s'
+        }} >
+        <div className='backgroundBlock' />
+        <p className='quoteBlock__content'>
+          <div id='quoteBlock__content__border' />
+          {children}
+        </p>
+        <style jsx>{`
     .quoteBlock {
       display: block;
       margin: auto;
@@ -377,8 +385,7 @@ export const QuoteBlock = ({ children }) =>
         font-weight: 600;
         font-size: 2vw;
         line-height: 2.2vw;
-        position: relative;
-        transform: translateX(30%) translateY(92%);
+        transform: translateX(30%) translateY(20%);
         letter-spacing: .02vw;
         display: inline-block;
         bottom: 45%;
@@ -395,7 +402,6 @@ export const QuoteBlock = ({ children }) =>
       border-top: solid 6px;
       width: 21vw;
       padding-bottom: 1.4vw;
-
       @media screen and (min-width: 1200px) {
         border-top: solid 7px;
         }
@@ -407,7 +413,9 @@ export const QuoteBlock = ({ children }) =>
         }
     }
       `}</style>
-  </div>
+      </div>
+    }
+  </TrackVisibility>
 
 export const SidebarQuote = ({ children }) =>
   <div className='sidebar'>
