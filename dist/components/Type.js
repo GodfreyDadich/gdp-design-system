@@ -274,14 +274,14 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref14) {
   return _react2.default.createElement(
     'figure',
     {
-      className: 'jsx-3001128717' + ' ' + 'leftCarving'
+      className: 'jsx-2529587114' + ' ' + 'leftCarving'
     },
-    _react2.default.createElement('div', { id: 'leftCarving__border', className: 'jsx-3001128717'
+    _react2.default.createElement('div', { id: 'leftCarving__border', className: 'jsx-2529587114'
     }),
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3001128717',
-      css: '.leftCarving.jsx-3001128717{font-family:Atlas Grotesk;font-style:normal;font-weight:bold;font-size:1.8vw;line-height:2.1vw;padding-top:11px;padding-bottom:4.5px;-webkit-letter-spacing:-0.25px;-moz-letter-spacing:-0.25px;-ms-letter-spacing:-0.25px;letter-spacing:-0.25px;color:#333;float:left;max-width:48%;margin:.6vw -8vw .7vw 3vw;-webkit-transform:translateX(-10vw);-ms-transform:translateX(-10vw);transform:translateX(-10vw);border-top:5px solid #000;}@media screen and (min-width:1200px){.leftCarving.jsx-3001128717{margin:.6vw -6.5vw .1vw 3vw;-webkit-transform:translateX(-8vw);-ms-transform:translateX(-8vw);transform:translateX(-8vw);border-top:5.5px solid #000;font-size:22px;line-height:26px;}}@media screen and (max-width:600px){.leftCarving.jsx-3001128717{border-top:4px solid #000;padding-top:7px;}}'
+      styleId: '2529587114',
+      css: '.leftCarving.jsx-2529587114{font-family:Atlas Grotesk;font-style:normal;font-weight:bold;font-size:1.8vw;line-height:2.1vw;padding-top:11px;padding-bottom:4.5px;-webkit-letter-spacing:-0.25px;-moz-letter-spacing:-0.25px;-ms-letter-spacing:-0.25px;letter-spacing:-0.25px;float:left;width:42%;margin:.6vw -8vw .7vw 3vw;-webkit-transform:translateX(-10vw);-ms-transform:translateX(-10vw);transform:translateX(-10vw);border-top:5px solid #000;}@media screen and (min-width:1200px){.leftCarving.jsx-2529587114{margin:.6vw -6.5vw .1vw 3vw;-webkit-transform:translateX(-8vw);-ms-transform:translateX(-8vw);transform:translateX(-8vw);border-top:5.5px solid #000;font-size:22px;line-height:26px;}}@media screen and (max-width:600px){.leftCarving.jsx-2529587114{border-top:4px solid #000;padding-top:7px;}}'
     })
   );
 };
@@ -289,48 +289,60 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref14) {
 var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref15) {
   var children = _ref15.children;
   return _react2.default.createElement(
-    'div',
-    {
-      className: 'jsx-2103604239' + ' ' + 'quoteBlock'
-    },
-    _react2.default.createElement('div', {
-      className: 'jsx-2103604239' + ' ' + 'backgroundBlock'
-    }),
-    _react2.default.createElement(
-      'p',
-      {
-        className: 'jsx-2103604239' + ' ' + 'quoteBlock__content'
-      },
-      _react2.default.createElement('div', { id: 'quoteBlock__content__border', className: 'jsx-2103604239'
-      }),
-      children
-    ),
-    _react2.default.createElement(_style2.default, {
-      styleId: '2103604239',
-      css: '.quoteBlock.jsx-2103604239{display:block;margin:auto;height:21.4vw;padding:5vw 0;}.quoteBlock.jsx-2103604239 .quoteBlock__content.jsx-2103604239{width:45vw;font-family:Atlas Grotesk;font-weight:600;font-size:2vw;line-height:2.2vw;position:relative;-webkit-transform:translateX(30%) translateY(92%);-ms-transform:translateX(30%) translateY(92%);transform:translateX(30%) translateY(92%);-webkit-letter-spacing:.02vw;-moz-letter-spacing:.02vw;-ms-letter-spacing:.02vw;letter-spacing:.02vw;display:inline-block;bottom:45%;}.backgroundBlock.jsx-2103604239{width:27vw;height:21.4vw;display:inline-block;position:absolute;background-color:#F2F2F2;}#quoteBlock__content__border.jsx-2103604239{border-top:solid 6px;width:21vw;padding-bottom:1.4vw;}@media screen and (min-width:1200px){#quoteBlock__content__border.jsx-2103604239{border-top:solid 7px;}}@media screen and (max-width:800px){#quoteBlock__content__border.jsx-2103604239{border-top:solid 4px;width:21vw;padding-bottom:1.4vw;}}'
-    })
+    _reactOnScreen2.default,
+    { once: true, partialVisibility: true,
+      style: { marginTop: 0 } },
+    function (_ref16) {
+      var isVisible = _ref16.isVisible;
+      return _react2.default.createElement(
+        'div',
+        {
+          style: {
+            marginTop: isVisible ? '0px' : '15px',
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.5s, margin-top 0.5s'
+          }, className: 'jsx-196117539' + ' ' + 'quoteBlock'
+        },
+        _react2.default.createElement('div', {
+          className: 'jsx-196117539' + ' ' + 'backgroundBlock'
+        }),
+        _react2.default.createElement(
+          'div',
+          {
+            className: 'jsx-196117539' + ' ' + 'quoteBlock__content'
+          },
+          _react2.default.createElement('div', { id: 'quoteBlock__content__border', className: 'jsx-196117539'
+          }),
+          children
+        ),
+        _react2.default.createElement(_style2.default, {
+          styleId: '196117539',
+          css: '.quoteBlock.jsx-196117539{display:block;margin:auto;height:21.4vw;padding:5vw 0;width:45vw;}.quoteBlock.jsx-196117539 .quoteBlock__content.jsx-196117539{width:45vw;font-family:Atlas Grotesk;font-weight:600;font-size:2vw;line-height:2.2vw;position:relative;-webkit-transform:translateX(30%);-ms-transform:translateX(30%);transform:translateX(30%);-webkit-letter-spacing:.02vw;-moz-letter-spacing:.02vw;-ms-letter-spacing:.02vw;letter-spacing:.02vw;display:inline-block;top:21%;}.backgroundBlock.jsx-196117539{width:27vw;height:21.4vw;display:inline-block;position:absolute;background-color:#F2F2F2;}#quoteBlock__content__border.jsx-196117539{border-top:solid 6px;width:21vw;padding-bottom:1.4vw;}@media screen and (min-width:1200px){#quoteBlock__content__border.jsx-196117539{border-top:solid 7px;}}@media screen and (max-width:800px){#quoteBlock__content__border.jsx-196117539{border-top:solid 4px;width:21vw;padding-bottom:1.4vw;}}'
+        })
+      );
+    }
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref16) {
-  var children = _ref16.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref17) {
+  var children = _ref17.children;
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-31815388' + ' ' + 'sidebar'
+      className: 'jsx-1148233928' + ' ' + 'sidebarquote'
     },
     _react2.default.createElement(
-      'p',
+      'div',
       {
-        className: 'jsx-31815388' + ' ' + 'sidebar__content'
+        className: 'jsx-1148233928' + ' ' + 'sidebarquote__content'
       },
-      _react2.default.createElement('div', { id: 'sidebar__content__border', className: 'jsx-31815388'
+      _react2.default.createElement('div', { id: 'sidebarquote__content__border', className: 'jsx-1148233928'
       }),
       children
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '31815388',
-      css: '.sidebar.jsx-31815388{display:inline-block;padding:0 21px 0 0;vertical-align:top;}.sidebar.jsx-31815388 #sidebar__content__border.jsx-31815388{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebar.jsx-31815388 #sidebar__content__border.jsx-31815388{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebar.jsx-31815388 .sidebar__content.jsx-31815388{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebar.jsx-31815388 .sidebar__content.jsx-31815388{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
+      styleId: '1148233928',
+      css: '.sidebarquote.jsx-1148233928{display:inline-block;padding:0 21px 0 0;vertical-align:top;}.sidebarquote.jsx-1148233928 #sidebarquote__content__border.jsx-1148233928{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebarquote.jsx-1148233928 #sidebarquote__content__border.jsx-1148233928{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebarquote.jsx-1148233928 .sidebarquote__content.jsx-1148233928{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebarquote.jsx-1148233928 .sidebarquote__content.jsx-1148233928{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
     })
   );
 };

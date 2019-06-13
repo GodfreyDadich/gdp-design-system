@@ -26,7 +26,6 @@ function loadStories() {
   require('../src/stories/Modals');
   require('../src/stories/Navigation');
   require('../src/stories/Parallax');
-  require('../src/stories/Pullquote');
   require('../src/stories/Select');
   require('../src/stories/Typography');
   require('../src/stories/Video');

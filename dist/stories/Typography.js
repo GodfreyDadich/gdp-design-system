@@ -411,7 +411,7 @@ var Typography = function Typography(props) {
       ),
       _react2.default.createElement(
         "div",
-        { style: { width: '70%', margin: 'auto' } },
+        null,
         _react2.default.createElement(
           _Type.QuoteBlock,
           null,
