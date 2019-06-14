@@ -323,9 +323,7 @@ export const LeftCarving = ({ children }) =>
         border-top: 4px solid #000;
         padding-top: 7px;
         }
-
-  }
-
+      }
 
   `}</style>
   </figure>
