@@ -143,36 +143,7 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-export const Pullquote = ({ classAdd, children }) =>
-  <TrackVisibility once style={{ marginTop: 0 }}>
-    {({ isVisible }) =>
-      <div
-        className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}
-        style={{
-          marginTop: isVisible ? '89px' : '104px',
-          opacity: isVisible ? 1 : 0,
-          transition: 'opacity 0.5s, margin-top 0.5s'
-        }}
-      >
-        {children}
-        <style jsx>{`
-          .pullQuote {
-            font-family: 'Atlas Grotesk';
-            font-weight: bold;
-            font-size: 2.34vw;
-            line-height: 1.06;         
-            letter-spacing: -0.3px;
-            text-align: center;
-            margin-bottom: 89px;
 
-            @media only screen and (max-width: 768px) {
-              font-size: 3.34vw;
-            }             
-          }
-        `}</style>
-      </div>
-    }
-  </TrackVisibility>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
@@ -324,7 +295,7 @@ export const LeftCarving = ({ children }) =>
     <div id='leftCarving__border' />
     {children}
     <style jsx>{`
-    .leftCarving {
+     .leftCarving {
       font-family: Atlas Grotesk;
       font-style: normal;
       font-weight: bold;
@@ -352,24 +323,33 @@ export const LeftCarving = ({ children }) =>
         border-top: 4px solid #000;
         padding-top: 7px;
         }
+      }
 
-  }
   `}</style>
   </figure>
 
 export const QuoteBlock = ({ children }) =>
-  <div className='quoteBlock' >
-    <div className='backgroundBlock' />
-    <p className='quoteBlock__content'>
-      <div id='quoteBlock__content__border' />
-      {children}
-    </p>
-    <style jsx>{`
+  <TrackVisibility once partialVisibility
+    style={{ marginTop: 0 }}>
+    {({ isVisible }) =>
+      <div className='quoteBlock'
+        style={{
+          marginTop: isVisible ? '0px' : '15px',
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.5s, margin-top 0.5s'
+        }} >
+        <div className='backgroundBlock' />
+        <div className='quoteBlock__content'>
+          <div id='quoteBlock__content__border' />
+          {children}
+        </div>
+        <style jsx>{`
     .quoteBlock {
       display: block;
       margin: auto;
       height: 21.4vw;
       padding: 5vw 0;
+      width: 45vw;
 
       .quoteBlock__content {
         width: 45vw;
@@ -378,10 +358,10 @@ export const QuoteBlock = ({ children }) =>
         font-size: 2vw;
         line-height: 2.2vw;
         position: relative;
-        transform: translateX(30%) translateY(92%);
+        transform: translateX(30%);
         letter-spacing: .02vw;
         display: inline-block;
-        bottom: 45%;
+        top: 21%;
       }
     }
     .backgroundBlock {
@@ -395,7 +375,6 @@ export const QuoteBlock = ({ children }) =>
       border-top: solid 6px;
       width: 21vw;
       padding-bottom: 1.4vw;
-
       @media screen and (min-width: 1200px) {
         border-top: solid 7px;
         }
@@ -407,22 +386,26 @@ export const QuoteBlock = ({ children }) =>
         }
     }
       `}</style>
-  </div>
+      </div>
+    }
+  </TrackVisibility>
 
 export const SidebarQuote = ({ children }) =>
-  <div className='sidebar'>
-    <p className='sidebar__content'>
-      <div id='sidebar__content__border'>
+  <div className='sidebarquote'>
+    <div className='sidebarquote__content'>
+      <div id='sidebarquote__content__border'>
       </div>
       {children}
-    </p>
+    </div>
     <style jsx>{`
-  .sidebar {
+  .sidebarquote {
     display: inline-block;
     padding: 0 21px 0 0;
     vertical-align: top;
+    transform: translateX(5vw) translateY(25vw);
 
-    #sidebar__content__border {
+
+    #sidebarquote__content__border {
       border-top: .5vw solid;
       width: 12.2vw;
       padding-bottom: 1vw;
@@ -433,7 +416,7 @@ export const SidebarQuote = ({ children }) =>
         padding-bottom: 17px;
         }
     }
-    .sidebar__content {
+    .sidebarquote__content {
       margin-top: 7px;
       width: 12.3vw;
       font-family: Atlas Grotesk;
