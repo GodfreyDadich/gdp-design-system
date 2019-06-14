@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Pullquote = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -122,37 +122,9 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   );
 };
 
-var Pullquote = exports.Pullquote = function Pullquote(_ref6) {
+var Caption = exports.Caption = function Caption(_ref6) {
   var classAdd = _ref6.classAdd,
       children = _ref6.children;
-  return _react2.default.createElement(
-    _reactOnScreen2.default,
-    { once: true, style: { marginTop: 0 } },
-    function (_ref7) {
-      var isVisible = _ref7.isVisible;
-      return _react2.default.createElement(
-        'div',
-        {
-          style: {
-            marginTop: isVisible ? '89px' : '104px',
-            opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.5s, margin-top 0.5s'
-          },
-          className: 'jsx-2013111602' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
-        },
-        children,
-        _react2.default.createElement(_style2.default, {
-          styleId: '2013111602',
-          css: '.pullQuote.jsx-2013111602{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}@media only screen and (max-width:768px){.pullQuote.jsx-2013111602{font-size:3.34vw;}}'
-        })
-      );
-    }
-  );
-};
-
-var Caption = exports.Caption = function Caption(_ref8) {
-  var classAdd = _ref8.classAdd,
-      children = _ref8.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -166,9 +138,9 @@ var Caption = exports.Caption = function Caption(_ref8) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref9) {
-  var classAdd = _ref9.classAdd,
-      children = _ref9.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref7) {
+  var classAdd = _ref7.classAdd,
+      children = _ref7.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -182,9 +154,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref9) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref10) {
-  var classAdd = _ref10.classAdd,
-      children = _ref10.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref8) {
+  var classAdd = _ref8.classAdd,
+      children = _ref8.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -198,9 +170,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref10) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref11) {
-  var classAdd = _ref11.classAdd,
-      children = _ref11.children;
+var CardContent = exports.CardContent = function CardContent(_ref9) {
+  var classAdd = _ref9.classAdd,
+      children = _ref9.children;
   return _react2.default.createElement(
     'p',
     {
@@ -209,9 +181,9 @@ var CardContent = exports.CardContent = function CardContent(_ref11) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref12) {
-  var sideBar = _ref12.sideBar,
-      isVisible = _ref12.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref10) {
+  var sideBar = _ref10.sideBar,
+      isVisible = _ref10.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -223,8 +195,8 @@ var SideBar = exports.SideBar = function SideBar(_ref12) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref13) {
-      var isVisible = _ref13.isVisible;
+    function (_ref11) {
+      var isVisible = _ref11.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -269,31 +241,31 @@ var SideBar = exports.SideBar = function SideBar(_ref12) {
   );
 };
 
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref14) {
-  var children = _ref14.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref12) {
+  var children = _ref12.children;
   return _react2.default.createElement(
     'figure',
     {
-      className: 'jsx-2529587114' + ' ' + 'leftCarving'
+      className: 'jsx-2719449831' + ' ' + 'leftCarving'
     },
-    _react2.default.createElement('div', { id: 'leftCarving__border', className: 'jsx-2529587114'
+    _react2.default.createElement('div', { id: 'leftCarving__border', className: 'jsx-2719449831'
     }),
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2529587114',
-      css: '.leftCarving.jsx-2529587114{font-family:Atlas Grotesk;font-style:normal;font-weight:bold;font-size:1.8vw;line-height:2.1vw;padding-top:11px;padding-bottom:4.5px;-webkit-letter-spacing:-0.25px;-moz-letter-spacing:-0.25px;-ms-letter-spacing:-0.25px;letter-spacing:-0.25px;float:left;width:42%;margin:.6vw -8vw .7vw 3vw;-webkit-transform:translateX(-10vw);-ms-transform:translateX(-10vw);transform:translateX(-10vw);border-top:5px solid #000;}@media screen and (min-width:1200px){.leftCarving.jsx-2529587114{margin:.6vw -6.5vw .1vw 3vw;-webkit-transform:translateX(-8vw);-ms-transform:translateX(-8vw);transform:translateX(-8vw);border-top:5.5px solid #000;font-size:22px;line-height:26px;}}@media screen and (max-width:600px){.leftCarving.jsx-2529587114{border-top:4px solid #000;padding-top:7px;}}'
+      styleId: '2719449831',
+      css: '.leftCarving.jsx-2719449831{-webkit-transform:translateX(9vw) translateY(15vw);-ms-transform:translateX(9vw) translateY(15vw);transform:translateX(9vw) translateY(15vw);font-family:Atlas Grotesk;font-style:normal;font-weight:bold;font-size:1.8vw;line-height:2.1vw;padding-top:11px;padding-bottom:4.5px;-webkit-letter-spacing:-0.25px;-moz-letter-spacing:-0.25px;-ms-letter-spacing:-0.25px;letter-spacing:-0.25px;float:left;width:21vw;margin:.6vw -8vw .7vw 3vw;-webkit-transform:translateX(-10vw);-ms-transform:translateX(-10vw);transform:translateX(-10vw);border-top:5px solid #000;}@media screen and (min-width:1200px){.leftCarving.jsx-2719449831{margin:.6vw -6.5vw .1vw 25vw;-webkit-transform:translateX(-8vw);-ms-transform:translateX(-8vw);transform:translateX(-8vw);border-top:5.5px solid #000;font-size:22px;line-height:26px;}}@media screen and (max-width:600px){.leftCarving.jsx-2719449831{border-top:4px solid #000;padding-top:7px;}}'
     })
   );
 };
 
-var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref15) {
-  var children = _ref15.children;
+var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref13) {
+  var children = _ref13.children;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
       style: { marginTop: 0 } },
-    function (_ref16) {
-      var isVisible = _ref16.isVisible;
+    function (_ref14) {
+      var isVisible = _ref14.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -324,25 +296,25 @@ var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref15) {
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref17) {
-  var children = _ref17.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
+  var children = _ref15.children;
   return _react2.default.createElement(
     'div',
     {
-      className: 'jsx-1148233928' + ' ' + 'sidebarquote'
+      className: 'jsx-2891326595' + ' ' + 'sidebarquote'
     },
     _react2.default.createElement(
       'div',
       {
-        className: 'jsx-1148233928' + ' ' + 'sidebarquote__content'
+        className: 'jsx-2891326595' + ' ' + 'sidebarquote__content'
       },
-      _react2.default.createElement('div', { id: 'sidebarquote__content__border', className: 'jsx-1148233928'
+      _react2.default.createElement('div', { id: 'sidebarquote__content__border', className: 'jsx-2891326595'
       }),
       children
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '1148233928',
-      css: '.sidebarquote.jsx-1148233928{display:inline-block;padding:0 21px 0 0;vertical-align:top;}.sidebarquote.jsx-1148233928 #sidebarquote__content__border.jsx-1148233928{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebarquote.jsx-1148233928 #sidebarquote__content__border.jsx-1148233928{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebarquote.jsx-1148233928 .sidebarquote__content.jsx-1148233928{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebarquote.jsx-1148233928 .sidebarquote__content.jsx-1148233928{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
+      styleId: '2891326595',
+      css: '.sidebarquote.jsx-2891326595{display:inline-block;padding:0 21px 0 0;vertical-align:top;-webkit-transform:translateX(5vw) translateY(25vw);-ms-transform:translateX(5vw) translateY(25vw);transform:translateX(5vw) translateY(25vw);}.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
     })
   );
 };

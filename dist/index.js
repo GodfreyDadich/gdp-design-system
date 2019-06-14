@@ -244,6 +244,15 @@ Object.defineProperty(exports, 'Loader', {
   }
 });
 
+var _NewPullquote = require('./components/NewPullquote');
+
+Object.defineProperty(exports, 'Pullquote', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_NewPullquote).default;
+  }
+});
+
 var _GilmoreMobile = require('./components/GilmoreMobile');
 
 Object.defineProperty(exports, 'GilmoreMobile', {

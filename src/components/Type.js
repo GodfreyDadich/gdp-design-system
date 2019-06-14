@@ -143,36 +143,7 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-export const Pullquote = ({ classAdd, children }) =>
-  <TrackVisibility once style={{ marginTop: 0 }}>
-    {({ isVisible }) =>
-      <div
-        className={`pullQuote${classAdd ? ' ' + classAdd : ''}`}
-        style={{
-          marginTop: isVisible ? '89px' : '104px',
-          opacity: isVisible ? 1 : 0,
-          transition: 'opacity 0.5s, margin-top 0.5s'
-        }}
-      >
-        {children}
-        <style jsx>{`
-          .pullQuote {
-            font-family: 'Atlas Grotesk';
-            font-weight: bold;
-            font-size: 2.34vw;
-            line-height: 1.06;         
-            letter-spacing: -0.3px;
-            text-align: center;
-            margin-bottom: 89px;
 
-            @media only screen and (max-width: 768px) {
-              font-size: 3.34vw;
-            }             
-          }
-        `}</style>
-      </div>
-    }
-  </TrackVisibility>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
@@ -324,7 +295,7 @@ export const LeftCarving = ({ children }) =>
     <div id='leftCarving__border' />
     {children}
     <style jsx>{`
-    .leftCarving {
+     .leftCarving {
       font-family: Atlas Grotesk;
       font-style: normal;
       font-weight: bold;
@@ -333,12 +304,12 @@ export const LeftCarving = ({ children }) =>
       padding-top: 11px;
       padding-bottom: 4.5px;
       letter-spacing: -0.25px;
+      color: #333;
       float: left;
-      width: 42%;
+      max-width: 48%;
       margin: .6vw -8vw .7vw 3vw;
       transform: translateX(-10vw);
       border-top: 5px solid #000;
-      // background-color: blue;
       
       @media screen and (min-width: 1200px) {
         margin: .6vw -6.5vw .1vw 3vw;
@@ -354,6 +325,8 @@ export const LeftCarving = ({ children }) =>
         }
 
   }
+
+
   `}</style>
   </figure>
 
@@ -431,6 +404,8 @@ export const SidebarQuote = ({ children }) =>
     display: inline-block;
     padding: 0 21px 0 0;
     vertical-align: top;
+    transform: translateX(5vw) translateY(25vw);
+
 
     #sidebarquote__content__border {
       border-top: .5vw solid;
