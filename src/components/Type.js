@@ -310,6 +310,8 @@ export const LeftCarving = ({ children }) =>
       margin: .9vw -14vw .7vw 3vw;
       transform: translateX(-16vw);
       border-top: 5px solid #000;
+      }
+
   `}</style>
   </figure>
 
