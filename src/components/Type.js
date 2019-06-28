@@ -306,23 +306,23 @@ export const LeftCarving = ({ children }) =>
       letter-spacing: -0.25px;
       color: #333;
       float: left;
-      max-width: 48%;
-      margin: .6vw -8vw .7vw 3vw;
-      transform: translateX(-10vw);
+      max-width: 50%;
+      margin: .9vw -14vw .7vw 3vw;
+      transform: translateX(-16vw);
       border-top: 5px solid #000;
       
-      @media screen and (min-width: 1200px) {
-        margin: .6vw -6.5vw .1vw 3vw;
-        transform: translateX(-8vw);
-        border-top: 5.5px solid #000;
-        font-size: 22px;
-        line-height: 26px;
-        }
+      // @media screen and (min-width: 1200px) {
+      //   margin: .6vw -6.5vw .1vw 3vw;
+      //   transform: translateX(-8vw);
+      //   border-top: 5.5px solid #000;
+      //   font-size: 22px;
+      //   line-height: 26px;
+      //   }
 
-      @media screen and (max-width: 600px) {
-        border-top: 4px solid #000;
-        padding-top: 7px;
-        }
+      // @media screen and (max-width: 600px) {
+      //   border-top: 4px solid #000;
+      //   padding-top: 7px;
+      //   }
       }
 
   `}</style>

@@ -180,7 +180,7 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>Left Carving</small></div>
-      <div style={{ width: '50%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' }}>
+      <div style={{ width: '65%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' }}>
         <LeftCarving>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </LeftCarving>
