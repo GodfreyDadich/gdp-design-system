@@ -81,7 +81,6 @@ var Pullquote = function Pullquote(_ref) {
                   className: 'jsx-442711174' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
                 },
                 children,
-                pqOptions,
                 _react2.default.createElement(_style2.default, {
                   styleId: '442711174',
                   css: '.pullQuote.jsx-442711174{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}@media only screen and (max-width:768px){.pullQuote.jsx-442711174{font-size:3.34vw;}}'
