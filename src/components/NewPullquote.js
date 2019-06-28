@@ -78,7 +78,7 @@ const Pullquote = ({ classAdd, pqOptions, children }) => {
                   transition: 'opacity 0.5s, margin-top 0.5s'
                 }}
               >
-                {children}{pqOptions}
+                {children}
                 <style jsx>{`
         .pullQuote {
             font-family: 'Atlas Grotesk';
