@@ -126,7 +126,7 @@ export default class RevealCarousel extends Component {
             position: 'relative',
             height: '100%',
             width: '100%',
-            // overflow: 'hidden',
+            overflow: 'hidden',
             touchAction: 'pan-y',
             userSelect: 'none',
             paddingTop: getPaddingTop(this.props.aspectRatio)
