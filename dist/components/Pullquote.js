@@ -26,7 +26,7 @@ var Pullquote = function Pullquote(_ref) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { style: { marginTop: '0' } },
     function () {
       switch (pqOptions) {
         case 'quote-block':
