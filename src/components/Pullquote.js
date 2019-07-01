@@ -3,7 +3,7 @@ import TrackVisibility from 'react-on-screen'
 
 const Pullquote = ({ classAdd, pqOptions, children }) => {
 
-  return (<div>
+  return (<div style={{marginTop: '0'}}>
     {(() => {
       switch (pqOptions) {
         case 'quote-block':
