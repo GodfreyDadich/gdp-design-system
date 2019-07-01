@@ -3,6 +3,13 @@ import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 
+const widthObj = {
+  sixteen: '50%',
+  standard: '100%',
+  cropped: '40%',
+  square: '90%'
+}
+
 export default class CircularCarousel extends Component {
   constructor (props) {
     super(props)
@@ -20,6 +27,7 @@ export default class CircularCarousel extends Component {
     this.hoverTeasePrev = this.hoverTeasePrev.bind(this)
     this.hoverTeaseNext = this.hoverTeaseNext.bind(this)
     this.hoverTeaseReset = this.hoverTeaseReset.bind(this)
+
   }
 
   goToPrevSlide () {
@@ -138,7 +146,7 @@ export default class CircularCarousel extends Component {
             overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: '75%',
+            paddingTop: getPaddingTop(aspectRatio),
             backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
@@ -168,13 +176,13 @@ export default class CircularCarousel extends Component {
                   key={`carouselImage${i}`}
                   style={Object.assign({
                     display: 'block',
-                    width: '70%',
+                    width: widthObj[aspectRatio],
                     verticalAlign: 'middle',
                     position: 'absolute',
                     transform: 'translateX(-50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
-                    top: '17%',
+                    top: '16%',
                     left: '50%'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
