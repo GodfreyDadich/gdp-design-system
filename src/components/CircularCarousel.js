@@ -89,21 +89,21 @@ export default class CircularCarousel extends Component {
           opacity: '1',
           zIndex: this.state.direction === 'prev' ? '9' : '8',
           transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)',
+          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateZ(0) scale(0.75, 0.75)',
         }
       case next :
         return {
           opacity: '1',
           zIndex: this.state.direction === 'next' ? '9' : '8',
           transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)',
+          transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateZ(0) scale(0.75, 0.75)',
         }
       case last :
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
-          transform: this.state.direction === 'prev' ? 'translateX(200%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-100%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(100%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-200%) translateZ(0) scale(0.5, 0.5)'
         }
       default :
         return {
@@ -138,7 +138,7 @@ export default class CircularCarousel extends Component {
             overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: getPaddingTop(aspectRatio),
+            paddingTop: '75%',
             backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
@@ -168,13 +168,14 @@ export default class CircularCarousel extends Component {
                   key={`carouselImage${i}`}
                   style={Object.assign({
                     display: 'block',
-                    width: '50%',
+                    width: '70%',
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(50%)',
+                    transform: 'translateX(-50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
-                    top: '15%'
+                    top: '17%',
+                    left: '50%'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
                 </div>
