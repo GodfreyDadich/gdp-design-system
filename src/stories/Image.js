@@ -160,7 +160,7 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
-        aspectRatio='sixteen'
+        aspectRatio='standard'
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       >
         <Device classAdd='test' deviceColor={selectV2('Device Color', {

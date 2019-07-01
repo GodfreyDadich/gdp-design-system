@@ -5,7 +5,7 @@ import { getPaddingTop } from '../utils/aspectRatio'
 
 const widthObj = {
   sixteen: '50%',
-  standard: '100%',
+  standard: '70%',
   cropped: '40%',
   square: '90%'
 }
@@ -27,7 +27,6 @@ export default class CircularCarousel extends Component {
     this.hoverTeasePrev = this.hoverTeasePrev.bind(this)
     this.hoverTeaseNext = this.hoverTeaseNext.bind(this)
     this.hoverTeaseReset = this.hoverTeaseReset.bind(this)
-
   }
 
   goToPrevSlide () {
