@@ -27,6 +27,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var widthObj = {
+  sixteen: '50%',
+  standard: '70%',
+  cropped: '40%',
+  square: '82%'
+};
+
 var CircularCarousel = function (_Component) {
   _inherits(CircularCarousel, _Component);
 
@@ -135,28 +142,28 @@ var CircularCarousel = function (_Component) {
             opacity: '1',
             zIndex: this.state.direction === 'prev' ? '9' : '8',
             transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-165%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             opacity: '1',
             zIndex: this.state.direction === 'next' ? '9' : '8',
             transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(60%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(65%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case last:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(200%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-100%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(200%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-300%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(275%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
@@ -225,13 +232,14 @@ var CircularCarousel = function (_Component) {
                   key: 'carouselImage' + i,
                   style: _extends({
                     display: 'block',
-                    width: '50%',
+                    width: widthObj[aspectRatio],
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(50%)',
+                    transform: 'translateX(-50%) translateY(-50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
-                    top: '15%'
+                    top: '50%',
+                    left: '50%'
                   }, _this4.getCarouselStyle(i)) },
                 _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
               );

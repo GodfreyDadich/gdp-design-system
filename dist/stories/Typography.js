@@ -16,9 +16,9 @@ var _typography = require("../styles/typography");
 
 var _typography2 = require("../utils/typography");
 
-var _NewPullquote = require("../components/NewPullquote");
+var _Pullquote = require("../components/Pullquote");
 
-var _NewPullquote2 = _interopRequireDefault(_NewPullquote);
+var _Pullquote2 = _interopRequireDefault(_Pullquote);
 
 var _Type = require("../components/Type");
 
@@ -303,7 +303,7 @@ var Typography = function Typography(props) {
         )
       ),
       _react2.default.createElement(
-        _NewPullquote2.default,
+        _Pullquote2.default,
         { classAdd: "testadd" },
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum."
       )
