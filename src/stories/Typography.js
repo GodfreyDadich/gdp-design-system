@@ -34,7 +34,7 @@ import {
   textUppercase,
 } from "../utils/typography";
 
-import Pullquote from '../components/NewPullquote'
+import Pullquote from '../components/Pullquote'
 
 import {
   HeadingSuper,

@@ -3,7 +3,7 @@ import TrackVisibility from 'react-on-screen'
 
 const Pullquote = ({ classAdd, pqOptions, children }) => {
 
-  return (<div>
+  return (<div style={{marginTop: '0'}}>
     {(() => {
       switch (pqOptions) {
         case 'quote-block':
@@ -78,7 +78,7 @@ const Pullquote = ({ classAdd, pqOptions, children }) => {
                   transition: 'opacity 0.5s, margin-top 0.5s'
                 }}
               >
-                {children}{pqOptions}
+                {children}
                 <style jsx>{`
         .pullQuote {
             font-family: 'Atlas Grotesk';
