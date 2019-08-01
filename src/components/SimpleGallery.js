@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
+import { isMobile } from 'react-device-detect'
 
 const SimpleGallery = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [translateValue, setTranslateValue] = useState(0)
+  const [xDown, setXDown] = useState(null)
+  const [yDown, setYDown] = useState(null)
 
   const goToPrevSlide = () => {
     const nextIndex = currentIndex === 0
@@ -29,6 +32,36 @@ const SimpleGallery = ({ images }) => {
     setTranslateValue(nextTranslateValue)
   }
 
+
+  const getTouches = (e) => {
+    return e.touches || // browser API
+      e.originalEvent.touches // jQuery
+  }
+
+  const handleTouchStart = (e) => {
+    e.preventDefault()
+    const firstTouch = getTouches(e)[0]
+    setXDown(firstTouch.clientX)
+    setYDown(firstTouch.clientY)
+  }
+
+  const handleTouchMove = (e)=> {
+    e.preventDefault()
+    if (!xDown || !yDown) { return }
+    const xLeft = e.touches[0].clientX
+    const xDiff = xDown - xLeft
+    const direction = (xDiff > 0) ? 'right' : 'left'
+    if (direction === 'right') {
+      goToNextSlide()
+    } else {
+      goToPrevSlide()
+    }
+
+    /* reset values */
+    setXDown(null)
+    setXDown(null)
+  }
+
   const handleKeyDown = e => {
     if (e.keyCode === 39) {
       goToNextSlide()
@@ -39,11 +72,20 @@ const SimpleGallery = ({ images }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [currentIndex])
+    if (isMobile) {
+        window.addEventListener('touchstart', handleTouchStart, { passive: false })
+        window.addEventListener('touchmove', handleTouchMove, { passive: false })
+        return () => {
+          window.removeEventListener('touchstart', handleTouchStart, { passive: false })
+          window.removeEventListener('touchmove', handleTouchMove, { passive: false })
+          }
+    } else {
+        window.addEventListener('keydown', handleKeyDown)
+        return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+        }
+      }
+    }, [currentIndex, xDown, yDown])
 
   return <div className='slider'>
     <div className='slider-wrapper'

@@ -21,8 +21,8 @@ const imageGallery = [
 ]
 
 const imageGallery2 = [
-  'https://d36aj1cv2i74vd.cloudfront.net/attachments/cjpde7csq0038ryawid3y9hod-marden-type-texture.jpg',
-  'https://d36aj1cv2i74vd.cloudfront.net/attachments/cjpde7vfa003iryawvv3kaofe-earle-type-texture.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70',
   'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70',
   'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg',
@@ -32,8 +32,8 @@ const imageGallery2 = [
 const imageGallery3 = [
   'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
   'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjo94liox0034qaaw1zlym28m-img-0037-placeholder.jpg',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjo94oizp003zqaaw35bkwfer-group2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
   'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'
 ]
 
