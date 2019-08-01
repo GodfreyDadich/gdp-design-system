@@ -23,8 +23,8 @@ var RightArrow = exports.RightArrow = function RightArrow(props) {
       style: {
         position: 'absolute',
         top: '0',
-        right: '0',
-        width: '50%',
+        left: '50%',
+        width: '50vw',
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',
@@ -51,8 +51,8 @@ var LeftArrow = exports.LeftArrow = function LeftArrow(props) {
       style: {
         position: 'absolute',
         top: '0',
-        left: '0',
-        width: '50%',
+        right: '50%',
+        width: '50vw',
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',

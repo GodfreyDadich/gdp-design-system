@@ -56,14 +56,16 @@ var ImageWrap = function (_React$Component) {
           verticalAlign = _props.verticalAlign,
           sideBar = _props.sideBar,
           isVisible = _props.isVisible,
+          visibilityOverride = _props.visibilityOverride,
           skipIntro = _props.skipIntro,
           backgroundSize = _props.backgroundSize;
 
+      var showImage = visibilityOverride ? true : isVisible;
       return _react2.default.createElement(
         'div',
         { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
           style: {
-            backgroundImage: '' + (aspectRatio !== 'noAspect' && isVisible ? 'url(\'' + imgSource + '\')' : ''),
+            backgroundImage: '' + (aspectRatio !== 'noAspect' && showImage ? 'url(\'' + imgSource + '\')' : ''),
             backgroundSize: backgroundSize || 'cover',
             backgroundPositionX: horizontalAlign,
             backgroundPositionY: verticalAlign,
@@ -72,13 +74,13 @@ var ImageWrap = function (_React$Component) {
             height: 'auto',
             overflow: '' + (!sideBar ? 'hidden' : 'visible'),
             paddingTop: paddingRef[aspectRatio],
-            opacity: isVisible ? 1 : 0,
-            top: isVisible || skipIntro ? '0px' : '15px',
+            opacity: showImage ? 1 : 0,
+            top: showImage || skipIntro ? '0px' : '15px',
             transition: 'opacity 0.5s, top 0.5s',
             transitionDelay: '1s'
           }
         },
-        isVisible ? _react2.default.cloneElement(children) : ''
+        showImage ? _react2.default.cloneElement(children) : ''
       );
     }
   }]);

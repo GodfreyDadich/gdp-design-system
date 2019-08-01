@@ -191,7 +191,7 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
     _react2.default.createElement(
       _CircularCarousel2.default,
       {
-        aspectRatio: 'sixteen',
+        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
         caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
       },
       _react2.default.createElement(
