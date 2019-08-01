@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
+import { isMobile } from 'react-device-detect'
 
 export default class CircularCarousel extends Component {
   constructor (props) {
@@ -20,6 +21,8 @@ export default class CircularCarousel extends Component {
     this.hoverTeasePrev = this.hoverTeasePrev.bind(this)
     this.hoverTeaseNext = this.hoverTeaseNext.bind(this)
     this.hoverTeaseReset = this.hoverTeaseReset.bind(this)
+    this.handleTouchMove = this.handleTouchMove.bind(this)
+    this.handleTouchStart = this.handleTouchStart.bind(this)
   }
 
   goToPrevSlide () {
@@ -53,8 +56,55 @@ export default class CircularCarousel extends Component {
     }
   }
 
+  getTouches (e) {
+    return e.touches || // browser API
+           e.originalEvent.touches // jQuery
+  }
+
+  handleTouchStart (e) {
+    e.preventDefault()
+    const firstTouch = this.getTouches(e)[0]
+    this.xDown = firstTouch.clientX
+    this.yDown = firstTouch.clientY
+  }
+
+  handleTouchMove (e) {
+    e.preventDefault()
+    if (!this.xDown || !this.yDown) { return }
+    const xLeft = e.touches[0].clientX
+    const xDiff = this.xDown - xLeft
+    const direction = (xDiff > 0) ? 'right' : 'left'
+    if (direction === 'right') {
+      this.goToNextSlide()
+    } else {
+      this.goToPrevSlide()
+    }
+
+    /* reset values */
+    this.xDown = null
+    this.yDown = null
+  }
+
   componentDidMount () {
-    document.addEventListener('keydown', this.handleKeyDown, false)
+    if (isMobile) {
+      document.addEventListener('touchstart', this.handleTouchStart, { passive: false })
+      document.addEventListener('touchmove', this.handleTouchMove, { passive: false })
+    } else {
+      document.addEventListener('keydown', this.handleKeyDown, false)
+    }
+  }
+
+  componentWillUnmount () {
+    this.killListeners()
+  }
+
+  killListeners () {
+    if (isMobile) {
+      document.removeEventListener('touchstart', this.handleTouchStart)
+      document.removeEventListener('touchmove', this.handleTouchMove)
+    } else {
+      document.removeEventListener('keydown', this.handleKeyDown)
+    }
   }
 
   hoverTeasePrev () {
