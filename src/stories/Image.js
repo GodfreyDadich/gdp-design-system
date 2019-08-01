@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, boolean, select, selectV2 } from '@storybook/addon-knobs';
+import { text, boolean, select, selectV2, number } from '@storybook/addon-knobs';
 import Image from '../components/Image'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
@@ -10,6 +10,7 @@ import Colors from './Colors'
 import Typography from './Typography' 
 import Video from '../components/Video'
 import Device from '../components/Device'
+import Museum from '../components/Museum'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -18,6 +19,87 @@ const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
 ]
+
+const imageGallery2 = [
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70',
+  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg',
+  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96om2004avnaw5dsea3ig-ng-2.jpg'
+]
+
+const imageGallery3 = [
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
+  'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'
+]
+
+const galleries = [
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery2
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery3
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery2
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery3
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery2
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery3
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery2
+  },
+  {
+    name: '',
+    thumb: '',
+    images: imageGallery3
+  },  
+]
+
 storiesOf('Styles', module)
   .add(
     'Colors',
@@ -254,3 +336,7 @@ storiesOf('Image', module)
       </CircularCarousel>
     </div>
   )
+  .add(
+    'Museum ( Gallery of Galleries )',
+      () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
+
