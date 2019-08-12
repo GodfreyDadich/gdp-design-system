@@ -342,5 +342,5 @@ storiesOf('Image', module)
       () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
   .add(
     'Grid Gallery',
-      () => <GridGallery images={imageGallery2} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
+      () => <GridGallery images={imageGallery2} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'noAspect')} />)
 

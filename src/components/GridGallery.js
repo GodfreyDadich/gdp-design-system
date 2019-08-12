@@ -29,7 +29,7 @@ const GridGallery = ({ images, columns, thumbAspect }) => {
       images.map((image, index) =>
         <div onClick={e => displayGallery(index)} style={thumbStyles} key={`galleryThumb-${index}`}>
           <Image
-            aspectRatio={thumbAspect || 'sixteen'}
+            aspectRatio={thumbAspect || 'noAspect'}
             skipIntro
             imgSource={image}
           />
