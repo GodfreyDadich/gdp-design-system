@@ -11,6 +11,7 @@ import Typography from './Typography'
 import Video from '../components/Video'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
+import GridGallery from '../components/GridGallery';
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -25,8 +26,8 @@ const imageGallery2 = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70',
   'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96om2004avnaw5dsea3ig-ng-2.jpg'
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg'
 ]
 
 const imageGallery3 = [
@@ -339,4 +340,7 @@ storiesOf('Image', module)
   .add(
     'Museum ( Gallery of Galleries )',
       () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
+  .add(
+    'Grid Gallery',
+      () => <GridGallery images={imageGallery2} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
 

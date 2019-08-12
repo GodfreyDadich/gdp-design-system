@@ -41,6 +41,7 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  SubHead,
   Pullquote,
   LeftCarving,
   QuoteBlock,
@@ -87,6 +88,13 @@ const Typography = props =>
     <div>
       <div style={styles.smallText}><small>Heading 4 ({fontSizeHeading4})</small></div>
       <Heading4>Top experiences in Asia</Heading4>
+    </div>
+
+    <br /><br />
+
+    <div>
+      <div style={styles.smallText}><small>SubHead ({fontSizeHeading4})</small></div>
+      <SubHead>Top experiences in Asia</SubHead>
     </div>
 
     <br /><br />
