@@ -24,6 +24,7 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
   }
 
   return <div className='grid-container'>
+    {carousel ? <div className='expand'>Click to expand</div> : ''}
     {
       images.map((image, index) =>
         <div className={`${carousel ?  'grid-image' : ''}`} onClick={carousel ? e => displayGallery(index) : ''} style={thumbStyles} key={`galleryThumb-${index}`}>
@@ -44,6 +45,14 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
         : ''
     }
     <style jsx>{`
+    .expand {
+      font-family: Atlas Grotesk;
+      color: #a8a9ae;
+      position: absolute;
+      top: 2vw;
+      left: 2vw;
+      font-size: 12px;
+    }
       .grid-container {
         background: rgb(242,242,242);
         flex-direction: row;
