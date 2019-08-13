@@ -102,7 +102,7 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
-      <WiredType>WIRED</WiredType>
+      <WiredType>wired</WiredType>
     </div>
 
     <br /><br />

@@ -169,21 +169,20 @@ export const SubHead = ({ children, style, className }) =>
 </h4>
 
 export const WiredType = ({ children, style, className }) =>
-<h4
+<span
   style={Object.assign({
-    fontFamily: 'Atlas Grotesk',
-    fontWeight: 'bold',
-    marginTop: 0,
-    marginBottom: 0
+    fontFamily: 'Noe Text'
   }, style)}
-  className={`heading4 ${className}`}
+  className={`wiredtype ${className}`}
 >
   {children}
   <style jsx>{`
-    .heading4 {
+    .wiredtype {
       font-size: 22px;
       line-height: 1;
-      color: #7F7F7F;
+      color: #000;
+      font-variant: small-caps;
+      letter-spacing: .5px;
       
       @media only screen and (max-width: 768px) {
         font-size: 19px;
@@ -191,7 +190,7 @@ export const WiredType = ({ children, style, className }) =>
       }                  
     }
   `}</style>
-</h4>
+</span>
 
 export const Pullquote = ({ classAdd, children }) =>
   <TrackVisibility once style={{ marginTop: 0 }}>
