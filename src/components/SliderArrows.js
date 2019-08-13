@@ -88,11 +88,11 @@ export const AltRightArrow = props => {
           transform: rotate(-45deg);  
         }
         .right-arrow-body{
-          height: 18px;
+          height: 16px;
           width: 1px;
           background-color: black;
           margin-right: 1px;
-          transform: translate(-5px,-15.58px) rotate(-90deg);
+          transform: translate(-4px,-14.58px) rotate(-90deg);
         }
   `}</style>
     </div>
@@ -136,11 +136,11 @@ export const AltLeftArrow = props => {
           transform: rotate(135deg);  
         }
         .left-arrow-body{
-          height: 18px;
+          height: 16px;
           width: 1px;
           background-color: black;
           margin-left: 1px;
-          transform: translate(8px,-15.58px) rotate(90deg);
+          transform: translate(7px,-14.58px) rotate(90deg);
         }
     `}</style>
     </div>
