@@ -45,25 +45,25 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
         : ''
     }
     <style jsx>{`
-    .expand {
-      font-family: Atlas Grotesk;
-      color: #a8a9ae;
-      position: absolute;
-      top: 1.8vw;
-      left: 1.8vw;
-      font-weight: 400;
-      font-size: 10px;
-    }
-    .expand::before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2216%22%20fill%3D%22%23787878%22/%3E%3Cpath%20d%3D%22M24.5%208a.5.5%200%200%200-.5-.5h-4.5a.5.5%200%200%200%200%201h4v4a.5.5%200%200%200%201%200V8zm-6.146%206.354l6-6-.708-.708-6%206%20.708.708zM7.5%2024a.5.5%200%200%200%20.5.5h4.5a.5.5%200%200%200%200-1h-4v-4a.5.5%200%200%200-1%200V24zm6.146-6.354l-6%206%20.708.708%206-6-.708-.708z%22%20fill%3D%22%23D8D8D8%22/%3E%3C/svg%3E');
-    }
-    .expand-indicator {
-      margin-left: 8px;
-      position: absolute;
-      width: 10vw;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+      .expand {
+        font-family: Atlas Grotesk;
+        color: #7F7F7F;
+        position: absolute;
+        top: 1.8vw;
+        left: 1.8vw;
+        font-weight: 100;
+        font-size: 10px;
+      }
+      .expand::before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
+      }
+      .expand-indicator {
+        margin-left: 8px;
+        position: absolute;
+        width: 10vw;
+        top: 50%;
+        transform: translateY(-50%);
+      }
       .grid-container {
         background: rgb(242,242,242);
         flex-direction: row;
@@ -84,6 +84,7 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
         z-index: 1000;
       }
       .modalTouchArea {
+        cursor: pointer;
         position: absolute;
         top: 30px;
         right: 30px;

@@ -110,7 +110,7 @@ const SimpleGallery = ({ images }) => {
               position: 'relative',
               margin: '0 auto',
               opacity: currentIndex === i ? 1 : .5,
-              transform: currentIndex === i ? 'scale(1)' : 'scale(.9)',
+              // transform: currentIndex === i ? 'scale(1)' : 'scale(.9)',
               transition: 'opacity .3s, transform .3s'
             }}
             src={image}
