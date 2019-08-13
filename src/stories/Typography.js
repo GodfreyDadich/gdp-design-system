@@ -101,13 +101,6 @@ const Typography = props =>
     <br /><br />
 
     <div>
-      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
-      <WiredType>wired</WiredType>
-    </div>
-
-    <br /><br />
-
-    <div>
       <div style={styles.smallText}><small>Heading 5 ({fontSizeHeading5})</small></div>
       <div style={textHeading5()}>Top experiences in Asia</div>
     </div>
@@ -152,6 +145,14 @@ const Typography = props =>
         enim ut metus feugiat, vitae pharetra massa aliquet.
         </div>
     </div>
+
+    <br /><br />
+
+    <div>
+      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
+      <WiredType>wired</WiredType>
+    </div>
+
 
     <br /><br />
 

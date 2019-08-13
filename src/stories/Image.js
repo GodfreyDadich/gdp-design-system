@@ -337,9 +337,9 @@ storiesOf('Image', module)
     </div>
   )
   .add(
-    'Museum ( Gallery of Galleries )',
+    'Museum (Gallery of Galleries)',
       () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
   .add(
-    'Grid Gallery',
+    'Grid Gallery (Mosaic)',
       () => <GridGallery images={imageGallery2} carousel={boolean('carousel', false)} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'noAspect')} />)
 

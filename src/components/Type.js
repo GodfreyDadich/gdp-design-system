@@ -151,20 +151,33 @@ export const SubHead = ({ children, style, className }) =>
     marginTop: 0,
     marginBottom: 0
   }, style)}
-  className={`heading4 ${className}`}
+  className={`subhead ${className}`}
 >
   {children}
   <style jsx>{`
-    .heading4 {
-      font-size: 22px;
-      line-height: 1;
-      color: #7F7F7F;
-      
-      @media only screen and (max-width: 768px) {
-        font-size: 19px;
-        line-height: 22px;
-      }                  
+   .subhead {
+    margin-top: 30px !important;
+    font-family: 'Atlas Grotesk';
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.29px;
+    letter-spacing: -0.18px;          
+    color: #7F7F7F;
+
+    .subtitle {
+      color: #333;
     }
+    & > * {
+      display: inline-block;
+    }
+    strong {
+      @media only screen and (max-width: 1024px) {
+        font-size: 20px;
+      }
+    } 
+  }
   `}</style>
 </h4>
 
