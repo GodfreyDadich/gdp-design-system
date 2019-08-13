@@ -42,6 +42,7 @@ import {
   Heading3,
   Heading4,
   SubHead,
+  WiredType,
   Pullquote,
   LeftCarving,
   QuoteBlock,
@@ -95,6 +96,13 @@ const Typography = props =>
     <div>
       <div style={styles.smallText}><small>SubHead ({fontSizeHeading4})</small></div>
       <SubHead>Top experiences in Asia</SubHead>
+    </div>
+
+    <br /><br />
+
+    <div>
+      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
+      <WiredType>WIRED</WiredType>
     </div>
 
     <br /><br />

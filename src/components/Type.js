@@ -168,6 +168,31 @@ export const SubHead = ({ children, style, className }) =>
   `}</style>
 </h4>
 
+export const WiredType = ({ children, style, className }) =>
+<h4
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 'bold',
+    marginTop: 0,
+    marginBottom: 0
+  }, style)}
+  className={`heading4 ${className}`}
+>
+  {children}
+  <style jsx>{`
+    .heading4 {
+      font-size: 22px;
+      line-height: 1;
+      color: #7F7F7F;
+      
+      @media only screen and (max-width: 768px) {
+        font-size: 19px;
+        line-height: 22px;
+      }                  
+    }
+  `}</style>
+</h4>
+
 export const Pullquote = ({ classAdd, children }) =>
   <TrackVisibility once style={{ marginTop: 0 }}>
     {({ isVisible }) =>

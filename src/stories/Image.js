@@ -176,7 +176,6 @@ storiesOf('Image', module)
     /></div>
   )
 
-
   .add('Device Image', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
       <Device classAdd='test' deviceColor={selectV2('Device Color', {
@@ -342,5 +341,5 @@ storiesOf('Image', module)
       () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
   .add(
     'Grid Gallery',
-      () => <GridGallery images={imageGallery2} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'noAspect')} />)
+      () => <GridGallery images={imageGallery2} carousel={boolean('carousel', false)} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'noAspect')} />)
 
