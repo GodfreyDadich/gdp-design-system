@@ -178,16 +178,11 @@ export const WiredType = ({ children, style, className }) =>
   {children}
   <style jsx>{`
     .wiredtype {
-      font-size: 22px;
-      line-height: 1;
-      color: #000;
+      font-size: 19px;
+      line-height: 1.42;
+      color: #333;
       font-variant: small-caps;
-      letter-spacing: .5px;
-      
-      @media only screen and (max-width: 768px) {
-        font-size: 19px;
-        line-height: 22px;
-      }                  
+      letter-spacing: .5px;                
     }
   `}</style>
 </span>
