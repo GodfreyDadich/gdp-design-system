@@ -45,12 +45,20 @@ const Museum = ({ galleries, columns, thumbAspect }) => {
         : ''
     }
     <style jsx>{`
+    .museum-container {
+      background: rgb(242,242,242);
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // display:flex;
+      padding: 9.5vw 8.9vw;
+    }
       .modal {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
+        // background: rgba(255, 255, 255, 0.9);
         background: rgba(0, 0, 0, 0.9);
         z-index: 1000;
       }

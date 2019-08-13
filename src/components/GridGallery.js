@@ -80,7 +80,7 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 1);
         z-index: 1000;
       }
       .modalTouchArea {

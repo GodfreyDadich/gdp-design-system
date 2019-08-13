@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { RightArrow, LeftArrow } from './SliderArrows'
+import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
 const GalleryView = ({ images, index }) => {
@@ -108,8 +108,8 @@ const GalleryView = ({ images, index }) => {
                             backgroundColor: '#f2f2f2',
                             position: 'relative',
                             margin: '0 auto',
-                            opacity: currentIndex === i ? 1 : .5,
-                            transform: currentIndex === i ? 'scale(1)' : 'scale(.9)',
+                            opacity: currentIndex === i ? 1 : .3,
+                            // transform: currentIndex === i ? 'scale(1)' : 'scale(.9)',
                             transition: 'opacity .3s, transform .3s'
                         }}
                         src={image}
@@ -118,19 +118,19 @@ const GalleryView = ({ images, index }) => {
                 ))
             }
         </div>
-        <LeftArrow
+        <AltLeftArrow
             clickAction={goToPrevSlide}
             style={{
                 width: '10%',
                 left: '-10%'
             }}
         />
-        <RightArrow
+        <AltRightArrow
             clickAction={goToNextSlide}
-            style={{
-                width: '10%',
-                right: '-10%'
-            }}
+            // style={{
+            //     width: '10%',
+            //     right: '-10%'
+            // }}
         />
         <style jsx>{`
     .slider {

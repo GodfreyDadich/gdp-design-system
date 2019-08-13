@@ -8,7 +8,7 @@ export const RightArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{ 
+      style={{
         position: 'absolute',
         top: '0',
         right: '0',
@@ -36,7 +36,7 @@ export const LeftArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{ 
+      style={{
         position: 'absolute',
         top: '0',
         left: '0',
@@ -48,6 +48,101 @@ export const LeftArrow = props => {
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }}>
       <i className='fa fa-arrow-left fa-2x' aria-hidden='true' />
+    </div>
+  )
+}
+
+
+export const AltRightArrow = props => {
+  return (
+    <div
+      className='nextArrow'
+      onClick={props.clickAction}
+      onMouseEnter={props.over}
+      onMouseMove={props.over}
+      onMouseLeave={props.out}
+      style={{
+        position: 'absolute',
+        top: '0',
+        right: '-15%',
+        width: '40%',
+        height: '100%',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}>
+      <div className='right-arrow-wrapper'><i className="right-arrow-head"></i><div className="right-arrow-body"></div></div>
+      <style jsx>{`
+        .right-arrow-wrapper {
+          position: absolute;
+          top: 50%;
+          margin:0;
+          transform: translateY(-50%);
+          right: 15%;
+        }
+        .right-arrow-head {
+          border: solid black;
+          border-width: 0 1px 1px 0;
+          display: inline-block;
+          padding: 2px;
+          transform: rotate(-45deg);  
+        }
+        .right-arrow-body{
+          height: 18px;
+          width: 1px;
+          background-color: black;
+          margin-right: 1px;
+          transform: translate(-5px,-15.58px) rotate(-90deg);
+        }
+  `}</style>
+    </div>
+  )
+}
+
+
+export const AltLeftArrow = props => {
+  return (
+    <div
+      className='backArrow'
+      onClick={props.clickAction}
+      onMouseEnter={props.over}
+      onMouseMove={props.over}
+      onMouseLeave={props.out}
+      style={{
+          position: 'absolute' ,
+          top: '0',
+          left: '-15%',
+          width: '40%',
+          height: '100%',
+          zIndex: '101',
+          cursor: 'pointer',
+          WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}
+    >
+      <div className='left-arrow-wrapper'><i className="left-arrow-head"></i><div className="left-arrow-body"></div></div>
+      <style jsx>{`
+        .left-arrow-wrapper {
+          position: absolute;
+          top: 50%;
+          margin:0;
+          transform: translateY(-50%);
+          left: 15%;
+        }
+        .left-arrow-head {
+          border: solid black;
+          border-width: 0 1px 1px 0;
+          display: inline-block;
+          padding: 2px;
+          transform: rotate(135deg);  
+        }
+        .left-arrow-body{
+          height: 18px;
+          width: 1px;
+          background-color: black;
+          margin-left: 1px;
+          transform: translate(8px,-15.58px) rotate(90deg);
+        }
+    `}</style>
     </div>
   )
 }
