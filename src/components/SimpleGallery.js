@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { RightArrow, LeftArrow } from './SliderArrows'
+import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
 const SimpleGallery = ({ images }) => {
@@ -119,14 +119,14 @@ const SimpleGallery = ({ images }) => {
         ))
       }
     </div>
-    <LeftArrow
+    <AltLeftArrow
       clickAction={goToPrevSlide}
       style={{
         width: '10%',
         left: '-10%'
       }}
     />
-    <RightArrow
+    <AltRightArrow
       clickAction={goToNextSlide}
       style={{
         width: '10%',
