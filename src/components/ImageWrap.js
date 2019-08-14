@@ -15,7 +15,7 @@ class ImageWrap extends React.Component {
     }
   }
   shouldComponentUpdate (nextProps, nextState) {
-    return nextProps.isVisible
+    return Boolean(nextProps.isVisible)
   }
   render () {
     const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, backgroundSize } = this.props
