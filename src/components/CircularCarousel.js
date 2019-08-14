@@ -3,6 +3,8 @@ import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
+import { DotIndicator } from './DotIndicator'
+import { CountIndicator } from './CountIndicator';
 
 export default class CircularCarousel extends Component {
   constructor(props) {
@@ -233,82 +235,9 @@ export default class CircularCarousel extends Component {
               ))
             }
           </div>
-          {isMobile ? countIndicator === 'counter' ? <div
-            className='counter-wrapper'
-            style={{
-              margin: 'auto',
-              width: '50%',
-              textAlign: 'center',
-              fontColor: '#6D6A60',
-              fontFamily: 'Atlas Grotesk',
-              fontSize: '9px',
-              marginBottom: '12px'
-            }}
-          >
-            <span
-              className='left-arrow-wrapper'
-              style={{
-                top: '50%',
-                margin: '0',
-                transform: 'translateY(-50%)',
-                left: '15%',
-              }}><i
-                className="left-arrow-head"
-                style={{
-                  border: 'solid #6D6A60',
-                  borderWidth: '0 1px 1px 0',
-                  display: 'inline-block',
-                  padding: '2px',
-                  transform: 'rotate(135deg)',
-                }}></i></span>
-            <span
-              className='counter-content'
-              style={{
-                color: '#6D6A60',
-                letterSpacing: '.75px',
-                fontWeight: 400
-              }}>
-              &nbsp;&nbsp;{this.state.currentIndex + 1}/{children.length}&nbsp;&nbsp;
-              </span>
-            <span
-              className='right-arrow-wrapper'
-              style={{
-                top: '50%',
-                margin: '0',
-                transform: 'translateY(-50%)',
-                right: '15%',
-
-              }}><i
-                className="right-arrow-head"
-                style={{
-                  border: 'solid #6D6A60',
-                  borderWidth: '0 1px 1px 0',
-                  display: 'inline-block',
-                  padding: '2px',
-                  transform: 'rotate(-45deg)',
-
-                }}></i></span></div>
+          {isMobile ? countIndicator === 'counter' ? <CountIndicator currentIndex={this.state.currentIndex} children={children} />
             : countIndicator === 'dots' ?
-              <div style={{ margin: 'auto', width: '50%', textAlign: 'center' }}>
-                {
-                  children.map((child, i) => (
-                    <div
-                      key={`dot${i}`}
-                      style={{
-                        borderRadius: '50%',
-                        display: 'inline-block',
-                        width: '8px',
-                        height: '8px',
-                        boxSizing: 'border-box',
-                        margin: '0px 5px 11px',
-                        border: '1px solid #6D6A60',
-                        backgroundColor: '#6D6A60',
-                        opacity: this.state.currentIndex === i ? '1' : '.25'
-                      }}>
-                    </div>
-                  ))
-                }
-              </div> : '' : ''}
+              <DotIndicator currentIndex={this.state.currentIndex} children={children} /> : '' : ''}
         </div>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
