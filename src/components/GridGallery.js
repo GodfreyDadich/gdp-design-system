@@ -60,7 +60,7 @@ const GridGallery = ({ images, columns, thumbAspect, carousel }) => {
       .expand-indicator {
         margin-left: 8px;
         position: absolute;
-        width: 10vw;
+        width: 13vw;
         top: 50%;
         transform: translateY(-50%);
       }

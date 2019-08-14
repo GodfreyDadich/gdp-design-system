@@ -5,7 +5,7 @@ import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
 
 export default class CircularCarousel extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -25,7 +25,7 @@ export default class CircularCarousel extends Component {
     this.handleTouchStart = this.handleTouchStart.bind(this)
   }
 
-  goToPrevSlide () {
+  goToPrevSlide() {
     this.setState(prevState => ({
       currentIndex: this.state.currentIndex === 0 ? this.props.children.length - 1 : prevState.currentIndex - 1,
       teaseState: '',
@@ -34,7 +34,7 @@ export default class CircularCarousel extends Component {
     }))
   }
 
-  goToNextSlide () {
+  goToNextSlide() {
     const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
 
     this.setState(prevState => {
@@ -47,7 +47,7 @@ export default class CircularCarousel extends Component {
     })
   }
 
-  handleKeyDown (e) {
+  handleKeyDown(e) {
     if (e.keyCode === 39) {
       this.goToNextSlide()
     }
@@ -56,19 +56,19 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  getTouches (e) {
+  getTouches(e) {
     return e.touches || // browser API
-           e.originalEvent.touches // jQuery
+      e.originalEvent.touches // jQuery
   }
 
-  handleTouchStart (e) {
+  handleTouchStart(e) {
     e.preventDefault()
     const firstTouch = this.getTouches(e)[0]
     this.xDown = firstTouch.clientX
     this.yDown = firstTouch.clientY
   }
 
-  handleTouchMove (e) {
+  handleTouchMove(e) {
     e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
@@ -85,7 +85,7 @@ export default class CircularCarousel extends Component {
     this.yDown = null
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (isMobile) {
       document.addEventListener('touchstart', this.handleTouchStart, { passive: false })
       document.addEventListener('touchmove', this.handleTouchMove, { passive: false })
@@ -94,11 +94,11 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.killListeners()
   }
 
-  killListeners () {
+  killListeners() {
     if (isMobile) {
       document.removeEventListener('touchstart', this.handleTouchStart)
       document.removeEventListener('touchmove', this.handleTouchMove)
@@ -107,55 +107,55 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  hoverTeasePrev () {
+  hoverTeasePrev() {
     this.setState({
       teaseState: 'tease-prev'
     })
   }
-  hoverTeaseNext () {
+  hoverTeaseNext() {
     this.setState({
       teaseState: 'tease-next'
     })
   }
-  hoverTeaseReset () {
+  hoverTeaseReset() {
     this.setState({
       teaseState: ''
     })
   }
 
-  getCarouselStyle (index) {
+  getCarouselStyle(index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
     const last = this.state.lastIndex
     switch (index) {
-      case active :
+      case active:
         return {
           opacity: '1',
           zIndex: '10'
         }
-      case prev :
+      case prev:
         return {
           opacity: '1',
           zIndex: this.state.direction === 'prev' ? '9' : '8',
           transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
           transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)',
         }
-      case next :
+      case next:
         return {
           opacity: '1',
           zIndex: this.state.direction === 'next' ? '9' : '8',
           transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
           transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)',
         }
-      case last :
+      case last:
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
           transform: this.state.direction === 'prev' ? 'translateX(200%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-100%) translateZ(0) scale(0.5, 0.5)'
         }
-      default :
+      default:
         return {
           opacity: '1',
           zIndex: '6',
@@ -164,7 +164,7 @@ export default class CircularCarousel extends Component {
         }
     }
   }
-  render () {
+  render() {
     const {
       style = {},
       fullBleed,
@@ -230,9 +230,63 @@ export default class CircularCarousel extends Component {
                 </div>
               ))
             }
-
           </div>
+          {isMobile ? <div
+            className='counter-wrapper'
+            style={{
+              margin: 'auto',
+              width: '50%',
+              textAlign: 'center',
+              fontColor: '#6D6A60',
+              fontFamily: 'Atlas Grotesk',
+              fontSize: '9px',
+              marginBottom: '9px'
+            }}
+          >
+            <span
+              className='left-arrow-wrapper'
+              style={{
+                top: '50%',
+                margin: '0',
+                transform: 'translateY(-50%)',
+                left: '15%',
+              }}><i
+                className="left-arrow-head"
+                style={{
+                  border: 'solid #6D6A60',
+                  borderWidth: '0 1px 1px 0',
+                  display: 'inline-block',
+                  padding: '2px',
+                  transform: 'rotate(135deg)',
 
+                }}></i></span>
+            <span
+              className='counter-content'
+              style={{ 
+                color: '#6D6A60',
+                letterSpacing: '.75px',
+                fontWeight: 400
+              }}>
+              &nbsp;&nbsp;{this.state.currentIndex + 1}/{children.length}&nbsp;&nbsp;
+              </span>
+            <span
+              className='right-arrow-wrapper'
+              style={{
+                top: '50%',
+                margin: '0',
+                transform: 'translateY(-50%)',
+                right: '15%',
+
+              }}><i
+                className="right-arrow-head"
+                style={{
+                  border: 'solid #6D6A60',
+                  borderWidth: '0 1px 1px 0',
+                  display: 'inline-block',
+                  padding: '2px',
+                  transform: 'rotate(-45deg)',
+
+                }}></i></span></div> : ''}
         </div>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
