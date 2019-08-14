@@ -381,7 +381,7 @@ export const LeftCarving = ({ children }) =>
     <div id='leftCarving__border' />
     {children}
     <style jsx>{`
-    .leftCarving {
+     .leftCarving {
       font-family: Atlas Grotesk;
       font-style: normal;
       font-weight: bold;
@@ -392,41 +392,37 @@ export const LeftCarving = ({ children }) =>
       letter-spacing: -0.25px;
       color: #333;
       float: left;
-      max-width: 48%;
-      margin: .6vw -8vw .7vw 3vw;
-      transform: translateX(-10vw);
+      max-width: 50%;
+      margin: .9vw -14vw .7vw 3vw;
+      transform: translateX(-16vw);
       border-top: 5px solid #000;
-      
-      @media screen and (min-width: 1200px) {
-        margin: .6vw -6.5vw .1vw 3vw;
-        transform: translateX(-8vw);
-        border-top: 5.5px solid #000;
-        font-size: 22px;
-        line-height: 26px;
-        }
+      }
 
-      @media screen and (max-width: 600px) {
-        border-top: 4px solid #000;
-        padding-top: 7px;
-        }
-
-  }
   `}</style>
   </figure>
 
 export const QuoteBlock = ({ children }) =>
-  <div className='quoteBlock' >
-    <div className='backgroundBlock' />
-    <p className='quoteBlock__content'>
-      <div id='quoteBlock__content__border' />
-      {children}
-    </p>
-    <style jsx>{`
+  <TrackVisibility once partialVisibility
+    style={{ marginTop: 0 }}>
+    {({ isVisible }) =>
+      <div className='quoteBlock'
+        style={{
+          marginTop: isVisible ? '0px' : '15px',
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.5s, margin-top 0.5s'
+        }} >
+        <div className='backgroundBlock' />
+        <div className='quoteBlock__content'>
+          <div id='quoteBlock__content__border' />
+          {children}
+        </div>
+        <style jsx>{`
     .quoteBlock {
       display: block;
       margin: auto;
       height: 21.4vw;
       padding: 5vw 0;
+      width: 45vw;
 
       .quoteBlock__content {
         width: 45vw;
@@ -435,10 +431,10 @@ export const QuoteBlock = ({ children }) =>
         font-size: 2vw;
         line-height: 2.2vw;
         position: relative;
-        transform: translateX(30%) translateY(92%);
+        transform: translateX(30%);
         letter-spacing: .02vw;
         display: inline-block;
-        bottom: 45%;
+        top: 21%;
       }
     }
     .backgroundBlock {
@@ -452,7 +448,6 @@ export const QuoteBlock = ({ children }) =>
       border-top: solid 6px;
       width: 21vw;
       padding-bottom: 1.4vw;
-
       @media screen and (min-width: 1200px) {
         border-top: solid 7px;
         }
@@ -464,22 +459,26 @@ export const QuoteBlock = ({ children }) =>
         }
     }
       `}</style>
-  </div>
+      </div>
+    }
+  </TrackVisibility>
 
 export const SidebarQuote = ({ children }) =>
-  <div className='sidebar'>
-    <p className='sidebar__content'>
-      <div id='sidebar__content__border'>
+  <div className='sidebarquote'>
+    <div className='sidebarquote__content'>
+      <div id='sidebarquote__content__border'>
       </div>
       {children}
-    </p>
+    </div>
     <style jsx>{`
-  .sidebar {
+  .sidebarquote {
     display: inline-block;
     padding: 0 21px 0 0;
     vertical-align: top;
+    transform: translateX(5vw) translateY(25vw);
 
-    #sidebar__content__border {
+
+    #sidebarquote__content__border {
       border-top: .5vw solid;
       width: 12.2vw;
       padding-bottom: 1vw;
@@ -490,7 +489,7 @@ export const SidebarQuote = ({ children }) =>
         padding-bottom: 17px;
         }
     }
-    .sidebar__content {
+    .sidebarquote__content {
       margin-top: 7px;
       width: 12.3vw;
       font-family: Atlas Grotesk;

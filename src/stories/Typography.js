@@ -34,6 +34,7 @@ import {
   textUppercase,
 } from "../utils/typography";
 
+import Pullquote from '../components/Pullquote'
 
 import {
   HeadingSuper,
@@ -197,10 +198,11 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>Left Carving</small></div>
-      <div style={{ width: '50%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' }}>
+      <div style={{ width: '65%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' }}>
         <LeftCarving>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </LeftCarving>
+        Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
@@ -216,7 +218,7 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>Quote Block</small></div>
-      <div style={{ width: '70%', margin: 'auto' }}>
+      <div>
         <QuoteBlock>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </QuoteBlock>
@@ -227,11 +229,12 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>Sidebar Quote</small></div>
-      <div style={{ width: '85%', margin: 'auto' }}>
+      <div>
         <SidebarQuote>
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </SidebarQuote>
-        <div style={{ width: '59%', fontSize: '15px', fontFamily: 'Noe Text', display: 'inline-block' }}>
+      </div>
+        <div style={{ width: '59%', fontSize: '15px', margin: 'auto', fontFamily: 'Noe Text' }}>
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
@@ -244,7 +247,6 @@ const Typography = props =>
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
           Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
         </div>
-      </div>
     </div>
 
   </div>

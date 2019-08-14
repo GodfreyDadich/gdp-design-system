@@ -16,6 +16,10 @@ var _typography = require("../styles/typography");
 
 var _typography2 = require("../utils/typography");
 
+var _Pullquote = require("../components/Pullquote");
+
+var _Pullquote2 = _interopRequireDefault(_Pullquote);
+
 var _Type = require("../components/Type");
 
 var _path = require("path");
@@ -299,7 +303,7 @@ var Typography = function Typography(props) {
         )
       ),
       _react2.default.createElement(
-        _Type.Pullquote,
+        _Pullquote2.default,
         { classAdd: "testadd" },
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum."
       )
@@ -386,13 +390,15 @@ var Typography = function Typography(props) {
       ),
       _react2.default.createElement(
         "div",
-        { style: { width: '50%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' } },
+        { style: { width: '65%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' } },
         _react2.default.createElement(
           _Type.LeftCarving,
           null,
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus."
         ),
-        "Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus."
+
+        "Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus."
+
       )
     ),
     _react2.default.createElement("br", null),
@@ -446,6 +452,7 @@ var Typography = function Typography(props) {
           { style: { width: '59%', fontSize: '15px', fontFamily: 'Noe Text', display: 'inline-block' } },
           "Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus."
         )
+
       )
     )
   );
