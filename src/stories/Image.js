@@ -242,9 +242,32 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
+        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         aspectRatio='sixteen'
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       >
+        <Device classAdd='test' deviceColor={selectV2('Device Color', {
+          black: 'black',
+          white: 'white'
+        }, 'black')}>
+          <Video
+            title=''
+            aspectRatio='standard'
+            vidSource='https://vimeo.com/299978313'
+            skipIntro
+            loop
+            hoverPlay
+            config={{
+              vimeo: {
+                playerOptions: {
+                  background: 1,
+                  transparent: 0
+                }
+              }
+            }}
+            thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+          />
+        </Device>
         <Device classAdd='test' deviceColor={selectV2('Device Color', {
           black: 'black',
           white: 'white'
@@ -338,8 +361,8 @@ storiesOf('Image', module)
   )
   .add(
     'Museum (Gallery of Galleries)',
-      () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
+      () => <Museum galleries={galleries} view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} />)
   .add(
     'Grid Gallery (Mosaic)',
-      () => <GridGallery images={imageGallery2} view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} carousel={boolean('carousel', false)} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'noAspect')} />)
+      () => <GridGallery images={imageGallery2} view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} columns={number('Columns', 5)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'noAspect')} />)
 

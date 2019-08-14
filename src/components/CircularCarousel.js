@@ -171,7 +171,8 @@ export default class CircularCarousel extends Component {
       caption,
       aspectRatio,
       children,
-      classAdd
+      classAdd,
+      countIndicator
     } = this.props
     return (
       <div
@@ -232,7 +233,7 @@ export default class CircularCarousel extends Component {
               ))
             }
           </div>
-          {isMobile ? <div
+          {isMobile ? countIndicator === 'counter' ? <div
             className='counter-wrapper'
             style={{
               margin: 'auto',
@@ -241,7 +242,7 @@ export default class CircularCarousel extends Component {
               fontColor: '#6D6A60',
               fontFamily: 'Atlas Grotesk',
               fontSize: '9px',
-              marginBottom: '9px'
+              marginBottom: '12px'
             }}
           >
             <span
@@ -259,11 +260,10 @@ export default class CircularCarousel extends Component {
                   display: 'inline-block',
                   padding: '2px',
                   transform: 'rotate(135deg)',
-
                 }}></i></span>
             <span
               className='counter-content'
-              style={{ 
+              style={{
                 color: '#6D6A60',
                 letterSpacing: '.75px',
                 fontWeight: 400
@@ -287,7 +287,28 @@ export default class CircularCarousel extends Component {
                   padding: '2px',
                   transform: 'rotate(-45deg)',
 
-                }}></i></span></div> : ''}
+                }}></i></span></div>
+            : countIndicator === 'dots' ?
+              <div style={{ margin: 'auto', width: '50%', textAlign: 'center' }}>
+                {
+                  children.map((child, i) => (
+                    <div
+                      key={`dot${i}`}
+                      style={{
+                        borderRadius: '50%',
+                        display: 'inline-block',
+                        width: '8px',
+                        height: '8px',
+                        boxSizing: 'border-box',
+                        margin: '0px 5px 11px',
+                        border: '1px solid #6D6A60',
+                        backgroundColor: '#6D6A60',
+                        opacity: this.state.currentIndex === i ? '1' : '.25'
+                      }}>
+                    </div>
+                  ))
+                }
+              </div> : '' : ''}
         </div>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
