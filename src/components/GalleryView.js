@@ -108,7 +108,7 @@ const GalleryView = ({ images, index }) => {
               backgroundColor: '#f2f2f2',
               position: 'relative',
               margin: '0 auto',
-              opacity: currentIndex === i ? 1 : .2,
+              opacity: currentIndex === i ? 1 : .1,
               transition: 'opacity .3s, transform .3s'
             }}
             src={image}
