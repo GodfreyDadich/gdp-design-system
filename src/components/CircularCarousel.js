@@ -204,7 +204,7 @@ export default class CircularCarousel extends Component {
           />
           <div
             style={{
-              position: 'absolute',
+              position: aspectRatio === 'noAspect' ? 'relative' : 'absolute',
               top: '0',
               left: '0',
               width: '100%',
@@ -217,10 +217,11 @@ export default class CircularCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    display: 'block',
+                    display: 'inline-block',
                     width: '50%',
+                    height: 'auto',
                     verticalAlign: 'middle',
-                    position: 'absolute',
+                    position: aspectRatio === 'noAspect' ? 'relative' : 'absolute',
                     transform: 'translateX(50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',

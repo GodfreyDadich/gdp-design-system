@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const GalleryView = ({ images, index }) => {
+const GalleryView = ({ images, index, view }) => {
   const [currentIndex, setCurrentIndex] = useState(index)
   const [translateValue, setTranslateValue] = useState(index * -100)
   const [xDown, setXDown] = useState(null)
@@ -119,6 +119,7 @@ const GalleryView = ({ images, index }) => {
     </div>
     <AltLeftArrow
       clickAction={goToPrevSlide}
+      view={view}
       style={{
         width: '10%',
         left: '-10%'
@@ -126,6 +127,7 @@ const GalleryView = ({ images, index }) => {
     />
     <AltRightArrow
       clickAction={goToNextSlide}
+      view={view}
       style={{
         width: '10%',
         right: '-10%'
