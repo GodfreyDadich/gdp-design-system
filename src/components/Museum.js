@@ -41,7 +41,8 @@ const Museum = ({ galleries, columns, thumbAspect, containerAspect, view }) => {
           />
         </div>
       )
-    } </CircularCarousel>
+    } 
+    </CircularCarousel>
     :
     <div className='museum-container'>
       <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
