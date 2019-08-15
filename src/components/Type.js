@@ -149,19 +149,21 @@ export const Heading4 = ({ children, style, className }) =>
 export const BioHeader = ({ personName, personTitle, insta }) =>
   <Heading1
     style={{
-      lineHeight: 0.75,
-      paddingBottom: '40px'
+      paddingBottom: '2.5vw'
     }}
   >
     {personName}
     <br />
-    <Heading4
+    <span
       style={{
-        display: 'inline-block'
+        fontFamily: 'Atlas Grotesk',
+        display: 'inline-block',
+        fontSize: '1.48vw',
+        lineHeight: 1
       }}
-    >{personTitle}</Heading4>
+    >{personTitle}</span>
     { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank'><InstagramIcon style={{ marginLeft: '.5vw' }} /></a>
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '.5vw' }} /></a>
       : ''
     }
   </Heading1>
