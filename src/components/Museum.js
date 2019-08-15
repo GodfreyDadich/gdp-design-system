@@ -25,6 +25,7 @@ const Museum = ({ galleries, columns, thumbAspect, view }) => {
   }
 
   return <div className='museum-container'>
+    <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
     {
       galleries.map((gallery, index) =>
         <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
@@ -45,6 +46,25 @@ const Museum = ({ galleries, columns, thumbAspect, view }) => {
         : ''
     }
     <style jsx>{`
+      .expand {
+        font-family: Atlas Grotesk;
+        color: #7F7F7F;
+        position: absolute;
+        top: 1.8vw;
+        left: 1.8vw;
+        font-weight: 400;
+        font-size: 10px;
+      }
+      .expand::before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20d%3D%22M11.6%209.6h6.8v8.8h-6.8z%22/%3E%3Cpath%20d%3D%22M16.5%209.5v-2h-2m-3%209h-2v-2m5-7h-5v7m5-7v-2h-7v9h2%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
+      }
+      .expand-indicator {
+        margin-left: 8px;
+        position: absolute;
+        width: 15vw;
+        top: 50%;
+        transform: translateY(-50%);
+      }
       .museum-container {
         background: rgb(242,242,242);
         padding: 9.5vw 8.9vw;

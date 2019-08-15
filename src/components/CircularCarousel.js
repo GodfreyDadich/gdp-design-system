@@ -235,7 +235,8 @@ export default class CircularCarousel extends Component {
               ))
             }
           </div>
-          {isMobile ? countIndicator === 'counter' ? <CountIndicator currentIndex={this.state.currentIndex} children={children} />
+          {isMobile ? countIndicator === 'counter' ?
+            <CountIndicator currentIndex={this.state.currentIndex} children={children} />
             : countIndicator === 'dots' ?
               <DotIndicator currentIndex={this.state.currentIndex} children={children} /> : '' : ''}
         </div>
