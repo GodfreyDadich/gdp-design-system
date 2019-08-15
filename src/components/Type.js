@@ -1,6 +1,7 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
+import { InstagramIcon } from './Icons'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -31,15 +32,17 @@ export const HeadingSuper = ({ children }) =>
     `}</style>
   </h1>
 
-export const Heading1 = ({ children }) =>
-  <h1 className='headingOne' >
+export const Heading1 = ({ children, style }) =>
+  <h1
+    style={style}
+    className='headingOne' >
     {children}
     <style jsx>{`
       .headingOne {
         position: relative;
         font-family: 'Noe Display';
         font-weight: bold;
-        font-size: 3.52vw;
+        font-size: 3.52vw; 
         line-height: 0.97;
         letter-spacing: 0.3px;
         padding-bottom: 51px;
@@ -48,7 +51,7 @@ export const Heading1 = ({ children }) =>
 
         .clientName {
           display: block;
-          color: #7F7F7F;
+          color: #7F7F7F; 
         }
 
         &:before {
@@ -143,7 +146,25 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-
+export const BioHeader = ({ personName, personTitle, insta }) =>
+  <Heading1
+    style={{
+      lineHeight: 0.75,
+      paddingBottom: '40px'
+    }}
+  >
+    {personName}
+    <br />
+    <Heading4
+      style={{
+        display: 'inline-block'
+      }}
+    >{personTitle}</Heading4>
+    { insta
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank'><InstagramIcon style={{ marginLeft: '.5vw' }} /></a>
+      : ''
+    }
+  </Heading1>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
