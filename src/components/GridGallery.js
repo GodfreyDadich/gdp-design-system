@@ -4,7 +4,7 @@ import CircularCarousel from './CircularCarousel'
 import Image from './Image'
 import { isMobile } from 'react-device-detect'
 
-const GridGallery = ({ images, columns, thumbAspect, carousel, view }) => {
+const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, view }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const colWidth = 100 / columns;
@@ -19,12 +19,6 @@ const GridGallery = ({ images, columns, thumbAspect, carousel, view }) => {
 
   const mobileStyles = {
     position: 'relative',
-    // flexGrow: images.length,
-    // justifyContent: 'space-between',
-    // margin: 'auto',
-    // top: '50%',
-    // transform: 'translateY(50%)'
-    // width: `calc(${colWidth}% - 20px)`,
   }
 
   const displayGallery = (index) => {
@@ -35,7 +29,7 @@ const GridGallery = ({ images, columns, thumbAspect, carousel, view }) => {
     setModalView(false)
   }
 
-  return isMobile ? <CircularCarousel classAdd='' aspectRatio={thumbAspect || 'sixteen'}>
+  return isMobile ? <CircularCarousel countIndicator={countIndicator} caption='' imageAspect={thumbAspect} aspectRatio={containerAspect}>
     {
       images.map((image, index) =>
       <div style={mobileStyles} key={`galleryThumb-${index}`}>

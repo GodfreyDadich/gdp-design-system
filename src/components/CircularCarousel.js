@@ -141,28 +141,28 @@ export default class CircularCarousel extends Component {
           opacity: '1',
           zIndex: this.state.direction === 'prev' ? '9' : '8',
           transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-70%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-75%) translateZ(0) scale(0.75, 0.75)',
+          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
         }
       case next:
         return {
           opacity: '1',
           zIndex: this.state.direction === 'next' ? '9' : '8',
           transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-next' ? 'translateX(170%) translateZ(0) scale(0.8, 0.8)' : 'translateX(175%) translateZ(0) scale(0.75, 0.75)',
+          transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
         }
       case last:
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
-          transform: this.state.direction === 'prev' ? 'translateX(200%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-100%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
       default:
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'none',
-          transform: this.state.direction === 'prev' ? 'translateX(-75%) translateZ(0) scale(0.5, 0.5)' : 'translateX(175%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
@@ -174,8 +174,10 @@ export default class CircularCarousel extends Component {
       aspectRatio,
       children,
       classAdd,
+      imageAspect,
       countIndicator
     } = this.props
+
     return (
       <div
         style={Object.assign(style, {
@@ -207,7 +209,7 @@ export default class CircularCarousel extends Component {
           />
           <div
             style={{
-              position: aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+              position: 'absolute',
               top: '0',
               left: '0',
               width: '100%',
@@ -220,25 +222,27 @@ export default class CircularCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    display: 'inline-block',
-                    width: '50%',
-                    height: 'auto',
+                    display: 'block',
                     verticalAlign: 'middle',
-                    position: aspectRatio === 'noAspect' ? 'relative' : 'absolute',
-                    transform: 'translateX(50%)',
+                    position: 'absolute',
+                    transform: 'translateX(-50%) translateY(-50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
-                    top: '15%'
+                    top: '50%',
+                    left: '50%',
+                    width: imageAspect === 'noAspect' ? 'auto' :  '75%',
+                    maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
                 </div>
               ))
             }
+
           </div>
           {isMobile ? countIndicator === 'counter' ?
             <CountIndicator currentIndex={this.state.currentIndex} children={children} />
             : countIndicator === 'dots' ?
-              <DotIndicator currentIndex={this.state.currentIndex} children={children} /> : '' : ''}
+              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
