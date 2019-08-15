@@ -18,11 +18,12 @@ class ImageWrap extends React.Component {
     return Boolean(nextProps.isVisible)
   }
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, skipIntro, backgroundSize } = this.props
+    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, backgroundSize } = this.props
+    const showImage = visibilityOverride ? true : isVisible
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
-          backgroundImage: `${aspectRatio !== 'noAspect' && isVisible ? `url('${imgSource}')` : ''}`,
+          backgroundImage: `${aspectRatio !== 'noAspect' && showImage ? `url('${imgSource}')` : ''}`,
           backgroundSize: backgroundSize || 'cover',
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
@@ -31,13 +32,13 @@ class ImageWrap extends React.Component {
           height: 'auto',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
           paddingTop: paddingRef[aspectRatio],
-          opacity: isVisible ? 1 : 0,
-          top: isVisible || skipIntro ? '0px' : '15px',
+          opacity: showImage ? 1 : 0,
+          top: showImage || skipIntro ? '0px' : '15px',
           transition: 'opacity 0.5s, top 0.5s',
           transitionDelay: '1s'
         }}
       >
-        { isVisible ? React.cloneElement(children) : ''}
+        { showImage ? React.cloneElement(children) : ''}
       </div>
     )
   }
