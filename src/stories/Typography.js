@@ -34,8 +34,6 @@ import {
   textUppercase,
 } from "../utils/typography";
 
-import Pullquote from '../components/Pullquote'
-
 import {
   HeadingSuper,
   Heading1,
@@ -43,6 +41,7 @@ import {
   Heading3,
   Heading4,
   SubHead,
+  Pullquote,
   WiredType,
   LeftCarving,
   QuoteBlock,
