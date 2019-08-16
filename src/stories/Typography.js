@@ -34,6 +34,7 @@ import {
   textUppercase,
 } from "../utils/typography";
 
+import Pullquote from '../components/Pullquote'
 
 import {
   HeadingSuper,
@@ -42,13 +43,10 @@ import {
   Heading3,
   Heading4,
   SubHead,
-  Pullquote,
   WiredType,
   LeftCarving,
-  QuoteBlock,
   SidebarQuote
 } from '../components/Type';
-import { relative } from "path";
 
 
 const Typography = props =>
@@ -218,9 +216,9 @@ const Typography = props =>
     <div>
       <div style={styles.smallText}><small>Quote Block</small></div>
       <div>
-        <QuoteBlock>
+        <Pullquote pqOptions='quote-block'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
-        </QuoteBlock>
+        </Pullquote>
       </div>
     </div>
 
