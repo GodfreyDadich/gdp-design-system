@@ -16,9 +16,11 @@ var _typography = require("../styles/typography");
 
 var _typography2 = require("../utils/typography");
 
-var _Type = require("../components/Type");
+var _Pullquote = require("../components/Pullquote");
 
-var _path = require("path");
+var _Pullquote2 = _interopRequireDefault(_Pullquote);
+
+var _Type = require("../components/Type");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -343,7 +345,7 @@ var Typography = function Typography(props) {
         )
       ),
       _react2.default.createElement(
-        _Type.Pullquote,
+        _Pullquote2.default,
         { classAdd: "testadd" },
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum."
       )
@@ -457,8 +459,8 @@ var Typography = function Typography(props) {
         "div",
         null,
         _react2.default.createElement(
-          _Type.QuoteBlock,
-          null,
+          _Pullquote2.default,
+          { pqOptions: "quote-block" },
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus."
         )
       )

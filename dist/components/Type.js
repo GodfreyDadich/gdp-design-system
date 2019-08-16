@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Pullquote = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -165,37 +165,9 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
   );
 };
 
-var Pullquote = exports.Pullquote = function Pullquote(_ref8) {
+var Caption = exports.Caption = function Caption(_ref8) {
   var classAdd = _ref8.classAdd,
       children = _ref8.children;
-  return _react2.default.createElement(
-    _reactOnScreen2.default,
-    { once: true, style: { marginTop: 0 } },
-    function (_ref9) {
-      var isVisible = _ref9.isVisible;
-      return _react2.default.createElement(
-        'div',
-        {
-          style: {
-            marginTop: isVisible ? '89px' : '104px',
-            opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.5s, margin-top 0.5s'
-          },
-          className: 'jsx-2013111602' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
-        },
-        children,
-        _react2.default.createElement(_style2.default, {
-          styleId: '2013111602',
-          css: '.pullQuote.jsx-2013111602{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}@media only screen and (max-width:768px){.pullQuote.jsx-2013111602{font-size:3.34vw;}}'
-        })
-      );
-    }
-  );
-};
-
-var Caption = exports.Caption = function Caption(_ref10) {
-  var classAdd = _ref10.classAdd,
-      children = _ref10.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -209,9 +181,9 @@ var Caption = exports.Caption = function Caption(_ref10) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref11) {
-  var classAdd = _ref11.classAdd,
-      children = _ref11.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref9) {
+  var classAdd = _ref9.classAdd,
+      children = _ref9.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -225,9 +197,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref11) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref12) {
-  var classAdd = _ref12.classAdd,
-      children = _ref12.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref10) {
+  var classAdd = _ref10.classAdd,
+      children = _ref10.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -241,9 +213,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref12) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref13) {
-  var classAdd = _ref13.classAdd,
-      children = _ref13.children;
+var CardContent = exports.CardContent = function CardContent(_ref11) {
+  var classAdd = _ref11.classAdd,
+      children = _ref11.children;
   return _react2.default.createElement(
     'p',
     {
@@ -252,9 +224,9 @@ var CardContent = exports.CardContent = function CardContent(_ref13) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref14) {
-  var sideBar = _ref14.sideBar,
-      isVisible = _ref14.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref12) {
+  var sideBar = _ref12.sideBar,
+      isVisible = _ref12.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -266,8 +238,8 @@ var SideBar = exports.SideBar = function SideBar(_ref14) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref15) {
-      var isVisible = _ref15.isVisible;
+    function (_ref13) {
+      var isVisible = _ref13.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -312,8 +284,8 @@ var SideBar = exports.SideBar = function SideBar(_ref14) {
   );
 };
 
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref16) {
-  var children = _ref16.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref14) {
+  var children = _ref14.children;
   return _react2.default.createElement(
     'figure',
     {
@@ -329,46 +301,8 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref16) {
   );
 };
 
-var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref17) {
-  var children = _ref17.children;
-  return _react2.default.createElement(
-    _reactOnScreen2.default,
-    { once: true, partialVisibility: true,
-      style: { marginTop: 0 } },
-    function (_ref18) {
-      var isVisible = _ref18.isVisible;
-      return _react2.default.createElement(
-        'div',
-        {
-          style: {
-            marginTop: isVisible ? '0px' : '15px',
-            opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.5s, margin-top 0.5s'
-          }, className: 'jsx-196117539' + ' ' + 'quoteBlock'
-        },
-        _react2.default.createElement('div', {
-          className: 'jsx-196117539' + ' ' + 'backgroundBlock'
-        }),
-        _react2.default.createElement(
-          'div',
-          {
-            className: 'jsx-196117539' + ' ' + 'quoteBlock__content'
-          },
-          _react2.default.createElement('div', { id: 'quoteBlock__content__border', className: 'jsx-196117539'
-          }),
-          children
-        ),
-        _react2.default.createElement(_style2.default, {
-          styleId: '196117539',
-          css: '.quoteBlock.jsx-196117539{display:block;margin:auto;height:21.4vw;padding:5vw 0;width:45vw;}.quoteBlock.jsx-196117539 .quoteBlock__content.jsx-196117539{width:45vw;font-family:Atlas Grotesk;font-weight:600;font-size:2vw;line-height:2.2vw;position:relative;-webkit-transform:translateX(30%);-ms-transform:translateX(30%);transform:translateX(30%);-webkit-letter-spacing:.02vw;-moz-letter-spacing:.02vw;-ms-letter-spacing:.02vw;letter-spacing:.02vw;display:inline-block;top:21%;}.backgroundBlock.jsx-196117539{width:27vw;height:21.4vw;display:inline-block;position:absolute;background-color:#F2F2F2;}#quoteBlock__content__border.jsx-196117539{border-top:solid 6px;width:21vw;padding-bottom:1.4vw;}@media screen and (min-width:1200px){#quoteBlock__content__border.jsx-196117539{border-top:solid 7px;}}@media screen and (max-width:800px){#quoteBlock__content__border.jsx-196117539{border-top:solid 4px;width:21vw;padding-bottom:1.4vw;}}'
-        })
-      );
-    }
-  );
-};
-
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref19) {
-  var children = _ref19.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
+  var children = _ref15.children;
   return _react2.default.createElement(
     'div',
     {
