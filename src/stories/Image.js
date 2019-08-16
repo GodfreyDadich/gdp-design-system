@@ -264,7 +264,6 @@ storiesOf('Image', module)
       'Museum (Gallery of Galleries)',
         () => <Museum 
         classAdd=''
-        fullBleed={boolean('fullBleed', false)}
         galleries={galleries}
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
@@ -277,12 +276,12 @@ storiesOf('Image', module)
     .add(
       'Grid Gallery (Mosaic)',
         () => <GridGallery 
-        classAdd=''
-        fullBleed={boolean('fullBleed', false)}        
+        classAdd=''       
         images={imageGallery2} 
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
-        carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} columns={number('Columns', 3)} 
+        carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} 
+        columns={number('Columns', 3)} 
         thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'noAspect')} 
         containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}

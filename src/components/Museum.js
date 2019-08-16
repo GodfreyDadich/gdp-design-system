@@ -6,7 +6,7 @@ import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
 
-const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspect, view, caption, fullBleed, classAdd }) => {
+const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspect, view, caption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageGallery, setImageGallery] = useState([])
   const colWidth = 100 / columns;
@@ -37,7 +37,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       position: 'relative',
       overflow: 'visible'
     })}
-    className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+    className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {isMobile ? <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
       {
         galleries.map((gallery, index) =>

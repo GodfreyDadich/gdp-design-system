@@ -5,7 +5,7 @@ import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
-const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, fullBleed, classAdd }) => {
+const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const colWidth = 100 / columns;
@@ -15,7 +15,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
     justifyContent: 'space-between',
     margin: '10px',
     width: `calc(${colWidth}% - 20px)`,
-    cursor: carousel ? 'pointer' : 'default'
+    cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
 
   const mobileStyles = {
@@ -35,7 +35,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       position: 'relative',
       overflow: 'visible'
     })}
-    className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+    className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {isMobile ? <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
       {
         images.map((image, index) =>
@@ -51,10 +51,10 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       }
     </CircularCarousel> :
       <div className='grid-container'>
-        {carousel ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+        {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
         {
           images.map((image, index) =>
-            <div className={`${carousel ? 'grid-image' : ''}`} onClick={carousel ? e => displayGallery(index) : ''} style={thumbStyles} key={`galleryThumb-${index}`}>
+            <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={thumbStyles} key={`galleryThumb-${index}`}>
               <Image
                 aspectRatio={thumbAspect || 'noAspect'}
                 imgSource={image}
@@ -72,8 +72,8 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             </div>
             : ''
         }
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>}
-    {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
     <style jsx>{`
       .expand {
         font-family: Atlas Grotesk;
