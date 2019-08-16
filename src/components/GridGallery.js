@@ -36,6 +36,8 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
           <Image
             aspectRatio={thumbAspect || 'sixteen'}
             imgSource={image}
+            skipIntro
+            visibilityOverride
           />
           </div>
       )
@@ -49,6 +51,8 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             <Image
               aspectRatio={thumbAspect || 'noAspect'}
               imgSource={image}
+              skipIntro
+              visibilityOverride
             />
           </div>
         )

@@ -38,6 +38,8 @@ const Museum = ({ galleries, columns, thumbAspect, containerAspect, view }) => {
           <Image
             aspectRatio={thumbAspect || 'sixteen'}
             imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+            skipIntro
+            visibilityOverride
           />
         </div>
       )
@@ -52,6 +54,8 @@ const Museum = ({ galleries, columns, thumbAspect, containerAspect, view }) => {
             <Image
               aspectRatio={thumbAspect || 'sixteen'}
               imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+              skipIntro
+              visibilityOverride
             />
           </div>
         )
