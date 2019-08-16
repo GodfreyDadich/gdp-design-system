@@ -10,9 +10,9 @@ export const CountIndicator = props => {
         textAlign: 'center',
         fontColor: '#6D6A60',
         fontFamily: 'Atlas Grotesk',
-        fontSize: '9px',
-        marginBottom: '12px',
-        marginTop: '12px'
+        fontSize: '10.5px',
+        marginTop: props.imageAspect === 'sixteen' ? '15px' : props.imageAspect === 'noAspect' ? '10px' : '-10px',
+        marginBottom: props.imageAspect === 'sixteen' ? '16px' : props.imageAspect === 'noAspect' ? '10px' : '15px'
       }}
     >
       <span
@@ -28,7 +28,7 @@ export const CountIndicator = props => {
             border: 'solid #6D6A60',
             borderWidth: '0 1px 1px 0',
             display: 'inline-block',
-            padding: '2px',
+            padding: '3px',
             transform: 'rotate(135deg)',
           }}></i></span>
       <span
@@ -54,7 +54,7 @@ export const CountIndicator = props => {
             border: 'solid #6D6A60',
             borderWidth: '0 1px 1px 0',
             display: 'inline-block',
-            padding: '2px',
+            padding: '3px',
             transform: 'rotate(-45deg)',
 
           }}></i></span></div>
