@@ -19,6 +19,12 @@ var _Type = require('./Type');
 
 var _aspectRatio = require('../utils/aspectRatio');
 
+var _reactDeviceDetect = require('react-device-detect');
+
+var _DotIndicator = require('./DotIndicator');
+
+var _CountIndicator = require('./CountIndicator');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26,13 +32,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var widthObj = {
-  sixteen: '50%',
-  standard: '70%',
-  cropped: '55%',
-  square: '82%'
-};
 
 var CircularCarousel = function (_Component) {
   _inherits(CircularCarousel, _Component);
@@ -55,6 +54,8 @@ var CircularCarousel = function (_Component) {
     _this.hoverTeasePrev = _this.hoverTeasePrev.bind(_this);
     _this.hoverTeaseNext = _this.hoverTeaseNext.bind(_this);
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
+    _this.handleTouchMove = _this.handleTouchMove.bind(_this);
+    _this.handleTouchStart = _this.handleTouchStart.bind(_this);
     return _this;
   }
 
@@ -99,9 +100,63 @@ var CircularCarousel = function (_Component) {
       }
     }
   }, {
+    key: 'getTouches',
+    value: function getTouches(e) {
+      return e.touches || // browser API
+      e.originalEvent.touches; // jQuery
+    }
+  }, {
+    key: 'handleTouchStart',
+    value: function handleTouchStart(e) {
+      e.preventDefault();
+      var firstTouch = this.getTouches(e)[0];
+      this.xDown = firstTouch.clientX;
+      this.yDown = firstTouch.clientY;
+    }
+  }, {
+    key: 'handleTouchMove',
+    value: function handleTouchMove(e) {
+      e.preventDefault();
+      if (!this.xDown || !this.yDown) {
+        return;
+      }
+      var xLeft = e.touches[0].clientX;
+      var xDiff = this.xDown - xLeft;
+      var direction = xDiff > 0 ? 'right' : 'left';
+      if (direction === 'right') {
+        this.goToNextSlide();
+      } else {
+        this.goToPrevSlide();
+      }
+
+      /* reset values */
+      this.xDown = null;
+      this.yDown = null;
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      document.addEventListener('keydown', this.handleKeyDown, false);
+      if (_reactDeviceDetect.isMobile) {
+        document.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+      } else {
+        document.addEventListener('keydown', this.handleKeyDown, false);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.killListeners();
+    }
+  }, {
+    key: 'killListeners',
+    value: function killListeners() {
+      if (_reactDeviceDetect.isMobile) {
+        document.removeEventListener('touchstart', this.handleTouchStart);
+        document.removeEventListener('touchmove', this.handleTouchMove);
+      } else {
+        document.removeEventListener('keydown', this.handleKeyDown);
+      }
     }
   }, {
     key: 'hoverTeasePrev',
@@ -156,14 +211,14 @@ var CircularCarousel = function (_Component) {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(200%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-300%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(275%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
@@ -179,7 +234,10 @@ var CircularCarousel = function (_Component) {
           caption = _props.caption,
           aspectRatio = _props.aspectRatio,
           children = _props.children,
-          classAdd = _props.classAdd;
+          classAdd = _props.classAdd,
+          imageAspect = _props.imageAspect,
+          countIndicator = _props.countIndicator;
+
 
       return _react2.default.createElement(
         'div',
@@ -231,20 +289,23 @@ var CircularCarousel = function (_Component) {
                 {
                   key: 'carouselImage' + i,
                   style: _extends({
+                    boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.4)',
                     display: 'block',
-                    width: widthObj[aspectRatio],
                     verticalAlign: 'middle',
                     position: 'absolute',
                     transform: 'translateX(-50%) translateY(-50%)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
                     top: '50%',
-                    left: '50%'
+                    left: '50%',
+                    width: imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, _this4.getCarouselStyle(i)) },
                 _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
               );
             })
-          )
+          ),
+          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect, children: children }) : '' : ''
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,

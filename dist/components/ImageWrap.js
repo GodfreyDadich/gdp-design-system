@@ -42,7 +42,7 @@ var ImageWrap = function (_React$Component) {
   _createClass(ImageWrap, [{
     key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
-      return nextProps.isVisible;
+      return Boolean(nextProps.isVisible);
     }
   }, {
     key: 'render',

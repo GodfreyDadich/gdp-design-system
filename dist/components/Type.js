@@ -3,8 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Pullquote = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -123,9 +122,80 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   );
 };
 
-var Caption = exports.Caption = function Caption(_ref6) {
-  var classAdd = _ref6.classAdd,
-      children = _ref6.children;
+var SubHead = exports.SubHead = function SubHead(_ref6) {
+  var children = _ref6.children,
+      style = _ref6.style,
+      className = _ref6.className;
+  return _react2.default.createElement(
+    'h4',
+    {
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: 'bold',
+        marginTop: 0,
+        marginBottom: 0
+      }, style),
+      className: 'jsx-909162699' + ' ' + ('subhead ' + className)
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '909162699',
+      css: '.subhead.jsx-909162699{margin-top:30px !important;font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-top:0;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}.subhead.jsx-909162699 .subtitle.jsx-909162699{color:#333;}.subhead.jsx-909162699>*.jsx-909162699{display:inline-block;}@media only screen and (max-width:1024px){.subhead.jsx-909162699 strong.jsx-909162699{font-size:20px;}}'
+    })
+  );
+};
+
+var WiredType = exports.WiredType = function WiredType(_ref7) {
+  var children = _ref7.children,
+      style = _ref7.style,
+      className = _ref7.className;
+  return _react2.default.createElement(
+    'span',
+    {
+      style: _extends({
+        fontFamily: 'Noe Text'
+      }, style),
+      className: 'jsx-3262944713' + ' ' + ('wiredtype ' + className)
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '3262944713',
+      css: '.wiredtype.jsx-3262944713{font-size:19px;line-height:1.42;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}'
+    })
+  );
+};
+
+var Pullquote = exports.Pullquote = function Pullquote(_ref8) {
+  var classAdd = _ref8.classAdd,
+      children = _ref8.children;
+  return _react2.default.createElement(
+    _reactOnScreen2.default,
+    { once: true, style: { marginTop: 0 } },
+    function (_ref9) {
+      var isVisible = _ref9.isVisible;
+      return _react2.default.createElement(
+        'div',
+        {
+          style: {
+            marginTop: isVisible ? '89px' : '104px',
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.5s, margin-top 0.5s'
+          },
+          className: 'jsx-2013111602' + ' ' + ('pullQuote' + (classAdd ? ' ' + classAdd : ''))
+        },
+        children,
+        _react2.default.createElement(_style2.default, {
+          styleId: '2013111602',
+          css: '.pullQuote.jsx-2013111602{font-family:\'Atlas Grotesk\';font-weight:bold;font-size:2.34vw;line-height:1.06;-webkit-letter-spacing:-0.3px;-moz-letter-spacing:-0.3px;-ms-letter-spacing:-0.3px;letter-spacing:-0.3px;text-align:center;margin-bottom:89px;}@media only screen and (max-width:768px){.pullQuote.jsx-2013111602{font-size:3.34vw;}}'
+        })
+      );
+    }
+  );
+};
+
+var Caption = exports.Caption = function Caption(_ref10) {
+  var classAdd = _ref10.classAdd,
+      children = _ref10.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -139,9 +209,9 @@ var Caption = exports.Caption = function Caption(_ref6) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref7) {
-  var classAdd = _ref7.classAdd,
-      children = _ref7.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref11) {
+  var classAdd = _ref11.classAdd,
+      children = _ref11.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -155,9 +225,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref7) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref8) {
-  var classAdd = _ref8.classAdd,
-      children = _ref8.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref12) {
+  var classAdd = _ref12.classAdd,
+      children = _ref12.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -171,9 +241,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref8) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref9) {
-  var classAdd = _ref9.classAdd,
-      children = _ref9.children;
+var CardContent = exports.CardContent = function CardContent(_ref13) {
+  var classAdd = _ref13.classAdd,
+      children = _ref13.children;
   return _react2.default.createElement(
     'p',
     {
@@ -182,9 +252,9 @@ var CardContent = exports.CardContent = function CardContent(_ref9) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref10) {
-  var sideBar = _ref10.sideBar,
-      isVisible = _ref10.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref14) {
+  var sideBar = _ref14.sideBar,
+      isVisible = _ref14.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -196,8 +266,8 @@ var SideBar = exports.SideBar = function SideBar(_ref10) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref11) {
-      var isVisible = _ref11.isVisible;
+    function (_ref15) {
+      var isVisible = _ref15.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -242,9 +312,8 @@ var SideBar = exports.SideBar = function SideBar(_ref10) {
   );
 };
 
-
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref12) {
-  var children = _ref12.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref16) {
+  var children = _ref16.children;
   return _react2.default.createElement(
     'figure',
     {
@@ -260,15 +329,14 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref12) {
   );
 };
 
-
-var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref13) {
-  var children = _ref13.children;
+var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref17) {
+  var children = _ref17.children;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
       style: { marginTop: 0 } },
-    function (_ref14) {
-      var isVisible = _ref14.isVisible;
+    function (_ref18) {
+      var isVisible = _ref18.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -299,8 +367,8 @@ var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref13) {
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
-  var children = _ref15.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref19) {
+  var children = _ref19.children;
   return _react2.default.createElement(
     'div',
     {
@@ -316,10 +384,8 @@ var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
       children
     ),
     _react2.default.createElement(_style2.default, {
-
       styleId: '2891326595',
       css: '.sidebarquote.jsx-2891326595{display:inline-block;padding:0 21px 0 0;vertical-align:top;-webkit-transform:translateX(5vw) translateY(25vw);-ms-transform:translateX(5vw) translateY(25vw);transform:translateX(5vw) translateY(25vw);}.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
-
     })
   );
 };
