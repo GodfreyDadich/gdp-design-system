@@ -222,6 +222,7 @@ export default class CircularCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
+                    boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.4)',
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
@@ -240,7 +241,7 @@ export default class CircularCarousel extends Component {
 
           </div>
           {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect}  children={children} />
+            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
             : countIndicator === 'dots' ?
               <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
