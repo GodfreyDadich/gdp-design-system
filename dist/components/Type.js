@@ -140,9 +140,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
       }
     },
     personName,
-    _react2.default.createElement('br', {
-      className: 'jsx-483842697'
-    }),
+    _react2.default.createElement('br', null),
     _react2.default.createElement(
       'span',
       {
@@ -151,20 +149,20 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
           display: 'inline-block',
           lineHeight: 1
         },
-        className: 'jsx-483842697' + ' ' + 'bioPersonTitle'
+        className: 'bioPersonTitle'
       },
       personTitle
     ),
     insta ? _react2.default.createElement(
       'a',
-      { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'jsx-483842697' + ' ' + 'noGreen'
-      },
+      { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
       _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '16px' } })
     ) : '',
-    _react2.default.createElement(_style2.default, {
-      styleId: '483842697',
-      css: '.bioPersonTitle.jsx-483842697{font-size:1.48vw;}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-483842697{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-483842697{font-size:5.4vw;}}'
-    })
+    _react2.default.createElement(
+      'style',
+      null,
+      '\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      '
+    )
   );
 };
 
