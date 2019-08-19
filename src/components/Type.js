@@ -147,7 +147,7 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-export const BioHeader = ({ personName, personTitle, insta }) =>
+export const BioHeader = ({ personName, personTitle, insta }) => 
   <Heading1
     style={{
       paddingBottom: '2.5vw'
@@ -159,7 +159,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       style={{
         fontFamily: 'Atlas Grotesk',
         display: 'inline-block',
-        fontSize: isMobile ? '1.95vw' : isMobileOnly ? '5.4vw' : '1.48vw',
+        fontSize: isMobile ? isMobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
         lineHeight: 1
       }}
     >{personTitle}</span>
