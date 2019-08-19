@@ -159,25 +159,12 @@ export const SubHead = ({ children, style, className }) =>
    .subhead {
     margin-top: 30px !important;
     font-family: 'Atlas Grotesk';
-    font-weight: 900;
-    font-size: 20px;
-    margin-top: 0;
+    font-weight: 400;
+    font-size: 19px;
     margin-bottom: 0;
     line-height: 1.29px;
-    letter-spacing: -0.18px;          
+    letter-spacing: -0.2px;          
     color: #7F7F7F;
-
-    .subtitle {
-      color: #333;
-    }
-    & > * {
-      display: inline-block;
-    }
-    strong {
-      @media only screen and (max-width: 1024px) {
-        font-size: 20px;
-      }
-    } 
   }
   `}</style>
 </h4>
@@ -196,7 +183,11 @@ export const WiredType = ({ children, style, className }) =>
       line-height: 1.42;
       color: #333;
       font-variant: small-caps;
-      letter-spacing: .5px;                
+      letter-spacing: .5px;       
+      @media only screen and (max-width: 500px) {
+      line-height:22px;
+      font-size: 15px;
+      }                
     }
   `}</style>
 </span>

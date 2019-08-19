@@ -49,7 +49,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
           </div>
         )
       }
-    </CircularCarousel> :
+    </CircularCarousel> : <div>
       <div className='grid-container'>
         {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
         {
@@ -72,6 +72,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             </div>
             : ''
         }
+        </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>}
     <style jsx>{`
