@@ -147,7 +147,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
         style: {
           fontFamily: 'Atlas Grotesk',
           display: 'inline-block',
-          fontSize: _reactDeviceDetect.isMobile ? '1.95vw' : _reactDeviceDetect.isMobileOnly ? '5.4vw' : '1.48vw',
+          fontSize: _reactDeviceDetect.isMobile ? _reactDeviceDetect.isMobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
           lineHeight: 1
         }
       },
