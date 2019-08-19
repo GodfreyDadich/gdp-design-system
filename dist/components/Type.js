@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _style = require('styled-jsx/style');
@@ -132,6 +134,22 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
   var personName = _ref6.personName,
       personTitle = _ref6.personTitle,
       insta = _ref6.insta;
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      mobile = _useState2[0],
+      setMobile = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      mobileOnly = _useState4[0],
+      setMobileOnly = _useState4[1];
+
+  (0, _react.useEffect)(function () {
+    setMobile(_reactDeviceDetect.isMobile);
+    setMobileOnly(_reactDeviceDetect.isMobileOnly);
+  }, []);
+
   return _react2.default.createElement(
     Heading1,
     {
@@ -147,7 +165,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
         style: {
           fontFamily: 'Atlas Grotesk',
           display: 'inline-block',
-          fontSize: _reactDeviceDetect.isMobile ? _reactDeviceDetect.isMobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
+          fontSize: mobile ? mobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
           lineHeight: 1
         }
       },
