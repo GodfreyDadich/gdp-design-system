@@ -23,6 +23,8 @@ var _Type = require('./Type');
 
 var _aspectRatio = require('../utils/aspectRatio');
 
+var _reactDeviceDetect = require('react-device-detect');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51,6 +53,8 @@ var RevealCarousel = function (_Component) {
     _this.hoverTeasePrev = _this.hoverTeasePrev.bind(_this);
     _this.hoverTeaseNext = _this.hoverTeaseNext.bind(_this);
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
+    _this.handleTouchMove = _this.handleTouchMove.bind(_this);
+    _this.handleTouchStart = _this.handleTouchStart.bind(_this);
     return _this;
   }
 
@@ -101,9 +105,63 @@ var RevealCarousel = function (_Component) {
       }
     }
   }, {
+    key: 'getTouches',
+    value: function getTouches(e) {
+      return e.touches || // browser API
+      e.originalEvent.touches; // jQuery
+    }
+  }, {
+    key: 'handleTouchStart',
+    value: function handleTouchStart(e) {
+      e.preventDefault();
+      var firstTouch = this.getTouches(e)[0];
+      this.xDown = firstTouch.clientX;
+      this.yDown = firstTouch.clientY;
+    }
+  }, {
+    key: 'handleTouchMove',
+    value: function handleTouchMove(e) {
+      e.preventDefault();
+      if (!this.xDown || !this.yDown) {
+        return;
+      }
+      var xLeft = e.touches[0].clientX;
+      var xDiff = this.xDown - xLeft;
+      var direction = xDiff > 0 ? 'right' : 'left';
+      if (direction === 'right') {
+        this.goToNextSlide();
+      } else {
+        this.goToPrevSlide();
+      }
+
+      /* reset values */
+      this.xDown = null;
+      this.yDown = null;
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      document.addEventListener('keydown', this.handleKeyDown, false);
+      if (_reactDeviceDetect.isMobile) {
+        document.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+      } else {
+        document.addEventListener('keydown', this.handleKeyDown, false);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.killListeners();
+    }
+  }, {
+    key: 'killListeners',
+    value: function killListeners() {
+      if (_reactDeviceDetect.isMobile) {
+        document.removeEventListener('touchstart', this.handleTouchStart);
+        document.removeEventListener('touchmove', this.handleTouchMove);
+      } else {
+        document.removeEventListener('keydown', this.handleKeyDown);
+      }
     }
   }, {
     key: 'hoverTeasePrev',

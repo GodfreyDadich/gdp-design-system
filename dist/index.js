@@ -112,6 +112,15 @@ Object.defineProperty(exports, 'Modal', {
   }
 });
 
+var _Museum = require('./components/Museum');
+
+Object.defineProperty(exports, 'Museum', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Museum).default;
+  }
+});
+
 var _Toast = require('./components/Toast');
 
 Object.defineProperty(exports, 'Toast', {
@@ -154,6 +163,15 @@ Object.defineProperty(exports, 'SideBySide', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_SideBySide).default;
+  }
+});
+
+var _SimpleGallery = require('./components/SimpleGallery');
+
+Object.defineProperty(exports, 'SimpleGallery', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_SimpleGallery).default;
   }
 });
 

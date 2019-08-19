@@ -3,8 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.QuoteBlock = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -23,6 +22,8 @@ var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 var _ConditionalLink = require('./ConditionalLink');
 
 var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
+
+var _Icons = require('./Icons');
 
 var _typography = require('../styles/typography');
 
@@ -45,16 +46,18 @@ var HeadingSuper = exports.HeadingSuper = function HeadingSuper(_ref) {
 };
 
 var Heading1 = exports.Heading1 = function Heading1(_ref2) {
-  var children = _ref2.children;
+  var children = _ref2.children,
+      style = _ref2.style;
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-3415195638' + ' ' + 'headingOne'
+      style: style,
+      className: 'jsx-895223534' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3415195638',
-      css: '.headingOne.jsx-3415195638{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3415195638 .clientName.jsx-3415195638{display:block;color:#7F7F7F;}.headingOne.jsx-3415195638:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3415195638{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3415195638:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-3415195638{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-3415195638:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+      styleId: '895223534',
+      css: '.headingOne.jsx-895223534{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
@@ -123,9 +126,42 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   );
 };
 
-var Caption = exports.Caption = function Caption(_ref6) {
-  var classAdd = _ref6.classAdd,
-      children = _ref6.children;
+var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
+  var personName = _ref6.personName,
+      personTitle = _ref6.personTitle,
+      insta = _ref6.insta;
+  return _react2.default.createElement(
+    Heading1,
+    {
+      style: {
+        paddingBottom: '2.5vw'
+      }
+    },
+    personName,
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'span',
+      {
+        style: {
+          fontFamily: 'Atlas Grotesk',
+          display: 'inline-block',
+          fontSize: '1.48vw',
+          lineHeight: 1
+        }
+      },
+      personTitle
+    ),
+    insta ? _react2.default.createElement(
+      'a',
+      { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
+      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '.5vw' } })
+    ) : ''
+  );
+};
+
+var Caption = exports.Caption = function Caption(_ref7) {
+  var classAdd = _ref7.classAdd,
+      children = _ref7.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -139,9 +175,9 @@ var Caption = exports.Caption = function Caption(_ref6) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref7) {
-  var classAdd = _ref7.classAdd,
-      children = _ref7.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref8) {
+  var classAdd = _ref8.classAdd,
+      children = _ref8.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -155,9 +191,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref7) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref8) {
-  var classAdd = _ref8.classAdd,
-      children = _ref8.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref9) {
+  var classAdd = _ref9.classAdd,
+      children = _ref9.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -171,9 +207,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref8) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref9) {
-  var classAdd = _ref9.classAdd,
-      children = _ref9.children;
+var CardContent = exports.CardContent = function CardContent(_ref10) {
+  var classAdd = _ref10.classAdd,
+      children = _ref10.children;
   return _react2.default.createElement(
     'p',
     {
@@ -182,9 +218,9 @@ var CardContent = exports.CardContent = function CardContent(_ref9) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref10) {
-  var sideBar = _ref10.sideBar,
-      isVisible = _ref10.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref11) {
+  var sideBar = _ref11.sideBar,
+      isVisible = _ref11.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -196,8 +232,8 @@ var SideBar = exports.SideBar = function SideBar(_ref10) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref11) {
-      var isVisible = _ref11.isVisible;
+    function (_ref12) {
+      var isVisible = _ref12.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -242,9 +278,8 @@ var SideBar = exports.SideBar = function SideBar(_ref10) {
   );
 };
 
-
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref12) {
-  var children = _ref12.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref13) {
+  var children = _ref13.children;
   return _react2.default.createElement(
     'figure',
     {
@@ -260,15 +295,14 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref12) {
   );
 };
 
-
-var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref13) {
-  var children = _ref13.children;
+var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref14) {
+  var children = _ref14.children;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
       style: { marginTop: 0 } },
-    function (_ref14) {
-      var isVisible = _ref14.isVisible;
+    function (_ref15) {
+      var isVisible = _ref15.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -299,8 +333,8 @@ var QuoteBlock = exports.QuoteBlock = function QuoteBlock(_ref13) {
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
-  var children = _ref15.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref16) {
+  var children = _ref16.children;
   return _react2.default.createElement(
     'div',
     {
@@ -316,10 +350,8 @@ var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref15) {
       children
     ),
     _react2.default.createElement(_style2.default, {
-
       styleId: '2891326595',
       css: '.sidebarquote.jsx-2891326595{display:inline-block;padding:0 21px 0 0;vertical-align:top;-webkit-transform:translateX(5vw) translateY(25vw);-ms-transform:translateX(5vw) translateY(25vw);transform:translateX(5vw) translateY(25vw);}.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:.5vw solid;width:12.2vw;padding-bottom:1vw;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 #sidebarquote__content__border.jsx-2891326595{border-top:8px solid;width:197px;padding-bottom:17px;}}.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:7px;width:12.3vw;font-family:Atlas Grotesk;font-weight:600;font-size:1.2vw;line-height:1.4vw;-webkit-letter-spacing:.01vw;-moz-letter-spacing:.01vw;-ms-letter-spacing:.01vw;letter-spacing:.01vw;display:inline-block;}@media screen and (min-width:1622px){.sidebarquote.jsx-2891326595 .sidebarquote__content.jsx-2891326595{margin-top:4px;width:205px;font-size:19.5px;line-height:23px;}}'
-
     })
   );
 };
