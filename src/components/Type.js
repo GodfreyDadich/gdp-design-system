@@ -167,14 +167,18 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
       : ''
     }
-    <style jsx>{`
+    <style>{`
       .bioPersonTitle {
         font-size: 1.48vw;
-        @media only screen and (max-width: 1024px) {
+      }
+      @media only screen and (max-width: 1024px) {
+        .bioPersonTitle{
           font-size: 1.95vw;
-         }
-        @media only screen and (max-width: 500px) {
-         font-size: 5.4vw;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .bioPersonTitle{
+          font-size: 5.4vw;
         }
       }
       `}</style>
