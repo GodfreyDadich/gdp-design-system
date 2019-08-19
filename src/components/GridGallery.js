@@ -13,8 +13,8 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
   const thumbStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
-    margin: '10px',
-    width: `calc(${colWidth}% - 20px)`,
+    margin: '24px',
+    width: `calc(${colWidth}% - 50px)`,
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
 
@@ -99,7 +99,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
-        padding: 9.5vw 8.9vw;
+        padding: 7.4vw 7.1vw;
       }
       .grid-image:hover {
         filter: brightness(70%);
