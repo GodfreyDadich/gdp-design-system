@@ -25,6 +25,8 @@ var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
 
 var _Icons = require('./Icons');
 
+var _reactDeviceDetect = require('react-device-detect');
+
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -145,7 +147,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
         style: {
           fontFamily: 'Atlas Grotesk',
           display: 'inline-block',
-          fontSize: '1.48vw',
+          fontSize: _reactDeviceDetect.isMobile ? '1.95vw' : _reactDeviceDetect.isMobileOnly ? '5.4vw' : '1.48vw',
           lineHeight: 1
         }
       },
@@ -154,7 +156,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
     insta ? _react2.default.createElement(
       'a',
       { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
-      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '.5vw' } })
+      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '16px' } })
     ) : ''
   );
 };
