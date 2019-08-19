@@ -247,7 +247,7 @@ export default class CircularCarousel extends Component {
               <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
 
-        {caption && caption.length > 0 ? <Caption>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
     )
   }

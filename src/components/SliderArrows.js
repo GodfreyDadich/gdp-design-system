@@ -92,7 +92,7 @@ export const AltRightArrow = props => {
           width: 1px;
           background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
           margin-right: 1px;
-          transform: translate(-4px,-14.58px) rotate(-90deg);
+          transform: translate(-4px,-16.58px) rotate(-90deg);
         }
   `}</style>
     </div>
@@ -140,7 +140,7 @@ export const AltLeftArrow = props => {
           width: 1px;
           background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
           margin-left: 1px;
-          transform: translate(7px,-14.58px) rotate(90deg);
+          transform: translate(7px,-16.58px) rotate(90deg);
         }
     `}</style>
     </div>

@@ -73,7 +73,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             : ''
         }
         </div>
-        {caption && caption.length > 0 ? <Caption>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>}
     <style jsx>{`
       .expand {
