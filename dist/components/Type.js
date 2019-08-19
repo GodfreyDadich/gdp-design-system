@@ -135,12 +135,12 @@ var SubHead = exports.SubHead = function SubHead(_ref6) {
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-909162699' + ' ' + ('subhead ' + className)
+      className: 'jsx-2771219182' + ' ' + ('subhead ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '909162699',
-      css: '.subhead.jsx-909162699{margin-top:30px !important;font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-top:0;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}.subhead.jsx-909162699 .subtitle.jsx-909162699{color:#333;}.subhead.jsx-909162699>*.jsx-909162699{display:inline-block;}@media only screen and (max-width:1024px){.subhead.jsx-909162699 strong.jsx-909162699{font-size:20px;}}'
+      styleId: '2771219182',
+      css: '.subhead.jsx-2771219182{margin-top:30px !important;font-family:\'Atlas Grotesk\';font-weight:400;font-size:19px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;color:#7F7F7F;}'
     })
   );
 };
@@ -155,12 +155,12 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
       style: _extends({
         fontFamily: 'Noe Text'
       }, style),
-      className: 'jsx-3262944713' + ' ' + ('wiredtype ' + className)
+      className: 'jsx-3251949478' + ' ' + ('wiredtype ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3262944713',
-      css: '.wiredtype.jsx-3262944713{font-size:19px;line-height:1.42;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}'
+      styleId: '3251949478',
+      css: '.wiredtype.jsx-3251949478{font-size:19px;line-height:1.42;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}@media only screen and (max-width:500px){.wiredtype.jsx-3251949478{line-height:22px;font-size:15px;}}'
     })
   );
 };

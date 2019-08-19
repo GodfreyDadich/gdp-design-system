@@ -236,6 +236,7 @@ var CircularCarousel = function (_Component) {
           children = _props.children,
           classAdd = _props.classAdd,
           imageAspect = _props.imageAspect,
+          shadow = _props.shadow,
           countIndicator = _props.countIndicator;
 
 
@@ -289,7 +290,7 @@ var CircularCarousel = function (_Component) {
                 {
                   key: 'carouselImage' + i,
                   style: _extends({
-                    boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.4)',
+                    boxShadow: shadow === 'yes' ? '0px 7px 20px rgba(0, 0, 0, 0.4)' : '',
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
@@ -309,7 +310,7 @@ var CircularCarousel = function (_Component) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+          null,
           caption
         ) : ''
       );

@@ -254,7 +254,8 @@ var galleries = [{
         aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen'),
         imageAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen'),
         countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
-        caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+        caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
+        shadow: (0, _addonKnobs.selectV2)('shadow', { yes: 'yes', no: 'no' }, 'no')
       },
       imageGallery.map(function (img, index) {
         return _react2.default.createElement(_Image2.default, {
@@ -286,7 +287,7 @@ var galleries = [{
     view: (0, _addonKnobs.selectV2)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
     carousel: (0, _addonKnobs.selectV2)('carousel', { yes: 'yes', no: 'no' }, 'no'),
     columns: (0, _addonKnobs.number)('Columns', 3),
-    thumbAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'noAspect'),
+    thumbAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
     containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
     caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
   });

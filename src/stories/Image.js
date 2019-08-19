@@ -250,18 +250,13 @@ storiesOf('Image', module)
         shadow={selectV2('shadow', { yes: 'yes', no: 'no'}, 'no')} 
       >
         { imageGallery.map((img, index) => {
-          return <Device classAdd='test' deviceColor={selectV2('Device Color', {
-            black: 'black',
-            white: 'white'
-          }, 'black')}>
-          <Image
+          return <Image
             key={`img-${index}`}
             aspectRatio='noAspect'
             skipIntro
             imgSource={img}
             visibilityOverride
           />
-          </Device>
         })}
       </CircularCarousel>
     </div>
