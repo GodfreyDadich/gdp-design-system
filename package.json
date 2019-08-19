@@ -1,6 +1,6 @@
 {
   "name": "gdp-design-system",
-  "version": "1.0.31-bio-header-5",
+  "version": "1.0.31-bio-header-6",
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
