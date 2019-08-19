@@ -2,6 +2,7 @@ import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { InstagramIcon } from './Icons'
+import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -158,12 +159,12 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       style={{
         fontFamily: 'Atlas Grotesk',
         display: 'inline-block',
-        fontSize: '1.48vw',
+        fontSize: isMobile ? '1.95vw' : isMobileOnly ? '5.4vw' : '1.48vw',
         lineHeight: 1
       }}
     >{personTitle}</span>
     { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '.5vw' }} /></a>
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
       : ''
     }
   </Heading1>
