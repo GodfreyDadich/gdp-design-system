@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { InstagramIcon } from './Icons'
@@ -147,8 +147,16 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-export const BioHeader = ({ personName, personTitle, insta }) => 
-  <Heading1
+export const BioHeader = ({ personName, personTitle, insta }) => {
+  const [mobile, setMobile] = useState(false)
+  const [mobileOnly, setMobileOnly] = useState(false)
+
+  useEffect(() => {
+    setMobile(isMobile)
+    setMobileOnly(isMobileOnly)
+  }, [])
+
+  return <Heading1
     style={{
       paddingBottom: '2.5vw'
     }}
@@ -159,7 +167,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       style={{
         fontFamily: 'Atlas Grotesk',
         display: 'inline-block',
-        fontSize: isMobile ? isMobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
+        fontSize: mobile ? mobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
         lineHeight: 1
       }}
     >{personTitle}</span>
@@ -168,6 +176,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       : ''
     }
   </Heading1>
+}
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
