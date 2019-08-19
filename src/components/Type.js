@@ -147,16 +147,8 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-export const BioHeader = ({ personName, personTitle, insta }) => {
-  const [mobile, setMobile] = useState(false)
-  const [mobileOnly, setMobileOnly] = useState(false)
-
-  useEffect(() => {
-    setMobile(isMobile)
-    setMobileOnly(isMobileOnly)
-  }, [])
-
-  return <Heading1
+export const BioHeader = ({ personName, personTitle, insta }) =>
+  <Heading1
     style={{
       paddingBottom: '2.5vw'
     }}
@@ -167,16 +159,26 @@ export const BioHeader = ({ personName, personTitle, insta }) => {
       style={{
         fontFamily: 'Atlas Grotesk',
         display: 'inline-block',
-        fontSize: mobile ? mobileOnly ? '5.4vw' : '1.95vw' : '1.48vw',
         lineHeight: 1
       }}
+      className='bioPersonTitle'
     >{personTitle}</span>
     { insta
       ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
       : ''
     }
+    <style jsx>{`
+      .bioPersonTitle {
+        font-size: 1.48vw;
+        @media only screen and (max-width: 1024px) {
+          font-size: 1.95vw;
+         }
+        @media only screen and (max-width: 500px) {
+         font-size: 5.4vw;
+        }
+      }
+      `}</style>
   </Heading1>
-}
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
