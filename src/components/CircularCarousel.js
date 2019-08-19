@@ -175,6 +175,7 @@ export default class CircularCarousel extends Component {
       children,
       classAdd,
       imageAspect,
+      shadow,
       countIndicator
     } = this.props
 
@@ -222,7 +223,7 @@ export default class CircularCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.4)',
+                    boxShadow: shadow === 'yes' ? '0px 7px 20px rgba(0, 0, 0, 0.4)' : '',
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
@@ -246,7 +247,7 @@ export default class CircularCarousel extends Component {
               <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
 
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption>{caption}</Caption> : ''}
       </div>
     )
   }

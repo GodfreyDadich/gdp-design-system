@@ -247,15 +247,21 @@ storiesOf('Image', module)
         imageAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+        shadow={selectV2('shadow', { yes: 'yes', no: 'no'}, 'no')} 
       >
         { imageGallery.map((img, index) => {
-          return <Image
+          return <Device classAdd='test' deviceColor={selectV2('Device Color', {
+            black: 'black',
+            white: 'white'
+          }, 'black')}>
+          <Image
             key={`img-${index}`}
             aspectRatio='noAspect'
             skipIntro
             imgSource={img}
             visibilityOverride
           />
+          </Device>
         })}
       </CircularCarousel>
     </div>
