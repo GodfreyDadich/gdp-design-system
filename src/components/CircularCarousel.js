@@ -89,10 +89,10 @@ export default class CircularCarousel extends Component {
 
   componentDidMount() {
     if (isMobile) {
-      document.addEventListener('touchstart', this.handleTouchStart, { passive: false })
-      document.addEventListener('touchmove', this.handleTouchMove, { passive: false })
+      this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
+      this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
     } else {
-      document.addEventListener('keydown', this.handleKeyDown, false)
+      this.carouselElem.addEventListener('keydown', this.handleKeyDown, false)
     }
   }
 
@@ -102,10 +102,10 @@ export default class CircularCarousel extends Component {
 
   killListeners() {
     if (isMobile) {
-      document.removeEventListener('touchstart', this.handleTouchStart)
-      document.removeEventListener('touchmove', this.handleTouchMove)
+      this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
+      this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
     } else {
-      document.removeEventListener('keydown', this.handleKeyDown)
+      this.carouselElem.removeEventListener('keydown', this.handleKeyDown)
     }
   }
 
@@ -181,6 +181,7 @@ export default class CircularCarousel extends Component {
 
     return (
       <div
+        ref={elem => this.carouselElem = elem} 
         style={Object.assign(style, {
           position: 'relative',
           overflow: 'visible'
