@@ -137,10 +137,10 @@ var CircularCarousel = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (_reactDeviceDetect.isMobile) {
-        document.addEventListener('touchstart', this.handleTouchStart, { passive: false });
-        document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+        this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false });
       } else {
-        document.addEventListener('keydown', this.handleKeyDown, false);
+        this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
       }
     }
   }, {
@@ -152,10 +152,10 @@ var CircularCarousel = function (_Component) {
     key: 'killListeners',
     value: function killListeners() {
       if (_reactDeviceDetect.isMobile) {
-        document.removeEventListener('touchstart', this.handleTouchStart);
-        document.removeEventListener('touchmove', this.handleTouchMove);
+        this.carouselElem.removeEventListener('touchstart', this.handleTouchStart);
+        this.carouselElem.removeEventListener('touchmove', this.handleTouchMove);
       } else {
-        document.removeEventListener('keydown', this.handleKeyDown);
+        this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
       }
     }
   }, {
@@ -243,6 +243,9 @@ var CircularCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
+          ref: function ref(elem) {
+            return _this4.carouselElem = elem;
+          },
           style: _extends(style, {
             position: 'relative',
             overflow: 'visible'
@@ -310,7 +313,7 @@ var CircularCarousel = function (_Component) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          null,
+          { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
           caption
         ) : ''
       );

@@ -38,7 +38,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       overflow: 'visible'
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-    {isMobile ? <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
+    {isMobile ? 
+    <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
       {
         galleries.map((gallery, index) =>
           <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
