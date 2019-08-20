@@ -48,7 +48,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         {
           images.map((image, index) =>
             <div style={mobileStyles} key={`galleryThumb-${index}`}>
-            <Image
+              <Image
                 aspectRatio={thumbAspect}
                 imgSource={image}
                 skipIntro
@@ -61,7 +61,6 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       :
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
-        <h4>mobile alt flat</h4>
         <div className='columns-grid-container'>
           {
             images.map((image, index) =>
@@ -89,7 +88,6 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       : mixedOr ?
         // case for desktop grid with mixed orientations
         <div>
-          <h4>mixed or desktop</h4>
           <div className='grid-container'>
             {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
             {
@@ -116,8 +114,6 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         :
         // case for desktop grid with aligned columns 
         <div>
-          <h4>desktop columns</h4>
-
           <div className='columns-grid-container'>
             {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
             {
