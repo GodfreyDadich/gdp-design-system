@@ -5,16 +5,22 @@ import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
-const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, classAdd }) => {
+const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, mobileCarousel, view, caption, mixedOr, altAsset, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const colWidth = 100 / columns;
 
-  const thumbStyles = {
+  const evenGridStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
     margin: '24px',
     width: `calc(${colWidth}% - 50px)`,
+    cursor: carousel === 'yes' ? 'pointer' : 'default'
+  }
+
+  const mixedOrStyles = {
+    margin: '.5vw',
+    display: 'inline-block',
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
 
@@ -36,27 +42,14 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       overflow: 'visible'
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-    {isMobile ? <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
-      {
-        images.map((image, index) =>
-          <div style={mobileStyles} key={`galleryThumb-${index}`}>
-            <Image
-              aspectRatio={thumbAspect || 'sixteen'}
-              imgSource={image}
-              skipIntro
-              visibilityOverride
-            />
-          </div>
-        )
-      }
-    </CircularCarousel> : <div>
-      <div className='grid-container'>
-        {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+    {isMobile ? mobileCarousel && !altAsset ?
+      // case for mobile carousel using the same assets as desktop
+      <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
         {
           images.map((image, index) =>
-            <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={thumbStyles} key={`galleryThumb-${index}`}>
-              <Image
-                aspectRatio={thumbAspect || 'noAspect'}
+            <div style={mobileStyles} key={`galleryThumb-${index}`}>
+            <Image
+                aspectRatio={thumbAspect}
                 imgSource={image}
                 skipIntro
                 visibilityOverride
@@ -64,18 +57,103 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             </div>
           )
         }
-        {
-          modalView
-            ? <div className='modal'>
-              <div className='modalTouchArea' onClick={e => closeGallery()} />
-              <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
-            </div>
-            : ''
-        }
+      </CircularCarousel>
+      :
+      // case for mobile flat using an alternate asset for mobile
+      <div className='mobile-flat'>
+        <h4>mobile alt flat</h4>
+        <div className='columns-grid-container'>
+          {
+            images.map((image, index) =>
+              <div style={evenGridStyles} key={`galleryThumb-${index}`}>
+                <Image
+                  aspectRatio={thumbAspect || 'noAspect'}
+                  imgSource={image}
+                  skipIntro
+                  visibilityOverride
+                />
+              </div>
+            )
+          }
+          {
+            modalView
+              ? <div className='modal'>
+                <div className='modalTouchArea' onClick={e => closeGallery()} />
+                <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
+              </div>
+              : ''
+          }
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
-      </div>}
+      </div>
+      : mixedOr ?
+        // case for desktop grid with mixed orientations
+        <div>
+          <h4>mixed or desktop</h4>
+          <div className='grid-container'>
+            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+            {
+              images.map((image, index) =>
+                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={mixedOrStyles} key={`galleryThumb-${index}`}>
+                  <img
+                    className='moasic-image'
+                    src={image}
+                  />
+                </div>
+              )
+            }
+            {
+              modalView
+                ? <div className='modal'>
+                  <div className='modalTouchArea' onClick={e => closeGallery()} />
+                  <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
+                </div>
+                : ''
+            }
+          </div>
+          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        </div>
+        :
+        // case for desktop grid with aligned columns 
+        <div>
+          <h4>desktop columns</h4>
+
+          <div className='columns-grid-container'>
+            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+            {
+              images.map((image, index) =>
+                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                  <Image
+                    aspectRatio={thumbAspect || 'noAspect'}
+                    imgSource={image}
+                    skipIntro
+                    visibilityOverride
+                  />
+                </div>
+              )
+            }
+            {
+              modalView
+                ? <div className='modal'>
+                  <div className='modalTouchArea' onClick={e => closeGallery()} />
+                  <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
+                </div>
+                : ''
+            }
+          </div>
+          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        </div>
+    }
     <style jsx>{`
+    .moasic-image {
+      display: inline-block;
+      position: relative;
+      height: 10vw;
+      width: auto;
+      @media only screen and (max-width: 1020px) {
+        height: 9.6vw;
+      }
+    }
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;
@@ -96,6 +174,12 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         transform: translateY(-50%);
       }
       .grid-container {
+        background: rgb(242,242,242);
+        display:block;
+        position: relative;
+        padding: 7.4vw;
+      }
+      .columns-grid-container {
         background: rgb(242,242,242);
         flex-direction: row;
         flex-wrap: wrap;

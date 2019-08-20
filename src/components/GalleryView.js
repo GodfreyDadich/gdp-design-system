@@ -97,23 +97,32 @@ const GalleryView = ({ images, index, view }) => {
       }}>
       {
         images.map((image, i) => (
-          <img
-            className='slide'
+          <div
             style={{
+              height: '100%',
               width: '100%',
-              height: 'auto',
-              maxHeight: '100%',
-              display: 'inline-block',
-              verticalAlign: 'middle',
-              backgroundColor: '#f2f2f2',
               position: 'relative',
-              margin: '0 auto',
-              opacity: currentIndex === i ? 1 : .1,
-              transition: 'opacity .3s, transform .3s'
-            }}
-            src={image}
-            key={`slide-image-${i}`}
-          />
+              display: 'inline-block'
+            }}>
+            <img
+              className='slide'
+              style={{
+                top: '50%',
+                left: '50%',
+                height: '100%',
+                transform: 'translateX(-50%) translateY(-50%)',
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                backgroundColor: '#f2f2f2',
+                position: 'absolute',
+                margin: '0 auto',
+                opacity: currentIndex === i ? 1 : .1,
+                transition: 'opacity .3s, transform .3s'
+              }}
+              src={image}
+              key={`slide-image-${i}`}
+            />
+          </div>
         ))
       }
     </div>
@@ -137,8 +146,8 @@ const GalleryView = ({ images, index, view }) => {
     .slider {
       position: absolute;
       width: 80%;
+      height: 100%;
       margin: 0 10%;
-      height: auto;
       top: 50%;
       transform: translateY(-50%);      
     }

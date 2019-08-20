@@ -21,8 +21,18 @@ const imageGallery = [
 ]
 
 const imageGallery2 = [ 
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+
   'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70',
@@ -277,6 +287,9 @@ storiesOf('Image', module)
     .add(
       'Grid Gallery (Mosaic)',
         () => <GridGallery 
+        mobileCarousel={true}
+        mixedOr={true}
+        altAsset={''}
         classAdd=''       
         images={imageGallery2} 
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
