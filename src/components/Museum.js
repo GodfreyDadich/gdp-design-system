@@ -99,7 +99,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       }
       .museum-container {
         background: rgb(242,242,242);
-        padding: 9.5vw 8.9vw;
+        padding: 7.4vw 7.1vw;
       }
       .modal {
         position: fixed;
