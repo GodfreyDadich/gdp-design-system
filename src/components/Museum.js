@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SimpleGallery from './SimpleGallery'
 import Image from './Image'
-import CircularCarousel from './CircularCarousel'
+import ResponsiveCarousel from './ResponsiveCarousel'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
@@ -46,7 +46,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {mobile ? 
-    <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
+    <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
       {
         galleries.map((gallery, index) =>
           <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
@@ -59,7 +59,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
           </div>
         )
       }
-    </CircularCarousel>
+    </ResponsiveCarousel>
       :
       <div className='museum-container'>
         <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>

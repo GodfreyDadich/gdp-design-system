@@ -6,7 +6,7 @@ import { isMobile } from 'react-device-detect'
 import { DotIndicator } from './DotIndicator'
 import { CountIndicator } from './CountIndicator';
 
-export default class CircularCarousel extends Component {
+export default class ResponsiveCarousel extends Component {
   constructor(props) {
     super(props)
 
@@ -168,18 +168,20 @@ export default class CircularCarousel extends Component {
   }
   render() {
     const {
+      style = {},
       fullBleed,
       caption,
       aspectRatio,
       children,
       classAdd,
+      imageAspect,
       shadow,
       countIndicator
     } = this.props
 
     return (
       <div
-        ref={elem => this.carouselElem = elem} 
+        ref={elem => this.carouselElem = elem}
         style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
@@ -231,7 +233,8 @@ export default class CircularCarousel extends Component {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%'
+                    width: imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, this.getCarouselStyle(i))}>
                   {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
                 </div>
@@ -240,9 +243,9 @@ export default class CircularCarousel extends Component {
 
           </div>
           {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} />
+            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
             : countIndicator === 'dots' ?
-              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} /> : '' : ''}
+              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
 
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}

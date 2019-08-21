@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import GalleryView from './GalleryView'
-import CircularCarousel from './CircularCarousel'
+import ResponsiveCarousel from './ResponsiveCarousel'
 import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
@@ -49,7 +49,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {mobile ? mobileCarousel && !altAsset ?
       // case for mobile carousel using the same assets as desktop
-      <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+      <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
         {
           images.map((image, index) =>
             <div style={mobileStyles} key={`galleryThumb-${index}`}>
@@ -62,7 +62,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
             </div>
           )
         }
-      </CircularCarousel>
+      </ResponsiveCarousel>
       :
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
