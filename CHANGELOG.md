@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.31-bio-header-7"></a>
+## [1.0.31-bio-header-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-6...v1.0.31-bio-header-7) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-6"></a>
+## [1.0.31-bio-header-6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-5...v1.0.31-bio-header-6) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-5"></a>
+## [1.0.31-bio-header-5](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-4...v1.0.31-bio-header-5) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-4"></a>
+## [1.0.31-bio-header-4](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-3...v1.0.31-bio-header-4) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-3"></a>
+## [1.0.31-bio-header-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-2...v1.0.31-bio-header-3) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-2"></a>
+## [1.0.31-bio-header-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-1...v1.0.31-bio-header-2) (2019-08-19)
+
+
+
+<a name="1.0.31-bio-header-1"></a>
+## [1.0.31-bio-header-1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.30...v1.0.31-bio-header-1) (2019-08-19)
+
+
+
+<a name="1.0.24"></a>
+## [1.0.24](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.23...v1.0.24) (2019-06-28)
+
+
+
+<a name="1.0.23-beta-2"></a>
+## [1.0.23-beta-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.21...v1.0.23-beta-2) (2019-06-03)
+
+
 
 <a name="1.0.23-beta-2"></a>
 ## [1.0.23-beta-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.21...v1.0.23-beta-2) (2019-06-03)

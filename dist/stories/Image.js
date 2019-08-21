@@ -32,25 +32,86 @@ var _Colors = require('./Colors');
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
+var _Icons = require('./Icons');
+
+var _Icons2 = _interopRequireDefault(_Icons);
+
 var _Typography = require('./Typography');
 
 var _Typography2 = _interopRequireDefault(_Typography);
-
-var _Video = require('../components/Video');
-
-var _Video2 = _interopRequireDefault(_Video);
 
 var _Device = require('../components/Device');
 
 var _Device2 = _interopRequireDefault(_Device);
 
+var _Museum = require('../components/Museum');
+
+var _Museum2 = _interopRequireDefault(_Museum);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'];
+
+var imageGallery2 = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70', 'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg', 'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96om2004avnaw5dsea3ig-ng-2.jpg'];
+
+var imageGallery3 = ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'];
+
+var galleries = [{
+  name: '',
+  thumb: '',
+  images: imageGallery
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery2
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery3
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery2
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery3
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery2
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery3
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery2
+}, {
+  name: '',
+  thumb: '',
+  images: imageGallery3
+}];
+
 (0, _react3.storiesOf)('Styles', module).add('Colors', function () {
   return _react2.default.createElement(_Colors2.default, null);
 }).add('Typeography', function () {
   return _react2.default.createElement(_Typography2.default, null);
+}).add('Icons', function () {
+  return _react2.default.createElement(_Icons2.default, null);
 });
 
 (0, _react3.storiesOf)('Image', module).add('Image', function () {
@@ -118,7 +179,8 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
       aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('Full Bleed', false),
       stretchH: (0, _addonKnobs.boolean)('Stretch Horizontal', false),
-      imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
+      imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      // imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
       // imgSource='https://d11b794nw2x0wi.cloudfront.net/attachments/cjdkx87gb0023njawm9h9o3v6-eye-level-even-0021-patrick.png'
       , verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'bottom'),
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')
@@ -194,102 +256,17 @@ var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.
         aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
         caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
       },
-      _react2.default.createElement(
-        _Device2.default,
-        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
-            black: 'black',
-            white: 'white'
-          }, 'black') },
-        _react2.default.createElement(_Video2.default, {
-          title: '',
-          aspectRatio: 'standard',
-          vidSource: 'https://vimeo.com/299978313',
+      imageGallery.map(function (img, index) {
+        return _react2.default.createElement(_Image2.default, {
+          key: 'img-' + index,
+          aspectRatio: 'noAspect',
           skipIntro: true,
-          loop: true,
-          hoverPlay: true,
-          config: {
-            vimeo: {
-              playerOptions: {
-                background: 1,
-                transparent: 0
-              }
-            }
-          },
-          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-        })
-      ),
-      _react2.default.createElement(
-        _Device2.default,
-        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
-            black: 'black',
-            white: 'white'
-          }, 'black') },
-        _react2.default.createElement(_Video2.default, {
-          title: '',
-          aspectRatio: 'standard',
-          vidSource: 'https://vimeo.com/299978313',
-          skipIntro: true,
-          loop: true,
-          hoverPlay: true,
-          config: {
-            vimeo: {
-              playerOptions: {
-                background: 1,
-                transparent: 0
-              }
-            }
-          },
-          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-        })
-      ),
-      _react2.default.createElement(
-        _Device2.default,
-        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
-            black: 'black',
-            white: 'white'
-          }, 'black') },
-        _react2.default.createElement(_Video2.default, {
-          title: '',
-          aspectRatio: 'standard',
-          vidSource: 'https://vimeo.com/299978313',
-          skipIntro: true,
-          loop: true,
-          hoverPlay: true,
-          config: {
-            vimeo: {
-              playerOptions: {
-                background: 1,
-                transparent: 0
-              }
-            }
-          },
-          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-        })
-      ),
-      _react2.default.createElement(
-        _Device2.default,
-        { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
-            black: 'black',
-            white: 'white'
-          }, 'black') },
-        _react2.default.createElement(_Video2.default, {
-          title: '',
-          aspectRatio: 'standard',
-          vidSource: 'https://vimeo.com/299978313',
-          skipIntro: true,
-          loop: true,
-          hoverPlay: true,
-          config: {
-            vimeo: {
-              playerOptions: {
-                background: 1,
-                transparent: 0
-              }
-            }
-          },
-          thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
-        })
-      )
+          imgSource: img,
+          visibilityOverride: true
+        });
+      })
     )
   );
+}).add('Museum ( Gallery of Galleries )', function () {
+  return _react2.default.createElement(_Museum2.default, { galleries: galleries, columns: (0, _addonKnobs.number)('Columns', 4), thumbAspect: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen') });
 });

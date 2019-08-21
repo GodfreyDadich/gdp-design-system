@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
+import { InstagramIcon } from './Icons'
+import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
@@ -31,15 +33,17 @@ export const HeadingSuper = ({ children }) =>
     `}</style>
   </h1>
 
-export const Heading1 = ({ children }) =>
-  <h1 className='headingOne' >
+export const Heading1 = ({ children, style }) =>
+  <h1
+    style={style}
+    className='headingOne' >
     {children}
     <style jsx>{`
       .headingOne {
         position: relative;
         font-family: 'Noe Display';
         font-weight: bold;
-        font-size: 3.52vw;
+        font-size: 3.52vw; 
         line-height: 0.97;
         letter-spacing: 0.3px;
         padding-bottom: 51px;
@@ -48,7 +52,7 @@ export const Heading1 = ({ children }) =>
 
         .clientName {
           display: block;
-          color: #7F7F7F;
+          color: #7F7F7F; 
         }
 
         &:before {
@@ -143,7 +147,42 @@ export const Heading4 = ({ children, style, className }) =>
     `}</style>
   </h4>
 
-
+export const BioHeader = ({ personName, personTitle, insta }) =>
+  <Heading1
+    style={{
+      paddingBottom: '2.5vw'
+    }}
+  >
+    {personName}
+    <br />
+    <span
+      style={{
+        fontFamily: 'Atlas Grotesk',
+        display: 'inline-block',
+        lineHeight: 1
+      }}
+      className='bioPersonTitle'
+    >{personTitle}</span>
+    { insta
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
+      : ''
+    }
+    <style>{`
+      .bioPersonTitle {
+        font-size: 1.48vw;
+      }
+      @media only screen and (max-width: 1024px) {
+        .bioPersonTitle{
+          font-size: 1.95vw;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .bioPersonTitle{
+          font-size: 5.4vw;
+        }
+      }
+      `}</style>
+  </Heading1>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
