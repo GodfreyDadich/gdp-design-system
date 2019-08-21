@@ -145,8 +145,11 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
     .moasic-image {
       display: inline-block;
       position: relative;
-      height: 10vw;
+      height: 11.4vw;
       width: auto;
+      @media only screen and (max-width: 1690px) {
+        height: 11vw;
+      }
       @media only screen and (max-width: 1020px) {
         height: 9.6vw;
       }
