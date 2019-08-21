@@ -78,7 +78,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
         }
       </div>}
     {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
-    <style jsx>{`
+    <style>{`
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;

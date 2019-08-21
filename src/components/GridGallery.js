@@ -62,18 +62,14 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
         <div className='columns-grid-container'>
-          {
-            images.map((image, index) =>
-              <div style={evenGridStyles} key={`galleryThumb-${index}`}>
+              <div style={evenGridStyles}>
                 <Image
                   aspectRatio={thumbAspect || 'noAspect'}
-                  imgSource={image}
+                  imgSource={altAsset}
                   skipIntro
                   visibilityOverride
                 />
               </div>
-            )
-          }
           {
             modalView
               ? <div className='modal'>
@@ -140,7 +136,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
           {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
     }
-    <style jsx>{`
+    <style>{`
     .moasic-image {
       display: inline-block;
       position: relative;
