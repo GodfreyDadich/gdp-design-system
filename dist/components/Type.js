@@ -277,7 +277,7 @@ var SideBar = exports.SideBar = function SideBar(_ref13) {
       style: {
         position: 'absolute',
         top: sideBar.location.includes('top') ? '0px' : 'auto',
-        bottom: sideBar.location.includes('bottom') ? '0px' : 'auto',
+        bottom: sideBar.location.includes('bottom') ? '10px' : 'auto',
         left: sideBar.location.includes('left') ? '-135px' : 'auto',
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
