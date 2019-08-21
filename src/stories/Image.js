@@ -286,6 +286,7 @@ storiesOf('Image', module)
         // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
         classAdd=''       
         images={imageGallery2} 
+        thumbs={imageGallery2}
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
         carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} 

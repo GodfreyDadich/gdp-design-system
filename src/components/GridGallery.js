@@ -46,13 +46,13 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       position: 'relative',
       overflow: 'visible'
     })}
-    className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+    className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {mobile ? mobileCarousel && !altAsset ?
       // case for mobile carousel using the same assets as desktop
       <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
         {
           images.map((image, index) =>
-            <div style={mobileStyles} key={`galleryThumb-${index}`}>
+            <div style={mobileStyles} key={`${escape(image)}-${index}`}>
               <Image
                 aspectRatio={thumbAspect}
                 imgSource={image}
@@ -67,14 +67,14 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
         <div className='mobile-grid-container'>
-              <div style={evenGridStyles}>
-                <Image
-                  aspectRatio={thumbAspect || 'noAspect'}
-                  imgSource={altAsset}
-                  skipIntro
-                  visibilityOverride
-                />
-              </div>
+          <div style={evenGridStyles}>
+            <Image
+              aspectRatio={thumbAspect || 'noAspect'}
+              imgSource={altAsset}
+              skipIntro
+              visibilityOverride
+            />
+          </div>
           {
             modalView
               ? <div className='modal'>
@@ -86,60 +86,34 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
-      : mixedOr ?
-        // case for desktop grid with mixed orientations
-        <div>
-          <div className='grid-container'>
-            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
-            {
-              images.map((image, index) =>
-                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={mixedOrStyles} key={`galleryThumb-${index}`}>
-                  <img
-                    className='moasic-image'
-                    src={image}
-                  />
-                </div>
-              )
-            }
-            {
-              modalView
-                ? <div className='modal'>
-                  <div className='modalTouchArea' onClick={e => closeGallery()} />
-                  <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
-                </div>
-                : ''
-            }
-          </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      : 
+      // case for desktop grid with aligned columns 
+      <div>
+        <div className='columns-grid-container'>
+          {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+          {
+            images.map((image, index) =>
+              <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                <Image
+                  aspectRatio={thumbAspect || 'noAspect'}
+                  imgSource={image}
+                  skipIntro
+                  visibilityOverride
+                />
+              </div>
+            )
+          }
+          {
+            modalView
+              ? <div className='modal'>
+                <div className='modalTouchArea' onClick={e => closeGallery()} />
+                <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
+              </div>
+              : ''
+          }
         </div>
-        :
-        // case for desktop grid with aligned columns 
-        <div>
-          <div className='columns-grid-container'>
-            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
-            {
-              images.map((image, index) =>
-                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
-                  <Image
-                    aspectRatio={thumbAspect || 'noAspect'}
-                    imgSource={image}
-                    skipIntro
-                    visibilityOverride
-                  />
-                </div>
-              )
-            }
-            {
-              modalView
-                ? <div className='modal'>
-                  <div className='modalTouchArea' onClick={e => closeGallery()} />
-                  <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
-                </div>
-                : ''
-            }
-          </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
-        </div>
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      </div>
     }
     <style>{`
     .moasic-image {
