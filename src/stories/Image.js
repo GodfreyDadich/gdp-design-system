@@ -78,36 +78,36 @@ const galleries = [
     thumb: '',
     images: imageGallery3
   },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery3
-  }
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery3
+  // }
 ]
 
 storiesOf('Styles', module)
