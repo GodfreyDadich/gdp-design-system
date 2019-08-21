@@ -45,7 +45,7 @@ const SimpleGallery = ({ images, view }) => {
     setYDown(firstTouch.clientY)
   }
 
-  const handleTouchMove = (e)=> {
+  const handleTouchMove = (e) => {
     e.preventDefault()
     if (!xDown || !yDown) { return }
     const xLeft = e.touches[0].clientX
@@ -73,19 +73,19 @@ const SimpleGallery = ({ images, view }) => {
 
   useEffect(() => {
     if (isMobile) {
-        window.addEventListener('touchstart', handleTouchStart, { passive: false })
-        window.addEventListener('touchmove', handleTouchMove, { passive: false })
-        return () => {
-          window.removeEventListener('touchstart', handleTouchStart, { passive: false })
-          window.removeEventListener('touchmove', handleTouchMove, { passive: false })
-          }
-    } else {
-        window.addEventListener('keydown', handleKeyDown)
-        return () => {
-        window.removeEventListener('keydown', handleKeyDown)
-        }
+      window.addEventListener('touchstart', handleTouchStart, { passive: false })
+      window.addEventListener('touchmove', handleTouchMove, { passive: false })
+      return () => {
+        window.removeEventListener('touchstart', handleTouchStart, { passive: false })
+        window.removeEventListener('touchmove', handleTouchMove, { passive: false })
       }
-    }, [currentIndex, xDown, yDown])
+    } else {
+      window.addEventListener('keydown', handleKeyDown)
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+      }
+    }
+  }, [currentIndex, xDown, yDown])
 
   return <div className='slider'>
     <div className='slider-wrapper'
@@ -98,23 +98,32 @@ const SimpleGallery = ({ images, view }) => {
       }}>
       {
         images.map((image, i) => (
-          <img
-            className='slide'
+          <div
             style={{
+              height: '100%',
               width: '100%',
-              height: 'auto',
-              maxHeight: '100%',
-              display: 'inline-block',
-              verticalAlign: 'middle',
-              backgroundColor: '#f2f2f2',
               position: 'relative',
-              margin: '0 auto',
-              opacity: currentIndex === i ? 1 : .1,
-              transition: 'opacity .3s, transform .3s'
-            }}
-            src={image}
-            key={`slide-image-${i}`}
-          />
+              display: 'inline-block'
+            }}>
+            <img
+              className='slide'
+              style={{
+                top: '50%',
+                left: '50%',
+                height: '100%',
+                transform: 'translateX(-50%) translateY(-50%)',
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                backgroundColor: '#f2f2f2',
+                position: 'absolute',
+                margin: '0 auto',
+                opacity: currentIndex === i ? 1 : .1,
+                transition: 'opacity .3s, transform .3s'
+              }}
+              src={image}
+              key={`slide-image-${i}`}
+            />
+          </div>
         ))
       }
     </div>
@@ -138,13 +147,13 @@ const SimpleGallery = ({ images, view }) => {
     .slider {
       position: absolute;
       width: 80%;
+      height: 100%;
       margin: 0 10%;
-      height: auto;
       top: 50%;
-      transform: translateY(-50%);      
+      transform: translateY(-50%);    
     }
   `}</style>
   </div>
-} 
+}
 
 export default SimpleGallery
