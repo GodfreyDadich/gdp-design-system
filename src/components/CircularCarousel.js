@@ -182,7 +182,7 @@ export default class CircularCarousel extends Component {
     return (
       <div
         ref={elem => this.carouselElem = elem} 
-        style={Object.assign(style, {
+        style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
         })}

@@ -61,7 +61,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       :
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
-        <div className='columns-grid-container'>
+        <div className='mobile-grid-container'>
               <div style={evenGridStyles}>
                 <Image
                   aspectRatio={thumbAspect || 'noAspect'}
@@ -177,6 +177,13 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
         flex-wrap: wrap;
         display:flex;
         padding: 7.4vw 7.1vw;
+      }
+      .mobile-grid-container {
+        background: rgb(242,242,242);
+        flex-direction: row;
+        flex-wrap: wrap;
+        display:flex;
+        padding: 0px;
       }
       .grid-image:hover {
         filter: brightness(70%);

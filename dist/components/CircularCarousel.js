@@ -246,7 +246,7 @@ var CircularCarousel = function (_Component) {
           ref: function ref(elem) {
             return _this4.carouselElem = elem;
           },
-          style: _extends(style, {
+          style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
           }),
