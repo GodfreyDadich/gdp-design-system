@@ -71,6 +71,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
                 imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                 skipIntro
                 visibilityOverride
+                verticalAlign='center'
+                horizontalAlign='center'
               />
             </div>
           )
