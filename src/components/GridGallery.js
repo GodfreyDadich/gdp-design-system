@@ -89,25 +89,27 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         // case for desktop grid with mixed orientations
         <div>
           <div className='grid-container'>
-            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
-            {
-              thumbs.map((image, index) =>
-                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={mixedOrStyles} key={`galleryThumb-${index}`}>
-                  <img
-                    className='moasic-image'
-                    src={image}
-                  />
-                </div>
-              )
-            }
-            {
-              modalView
-                ? <div className='modal'>
-                  <div className='modalTouchArea' onClick={e => closeGallery()} />
-                  <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
-                </div>
-                : ''
-            }
+            <div className='image-wrapper'>
+              {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+              {
+                thumbs.map((image, index) =>
+                  <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={mixedOrStyles} key={`galleryThumb-${index}`}>
+                    <img
+                      className='moasic-image'
+                      src={image}
+                    />
+                  </div>
+                )
+              }
+              {
+                modalView
+                  ? <div className='modal'>
+                    <div className='modalTouchArea' onClick={e => closeGallery()} />
+                    <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
+                  </div>
+                  : ''
+              }
+            </div>
           </div>
           {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
@@ -143,14 +145,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     .moasic-image {
       display: inline-block;
       position: relative;
-      height: 11.4vw;
+      height: 9.4vw;
       width: auto;
-      @media only screen and (max-width: 1690px) {
-        height: 11vw;
-      }
-      @media only screen and (max-width: 1020px) {
-        height: 9.6vw;
-      }
+    }
+    .image-wrapper {
+      margin: auto;
+      width: 80vw;
     }
       .expand {
         font-family: Atlas Grotesk;
