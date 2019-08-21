@@ -90,12 +90,17 @@ const Typography = props =>
       <div style={styles.smallText}><small>SubHead ({fontSizeHeading4})</small></div>
       <SubHead>Top experiences in Asia</SubHead>
     </div>
-    <div style={styles.smallText}><small>Bio Header Lockup</small></div>
-      <BioHeader
-        personName='Scott Dadich'
-        personTitle='Founder, Co-CEO'
-        insta='sdadich'
-      />
+
+    <br /><br />
+    
+    <div>
+      <div style={styles.smallText}><small>Bio Header Lockup</small></div>
+        <BioHeader
+          personName='Scott Dadich'
+          personTitle='Founder, Co-CEO'
+          insta='sdadich'
+        />
+      </div>
     </div>
 
     <br /><br />
