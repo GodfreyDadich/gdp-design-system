@@ -31,7 +31,8 @@ var _reactDeviceDetect = require('react-device-detect');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GridGallery = function GridGallery(_ref) {
-  var images = _ref.images,
+  var thumbs = _ref.thumbs,
+      images = _ref.images,
       columns = _ref.columns,
       countIndicator = _ref.countIndicator,
       thumbAspect = _ref.thumbAspect,
@@ -98,7 +99,7 @@ var GridGallery = function GridGallery(_ref) {
         position: 'relative',
         overflow: 'visible'
       }),
-      className: 'carouselWrapper ' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
+      className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
     mobile ? mobileCarousel && !altAsset ?
     // case for mobile carousel using the same assets as desktop
     _react2.default.createElement(
@@ -107,7 +108,7 @@ var GridGallery = function GridGallery(_ref) {
       images.map(function (image, index) {
         return _react2.default.createElement(
           'div',
-          { style: mobileStyles, key: 'galleryThumb-' + index },
+          { style: mobileStyles, key: escape(image) + '-' + index },
           _react2.default.createElement(_Image2.default, {
             aspectRatio: thumbAspect,
             imgSource: image,
@@ -130,8 +131,7 @@ var GridGallery = function GridGallery(_ref) {
           _react2.default.createElement(_Image2.default, {
             aspectRatio: thumbAspect || 'noAspect',
             imgSource: altAsset,
-            skipIntro: true,
-            visibilityOverride: true
+            skipIntro: true
           })
         ),
         modalView ? _react2.default.createElement(
@@ -165,7 +165,7 @@ var GridGallery = function GridGallery(_ref) {
             'CLICK IMAGE TO EXPAND'
           )
         ) : '',
-        images.map(function (image, index) {
+        thumbs.map(function (image, index) {
           return _react2.default.createElement(
             'div',
             { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
@@ -208,7 +208,7 @@ var GridGallery = function GridGallery(_ref) {
             'CLICK IMAGE TO EXPAND'
           )
         ) : '',
-        images.map(function (image, index) {
+        thumbs.map(function (image, index) {
           return _react2.default.createElement(
             'div',
             { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
@@ -217,8 +217,7 @@ var GridGallery = function GridGallery(_ref) {
             _react2.default.createElement(_Image2.default, {
               aspectRatio: thumbAspect || 'noAspect',
               imgSource: image,
-              skipIntro: true,
-              visibilityOverride: true
+              skipIntro: true
             })
           );
         }),
