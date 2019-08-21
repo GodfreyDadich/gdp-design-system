@@ -33,13 +33,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var CircularCarousel = function (_Component) {
-  _inherits(CircularCarousel, _Component);
+var ResponsiveCarousel = function (_Component) {
+  _inherits(ResponsiveCarousel, _Component);
 
-  function CircularCarousel(props) {
-    _classCallCheck(this, CircularCarousel);
+  function ResponsiveCarousel(props) {
+    _classCallCheck(this, ResponsiveCarousel);
 
-    var _this = _possibleConstructorReturn(this, (CircularCarousel.__proto__ || Object.getPrototypeOf(CircularCarousel)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ResponsiveCarousel.__proto__ || Object.getPrototypeOf(ResponsiveCarousel)).call(this, props));
 
     _this.state = {
       currentIndex: 0,
@@ -59,7 +59,7 @@ var CircularCarousel = function (_Component) {
     return _this;
   }
 
-  _createClass(CircularCarousel, [{
+  _createClass(ResponsiveCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
       var _this2 = this;
@@ -228,11 +228,14 @@ var CircularCarousel = function (_Component) {
       var _this4 = this;
 
       var _props = this.props,
+          _props$style = _props.style,
+          style = _props$style === undefined ? {} : _props$style,
           fullBleed = _props.fullBleed,
           caption = _props.caption,
           aspectRatio = _props.aspectRatio,
           children = _props.children,
           classAdd = _props.classAdd,
+          imageAspect = _props.imageAspect,
           shadow = _props.shadow,
           countIndicator = _props.countIndicator;
 
@@ -299,13 +302,14 @@ var CircularCarousel = function (_Component) {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%'
+                    width: imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, _this4.getCarouselStyle(i)) },
                 _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
               );
             })
           ),
-          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: aspectRatio, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: aspectRatio, children: children }) : '' : ''
+          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect, children: children }) : '' : ''
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
@@ -316,7 +320,7 @@ var CircularCarousel = function (_Component) {
     }
   }]);
 
-  return CircularCarousel;
+  return ResponsiveCarousel;
 }(_react.Component);
 
-exports.default = CircularCarousel;
+exports.default = ResponsiveCarousel;

@@ -20,9 +20,9 @@ var _Image = require('./Image');
 
 var _Image2 = _interopRequireDefault(_Image);
 
-var _CircularCarousel = require('./CircularCarousel');
+var _ResponsiveCarousel = require('./ResponsiveCarousel');
 
-var _CircularCarousel2 = _interopRequireDefault(_CircularCarousel);
+var _ResponsiveCarousel2 = _interopRequireDefault(_ResponsiveCarousel);
 
 var _Type = require('./Type');
 
@@ -91,7 +91,7 @@ var Museum = function Museum(_ref) {
       }),
       className: 'carouselWrapper ' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
     mobile ? _react2.default.createElement(
-      _CircularCarousel2.default,
+      _ResponsiveCarousel2.default,
       { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
       galleries.map(function (gallery, index) {
         return _react2.default.createElement(

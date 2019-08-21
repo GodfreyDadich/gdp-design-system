@@ -251,9 +251,9 @@ var galleries = [{
     _react2.default.createElement(
       _CircularCarousel2.default,
       {
-        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen'),
-        imageAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen'),
-        countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen')
+        // imageAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
+        , countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
         caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
         shadow: (0, _addonKnobs.selectV2)('shadow', { yes: 'yes', no: 'no' }, 'no')
       },
