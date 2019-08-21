@@ -45,6 +45,8 @@ var GalleryView = function GalleryView(_ref) {
       yDown = _useState8[0],
       setYDown = _useState8[1];
 
+  var galleryContainer = (0, _react.useRef)(null);
+
   var goToPrevSlide = function goToPrevSlide() {
     var nextIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     var nextTranslateValue = currentIndex === 1 ? 0 : -(nextIndex * 100);
@@ -67,14 +69,12 @@ var GalleryView = function GalleryView(_ref) {
   };
 
   var handleTouchStart = function handleTouchStart(e) {
-    e.preventDefault();
     var firstTouch = getTouches(e)[0];
     setXDown(firstTouch.clientX);
     setYDown(firstTouch.clientY);
   };
 
   var handleTouchMove = function handleTouchMove(e) {
-    e.preventDefault();
     if (!xDown || !yDown) {
       return;
     }
@@ -103,24 +103,23 @@ var GalleryView = function GalleryView(_ref) {
 
   (0, _react.useEffect)(function () {
     if (_reactDeviceDetect.isMobile) {
-      window.addEventListener('touchstart', handleTouchStart, { passive: false });
-      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false });
+      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false });
       return function () {
-        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-        window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false });
+        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false });
       };
     } else {
-      window.addEventListener('keydown', handleKeyDown);
+      galleryContainer.current.addEventListener('keydown', handleKeyDown);
       return function () {
-        window.removeEventListener('keydown', handleKeyDown);
+        galleryContainer.current.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [currentIndex, xDown, yDown]);
+  }, []);
 
   return _react2.default.createElement(
     'div',
-    {
-      className: 'jsx-644554313' + ' ' + 'slider'
+    { ref: galleryContainer, className: 'jsx-644554313' + ' ' + 'slider'
     },
     _react2.default.createElement(
       'div',
@@ -137,6 +136,7 @@ var GalleryView = function GalleryView(_ref) {
         return _react2.default.createElement(
           'div',
           {
+            key: i + '-' + escape(image),
             style: {
               height: '100%',
               width: '100%',
