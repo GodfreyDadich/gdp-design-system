@@ -92,15 +92,14 @@ const Typography = props =>
     </div>
 
     <br /><br />
-    
+
     <div>
       <div style={styles.smallText}><small>Bio Header Lockup</small></div>
-        <BioHeader
-          personName='Scott Dadich'
-          personTitle='Founder, Co-CEO'
-          insta='sdadich'
-        />
-      </div>
+      <BioHeader
+        personName='Scott Dadich'
+        personTitle='Founder, Co-CEO'
+        insta='sdadich'
+      />
     </div>
 
     <br /><br />
