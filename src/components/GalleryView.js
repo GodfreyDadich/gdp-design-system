@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
@@ -7,6 +7,7 @@ const GalleryView = ({ images, index, view }) => {
   const [translateValue, setTranslateValue] = useState(index * -100)
   const [xDown, setXDown] = useState(null)
   const [yDown, setYDown] = useState(null)
+  const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
     const nextIndex = currentIndex === 0
@@ -38,14 +39,12 @@ const GalleryView = ({ images, index, view }) => {
   }
 
   const handleTouchStart = (e) => {
-    e.preventDefault()
     const firstTouch = getTouches(e)[0]
     setXDown(firstTouch.clientX)
     setYDown(firstTouch.clientY)
   }
 
   const handleTouchMove = (e) => {
-    e.preventDefault()
     if (!xDown || !yDown) { return }
     const xLeft = e.touches[0].clientX
     const xDiff = xDown - xLeft
@@ -72,21 +71,21 @@ const GalleryView = ({ images, index, view }) => {
 
   useEffect(() => {
     if (isMobile) {
-      window.addEventListener('touchstart', handleTouchStart, { passive: false })
-      window.addEventListener('touchmove', handleTouchMove, { passive: false })
+      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false })
+      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false })
       return () => {
-        window.removeEventListener('touchstart', handleTouchStart, { passive: false })
-        window.removeEventListener('touchmove', handleTouchMove, { passive: false })
+        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false })
+        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false })
       }
     } else {
-      window.addEventListener('keydown', handleKeyDown)
+      galleryContainer.current.addEventListener('keydown', handleKeyDown)
       return () => {
-        window.removeEventListener('keydown', handleKeyDown)
+        galleryContainer.current.removeEventListener('keydown', handleKeyDown)
       }
     }
-  }, [currentIndex, xDown, yDown])
+  }, [])
 
-  return <div className='slider'>
+  return <div className='slider' ref={galleryContainer}>
     <div className='slider-wrapper'
       style={{
         transform: `translateX(${translateValue}%)`,
@@ -98,6 +97,7 @@ const GalleryView = ({ images, index, view }) => {
       {
         images.map((image, i) => (
           <div
+            key={`${i}-${escape(image)}`}
             style={{
               height: '100%',
               width: '100%',
