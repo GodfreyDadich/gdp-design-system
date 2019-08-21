@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SimpleGallery from './SimpleGallery'
 import Image from './Image'
 import CircularCarousel from './CircularCarousel'
@@ -10,6 +10,13 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
   const [modalView, setModalView] = useState(false)
   const [imageGallery, setImageGallery] = useState([])
   const colWidth = 100 / columns;
+  const [mobile, setMobile] = useState(false)
+
+
+  useEffect(() => {
+    setMobile(isMobile)
+  }, [])
+
 
   const thumbStyles = {
     display: 'inline-block',
@@ -38,7 +45,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       overflow: 'visible'
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-    {isMobile ? 
+    {mobile ? 
     <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
       {
         galleries.map((gallery, index) =>

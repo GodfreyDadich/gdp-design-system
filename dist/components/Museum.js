@@ -52,6 +52,15 @@ var Museum = function Museum(_ref) {
 
   var colWidth = 100 / columns;
 
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      mobile = _useState6[0],
+      setMobile = _useState6[1];
+
+  (0, _react.useEffect)(function () {
+    setMobile(_reactDeviceDetect.isMobile);
+  }, []);
+
   var thumbStyles = {
     display: 'inline-block',
     background: '#ccc',
@@ -81,7 +90,7 @@ var Museum = function Museum(_ref) {
         overflow: 'visible'
       }),
       className: 'carouselWrapper ' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
-    _reactDeviceDetect.isMobile ? _react2.default.createElement(
+    mobile ? _react2.default.createElement(
       _CircularCarousel2.default,
       { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
       galleries.map(function (gallery, index) {

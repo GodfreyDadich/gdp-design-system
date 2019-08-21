@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import GalleryView from './GalleryView'
 import CircularCarousel from './CircularCarousel'
 import Image from './Image'
@@ -8,7 +8,12 @@ import { isMobile } from 'react-device-detect'
 const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAspect, carousel, mobileCarousel, view, caption, mixedOr, altAsset, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
+  const [mobile, setMobile] = useState(false)
   const colWidth = 100 / columns;
+
+  useEffect(() => {
+    setMobile(isMobile)
+  }, [])
 
   const evenGridStyles = {
     flexGrow: images.length,
@@ -42,7 +47,7 @@ const GridGallery = ({ images, columns, countIndicator, thumbAspect, containerAs
       overflow: 'visible'
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-    {isMobile ? mobileCarousel && !altAsset ?
+    {mobile ? mobileCarousel && !altAsset ?
       // case for mobile carousel using the same assets as desktop
       <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
         {

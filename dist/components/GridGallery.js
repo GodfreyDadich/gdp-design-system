@@ -54,7 +54,16 @@ var GridGallery = function GridGallery(_ref) {
       imageIndex = _useState4[0],
       setImageIndex = _useState4[1];
 
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      mobile = _useState6[0],
+      setMobile = _useState6[1];
+
   var colWidth = 100 / columns;
+
+  (0, _react.useEffect)(function () {
+    setMobile(_reactDeviceDetect.isMobile);
+  }, []);
 
   var evenGridStyles = {
     flexGrow: images.length,
@@ -90,7 +99,7 @@ var GridGallery = function GridGallery(_ref) {
         overflow: 'visible'
       }),
       className: 'carouselWrapper ' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
-    _reactDeviceDetect.isMobile ? mobileCarousel && !altAsset ?
+    mobile ? mobileCarousel && !altAsset ?
     // case for mobile carousel using the same assets as desktop
     _react2.default.createElement(
       _CircularCarousel2.default,
