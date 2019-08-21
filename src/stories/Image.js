@@ -7,6 +7,7 @@ import Slider from '../components/Slider'
 import RevealCarousel from '../components/RevealCarousel'
 import CircularCarousel from '../components/CircularCarousel'
 import Colors from './Colors'
+import Icons from './Icons'
 import Typography from './Typography'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
@@ -107,6 +108,10 @@ storiesOf('Styles', module)
   .add(
     'Typeography',
     () => <Typography />
+  )
+  .add(
+    'Icons',
+    () => <Icons />
   )
 
 storiesOf('Image', module)

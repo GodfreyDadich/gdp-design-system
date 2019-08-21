@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./styles.json";
+import React from 'react'
+import styles from './styles.json'
 import {
   fontSizeSuper,
   fontSizeHeading1,
@@ -15,24 +15,18 @@ import {
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
-} from "../styles/typography";
+} from '../styles/typography';
 
 import {
-  textSuper,
-  textHeading1,
-  textHeading2,
-  textHeading3,
-  textHeading4,
   textHeading5,
   textHeading6,
   textHeading7,
   textHeading8,
-  textBodyArticle,
   textBodyArticleSmall,
   textBodySmall,
   textAccent,
-  textUppercase,
-} from "../utils/typography";
+  textUppercase
+} from '../utils/typography'
 
 import Pullquote from '../components/Pullquote'
 
@@ -45,9 +39,10 @@ import {
   SubHead,
   WiredType,
   LeftCarving,
-  SidebarQuote
-} from '../components/Type';
-
+  QuoteBlock,
+  SidebarQuote,
+  BioHeader
+} from '../components/Type'
 
 const Typography = props =>
 
@@ -94,6 +89,13 @@ const Typography = props =>
     <div>
       <div style={styles.smallText}><small>SubHead ({fontSizeHeading4})</small></div>
       <SubHead>Top experiences in Asia</SubHead>
+    </div>
+    <div style={styles.smallText}><small>Bio Header Lockup</small></div>
+      <BioHeader
+        personName='Scott Dadich'
+        personTitle='Founder, Co-CEO'
+        insta='sdadich'
+      />
     </div>
 
     <br /><br />

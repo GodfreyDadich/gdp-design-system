@@ -23,6 +23,10 @@ var _ConditionalLink = require('./ConditionalLink');
 
 var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
 
+var _Icons = require('./Icons');
+
+var _reactDeviceDetect = require('react-device-detect');
+
 var _typography = require('../styles/typography');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44,16 +48,18 @@ var HeadingSuper = exports.HeadingSuper = function HeadingSuper(_ref) {
 };
 
 var Heading1 = exports.Heading1 = function Heading1(_ref2) {
-  var children = _ref2.children;
+  var children = _ref2.children,
+      style = _ref2.style;
   return _react2.default.createElement(
     'h1',
     {
-      className: 'jsx-3415195638' + ' ' + 'headingOne'
+      style: style,
+      className: 'jsx-895223534' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3415195638',
-      css: '.headingOne.jsx-3415195638{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3415195638 .clientName.jsx-3415195638{display:block;color:#7F7F7F;}.headingOne.jsx-3415195638:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3415195638{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3415195638:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-3415195638{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-3415195638:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+      styleId: '895223534',
+      css: '.headingOne.jsx-895223534{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
@@ -168,6 +174,48 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
 var Caption = exports.Caption = function Caption(_ref8) {
   var classAdd = _ref8.classAdd,
       children = _ref8.children;
+
+var BioHeader = exports.BioHeader = function BioHeader(_ref6) {
+  var personName = _ref6.personName,
+      personTitle = _ref6.personTitle,
+      insta = _ref6.insta;
+  return _react2.default.createElement(
+    Heading1,
+    {
+      style: {
+        paddingBottom: '2.5vw'
+      }
+    },
+    personName,
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'span',
+      {
+        style: {
+          fontFamily: 'Atlas Grotesk',
+          display: 'inline-block',
+          lineHeight: 1
+        },
+        className: 'bioPersonTitle'
+      },
+      personTitle
+    ),
+    insta ? _react2.default.createElement(
+      'a',
+      { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
+      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '16px' } })
+    ) : '',
+    _react2.default.createElement(
+      'style',
+      null,
+      '\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      '
+    )
+  );
+};
+
+var Caption = exports.Caption = function Caption(_ref7) {
+  var classAdd = _ref7.classAdd,
+      children = _ref7.children;
   return _react2.default.createElement(
     'figcaption',
     {

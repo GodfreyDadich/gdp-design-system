@@ -1,121 +1,55 @@
 import { rgba } from "../utils/color";
 
 // Background colors
-const bgPrimary = "#fff";
-const bgSecondary = "#f4fbfe";
-const bgOverlay = "#000";
-const bgDark = rgba("#000", 0.96);
-const bgMap = "#f1f4f6";
+const backgroundHome = '#000'
+const backgroundPrimary = '#fff'
 
 // Link colors
-const linkPrimary = "#297cbb";
-const linkPrimaryHover = rgba(linkPrimary, 0.7);
-
-// Border colors
-const borderPrimary = "#e4e4e4";
-const borderLight = "#bfd0d8";
+const linkPrimary = '#333'
+const gdpNeon = '#00FF00'
 
 // Text colors
-const textPrimary = "#2c3643";
-const textSecondary = rgba(textPrimary, 0.7);
-const textOverlay = "#fff";
-const textLight = "#576576";
-
-// Shadow colors
-const shadowPrimary = "#000";
+const textPrimary = '#333'
+const textSecondary = '#6D6A60'
 
 // Accent colors
-const accentBlue = "#88bde7";
-const accentGray = "#b6c3ca";
-const accentGreen = "#16c98d";
-const accentOrange = "#ff882e";
-const accentPink = "#ff6e8d";
-const accentPurple = "#9d69c9";
-const accentRed = "#da0909";
-const accentYellow = "#ffc83f";
-
-// UI colors
-const uiGreen = "#44db5e";
-
-// Social colors
-const socialFacebook = "#3a5999";
-const socialFacebookMessenger = "#1472fb";
-const socialPinterest = "#cb2027";
-const socialGoogleBlue = "#557ebf";
-const socialGoogleGreen = "#36a852";
-const socialGoogleYellow = "#f9bc15";
-const socialGoogleRed = "#ea4535";
-const socialReddit = "#fc4220";
-const socialTwitter = "#1da1f2";
-const socialWhatsapp = "#28eb76";
-const socialWeChat = "#7bb32e";
-
-// POI colors
-// These are deprecated and will be removed in the next major release
-const poiGreen = accentGreen;
-const poiBlue = accentBlue;
-const poiYellow = accentYellow;
-const poiRed = accentRed;
-const poiPink = accentPink;
-const poiPurple = accentPurple;
-const poiGray = accentGray;
-const poiDefault = "#a8a9ae";
-const poiEat = "#00ca8b";
-const poiPlay = "#ffc92a";
-const poiSee = "#f8324d";
+const gdpOrange = '#FF6600'
+const gdpOrange1 = '#EC6724'
+const gdpOrange2 = '#EE8028'
+const gdpGreen = '#00AD68'
+const gdpTeal = '#0C9094'
+const gdpRed = '#A9233A'
+const gdpRed1 = '#D72637'
+const gdpRed2 = '#EE2E2B'
+const gdpRed3 = '#EA4F29'
+const gdpGold = '#E99E28'
+const gdpGold2 = '#E4BA3C'
+const gdpBlue = '#008B9B'
+const gdpBlue1 = '#00B1BF'
+const gdpBlue2 = '#5EBBBC'
 
 export default {
-  bgPrimary,
-  bgSecondary,
-  bgOverlay,
-  bgDark,
-  bgMap,
+  backgroundHome,
+  backgroundPrimary,
 
   linkPrimary,
-  linkPrimaryHover,
-
-  borderPrimary,
-  borderLight,
+  gdpNeon,
 
   textPrimary,
   textSecondary,
-  textOverlay,
-  textLight,
 
-  shadowPrimary,
-
-  accentBlue,
-  accentGray,
-  accentGreen,
-  accentOrange,
-  accentPink,
-  accentPurple,
-  accentRed,
-  accentYellow,
-
-  uiGreen,
-
-  poiGreen,
-  poiBlue,
-  poiYellow,
-  poiRed,
-  poiPink,
-  poiPurple,
-  poiGray,
-  poiDefault,
-  poiEat,
-  poiPlay,
-  poiSee,
-
-  socialFacebook,
-  socialFacebookMessenger,
-  socialGoogleBlue,
-  socialGoogleGreen,
-  socialGoogleYellow,
-  socialGoogleRed,
-  socialPinterest,
-  socialReddit,
-  socialTwitter,
-  socialWhatsapp,
-  socialWeChat,
+  gdpOrange,
+  gdpOrange1,
+  gdpOrange2,
+  gdpGreen,
+  gdpTeal,
+  gdpBlue,
+  gdpBlue1,
+  gdpBlue2,  
+  gdpRed,
+  gdpRed1,
+  gdpRed2,
+  gdpRed3,
+  gdpGold,
+  gdpGold2
 };
