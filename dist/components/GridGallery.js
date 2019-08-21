@@ -145,7 +145,7 @@ var GridGallery = function GridGallery(_ref) {
       ),
       caption && caption.length > 0 ? _react2.default.createElement(
         _Type.Caption,
-        { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
         caption
       ) : ''
     ) : mixedOr ?
@@ -188,7 +188,7 @@ var GridGallery = function GridGallery(_ref) {
       ),
       caption && caption.length > 0 ? _react2.default.createElement(
         _Type.Caption,
-        { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
         caption
       ) : ''
     ) :
@@ -232,7 +232,7 @@ var GridGallery = function GridGallery(_ref) {
       ),
       caption && caption.length > 0 ? _react2.default.createElement(
         _Type.Caption,
-        { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
         caption
       ) : ''
     ),
