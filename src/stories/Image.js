@@ -11,6 +11,7 @@ import Icons from './Icons'
 import Typography from './Typography'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
+import GridGallery from '../components/GridGallery'
 
 const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -20,13 +21,12 @@ const imageGallery = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
 ]
 
-const imageGallery2 = [
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+const imageGallery2 = [ 
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg',
-  'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96om2004avnaw5dsea3ig-ng-2.jpg'
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
+
 ]
 
 const imageGallery3 = [
@@ -217,7 +217,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '50px auto' }}>
       <Slider
         images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+        aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
       <style>{`
@@ -247,8 +247,11 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
+        // imageAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
+        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+        shadow={selectV2('shadow', { yes: 'yes', no: 'no'}, 'no')} 
       >
         { imageGallery.map((img, index) => {
           return <Image
@@ -262,6 +265,33 @@ storiesOf('Image', module)
       </CircularCarousel>
     </div>
   )
-  .add(
-    'Museum ( Gallery of Galleries )',
-    () => <Museum galleries={galleries} columns={number('Columns', 4)} thumbAspect={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')} />)
+    .add(
+      'Museum (Gallery of Galleries)',
+        () => <Museum 
+        classAdd=''
+        galleries={galleries}
+        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
+        view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
+        columns={number('Columns', 4)} 
+        thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} 
+        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'sixteen')}
+        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+        />)
+        
+    .add(
+      'Grid Gallery (Mosaic)',
+        () => <GridGallery 
+        mobileCarousel={true}
+        mixedOr={true}
+        // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
+        classAdd=''       
+        images={imageGallery2} 
+        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
+        view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
+        carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} 
+        columns={number('Columns', 3)} 
+        thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
+        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
+        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+        />)
+  

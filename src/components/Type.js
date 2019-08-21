@@ -6,10 +6,11 @@ import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
-  fontSizeHeading1, lineHeightHeading1,
-  fontSizeHeading2, lineHeightHeading2,
-  fontSizeHeading3, lineHeightHeading3,
-  fontSizeHeading4, lineHeightHeading4,
+  // fontSizeHeading1, lineHeightHeading1,
+  fontSizeHeading2, 
+  // lineHeightHeading2,
+  // fontSizeHeading3, lineHeightHeading3,
+  // fontSizeHeading4, lineHeightHeading4,
   // fontSizeHeading5,
   // fontSizeHeading6,
   // fontSizeHeading7,
@@ -146,6 +147,54 @@ export const Heading4 = ({ children, style, className }) =>
       }
     `}</style>
   </h4>
+
+export const SubHead = ({ children, style, className }) =>
+<h4
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 'bold',
+    marginTop: 0,
+    marginBottom: 0
+  }, style)}
+  className={`subhead ${className}`}
+>
+  {children}
+  <style jsx>{`
+   .subhead {
+    margin-top: 30px !important;
+    font-family: 'Atlas Grotesk';
+    font-weight: 400;
+    font-size: 19px;
+    margin-bottom: 0;
+    line-height: 1.29px;
+    letter-spacing: -0.2px;          
+    color: #7F7F7F;
+  }
+  `}</style>
+</h4>
+
+export const WiredType = ({ children, style, className }) =>
+<span
+  style={Object.assign({
+    fontFamily: 'Noe Text'
+  }, style)}
+  className={`wiredtype ${className}`}
+>
+  {children}
+  <style jsx>{`
+    .wiredtype {
+      font-size: 19px;
+      line-height: 1.42;
+      color: #333;
+      font-variant: small-caps;
+      letter-spacing: .5px;       
+      @media only screen and (max-width: 500px) {
+      line-height:22px;
+      font-size: 15px;
+      }                
+    }
+  `}</style>
+</span>
 
 export const BioHeader = ({ personName, personTitle, insta }) =>
   <Heading1
@@ -353,68 +402,6 @@ export const LeftCarving = ({ children }) =>
 
   `}</style>
   </figure>
-
-export const QuoteBlock = ({ children }) =>
-  <TrackVisibility once partialVisibility
-    style={{ marginTop: 0 }}>
-    {({ isVisible }) =>
-      <div className='quoteBlock'
-        style={{
-          marginTop: isVisible ? '0px' : '15px',
-          opacity: isVisible ? 1 : 0,
-          transition: 'opacity 0.5s, margin-top 0.5s'
-        }} >
-        <div className='backgroundBlock' />
-        <div className='quoteBlock__content'>
-          <div id='quoteBlock__content__border' />
-          {children}
-        </div>
-        <style jsx>{`
-    .quoteBlock {
-      display: block;
-      margin: auto;
-      height: 21.4vw;
-      padding: 5vw 0;
-      width: 45vw;
-
-      .quoteBlock__content {
-        width: 45vw;
-        font-family: Atlas Grotesk;
-        font-weight: 600;
-        font-size: 2vw;
-        line-height: 2.2vw;
-        position: relative;
-        transform: translateX(30%);
-        letter-spacing: .02vw;
-        display: inline-block;
-        top: 21%;
-      }
-    }
-    .backgroundBlock {
-      width: 27vw;
-      height: 21.4vw;
-      display: inline-block;
-      position: absolute;
-      background-color: #F2F2F2;
-    }
-    #quoteBlock__content__border {
-      border-top: solid 6px;
-      width: 21vw;
-      padding-bottom: 1.4vw;
-      @media screen and (min-width: 1200px) {
-        border-top: solid 7px;
-        }
-
-      @media screen and (max-width: 800px) {
-        border-top: solid 4px;
-        width: 21vw;
-        padding-bottom: 1.4vw;
-        }
-    }
-      `}</style>
-      </div>
-    }
-  </TrackVisibility>
 
 export const SidebarQuote = ({ children }) =>
   <div className='sidebarquote'>

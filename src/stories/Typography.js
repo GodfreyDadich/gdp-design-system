@@ -36,6 +36,8 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  SubHead,
+  WiredType,
   LeftCarving,
   QuoteBlock,
   SidebarQuote,
@@ -85,7 +87,10 @@ const Typography = props =>
     <br /><br />
 
     <div>
-      <div style={styles.smallText}><small>Bio Header Lockup</small></div>
+      <div style={styles.smallText}><small>SubHead ({fontSizeHeading4})</small></div>
+      <SubHead>Top experiences in Asia</SubHead>
+    </div>
+    <div style={styles.smallText}><small>Bio Header Lockup</small></div>
       <BioHeader
         personName='Scott Dadich'
         personTitle='Founder, Co-CEO'
@@ -140,6 +145,14 @@ const Typography = props =>
         enim ut metus feugiat, vitae pharetra massa aliquet.
         </div>
     </div>
+
+    <br /><br />
+
+    <div>
+      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
+      <WiredType>wired</WiredType>
+    </div>
+
 
     <br /><br />
 
@@ -205,9 +218,9 @@ const Typography = props =>
     <div>
       <div style={styles.smallText}><small>Quote Block</small></div>
       <div>
-        <QuoteBlock>
+        <Pullquote pqOptions='quote-block'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.
-        </QuoteBlock>
+        </Pullquote>
       </div>
     </div>
 

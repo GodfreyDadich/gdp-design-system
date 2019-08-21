@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const SimpleGallery = ({ images, view }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [translateValue, setTranslateValue] = useState(0)
+const GalleryView = ({ images, index, view }) => {
+  const [currentIndex, setCurrentIndex] = useState(index)
+  const [translateValue, setTranslateValue] = useState(index * -100)
   const [xDown, setXDown] = useState(null)
   const [yDown, setYDown] = useState(null)
 
@@ -31,7 +31,6 @@ const SimpleGallery = ({ images, view }) => {
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
   }
-
 
   const getTouches = (e) => {
     return e.touches || // browser API
@@ -150,10 +149,10 @@ const SimpleGallery = ({ images, view }) => {
       height: 100%;
       margin: 0 10%;
       top: 50%;
-      transform: translateY(-50%);    
+      transform: translateY(-50%);      
     }
   `}</style>
   </div>
 }
 
-export default SimpleGallery
+export default GalleryView

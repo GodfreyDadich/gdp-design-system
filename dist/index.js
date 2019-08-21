@@ -49,6 +49,24 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
+var _GalleryView = require('./components/GalleryView');
+
+Object.defineProperty(exports, 'GalleryView', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_GalleryView).default;
+  }
+});
+
+var _GridGallery = require('./components/GridGallery');
+
+Object.defineProperty(exports, 'GridGallery', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_GridGallery).default;
+  }
+});
+
 var _Hero = require('./components/Hero');
 
 Object.defineProperty(exports, 'Hero', {

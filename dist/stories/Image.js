@@ -48,11 +48,15 @@ var _Museum = require('../components/Museum');
 
 var _Museum2 = _interopRequireDefault(_Museum);
 
+var _GridGallery = require('../components/GridGallery');
+
+var _GridGallery2 = _interopRequireDefault(_GridGallery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var imageGallery = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'];
 
-var imageGallery2 = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'https://i.vimeocdn.com/video/736326467.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/697798281.webp?mw=2800&q=70', 'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96bof0040vnaw5ta7z0md-typespread02.jpg', 'https://d36aj1cv2i74vd.cloudfront.net/filters:format(webp)/attachments/cjnw96om2004avnaw5dsea3ig-ng-2.jpg'];
+var imageGallery2 = ['http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg', 'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png'];\
 
 var imageGallery3 = ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg', 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'];
 
@@ -227,7 +231,7 @@ var galleries = [{
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_Slider2.default, {
       images: imageGallery,
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
     }),
     _react2.default.createElement(
@@ -253,8 +257,11 @@ var galleries = [{
     _react2.default.createElement(
       _CircularCarousel2.default,
       {
-        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
-        caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen')
+        // imageAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
+        , countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+        caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
+        shadow: (0, _addonKnobs.selectV2)('shadow', { yes: 'yes', no: 'no' }, 'no')
       },
       imageGallery.map(function (img, index) {
         return _react2.default.createElement(_Image2.default, {
@@ -267,6 +274,30 @@ var galleries = [{
       })
     )
   );
-}).add('Museum ( Gallery of Galleries )', function () {
-  return _react2.default.createElement(_Museum2.default, { galleries: galleries, columns: (0, _addonKnobs.number)('Columns', 4), thumbAspect: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen') });
+}).add('Museum (Gallery of Galleries)', function () {
+  return _react2.default.createElement(_Museum2.default, {
+    classAdd: '',
+    galleries: galleries,
+    countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+    view: (0, _addonKnobs.selectV2)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
+    columns: (0, _addonKnobs.number)('Columns', 4),
+    thumbAspect: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen'),
+    containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
+    caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+  });
+}).add('Grid Gallery (Mosaic)', function () {
+  return _react2.default.createElement(_GridGallery2.default, {
+    mobileCarousel: true,
+    mixedOr: true
+    // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
+    , classAdd: '',
+    images: imageGallery2,
+    countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+    view: (0, _addonKnobs.selectV2)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
+    carousel: (0, _addonKnobs.selectV2)('carousel', { yes: 'yes', no: 'no' }, 'no'),
+    columns: (0, _addonKnobs.number)('Columns', 3),
+    thumbAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
+    containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
+    caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+  });
 });

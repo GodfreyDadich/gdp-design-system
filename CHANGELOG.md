@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.31-13"></a>
+## [1.0.31-13](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-12...v1.0.31-13) (2019-08-21)
+
+
+
+<a name="1.0.31-12"></a>
+## [1.0.31-12](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-11...v1.0.31-12) (2019-08-21)
+
+
+
+<a name="1.0.31-11"></a>
+## [1.0.31-11](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-10...v1.0.31-11) (2019-08-21)
+
+
+
+<a name="1.0.31-10"></a>
+## [1.0.31-10](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-9...v1.0.31-10) (2019-08-21)
+
+
+
+<a name="1.0.31-9"></a>
+## [1.0.31-9](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-8...v1.0.31-9) (2019-08-21)
+
+
+
+<a name="1.0.31-8"></a>
+## [1.0.31-8](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-7...v1.0.31-8) (2019-08-20)
+
+
+
+<a name="1.0.31-7"></a>
+## [1.0.31-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-6...v1.0.31-7) (2019-08-20)
+
+
+
+<a name="1.0.31-6"></a>
+## [1.0.31-6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-5...v1.0.31-6) (2019-08-19)
+
+
+
+<a name="1.0.31-5"></a>
+## [1.0.31-5](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-4...v1.0.31-5) (2019-08-16)
+
+
+
+<a name="1.0.31-4"></a>
+## [1.0.31-4](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-3...v1.0.31-4) (2019-08-16)
+
+
+
+<a name="1.0.31-3"></a>
+## [1.0.31-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-2...v1.0.31-3) (2019-08-16)
+
+
+
+<a name="1.0.31-2"></a>
+## [1.0.31-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-1...v1.0.31-2) (2019-08-16)
+
+
+
+<a name="1.0.31-1"></a>
+## [1.0.31-1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-0...v1.0.31-1) (2019-08-16)
+
+
+
+<a name="1.0.31-0"></a>
+## [1.0.31-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.30...v1.0.31-0) (2019-08-16)
+
+
 <a name="1.0.31-bio-header-7"></a>
 ## [1.0.31-bio-header-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.31-bio-header-6...v1.0.31-bio-header-7) (2019-08-19)
 
@@ -43,7 +112,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.23-beta-2"></a>
-## [1.0.23-beta-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.21...v1.0.23-beta-2) (2019-06-03)
+
+## [1.0.23-beta-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.0.22...v1.0.23-beta-2) (2019-06-03)
 
 
 
