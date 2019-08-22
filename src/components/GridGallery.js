@@ -83,7 +83,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               : ''
           }
         </div>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
       : mixedOr ?
         // case for desktop grid with mixed orientations
@@ -111,7 +111,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
             </div>
           </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
         :
         // case for desktop grid with aligned columns 
@@ -138,7 +138,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 : ''
             }
           </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
     }
     <style>{`
