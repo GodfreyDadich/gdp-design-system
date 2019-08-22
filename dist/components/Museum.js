@@ -109,44 +109,48 @@ var Museum = function Museum(_ref) {
       })
     ) : _react2.default.createElement(
       'div',
-      { className: 'museum-container' },
+      null,
       _react2.default.createElement(
         'div',
-        { className: 'expand' },
+        { className: 'museum-container' },
         _react2.default.createElement(
-          'span',
-          { className: 'expand-indicator' },
-          'CLICK IMAGE TO VIEW COLLECTION'
-        )
-      ),
-      galleries.map(function (gallery, index) {
-        return _react2.default.createElement(
           'div',
-          { onClick: function onClick(e) {
-              return displayGallery(gallery.images);
-            }, style: thumbStyles, key: 'galleryThumb-' + index },
-          _react2.default.createElement(_Image2.default, {
-            aspectRatio: thumbAspect || 'sixteen',
-            imgSource: gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0],
-            skipIntro: true,
-            visibilityOverride: true
-          })
-        );
-      }),
-      modalView ? _react2.default.createElement(
-        'div',
-        { className: 'modal' },
-        _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-            return closeGallery();
-          } }),
-        _react2.default.createElement(_SimpleGallery2.default, { images: imageGallery, aspectRatio: 'noAspect', view: view })
+          { className: 'expand' },
+          _react2.default.createElement(
+            'span',
+            { className: 'expand-indicator' },
+            'CLICK IMAGE TO VIEW COLLECTION'
+          )
+        ),
+        galleries.map(function (gallery, index) {
+          return _react2.default.createElement(
+            'div',
+            { onClick: function onClick(e) {
+                return displayGallery(gallery.images);
+              }, style: thumbStyles, key: 'galleryThumb-' + index },
+            _react2.default.createElement(_Image2.default, {
+              aspectRatio: thumbAspect || 'sixteen',
+              imgSource: gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0],
+              skipIntro: true,
+              visibilityOverride: true
+            })
+          );
+        }),
+        modalView ? _react2.default.createElement(
+          'div',
+          { className: 'modal' },
+          _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
+              return closeGallery();
+            } }),
+          _react2.default.createElement(_SimpleGallery2.default, { images: imageGallery, aspectRatio: 'noAspect', view: view })
+        ) : ''
+      ),
+      caption && caption.length > 0 ? _react2.default.createElement(
+        _Type.Caption,
+        { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+        caption
       ) : ''
     ),
-    caption && caption.length > 0 ? _react2.default.createElement(
-      _Type.Caption,
-      { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
-      caption
-    ) : '',
     _react2.default.createElement(
       'style',
       null,
