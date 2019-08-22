@@ -211,9 +211,10 @@ export const WiredTypeCaption = ({ children, style, className }) =>
         display: block;
         font-size: 12px;
         line-height: 16px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.5px;
         margin-top: 25px;
         text-align: center;
+        font-variant: small-caps;
         
         @media only screen and (max-width: 500px) {
           margin-top: 15px;
