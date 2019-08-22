@@ -196,6 +196,32 @@ export const WiredType = ({ children, style, className }) =>
   `}</style>
 </span>
 
+export const WiredTypeCaption = ({ children, style, className }) =>
+<span
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk'
+  }, style)}
+  className={`wiredTypeCaption ${className}`}
+>
+  {children}
+  <style jsx>{`
+      .wiredTypeCaption {
+        color: #7F7F7F;
+        font-weight: 500;
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+        margin-top: 25px;
+        text-align: center;
+        
+        @media only screen and (max-width: 500px) {
+          margin-top: 15px;
+        }
+      } 
+  `}</style>
+</span>
+
 export const BioHeader = ({ personName, personTitle, insta }) =>
   <Heading1
     style={{
