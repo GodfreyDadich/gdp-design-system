@@ -222,6 +222,32 @@ export const WiredTypeCaption = ({ children, style, className }) =>
   `}</style>
 </span>
 
+export const QuoteAttribution = ({ children, style, className }) =>
+<span
+  style={Object.assign({
+    fontFamily: 'Institut'
+  }, style)}
+  className={`quoteAttribution ${className}`}
+>
+  {children}
+  <style jsx>{`
+      .quoteAttribution {
+        color: #7F7F7F;
+        font-weight: 200;
+        display: block;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        text-align: center;
+        
+        @media only screen and (max-width: 500px) {
+          margin-top: 15px;
+        }
+      } 
+  `}</style>
+</span>
+
 export const BioHeader = ({ personName, personTitle, insta }) =>
   <Heading1
     style={{
