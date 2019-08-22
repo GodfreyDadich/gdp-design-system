@@ -9,7 +9,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const [mobile, setMobile] = useState(false)
-  const colWidth = 100 / columns;
+  const colWidth = 100 / columns
 
   useEffect(() => {
     setMobile(isMobile)
@@ -30,7 +30,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const mobileStyles = {
-    position: 'relative',
+    position: 'relative'
   }
 
   const displayGallery = (index) => {
