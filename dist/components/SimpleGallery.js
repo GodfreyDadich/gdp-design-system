@@ -44,6 +44,8 @@ var SimpleGallery = function SimpleGallery(_ref) {
       yDown = _useState8[0],
       setYDown = _useState8[1];
 
+  var galleryContainer = (0, _react.useRef)(null);
+
   var goToPrevSlide = function goToPrevSlide() {
     var nextIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     var nextTranslateValue = currentIndex === 1 ? 0 : -(nextIndex * 100);
@@ -66,14 +68,12 @@ var SimpleGallery = function SimpleGallery(_ref) {
   };
 
   var handleTouchStart = function handleTouchStart(e) {
-    e.preventDefault();
     var firstTouch = getTouches(e)[0];
     setXDown(firstTouch.clientX);
     setYDown(firstTouch.clientY);
   };
 
   var handleTouchMove = function handleTouchMove(e) {
-    e.preventDefault();
     if (!xDown || !yDown) {
       return;
     }
@@ -102,24 +102,23 @@ var SimpleGallery = function SimpleGallery(_ref) {
 
   (0, _react.useEffect)(function () {
     if (_reactDeviceDetect.isMobile) {
-      window.addEventListener('touchstart', handleTouchStart, { passive: false });
-      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false });
+      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false });
       return function () {
-        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-        window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false });
+        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false });
       };
     } else {
-      window.addEventListener('keydown', handleKeyDown);
+      galleryContainer.current.addEventListener('keydown', handleKeyDown);
       return function () {
-        window.removeEventListener('keydown', handleKeyDown);
+        galleryContainer.current.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [currentIndex, xDown, yDown]);
+  }, []);
 
   return _react2.default.createElement(
     'div',
-    {
-      className: 'jsx-3615416539' + ' ' + 'slider'
+    { ref: galleryContainer, className: 'jsx-2511592491' + ' ' + 'slider'
     },
     _react2.default.createElement(
       'div',
@@ -130,26 +129,38 @@ var SimpleGallery = function SimpleGallery(_ref) {
           width: '100%',
           height: '100%',
           whiteSpace: 'nowrap'
-        }, className: 'jsx-3615416539' + ' ' + 'slider-wrapper'
+        }, className: 'jsx-2511592491' + ' ' + 'slider-wrapper'
       },
       images.map(function (image, i) {
-        return _react2.default.createElement('img', {
-          style: {
-            width: '100%',
-            height: 'auto',
-            maxHeight: '100%',
-            display: 'inline-block',
-            verticalAlign: 'middle',
-            backgroundColor: '#f2f2f2',
-            position: 'relative',
-            margin: '0 auto',
-            opacity: currentIndex === i ? 1 : .1,
-            transition: 'opacity .3s, transform .3s'
+        return _react2.default.createElement(
+          'div',
+          {
+            style: {
+              height: '100%',
+              width: '100%',
+              position: 'relative',
+              display: 'inline-block'
+            }, className: 'jsx-2511592491'
           },
-          src: image,
-          key: 'slide-image-' + i,
-          className: 'jsx-3615416539' + ' ' + 'slide'
-        });
+          _react2.default.createElement('img', {
+            style: {
+              top: '50%',
+              left: '50%',
+              height: '100%',
+              transform: 'translateX(-50%) translateY(-50%)',
+              display: 'inline-block',
+              verticalAlign: 'middle',
+              backgroundColor: '#f2f2f2',
+              position: 'absolute',
+              margin: '0 auto',
+              opacity: currentIndex === i ? 1 : .1,
+              transition: 'opacity .3s, transform .3s'
+            },
+            src: image,
+            key: 'slide-image-' + i,
+            className: 'jsx-2511592491' + ' ' + 'slide'
+          })
+        );
       })
     ),
     _react2.default.createElement(_SliderArrows.AltLeftArrow, {
@@ -169,8 +180,8 @@ var SimpleGallery = function SimpleGallery(_ref) {
       }
     }),
     _react2.default.createElement(_style2.default, {
-      styleId: '3615416539',
-      css: '.slider.jsx-3615416539{position:absolute;width:80%;margin:0 10%;height:auto;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}'
+      styleId: '2511592491',
+      css: '.slider.jsx-2511592491{position:absolute;width:80%;height:100%;margin:0 10%;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}'
     })
   );
 };

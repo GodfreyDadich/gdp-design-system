@@ -45,27 +45,11 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       overflow: 'visible'
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-    {mobile ? 
-    <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
-      {
-        galleries.map((gallery, index) =>
-          <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
-            <Image
-              aspectRatio={thumbAspect || 'sixteen'}
-              imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
-              skipIntro
-              visibilityOverride
-            />
-          </div>
-        )
-      }
-    </ResponsiveCarousel>
-      :
-      <div className='museum-container'>
-        <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
+    {mobile ?
+      <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
         {
           galleries.map((gallery, index) =>
-            <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
+            <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
               <Image
                 aspectRatio={thumbAspect || 'sixteen'}
                 imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
@@ -75,16 +59,34 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             </div>
           )
         }
-        {
-          modalView
-            ? <div className='modal'>
-              <div className='modalTouchArea' onClick={e => closeGallery()} />
-              <SimpleGallery images={imageGallery} aspectRatio='noAspect' view={view} />
-            </div>
-            : ''
-        }
-      </div>}
-    {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      </ResponsiveCarousel>
+      : <div>
+        <div className='museum-container'>
+          <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
+          {
+            galleries.map((gallery, index) =>
+              <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
+                <Image
+                  aspectRatio={thumbAspect || 'sixteen'}
+                  imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+                  skipIntro
+                  visibilityOverride
+                />
+              </div>
+            )
+          }
+          {
+            modalView
+              ? <div className='modal'>
+                <div className='modalTouchArea' onClick={e => closeGallery()} />
+                <SimpleGallery images={imageGallery} aspectRatio='noAspect' view={view} />
+              </div>
+              : ''
+          }
+        </div>
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      </div>
+    }
     <style>{`
       .expand {
         font-family: Atlas Grotesk;

@@ -26,7 +26,17 @@ const imageGallery2 = [
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
   'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
-
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg'
 ]
 
 const imageGallery3 = [
@@ -68,36 +78,36 @@ const galleries = [
     thumb: '',
     images: imageGallery3
   },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: '',
-    images: imageGallery3
-  }
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: '',
+  //   images: imageGallery3
+  // }
 ]
 
 storiesOf('Styles', module)
@@ -286,12 +296,13 @@ storiesOf('Image', module)
         // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
         classAdd=''       
         images={imageGallery2} 
+        thumbs={imageGallery2}
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
         view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
         carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} 
         columns={number('Columns', 3)} 
-        thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
-        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
+        // thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
+        // containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
         />)
   
