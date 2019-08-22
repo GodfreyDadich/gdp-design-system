@@ -208,7 +208,8 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       style={{
         fontFamily: 'Atlas Grotesk',
         display: 'inline-block',
-        lineHeight: 1
+        lineHeight: 1,
+        whiteSpace: 'nowrap'
       }}
       className='bioPersonTitle'
     >{personTitle}</span>

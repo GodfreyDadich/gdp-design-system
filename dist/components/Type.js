@@ -190,7 +190,8 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref8) {
         style: {
           fontFamily: 'Atlas Grotesk',
           display: 'inline-block',
-          lineHeight: 1
+          lineHeight: 1,
+          whiteSpace: 'nowrap'
         },
         className: 'bioPersonTitle'
       },
