@@ -200,7 +200,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: ${view === 'lightMode' ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.9)'};
+        background: ${view === 'lightMode' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
         z-index: 1000;
       }
       .modalTouchArea {
