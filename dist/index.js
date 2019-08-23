@@ -220,6 +220,15 @@ Object.defineProperty(exports, 'RevealCarousel', {
   }
 });
 
+var _ResponsiveCarousel = require('./components/ResponsiveCarousel');
+
+Object.defineProperty(exports, 'ResponsiveCarousel', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ResponsiveCarousel).default;
+  }
+});
+
 var _CircularCarousel = require('./components/CircularCarousel');
 
 Object.defineProperty(exports, 'CircularCarousel', {

@@ -52,7 +52,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
               <Image
                 aspectRatio={thumbAspect || 'sixteen'}
-                imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+                imgSource={gallery.thumb}
                 skipIntro
                 visibilityOverride
               />
@@ -65,10 +65,10 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
           <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
           {
             galleries.map((gallery, index) =>
-              <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
+              <div className='grid-image' onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
                 <Image
                   aspectRatio={thumbAspect || 'sixteen'}
-                  imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+                  imgSource={gallery.thumb}
                   skipIntro
                   visibilityOverride
                 />
@@ -110,6 +110,9 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       .museum-container {
         background: rgb(242,242,242);
         padding: 7.4vw 7.1vw;
+      }
+      .grid-image:hover {
+        filter: brightness(70%);
       }
       .modal {
         position: fixed;
