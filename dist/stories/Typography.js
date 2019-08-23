@@ -361,13 +361,40 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
+          'WiredType (',
+          _typography.fontSizeHeading4,
+          ')'
+        )
+      ),
+      _react2.default.createElement(
+        _Type.WiredTypeCaption,
+        null,
+        'wired'
+      )
+    ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
           'Pull Quote'
         )
       ),
       _react2.default.createElement(
         _Pullquote2.default,
         { classAdd: 'testadd' },
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum.'
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum.',
+        _react2.default.createElement(
+          _Type.QuoteAttribution,
+          { classAdd: 'testadd' },
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        )
       )
     ),
     _react2.default.createElement('br', null),

@@ -22,7 +22,7 @@ var CountIndicator = exports.CountIndicator = function CountIndicator(props) {
         textAlign: 'center',
         fontColor: '#6D6A60',
         fontFamily: 'Atlas Grotesk',
-        fontSize: '10.5px',
+        fontSize: '12.5px',
         marginTop: props.imageAspect === 'sixteen' ? '15px' : props.imageAspect === 'noAspect' ? '10px' : '-10px',
         marginBottom: props.imageAspect === 'sixteen' ? '16px' : props.imageAspect === 'noAspect' ? '10px' : '15px'
       }
