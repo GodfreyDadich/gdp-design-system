@@ -84,15 +84,15 @@ export const AltRightArrow = props => {
           border: solid ${props.view === 'lightMode' ? 'black' : 'white'};
           border-width: 0 1px 1px 0;
           display: inline-block;
-          padding: 2px;
+          padding: 3px;
           transform: rotate(-45deg);  
         }
         .right-arrow-body{
-          height: 16px;
+          height: 18px;
           width: 1px;
           background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
           margin-right: 1px;
-          transform: translate(-4px,-16.58px) rotate(-90deg);
+          transform: translate(-3px,-18.58px) rotate(-90deg);
         }
   `}</style>
     </div>
@@ -132,15 +132,15 @@ export const AltLeftArrow = props => {
           border: solid ${props.view === 'lightMode' ? 'black' : 'white'};
           border-width: 0 1px 1px 0;
           display: inline-block;
-          padding: 2px;
+          padding: 3px;
           transform: rotate(135deg);  
         }
         .left-arrow-body{
-          height: 16px;
+          height: 18px;
           width: 1px;
           background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
           margin-left: 1px;
-          transform: translate(7px,-16.58px) rotate(90deg);
+          transform: translate(8px,-18.58px) rotate(90deg);
         }
     `}</style>
     </div>
