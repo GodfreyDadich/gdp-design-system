@@ -334,7 +334,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           transitionDelay: '1.25s'
         }}
       >
-        <ConditionalLink linkUrl={sideBar.link}>
+        <ConditionalLink linkUrl={sideBar.link} linkTarget={'_blank'}>
           {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
           {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
             {sideBar.text}
