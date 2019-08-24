@@ -1,7 +1,7 @@
 import React from 'react'
 
-const ConditionalLink = ({ linkUrl, children }) => (typeof linkUrl === 'string' && linkUrl.length > 0)
-  ? <a href={linkUrl}>{children}</a>
+const ConditionalLink = ({ linkUrl, linkTarget, children }) => (typeof linkUrl === 'string' && linkUrl.length > 0)
+  ? <a href={linkUrl} target={linkTarget || ''}>{children}</a>
   : children
 
 export default ConditionalLink

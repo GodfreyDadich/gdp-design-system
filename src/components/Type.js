@@ -184,7 +184,7 @@ export const WiredType = ({ children, style, className }) =>
   <style jsx>{`
     .wiredtype {
       font-size: 19px;
-      line-height: 1.42;
+      line-height: .5;
       color: #333;
       font-variant: small-caps;
       letter-spacing: .5px;       
@@ -387,7 +387,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           transitionDelay: '1.25s'
         }}
       >
-        <ConditionalLink linkUrl={sideBar.link}>
+        <ConditionalLink linkUrl={sideBar.link} linkTarget={'_blank'}>
           {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
           {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
             {sideBar.text}
