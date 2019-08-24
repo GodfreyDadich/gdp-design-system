@@ -184,7 +184,7 @@ export const WiredType = ({ children, style, className }) =>
   <style jsx>{`
     .wiredtype {
       font-size: 19px;
-      line-height: 1.42;
+      line-height: .5;
       color: #333;
       font-variant: small-caps;
       letter-spacing: .5px;       
@@ -193,6 +193,59 @@ export const WiredType = ({ children, style, className }) =>
       font-size: 15px;
       }                
     }
+  `}</style>
+</span>
+
+export const WiredTypeCaption = ({ children, style, className }) =>
+<span
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk'
+  }, style)}
+  className={`wiredTypeCaption ${className}`}
+>
+  {children}
+  <style jsx>{`
+      .wiredTypeCaption {
+        color: #7F7F7F;
+        font-weight: 500;
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+        margin-top: 25px;
+        text-align: center;
+        font-variant: small-caps;
+        
+        @media only screen and (max-width: 500px) {
+          margin-top: 15px;
+        }
+      } 
+  `}</style>
+</span>
+
+export const QuoteAttribution = ({ children, style, className }) =>
+<span
+  style={Object.assign({
+    fontFamily: 'Institut'
+  }, style)}
+  className={`quoteAttribution ${className}`}
+>
+  {children}
+  <style jsx>{`
+      .quoteAttribution {
+        color: #7F7F7F;
+        font-weight: 200;
+        display: block;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        text-align: center;
+        
+        @media only screen and (max-width: 500px) {
+          margin-top: 15px;
+        }
+      } 
   `}</style>
 </span>
 
@@ -335,7 +388,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           transitionDelay: '1.25s'
         }}
       >
-        <ConditionalLink linkUrl={sideBar.link}>
+        <ConditionalLink linkUrl={sideBar.link} linkTarget={'_blank'}>
           {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
           {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
             {sideBar.text}

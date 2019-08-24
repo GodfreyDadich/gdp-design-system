@@ -38,8 +38,9 @@ import {
   Heading4,
   SubHead,
   WiredType,
+  WiredTypeCaption,
+  QuoteAttribution,
   LeftCarving,
-  QuoteBlock,
   SidebarQuote,
   BioHeader
 } from '../components/Type'
@@ -157,6 +158,12 @@ const Typography = props =>
       <WiredType>wired</WiredType>
     </div>
 
+    <br /><br />
+
+    <div>
+      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
+      <WiredTypeCaption>wired</WiredTypeCaption>
+    </div>
 
     <br /><br />
 
@@ -165,6 +172,9 @@ const Typography = props =>
       <Pullquote classAdd='testadd'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
         mauris sit amet massa interdum bibendum.
+        <QuoteAttribution classAdd='testadd'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        </QuoteAttribution>
         </Pullquote>
     </div>
 

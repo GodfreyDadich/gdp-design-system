@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 <a name="1.1.3-7"></a>
 ## [1.1.3-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-6...v1.1.3-7) (2019-08-22)
 
@@ -16,6 +17,25 @@ All notable changes to this project will be documented in this file. See [standa
 ## [1.1.3-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-2...v1.1.3-3) (2019-08-21)
 
 
+=======
+<a name="1.1.3-8"></a>
+## [1.1.3-8](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-7...v1.1.3-8) (2019-08-23)
+
+
+
+<a name="1.1.3-7"></a>
+## [1.1.3-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-6...v1.1.3-7) (2019-08-23)
+
+
+
+<a name="1.1.3-6"></a>
+## [1.1.3-6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-5...v1.1.3-6) (2019-08-23)
+
+
+
+<a name="1.1.3-4"></a>
+## [1.1.3-4](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-3...v1.1.3-4) (2019-08-23)
+>>>>>>> 1ff9e5c5edbb4c261b9cd15049dc420850a61c9d
 
 <a name="1.1.3-5"></a>
 ## [1.1.3-5](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-2...v1.1.3-5) (2019-08-22)
@@ -23,7 +43,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.1.3-3"></a>
-## [1.1.3-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-2...v1.1.3-3) (2019-08-22)
+## [1.1.3-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.3-2...v1.1.3-3) (2019-08-23)
 
 
 

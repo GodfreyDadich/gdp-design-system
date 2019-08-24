@@ -155,7 +155,7 @@ var GalleryView = function GalleryView(_ref) {
               backgroundColor: '#f2f2f2',
               position: 'absolute',
               margin: '0 auto',
-              opacity: currentIndex === i ? 1 : .1,
+              opacity: currentIndex === i ? 1 : 0,
               transition: 'opacity .3s, transform .3s'
             },
             src: image,
