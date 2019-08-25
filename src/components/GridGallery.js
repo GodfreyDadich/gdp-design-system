@@ -34,12 +34,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const displayGallery = (index) => {
-    document.body.style.overflow = 'hidden'
+    this.modalElem.style.overflow = 'hidden'
     setModalView(true)
     setImageIndex(index)
   }
   const closeGallery = () => {
-    document.body.style.overflow = 'visibile'
+    this.modalElem.style.overflow = 'visibile'
     setModalView(false)
   }
 
@@ -70,6 +70,13 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       <div className='mobile-flat'>
         <div className='mobile-grid-container'>
           <div style={evenGridStyles}>
+          {/* <div style={{
+                display: 'inline-block', 
+                position: 'relative', 
+                height: '9.4vw', 
+                width: 'auto', 
+
+          }}> */}
             <Image
               aspectRatio={thumbAspect || 'noAspect'}
               imgSource={altAsset}
@@ -105,7 +112,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
               {
                 modalView
-                  ? <div className='modal'>
+                  ? <div className='modal' ref={elem => { this.modalElem = elem }}>
                     <div className='modalTouchArea' onClick={e => closeGallery()} />
                     <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
                   </div>
@@ -133,7 +140,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             }
             {
               modalView
-                ? <div className='modal'>
+                ? <div className='modal' ref={elem => { this.modalElem = elem }}>
                   <div className='modalTouchArea' onClick={e => closeGallery()} />
                   <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
                 </div>
