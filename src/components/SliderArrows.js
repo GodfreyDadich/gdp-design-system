@@ -11,8 +11,8 @@ export const RightArrow = props => {
       style={{
         position: 'absolute',
         top: '0',
-        right: '-20%',
-        width: '50%',
+        right: '-28%',
+        width: '40%',
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',
@@ -39,8 +39,8 @@ export const LeftArrow = props => {
       style={{
         position: 'absolute',
         top: '0',
-        left: '-20%',
-        width: '50%',
+        left: '-28%',
+        width: '40%',
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',
