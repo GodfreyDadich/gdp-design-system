@@ -75,17 +75,13 @@ export default class CircularCarousel extends Component {
     if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
     const xDiff = this.xDown - xLeft
-    const yUp = e.touches[0].clientY;
-    const yDiff = this.yDown - yUp;
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        this.goToNextSlide()
-      } else {
-        this.goToPrevSlide()
-      }
+    const direction = (xDiff > 0) ? 'right' : 'left'
+    if (direction === 'right') {
+      this.goToNextSlide()
     } else {
-      e.preventDefault()
+      this.goToPrevSlide()
     }
+
     /* reset values */
     this.xDown = null
     this.yDown = null
@@ -183,6 +179,7 @@ export default class CircularCarousel extends Component {
 
     return (
       <div
+        ref={elem => this.carouselElem = elem} 
         style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
@@ -211,7 +208,6 @@ export default class CircularCarousel extends Component {
             out={this.hoverTeaseReset}
           />
           <div
-            ref={elem => this.carouselElem = elem}
             style={{
               position: 'absolute',
               top: '0',
