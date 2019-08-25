@@ -99,8 +99,10 @@ const SimpleGallery = ({ images, view }) => {
         images.map((image, i) => (
           <div
             style={{
-              height: '100%',
+              height: '80%',
               width: '100%',
+              margin: 'auto',
+              top: '10%',
               position: 'relative',
               display: 'inline-block'
             }}>
