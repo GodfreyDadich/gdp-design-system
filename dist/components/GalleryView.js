@@ -74,22 +74,27 @@ var GalleryView = function GalleryView(_ref) {
     setYDown(firstTouch.clientY);
   };
 
-  var handleTouchMove = function handleTouchMove(e) {
-    if (!xDown || !yDown) {
+  handleTouchMove = function handleTouchMove(e) {
+    e.preventDefault();
+    if (!undefined.xDown || !undefined.yDown) {
       return;
     }
     var xLeft = e.touches[0].clientX;
-    var xDiff = xDown - xLeft;
-    var direction = xDiff > 0 ? 'right' : 'left';
-    if (direction === 'right') {
-      goToNextSlide();
+    var xDiff = undefined.xDown - xLeft;
+    var yUp = e.touches[0].clientY;
+    var yDiff = undefined.yDown - yUp;
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        undefined.goToNextSlide();
+      } else {
+        undefined.goToPrevSlide();
+      }
     } else {
-      goToPrevSlide();
+      return;
     }
-
     /* reset values */
-    setXDown(null);
-    setXDown(null);
+    undefined.xDown = null;
+    undefined.yDown = null;
   };
 
   var handleKeyDown = function handleKeyDown(e) {

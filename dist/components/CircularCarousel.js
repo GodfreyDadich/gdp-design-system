@@ -122,13 +122,17 @@ var CircularCarousel = function (_Component) {
       }
       var xLeft = e.touches[0].clientX;
       var xDiff = this.xDown - xLeft;
-      var direction = xDiff > 0 ? 'right' : 'left';
-      if (direction === 'right') {
-        this.goToNextSlide();
+      var yUp = e.touches[0].clientY;
+      var yDiff = this.yDown - yUp;
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+          this.goToNextSlide();
+        } else {
+          this.goToPrevSlide();
+        }
       } else {
-        this.goToPrevSlide();
+        return;
       }
-
       /* reset values */
       this.xDown = null;
       this.yDown = null;

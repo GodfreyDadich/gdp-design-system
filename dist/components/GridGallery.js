@@ -85,10 +85,12 @@ var GridGallery = function GridGallery(_ref) {
   };
 
   var displayGallery = function displayGallery(index) {
+    document.body.style.overflow = 'hidden';
     setModalView(true);
     setImageIndex(index);
   };
   var closeGallery = function closeGallery() {
+    document.body.style.overflow = 'visibile';
     setModalView(false);
   };
 
