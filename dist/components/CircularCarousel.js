@@ -136,7 +136,7 @@ var CircularCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        return;
+        return this.handleTouchMove();
       }
       /* reset values */
       this.xDown = null;
