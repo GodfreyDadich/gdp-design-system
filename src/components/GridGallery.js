@@ -34,10 +34,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const displayGallery = (index) => {
+    document.body.style.overflow = 'hidden'
     setModalView(true)
     setImageIndex(index)
   }
   const closeGallery = () => {
+    document.body.style.overflow = 'visibile'
     setModalView(false)
   }
 
