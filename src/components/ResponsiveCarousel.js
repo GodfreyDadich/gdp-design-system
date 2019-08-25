@@ -88,7 +88,7 @@ export default class ResponsiveCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      return
+      return this.handleTouchMove()
     }
     /* reset values */
     this.xDown = null

@@ -14,9 +14,9 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   useEffect(() => {
     setMobile(isMobile)
     if (modalView === true) {
-      document.body.style.overflow = 'hidden'
+      document.body.classList.add('modalOpen')
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.classList.remove('modalOpen')
     }
   }, [modalView])
 
@@ -154,6 +154,9 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         </div>
     }
     <style>{`
+    .modalOpen {
+      overflow: hidden;
+    }
     .moasic-image {
       display: inline-block;
       position: relative;
