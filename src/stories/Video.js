@@ -4,6 +4,8 @@ import { text, selectV2 } from '@storybook/addon-knobs';
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
 import Device from '../components/Device'
+import CircularCarousel from '../components/CircularCarousel'
+
 
 const videoEnded = function () {
   console.log('video over')
@@ -93,6 +95,51 @@ storiesOf('Video', module)
       </Device>
       
     </div>
+  )
+
+  .add('Video Carousel', () =>
+    <CircularCarousel aspectRatio='sixteen'>
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        volume={0}
+        loadActive
+        vidSource='https://vimeo.com/299777569'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        onEnd={videoEnded}
+      />
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        volume={0}
+        loadActive
+        vidSource='https://vimeo.com/299777569'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        onEnd={videoEnded}
+      />
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        volume={0}
+        loadActive
+        vidSource='https://vimeo.com/299777569'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        onEnd={videoEnded}
+      />
+      <Video
+        title=''
+        aspectRatio='sixteen'
+        fullBleed={false}
+        volume={0}
+        loadActive
+        vidSource='https://vimeo.com/299777569'
+        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
+        onEnd={videoEnded}
+      />      
+    </CircularCarousel>
   )
 
   .add('Hover Video', () =>

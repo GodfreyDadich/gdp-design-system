@@ -125,6 +125,7 @@ class Video extends React.Component {
       config,
       hoverPlay,
       skipIntro,
+      loadActive,
       caption,
       sideBar,
       style,
@@ -154,7 +155,7 @@ class Video extends React.Component {
               style={{
                 position: 'relative',
                 top: isVisible || skipIntro ? '0px' : '15px',
-                opacity: isVisible ? '1' : '0',
+                opacity: isVisible || loadActive ? '1' : '0',
                 transition: 'opacity 0.5s, top 0.5s',
                 transitionDelay: '0.75s'
               }}
@@ -173,7 +174,7 @@ class Video extends React.Component {
                     { this.state.isLoading ? <Loader /> : '' } </div>
                   { this.state.isMobile && hoverPlay ? ''
                     : <ReactPlayer
-                      url={autoplay ? vidSource : isVisible ? vidSource : ''}
+                      url={autoplay ? vidSource : isVisible || loadActive ? vidSource : ''}
                       playing={playing}
                       volume={autoplay ? 0 : 1}
                       muted={muted}
