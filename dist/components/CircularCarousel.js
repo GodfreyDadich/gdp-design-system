@@ -131,7 +131,7 @@ var CircularCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        return false;
+        e.preventDefault();
       }
       /* reset values */
       this.xDown = null;

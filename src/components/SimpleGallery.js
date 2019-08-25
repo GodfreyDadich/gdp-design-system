@@ -59,7 +59,7 @@ const SimpleGallery = ({ images, view }) => {
         this.goToPrevSlide()
       }
     } else {
-      return false
+      e.preventDefault()
     }
     /* reset values */
     this.xDown = null

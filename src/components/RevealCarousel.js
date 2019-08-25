@@ -88,7 +88,7 @@ export default class RevealCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      return false
+      e.preventDefault()
     }
     /* reset values */
     this.xDown = null

@@ -89,7 +89,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
         undefined.goToPrevSlide();
       }
     } else {
-      return false;
+      e.preventDefault();
     }
     /* reset values */
     undefined.xDown = null;
