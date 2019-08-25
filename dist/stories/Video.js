@@ -20,6 +20,10 @@ var _Device = require('../components/Device');
 
 var _Device2 = _interopRequireDefault(_Device);
 
+var _CircularCarousel = require('../components/CircularCarousel');
+
+var _CircularCarousel2 = _interopRequireDefault(_CircularCarousel);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var videoEnded = function videoEnded() {
@@ -112,6 +116,51 @@ var videoEnded = function videoEnded() {
         thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
       })
     )
+  );
+}).add('Video Carousel', function () {
+  return _react2.default.createElement(
+    _CircularCarousel2.default,
+    { aspectRatio: 'sixteen' },
+    _react2.default.createElement(_Video2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      volume: 0,
+      loadActive: true,
+      vidSource: 'https://vimeo.com/299777569',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+      onEnd: videoEnded
+    }),
+    _react2.default.createElement(_Video2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      volume: 0,
+      loadActive: true,
+      vidSource: 'https://vimeo.com/299777569',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+      onEnd: videoEnded
+    }),
+    _react2.default.createElement(_Video2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      volume: 0,
+      loadActive: true,
+      vidSource: 'https://vimeo.com/299777569',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+      onEnd: videoEnded
+    }),
+    _react2.default.createElement(_Video2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      volume: 0,
+      loadActive: true,
+      vidSource: 'https://vimeo.com/299777569',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg',
+      onEnd: videoEnded
+    })
   );
 }).add('Hover Video', function () {
   return _react2.default.createElement(
