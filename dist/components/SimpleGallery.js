@@ -73,6 +73,10 @@ var SimpleGallery = function SimpleGallery(_ref) {
     setYDown(firstTouch.clientY);
   };
 
+  var resumeScroll = function resumeScroll() {
+    return;
+  };
+
   handleTouchMove = function handleTouchMove(e) {
     e.preventDefault();
     if (!undefined.xDown || !undefined.yDown) {
@@ -89,7 +93,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
         undefined.goToPrevSlide();
       }
     } else {
-      e.preventDefault();
+      undefined.resumeScroll();
     }
     /* reset values */
     undefined.xDown = null;

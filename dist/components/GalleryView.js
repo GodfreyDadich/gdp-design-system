@@ -74,6 +74,10 @@ var GalleryView = function GalleryView(_ref) {
     setYDown(firstTouch.clientY);
   };
 
+  var resumeScroll = function resumeScroll() {
+    return;
+  };
+
   handleTouchMove = function handleTouchMove(e) {
     e.preventDefault();
     if (!undefined.xDown || !undefined.yDown) {
@@ -90,7 +94,7 @@ var GalleryView = function GalleryView(_ref) {
         undefined.goToPrevSlide();
       }
     } else {
-      e.preventDefault();
+      undefined.resumeScroll();
     }
     /* reset values */
     undefined.xDown = null;
