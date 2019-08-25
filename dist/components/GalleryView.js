@@ -90,7 +90,8 @@ var GalleryView = function GalleryView(_ref) {
         undefined.goToPrevSlide();
       }
     } else {
-      return;
+      undefined.carouselElem.removeEventListener('touchstart', undefined.handleTouchStart);
+      undefined.carouselElem.removeEventListener('touchmove', undefined.handleTouchMove);
     }
     /* reset values */
     undefined.xDown = null;
