@@ -58,8 +58,7 @@ const GalleryView = ({ images, index, view }) => {
         this.goToPrevSlide()
       }
     } else {
-      this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
-      this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
+      return (this.carouselElem.removeEventListener('touchstart', this.handleTouchStart) && this.carouselElem.removeEventListener('touchmove', this.handleTouchMove))
     }
     /* reset values */
     this.xDown = null

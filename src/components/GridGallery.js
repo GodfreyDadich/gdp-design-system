@@ -69,7 +69,14 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       // case for mobile flat using an alternate asset for mobile
       <div className='mobile-flat'>
         <div className='mobile-grid-container'>
-          <div style={evenGridStyles}>
+          {/* <div style={evenGridStyles}> */}
+          <div style={{
+                display: 'inline-block',
+                position: 'relative',
+                height: '9.4vw',
+                width: 'auto',
+
+          }}>
             <Image
               aspectRatio={thumbAspect || 'noAspect'}
               imgSource={altAsset}
