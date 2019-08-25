@@ -114,11 +114,6 @@ var ResponsiveCarousel = function (_Component) {
       this.yDown = firstTouch.clientY;
     }
   }, {
-    key: 'resumeScroll',
-    value: function resumeScroll() {
-      return;
-    }
-  }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
       e.preventDefault();
@@ -136,7 +131,10 @@ var ResponsiveCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        return this.handleTouchMove();
+        this.carouselElem.removeEventListener('touchstart', this.handleTouchStart);
+        this.carouselElem.removeEventListener('touchmove', this.handleTouchMove);
+        this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false });
       }
       /* reset values */
       this.xDown = null;
