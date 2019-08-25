@@ -13,7 +13,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
 
   useEffect(() => {
     setMobile(isMobile)
-  }, [])
+  }, [modalView])
 
   const evenGridStyles = {
     flexGrow: images.length,
@@ -34,12 +34,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const displayGallery = (index) => {
-    document.body.classList.add('modalOpen')
+    document.body.style.overflow = 'hidden'
     setModalView(true)
     setImageIndex(index)
   }
   const closeGallery = () => {
-    document.body.classList.add('modalClose')
+    document.body.style.overflow = 'visibile'
     setModalView(false)
   }
 
@@ -112,7 +112,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
               {
                 modalView
-                  ? <div className='modal' ref={elem => { this.modalElem = elem }}>
+                  ? <div className='modal'>
                     <div className='modalTouchArea' onClick={e => closeGallery()} />
                     <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
                   </div>
@@ -140,7 +140,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             }
             {
               modalView
-                ? <div className='modal' ref={elem => { this.modalElem = elem }}>
+                ? <div className='modal'>
                   <div className='modalTouchArea' onClick={e => closeGallery()} />
                   <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
                 </div>
@@ -151,12 +151,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         </div>
     }
     <style>{`
-    .modalOpen {
-      overflow: hidden;
-    }
-    .modalClose {
-      overflow: visible;
-    }
     .moasic-image {
       display: inline-block;
       position: relative;
