@@ -70,6 +70,10 @@ export default class CircularCarousel extends Component {
     this.yDown = firstTouch.clientY
   }
 
+  resumeScroll () {
+    return 
+  }
+
   handleTouchMove(e) {
     e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
@@ -84,7 +88,7 @@ export default class CircularCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      e.preventDefault()
+      resumeScroll()
     }
     /* reset values */
     this.xDown = null

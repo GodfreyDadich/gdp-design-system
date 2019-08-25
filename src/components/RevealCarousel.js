@@ -74,6 +74,10 @@ export default class RevealCarousel extends Component {
     this.yDown = firstTouch.clientY
   }
 
+  resumeScroll () {
+    return 
+  }
+
   handleTouchMove(e) {
     e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
@@ -88,7 +92,7 @@ export default class RevealCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      e.preventDefault()
+      this.resumeScroll()
     }
     /* reset values */
     this.xDown = null

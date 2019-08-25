@@ -45,6 +45,10 @@ const SimpleGallery = ({ images, view }) => {
     setYDown(firstTouch.clientY)
   }
 
+  const resumeScroll = () => {
+    return 
+  }
+
   handleTouchMove = (e) => {
     e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
@@ -59,7 +63,7 @@ const SimpleGallery = ({ images, view }) => {
         this.goToPrevSlide()
       }
     } else {
-      e.preventDefault()
+      this.resumeScroll()
     }
     /* reset values */
     this.xDown = null

@@ -34,12 +34,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const displayGallery = (index) => {
-    this.modalElem.style.overflow = 'hidden'
+    document.body.classList.add('modalOpen')
     setModalView(true)
     setImageIndex(index)
   }
   const closeGallery = () => {
-    this.modalElem.style.overflow = 'visibile'
+    document.body.classList.add('modalClose')
     setModalView(false)
   }
 
@@ -151,6 +151,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         </div>
     }
     <style>{`
+    .modalOpen {
+      overflow: hidden;
+    }
+    .modalClose {
+      overflow: visible;
+    }
     .moasic-image {
       display: inline-block;
       position: relative;
