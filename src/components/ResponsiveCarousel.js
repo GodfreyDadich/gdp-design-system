@@ -70,10 +70,6 @@ export default class ResponsiveCarousel extends Component {
     this.yDown = firstTouch.clientY
   }
 
-  resumeScroll () {
-    return 
-  }
-
   handleTouchMove(e) {
     e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
@@ -88,7 +84,10 @@ export default class ResponsiveCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      return this.handleTouchMove()
+      this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
+      this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
+      this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
+      this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
     }
     /* reset values */
     this.xDown = null
