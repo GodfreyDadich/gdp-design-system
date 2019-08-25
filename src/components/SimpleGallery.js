@@ -45,20 +45,25 @@ const SimpleGallery = ({ images, view }) => {
     setYDown(firstTouch.clientY)
   }
 
-  const handleTouchMove = (e) => {
-    if (!xDown || !yDown) { return }
+  handleTouchMove = (e) => {
+    e.preventDefault()
+    if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
-    const xDiff = xDown - xLeft
-    const direction = (xDiff > 0) ? 'right' : 'left'
-    if (direction === 'right') {
-      goToNextSlide()
+    const xDiff = this.xDown - xLeft
+    const yUp = e.touches[0].clientY;
+    const yDiff = this.yDown - yUp;
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        this.goToNextSlide()
+      } else {
+        this.goToPrevSlide()
+      }
     } else {
-      goToPrevSlide()
+      return
     }
-
     /* reset values */
-    setXDown(null)
-    setXDown(null)
+    this.xDown = null
+    this.yDown = null
   }
 
   const handleKeyDown = e => {
