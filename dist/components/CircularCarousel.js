@@ -114,6 +114,11 @@ var CircularCarousel = function (_Component) {
       this.yDown = firstTouch.clientY;
     }
   }, {
+    key: 'resumeScroll',
+    value: function resumeScroll() {
+      return;
+    }
+  }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
       e.preventDefault();
@@ -131,7 +136,7 @@ var CircularCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        e.preventDefault();
+        resumeScroll();
       }
       /* reset values */
       this.xDown = null;

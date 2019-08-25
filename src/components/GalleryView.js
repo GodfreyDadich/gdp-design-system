@@ -44,7 +44,7 @@ const GalleryView = ({ images, index, view }) => {
     setYDown(firstTouch.clientY)
   }
 
-  resumeScroll () {
+  const resumeScroll = () => {
     return 
   }
 
@@ -62,7 +62,7 @@ const GalleryView = ({ images, index, view }) => {
         this.goToPrevSlide()
       }
     } else {
-      e.resumeScroll()
+      this.resumeScroll()
     }
     /* reset values */
     this.xDown = null
