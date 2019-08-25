@@ -62,49 +62,8 @@ export default class RevealCarousel extends Component {
     }
   }
 
-  getTouches(e) {
-    return e.touches || // browser API
-      e.originalEvent.touches // jQuery
-  }
-
-  handleTouchStart(e) {
-    e.preventDefault()
-    const firstTouch = this.getTouches(e)[0]
-    this.xDown = firstTouch.clientX
-    this.yDown = firstTouch.clientY
-  }
-
-  resumeScroll () {
-    return 
-  }
-
-  handleTouchMove(e) {
-    e.preventDefault()
-    if (!this.xDown || !this.yDown) { return }
-    const xLeft = e.touches[0].clientX
-    const xDiff = this.xDown - xLeft
-    const yUp = e.touches[0].clientY;
-    const yDiff = this.yDown - yUp;
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        this.goToNextSlide()
-      } else {
-        this.goToPrevSlide()
-      }
-    } else {
-      this.resumeScroll()
-    }
-    /* reset values */
-    this.xDown = null
-    this.yDown = null
-  }
-
   componentDidMount() {
-    if (isMobile) {
-      return
-    } else {
-      this.carouselElem.addEventListener('keydown', this.handleKeyDown, false)
-    }
+    this.carouselElem.addEventListener('keydown', this.handleKeyDown, false)
   }
 
   componentWillUnmount() {
@@ -112,11 +71,7 @@ export default class RevealCarousel extends Component {
   }
 
   killListeners() {
-    if (isMobile) {
-      return
-    } else {
-      this.carouselElem.removeEventListener('keydown', this.handleKeyDown)
-    }
+    this.carouselElem.removeEventListener('keydown', this.handleKeyDown)
   }
 
   hoverTeasePrev() {

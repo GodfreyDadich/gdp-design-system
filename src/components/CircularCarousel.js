@@ -88,7 +88,7 @@ export default class CircularCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      resumeScroll()
+      return
     }
     /* reset values */
     this.xDown = null

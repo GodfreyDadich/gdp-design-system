@@ -33,43 +33,6 @@ const SimpleGallery = ({ images, view }) => {
     setTranslateValue(nextTranslateValue)
   }
 
-
-  const getTouches = (e) => {
-    return e.touches || // browser API
-      e.originalEvent.touches // jQuery
-  }
-
-  const handleTouchStart = (e) => {
-    const firstTouch = getTouches(e)[0]
-    setXDown(firstTouch.clientX)
-    setYDown(firstTouch.clientY)
-  }
-
-  const resumeScroll = () => {
-    return 
-  }
-
-  handleTouchMove = (e) => {
-    e.preventDefault()
-    if (!this.xDown || !this.yDown) { return }
-    const xLeft = e.touches[0].clientX
-    const xDiff = this.xDown - xLeft
-    const yUp = e.touches[0].clientY;
-    const yDiff = this.yDown - yUp;
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        this.goToNextSlide()
-      } else {
-        this.goToPrevSlide()
-      }
-    } else {
-      this.resumeScroll()
-    }
-    /* reset values */
-    this.xDown = null
-    this.yDown = null
-  }
-
   const handleKeyDown = e => {
     if (e.keyCode === 39) {
       goToNextSlide()
@@ -80,18 +43,9 @@ const SimpleGallery = ({ images, view }) => {
   }
 
   useEffect(() => {
-    if (isMobile) {
-      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false })
-      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false })
-      return () => {
-        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false })
-        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false })
-      }
-    } else {
-      galleryContainer.current.addEventListener('keydown', handleKeyDown)
-      return () => {
-        galleryContainer.current.removeEventListener('keydown', handleKeyDown)
-      }
+    galleryContainer.current.addEventListener('keydown', handleKeyDown)
+    return () => {
+      galleryContainer.current.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
 

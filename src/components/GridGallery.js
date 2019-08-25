@@ -13,6 +13,11 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
 
   useEffect(() => {
     setMobile(isMobile)
+    if (modalView === true) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'visibile'
+    }
   }, [modalView])
 
   const evenGridStyles = {
@@ -34,12 +39,10 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const displayGallery = (index) => {
-    document.body.style.overflow = 'hidden'
     setModalView(true)
     setImageIndex(index)
   }
   const closeGallery = () => {
-    document.body.style.overflow = 'visibile'
     setModalView(false)
   }
 
@@ -70,7 +73,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       <div className='mobile-flat'>
         <div className='mobile-grid-container'>
           <div style={evenGridStyles}>
-          {/* <div style={{
+            {/* <div style={{
                 display: 'inline-block', 
                 position: 'relative', 
                 height: '9.4vw', 
