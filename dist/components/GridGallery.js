@@ -67,7 +67,7 @@ var GridGallery = function GridGallery(_ref) {
     if (modalView === true) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'visibile';
+      document.body.style.overflow = 'unset';
     }
   }, [modalView]);
 

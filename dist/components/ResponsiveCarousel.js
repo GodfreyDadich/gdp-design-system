@@ -252,9 +252,6 @@ var ResponsiveCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
-          ref: function ref(elem) {
-            return _this4.carouselElem = elem;
-          },
           style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
@@ -287,6 +284,9 @@ var ResponsiveCarousel = function (_Component) {
           _react2.default.createElement(
             'div',
             {
+              ref: function ref(elem) {
+                return _this4.carouselElem = elem;
+              },
               style: {
                 position: 'absolute',
                 top: '0',
