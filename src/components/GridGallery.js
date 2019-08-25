@@ -35,7 +35,9 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   const mobileStyles = {
-    position: 'relative'
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'relative',
   }
 
   const displayGallery = (index) => {
@@ -58,12 +60,11 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         {
           images.map((image, index) =>
             <div style={mobileStyles} key={`${escape(image)}-${index}`}>
-              <Image
-                aspectRatio={thumbAspect}
-                imgSource={image}
-                skipIntro
-                visibilityOverride
+              <img
+                className='mobile-moasic-image'
+                src={image}
               />
+
             </div>
           )
         }
@@ -73,13 +74,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       <div className='mobile-flat'>
         <div className='mobile-grid-container'>
           <div style={evenGridStyles}>
-            {/* <div style={{
-                display: 'inline-block', 
-                position: 'relative', 
-                height: '9.4vw', 
-                width: 'auto', 
-
-          }}> */}
             <Image
               aspectRatio={thumbAspect || 'noAspect'}
               imgSource={altAsset}
@@ -156,6 +150,11 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     <style>{`
     .modalOpen {
       overflow: hidden;
+    }
+    .mobile-moasic-image {
+      height: 40vw;
+      width: auto;
+      left: 50%;
     }
     .moasic-image {
       display: inline-block;
