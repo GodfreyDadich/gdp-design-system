@@ -85,12 +85,12 @@ var GridGallery = function GridGallery(_ref) {
   };
 
   var displayGallery = function displayGallery(index) {
-    document.body.style.overflow = 'hidden';
+    undefined.modalElem.style.overflow = 'hidden';
     setModalView(true);
     setImageIndex(index);
   };
   var closeGallery = function closeGallery() {
-    document.body.style.overflow = 'visibile';
+    undefined.modalElem.style.overflow = 'visibile';
     setModalView(false);
   };
 
@@ -184,7 +184,9 @@ var GridGallery = function GridGallery(_ref) {
           }),
           modalView ? _react2.default.createElement(
             'div',
-            { className: 'modal' },
+            { className: 'modal', ref: function ref(elem) {
+                undefined.modalElem = elem;
+              } },
             _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
                 return closeGallery();
               } }),
@@ -229,7 +231,9 @@ var GridGallery = function GridGallery(_ref) {
         }),
         modalView ? _react2.default.createElement(
           'div',
-          { className: 'modal' },
+          { className: 'modal', ref: function ref(elem) {
+              undefined.modalElem = elem;
+            } },
           _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
               return closeGallery();
             } }),
