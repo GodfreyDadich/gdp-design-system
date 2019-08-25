@@ -113,56 +113,9 @@ var RevealCarousel = function (_Component) {
       }
     }
   }, {
-    key: 'getTouches',
-    value: function getTouches(e) {
-      return e.touches || // browser API
-      e.originalEvent.touches; // jQuery
-    }
-  }, {
-    key: 'handleTouchStart',
-    value: function handleTouchStart(e) {
-      e.preventDefault();
-      var firstTouch = this.getTouches(e)[0];
-      this.xDown = firstTouch.clientX;
-      this.yDown = firstTouch.clientY;
-    }
-  }, {
-    key: 'resumeScroll',
-    value: function resumeScroll() {
-      return;
-    }
-  }, {
-    key: 'handleTouchMove',
-    value: function handleTouchMove(e) {
-      e.preventDefault();
-      if (!this.xDown || !this.yDown) {
-        return;
-      }
-      var xLeft = e.touches[0].clientX;
-      var xDiff = this.xDown - xLeft;
-      var yUp = e.touches[0].clientY;
-      var yDiff = this.yDown - yUp;
-      if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 0) {
-          this.goToNextSlide();
-        } else {
-          this.goToPrevSlide();
-        }
-      } else {
-        this.resumeScroll();
-      }
-      /* reset values */
-      this.xDown = null;
-      this.yDown = null;
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (_reactDeviceDetect.isMobile) {
-        return;
-      } else {
-        this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
-      }
+      this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
     }
   }, {
     key: 'componentWillUnmount',
@@ -172,11 +125,7 @@ var RevealCarousel = function (_Component) {
   }, {
     key: 'killListeners',
     value: function killListeners() {
-      if (_reactDeviceDetect.isMobile) {
-        return;
-      } else {
-        this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
-      }
+      this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
     }
   }, {
     key: 'hoverTeasePrev',

@@ -62,44 +62,6 @@ var SimpleGallery = function SimpleGallery(_ref) {
     setTranslateValue(nextTranslateValue);
   };
 
-  var getTouches = function getTouches(e) {
-    return e.touches || // browser API
-    e.originalEvent.touches; // jQuery
-  };
-
-  var handleTouchStart = function handleTouchStart(e) {
-    var firstTouch = getTouches(e)[0];
-    setXDown(firstTouch.clientX);
-    setYDown(firstTouch.clientY);
-  };
-
-  var resumeScroll = function resumeScroll() {
-    return;
-  };
-
-  handleTouchMove = function handleTouchMove(e) {
-    e.preventDefault();
-    if (!undefined.xDown || !undefined.yDown) {
-      return;
-    }
-    var xLeft = e.touches[0].clientX;
-    var xDiff = undefined.xDown - xLeft;
-    var yUp = e.touches[0].clientY;
-    var yDiff = undefined.yDown - yUp;
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        undefined.goToNextSlide();
-      } else {
-        undefined.goToPrevSlide();
-      }
-    } else {
-      undefined.resumeScroll();
-    }
-    /* reset values */
-    undefined.xDown = null;
-    undefined.yDown = null;
-  };
-
   var handleKeyDown = function handleKeyDown(e) {
     if (e.keyCode === 39) {
       goToNextSlide();
@@ -110,19 +72,10 @@ var SimpleGallery = function SimpleGallery(_ref) {
   };
 
   (0, _react.useEffect)(function () {
-    if (_reactDeviceDetect.isMobile) {
-      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false });
-      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false });
-      return function () {
-        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false });
-        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false });
-      };
-    } else {
-      galleryContainer.current.addEventListener('keydown', handleKeyDown);
-      return function () {
-        galleryContainer.current.removeEventListener('keydown', handleKeyDown);
-      };
-    }
+    galleryContainer.current.addEventListener('keydown', handleKeyDown);
+    return function () {
+      galleryContainer.current.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   return _react2.default.createElement(

@@ -136,7 +136,7 @@ var ResponsiveCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        this.resumeScroll();
+        return;
       }
       /* reset values */
       this.xDown = null;

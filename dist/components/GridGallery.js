@@ -64,6 +64,11 @@ var GridGallery = function GridGallery(_ref) {
 
   (0, _react.useEffect)(function () {
     setMobile(_reactDeviceDetect.isMobile);
+    if (modalView === true) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visibile';
+    }
   }, [modalView]);
 
   var evenGridStyles = {
@@ -85,12 +90,10 @@ var GridGallery = function GridGallery(_ref) {
   };
 
   var displayGallery = function displayGallery(index) {
-    document.body.style.overflow = 'hidden';
     setModalView(true);
     setImageIndex(index);
   };
   var closeGallery = function closeGallery() {
-    document.body.style.overflow = 'visibile';
     setModalView(false);
   };
 

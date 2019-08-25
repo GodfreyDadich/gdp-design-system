@@ -136,7 +136,7 @@ var CircularCarousel = function (_Component) {
           this.goToPrevSlide();
         }
       } else {
-        resumeScroll();
+        return;
       }
       /* reset values */
       this.xDown = null;
