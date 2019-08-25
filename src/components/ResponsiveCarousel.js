@@ -84,10 +84,7 @@ export default class ResponsiveCarousel extends Component {
         this.goToPrevSlide()
       }
     } else {
-      this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
-      this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
-      this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
-      this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
+      e.preventDefault()
     }
     /* reset values */
     this.xDown = null
