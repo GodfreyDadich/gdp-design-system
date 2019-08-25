@@ -89,8 +89,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
         undefined.goToPrevSlide();
       }
     } else {
-      undefined.carouselElem.removeEventListener('touchstart', undefined.handleTouchStart);
-      undefined.carouselElem.removeEventListener('touchmove', undefined.handleTouchMove);
+      return undefined.carouselElem.removeEventListener('touchstart', undefined.handleTouchStart) && undefined.carouselElem.removeEventListener('touchmove', undefined.handleTouchMove);
     }
     /* reset values */
     undefined.xDown = null;

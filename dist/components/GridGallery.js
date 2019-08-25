@@ -129,7 +129,13 @@ var GridGallery = function GridGallery(_ref) {
         { className: 'mobile-grid-container' },
         _react2.default.createElement(
           'div',
-          { style: evenGridStyles },
+          { style: {
+              display: 'inline-block',
+              position: 'relative',
+              height: '9.4vw',
+              width: 'auto'
+
+            } },
           _react2.default.createElement(_Image2.default, {
             aspectRatio: thumbAspect || 'noAspect',
             imgSource: altAsset,
