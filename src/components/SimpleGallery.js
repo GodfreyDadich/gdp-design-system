@@ -59,7 +59,8 @@ const SimpleGallery = ({ images, view }) => {
         this.goToPrevSlide()
       }
     } else {
-      return
+      this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
+      this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
     }
     /* reset values */
     this.xDown = null
