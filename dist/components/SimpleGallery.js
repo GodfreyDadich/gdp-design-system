@@ -136,8 +136,10 @@ var SimpleGallery = function SimpleGallery(_ref) {
           'div',
           {
             style: {
-              height: '100%',
+              height: '80%',
               width: '100%',
+              margin: 'auto',
+              top: '10%',
               position: 'relative',
               display: 'inline-block'
             }, className: 'jsx-2511592491'

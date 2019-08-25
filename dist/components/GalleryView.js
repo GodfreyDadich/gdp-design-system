@@ -138,8 +138,10 @@ var GalleryView = function GalleryView(_ref) {
           {
             key: i + '-' + escape(image),
             style: {
-              height: '100%',
+              height: '80%',
               width: '100%',
+              margin: 'auto',
+              top: '10%',
               position: 'relative',
               display: 'inline-block'
             }, className: 'jsx-644554313'
