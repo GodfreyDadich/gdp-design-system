@@ -161,12 +161,12 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
       style: _extends({
         fontFamily: 'Noe Text'
       }, style),
-      className: 'jsx-3251949478' + ' ' + ('wiredtype ' + className)
+      className: 'jsx-1419568079' + ' ' + ('wiredtype ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3251949478',
-      css: '.wiredtype.jsx-3251949478{font-size:19px;line-height:1.42;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}@media only screen and (max-width:500px){.wiredtype.jsx-3251949478{line-height:22px;font-size:15px;}}'
+      styleId: '1419568079',
+      css: '.wiredtype.jsx-1419568079{font-size:19px;line-height:.5;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}@media only screen and (max-width:500px){.wiredtype.jsx-1419568079{line-height:22px;font-size:15px;}}'
     })
   );
 };
@@ -230,7 +230,8 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref10) {
         style: {
           fontFamily: 'Atlas Grotesk',
           display: 'inline-block',
-          lineHeight: 1
+          lineHeight: 1,
+          whiteSpace: 'nowrap'
         },
         className: 'bioPersonTitle'
       },
@@ -342,7 +343,7 @@ var SideBar = exports.SideBar = function SideBar(_ref15) {
         },
         _react2.default.createElement(
           _ConditionalLink2.default,
-          { linkUrl: sideBar.link },
+          { linkUrl: sideBar.link, linkTarget: '_blank' },
           sideBar.image ? _react2.default.createElement('img', { src: sideBar.image, className: 'jsx-890879870' + ' ' + 'sideBar__logo'
           }) : '',
           sideBar.text.length > 0 ? _react2.default.createElement(

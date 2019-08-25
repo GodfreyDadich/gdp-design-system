@@ -142,10 +142,10 @@ var RevealCarousel = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (_reactDeviceDetect.isMobile) {
-        document.addEventListener('touchstart', this.handleTouchStart, { passive: false });
-        document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+        this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false });
       } else {
-        document.addEventListener('keydown', this.handleKeyDown, false);
+        this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
       }
     }
   }, {
@@ -157,10 +157,10 @@ var RevealCarousel = function (_Component) {
     key: 'killListeners',
     value: function killListeners() {
       if (_reactDeviceDetect.isMobile) {
-        document.removeEventListener('touchstart', this.handleTouchStart);
-        document.removeEventListener('touchmove', this.handleTouchMove);
+        this.carouselElem.removeEventListener('touchstart', this.handleTouchStart);
+        this.carouselElem.removeEventListener('touchmove', this.handleTouchMove);
       } else {
-        document.removeEventListener('keydown', this.handleKeyDown);
+        this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
       }
     }
   }, {
@@ -228,6 +228,9 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'figure',
         {
+          ref: function ref(elem) {
+            _this4.carouselElem = elem;
+          },
           style: {
             position: 'relative',
             width: '100%',

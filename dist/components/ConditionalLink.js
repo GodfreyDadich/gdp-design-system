@@ -12,10 +12,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ConditionalLink = function ConditionalLink(_ref) {
   var linkUrl = _ref.linkUrl,
+      linkTarget = _ref.linkTarget,
       children = _ref.children;
   return typeof linkUrl === 'string' && linkUrl.length > 0 ? _react2.default.createElement(
     'a',
-    { href: linkUrl },
+    { href: linkUrl, target: linkTarget || '' },
     children
   ) : children;
 };
