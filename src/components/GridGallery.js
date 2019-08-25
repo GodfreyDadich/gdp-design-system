@@ -16,7 +16,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     if (modalView === true) {
       document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'visibile'
+      document.body.style.overflow = 'unset'
     }
   }, [modalView])
 

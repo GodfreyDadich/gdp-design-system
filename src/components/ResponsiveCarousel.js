@@ -189,7 +189,6 @@ export default class ResponsiveCarousel extends Component {
 
     return (
       <div
-        ref={elem => this.carouselElem = elem}
         style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
@@ -218,6 +217,7 @@ export default class ResponsiveCarousel extends Component {
             out={this.hoverTeaseReset}
           />
           <div
+            ref={elem => this.carouselElem = elem}
             style={{
               position: 'absolute',
               top: '0',
