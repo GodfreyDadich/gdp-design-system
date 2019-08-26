@@ -15,17 +15,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _SliderArrows = require('./SliderArrows');
 
-var _Image = require('./Image');
+var _Slide = require('./Slide');
 
-var _Image2 = _interopRequireDefault(_Image);
+var _Slide2 = _interopRequireDefault(_Slide);
 
 var _ResponsiveCarousel = require('./ResponsiveCarousel');
 
 var _ResponsiveCarousel2 = _interopRequireDefault(_ResponsiveCarousel);
 
-var _Slide = require('./Slide');
+var _Image = require('./Image');
 
-var _Slide2 = _interopRequireDefault(_Slide);
+var _Image2 = _interopRequireDefault(_Image);
 
 var _Type = require('./Type');
 
@@ -61,8 +61,6 @@ var RevealCarousel = function (_Component) {
     _this.hoverTeasePrev = _this.hoverTeasePrev.bind(_this);
     _this.hoverTeaseNext = _this.hoverTeaseNext.bind(_this);
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
-    _this.handleTouchMove = _this.handleTouchMove.bind(_this);
-    _this.handleTouchStart = _this.handleTouchStart.bind(_this);
     return _this;
   }
 
@@ -115,7 +113,11 @@ var RevealCarousel = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
+      if (_reactDeviceDetect.isMobile) {
+        return;
+      } else {
+        this.carouselElem.addEventListener('keydown', this.handleKeyDown, false);
+      }
     }
   }, {
     key: 'componentWillUnmount',
@@ -125,7 +127,11 @@ var RevealCarousel = function (_Component) {
   }, {
     key: 'killListeners',
     value: function killListeners() {
-      this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
+      if (_reactDeviceDetect.isMobile) {
+        return;
+      } else {
+        this.carouselElem.removeEventListener('keydown', this.handleKeyDown);
+      }
     }
   }, {
     key: 'hoverTeasePrev',

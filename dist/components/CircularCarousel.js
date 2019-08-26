@@ -122,17 +122,13 @@ var CircularCarousel = function (_Component) {
       }
       var xLeft = e.touches[0].clientX;
       var xDiff = this.xDown - xLeft;
-      var yUp = e.touches[0].clientY;
-      var yDiff = this.yDown - yUp;
-      if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 0) {
-          this.goToNextSlide();
-        } else {
-          this.goToPrevSlide();
-        }
+      var direction = xDiff > 0 ? 'right' : 'left';
+      if (direction === 'right') {
+        this.goToNextSlide();
       } else {
-        e.preventDefault();
+        this.goToPrevSlide();
       }
+
       /* reset values */
       this.xDown = null;
       this.yDown = null;
@@ -244,6 +240,9 @@ var CircularCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
+          ref: function ref(elem) {
+            return _this4.carouselElem = elem;
+          },
           style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
@@ -276,9 +275,6 @@ var CircularCarousel = function (_Component) {
           _react2.default.createElement(
             'div',
             {
-              ref: function ref(elem) {
-                return _this4.carouselElem = elem;
-              },
               style: {
                 position: 'absolute',
                 top: '0',
