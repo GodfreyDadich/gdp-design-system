@@ -5,8 +5,6 @@ import { isMobile } from 'react-device-detect'
 const GalleryView = ({ images, index, view }) => {
   const [currentIndex, setCurrentIndex] = useState(index)
   const [translateValue, setTranslateValue] = useState(index * -100)
-  const [xDown, setXDown] = useState(null)
-  const [yDown, setYDown] = useState(null)
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
@@ -43,11 +41,15 @@ const GalleryView = ({ images, index, view }) => {
   }
 
   useEffect(() => {
-    galleryContainer.current.addEventListener('keydown', handleKeyDown)
-    return () => {
-      galleryContainer.current.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
+    if (isMobile) {
+      return
+    } else {
+        window.addEventListener('keydown', handleKeyDown)
+        return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+        }
+      }
+    }, [currentIndex])
 
   return <div className='slider' ref={galleryContainer}>
     <div className='slider-wrapper'
