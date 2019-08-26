@@ -200,7 +200,7 @@ var RevealCarousel = function (_Component) {
         null,
         _reactDeviceDetect.isMobile ? _react2.default.createElement(
           _ResponsiveCarousel2.default,
-          { countIndicator: this.props.countIndicator, caption: this.props.caption, imageAspect: this.props.thumbAspect, aspectRatio: this.props.containerAspect },
+          { countIndicator: this.props.countIndicator, caption: this.props.caption, imageAspect: this.props.aspectRatio, aspectRatio: this.props.aspectRatio },
           this.props.images.map(function (image, i) {
             return _react2.default.createElement(
               'div',
