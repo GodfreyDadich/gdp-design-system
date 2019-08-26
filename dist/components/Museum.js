@@ -79,12 +79,10 @@ var Museum = function Museum(_ref) {
   };
 
   var displayGallery = function displayGallery(imageArray) {
-    document.body.style.overflow = 'hidden';
     setModalView(true);
     setImageGallery(imageArray);
   };
   var closeGallery = function closeGallery(imageArray) {
-    document.body.style.overflow = 'visibile';
     setModalView(false);
     setImageGallery([]);
   };
