@@ -34,12 +34,10 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
   }
 
   const displayGallery = imageArray => {
-    document.body.style.overflow = 'hidden'
     setModalView(true)
     setImageGallery(imageArray)
   }
   const closeGallery = imageArray => {
-    document.body.style.overflow = 'visibile'
     setModalView(false)
     setImageGallery([])
   }
