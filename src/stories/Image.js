@@ -288,7 +288,7 @@ storiesOf('Image', module)
         () => <GridGallery 
         mobileCarousel={true}
         mixedOr={false}
-        // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
+        altAsset={'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png'}
         classAdd=''       
         images={imageGallery2} 
         thumbs={imageGallery2}

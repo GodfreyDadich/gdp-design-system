@@ -197,7 +197,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
-        padding: 0px;
+        padding: 22px;
       }
       .grid-image:hover {
         filter: brightness(70%);
