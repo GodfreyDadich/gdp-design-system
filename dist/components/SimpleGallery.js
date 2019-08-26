@@ -34,16 +34,6 @@ var SimpleGallery = function SimpleGallery(_ref) {
       translateValue = _useState4[0],
       setTranslateValue = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      xDown = _useState6[0],
-      setXDown = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      yDown = _useState8[0],
-      setYDown = _useState8[1];
-
   var galleryContainer = (0, _react.useRef)(null);
 
   var goToPrevSlide = function goToPrevSlide() {
@@ -72,11 +62,15 @@ var SimpleGallery = function SimpleGallery(_ref) {
   };
 
   (0, _react.useEffect)(function () {
-    galleryContainer.current.addEventListener('keydown', handleKeyDown);
-    return function () {
-      galleryContainer.current.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+    if (_reactDeviceDetect.isMobile) {
+      return;
+    } else {
+      window.addEventListener('keydown', handleKeyDown);
+      return function () {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [currentIndex]);
 
   return _react2.default.createElement(
     'div',
@@ -97,6 +91,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
         return _react2.default.createElement(
           'div',
           {
+            key: 'item-' + i,
             style: {
               height: '80%',
               width: '100%',
