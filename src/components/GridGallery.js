@@ -23,7 +23,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const evenGridStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
-    margin: '24px',
+    margin: '15px',
     width: `calc(${colWidth}% - 50px)`,
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
@@ -183,14 +183,14 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         background: rgb(242,242,242);
         display:block;
         position: relative;
-        padding: 7.4vw;
+        padding: 6vw;
       }
       .columns-grid-container {
         background: rgb(242,242,242);
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
-        padding: 7.4vw 7.1vw;
+        padding: 6vw;
       }
       .mobile-grid-container {
         background: rgb(242,242,242);

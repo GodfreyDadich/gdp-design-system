@@ -287,7 +287,7 @@ storiesOf('Image', module)
       'Grid Gallery (Mosaic)',
         () => <GridGallery 
         mobileCarousel={true}
-        mixedOr={true}
+        mixedOr={false}
         // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
         classAdd=''       
         images={imageGallery2} 
