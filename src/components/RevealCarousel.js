@@ -135,7 +135,7 @@ export default class RevealCarousel extends Component {
     return (
       <div>
         {isMobile ?
-          <ResponsiveCarousel countIndicator={this.props.countIndicator} caption={this.props.caption} imageAspect={this.props.thumbAspect} aspectRatio={this.props.containerAspect} >
+          <ResponsiveCarousel countIndicator={this.props.countIndicator} caption={this.props.caption} imageAspect={this.props.aspectRatio} aspectRatio={this.props.aspectRatio} >
             {
               this.props.images.map((image, i) => (
                 <div
