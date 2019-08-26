@@ -12,11 +12,14 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
   const colWidth = 100 / columns;
   const [mobile, setMobile] = useState(false)
 
-
   useEffect(() => {
     setMobile(isMobile)
-  }, [])
-
+    if (modalView === true) {
+      document.body.classList.add('modalOpen')
+    } else {
+      document.body.classList.remove('modalOpen')
+    }
+  }, [modalView])
 
   const thumbStyles = {
     display: 'inline-block',
@@ -90,6 +93,9 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       </div>
     }
     <style>{`
+      .modalOpen {
+        overflow: hidden;
+      }
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;
