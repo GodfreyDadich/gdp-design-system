@@ -290,9 +290,9 @@ var galleries = [{
 }).add('Grid Gallery (Mosaic)', function () {
   return _react2.default.createElement(_GridGallery2.default, {
     mobileCarousel: true,
-    mixedOr: false
-    // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
-    , classAdd: '',
+    mixedOr: false,
+    altAsset: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
+    classAdd: '',
     images: imageGallery2,
     thumbs: imageGallery2,
     countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
