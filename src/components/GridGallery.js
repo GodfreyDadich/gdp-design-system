@@ -23,7 +23,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const evenGridStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
-    margin: '15px',
     width: `calc(${colWidth}% - 50px)`,
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
@@ -125,7 +124,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
             {
               thumbs.map((image, index) =>
-                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                <div className={`columnMargin ${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
                   <Image
                     aspectRatio={thumbAspect || 'noAspect'}
                     imgSource={image}
@@ -159,6 +158,9 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     .image-wrapper {
       margin: auto;
       width: 80vw;
+      @media only screen and (max-width: 1025px) {
+        width: 60vw;
+      }
     }
       .expand {
         font-family: Atlas Grotesk;
@@ -168,6 +170,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         left: 1.8vw;
         font-weight: 400;
         font-size: 10px;
+        letter-spacing: 1.25px;
       }
       .expand::before {
         content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
@@ -190,7 +193,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
-        padding: 6vw;
+        padding: 5vw;
       }
       .mobile-grid-container {
         background: rgb(242,242,242);
@@ -201,6 +204,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
       .grid-image:hover {
         filter: brightness(70%);
+      }
+      .columnMargin {
+        margin: 1vw;
+        @media only screen and (max-width: 1025px) {
+          margin: 2vw;
+        }
       }
       .modal {
         position: fixed;
