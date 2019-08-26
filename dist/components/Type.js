@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.WiredTypeCaption = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -159,7 +159,7 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
     'span',
     {
       style: _extends({
-        fontFamily: 'Noe Text'
+        fontFamily: 'Atlas Grotesk'
       }, style),
       className: 'jsx-1419568079' + ' ' + ('wiredtype ' + className)
     },
@@ -171,7 +171,7 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
   );
 };
 
-var WiredTypeCaption = exports.WiredTypeCaption = function WiredTypeCaption(_ref8) {
+var InquiryText = exports.InquiryText = function InquiryText(_ref8) {
   var children = _ref8.children,
       style = _ref8.style,
       className = _ref8.className;
@@ -179,14 +179,14 @@ var WiredTypeCaption = exports.WiredTypeCaption = function WiredTypeCaption(_ref
     'span',
     {
       style: _extends({
-        fontFamily: 'Atlas Grotesk'
+        fontFamily: 'Noe Text'
       }, style),
-      className: 'jsx-276523423' + ' ' + ('wiredTypeCaption ' + className)
+      className: 'jsx-3987558507' + ' ' + ('inquiryText ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '276523423',
-      css: '.wiredTypeCaption.jsx-276523423{color:#7F7F7F;font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.5px;-moz-letter-spacing:0.5px;-ms-letter-spacing:0.5px;letter-spacing:0.5px;margin-top:25px;text-align:center;font-variant:small-caps;}@media only screen and (max-width:500px){.wiredTypeCaption.jsx-276523423{margin-top:15px;}}'
+      styleId: '3987558507',
+      css: '.inquiryText.jsx-3987558507{font-style:italic;color:#333;font-weight:400;display:block;font-size:15px;line-height:22px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}'
     })
   );
 };

@@ -361,15 +361,15 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
-          'WiredType (',
+          'InquiryText (',
           _typography.fontSizeHeading4,
           ')'
         )
       ),
       _react2.default.createElement(
-        _Type.WiredTypeCaption,
+        _Type.InquiryText,
         null,
-        'wired'
+        'For speaking engagement inquiries, please contact inquiries@godfreydadich.com'
       )
     ),
     _react2.default.createElement('br', null),
