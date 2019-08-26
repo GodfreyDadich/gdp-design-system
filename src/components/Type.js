@@ -176,7 +176,7 @@ export const SubHead = ({ children, style, className }) =>
 export const WiredType = ({ children, style, className }) =>
 <span
   style={Object.assign({
-    fontFamily: 'Noe Text'
+    fontFamily: 'Atlas Grotesk'
   }, style)}
   className={`wiredtype ${className}`}
 >
@@ -196,29 +196,23 @@ export const WiredType = ({ children, style, className }) =>
   `}</style>
 </span>
 
-export const WiredTypeCaption = ({ children, style, className }) =>
+export const InquiryText = ({ children, style, className }) =>
 <span
   style={Object.assign({
-    fontFamily: 'Atlas Grotesk'
+    fontFamily: 'Noe Text'
   }, style)}
-  className={`wiredTypeCaption ${className}`}
+  className={`inquiryText ${className}`}
 >
   {children}
   <style jsx>{`
-      .wiredTypeCaption {
-        color: #7F7F7F;
-        font-weight: 500;
+      .inquiryText {
+        font-style: italic;
+        color: #333;
+        font-weight: 400;
         display: block;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0.5px;
-        margin-top: 25px;
-        text-align: center;
-        font-variant: small-caps;
-        
-        @media only screen and (max-width: 500px) {
-          margin-top: 15px;
-        }
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: -0.1px;
       } 
   `}</style>
 </span>

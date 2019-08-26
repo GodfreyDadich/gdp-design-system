@@ -36,6 +36,7 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  InquiryText,
   SubHead,
   WiredType,
   WiredTypeCaption,
@@ -161,8 +162,8 @@ const Typography = props =>
     <br /><br />
 
     <div>
-      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
-      <WiredTypeCaption>wired</WiredTypeCaption>
+      <div style={styles.smallText}><small>InquiryText ({fontSizeHeading4})</small></div>
+      <InquiryText>For speaking engagement inquiries, please contact inquiries@godfreydadich.com</InquiryText>
     </div>
 
     <br /><br />
