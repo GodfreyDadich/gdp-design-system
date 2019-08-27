@@ -38,6 +38,7 @@ import {
   Heading4,
   InquiryText,
   SubHead,
+  SubHeadBlack,
   WiredType,
   QuoteAttribution,
   LeftCarving,
@@ -93,6 +94,15 @@ const Typography = props =>
     </div>
 
     <br /><br />
+    
+
+    <div>
+      <div style={styles.smallText}><small>SubHeadBlack ({fontSizeHeading4})</small></div>
+      <SubHeadBlack>Top experiences in Asia</SubHeadBlack>
+    </div>
+
+    <br /><br />
+
 
     <div>
       <div style={styles.smallText}><small>Bio Header Lockup</small></div>

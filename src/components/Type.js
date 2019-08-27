@@ -161,15 +161,38 @@ export const SubHead = ({ children, style, className }) =>
   {children}
   <style jsx>{`
    .subhead {
-    margin-top: 30px !important;
     font-family: 'Atlas Grotesk';
-    font-weight: 400;
-    font-size: 19px;
+    font-weight: 900;
+    font-size: 20px;
     margin-bottom: 0;
     line-height: 1.29px;
-    letter-spacing: -0.2px;          
+    letter-spacing: -0.18px;          
     color: #7F7F7F;
   }
+  `}</style>
+</h4>
+
+export const SubHeadBlack = ({ children, style, className }) =>
+<h4
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 'bold',
+    marginTop: 0,
+    marginBottom: 0
+  }, style)}
+  className={`subheadBlack ${className}`}
+>
+  {children}
+  <style jsx>{`
+    .subheadBlack {
+      font-family: 'Atlas Grotesk';
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 0;
+      line-height: 1.29px;
+      letter-spacing: -0.18px;          
+      color: #333;
+    }
   `}</style>
 </h4>
 

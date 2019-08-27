@@ -72,7 +72,7 @@ class Hero extends React.Component {
               controls={false}
               autoplay
               skipIntro
-              loop={false}
+              loop={true}
               vidSource={source}
               thumb={thumb}
               loader
