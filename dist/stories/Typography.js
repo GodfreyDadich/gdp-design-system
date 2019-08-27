@@ -369,7 +369,11 @@ var Typography = function Typography(props) {
       _react2.default.createElement(
         _Type.InquiryText,
         null,
-        'For speaking engagement inquiries, please contact inquiries@godfreydadich.com'
+        _react2.default.createElement(
+          'h5',
+          null,
+          'For speaking engagement inquiries, please contact inquiries@godfreydadich.com'
+        )
       )
     ),
     _react2.default.createElement('br', null),

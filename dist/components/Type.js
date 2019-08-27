@@ -181,12 +181,12 @@ var InquiryText = exports.InquiryText = function InquiryText(_ref8) {
       style: _extends({
         fontFamily: 'Noe Text'
       }, style),
-      className: 'jsx-3987558507' + ' ' + ('inquiryText ' + className)
+      className: 'jsx-486986781' + ' ' + ('inquiryText ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3987558507',
-      css: '.inquiryText.jsx-3987558507{font-style:italic;color:#333;font-weight:400;display:block;font-size:15px;line-height:22px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}'
+      styleId: '486986781',
+      css: '.inquiryText.jsx-486986781{font-style:italic;color:#333;font-weight:400;display:block;font-size:19px;line-height:22px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}'
     })
   );
 };
