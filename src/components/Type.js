@@ -210,7 +210,7 @@ export const InquiryText = ({ children, style, className }) =>
         color: #333;
         font-weight: 400;
         display: block;
-        font-size: 15px;
+        font-size: 19px;
         line-height: 22px;
         letter-spacing: -0.1px;
       } 

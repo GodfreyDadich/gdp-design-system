@@ -163,7 +163,7 @@ const Typography = props =>
 
     <div>
       <div style={styles.smallText}><small>InquiryText ({fontSizeHeading4})</small></div>
-      <InquiryText>For speaking engagement inquiries, please contact inquiries@godfreydadich.com</InquiryText>
+      <InquiryText><h5>For speaking engagement inquiries, please contact inquiries@godfreydadich.com</h5></InquiryText>
     </div>
 
     <br /><br />
