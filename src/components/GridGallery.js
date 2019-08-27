@@ -178,7 +178,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       .expand-indicator {
         margin-left: 8px;
         position: absolute;
-        width: 15vw;
+        width: 40vw;
         top: 50%;
         transform: translateY(-50%);
       }

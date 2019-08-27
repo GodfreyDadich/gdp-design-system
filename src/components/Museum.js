@@ -110,7 +110,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       .expand-indicator {
         margin-left: 8px;
         position: absolute;
-        width: 15vw;
+        width: 80vw;
         top: 50%;
         transform: translateY(-50%);
       }

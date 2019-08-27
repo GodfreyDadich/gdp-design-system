@@ -39,7 +39,6 @@ import {
   InquiryText,
   SubHead,
   WiredType,
-  WiredTypeCaption,
   QuoteAttribution,
   LeftCarving,
   SidebarQuote,
