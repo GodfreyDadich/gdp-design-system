@@ -43,6 +43,7 @@ var GridGallery = function GridGallery(_ref) {
       caption = _ref.caption,
       mixedOr = _ref.mixedOr,
       altAsset = _ref.altAsset,
+      headingCaption = _ref.headingCaption,
       classAdd = _ref.classAdd;
 
   var _useState = (0, _react.useState)(false),
@@ -99,71 +100,123 @@ var GridGallery = function GridGallery(_ref) {
 
   return _react2.default.createElement(
     'div',
-    {
-      style: _extends({}, {
-        position: 'relative',
-        overflow: 'visible'
-      }),
-      className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
-    mobile ? mobileCarousel && !altAsset ?
-    // case for mobile carousel using the same assets as desktop
-    _react2.default.createElement(
-      _ResponsiveCarousel2.default,
-      { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
-      images.map(function (image, index) {
-        return _react2.default.createElement(
-          'div',
-          { style: mobileStyles, key: escape(image) + '-' + index },
-          _react2.default.createElement(_Image2.default, {
-            aspectRatio: thumbAspect,
-            imgSource: image,
-            skipIntro: true,
-            visibilityOverride: true
-          })
-        );
-      })
-    ) :
-    // case for mobile flat using an alternate asset for mobile
+    null,
     _react2.default.createElement(
       'div',
-      { className: 'mobile-flat' },
+      { className: 'col-6 skip-3 col-6-tab skip-1-tab' },
+      headingCaption ? headingCaption : ''
+    ),
+    _react2.default.createElement(
+      'div',
+      {
+        style: _extends({}, {
+          position: 'relative',
+          overflow: 'visible'
+        }),
+        className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
+      mobile ? mobileCarousel && !altAsset ?
+      // case for mobile carousel using the same assets as desktop
+      _react2.default.createElement(
+        _ResponsiveCarousel2.default,
+        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
+        images.map(function (image, index) {
+          return _react2.default.createElement(
+            'div',
+            { style: mobileStyles, key: escape(image) + '-' + index },
+            _react2.default.createElement(_Image2.default, {
+              aspectRatio: thumbAspect,
+              imgSource: image,
+              skipIntro: true,
+              visibilityOverride: true
+            })
+          );
+        })
+      ) :
+      // case for mobile flat using an alternate asset for mobile
       _react2.default.createElement(
         'div',
-        { className: 'mobile-grid-container' },
+        { className: 'mobile-flat' },
         _react2.default.createElement(
           'div',
-          { style: evenGridStyles },
-          _react2.default.createElement(_Image2.default, {
-            aspectRatio: thumbAspect || 'noAspect',
-            imgSource: altAsset,
-            skipIntro: true
-          })
+          { className: 'mobile-grid-container' },
+          _react2.default.createElement(
+            'div',
+            { style: evenGridStyles },
+            _react2.default.createElement(_Image2.default, {
+              aspectRatio: thumbAspect || 'noAspect',
+              imgSource: altAsset,
+              skipIntro: true
+            })
+          ),
+          modalView ? _react2.default.createElement(
+            'div',
+            { className: 'modal' },
+            _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
+                return closeGallery();
+              } }),
+            _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
+          ) : ''
         ),
-        modalView ? _react2.default.createElement(
-          'div',
-          { className: 'modal' },
-          _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-              return closeGallery();
-            } }),
-          _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          caption
         ) : ''
-      ),
-      caption && caption.length > 0 ? _react2.default.createElement(
-        _Type.Caption,
-        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
-        caption
-      ) : ''
-    ) : mixedOr ?
-    // case for desktop grid with mixed orientations
-    _react2.default.createElement(
-      'div',
-      null,
+      ) : mixedOr ?
+      // case for desktop grid with mixed orientations
       _react2.default.createElement(
         'div',
-        { className: 'grid-container' },
+        null,
         _react2.default.createElement(
           'div',
-          { className: 'image-wrapper' },
+          { className: 'grid-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'image-wrapper' },
+            carousel === 'yes' ? _react2.default.createElement(
+              'div',
+              { className: 'expand' },
+              _react2.default.createElement(
+                'span',
+                { className: 'expand-indicator' },
+                'CLICK IMAGE TO EXPAND'
+              )
+            ) : '',
+            thumbs.map(function (image, index) {
+              return _react2.default.createElement(
+                'div',
+                { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
+                    return displayGallery(index);
+                  } : '', style: mixedOrStyles, key: 'galleryThumb-' + index },
+                _react2.default.createElement('img', {
+                  className: 'moasic-image',
+                  src: image
+                })
+              );
+            }),
+            modalView ? _react2.default.createElement(
+              'div',
+              { className: 'modal' },
+              _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
+                  return closeGallery();
+                } }),
+              _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
+            ) : ''
+          )
+        ),
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          caption
+        ) : ''
+      ) :
+      // case for desktop grid with aligned columns 
+      _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'columns-grid-container' },
           carousel === 'yes' ? _react2.default.createElement(
             'div',
             { className: 'expand' },
@@ -178,10 +231,11 @@ var GridGallery = function GridGallery(_ref) {
               'div',
               { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
                   return displayGallery(index);
-                } : '', style: mixedOrStyles, key: 'galleryThumb-' + index },
-              _react2.default.createElement('img', {
-                className: 'moasic-image',
-                src: image
+                } : '', style: evenGridStyles, key: 'galleryThumb-' + index },
+              _react2.default.createElement(_Image2.default, {
+                aspectRatio: thumbAspect || 'noAspect',
+                imgSource: image,
+                skipIntro: true
               })
             );
           }),
@@ -191,59 +245,15 @@ var GridGallery = function GridGallery(_ref) {
             _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
                 return closeGallery();
               } }),
-            _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
+            _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'sixteen', view: view })
           ) : ''
-        )
-      ),
-      caption && caption.length > 0 ? _react2.default.createElement(
-        _Type.Caption,
-        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
-        caption
-      ) : ''
-    ) :
-    // case for desktop grid with aligned columns 
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { className: 'columns-grid-container' },
-        carousel === 'yes' ? _react2.default.createElement(
-          'div',
-          { className: 'expand' },
-          _react2.default.createElement(
-            'span',
-            { className: 'expand-indicator' },
-            'CLICK IMAGE TO EXPAND'
-          )
-        ) : '',
-        thumbs.map(function (image, index) {
-          return _react2.default.createElement(
-            'div',
-            { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
-                return displayGallery(index);
-              } : '', style: evenGridStyles, key: 'galleryThumb-' + index },
-            _react2.default.createElement(_Image2.default, {
-              aspectRatio: thumbAspect || 'noAspect',
-              imgSource: image,
-              skipIntro: true
-            })
-          );
-        }),
-        modalView ? _react2.default.createElement(
-          'div',
-          { className: 'modal' },
-          _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-              return closeGallery();
-            } }),
-          _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'sixteen', view: view })
+        ),
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          caption
         ) : ''
-      ),
-      caption && caption.length > 0 ? _react2.default.createElement(
-        _Type.Caption,
-        { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
-        caption
-      ) : ''
+      )
     ),
     _react2.default.createElement(
       'style',

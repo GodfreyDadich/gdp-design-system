@@ -126,7 +126,7 @@ var Hero = function (_React$Component) {
                 controls: false,
                 autoplay: true,
                 skipIntro: true,
-                loop: false,
+                loop: true,
                 vidSource: source,
                 thumb: thumb,
                 loader: true,

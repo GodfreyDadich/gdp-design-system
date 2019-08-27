@@ -181,6 +181,28 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
+          'SubHeadBlack (',
+          _typography.fontSizeHeading4,
+          ')'
+        )
+      ),
+      _react2.default.createElement(
+        _Type.SubHeadBlack,
+        null,
+        'Top experiences in Asia'
+      )
+    ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
           'Bio Header Lockup'
         )
       ),

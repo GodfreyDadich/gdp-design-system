@@ -293,6 +293,7 @@ var galleries = [{
     mixedOr: false,
     altAsset: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
     classAdd: '',
+    headingCaption: 'Lesson 2: Design Matters',
     images: imageGallery2,
     thumbs: imageGallery2,
     countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
