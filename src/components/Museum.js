@@ -98,8 +98,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
         font-family: Atlas Grotesk;
         color: #7F7F7F;
         position: absolute;
-        top: 1.8vw;
-        left: 1.8vw;
+        top: 1vw;
+        left: 1vw;
         font-weight: 400;
         font-size: 10px;
         letter-spacing: 1.25px;
