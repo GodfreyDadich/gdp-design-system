@@ -23,6 +23,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const evenGridStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
+    margin: '15px',
     width: `calc(${colWidth}% - 50px)`,
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
@@ -124,7 +125,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
             {
               thumbs.map((image, index) =>
-                <div className={`columnMargin ${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
                   <Image
                     aspectRatio={thumbAspect || 'noAspect'}
                     imgSource={image}
@@ -204,12 +205,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
       .grid-image:hover {
         filter: brightness(70%);
-      }
-      .columnMargin {
-        margin: 1vw;
-        @media only screen and (max-width: 1025px) {
-          margin: 2vw;
-        }
       }
       .modal {
         position: fixed;
