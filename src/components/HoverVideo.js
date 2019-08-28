@@ -24,12 +24,12 @@ class HoverVideo extends React.Component {
     return (
       <Video
         {...this.props}
-        hoverPlay
-        playing={false}
-        autoplay={this.props.autoplay || false}
+        // hoverPlay
+        playing={true}
+        autoplay={true}
         active={this.state.hover}
-        mouseOverAction={this.hoverOver}
-        mouseOutAction={this.hoverOut}
+        // mouseOverAction={this.hoverOver}
+        // mouseOutAction={this.hoverOut}
         classAdd={this.props.classAdd ? ' ' + this.props.classAdd : ''}
         config={{
           vimeo: {

@@ -15,8 +15,8 @@ export const Icon = ({ style, children }) =>
   export const AltIcon = ({ style, children }) =>
   <div style={Object.assign({
     display: 'inline-block',
-    height: '22px',
-    width: '22px',
+    height: '24px',
+    width: '24px',
     textIndent: '100%',
     position: 'absolute',
     top: '20px',
