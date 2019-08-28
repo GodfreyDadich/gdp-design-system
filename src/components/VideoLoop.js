@@ -25,7 +25,6 @@ class VideoLoop extends React.Component {
         thumb
       } = this.props
     return (
-      isMobile ? '' : 
       <Video
         {...this.props}
         playing={true}
