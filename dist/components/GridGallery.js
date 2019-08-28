@@ -134,34 +134,20 @@ var GridGallery = function GridGallery(_ref) {
       ) :
       // case for mobile flat using an alternate asset for mobile
       _react2.default.createElement(
-        'div',
-        { className: 'mobile-flat' },
-        _react2.default.createElement(
-          'div',
-          { className: 'mobile-grid-container' },
-          _react2.default.createElement(
+        _ResponsiveCarousel2.default,
+        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
+        altAsset.map(function (alt, index) {
+          return _react2.default.createElement(
             'div',
-            { style: evenGridStyles },
+            { style: mobileStyles, key: escape(alt) + '-' + index },
             _react2.default.createElement(_Image2.default, {
-              aspectRatio: thumbAspect || 'noAspect',
-              imgSource: altAsset,
-              skipIntro: true
+              aspectRatio: thumbAspect,
+              imgSource: alt,
+              skipIntro: true,
+              visibilityOverride: true
             })
-          ),
-          modalView ? _react2.default.createElement(
-            'div',
-            { className: 'modal' },
-            _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-                return closeGallery();
-              } }),
-            _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
-          ) : ''
-        ),
-        caption && caption.length > 0 ? _react2.default.createElement(
-          _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
-          caption
-        ) : ''
+          );
+        })
       ) : mixedOr ?
       // case for desktop grid with mixed orientations
       _react2.default.createElement(
