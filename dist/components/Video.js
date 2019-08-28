@@ -48,7 +48,8 @@ var vidStyle = {
   left: 0,
   height: '100%',
   width: '100%',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  border: 'none'
 };
 
 var Video = function (_React$Component) {
