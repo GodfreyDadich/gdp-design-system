@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
-import { InstagramIcon } from './Icons'
+import { BioIcon } from './Icons'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
@@ -63,7 +63,7 @@ export const Heading1 = ({ children, style }) =>
           max-width: 33%;
           height: 7px;
           background-color: #000;
-          bottom: 0;
+          bottom: 15px;
           left: 0;
         }
         @media only screen and (max-width: 500px) {
@@ -284,7 +284,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       className='bioPersonTitle'
     >{personTitle}</span>
     { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><BioIcon style={{ marginLeft: '16px' }} /></a>
       : ''
     }
     <style>{`
