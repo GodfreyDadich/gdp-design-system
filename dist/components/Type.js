@@ -54,12 +54,12 @@ var BioHeading = exports.BioHeading = function BioHeading(_ref2) {
     'h1',
     {
       style: style,
-      className: 'jsx-3874523169' + ' ' + 'headingOne'
+      className: 'jsx-3588555586' + ' ' + 'bioHeading'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '3874523169',
-      css: '.headingOne.jsx-3874523169{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3874523169 .clientName.jsx-3874523169{display:block;color:#7F7F7F;}.headingOne.jsx-3874523169:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3874523169{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3874523169:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-3874523169{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-3874523169:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+      styleId: '3588555586',
+      css: '.bioHeading.jsx-3588555586{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.bioHeading.jsx-3588555586 .clientName.jsx-3588555586{display:block;color:#7F7F7F;}.bioHeading.jsx-3588555586:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-3588555586{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-3588555586:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-3588555586{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-3588555586:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
