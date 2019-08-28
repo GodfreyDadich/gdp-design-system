@@ -12,7 +12,8 @@ const vidStyle = {
   left: 0,
   height: '100%',
   width: '100%',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  border: 'none'
 }
 
 class Video extends React.Component {
