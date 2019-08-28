@@ -43,7 +43,7 @@ var AltIcon = exports.AltIcon = function AltIcon(_ref2) {
         width: '24px',
         textIndent: '100%',
         position: 'absolute',
-        top: '20px',
+        top: '78px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         backgroundSize: 'contain',
