@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHeadBlack = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHeadBlack = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.BioHeading = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -47,27 +47,44 @@ var HeadingSuper = exports.HeadingSuper = function HeadingSuper(_ref) {
   );
 };
 
-var Heading1 = exports.Heading1 = function Heading1(_ref2) {
+var BioHeading = exports.BioHeading = function BioHeading(_ref2) {
   var children = _ref2.children,
       style = _ref2.style;
   return _react2.default.createElement(
     'h1',
     {
       style: style,
-      className: 'jsx-4239768248' + ' ' + 'headingOne'
+      className: 'jsx-3874523169' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '4239768248',
-      css: '.headingOne.jsx-4239768248{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-4239768248 .clientName.jsx-4239768248{display:block;color:#7F7F7F;}.headingOne.jsx-4239768248:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-4239768248{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-4239768248:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-4239768248{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-4239768248:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+      styleId: '3874523169',
+      css: '.headingOne.jsx-3874523169{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-3874523169 .clientName.jsx-3874523169{display:block;color:#7F7F7F;}.headingOne.jsx-3874523169:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3874523169{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-3874523169:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-3874523169{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-3874523169:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
 
-var Heading2 = exports.Heading2 = function Heading2(_ref3) {
+var Heading1 = exports.Heading1 = function Heading1(_ref3) {
   var children = _ref3.children,
-      style = _ref3.style,
-      className = _ref3.className;
+      style = _ref3.style;
+  return _react2.default.createElement(
+    'h1',
+    {
+      style: style,
+      className: 'jsx-895223534' + ' ' + 'headingOne'
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '895223534',
+      css: '.headingOne.jsx-895223534{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+    })
+  );
+};
+
+var Heading2 = exports.Heading2 = function Heading2(_ref4) {
+  var children = _ref4.children,
+      style = _ref4.style,
+      className = _ref4.className;
   return _react2.default.createElement(
     'h2',
     {
@@ -82,10 +99,10 @@ var Heading2 = exports.Heading2 = function Heading2(_ref3) {
   );
 };
 
-var Heading3 = exports.Heading3 = function Heading3(_ref4) {
-  var children = _ref4.children,
-      style = _ref4.style,
-      className = _ref4.className;
+var Heading3 = exports.Heading3 = function Heading3(_ref5) {
+  var children = _ref5.children,
+      style = _ref5.style,
+      className = _ref5.className;
   return _react2.default.createElement(
     'h3',
     {
@@ -105,10 +122,10 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
   );
 };
 
-var Heading4 = exports.Heading4 = function Heading4(_ref5) {
-  var children = _ref5.children,
-      style = _ref5.style,
-      className = _ref5.className;
+var Heading4 = exports.Heading4 = function Heading4(_ref6) {
+  var children = _ref6.children,
+      style = _ref6.style,
+      className = _ref6.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -128,10 +145,10 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   );
 };
 
-var SubHead = exports.SubHead = function SubHead(_ref6) {
-  var children = _ref6.children,
-      style = _ref6.style,
-      className = _ref6.className;
+var SubHead = exports.SubHead = function SubHead(_ref7) {
+  var children = _ref7.children,
+      style = _ref7.style,
+      className = _ref7.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -151,10 +168,10 @@ var SubHead = exports.SubHead = function SubHead(_ref6) {
   );
 };
 
-var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref7) {
-  var children = _ref7.children,
-      style = _ref7.style,
-      className = _ref7.className;
+var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref8) {
+  var children = _ref8.children,
+      style = _ref8.style,
+      className = _ref8.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -174,10 +191,10 @@ var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref7) {
   );
 };
 
-var WiredType = exports.WiredType = function WiredType(_ref8) {
-  var children = _ref8.children,
-      style = _ref8.style,
-      className = _ref8.className;
+var WiredType = exports.WiredType = function WiredType(_ref9) {
+  var children = _ref9.children,
+      style = _ref9.style,
+      className = _ref9.className;
   return _react2.default.createElement(
     'span',
     {
@@ -194,10 +211,10 @@ var WiredType = exports.WiredType = function WiredType(_ref8) {
   );
 };
 
-var InquiryText = exports.InquiryText = function InquiryText(_ref9) {
-  var children = _ref9.children,
-      style = _ref9.style,
-      className = _ref9.className;
+var InquiryText = exports.InquiryText = function InquiryText(_ref10) {
+  var children = _ref10.children,
+      style = _ref10.style,
+      className = _ref10.className;
   return _react2.default.createElement(
     'span',
     {
@@ -214,10 +231,10 @@ var InquiryText = exports.InquiryText = function InquiryText(_ref9) {
   );
 };
 
-var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref10) {
-  var children = _ref10.children,
-      style = _ref10.style,
-      className = _ref10.className;
+var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref11) {
+  var children = _ref11.children,
+      style = _ref11.style,
+      className = _ref11.className;
   return _react2.default.createElement(
     'span',
     {
@@ -234,12 +251,12 @@ var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref
   );
 };
 
-var BioHeader = exports.BioHeader = function BioHeader(_ref11) {
-  var personName = _ref11.personName,
-      personTitle = _ref11.personTitle,
-      insta = _ref11.insta;
+var BioHeader = exports.BioHeader = function BioHeader(_ref12) {
+  var personName = _ref12.personName,
+      personTitle = _ref12.personTitle,
+      insta = _ref12.insta;
   return _react2.default.createElement(
-    Heading1,
+    BioHeading,
     {
       style: {
         paddingBottom: '2.5vw'
@@ -273,9 +290,9 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref11) {
   );
 };
 
-var Caption = exports.Caption = function Caption(_ref12) {
-  var classAdd = _ref12.classAdd,
-      children = _ref12.children;
+var Caption = exports.Caption = function Caption(_ref13) {
+  var classAdd = _ref13.classAdd,
+      children = _ref13.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -289,9 +306,9 @@ var Caption = exports.Caption = function Caption(_ref12) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref13) {
-  var classAdd = _ref13.classAdd,
-      children = _ref13.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref14) {
+  var classAdd = _ref14.classAdd,
+      children = _ref14.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -305,9 +322,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref13) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref14) {
-  var classAdd = _ref14.classAdd,
-      children = _ref14.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref15) {
+  var classAdd = _ref15.classAdd,
+      children = _ref15.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -321,9 +338,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref14) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref15) {
-  var classAdd = _ref15.classAdd,
-      children = _ref15.children;
+var CardContent = exports.CardContent = function CardContent(_ref16) {
+  var classAdd = _ref16.classAdd,
+      children = _ref16.children;
   return _react2.default.createElement(
     'p',
     {
@@ -332,9 +349,9 @@ var CardContent = exports.CardContent = function CardContent(_ref15) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref16) {
-  var sideBar = _ref16.sideBar,
-      isVisible = _ref16.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref17) {
+  var sideBar = _ref17.sideBar,
+      isVisible = _ref17.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -346,8 +363,8 @@ var SideBar = exports.SideBar = function SideBar(_ref16) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref17) {
-      var isVisible = _ref17.isVisible;
+    function (_ref18) {
+      var isVisible = _ref18.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -392,8 +409,8 @@ var SideBar = exports.SideBar = function SideBar(_ref16) {
   );
 };
 
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref18) {
-  var children = _ref18.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref19) {
+  var children = _ref19.children;
   return _react2.default.createElement(
     'figure',
     {
@@ -409,8 +426,8 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref18) {
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref19) {
-  var children = _ref19.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref20) {
+  var children = _ref20.children;
   return _react2.default.createElement(
     'div',
     {
