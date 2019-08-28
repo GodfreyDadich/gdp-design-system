@@ -70,8 +70,22 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             )
           }
         </ResponsiveCarousel>
-        :
+        : mobileCarousel && (altAsset.length === 1) ?
         // case for mobile flat using an alternate asset for mobile
+        <div className='mobile-flat'>
+        <div className='mobile-grid-container'>
+          <div style={evenGridStyles}>
+            <Image
+              aspectRatio={thumbAspect || 'noAspect'}
+              imgSource={altAsset}
+              skipIntro
+            />
+          </div>
+        </div>
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      </div>
+      :
+      // mobile case for multiple alt assets 
         <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
         {
           altAsset.map((alt, index) =>
