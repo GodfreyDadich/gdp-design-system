@@ -14,18 +14,34 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 
 const imageGallery = [
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
 ]
 
 const imageGallery2 = [ 
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
 ]
 
 const imageGallery3 = [
   'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
   'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
+  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
+  'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'
 ]
 
 const galleries = [
@@ -275,8 +291,10 @@ storiesOf('Image', module)
       'Grid Gallery (Mosaic)',
         () => <GridGallery 
         mobileCarousel={true}
-        mixedOr={false}
-        altAsset={'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png'}
+        mixedOr={true}
+        // altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+        // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+        // 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
         classAdd=''     
         headingCaption='Lesson 2: Design Matters'  
         images={imageGallery2} 

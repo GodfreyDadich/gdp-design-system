@@ -72,26 +72,20 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         </ResponsiveCarousel>
         :
         // case for mobile flat using an alternate asset for mobile
-        <div className='mobile-flat'>
-          <div className='mobile-grid-container'>
-            <div style={evenGridStyles}>
+        <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+        {
+          altAsset.map((alt, index) =>
+            <div style={mobileStyles} key={`${escape(alt)}-${index}`}>
               <Image
-                aspectRatio={thumbAspect || 'noAspect'}
-                imgSource={altAsset}
+                aspectRatio={thumbAspect}
+                imgSource={alt}
                 skipIntro
+                visibilityOverride
               />
             </div>
-            {
-              modalView
-                ? <div className='modal'>
-                  <div className='modalTouchArea' onClick={e => closeGallery()} />
-                  <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
-                </div>
-                : ''
-            }
-          </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
-        </div>
+          )
+        }
+      </ResponsiveCarousel>
         : mixedOr ?
           // case for desktop grid with mixed orientations
           <div>
