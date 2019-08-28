@@ -56,7 +56,7 @@ var VideoLoop = function (_React$Component) {
     value: function render() {
       var thumb = this.props.thumb;
 
-      return isMobile ? '' : _react2.default.createElement(_Video2.default, _extends({}, this.props, {
+      return _react2.default.createElement(_Video2.default, _extends({}, this.props, {
         playing: true,
         thumb: thumb,
         loop: true,
