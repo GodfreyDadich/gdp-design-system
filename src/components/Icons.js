@@ -19,7 +19,7 @@ export const Icon = ({ style, children }) =>
     width: '24px',
     textIndent: '100%',
     position: 'absolute',
-    top: '78px',
+    top: '77px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     backgroundSize: 'contain',

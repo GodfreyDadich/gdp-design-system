@@ -37,10 +37,10 @@ export const HeadingSuper = ({ children }) =>
 export const BioHeading = ({ children, style }) =>
 <h1
   style={style}
-  className='headingOne' >
+  className='bioHeading' >
   {children}
   <style jsx>{`
-    .headingOne {
+    .bioHeading {
       position: relative;
       font-family: 'Noe Display';
       font-weight: bold;
