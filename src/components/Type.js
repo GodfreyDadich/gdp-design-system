@@ -34,6 +34,60 @@ export const HeadingSuper = ({ children }) =>
     `}</style>
   </h1>
 
+export const BioHeading = ({ children, style }) =>
+<h1
+  style={style}
+  className='headingOne' >
+  {children}
+  <style jsx>{`
+    .headingOne {
+      position: relative;
+      font-family: 'Noe Display';
+      font-weight: bold;
+      font-size: 3.52vw; 
+      line-height: 0.97;
+      letter-spacing: 0.3px;
+      padding-bottom: 51px;
+      margin: 0 0 35px 0;
+      color: #000;
+
+      .clientName {
+        display: block;
+        color: #7F7F7F; 
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 24.56vw;
+        max-width: 33%;
+        height: 7px;
+        background-color: #000;
+        bottom: 15px;
+        left: 0;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 12vw !important;
+        padding-bottom: 35px !important;
+        margin-bottom: 28px !important;
+
+        &:before {
+          width: calc(50% - 16px) !important;
+        }
+      }  
+      @media only screen and (max-width: 769px) {
+        font-size: 40px !important;
+        padding-bottom: 41px !important;
+        margin-bottom: 28px !important;
+
+        &:before {
+          width: calc(((100vw - 60px) / 4) - 12px) !important;
+        }
+      }             
+    }
+  `}</style>
+</h1>
+
 export const Heading1 = ({ children, style }) =>
   <h1
     style={style}
@@ -63,7 +117,7 @@ export const Heading1 = ({ children, style }) =>
           max-width: 33%;
           height: 7px;
           background-color: #000;
-          bottom: 15px;
+          bottom: 0;
           left: 0;
         }
         @media only screen and (max-width: 500px) {
@@ -267,7 +321,7 @@ export const QuoteAttribution = ({ children, style, className }) =>
 </span>
 
 export const BioHeader = ({ personName, personTitle, insta }) =>
-  <Heading1
+  <BioHeading
     style={{
       paddingBottom: '2.5vw'
     }}
@@ -302,7 +356,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
         }
       }
       `}</style>
-  </Heading1>
+  </BioHeading>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
