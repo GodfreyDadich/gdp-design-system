@@ -55,13 +55,13 @@ var HoverVideo = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(_Video2.default, _extends({}, this.props, {
-        hoverPlay: true,
-        playing: false,
-        autoplay: this.props.autoplay || false,
-        active: this.state.hover,
-        mouseOverAction: this.hoverOver,
-        mouseOutAction: this.hoverOut,
-        classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
+        // hoverPlay
+        playing: true,
+        autoplay: true,
+        active: this.state.hover
+        // mouseOverAction={this.hoverOver}
+        // mouseOutAction={this.hoverOut}
+        , classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
         config: {
           vimeo: {
             playerOptions: {

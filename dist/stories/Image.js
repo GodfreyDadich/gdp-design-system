@@ -290,11 +290,9 @@ var galleries = [{
 }).add('Grid Gallery (Mosaic)', function () {
   return _react2.default.createElement(_GridGallery2.default, {
     mobileCarousel: true,
-    mixedOr: true
-    // altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-    // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-    // 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
-    , classAdd: '',
+    mixedOr: true,
+    altAsset: ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'],
+    classAdd: '',
     headingCaption: 'Lesson 2: Design Matters',
     images: imageGallery2,
     thumbs: imageGallery2,

@@ -54,12 +54,12 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
     'h1',
     {
       style: style,
-      className: 'jsx-895223534' + ' ' + 'headingOne'
+      className: 'jsx-4239768248' + ' ' + 'headingOne'
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '895223534',
-      css: '.headingOne.jsx-895223534{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+      styleId: '4239768248',
+      css: '.headingOne.jsx-4239768248{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-4239768248 .clientName.jsx-4239768248{display:block;color:#7F7F7F;}.headingOne.jsx-4239768248:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-4239768248{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-4239768248:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-4239768248{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-4239768248:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
     })
   );
 };
@@ -263,7 +263,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref11) {
     insta ? _react2.default.createElement(
       'a',
       { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
-      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '16px' } })
+      _react2.default.createElement(_Icons.BioIcon, { style: { marginLeft: '16px' } })
     ) : '',
     _react2.default.createElement(
       'style',

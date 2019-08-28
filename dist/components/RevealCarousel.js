@@ -198,26 +198,7 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _reactDeviceDetect.isMobile ? _react2.default.createElement(
-          _ResponsiveCarousel2.default,
-          { countIndicator: this.props.countIndicator, caption: this.props.caption, imageAspect: this.props.aspectRatio, aspectRatio: this.props.aspectRatio },
-          this.props.images.map(function (image, i) {
-            return _react2.default.createElement(
-              'div',
-              {
-                key: 'carouselImage' + i,
-                style: {
-                  position: 'relative'
-                } },
-              _react2.default.createElement(_Image2.default, {
-                aspectRatio: _this4.props.aspectRatio,
-                imgSource: image,
-                skipIntro: true,
-                visibilityOverride: true
-              })
-            );
-          })
-        ) : _react2.default.createElement(
+        _reactDeviceDetect.isMobile ? '' : _react2.default.createElement(
           'figure',
           {
             ref: function ref(elem) {

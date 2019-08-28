@@ -131,8 +131,31 @@ var GridGallery = function GridGallery(_ref) {
             })
           );
         })
-      ) :
+      ) : mobileCarousel && altAsset.length === 1 ?
       // case for mobile flat using an alternate asset for mobile
+      _react2.default.createElement(
+        'div',
+        { className: 'mobile-flat' },
+        _react2.default.createElement(
+          'div',
+          { className: 'mobile-grid-container' },
+          _react2.default.createElement(
+            'div',
+            { style: evenGridStyles },
+            _react2.default.createElement(_Image2.default, {
+              aspectRatio: thumbAspect || 'noAspect',
+              imgSource: altAsset,
+              skipIntro: true
+            })
+          )
+        ),
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          caption
+        ) : ''
+      ) :
+      // mobile case for multiple alt assets 
       _react2.default.createElement(
         _ResponsiveCarousel2.default,
         { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
