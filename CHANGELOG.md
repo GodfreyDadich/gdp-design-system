@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.4-38"></a>
+## [1.1.4-38](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.4-37...v1.1.4-38) (2019-08-28)
+
+
+
 <a name="1.1.4-37"></a>
 ## [1.1.4-37](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.1.4-36...v1.1.4-37) (2019-08-28)
 
