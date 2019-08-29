@@ -169,7 +169,7 @@ class Video extends React.Component {
                     style={{
                       backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: hoverPlay ? 'transparent' : '#000',
+                      backgroundColor: 'transparent',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>
                     { this.state.isLoading ? <Loader /> : '' } </div>
