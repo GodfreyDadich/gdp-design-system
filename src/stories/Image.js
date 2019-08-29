@@ -14,13 +14,12 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 
 const imageGallery = [
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjzlv8h98014i0ip7jw5jp727-16-09pl-music-lo-r3-min.full.png',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
 ]
 
 const imageGallery2 = [ 
