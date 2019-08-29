@@ -20,7 +20,7 @@ class VideoLoop extends React.Component {
         loop={true}
         autoplay={true}
         active={true}
-        hoverPlay
+        regPlay
         classAdd={this.props.classAdd ? ' ' + this.props.classAdd : ''}
         config={{
           vimeo: {

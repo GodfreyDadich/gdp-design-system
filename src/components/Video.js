@@ -130,6 +130,7 @@ class Video extends React.Component {
       caption,
       sideBar,
       style,
+      regPlay,
       active,
       mouseOverAction,
       mouseOutAction,
@@ -169,11 +170,11 @@ class Video extends React.Component {
                     style={{
                       backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: 'transparent',
+                      backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>
                     { this.state.isLoading ? <Loader /> : '' } </div>
-                  { this.state.isMobile && hoverPlay ? ''
+                  { this.state.isMobile && (regPlay || hoverPlay) ? ''
                     : <ReactPlayer
                       url={autoplay ? vidSource : isVisible || loadActive ? vidSource : ''}
                       playing={playing}
