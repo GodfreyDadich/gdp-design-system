@@ -131,7 +131,7 @@ var GridGallery = function GridGallery(_ref) {
             })
           );
         })
-      ) : mobileCarousel && altAsset.length === 1 ?
+      ) : mobile && altAsset.length === 1 ?
       // case for mobile flat using an alternate asset for mobile
       _react2.default.createElement(
         'div',

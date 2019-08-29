@@ -86,7 +86,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       </div>
       :
       // mobile case for multiple alt assets 
-        <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+        <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} altRatio={altRatio} >
         {
           altAsset.map((alt, index) =>
             <div style={mobileStyles} key={`${escape(alt)}-${index}`}>

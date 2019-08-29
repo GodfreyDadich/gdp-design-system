@@ -175,6 +175,7 @@ export default class ResponsiveCarousel extends Component {
       classAdd,
       imageAspect,
       shadow,
+      altRatio,
       countIndicator
     } = this.props
 
@@ -194,7 +195,7 @@ export default class ResponsiveCarousel extends Component {
             overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: getPaddingTop(aspectRatio),
+            paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
             backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
