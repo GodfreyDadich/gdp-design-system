@@ -70,7 +70,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             )
           }
         </ResponsiveCarousel>
-        : mobileCarousel && (altAsset.length === 1) ?
+        : mobile && (altAsset.length === 1) ?
         // case for mobile flat using an alternate asset for mobile
         <div className='mobile-flat'>
         <div className='mobile-grid-container'>
