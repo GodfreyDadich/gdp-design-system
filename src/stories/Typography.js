@@ -51,7 +51,7 @@ const Typography = props =>
   <div style={styles.main}>
     <h1>Typography</h1>
 
-    {/* <br /><br />
+    <br /><br />
 
     <div>
       <div style={styles.smallText}><small>Super ({fontSizeSuper})</small></div>
@@ -101,7 +101,7 @@ const Typography = props =>
       <SubHeadBlack>Top experiences in Asia</SubHeadBlack>
     </div>
 
-    <br /><br /> */}
+    <br /><br />
 
 
     <div>

@@ -168,7 +168,6 @@ export default class ResponsiveCarousel extends Component {
     }
   render() {
     const {
-      style = {},
       fullBleed,
       caption,
       aspectRatio,
@@ -247,7 +246,6 @@ export default class ResponsiveCarousel extends Component {
             : countIndicator === 'dots' ?
               <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
-
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
     )

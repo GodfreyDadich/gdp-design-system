@@ -45,31 +45,31 @@ const imageGallery3 = [
 ]
 
 const galleries = [
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
-    images: imageGallery2
-  },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
+  //   images: imageGallery2
+  // },
   {
     name: '',
     thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
@@ -292,9 +292,8 @@ storiesOf('Image', module)
         () => <GridGallery 
         mobileCarousel={true}
         mixedOr={true}
-        altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-        'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-        'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
+        altAsset={['http://gdp-site.s3.amazonaws.com/attachments/cjzkllery01hzr7b46j6mbxie-gdp-wiredcasestudy-covergrid-mobile.full.png',
+]}
         classAdd=''     
         headingCaption='Lesson 2: Design Matters'  
         images={imageGallery2} 
