@@ -235,6 +235,7 @@ var ResponsiveCarousel = function (_Component) {
           classAdd = _props.classAdd,
           imageAspect = _props.imageAspect,
           shadow = _props.shadow,
+          altRatio = _props.altRatio,
           countIndicator = _props.countIndicator;
 
 
@@ -259,7 +260,7 @@ var ResponsiveCarousel = function (_Component) {
               overflow: 'visible',
               touchAction: 'pan-y',
               userSelect: 'none',
-              paddingTop: (0, _aspectRatio.getPaddingTop)(aspectRatio),
+              paddingTop: _reactDeviceDetect.isMobile && altRatio ? (0, _aspectRatio.getPaddingTop)(altRatio) : (0, _aspectRatio.getPaddingTop)(aspectRatio),
               backgroundColor: 'rgb(242,242,242)'
             },
             className: 'carousel__container ' + this.state.teaseState },

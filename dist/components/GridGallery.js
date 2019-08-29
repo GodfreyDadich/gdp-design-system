@@ -158,7 +158,7 @@ var GridGallery = function GridGallery(_ref) {
       // mobile case for multiple alt assets 
       _react2.default.createElement(
         _ResponsiveCarousel2.default,
-        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
+        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect, altRatio: altRatio },
         altAsset.map(function (alt, index) {
           return _react2.default.createElement(
             'div',
