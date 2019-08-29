@@ -228,8 +228,6 @@ var ResponsiveCarousel = function (_Component) {
       var _this4 = this;
 
       var _props = this.props,
-          _props$style = _props.style,
-          style = _props$style === undefined ? {} : _props$style,
           fullBleed = _props.fullBleed,
           caption = _props.caption,
           aspectRatio = _props.aspectRatio,

@@ -32,26 +32,11 @@ var VideoLoop = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (VideoLoop.__proto__ || Object.getPrototypeOf(VideoLoop)).call(this, props));
 
-    _this.state = {
-      hover: props.autoplay
-    };
-
-    _this.hoverOver = _this.hoverOver.bind(_this);
-    _this.hoverOut = _this.hoverOut.bind(_this);
+    _this.state = {};
     return _this;
   }
 
   _createClass(VideoLoop, [{
-    key: 'hoverOver',
-    value: function hoverOver() {
-      this.setState({ hover: true });
-    }
-  }, {
-    key: 'hoverOut',
-    value: function hoverOut() {
-      this.setState({ hover: false });
-    }
-  }, {
     key: 'render',
     value: function render() {
       var thumb = this.props.thumb;
@@ -60,8 +45,8 @@ var VideoLoop = function (_React$Component) {
         playing: true,
         thumb: thumb,
         loop: true,
-        autoplay: this.props.autoplay || false,
-        active: this.state.hover,
+        autoplay: true,
+        active: true,
         classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
         config: {
           vimeo: {
