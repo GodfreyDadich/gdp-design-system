@@ -246,7 +246,7 @@ var Video = function (_React$Component) {
                       style: {
                         backgroundImage: 'url(' + thumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
-                        backgroundColor: hoverPlay ? 'transparent' : '#000',
+                        backgroundColor: 'transparent',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
                       }, className: 'jsx-1710641388' + ' ' + 'videoCover'
                     },

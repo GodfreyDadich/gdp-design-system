@@ -34,37 +34,40 @@ var HoverVideo = function (_React$Component) {
 
     _this.state = {
       hover: props.autoplay
+    };
 
-      // this.hoverOver = this.hoverOver.bind(this)
-      // this.hoverOut = this.hoverOut.bind(this)
-    };return _this;
+    _this.hoverOver = _this.hoverOver.bind(_this);
+    _this.hoverOut = _this.hoverOut.bind(_this);
+    return _this;
   }
 
-  // hoverOver () {
-  //   this.setState({ hover: true })
-  // }
-  // hoverOut () {
-  //   this.setState({ hover: false })
-  // }
-
   _createClass(HoverVideo, [{
+    key: 'hoverOver',
+    value: function hoverOver() {
+      this.setState({ hover: true });
+    }
+  }, {
+    key: 'hoverOut',
+    value: function hoverOut() {
+      this.setState({ hover: false });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(_Video2.default, _extends({}, this.props, {
         hoverPlay: true,
-        playing: true,
-        autoplay: this.props.autoplay || true,
+        playing: false,
+        autoplay: this.props.autoplay || false,
         active: this.state.hover,
-        loop: true
-        // mouseOverAction={this.hoverOver}
-        // mouseOutAction={this.hoverOut}
-        , classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
+        mouseOverAction: this.hoverOver,
+        mouseOutAction: this.hoverOut,
+        classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
         config: {
           vimeo: {
             playerOptions: {
-              background: 1
-              // autopause: !this.props.autoplay || true,
-              // autoplay: this.props.autoplay || false
+              background: 1,
+              autopause: !this.props.autoplay || true,
+              autoplay: this.props.autoplay || false
             },
             preload: false
           }

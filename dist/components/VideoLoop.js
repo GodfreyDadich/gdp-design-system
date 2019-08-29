@@ -47,6 +47,7 @@ var VideoLoop = function (_React$Component) {
         loop: true,
         autoplay: true,
         active: true,
+        hoverPlay: true,
         classAdd: this.props.classAdd ? ' ' + this.props.classAdd : '',
         config: {
           vimeo: {
