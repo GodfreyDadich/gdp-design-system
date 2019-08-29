@@ -1,4 +1,5 @@
 import React from 'react'
+import { isMobile } from 'react-device-detect'
 
 export const Icon = ({ style, children }) =>
   <div style={Object.assign({
@@ -19,7 +20,7 @@ export const Icon = ({ style, children }) =>
     width: '24px',
     textIndent: '100%',
     position: 'absolute',
-    top: '77px',
+    top: isMobile ? '47px' : '77px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     backgroundSize: 'contain',
