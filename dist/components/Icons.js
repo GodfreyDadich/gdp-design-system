@@ -39,13 +39,11 @@ var AltIcon = exports.AltIcon = function AltIcon(_ref2) {
       children = _ref2.children;
   return _react2.default.createElement(
     'div',
-    { style: _extends({
+    { className: 'insta-icon', style: _extends({
         display: 'inline-block',
         height: '24px',
         width: '24px',
         textIndent: '100%',
-        position: 'absolute',
-        top: _reactDeviceDetect.isMobile ? '47px' : '77px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         backgroundSize: 'contain',
