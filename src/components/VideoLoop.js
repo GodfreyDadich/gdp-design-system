@@ -4,20 +4,8 @@ import Video from './Video'
 class VideoLoop extends React.Component {
   constructor (props) {
     super(props)
-
-    this.state = {
-      hover: props.autoplay
+    this.state = {   
     }
-
-    this.hoverOver = this.hoverOver.bind(this)
-    this.hoverOut = this.hoverOut.bind(this)
-  }
-
-  hoverOver () {
-    this.setState({ hover: true })
-  }
-  hoverOut () {
-    this.setState({ hover: false })
   }
 
   render () {
@@ -30,8 +18,8 @@ class VideoLoop extends React.Component {
         playing={true}
         thumb={thumb}
         loop={true}
-        autoplay={this.props.autoplay || false}
-        active={this.state.hover}
+        autoplay={true}
+        active={true}
         classAdd={this.props.classAdd ? ' ' + this.props.classAdd : ''}
         config={{
           vimeo: {
