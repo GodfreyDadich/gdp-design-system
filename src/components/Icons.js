@@ -14,13 +14,11 @@ export const Icon = ({ style, children }) =>
   }, style)}>{children}</div>
 
   export const AltIcon = ({ style, children }) =>
-  <div style={Object.assign({
+  <div className='insta-icon' style={Object.assign({
     display: 'inline-block',
     height: '24px',
     width: '24px',
     textIndent: '100%',
-    position: 'absolute',
-    top: isMobile ? '47px' : '77px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     backgroundSize: 'contain',
