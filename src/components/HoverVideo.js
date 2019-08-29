@@ -9,34 +9,35 @@ class HoverVideo extends React.Component {
       hover: props.autoplay
     }
 
-    this.hoverOver = this.hoverOver.bind(this)
-    this.hoverOut = this.hoverOut.bind(this)
+    // this.hoverOver = this.hoverOver.bind(this)
+    // this.hoverOut = this.hoverOut.bind(this)
   }
 
-  hoverOver () {
-    this.setState({ hover: true })
-  }
-  hoverOut () {
-    this.setState({ hover: false })
-  }
+  // hoverOver () {
+  //   this.setState({ hover: true })
+  // }
+  // hoverOut () {
+  //   this.setState({ hover: false })
+  // }
 
   render () {
     return (
       <Video
         {...this.props}
         hoverPlay
-        playing={false}
-        autoplay={this.props.autoplay || false}
+        playing={true}
+        autoplay={this.props.autoplay || true}
         active={this.state.hover}
-        mouseOverAction={this.hoverOver}
-        mouseOutAction={this.hoverOut}
+        loop
+        // mouseOverAction={this.hoverOver}
+        // mouseOutAction={this.hoverOut}
         classAdd={this.props.classAdd ? ' ' + this.props.classAdd : ''}
         config={{
           vimeo: {
             playerOptions: {
               background: 1,
-              autopause: !this.props.autoplay || true,
-              autoplay: this.props.autoplay || false
+              // autopause: !this.props.autoplay || true,
+              // autoplay: this.props.autoplay || false
             },
             preload: false
           }
