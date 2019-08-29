@@ -297,7 +297,8 @@ var galleries = [
   return _react2.default.createElement(_GridGallery2.default, {
     mobileCarousel: true,
     mixedOr: true,
-    altAsset: ['http://gdp-site.s3.amazonaws.com/attachments/cjzkllery01hzr7b46j6mbxie-gdp-wiredcasestudy-covergrid-mobile.full.png'],
+    altAsset: ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'],
+    altRatio: 'standard',
     classAdd: '',
     headingCaption: 'Lesson 2: Design Matters',
     images: imageGallery2,
