@@ -11,6 +11,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDeviceDetect = require('react-device-detect');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Icon = exports.Icon = function Icon(_ref) {
@@ -43,7 +45,7 @@ var AltIcon = exports.AltIcon = function AltIcon(_ref2) {
         width: '24px',
         textIndent: '100%',
         position: 'absolute',
-        top: '77px',
+        top: _reactDeviceDetect.isMobile ? '47px' : '77px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         backgroundSize: 'contain',
