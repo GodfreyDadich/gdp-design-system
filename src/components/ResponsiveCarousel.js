@@ -64,22 +64,23 @@ export default class ResponsiveCarousel extends Component {
   }
 
   handleTouchStart(e) {
-    e.preventDefault()
     const firstTouch = this.getTouches(e)[0]
     this.xDown = firstTouch.clientX
     this.yDown = firstTouch.clientY
   }
 
   handleTouchMove(e) {
-    e.preventDefault()
     if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
     const xDiff = this.xDown - xLeft
-    const direction = (xDiff > 0) ? 'right' : 'left'
-    if (direction === 'right') {
-      this.goToNextSlide()
-    } else {
-      this.goToPrevSlide()
+    if (Math.abs(xDiff) > 6) {
+      e.preventDefault()
+      const direction = (xDiff > 0) ? 'right' : 'left'
+      if (direction === 'right') {
+        this.goToNextSlide()
+      } else {
+        this.goToPrevSlide()
+      }
     }
 
     /* reset values */
@@ -181,13 +182,13 @@ export default class ResponsiveCarousel extends Component {
 
     return (
       <div
-        ref={elem => this.carouselElem = elem}
-        style={Object.assign({}, {
-          position: 'relative',
-          overflow: 'visible'
-        })}
-        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+      style={Object.assign({}, {
+        position: 'relative',
+        overflow: 'visible'
+      })}
+      className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
+          ref={elem => this.carouselElem = elem}
           style={{
             position: 'relative',
             height: '100%',

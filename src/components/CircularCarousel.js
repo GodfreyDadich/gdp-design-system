@@ -186,7 +186,7 @@ export default class CircularCarousel extends Component {
         })}
         className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
-          ref={elem => this.carouselElem = elem} 
+          ref={elem => { this.carouselElem = elem }}
           style={{
             position: 'relative',
             height: '100%',
@@ -234,7 +234,10 @@ export default class CircularCarousel extends Component {
                     left: '50%',
                     width: '75%'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
+                  {React.cloneElement(child, { 
+                    active: (this.state.currentIndex === i),
+                    visibilityOverride: (Math.abs(this.state.currentIndex - 1 > 4))
+                  })}
                 </div>
               ))
             }
