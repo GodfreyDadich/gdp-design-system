@@ -61,7 +61,6 @@ var ImageWrap = function (_React$Component) {
           backgroundSize = _props.backgroundSize;
 
       var showImage = visibilityOverride ? true : isVisible;
-      console.log('visiblityOverride: ' + visibilityOverride);
       return _react2.default.createElement(
         'div',
         { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
