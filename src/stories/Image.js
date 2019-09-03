@@ -124,10 +124,11 @@ storiesOf('Image', module)
   .add(
     'Image',
     () => <div style={{ width: '50%', margin: '110vh auto' }}><Image
+      altAsset={'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvkja0d010in1g67mqizp-platon-diptych-mobile.full.png'}
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      imgSource='http://gdp-site.s3.amazonaws.com/attachments/cjzsrvki60djv0itgcr7ccd8t-platon-diptych.full.jpg'
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}

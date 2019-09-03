@@ -4,12 +4,14 @@ import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import supportsWebP from 'supports-webp'
+import { isMobile } from 'react-device-detect';
 
 // d36aj1cv2i74vd
 class Image extends React.Component {
   render () {
     const {
       imageTitle,
+      altAsset,
       imgSource,
       linkUrl,
       caption,
@@ -25,7 +27,7 @@ class Image extends React.Component {
         <TrackVisibility partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
-              <img className='wrappedImage' alt={imageTitle} src={imgSource} />
+              {isMobile ? <img className='wrappedImage' alt={imageTitle} src={altAsset} /> : <img className='wrappedImage' alt={imageTitle} src={imgSource} />}
               {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
               {(sideBar && sideBar.text.length > 0)
                 ? <SideBar sideBar={sideBar} isVisible />
