@@ -108,7 +108,6 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'handleTouchStart',
     value: function handleTouchStart(e) {
-      e.preventDefault();
       var firstTouch = this.getTouches(e)[0];
       this.xDown = firstTouch.clientX;
       this.yDown = firstTouch.clientY;
@@ -116,17 +115,19 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
-      e.preventDefault();
       if (!this.xDown || !this.yDown) {
         return;
       }
       var xLeft = e.touches[0].clientX;
       var xDiff = this.xDown - xLeft;
-      var direction = xDiff > 0 ? 'right' : 'left';
-      if (direction === 'right') {
-        this.goToNextSlide();
-      } else {
-        this.goToPrevSlide();
+      if (Math.abs(xDiff) > 6) {
+        e.preventDefault();
+        var direction = xDiff > 0 ? 'right' : 'left';
+        if (direction === 'right') {
+          this.goToNextSlide();
+        } else {
+          this.goToPrevSlide();
+        }
       }
 
       /* reset values */
@@ -197,28 +198,28 @@ var CircularCarousel = function (_Component) {
             opacity: '1',
             zIndex: this.state.direction === 'prev' ? '9' : '8',
             transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             opacity: '1',
             zIndex: this.state.direction === 'next' ? '9' : '8',
             transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(50%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case last:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(50%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
@@ -240,9 +241,6 @@ var CircularCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
-          ref: function ref(elem) {
-            return _this4.carouselElem = elem;
-          },
           style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
@@ -251,6 +249,9 @@ var CircularCarousel = function (_Component) {
         _react2.default.createElement(
           'div',
           {
+            ref: function ref(elem) {
+              return _this4.carouselElem = elem;
+            },
             style: {
               position: 'relative',
               height: '100%',

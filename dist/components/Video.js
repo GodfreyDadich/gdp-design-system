@@ -184,6 +184,7 @@ var Video = function (_React$Component) {
           config = _props.config,
           hoverPlay = _props.hoverPlay,
           skipIntro = _props.skipIntro,
+          loadActive = _props.loadActive,
           caption = _props.caption,
           sideBar = _props.sideBar,
           style = _props.style,
@@ -221,7 +222,7 @@ var Video = function (_React$Component) {
                 style: {
                   position: 'relative',
                   top: isVisible || skipIntro ? '0px' : '15px',
-                  opacity: isVisible ? '1' : '0',
+                  opacity: isVisible || loadActive ? '1' : '0',
                   transition: 'opacity 0.5s, top 0.5s',
                   transitionDelay: '0.75s'
                 },
@@ -252,7 +253,7 @@ var Video = function (_React$Component) {
                     ' '
                   ),
                   _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
-                    url: autoplay ? vidSource : isVisible ? vidSource : '',
+                    url: autoplay ? vidSource : isVisible || loadActive ? vidSource : '',
                     playing: playing,
                     volume: autoplay ? 0 : 1,
                     muted: muted,
