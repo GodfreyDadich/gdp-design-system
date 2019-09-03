@@ -27,7 +27,7 @@ class Image extends React.Component {
         <TrackVisibility partialVisibility className={classAdd}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
-              {isMobile ? <img className='wrappedImage' alt={imageTitle} src={altAsset} /> : <img className='wrappedImage' alt={imageTitle} src={imgSource} />}
+              {isMobile && altAsset ? <img className='wrappedImage' alt={imageTitle} src={altAsset} /> : <img className='wrappedImage' alt={imageTitle} src={imgSource} />}
               {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
               {(sideBar && sideBar.text.length > 0)
                 ? <SideBar sideBar={sideBar} isVisible />
