@@ -70,6 +70,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             galleries.map((gallery, index) =>
               <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
                 <Image
+                  classAdd='grid-image'
                   aspectRatio={thumbAspect || 'sixteen'}
                   imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                   skipIntro
@@ -117,6 +118,9 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       .museum-container {
         background: rgb(242,242,242);
         padding: 6vw;
+      }
+      .grid-image:hover {
+        filter: brightness(70%);
       }
       .modal {
         position: fixed;
