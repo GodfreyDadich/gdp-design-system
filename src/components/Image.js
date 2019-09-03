@@ -3,7 +3,6 @@ import ConditionalLink from './ConditionalLink'
 import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
-import supportsWebP from 'supports-webp'
 
 // d36aj1cv2i74vd
 class Image extends React.Component {
