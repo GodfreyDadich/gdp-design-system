@@ -212,22 +212,14 @@ var CircularCarousel = function (_Component) {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-<<<<<<< HEAD
-            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
-=======
             transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
->>>>>>> 3b995fc25d2602aabc8963ad80bea667be5368b1
           };
         default:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'none',
-<<<<<<< HEAD
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
-=======
             transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(60%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
->>>>>>> 3b995fc25d2602aabc8963ad80bea667be5368b1
           };
       }
     }

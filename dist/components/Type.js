@@ -181,21 +181,12 @@ var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref8) {
         marginTop: 0,
         marginBottom: 0
       }, style),
-<<<<<<< HEAD
-      className: 'jsx-1419568079' + ' ' + ('wiredtype ' + className)
-    },
-    children,
-    _react2.default.createElement(_style2.default, {
-      styleId: '1419568079',
-      css: '.wiredtype.jsx-1419568079{font-size:19px;line-height:.5;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}@media only screen and (max-width:500px){.wiredtype.jsx-1419568079{line-height:22px;font-size:15px;}}'
-=======
       className: 'jsx-2770374667' + ' ' + ('subheadBlack ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
       styleId: '2770374667',
       css: '.subheadBlack.jsx-2770374667{font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#333;}'
->>>>>>> 3b995fc25d2602aabc8963ad80bea667be5368b1
     })
   );
 };

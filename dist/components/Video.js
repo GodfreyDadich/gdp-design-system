@@ -254,11 +254,7 @@ var Video = function (_React$Component) {
                     _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
                     ' '
                   ),
-<<<<<<< HEAD
-                  _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
-=======
                   _this2.state.isMobile && (regPlay || hoverPlay) ? '' : _react2.default.createElement(_reactPlayer2.default, {
->>>>>>> 3b995fc25d2602aabc8963ad80bea667be5368b1
                     url: autoplay ? vidSource : isVisible || loadActive ? vidSource : '',
                     playing: playing,
                     volume: autoplay ? 0 : 1,
