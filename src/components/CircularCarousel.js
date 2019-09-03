@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
@@ -61,6 +61,15 @@ export default class CircularCarousel extends Component {
   getTouches(e) {
     return e.touches || // browser API
       e.originalEvent.touches // jQuery
+  }
+
+  withinTollerance(currIndex, assetIndex, total) {
+    let visibleArray = [ currIndex ]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1)
+    return visibleArray.includes(assetIndex)
   }
 
   handleTouchStart(e) {
@@ -234,9 +243,9 @@ export default class CircularCarousel extends Component {
                     left: '50%',
                     width: '75%'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child, { 
+                  {React.cloneElement(this.withinTollerance(this.state.currentIndex, i, children.length) ? child : <Fragment />, {
                     active: (this.state.currentIndex === i),
-                    visibilityOverride: (Math.abs(this.state.currentIndex - 1 > 4))
+                    visibilityOverride: true
                   })}
                 </div>
               ))

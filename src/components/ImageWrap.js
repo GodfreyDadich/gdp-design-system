@@ -20,6 +20,7 @@ class ImageWrap extends React.Component {
   render () {
     const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, backgroundSize } = this.props
     const showImage = visibilityOverride ? true : isVisible
+    console.log(`visiblityOverride: ${visibilityOverride}`)
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
