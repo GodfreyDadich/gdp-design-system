@@ -23,8 +23,8 @@ var CountIndicator = exports.CountIndicator = function CountIndicator(props) {
         fontColor: '#6D6A60',
         fontFamily: 'Atlas Grotesk',
         fontSize: '12.5px',
-        marginTop: props.imageAspect === 'sixteen' ? '15px' : props.imageAspect === 'noAspect' ? '10px' : '-10px',
-        marginBottom: props.imageAspect === 'sixteen' ? '16px' : props.imageAspect === 'noAspect' ? '10px' : '15px'
+        marginTop: props.imageAspect === 'sixteen' ? '40px' : props.imageAspect === 'noAspect' ? '80px' : props.imageAspect === 'square' ? '20px' : '30px',
+        marginBottom: '16px'
       }
     },
     _react2.default.createElement(

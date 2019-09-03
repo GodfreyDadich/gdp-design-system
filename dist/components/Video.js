@@ -48,7 +48,8 @@ var vidStyle = {
   left: 0,
   height: '100%',
   width: '100%',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  border: 'none'
 };
 
 var Video = function (_React$Component) {
@@ -188,6 +189,7 @@ var Video = function (_React$Component) {
           caption = _props.caption,
           sideBar = _props.sideBar,
           style = _props.style,
+          regPlay = _props.regPlay,
           active = _props.active,
           mouseOverAction = _props.mouseOverAction,
           mouseOutAction = _props.mouseOutAction,
@@ -245,14 +247,18 @@ var Video = function (_React$Component) {
                       style: {
                         backgroundImage: 'url(' + thumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
-                        backgroundColor: hoverPlay ? 'transparent' : '#000',
+                        backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
                       }, className: 'jsx-1710641388' + ' ' + 'videoCover'
                     },
                     _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
                     ' '
                   ),
+<<<<<<< HEAD
                   _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
+=======
+                  _this2.state.isMobile && (regPlay || hoverPlay) ? '' : _react2.default.createElement(_reactPlayer2.default, {
+>>>>>>> 3b995fc25d2602aabc8963ad80bea667be5368b1
                     url: autoplay ? vidSource : isVisible || loadActive ? vidSource : '',
                     playing: playing,
                     volume: autoplay ? 0 : 1,

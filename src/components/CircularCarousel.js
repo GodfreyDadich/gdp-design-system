@@ -156,14 +156,14 @@ export default class CircularCarousel extends Component {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
-          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
       default:
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'none',
-          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(60%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
@@ -227,7 +227,7 @@ export default class CircularCarousel extends Component {
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(-50%) translateY(-50%)',
+                    transform: 'translateX(-50%) translateY(-50%) scale(1.1)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
                     top: '50%',
@@ -245,7 +245,6 @@ export default class CircularCarousel extends Component {
             : countIndicator === 'dots' ?
               <DotIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} /> : '' : ''}
         </div>
-
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
     )

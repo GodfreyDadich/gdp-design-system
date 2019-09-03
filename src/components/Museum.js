@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SimpleGallery from './SimpleGallery'
 import Image from './Image'
-import ResponsiveCarousel from './ResponsiveCarousel'
+import CircularCarousel from './CircularCarousel'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
@@ -12,11 +12,14 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
   const colWidth = 100 / columns;
   const [mobile, setMobile] = useState(false)
 
-
   useEffect(() => {
     setMobile(isMobile)
-  }, [])
-
+    if (modalView === true) {
+      document.body.classList.add('modalOpen')
+    } else {
+      document.body.classList.remove('modalOpen')
+    }
+  }, [modalView])
 
   const thumbStyles = {
     display: 'inline-block',
@@ -46,7 +49,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {mobile ?
-      <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
+      <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
         {
           galleries.map((gallery, index) =>
             <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
@@ -59,7 +62,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             </div>
           )
         }
-      </ResponsiveCarousel>
+      </CircularCarousel>
       : <div>
         <div className='museum-container'>
           <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
@@ -67,6 +70,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             galleries.map((gallery, index) =>
               <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
                 <Image
+                  classAdd='grid-image'
                   aspectRatio={thumbAspect || 'sixteen'}
                   imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                   skipIntro
@@ -88,14 +92,18 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       </div>
     }
     <style>{`
+      .modalOpen {
+        overflow: hidden;
+      }
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;
         position: absolute;
-        top: 1.8vw;
-        left: 1.8vw;
+        top: 1vw;
+        left: 1vw;
         font-weight: 400;
         font-size: 10px;
+        letter-spacing: 1.25px;
       }
       .expand::before {
         content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20d%3D%22M11.6%209.6h6.8v8.8h-6.8z%22/%3E%3Cpath%20d%3D%22M16.5%209.5v-2h-2m-3%209h-2v-2m5-7h-5v7m5-7v-2h-7v9h2%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
@@ -103,13 +111,16 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       .expand-indicator {
         margin-left: 8px;
         position: absolute;
-        width: 15vw;
+        width: 80vw;
         top: 50%;
         transform: translateY(-50%);
       }
       .museum-container {
         background: rgb(242,242,242);
-        padding: 7.4vw 7.1vw;
+        padding: 6vw;
+      }
+      .grid-image:hover {
+        filter: brightness(70%);
       }
       .modal {
         position: fixed;

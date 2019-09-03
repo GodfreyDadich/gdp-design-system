@@ -36,9 +36,10 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  InquiryText,
   SubHead,
+  SubHeadBlack,
   WiredType,
-  WiredTypeCaption,
   QuoteAttribution,
   LeftCarving,
   SidebarQuote,
@@ -93,6 +94,15 @@ const Typography = props =>
     </div>
 
     <br /><br />
+    
+
+    <div>
+      <div style={styles.smallText}><small>SubHeadBlack ({fontSizeHeading4})</small></div>
+      <SubHeadBlack>Top experiences in Asia</SubHeadBlack>
+    </div>
+
+    <br /><br />
+
 
     <div>
       <div style={styles.smallText}><small>Bio Header Lockup</small></div>
@@ -161,8 +171,8 @@ const Typography = props =>
     <br /><br />
 
     <div>
-      <div style={styles.smallText}><small>WiredType ({fontSizeHeading4})</small></div>
-      <WiredTypeCaption>wired</WiredTypeCaption>
+      <div style={styles.smallText}><small>InquiryText ({fontSizeHeading4})</small></div>
+      <InquiryText><h5>For speaking engagement inquiries, please contact inquiries@godfreydadich.com</h5></InquiryText>
     </div>
 
     <br /><br />

@@ -12,6 +12,10 @@ var _HoverVideo = require('../components/HoverVideo');
 
 var _HoverVideo2 = _interopRequireDefault(_HoverVideo);
 
+var _VideoLoop = require('../components/VideoLoop');
+
+var _VideoLoop2 = _interopRequireDefault(_VideoLoop);
+
 var _Video = require('../components/Video');
 
 var _Video2 = _interopRequireDefault(_Video);
@@ -195,6 +199,46 @@ var videoEnded = function videoEnded() {
       thumb: 'https://i.vimeocdn.com/video/737702396_1000.jpg'
     }),
     _react2.default.createElement(_HoverVideo2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543215',
+      thumb: 'https://i.vimeocdn.com/video/737702269_1000.jpg'
+    })
+  );
+}).add('Video with Img Alt', function () {
+  return _react2.default.createElement(
+    'div',
+    { style: { width: '50%', margin: '1000px auto 0' } },
+    _react2.default.createElement(_VideoLoop2.default, {
+      vidSource: 'https://player.vimeo.com/video/324374859',
+      thumb: 'https://i.vimeocdn.com/video/767777887',
+      aspectRatio: 'custom',
+      autoplay: true,
+      customPadding: '62%'
+    }),
+    _react2.default.createElement(_VideoLoop2.default, {
+      title: '',
+      aspectRatio: 'cropped',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299756718',
+      thumb: 'https://i.vimeocdn.com/video/737947212_1000.jpg'
+    }),
+    _react2.default.createElement(_VideoLoop2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543193',
+      thumb: 'https://i.vimeocdn.com/video/737702480_1000.jpg'
+    }),
+    _react2.default.createElement(_VideoLoop2.default, {
+      title: '',
+      aspectRatio: 'sixteen',
+      fullBleed: false,
+      vidSource: 'https://vimeo.com/299543207',
+      thumb: 'https://i.vimeocdn.com/video/737702396_1000.jpg'
+    }),
+    _react2.default.createElement(_VideoLoop2.default, {
       title: '',
       aspectRatio: 'sixteen',
       fullBleed: false,

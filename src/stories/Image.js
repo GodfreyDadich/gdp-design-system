@@ -14,29 +14,25 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 
 const imageGallery = [
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_4.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
 ]
 
 const imageGallery2 = [ 
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjz4u407s00030pqvz1wgxnuu-2210cv-cover-lo-r3.full.png',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_2.jpg'
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3cDI3cjAxYmkwaW5qa2duMzYybm4tMTUtMDJmZi1zcGxhc2hwYWdlLWxvLXIyLW1pbi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjQwMH19fQ==',
 ]
 
 const imageGallery3 = [
@@ -48,31 +44,31 @@ const imageGallery3 = [
 ]
 
 const galleries = [
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
-    images: imageGallery2
-  },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
+  //   images: imageGallery2
+  // },
   {
     name: '',
     thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
@@ -157,7 +153,7 @@ storiesOf('Image', module)
         text: text('Sidebar Text', 'Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
         isQuote: true,
-        // link: 'http://www.google.com',
+        link: text('sidebar link', ''),
         quoter: text('Quoter', '—Blaine'),
         location: selectV2('Sidebar Location', {
           TopLeft: 'left-top',
@@ -248,7 +244,9 @@ storiesOf('Image', module)
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <RevealCarousel
         images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
+        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'sixteen')}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
     </div>
@@ -293,8 +291,12 @@ storiesOf('Image', module)
         () => <GridGallery 
         mobileCarousel={true}
         mixedOr={true}
-        // altAsset={'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg'}
-        classAdd=''       
+        altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+        'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+        'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
+        altRatio={'standard'}
+        classAdd=''     
+        headingCaption='Lesson 2: Design Matters'  
         images={imageGallery2} 
         thumbs={imageGallery2}
         countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}

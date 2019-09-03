@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
-import { InstagramIcon } from './Icons'
+import { BioIcon } from './Icons'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
@@ -33,6 +33,60 @@ export const HeadingSuper = ({ children }) =>
       }
     `}</style>
   </h1>
+
+export const BioHeading = ({ children, style }) =>
+<h1
+  style={style}
+  className='bioHeading' >
+  {children}
+  <style jsx>{`
+    .bioHeading {
+      position: relative;
+      font-family: 'Noe Display';
+      font-weight: bold;
+      font-size: 3.52vw; 
+      line-height: 0.97;
+      letter-spacing: 0.3px;
+      padding-bottom: 51px;
+      margin: 0 0 35px 0;
+      color: #000;
+
+      .clientName {
+        display: block;
+        color: #7F7F7F; 
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 24.56vw;
+        max-width: 33%;
+        height: 7px;
+        background-color: #000;
+        bottom: 15px;
+        left: 0;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 12vw !important;
+        padding-bottom: 35px !important;
+        margin-bottom: 28px !important;
+
+        &:before {
+          width: calc(50% - 16px) !important;
+        }
+      }  
+      @media only screen and (max-width: 769px) {
+        font-size: 40px !important;
+        padding-bottom: 41px !important;
+        margin-bottom: 28px !important;
+
+        &:before {
+          width: calc(((100vw - 60px) / 4) - 12px) !important;
+        }
+      }             
+    }
+  `}</style>
+</h1>
 
 export const Heading1 = ({ children, style }) =>
   <h1
@@ -161,22 +215,45 @@ export const SubHead = ({ children, style, className }) =>
   {children}
   <style jsx>{`
    .subhead {
-    margin-top: 30px !important;
     font-family: 'Atlas Grotesk';
-    font-weight: 400;
-    font-size: 19px;
+    font-weight: 900;
+    font-size: 20px;
     margin-bottom: 0;
     line-height: 1.29px;
-    letter-spacing: -0.2px;          
+    letter-spacing: -0.18px;          
     color: #7F7F7F;
   }
+  `}</style>
+</h4>
+
+export const SubHeadBlack = ({ children, style, className }) =>
+<h4
+  style={Object.assign({
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 'bold',
+    marginTop: 0,
+    marginBottom: 0
+  }, style)}
+  className={`subheadBlack ${className}`}
+>
+  {children}
+  <style jsx>{`
+    .subheadBlack {
+      font-family: 'Atlas Grotesk';
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 0;
+      line-height: 1.29px;
+      letter-spacing: -0.18px;          
+      color: #333;
+    }
   `}</style>
 </h4>
 
 export const WiredType = ({ children, style, className }) =>
 <span
   style={Object.assign({
-    fontFamily: 'Noe Text'
+    fontFamily: 'Atlas Grotesk'
   }, style)}
   className={`wiredtype ${className}`}
 >
@@ -196,29 +273,23 @@ export const WiredType = ({ children, style, className }) =>
   `}</style>
 </span>
 
-export const WiredTypeCaption = ({ children, style, className }) =>
+export const InquiryText = ({ children, style, className }) =>
 <span
   style={Object.assign({
-    fontFamily: 'Atlas Grotesk'
+    fontFamily: 'Noe Text'
   }, style)}
-  className={`wiredTypeCaption ${className}`}
+  className={`inquiryText ${className}`}
 >
   {children}
   <style jsx>{`
-      .wiredTypeCaption {
-        color: #7F7F7F;
-        font-weight: 500;
+      .inquiryText {
+        font-style: italic;
+        color: #333;
+        font-weight: 400;
         display: block;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0.5px;
-        margin-top: 25px;
-        text-align: center;
-        font-variant: small-caps;
-        
-        @media only screen and (max-width: 500px) {
-          margin-top: 15px;
-        }
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: -0.1px;
       } 
   `}</style>
 </span>
@@ -250,7 +321,7 @@ export const QuoteAttribution = ({ children, style, className }) =>
 </span>
 
 export const BioHeader = ({ personName, personTitle, insta }) =>
-  <Heading1
+  <BioHeading
     style={{
       paddingBottom: '2.5vw'
     }}
@@ -267,7 +338,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
       className='bioPersonTitle'
     >{personTitle}</span>
     { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><InstagramIcon style={{ marginLeft: '16px' }} /></a>
+      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><BioIcon style={{ marginLeft: '16px' }} /></a>
       : ''
     }
     <style>{`
@@ -285,7 +356,7 @@ export const BioHeader = ({ personName, personTitle, insta }) =>
         }
       }
       `}</style>
-  </Heading1>
+  </BioHeading>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
@@ -388,7 +459,7 @@ export const SideBar = ({ sideBar, isVisible }) =>
           transitionDelay: '1.25s'
         }}
       >
-        <ConditionalLink linkUrl={sideBar.link} linkTarget={'_blank'}>
+        <ConditionalLink linkUrl={sideBar.link} linkTarget='_blank'>
           {sideBar.image ? <img className='sideBar__logo' src={sideBar.image} /> : ''}
           {sideBar.text.length > 0 ? <span className={`sideBar__text${sideBar.isQuote ? ' isQuote' : ''}`}>
             {sideBar.text}

@@ -12,7 +12,8 @@ const vidStyle = {
   left: 0,
   height: '100%',
   width: '100%',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  border: 'none'
 }
 
 class Video extends React.Component {
@@ -129,6 +130,7 @@ class Video extends React.Component {
       caption,
       sideBar,
       style,
+      regPlay,
       active,
       mouseOverAction,
       mouseOutAction,
@@ -168,11 +170,11 @@ class Video extends React.Component {
                     style={{
                       backgroundImage: `url(${thumb})`,
                       backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: hoverPlay ? 'transparent' : '#000',
+                      backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
                       display: this.state.coverVisible ? 'inline-block' : 'none'
                     }}>
                     { this.state.isLoading ? <Loader /> : '' } </div>
-                  { this.state.isMobile && hoverPlay ? ''
+                  { this.state.isMobile && (regPlay || hoverPlay) ? ''
                     : <ReactPlayer
                       url={autoplay ? vidSource : isVisible || loadActive ? vidSource : ''}
                       playing={playing}

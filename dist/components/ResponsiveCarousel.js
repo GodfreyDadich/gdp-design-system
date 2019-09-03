@@ -197,28 +197,28 @@ var ResponsiveCarousel = function (_Component) {
             opacity: '1',
             zIndex: this.state.direction === 'prev' ? '9' : '8',
             transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             opacity: '1',
             zIndex: this.state.direction === 'next' ? '9' : '8',
             transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case last:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
@@ -228,8 +228,6 @@ var ResponsiveCarousel = function (_Component) {
       var _this4 = this;
 
       var _props = this.props,
-          _props$style = _props.style,
-          style = _props$style === undefined ? {} : _props$style,
           fullBleed = _props.fullBleed,
           caption = _props.caption,
           aspectRatio = _props.aspectRatio,
@@ -237,6 +235,7 @@ var ResponsiveCarousel = function (_Component) {
           classAdd = _props.classAdd,
           imageAspect = _props.imageAspect,
           shadow = _props.shadow,
+          altRatio = _props.altRatio,
           countIndicator = _props.countIndicator;
 
 
@@ -261,7 +260,7 @@ var ResponsiveCarousel = function (_Component) {
               overflow: 'visible',
               touchAction: 'pan-y',
               userSelect: 'none',
-              paddingTop: (0, _aspectRatio.getPaddingTop)(aspectRatio),
+              paddingTop: _reactDeviceDetect.isMobile && altRatio ? (0, _aspectRatio.getPaddingTop)(altRatio) : (0, _aspectRatio.getPaddingTop)(aspectRatio),
               backgroundColor: 'rgb(242,242,242)'
             },
             className: 'carousel__container ' + this.state.teaseState },
@@ -297,7 +296,7 @@ var ResponsiveCarousel = function (_Component) {
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(-50%) translateY(-50%)',
+                    transform: 'translateX(-50%) translateY(-50%) scale(1.2)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
                     top: '50%',
