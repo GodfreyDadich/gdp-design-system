@@ -276,8 +276,7 @@ var galleries = [
           key: 'img-' + index,
           aspectRatio: 'noAspect',
           skipIntro: true,
-          imgSource: img,
-          visibilityOverride: true
+          imgSource: img
         });
       })
     )

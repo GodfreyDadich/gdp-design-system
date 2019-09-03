@@ -108,7 +108,6 @@ var ResponsiveCarousel = function (_Component) {
   }, {
     key: 'handleTouchStart',
     value: function handleTouchStart(e) {
-      e.preventDefault();
       var firstTouch = this.getTouches(e)[0];
       this.xDown = firstTouch.clientX;
       this.yDown = firstTouch.clientY;
@@ -116,17 +115,19 @@ var ResponsiveCarousel = function (_Component) {
   }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
-      e.preventDefault();
       if (!this.xDown || !this.yDown) {
         return;
       }
       var xLeft = e.touches[0].clientX;
       var xDiff = this.xDown - xLeft;
-      var direction = xDiff > 0 ? 'right' : 'left';
-      if (direction === 'right') {
-        this.goToNextSlide();
-      } else {
-        this.goToPrevSlide();
+      if (Math.abs(xDiff) > 6) {
+        e.preventDefault();
+        var direction = xDiff > 0 ? 'right' : 'left';
+        if (direction === 'right') {
+          this.goToNextSlide();
+        } else {
+          this.goToPrevSlide();
+        }
       }
 
       /* reset values */
@@ -242,9 +243,6 @@ var ResponsiveCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         {
-          ref: function ref(elem) {
-            return _this4.carouselElem = elem;
-          },
           style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
@@ -253,6 +251,9 @@ var ResponsiveCarousel = function (_Component) {
         _react2.default.createElement(
           'div',
           {
+            ref: function ref(elem) {
+              return _this4.carouselElem = elem;
+            },
             style: {
               position: 'relative',
               height: '100%',

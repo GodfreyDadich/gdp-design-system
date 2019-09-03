@@ -250,7 +250,7 @@ var CircularCarousel = function (_Component) {
           'div',
           {
             ref: function ref(elem) {
-              return _this4.carouselElem = elem;
+              _this4.carouselElem = elem;
             },
             style: {
               position: 'relative',
@@ -302,7 +302,10 @@ var CircularCarousel = function (_Component) {
                     left: '50%',
                     width: '75%'
                   }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
+                _react2.default.cloneElement(child, {
+                  active: _this4.state.currentIndex === i,
+                  visibilityOverride: Math.abs(_this4.state.currentIndex - 1 > 4)
+                })
               );
             })
           ),
