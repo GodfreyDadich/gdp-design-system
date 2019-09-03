@@ -45,7 +45,8 @@ var ResponsiveCarousel = function (_Component) {
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
-      lastIndex: _this.props.children.length - 2
+      lastIndex: _this.props.children.length - 2,
+      visibleArray: [0, 1, 2, _this.props.children.length - 1, _this.props.children.length - 2]
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -56,6 +57,7 @@ var ResponsiveCarousel = function (_Component) {
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
     _this.handleTouchMove = _this.handleTouchMove.bind(_this);
     _this.handleTouchStart = _this.handleTouchStart.bind(_this);
+    _this.updateVisible = _this.updateVisible.bind(_this);
     return _this;
   }
 
@@ -64,14 +66,16 @@ var ResponsiveCarousel = function (_Component) {
     value: function goToPrevSlide() {
       var _this2 = this;
 
+      var currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1;
       this.setState(function (prevState) {
         return {
-          currentIndex: _this2.state.currentIndex === 0 ? _this2.props.children.length - 1 : prevState.currentIndex - 1,
+          currentIndex: currIndex,
           teaseState: '',
           direction: 'prev',
           lastIndex: prevState.lastIndex === 0 ? _this2.props.children.length - 1 : prevState.lastIndex - 1
         };
       });
+      this.updateVisible(currIndex);
     }
   }, {
     key: 'goToNextSlide',
@@ -87,6 +91,22 @@ var ResponsiveCarousel = function (_Component) {
           direction: 'next',
           lastIndex: prevState.lastIndex === _this3.props.children.length - 1 ? 0 : prevState.lastIndex + 1
         };
+      });
+      this.updateVisible(nextSlide);
+    }
+  }, {
+    key: 'updateVisible',
+    value: function updateVisible(currIndex) {
+      var total = this.props.children.length - 1;
+      var visibleArray = [currIndex];
+      visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+      visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+      visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1);
+      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1);
+
+      console.log(visibleArray);
+      this.setState({
+        visibleArray: visibleArray
       });
     }
   }, {
@@ -238,6 +258,7 @@ var ResponsiveCarousel = function (_Component) {
           shadow = _props.shadow,
           altRatio = _props.altRatio,
           countIndicator = _props.countIndicator;
+      var visibleArray = this.state.visibleArray;
 
 
       return _react2.default.createElement(
@@ -252,7 +273,7 @@ var ResponsiveCarousel = function (_Component) {
           'div',
           {
             ref: function ref(elem) {
-              return _this4.carouselElem = elem;
+              _this4.carouselElem = elem;
             },
             style: {
               position: 'relative',
@@ -305,7 +326,10 @@ var ResponsiveCarousel = function (_Component) {
                     width: imageAspect === 'noAspect' ? 'auto' : '75%',
                     maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
+                visibleArray.includes(i) ? _react2.default.cloneElement(child, {
+                  active: _this4.state.currentIndex === i,
+                  visibilityOverride: true
+                }) : _react2.default.createElement(_react.Fragment, null)
               );
             })
           ),

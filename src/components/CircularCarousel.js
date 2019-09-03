@@ -79,7 +79,6 @@ export default class CircularCarousel extends Component {
       e.originalEvent.touches // jQuery
   }
 
-
   handleTouchStart (e) {
     const firstTouch = this.getTouches(e)[0]
     this.xDown = firstTouch.clientX
@@ -105,7 +104,7 @@ export default class CircularCarousel extends Component {
     this.yDown = null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (isMobile) {
       this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
       this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
@@ -114,11 +113,11 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.killListeners()
   }
 
-  killListeners() {
+  killListeners () {
     if (isMobile) {
       this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
       this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
@@ -127,23 +126,23 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  hoverTeasePrev() {
+  hoverTeasePrev () {
     this.setState({
       teaseState: 'tease-prev'
     })
   }
-  hoverTeaseNext() {
+  hoverTeaseNext () {
     this.setState({
       teaseState: 'tease-next'
     })
   }
-  hoverTeaseReset() {
+  hoverTeaseReset () {
     this.setState({
       teaseState: ''
     })
   }
 
-  getCarouselStyle(index) {
+  getCarouselStyle (index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
@@ -255,11 +254,12 @@ export default class CircularCarousel extends Component {
                     left: '50%',
                     width: '75%'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child, {
-                    active: (this.state.currentIndex === i),
-                    visibilityOverride: true,
-                    imgSource: visibleArray.includes(i) ? child.props.imgSource : ''
-                  })}
+                  { visibleArray.includes(i)
+                    ? React.cloneElement(child, {
+                      active: (this.state.currentIndex === i),
+                      visibilityOverride: true
+                    })
+                    : <Fragment />}
                 </div>
               ))
             }

@@ -321,11 +321,10 @@ var CircularCarousel = function (_Component) {
                     left: '50%',
                     width: '75%'
                   }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child, {
+                visibleArray.includes(i) ? _react2.default.cloneElement(child, {
                   active: _this4.state.currentIndex === i,
-                  visibilityOverride: true,
-                  imgSource: visibleArray.includes(i) ? child.props.imgSource : ''
-                })
+                  visibilityOverride: true
+                }) : _react2.default.createElement(_react.Fragment, null)
               );
             })
           ),
