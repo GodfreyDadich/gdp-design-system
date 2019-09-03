@@ -106,6 +106,16 @@ var CircularCarousel = function (_Component) {
       e.originalEvent.touches; // jQuery
     }
   }, {
+    key: 'withinTollerance',
+    value: function withinTollerance(currIndex, assetIndex, total) {
+      var visibleArray = [currIndex];
+      visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+      visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+      visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1);
+      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1);
+      return visibleArray.includes(assetIndex);
+    }
+  }, {
     key: 'handleTouchStart',
     value: function handleTouchStart(e) {
       var firstTouch = this.getTouches(e)[0];
@@ -302,9 +312,9 @@ var CircularCarousel = function (_Component) {
                     left: '50%',
                     width: '75%'
                   }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child, {
+                _react2.default.cloneElement(_this4.withinTollerance(_this4.state.currentIndex, i, children.length) ? child : _react2.default.createElement(_react.Fragment, null), {
                   active: _this4.state.currentIndex === i,
-                  visibilityOverride: Math.abs(_this4.state.currentIndex - 1 > 4)
+                  visibilityOverride: true
                 })
               );
             })
