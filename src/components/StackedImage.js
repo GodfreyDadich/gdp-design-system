@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Image from './Image'
 import { Caption } from './Type'
-import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
 
 export default class StackedImage extends Component {
