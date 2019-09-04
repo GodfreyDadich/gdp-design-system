@@ -12,14 +12,15 @@ import Typography from './Typography'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
+import StackedImage from '../components/StackedImage';
 
 const imageGallery = [
   'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
   'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  // 'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  // 'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
 ]
 
 const imageGallery2 = [ 
@@ -248,8 +249,8 @@ storiesOf('Image', module)
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <RevealCarousel
         images={imageGallery}
-        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
-        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'sixteen')}
+        countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
         aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
@@ -259,11 +260,11 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'sixteen')}
         // imageAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect:'noAspect' }, 'sixteen')}
-        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
+        countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-        shadow={selectV2('shadow', { yes: 'yes', no: 'no'}, 'no')} 
+        shadow={selectV2('shadow', { yes: 'yes', no: 'no' }, 'no')}
       >
         { imageGallery2.map((img, index) => {
           return <Image
@@ -276,38 +277,48 @@ storiesOf('Image', module)
       </CircularCarousel>
     </div>
   )
-    .add(
-      'Museum (Gallery of Galleries)',
-        () => <Museum 
-        classAdd=''
-        galleries={galleries}
-        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
-        view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
-        columns={number('Columns', 4)} 
-        thumbAspect={selectV2('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square'}, 'sixteen')} 
-        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'sixteen')}
-        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-        />)
-        
-    .add(
-      'Grid Gallery (Mosaic)',
-        () => <GridGallery 
-        mobileCarousel={true}
-        mixedOr={true}
-        altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  .add(
+    'Museum (Gallery of Galleries)',
+    () => <Museum
+      classAdd=''
+      galleries={galleries}
+      countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+      view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+      columns={number('Columns', 4)}
+      thumbAspect={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')}
+      containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
+      caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+    />)
+
+  .add(
+    'Grid Gallery (Mosaic)',
+    () => <GridGallery
+      mobileCarousel={true}
+      mixedOr={true}
+      altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
-        altRatio={'standard'}
-        classAdd=''     
-        headingCaption='Lesson 2: Design Matters'  
-        images={imageGallery2} 
-        thumbs={imageGallery2}
-        countIndicator={selectV2('Count Indicator', { counter:'counter', dots:'dots', none:'none'}, 'dots')}
-        view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode'}, 'lightMode')} 
-        carousel={selectV2('carousel', { yes: 'yes', no: 'no'}, 'no')} 
-        columns={number('Columns', 3)} 
-        thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
-        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', NoAspect:'noAspect'}, 'square')} 
+      altRatio={'standard'}
+      classAdd=''
+      headingCaption='Lesson 2: Design Matters'
+      images={imageGallery2}
+      thumbs={imageGallery2}
+      countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+      view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+      carousel={selectV2('carousel', { yes: 'yes', no: 'no' }, 'no')}
+      columns={number('Columns', 3)}
+      thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+      containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+      caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+    />)
+
+  .add(
+    'Images Stacked',
+    () => <div style={{ width: '75%' }}>
+      <StackedImage
+        images={imageGallery}
+        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-        />)
-  
+      />
+    </div>
+  )
