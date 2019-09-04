@@ -1,4 +1,5 @@
 import React from 'react'
+import { isMobile } from 'react-device-detect';
 
 const paddingRef = {
   sixteen: '56.25%',
@@ -18,12 +19,12 @@ class ImageWrap extends React.Component {
     return Boolean(nextProps.isVisible)
   }
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, backgroundSize } = this.props
+    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
     const showImage = visibilityOverride ? true : isVisible
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
-          backgroundImage: `${aspectRatio !== 'noAspect' && showImage ? `url('${imgSource}')` : ''}`,
+          backgroundImage: `${aspectRatio !== 'noAspect' && showImage ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
           backgroundSize: backgroundSize || 'cover',
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
