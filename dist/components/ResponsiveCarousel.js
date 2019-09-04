@@ -101,10 +101,8 @@ var ResponsiveCarousel = function (_Component) {
       var visibleArray = [currIndex];
       visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
       visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
-      visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1);
-      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1);
-
-      console.log(visibleArray);
+      visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
       this.setState({
         visibleArray: visibleArray
       });

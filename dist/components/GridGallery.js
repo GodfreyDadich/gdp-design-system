@@ -99,7 +99,7 @@ var GridGallery = function GridGallery(_ref) {
     _react2.default.createElement(
       'div',
       { className: 'col-6 skip-3 col-6-tab skip-1-tab' },
-      headingCaption ? headingCaption : ''
+      headingCaption || ''
     ),
     _react2.default.createElement(
       'div',

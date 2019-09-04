@@ -129,10 +129,11 @@ var galleries = [
     'div',
     { style: { width: '50%', margin: '110vh auto' } },
     _react2.default.createElement(_Image2.default, {
+      altAsset: 'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvkja0d010in1g67mqizp-platon-diptych-mobile.full.png',
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
       aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
-      imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
+      imgSource: 'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvki60djv0itgcr7ccd8t-platon-diptych.full.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),
       verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
       horizontalAlign: (0, _addonKnobs.select)('Horizontal Align', ['left', 'center', 'right'], 'center')

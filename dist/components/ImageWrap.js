@@ -10,6 +10,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDeviceDetect = require('react-device-detect');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58,6 +60,7 @@ var ImageWrap = function (_React$Component) {
           isVisible = _props.isVisible,
           visibilityOverride = _props.visibilityOverride,
           skipIntro = _props.skipIntro,
+          altAsset = _props.altAsset,
           backgroundSize = _props.backgroundSize;
 
       var showImage = visibilityOverride ? true : isVisible;
@@ -65,7 +68,7 @@ var ImageWrap = function (_React$Component) {
         'div',
         { className: 'imageWrap ' + aspectRatio + ' ' + (fullBleed ? 'fullBleed' : ''),
           style: {
-            backgroundImage: '' + (aspectRatio !== 'noAspect' && showImage ? 'url(\'' + imgSource + '\')' : ''),
+            backgroundImage: '' + (aspectRatio !== 'noAspect' && showImage ? 'url(\'' + (_reactDeviceDetect.isMobile && altAsset ? altAsset : imgSource) + '\')' : ''),
             backgroundSize: backgroundSize || 'cover',
             backgroundPositionX: horizontalAlign,
             backgroundPositionY: verticalAlign,

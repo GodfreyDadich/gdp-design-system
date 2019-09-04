@@ -101,8 +101,8 @@ var CircularCarousel = function (_Component) {
       var visibleArray = [currIndex];
       visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
       visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
-      visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1);
-      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1);
+      visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
       this.setState({
         visibleArray: visibleArray
       });
@@ -203,7 +203,9 @@ var CircularCarousel = function (_Component) {
     value: function getCarouselStyle(index) {
       var active = this.state.currentIndex;
       var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1;
+      // const prevprev = this.state.currentIndex - 2 >= 0 ? this.state.currentIndex - 2 : this.props.children.length - 1
       var next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0;
+      // const nextnext = this.state.currentIndex + 2 <= this.props.children.length - 1 ? this.state.currentIndex + 2 : 0
       var last = this.state.lastIndex;
       switch (index) {
         case active:

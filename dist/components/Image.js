@@ -28,6 +28,12 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
+var _supportsWebp = require('supports-webp');
+
+var _supportsWebp2 = _interopRequireDefault(_supportsWebp);
+
+var _reactDeviceDetect = require('react-device-detect');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51,6 +57,7 @@ var Image = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           imageTitle = _props.imageTitle,
+          altAsset = _props.altAsset,
           imgSource = _props.imgSource,
           linkUrl = _props.linkUrl,
           caption = _props.caption,
@@ -74,7 +81,8 @@ var Image = function (_React$Component) {
             _react2.default.createElement(
               _ConditionalLink2.default,
               { linkUrl: linkUrl },
-              _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
+              _reactDeviceDetect.isMobile && altAsset ? _react2.default.createElement('img', { alt: imageTitle, src: altAsset, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
+              }) : _react2.default.createElement('img', { alt: imageTitle, src: imgSource, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage'
               }),
               imgHover ? _react2.default.createElement('img', { alt: imageTitle, src: imgHover, className: _style2.default.dynamic([['3442743642', [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']]]) + ' ' + 'wrappedImage imageHover'
               }) : '',
