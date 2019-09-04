@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
@@ -7,14 +7,14 @@ import { DotIndicator } from './DotIndicator'
 import { CountIndicator } from './CountIndicator';
 
 export default class CircularCarousel extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-
     this.state = {
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
-      lastIndex: this.props.children.length - 2
+      lastIndex: this.props.children.length - 2,
+      visibleArray: [0, 1, 2, this.props.children.length - 1, this.props.children.length - 2]
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -25,18 +25,21 @@ export default class CircularCarousel extends Component {
     this.hoverTeaseReset = this.hoverTeaseReset.bind(this)
     this.handleTouchMove = this.handleTouchMove.bind(this)
     this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.updateVisible = this.updateVisible.bind(this)
   }
 
-  goToPrevSlide() {
+  goToPrevSlide () {
+    let currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
     this.setState(prevState => ({
-      currentIndex: this.state.currentIndex === 0 ? this.props.children.length - 1 : prevState.currentIndex - 1,
+      currentIndex: currIndex,
       teaseState: '',
       direction: 'prev',
       lastIndex: prevState.lastIndex === 0 ? this.props.children.length - 1 : prevState.lastIndex - 1
     }))
+    this.updateVisible(currIndex)
   }
 
-  goToNextSlide() {
+  goToNextSlide () {
     const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
 
     this.setState(prevState => {
@@ -47,9 +50,22 @@ export default class CircularCarousel extends Component {
         lastIndex: prevState.lastIndex === this.props.children.length - 1 ? 0 : prevState.lastIndex + 1
       }
     })
+    this.updateVisible(nextSlide)
   }
 
-  handleKeyDown(e) {
+  updateVisible (currIndex) {
+    const total = this.props.children.length - 1
+    let visibleArray = [ currIndex ]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1)
+    this.setState({
+      visibleArray: visibleArray
+    })
+  }
+
+  handleKeyDown (e) {
     if (e.keyCode === 39) {
       this.goToNextSlide()
     }
@@ -58,28 +74,29 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  getTouches(e) {
+  getTouches (e) {
     return e.touches || // browser API
       e.originalEvent.touches // jQuery
   }
 
-  handleTouchStart(e) {
-    e.preventDefault()
+  handleTouchStart (e) {
     const firstTouch = this.getTouches(e)[0]
     this.xDown = firstTouch.clientX
     this.yDown = firstTouch.clientY
   }
 
-  handleTouchMove(e) {
-    e.preventDefault()
+  handleTouchMove (e) {
     if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
     const xDiff = this.xDown - xLeft
-    const direction = (xDiff > 0) ? 'right' : 'left'
-    if (direction === 'right') {
-      this.goToNextSlide()
-    } else {
-      this.goToPrevSlide()
+    if (Math.abs(xDiff) > 6) {
+      e.preventDefault()
+      const direction = (xDiff > 0) ? 'right' : 'left'
+      if (direction === 'right') {
+        this.goToNextSlide()
+      } else {
+        this.goToPrevSlide()
+      }
     }
 
     /* reset values */
@@ -87,7 +104,7 @@ export default class CircularCarousel extends Component {
     this.yDown = null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (isMobile) {
       this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
       this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
@@ -96,11 +113,11 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.killListeners()
   }
 
-  killListeners() {
+  killListeners () {
     if (isMobile) {
       this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
       this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
@@ -109,23 +126,23 @@ export default class CircularCarousel extends Component {
     }
   }
 
-  hoverTeasePrev() {
+  hoverTeasePrev () {
     this.setState({
       teaseState: 'tease-prev'
     })
   }
-  hoverTeaseNext() {
+  hoverTeaseNext () {
     this.setState({
       teaseState: 'tease-next'
     })
   }
-  hoverTeaseReset() {
+  hoverTeaseReset () {
     this.setState({
       teaseState: ''
     })
   }
 
-  getCarouselStyle(index) {
+  getCarouselStyle (index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
@@ -166,7 +183,7 @@ export default class CircularCarousel extends Component {
         }
     }
   }
-  render() {
+  render () {
     const {
       fullBleed,
       caption,
@@ -177,15 +194,19 @@ export default class CircularCarousel extends Component {
       countIndicator
     } = this.props
 
+    const {
+      visibleArray
+    } = this.state
+
     return (
       <div
-        ref={elem => this.carouselElem = elem} 
         style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
         })}
         className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
+          ref={elem => { this.carouselElem = elem }}
           style={{
             position: 'relative',
             height: '100%',
@@ -233,7 +254,12 @@ export default class CircularCarousel extends Component {
                     left: '50%',
                     width: '75%'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
+                  { visibleArray.includes(i)
+                    ? React.cloneElement(child, {
+                      active: (this.state.currentIndex === i),
+                      visibilityOverride: true
+                    })
+                    : <Fragment />}
                 </div>
               ))
             }
@@ -241,8 +267,8 @@ export default class CircularCarousel extends Component {
           </div>
           {isMobile ? countIndicator === 'counter' ?
             <CountIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} />
-            : countIndicator === 'dots' ?
-              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} /> : '' : ''}
+            : countIndicator === 'dots'
+              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} /> : '' : ''}
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>

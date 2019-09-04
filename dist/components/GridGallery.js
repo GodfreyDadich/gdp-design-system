@@ -57,15 +57,9 @@ var GridGallery = function GridGallery(_ref) {
       imageIndex = _useState4[0],
       setImageIndex = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      mobile = _useState6[0],
-      setMobile = _useState6[1];
-
   var colWidth = 100 / columns;
 
   (0, _react.useEffect)(function () {
-    setMobile(_reactDeviceDetect.isMobile);
     if (modalView === true) {
       document.body.classList.add('modalOpen');
     } else {
@@ -115,7 +109,7 @@ var GridGallery = function GridGallery(_ref) {
           overflow: 'visible'
         }),
         className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
-      mobile ? mobileCarousel && !altAsset ?
+      _reactDeviceDetect.isMobile ? mobileCarousel && !altAsset ?
       // case for mobile carousel using the same assets as desktop
       _react2.default.createElement(
         _ResponsiveCarousel2.default,
@@ -132,7 +126,7 @@ var GridGallery = function GridGallery(_ref) {
             })
           );
         })
-      ) : mobile && altAsset.length === 1 ?
+      ) : _reactDeviceDetect.isMobile && altAsset.length === 1 ?
       // case for mobile flat using an alternate asset for mobile
       _react2.default.createElement(
         'div',

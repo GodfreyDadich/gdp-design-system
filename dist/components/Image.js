@@ -28,10 +28,6 @@ var _reactOnScreen = require('react-on-screen');
 
 var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
 
-var _supportsWebp = require('supports-webp');
-
-var _supportsWebp2 = _interopRequireDefault(_supportsWebp);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
