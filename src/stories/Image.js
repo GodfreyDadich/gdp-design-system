@@ -15,12 +15,12 @@ import GridGallery from '../components/GridGallery'
 import StackedImage from '../components/StackedImage';
 
 const imageGallery = [
-  'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',  
+  'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
 
 ]
 
-const imageGallery2 = [ 
+const imageGallery2 = [
   'https://upload.wikimedia.org/wikipedia/en/3/3f/Oxalis_tetraphylla_flower.jpg',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVjbzAxc3UwaW5qMzAxeGs4aGstMjQwNWZmLW1hZ2ljbGVhcC1sby1yMi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
   'https://upload.wikimedia.org/wikipedia/en/3/3f/Oxalis_tetraphylla_flower.jpg',
@@ -269,7 +269,7 @@ storiesOf('Image', module)
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
         shadow={selectV2('shadow', { yes: 'yes', no: 'no' }, 'no')}
       >
-        { imageGallery2.map((img, index) => {
+        {imageGallery2.map((img, index) => {
           return <Image
             key={`img-${index}`}
             aspectRatio='noAspect'
@@ -296,8 +296,8 @@ storiesOf('Image', module)
   .add(
     'Grid Gallery (Mosaic)',
     () => <GridGallery
-      mobileCarousel={true}
-      mixedOr={true}
+      mobileCarousel={boolean('mobileCarousel', true)}
+      mixedOr={boolean('mixedOr', false)}
       altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
