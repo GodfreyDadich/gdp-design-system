@@ -29,25 +29,28 @@ export default class CircularCarousel extends Component {
   }
 
   goToPrevSlide () {
-    let currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
+    const currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
+    const lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1
+
     this.setState(prevState => ({
       currentIndex: currIndex,
       teaseState: '',
       direction: 'prev',
-      lastIndex: prevState.lastIndex === 0 ? this.props.children.length - 1 : prevState.lastIndex - 1
+      lastIndex: lastIndex
     }))
     this.updateVisible(currIndex)
   }
 
   goToNextSlide () {
     const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
+    const lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1
 
     this.setState(prevState => {
       return {
         currentIndex: nextSlide,
         teaseState: '',
         direction: 'next',
-        lastIndex: prevState.lastIndex === this.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+        lastIndex: lastIndex
       }
     })
     this.updateVisible(nextSlide)
@@ -58,8 +61,8 @@ export default class CircularCarousel extends Component {
     let visibleArray = [ currIndex ]
     visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
     visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
-    visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1)
-    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
     this.setState({
       visibleArray: visibleArray
     })
@@ -145,7 +148,9 @@ export default class CircularCarousel extends Component {
   getCarouselStyle (index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
+    // const prevprev = this.state.currentIndex - 2 >= 0 ? this.state.currentIndex - 2 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
+    // const nextnext = this.state.currentIndex + 2 <= this.props.children.length - 1 ? this.state.currentIndex + 2 : 0
     const last = this.state.lastIndex
     switch (index) {
       case active:
@@ -176,10 +181,10 @@ export default class CircularCarousel extends Component {
         }
       default:
         return {
-          opacity: '1',
+          opacity: '0',
           zIndex: '6',
-          transition: 'none',
-          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(60%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transition: 'transform 0.75s, opacity 1s',
+          transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
@@ -252,7 +257,8 @@ export default class CircularCarousel extends Component {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%'
+                    width: '75%',
+                    height: 'auto'
                   }, this.getCarouselStyle(i))}>
                   { visibleArray.includes(i)
                     ? React.cloneElement(child, {

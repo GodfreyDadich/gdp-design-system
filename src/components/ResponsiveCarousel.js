@@ -30,25 +30,28 @@ export default class ResponsiveCarousel extends Component {
   }
 
   goToPrevSlide () {
-    let currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
+    const currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
+    const lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1
+
     this.setState(prevState => ({
       currentIndex: currIndex,
       teaseState: '',
       direction: 'prev',
-      lastIndex: prevState.lastIndex === 0 ? this.props.children.length - 1 : prevState.lastIndex - 1
+      lastIndex: lastIndex
     }))
     this.updateVisible(currIndex)
   }
 
   goToNextSlide () {
     const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
+    const lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1
 
     this.setState(prevState => {
       return {
         currentIndex: nextSlide,
         teaseState: '',
         direction: 'next',
-        lastIndex: prevState.lastIndex === this.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+        lastIndex: lastIndex
       }
     })
     this.updateVisible(nextSlide)
@@ -59,9 +62,8 @@ export default class ResponsiveCarousel extends Component {
     let visibleArray = [ currIndex ]
     visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
     visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
-    visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1)
-    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1)
-
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
     this.setState({
       visibleArray: visibleArray
     })
@@ -160,28 +162,28 @@ export default class ResponsiveCarousel extends Component {
           opacity: '1',
           zIndex: this.state.direction === 'prev' ? '9' : '8',
           transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+          transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
         }
       case next:
         return {
           opacity: '1',
           zIndex: this.state.direction === 'next' ? '9' : '8',
           transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-          transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+          transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
         }
       case last:
         return {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
-          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
       default:
         return {
-          opacity: '1',
+          opacity: '0',
           zIndex: '6',
-          transition: 'none',
-          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transition: 'transform 0.75s, opacity 1s',
+          transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
@@ -271,10 +273,10 @@ export default class ResponsiveCarousel extends Component {
             }
 
           </div>
-          {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
-            : countIndicator === 'dots' ?
-              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
+          {isMobile ? countIndicator === 'counter' 
+            ? <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
+            : countIndicator === 'dots'
+              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
