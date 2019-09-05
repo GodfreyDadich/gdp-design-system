@@ -62,7 +62,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                   aspectRatio={thumbAspect}
                   imgSource={image}
                   skipIntro
-                  visibilityOverride
                 />
               </div>
             )
@@ -92,7 +91,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                     aspectRatio={thumbAspect}
                     imgSource={alt}
                     skipIntro
-                    visibilityOverride
                   />
                 </div>
               )
