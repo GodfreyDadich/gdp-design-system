@@ -303,7 +303,7 @@ storiesOf('Image', module)
       altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
-      altRatio={'standard'}
+      altRatio={selectV2('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, '')}
       classAdd=''
       headingCaption='Lesson 2: Design Matters'
       images={imageGallery2}
