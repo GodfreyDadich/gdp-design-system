@@ -116,7 +116,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                       {({ isVisible }) =>
                         <img
                           className='moasic-image'
-                          onClick={e => { if (carousel === 'yes') { return displayGallery(index) } }}
+                          onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
                           src={isVisible ? image : ''}
                         />
                       }
@@ -142,7 +142,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
               {
                 thumbs.map((image, index) =>
-                  <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={e => { if (carousel === 'yes') { return displayGallery(index) } }} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                  <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={e => { if (carousel === 'yes') { displayGallery(index) } }} style={evenGridStyles} key={`galleryThumb-${index}`}>
                     <Image
                       aspectRatio={thumbAspect || 'noAspect'}
                       imgSource={image}
