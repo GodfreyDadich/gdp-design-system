@@ -22,27 +22,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SimpleGallery = function SimpleGallery(_ref) {
   var images = _ref.images,
-      view = _ref.view;
+      view = _ref.view,
+      startIndex = _ref.startIndex;
 
-  var _useState = (0, _react.useState)(0),
+  var _useState = (0, _react.useState)(startIndex || 0),
       _useState2 = _slicedToArray(_useState, 2),
       currentIndex = _useState2[0],
       setCurrentIndex = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(0),
+  var _useState3 = (0, _react.useState)(-(startIndex * 100) || 0),
       _useState4 = _slicedToArray(_useState3, 2),
       translateValue = _useState4[0],
       setTranslateValue = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(null),
+  var _useState5 = (0, _react.useState)([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2]),
       _useState6 = _slicedToArray(_useState5, 2),
-      xDown = _useState6[0],
-      setXDown = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      yDown = _useState8[0],
-      setYDown = _useState8[1];
+      visibleArray = _useState6[0],
+      setVisibleArray = _useState6[1];
 
   var galleryContainer = (0, _react.useRef)(null);
 
@@ -52,43 +48,15 @@ var SimpleGallery = function SimpleGallery(_ref) {
 
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
+    updateVisible(currentIndex);
   };
 
   var goToNextSlide = function goToNextSlide() {
     var nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     var nextTranslateValue = currentIndex === images.length - 1 ? 0 : -(nextIndex * 100);
-
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
-  };
-
-  var getTouches = function getTouches(e) {
-    return e.touches || // browser API
-    e.originalEvent.touches; // jQuery
-  };
-
-  var handleTouchStart = function handleTouchStart(e) {
-    var firstTouch = getTouches(e)[0];
-    setXDown(firstTouch.clientX);
-    setYDown(firstTouch.clientY);
-  };
-
-  var handleTouchMove = function handleTouchMove(e) {
-    if (!xDown || !yDown) {
-      return;
-    }
-    var xLeft = e.touches[0].clientX;
-    var xDiff = xDown - xLeft;
-    var direction = xDiff > 0 ? 'right' : 'left';
-    if (direction === 'right') {
-      goToNextSlide();
-    } else {
-      goToPrevSlide();
-    }
-
-    /* reset values */
-    setXDown(null);
-    setXDown(null);
+    updateVisible(nextIndex);
   };
 
   var handleKeyDown = function handleKeyDown(e) {
@@ -100,21 +68,27 @@ var SimpleGallery = function SimpleGallery(_ref) {
     }
   };
 
+  var updateVisible = function updateVisible(currIndex) {
+    var total = images.length - 1;
+    var visibleArray = [currIndex];
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
+
+    setVisibleArray(visibleArray);
+  };
+
   (0, _react.useEffect)(function () {
     if (_reactDeviceDetect.isMobile) {
-      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false });
-      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false });
-      return function () {
-        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false });
-        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false });
-      };
+      return;
     } else {
-      galleryContainer.current.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
       return function () {
-        galleryContainer.current.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, []);
+  }, [currentIndex]);
 
   return _react2.default.createElement(
     'div',
@@ -135,9 +109,12 @@ var SimpleGallery = function SimpleGallery(_ref) {
         return _react2.default.createElement(
           'div',
           {
+            key: 'item-' + i,
             style: {
-              height: '100%',
+              height: '80%',
               width: '100%',
+              margin: 'auto',
+              top: '10%',
               position: 'relative',
               display: 'inline-block'
             }, className: 'jsx-2511592491'
@@ -156,7 +133,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
               opacity: currentIndex === i ? 1 : 0,
               transition: 'opacity .3s, transform .3s'
             },
-            src: image,
+            src: visibleArray.includes(i) ? image : '',
             key: 'slide-image-' + i,
             className: 'jsx-2511592491' + ' ' + 'slide'
           })

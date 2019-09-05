@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const SimpleGallery = ({ images, view }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [translateValue, setTranslateValue] = useState(0)
-  const [xDown, setXDown] = useState(null)
-  const [yDown, setYDown] = useState(null)
+const SimpleGallery = ({ images, view, startIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex || 0)
+  const [translateValue, setTranslateValue] = useState(-(startIndex * 100) || 0)
+  const [visibleArray, setVisibleArray] = useState([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2])
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
@@ -19,6 +18,7 @@ const SimpleGallery = ({ images, view }) => {
 
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
+    updateVisible(currentIndex)
   }
 
   const goToNextSlide = () => {
@@ -28,37 +28,9 @@ const SimpleGallery = ({ images, view }) => {
     const nextTranslateValue = (currentIndex === images.length - 1)
       ? 0
       : -(nextIndex * 100)
-
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
-  }
-
-
-  const getTouches = (e) => {
-    return e.touches || // browser API
-      e.originalEvent.touches // jQuery
-  }
-
-  const handleTouchStart = (e) => {
-    const firstTouch = getTouches(e)[0]
-    setXDown(firstTouch.clientX)
-    setYDown(firstTouch.clientY)
-  }
-
-  const handleTouchMove = (e) => {
-    if (!xDown || !yDown) { return }
-    const xLeft = e.touches[0].clientX
-    const xDiff = xDown - xLeft
-    const direction = (xDiff > 0) ? 'right' : 'left'
-    if (direction === 'right') {
-      goToNextSlide()
-    } else {
-      goToPrevSlide()
-    }
-
-    /* reset values */
-    setXDown(null)
-    setXDown(null)
+    updateVisible(nextIndex)
   }
 
   const handleKeyDown = e => {
@@ -70,21 +42,27 @@ const SimpleGallery = ({ images, view }) => {
     }
   }
 
+  const updateVisible = currIndex => {
+    const total = images.length - 1
+    let visibleArray = [currIndex]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+
+    setVisibleArray(visibleArray)
+  }
+
   useEffect(() => {
     if (isMobile) {
-      galleryContainer.current.addEventListener('touchstart', handleTouchStart, { passive: false })
-      galleryContainer.current.addEventListener('touchmove', handleTouchMove, { passive: false })
-      return () => {
-        galleryContainer.current.removeEventListener('touchstart', handleTouchStart, { passive: false })
-        galleryContainer.current.removeEventListener('touchmove', handleTouchMove, { passive: false })
-      }
+      return
     } else {
-      galleryContainer.current.addEventListener('keydown', handleKeyDown)
+      window.addEventListener('keydown', handleKeyDown)
       return () => {
-        galleryContainer.current.removeEventListener('keydown', handleKeyDown)
+        window.removeEventListener('keydown', handleKeyDown)
       }
     }
-  }, [])
+  }, [currentIndex])
 
   return <div className='slider' ref={galleryContainer}>
     <div className='slider-wrapper'
@@ -98,9 +76,12 @@ const SimpleGallery = ({ images, view }) => {
       {
         images.map((image, i) => (
           <div
+            key={`item-${i}`}
             style={{
-              height: '100%',
+              height: '80%',
               width: '100%',
+              margin: 'auto',
+              top: '10%',
               position: 'relative',
               display: 'inline-block'
             }}>
@@ -119,7 +100,7 @@ const SimpleGallery = ({ images, view }) => {
                 opacity: currentIndex === i ? 1 : 0,
                 transition: 'opacity .3s, transform .3s'
               }}
-              src={image}
+              src={visibleArray.includes(i) ? image : ''}
               key={`slide-image-${i}`}
             />
           </div>

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.WiredTypeCaption = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.HeadingSuper = undefined;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHeadBlack = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.BioHeading = exports.HeadingSuper = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -47,9 +47,26 @@ var HeadingSuper = exports.HeadingSuper = function HeadingSuper(_ref) {
   );
 };
 
-var Heading1 = exports.Heading1 = function Heading1(_ref2) {
+var BioHeading = exports.BioHeading = function BioHeading(_ref2) {
   var children = _ref2.children,
       style = _ref2.style;
+  return _react2.default.createElement(
+    'h1',
+    {
+      style: style,
+      className: 'jsx-3588555586' + ' ' + 'bioHeading'
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '3588555586',
+      css: '.bioHeading.jsx-3588555586{position:relative;font-family:\'Noe Display\';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.bioHeading.jsx-3588555586 .clientName.jsx-3588555586{display:block;color:#7F7F7F;}.bioHeading.jsx-3588555586:before{content:\'\';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-3588555586{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-3588555586:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-3588555586{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-3588555586:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}'
+    })
+  );
+};
+
+var Heading1 = exports.Heading1 = function Heading1(_ref3) {
+  var children = _ref3.children,
+      style = _ref3.style;
   return _react2.default.createElement(
     'h1',
     {
@@ -64,10 +81,10 @@ var Heading1 = exports.Heading1 = function Heading1(_ref2) {
   );
 };
 
-var Heading2 = exports.Heading2 = function Heading2(_ref3) {
-  var children = _ref3.children,
-      style = _ref3.style,
-      className = _ref3.className;
+var Heading2 = exports.Heading2 = function Heading2(_ref4) {
+  var children = _ref4.children,
+      style = _ref4.style,
+      className = _ref4.className;
   return _react2.default.createElement(
     'h2',
     {
@@ -82,10 +99,10 @@ var Heading2 = exports.Heading2 = function Heading2(_ref3) {
   );
 };
 
-var Heading3 = exports.Heading3 = function Heading3(_ref4) {
-  var children = _ref4.children,
-      style = _ref4.style,
-      className = _ref4.className;
+var Heading3 = exports.Heading3 = function Heading3(_ref5) {
+  var children = _ref5.children,
+      style = _ref5.style,
+      className = _ref5.className;
   return _react2.default.createElement(
     'h3',
     {
@@ -105,10 +122,10 @@ var Heading3 = exports.Heading3 = function Heading3(_ref4) {
   );
 };
 
-var Heading4 = exports.Heading4 = function Heading4(_ref5) {
-  var children = _ref5.children,
-      style = _ref5.style,
-      className = _ref5.className;
+var Heading4 = exports.Heading4 = function Heading4(_ref6) {
+  var children = _ref6.children,
+      style = _ref6.style,
+      className = _ref6.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -128,10 +145,10 @@ var Heading4 = exports.Heading4 = function Heading4(_ref5) {
   );
 };
 
-var SubHead = exports.SubHead = function SubHead(_ref6) {
-  var children = _ref6.children,
-      style = _ref6.style,
-      className = _ref6.className;
+var SubHead = exports.SubHead = function SubHead(_ref7) {
+  var children = _ref7.children,
+      style = _ref7.style,
+      className = _ref7.className;
   return _react2.default.createElement(
     'h4',
     {
@@ -141,25 +158,48 @@ var SubHead = exports.SubHead = function SubHead(_ref6) {
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-2771219182' + ' ' + ('subhead ' + className)
+      className: 'jsx-1284517413' + ' ' + ('subhead ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2771219182',
-      css: '.subhead.jsx-2771219182{margin-top:30px !important;font-family:\'Atlas Grotesk\';font-weight:400;font-size:19px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.2px;-moz-letter-spacing:-0.2px;-ms-letter-spacing:-0.2px;letter-spacing:-0.2px;color:#7F7F7F;}'
+      styleId: '1284517413',
+      css: '.subhead.jsx-1284517413{font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}'
     })
   );
 };
 
-var WiredType = exports.WiredType = function WiredType(_ref7) {
-  var children = _ref7.children,
-      style = _ref7.style,
-      className = _ref7.className;
+var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref8) {
+  var children = _ref8.children,
+      style = _ref8.style,
+      className = _ref8.className;
+  return _react2.default.createElement(
+    'h4',
+    {
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: 'bold',
+        marginTop: 0,
+        marginBottom: 0
+      }, style),
+      className: 'jsx-2770374667' + ' ' + ('subheadBlack ' + className)
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '2770374667',
+      css: '.subheadBlack.jsx-2770374667{font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#333;}'
+    })
+  );
+};
+
+var WiredType = exports.WiredType = function WiredType(_ref9) {
+  var children = _ref9.children,
+      style = _ref9.style,
+      className = _ref9.className;
   return _react2.default.createElement(
     'span',
     {
       style: _extends({
-        fontFamily: 'Noe Text'
+        fontFamily: 'Atlas Grotesk'
       }, style),
       className: 'jsx-1419568079' + ' ' + ('wiredtype ' + className)
     },
@@ -171,30 +211,30 @@ var WiredType = exports.WiredType = function WiredType(_ref7) {
   );
 };
 
-var WiredTypeCaption = exports.WiredTypeCaption = function WiredTypeCaption(_ref8) {
-  var children = _ref8.children,
-      style = _ref8.style,
-      className = _ref8.className;
+var InquiryText = exports.InquiryText = function InquiryText(_ref10) {
+  var children = _ref10.children,
+      style = _ref10.style,
+      className = _ref10.className;
   return _react2.default.createElement(
     'span',
     {
       style: _extends({
-        fontFamily: 'Atlas Grotesk'
+        fontFamily: 'Noe Text'
       }, style),
-      className: 'jsx-276523423' + ' ' + ('wiredTypeCaption ' + className)
+      className: 'jsx-486986781' + ' ' + ('inquiryText ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '276523423',
-      css: '.wiredTypeCaption.jsx-276523423{color:#7F7F7F;font-weight:500;display:block;font-size:12px;line-height:16px;-webkit-letter-spacing:0.5px;-moz-letter-spacing:0.5px;-ms-letter-spacing:0.5px;letter-spacing:0.5px;margin-top:25px;text-align:center;font-variant:small-caps;}@media only screen and (max-width:500px){.wiredTypeCaption.jsx-276523423{margin-top:15px;}}'
+      styleId: '486986781',
+      css: '.inquiryText.jsx-486986781{font-style:italic;color:#333;font-weight:400;display:block;font-size:19px;line-height:22px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}'
     })
   );
 };
 
-var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref9) {
-  var children = _ref9.children,
-      style = _ref9.style,
-      className = _ref9.className;
+var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref11) {
+  var children = _ref11.children,
+      style = _ref11.style,
+      className = _ref11.className;
   return _react2.default.createElement(
     'span',
     {
@@ -211,12 +251,12 @@ var QuoteAttribution = exports.QuoteAttribution = function QuoteAttribution(_ref
   );
 };
 
-var BioHeader = exports.BioHeader = function BioHeader(_ref10) {
-  var personName = _ref10.personName,
-      personTitle = _ref10.personTitle,
-      insta = _ref10.insta;
+var BioHeader = exports.BioHeader = function BioHeader(_ref12) {
+  var personName = _ref12.personName,
+      personTitle = _ref12.personTitle,
+      insta = _ref12.insta;
   return _react2.default.createElement(
-    Heading1,
+    BioHeading,
     {
       style: {
         paddingBottom: '2.5vw'
@@ -240,7 +280,7 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref10) {
     insta ? _react2.default.createElement(
       'a',
       { href: 'https://www.instagram.com/' + insta, target: '_blank', className: 'noGreen' },
-      _react2.default.createElement(_Icons.InstagramIcon, { style: { marginLeft: '16px' } })
+      _react2.default.createElement(_Icons.BioIcon, { style: { marginLeft: '16px' } })
     ) : '',
     _react2.default.createElement(
       'style',
@@ -250,9 +290,9 @@ var BioHeader = exports.BioHeader = function BioHeader(_ref10) {
   );
 };
 
-var Caption = exports.Caption = function Caption(_ref11) {
-  var classAdd = _ref11.classAdd,
-      children = _ref11.children;
+var Caption = exports.Caption = function Caption(_ref13) {
+  var classAdd = _ref13.classAdd,
+      children = _ref13.children;
   return _react2.default.createElement(
     'figcaption',
     {
@@ -266,9 +306,9 @@ var Caption = exports.Caption = function Caption(_ref11) {
   );
 };
 
-var CardTitle = exports.CardTitle = function CardTitle(_ref12) {
-  var classAdd = _ref12.classAdd,
-      children = _ref12.children;
+var CardTitle = exports.CardTitle = function CardTitle(_ref14) {
+  var classAdd = _ref14.classAdd,
+      children = _ref14.children;
   return _react2.default.createElement(
     'h4',
     {
@@ -282,9 +322,9 @@ var CardTitle = exports.CardTitle = function CardTitle(_ref12) {
   );
 };
 
-var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref13) {
-  var classAdd = _ref13.classAdd,
-      children = _ref13.children;
+var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref15) {
+  var classAdd = _ref15.classAdd,
+      children = _ref15.children;
   return _react2.default.createElement(
     'h5',
     {
@@ -298,9 +338,9 @@ var CardSubTitle = exports.CardSubTitle = function CardSubTitle(_ref13) {
   );
 };
 
-var CardContent = exports.CardContent = function CardContent(_ref14) {
-  var classAdd = _ref14.classAdd,
-      children = _ref14.children;
+var CardContent = exports.CardContent = function CardContent(_ref16) {
+  var classAdd = _ref16.classAdd,
+      children = _ref16.children;
   return _react2.default.createElement(
     'p',
     {
@@ -309,9 +349,9 @@ var CardContent = exports.CardContent = function CardContent(_ref14) {
   );
 };
 
-var SideBar = exports.SideBar = function SideBar(_ref15) {
-  var sideBar = _ref15.sideBar,
-      isVisible = _ref15.isVisible;
+var SideBar = exports.SideBar = function SideBar(_ref17) {
+  var sideBar = _ref17.sideBar,
+      isVisible = _ref17.isVisible;
   return _react2.default.createElement(
     _reactOnScreen2.default,
     { once: true, partialVisibility: true,
@@ -323,8 +363,8 @@ var SideBar = exports.SideBar = function SideBar(_ref15) {
         right: sideBar.location.includes('right') ? '-135px' : 'auto'
       }
     },
-    function (_ref16) {
-      var isVisible = _ref16.isVisible;
+    function (_ref18) {
+      var isVisible = _ref18.isVisible;
       return _react2.default.createElement(
         'div',
         {
@@ -369,8 +409,8 @@ var SideBar = exports.SideBar = function SideBar(_ref15) {
   );
 };
 
-var LeftCarving = exports.LeftCarving = function LeftCarving(_ref17) {
-  var children = _ref17.children;
+var LeftCarving = exports.LeftCarving = function LeftCarving(_ref19) {
+  var children = _ref19.children;
   return _react2.default.createElement(
     'figure',
     {
@@ -386,8 +426,8 @@ var LeftCarving = exports.LeftCarving = function LeftCarving(_ref17) {
   );
 };
 
-var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref18) {
-  var children = _ref18.children;
+var SidebarQuote = exports.SidebarQuote = function SidebarQuote(_ref20) {
+  var children = _ref20.children;
   return _react2.default.createElement(
     'div',
     {

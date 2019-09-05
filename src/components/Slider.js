@@ -46,7 +46,6 @@ export default class Slider extends Component {
   }
 
   goToSlide (slideNum, clickRef) {
-    console.log(clickRef)
     if (slideNum !== this.state.currentIndex) {
       this.setState(() => ({
         currentIndex: slideNum,

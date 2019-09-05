@@ -6,11 +6,10 @@ import Modal from '../components/Modal'
 import Toast from '../components/Toast'
 
 const modalClosed = () => {
-  console.log('modal closed from parent')
   modalState = false
 }
 const toastCallback = () => {
-  console.log('callback')
+  // console.log('callback')
 }
 let modalState = true
 

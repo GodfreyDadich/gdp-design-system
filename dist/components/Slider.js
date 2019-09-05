@@ -93,7 +93,6 @@ var Slider = function (_Component) {
     value: function goToSlide(slideNum, clickRef) {
       var _this4 = this;
 
-      console.log(clickRef);
       if (slideNum !== this.state.currentIndex) {
         this.setState(function () {
           return {

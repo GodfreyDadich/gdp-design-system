@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
@@ -7,14 +7,15 @@ import { DotIndicator } from './DotIndicator'
 import { CountIndicator } from './CountIndicator';
 
 export default class ResponsiveCarousel extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
-      lastIndex: this.props.children.length - 2
+      lastIndex: this.props.children.length - 2,
+      visibleArray: [0, 1, 2, this.props.children.length - 1, this.props.children.length - 2]
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -25,31 +26,50 @@ export default class ResponsiveCarousel extends Component {
     this.hoverTeaseReset = this.hoverTeaseReset.bind(this)
     this.handleTouchMove = this.handleTouchMove.bind(this)
     this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.updateVisible = this.updateVisible.bind(this)
   }
 
-  goToPrevSlide() {
+  goToPrevSlide () {
+    const currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1
+    const lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1
+
     this.setState(prevState => ({
-      currentIndex: this.state.currentIndex === 0 ? this.props.children.length - 1 : prevState.currentIndex - 1,
+      currentIndex: currIndex,
       teaseState: '',
       direction: 'prev',
-      lastIndex: prevState.lastIndex === 0 ? this.props.children.length - 1 : prevState.lastIndex - 1
+      lastIndex: lastIndex
     }))
+    this.updateVisible(currIndex)
   }
 
-  goToNextSlide() {
+  goToNextSlide () {
     const nextSlide = (this.state.currentIndex === this.props.children.length - 1) ? 0 : this.state.currentIndex + 1
+    const lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1
 
     this.setState(prevState => {
       return {
         currentIndex: nextSlide,
         teaseState: '',
         direction: 'next',
-        lastIndex: prevState.lastIndex === this.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+        lastIndex: lastIndex
       }
+    })
+    this.updateVisible(nextSlide)
+  }
+
+  updateVisible (currIndex) {
+    const total = this.props.children.length - 1
+    let visibleArray = [ currIndex ]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+    this.setState({
+      visibleArray: visibleArray
     })
   }
 
-  handleKeyDown(e) {
+  handleKeyDown (e) {
     if (e.keyCode === 39) {
       this.goToNextSlide()
     }
@@ -58,28 +78,29 @@ export default class ResponsiveCarousel extends Component {
     }
   }
 
-  getTouches(e) {
+  getTouches (e) {
     return e.touches || // browser API
       e.originalEvent.touches // jQuery
   }
 
-  handleTouchStart(e) {
-    e.preventDefault()
+  handleTouchStart (e) {
     const firstTouch = this.getTouches(e)[0]
     this.xDown = firstTouch.clientX
     this.yDown = firstTouch.clientY
   }
 
-  handleTouchMove(e) {
-    e.preventDefault()
+  handleTouchMove (e) {
     if (!this.xDown || !this.yDown) { return }
     const xLeft = e.touches[0].clientX
     const xDiff = this.xDown - xLeft
-    const direction = (xDiff > 0) ? 'right' : 'left'
-    if (direction === 'right') {
-      this.goToNextSlide()
-    } else {
-      this.goToPrevSlide()
+    if (Math.abs(xDiff) > 6) {
+      e.preventDefault()
+      const direction = (xDiff > 0) ? 'right' : 'left'
+      if (direction === 'right') {
+        this.goToNextSlide()
+      } else {
+        this.goToPrevSlide()
+      }
     }
 
     /* reset values */
@@ -87,7 +108,7 @@ export default class ResponsiveCarousel extends Component {
     this.yDown = null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (isMobile) {
       this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false })
       this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false })
@@ -96,11 +117,11 @@ export default class ResponsiveCarousel extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.killListeners()
   }
 
-  killListeners() {
+  killListeners () {
     if (isMobile) {
       this.carouselElem.removeEventListener('touchstart', this.handleTouchStart)
       this.carouselElem.removeEventListener('touchmove', this.handleTouchMove)
@@ -109,23 +130,23 @@ export default class ResponsiveCarousel extends Component {
     }
   }
 
-  hoverTeasePrev() {
+  hoverTeasePrev () {
     this.setState({
       teaseState: 'tease-prev'
     })
   }
-  hoverTeaseNext() {
+  hoverTeaseNext () {
     this.setState({
       teaseState: 'tease-next'
     })
   }
-  hoverTeaseReset() {
+  hoverTeaseReset () {
     this.setState({
       teaseState: ''
     })
   }
 
-  getCarouselStyle(index) {
+  getCarouselStyle (index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
@@ -155,20 +176,20 @@ export default class ResponsiveCarousel extends Component {
           opacity: '1',
           zIndex: '6',
           transition: 'transform 0.75s',
-          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
       default:
         return {
-          opacity: '1',
+          opacity: '0',
           zIndex: '6',
-          transition: 'none',
-          transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+          transition: 'transform 0.75s, opacity 1s',
+          transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
         }
     }
   }
-  render() {
+
+  render () {
     const {
-      style = {},
       fullBleed,
       caption,
       aspectRatio,
@@ -176,18 +197,23 @@ export default class ResponsiveCarousel extends Component {
       classAdd,
       imageAspect,
       shadow,
+      altRatio,
       countIndicator
     } = this.props
 
+    const {
+      visibleArray
+    } = this.state
+
     return (
       <div
-        ref={elem => this.carouselElem = elem}
         style={Object.assign({}, {
           position: 'relative',
           overflow: 'visible'
         })}
         className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
+          ref={elem => { this.carouselElem = elem }}
           style={{
             position: 'relative',
             height: '100%',
@@ -195,7 +221,7 @@ export default class ResponsiveCarousel extends Component {
             overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: getPaddingTop(aspectRatio),
+            paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
             backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
@@ -224,11 +250,11 @@ export default class ResponsiveCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    boxShadow: shadow === 'yes' ? '0px 7px 20px rgba(0, 0, 0, 0.4)' : '',
+                    boxShadow: shadow === 'yes' ? '0px 4px 25px rgba(0, 0, 0, 0.4)' : '',
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(-50%) translateY(-50%)',
+                    transform: 'translateX(-50%) translateY(-50%) scale(1.2)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
                     top: '50%',
@@ -236,18 +262,22 @@ export default class ResponsiveCarousel extends Component {
                     width: imageAspect === 'noAspect' ? 'auto' : '75%',
                     maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
                   }, this.getCarouselStyle(i))}>
-                  {React.cloneElement(child, { active: (this.state.currentIndex === i) })}
+                  { visibleArray.includes(i)
+                    ? React.cloneElement(child, {
+                      active: (this.state.currentIndex === i),
+                      visibilityOverride: true
+                    })
+                    : <Fragment />}
                 </div>
               ))
             }
 
           </div>
-          {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
-            : countIndicator === 'dots' ?
-              <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
+          {isMobile ? countIndicator === 'counter' 
+            ? <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} />
+            : countIndicator === 'dots'
+              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect} children={children} /> : '' : ''}
         </div>
-
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>
     )
