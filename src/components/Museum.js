@@ -81,7 +81,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
           {
             galleries.map((gallery, index) => {
               return (
-                <div onClick={e => displayGallery(gallery)} style={thumbStyles} key={`galleryThumb-${index}`}>
+                <div className='grid-image' onClick={e => displayGallery(gallery)} style={thumbStyles} key={`galleryThumb-${index}`}>
                   <Image
                     aspectRatio={thumbAspect || 'sixteen'}
                     imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
