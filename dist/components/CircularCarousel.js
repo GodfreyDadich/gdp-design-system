@@ -64,15 +64,15 @@ var CircularCarousel = function (_Component) {
   _createClass(CircularCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
-      var _this2 = this;
-
       var currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1;
+      var lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1;
+
       this.setState(function (prevState) {
         return {
           currentIndex: currIndex,
           teaseState: '',
           direction: 'prev',
-          lastIndex: prevState.lastIndex === 0 ? _this2.props.children.length - 1 : prevState.lastIndex - 1
+          lastIndex: lastIndex
         };
       });
       this.updateVisible(currIndex);
@@ -80,16 +80,15 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'goToNextSlide',
     value: function goToNextSlide() {
-      var _this3 = this;
-
       var nextSlide = this.state.currentIndex === this.props.children.length - 1 ? 0 : this.state.currentIndex + 1;
+      var lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1;
 
       this.setState(function (prevState) {
         return {
           currentIndex: nextSlide,
           teaseState: '',
           direction: 'next',
-          lastIndex: prevState.lastIndex === _this3.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+          lastIndex: lastIndex
         };
       });
       this.updateVisible(nextSlide);
@@ -236,17 +235,17 @@ var CircularCarousel = function (_Component) {
           };
         default:
           return {
-            opacity: '1',
+            opacity: '0',
             zIndex: '6',
-            transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(60%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transition: 'transform 0.75s, opacity 1s',
+            transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       var _props = this.props,
           fullBleed = _props.fullBleed,
@@ -271,7 +270,7 @@ var CircularCarousel = function (_Component) {
           'div',
           {
             ref: function ref(elem) {
-              _this4.carouselElem = elem;
+              _this2.carouselElem = elem;
             },
             style: {
               position: 'relative',
@@ -321,10 +320,11 @@ var CircularCarousel = function (_Component) {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%'
-                  }, _this4.getCarouselStyle(i)) },
+                    width: '75%',
+                    height: 'auto'
+                  }, _this2.getCarouselStyle(i)) },
                 visibleArray.includes(i) ? _react2.default.cloneElement(child, {
-                  active: _this4.state.currentIndex === i,
+                  active: _this2.state.currentIndex === i,
                   visibilityOverride: true
                 }) : _react2.default.createElement(_react.Fragment, null)
               );

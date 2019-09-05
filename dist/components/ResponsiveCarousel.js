@@ -64,15 +64,15 @@ var ResponsiveCarousel = function (_Component) {
   _createClass(ResponsiveCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
-      var _this2 = this;
-
       var currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1;
+      var lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1;
+
       this.setState(function (prevState) {
         return {
           currentIndex: currIndex,
           teaseState: '',
           direction: 'prev',
-          lastIndex: prevState.lastIndex === 0 ? _this2.props.children.length - 1 : prevState.lastIndex - 1
+          lastIndex: lastIndex
         };
       });
       this.updateVisible(currIndex);
@@ -80,16 +80,15 @@ var ResponsiveCarousel = function (_Component) {
   }, {
     key: 'goToNextSlide',
     value: function goToNextSlide() {
-      var _this3 = this;
-
       var nextSlide = this.state.currentIndex === this.props.children.length - 1 ? 0 : this.state.currentIndex + 1;
+      var lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1;
 
       this.setState(function (prevState) {
         return {
           currentIndex: nextSlide,
           teaseState: '',
           direction: 'next',
-          lastIndex: prevState.lastIndex === _this3.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+          lastIndex: lastIndex
         };
       });
       this.updateVisible(nextSlide);
@@ -216,35 +215,35 @@ var ResponsiveCarousel = function (_Component) {
             opacity: '1',
             zIndex: this.state.direction === 'prev' ? '9' : '8',
             transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             opacity: '1',
             zIndex: this.state.direction === 'next' ? '9' : '8',
             transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case last:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-170%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
-            opacity: '1',
+            opacity: '0',
             zIndex: '6',
-            transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(70%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transition: 'transform 0.75s, opacity 1s',
+            transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       var _props = this.props,
           fullBleed = _props.fullBleed,
@@ -271,7 +270,7 @@ var ResponsiveCarousel = function (_Component) {
           'div',
           {
             ref: function ref(elem) {
-              _this4.carouselElem = elem;
+              _this2.carouselElem = elem;
             },
             style: {
               position: 'relative',
@@ -323,9 +322,9 @@ var ResponsiveCarousel = function (_Component) {
                     left: '50%',
                     width: imageAspect === 'noAspect' ? 'auto' : '75%',
                     maxHeight: imageAspect === 'noAspect' ? '80%' : 'auto'
-                  }, _this4.getCarouselStyle(i)) },
+                  }, _this2.getCarouselStyle(i)) },
                 visibleArray.includes(i) ? _react2.default.cloneElement(child, {
-                  active: _this4.state.currentIndex === i,
+                  active: _this2.state.currentIndex === i,
                   visibilityOverride: true
                 }) : _react2.default.createElement(_react.Fragment, null)
               );

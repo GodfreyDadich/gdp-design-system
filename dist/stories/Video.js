@@ -31,7 +31,7 @@ var _CircularCarousel2 = _interopRequireDefault(_CircularCarousel);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var videoEnded = function videoEnded() {
-  console.log('video over');
+  // console.log('video over')
 };
 (0, _react3.storiesOf)('Video', module).add('Video Element', function () {
   return _react2.default.createElement(

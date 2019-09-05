@@ -9,7 +9,7 @@ import CircularCarousel from '../components/CircularCarousel'
 
 
 const videoEnded = function () {
-  console.log('video over')
+  // console.log('video over')
 }
 storiesOf('Video', module)
   .add('Video Element', () => 
