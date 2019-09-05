@@ -20,6 +20,10 @@ var _ResponsiveCarousel = require('./ResponsiveCarousel');
 
 var _ResponsiveCarousel2 = _interopRequireDefault(_ResponsiveCarousel);
 
+var _reactOnScreen = require('react-on-screen');
+
+var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
+
 var _Image = require('./Image');
 
 var _Image2 = _interopRequireDefault(_Image);
@@ -188,22 +192,31 @@ var GridGallery = function GridGallery(_ref) {
             ) : '',
             thumbs.map(function (image, index) {
               return _react2.default.createElement(
-                'div',
-                { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
-                    return displayGallery(index);
-                  } : '', style: mixedOrStyles, key: 'galleryThumb-' + index },
-                _react2.default.createElement('img', {
-                  className: 'moasic-image',
-                  src: image
-                })
+                _reactOnScreen2.default,
+                {
+                  partialVisibility: true,
+                  once: true,
+                  className: '' + (carousel === 'yes' ? 'grid-image' : ''),
+                  style: mixedOrStyles, key: 'galleryThumb-' + index
+                },
+                function (_ref2) {
+                  var isVisible = _ref2.isVisible;
+                  return _react2.default.createElement('img', {
+                    className: 'moasic-image',
+                    onClick: function onClick(e) {
+                      if (carousel === 'yes') {
+                        return displayGallery(index);
+                      }
+                    },
+                    src: isVisible ? image : ''
+                  });
+                }
               );
             }),
             modalView ? _react2.default.createElement(
               'div',
               { className: 'modal' },
-              _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-                  return closeGallery();
-                } }),
+              _react2.default.createElement('div', { className: 'modalTouchArea', onClick: closeGallery }),
               _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'noAspect', view: view })
             ) : ''
           )
@@ -233,9 +246,11 @@ var GridGallery = function GridGallery(_ref) {
           thumbs.map(function (image, index) {
             return _react2.default.createElement(
               'div',
-              { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: carousel === 'yes' ? function (e) {
-                  return displayGallery(index);
-                } : '', style: evenGridStyles, key: 'galleryThumb-' + index },
+              { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: function onClick(e) {
+                  if (carousel === 'yes') {
+                    return displayGallery(index);
+                  }
+                }, style: evenGridStyles, key: 'galleryThumb-' + index },
               _react2.default.createElement(_Image2.default, {
                 aspectRatio: thumbAspect || 'noAspect',
                 imgSource: image,
@@ -246,9 +261,7 @@ var GridGallery = function GridGallery(_ref) {
           modalView ? _react2.default.createElement(
             'div',
             { className: 'modal' },
-            _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
-                return closeGallery();
-              } }),
+            _react2.default.createElement('div', { className: 'modalTouchArea', onClick: closeGallery }),
             _react2.default.createElement(_GalleryView2.default, { images: images, index: imageIndex, aspectRatio: 'sixteen', view: view })
           ) : ''
         ),
