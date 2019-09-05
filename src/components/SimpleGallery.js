@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const SimpleGallery = ({ images, view }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [translateValue, setTranslateValue] = useState(0)
+const SimpleGallery = ({ images, view, startIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex || 0)
+  const [translateValue, setTranslateValue] = useState(-(startIndex * 100) || 0)
+  const [visibleArray, setVisibleArray] = useState([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2])
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
@@ -17,6 +18,7 @@ const SimpleGallery = ({ images, view }) => {
 
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
+    updateVisible(currentIndex)
   }
 
   const goToNextSlide = () => {
@@ -26,9 +28,9 @@ const SimpleGallery = ({ images, view }) => {
     const nextTranslateValue = (currentIndex === images.length - 1)
       ? 0
       : -(nextIndex * 100)
-
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
+    updateVisible(nextIndex)
   }
 
   const handleKeyDown = e => {
@@ -40,16 +42,27 @@ const SimpleGallery = ({ images, view }) => {
     }
   }
 
+  const updateVisible = currIndex => {
+    const total = images.length - 1
+    let visibleArray = [currIndex]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+
+    setVisibleArray(visibleArray)
+  }
+
   useEffect(() => {
     if (isMobile) {
       return
     } else {
-        window.addEventListener('keydown', handleKeyDown)
-        return () => {
+      window.addEventListener('keydown', handleKeyDown)
+      return () => {
         window.removeEventListener('keydown', handleKeyDown)
-        }
       }
-    }, [currentIndex])
+    }
+  }, [currentIndex])
 
   return <div className='slider' ref={galleryContainer}>
     <div className='slider-wrapper'
@@ -87,7 +100,7 @@ const SimpleGallery = ({ images, view }) => {
                 opacity: currentIndex === i ? 1 : 0,
                 transition: 'opacity .3s, transform .3s'
               }}
-              src={image}
+              src={visibleArray.includes(i) ? image : ''}
               key={`slide-image-${i}`}
             />
           </div>

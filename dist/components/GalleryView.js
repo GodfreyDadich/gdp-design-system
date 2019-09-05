@@ -35,6 +35,11 @@ var GalleryView = function GalleryView(_ref) {
       translateValue = _useState4[0],
       setTranslateValue = _useState4[1];
 
+  var _useState5 = (0, _react.useState)([index, index + 1, index + 2, index - 1, index - 2]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      visibleArray = _useState6[0],
+      setVisibleArray = _useState6[1];
+
   var galleryContainer = (0, _react.useRef)(null);
 
   var goToPrevSlide = function goToPrevSlide() {
@@ -43,6 +48,7 @@ var GalleryView = function GalleryView(_ref) {
 
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
+    updateVisible(currentIndex);
   };
 
   var goToNextSlide = function goToNextSlide() {
@@ -51,6 +57,7 @@ var GalleryView = function GalleryView(_ref) {
 
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
+    updateVisible(nextIndex);
   };
 
   var handleKeyDown = function handleKeyDown(e) {
@@ -60,6 +67,17 @@ var GalleryView = function GalleryView(_ref) {
     if (e.keyCode === 37) {
       goToPrevSlide();
     }
+  };
+
+  var updateVisible = function updateVisible(currIndex) {
+    var total = images.length - 1;
+    var visibleArray = [currIndex];
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
+
+    setVisibleArray(visibleArray);
   };
 
   (0, _react.useEffect)(function () {
@@ -116,7 +134,7 @@ var GalleryView = function GalleryView(_ref) {
               opacity: currentIndex === i ? 1 : 0,
               transition: 'opacity .3s, transform .3s'
             },
-            src: image,
+            src: visibleArray.includes(i) ? image : '',
             key: 'slide-image-' + i,
             className: 'jsx-644554313' + ' ' + 'slide'
           })
