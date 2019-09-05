@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect'
 const GalleryView = ({ images, index, view }) => {
   const [currentIndex, setCurrentIndex] = useState(index)
   const [translateValue, setTranslateValue] = useState(index * -100)
+  const [visibleArray, setVisibleArray] = useState([index, index + 1, index + 2, index - 1, index - 2])
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
@@ -17,6 +18,7 @@ const GalleryView = ({ images, index, view }) => {
 
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
+    updateVisible(currentIndex)
   }
 
   const goToNextSlide = () => {
@@ -29,6 +31,7 @@ const GalleryView = ({ images, index, view }) => {
 
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
+    updateVisible(nextIndex)
   }
 
   const handleKeyDown = e => {
@@ -38,6 +41,17 @@ const GalleryView = ({ images, index, view }) => {
     if (e.keyCode === 37) {
       goToPrevSlide()
     }
+  }
+
+  const updateVisible = currIndex => {
+    const total = images.length - 1
+    let visibleArray = [currIndex]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+
+    setVisibleArray(visibleArray)
   }
 
   useEffect(() => {
@@ -87,7 +101,7 @@ const GalleryView = ({ images, index, view }) => {
                 opacity: currentIndex === i ? 1 : 0,
                 transition: 'opacity .3s, transform .3s'
               }}
-              src={image}
+              src={visibleArray.includes(i) ? image : ''}
               key={`slide-image-${i}`}
             />
           </div>

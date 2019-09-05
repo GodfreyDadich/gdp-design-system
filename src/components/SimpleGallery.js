@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
@@ -50,7 +50,6 @@ const SimpleGallery = ({ images, view, startIndex }) => {
     visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
     visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
 
-    console.log(visibleArray)
     setVisibleArray(visibleArray)
   }
 
