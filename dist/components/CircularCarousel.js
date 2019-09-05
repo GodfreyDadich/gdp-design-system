@@ -45,7 +45,8 @@ var CircularCarousel = function (_Component) {
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
-      lastIndex: _this.props.children.length - 2
+      lastIndex: _this.props.children.length - 2,
+      visibleArray: [0, 1, 2, _this.props.children.length - 1, _this.props.children.length - 2]
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -56,37 +57,53 @@ var CircularCarousel = function (_Component) {
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
     _this.handleTouchMove = _this.handleTouchMove.bind(_this);
     _this.handleTouchStart = _this.handleTouchStart.bind(_this);
+    _this.updateVisible = _this.updateVisible.bind(_this);
     return _this;
   }
 
   _createClass(CircularCarousel, [{
     key: 'goToPrevSlide',
     value: function goToPrevSlide() {
-      var _this2 = this;
+      var currIndex = this.state.currentIndex === 0 ? this.props.children.length - 1 : this.state.currentIndex - 1;
+      var lastIndex = currIndex === 0 ? this.props.children.length - 1 : currIndex - 1;
 
       this.setState(function (prevState) {
         return {
-          currentIndex: _this2.state.currentIndex === 0 ? _this2.props.children.length - 1 : prevState.currentIndex - 1,
+          currentIndex: currIndex,
           teaseState: '',
           direction: 'prev',
-          lastIndex: prevState.lastIndex === 0 ? _this2.props.children.length - 1 : prevState.lastIndex - 1
+          lastIndex: lastIndex
         };
       });
+      this.updateVisible(currIndex);
     }
   }, {
     key: 'goToNextSlide',
     value: function goToNextSlide() {
-      var _this3 = this;
-
       var nextSlide = this.state.currentIndex === this.props.children.length - 1 ? 0 : this.state.currentIndex + 1;
+      var lastIndex = nextSlide === this.props.children.length - 1 ? 0 : nextSlide + 1;
 
       this.setState(function (prevState) {
         return {
           currentIndex: nextSlide,
           teaseState: '',
           direction: 'next',
-          lastIndex: prevState.lastIndex === _this3.props.children.length - 1 ? 0 : prevState.lastIndex + 1
+          lastIndex: lastIndex
         };
+      });
+      this.updateVisible(nextSlide);
+    }
+  }, {
+    key: 'updateVisible',
+    value: function updateVisible(currIndex) {
+      var total = this.props.children.length - 1;
+      var visibleArray = [currIndex];
+      visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+      visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+      visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+      visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
+      this.setState({
+        visibleArray: visibleArray
       });
     }
   }, {
@@ -108,7 +125,6 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'handleTouchStart',
     value: function handleTouchStart(e) {
-      e.preventDefault();
       var firstTouch = this.getTouches(e)[0];
       this.xDown = firstTouch.clientX;
       this.yDown = firstTouch.clientY;
@@ -116,17 +132,19 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
-      e.preventDefault();
       if (!this.xDown || !this.yDown) {
         return;
       }
       var xLeft = e.touches[0].clientX;
       var xDiff = this.xDown - xLeft;
-      var direction = xDiff > 0 ? 'right' : 'left';
-      if (direction === 'right') {
-        this.goToNextSlide();
-      } else {
-        this.goToPrevSlide();
+      if (Math.abs(xDiff) > 6) {
+        e.preventDefault();
+        var direction = xDiff > 0 ? 'right' : 'left';
+        if (direction === 'right') {
+          this.goToNextSlide();
+        } else {
+          this.goToPrevSlide();
+        }
       }
 
       /* reset values */
@@ -184,7 +202,9 @@ var CircularCarousel = function (_Component) {
     value: function getCarouselStyle(index) {
       var active = this.state.currentIndex;
       var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1;
+      // const prevprev = this.state.currentIndex - 2 >= 0 ? this.state.currentIndex - 2 : this.props.children.length - 1
       var next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0;
+      // const nextnext = this.state.currentIndex + 2 <= this.props.children.length - 1 ? this.state.currentIndex + 2 : 0
       var last = this.state.lastIndex;
       switch (index) {
         case active:
@@ -197,35 +217,35 @@ var CircularCarousel = function (_Component) {
             opacity: '1',
             zIndex: this.state.direction === 'prev' ? '9' : '8',
             transition: this.state.direction === 'next' ? 'transform 0.75s' : this.state.teaseState === 'tease-prev' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-prev' ? 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(-155%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case next:
           return {
             opacity: '1',
             zIndex: this.state.direction === 'next' ? '9' : '8',
             transition: this.state.direction === 'prev' ? 'transform 0.75s' : this.state.teaseState === 'tease-next' ? 'transform 0.5s' : 'none',
-            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(50%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
+            transform: this.state.teaseState === 'tease-next' ? 'translateX(50%) translateY(-50%) translateZ(0) scale(0.8, 0.8)' : 'translateX(55%) translateY(-50%) translateZ(0) scale(0.75, 0.75)'
           };
         case last:
           return {
             opacity: '1',
             zIndex: '6',
             transition: 'transform 0.75s',
-            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-150%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transform: this.state.direction === 'prev' ? 'translateX(55%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-160%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
         default:
           return {
-            opacity: '1',
+            opacity: '0',
             zIndex: '6',
-            transition: 'none',
-            transform: this.state.direction === 'prev' ? 'translateX(-175%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(50%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
+            transition: 'transform 0.75s, opacity 1s',
+            transform: this.state.direction === 'prev' ? 'translateX(65%) translateY(-50%) translateZ(0) scale(0.5, 0.5)' : 'translateX(-180%) translateY(-50%) translateZ(0) scale(0.5, 0.5)'
           };
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       var _props = this.props,
           fullBleed = _props.fullBleed,
@@ -235,14 +255,12 @@ var CircularCarousel = function (_Component) {
           classAdd = _props.classAdd,
           shadow = _props.shadow,
           countIndicator = _props.countIndicator;
+      var visibleArray = this.state.visibleArray;
 
 
       return _react2.default.createElement(
         'div',
         {
-          ref: function ref(elem) {
-            return _this4.carouselElem = elem;
-          },
           style: _extends({}, {
             position: 'relative',
             overflow: 'visible'
@@ -251,6 +269,9 @@ var CircularCarousel = function (_Component) {
         _react2.default.createElement(
           'div',
           {
+            ref: function ref(elem) {
+              _this2.carouselElem = elem;
+            },
             style: {
               position: 'relative',
               height: '100%',
@@ -294,14 +315,18 @@ var CircularCarousel = function (_Component) {
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
-                    transform: 'translateX(-50%) translateY(-50%)',
+                    transform: 'translateX(-50%) translateY(-50%) scale(1.1)',
                     transition: 'transform 0.75s',
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%'
-                  }, _this4.getCarouselStyle(i)) },
-                _react2.default.cloneElement(child, { active: _this4.state.currentIndex === i })
+                    width: '75%',
+                    height: 'auto'
+                  }, _this2.getCarouselStyle(i)) },
+                visibleArray.includes(i) ? _react2.default.cloneElement(child, {
+                  active: _this2.state.currentIndex === i,
+                  visibilityOverride: true
+                }) : _react2.default.createElement(_react.Fragment, null)
               );
             })
           ),

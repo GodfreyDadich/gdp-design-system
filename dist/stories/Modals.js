@@ -23,11 +23,10 @@ var _Toast2 = _interopRequireDefault(_Toast);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var modalClosed = function modalClosed() {
-  console.log('modal closed from parent');
   modalState = false;
 };
 var toastCallback = function toastCallback() {
-  console.log('callback');
+  // console.log('callback')
 };
 var modalState = true;
 

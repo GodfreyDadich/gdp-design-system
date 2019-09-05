@@ -48,7 +48,8 @@ var vidStyle = {
   left: 0,
   height: '100%',
   width: '100%',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  border: 'none'
 };
 
 var Video = function (_React$Component) {
@@ -184,9 +185,11 @@ var Video = function (_React$Component) {
           config = _props.config,
           hoverPlay = _props.hoverPlay,
           skipIntro = _props.skipIntro,
+          loadActive = _props.loadActive,
           caption = _props.caption,
           sideBar = _props.sideBar,
           style = _props.style,
+          regPlay = _props.regPlay,
           active = _props.active,
           mouseOverAction = _props.mouseOverAction,
           mouseOutAction = _props.mouseOutAction,
@@ -221,7 +224,7 @@ var Video = function (_React$Component) {
                 style: {
                   position: 'relative',
                   top: isVisible || skipIntro ? '0px' : '15px',
-                  opacity: isVisible ? '1' : '0',
+                  opacity: isVisible || loadActive ? '1' : '0',
                   transition: 'opacity 0.5s, top 0.5s',
                   transitionDelay: '0.75s'
                 },
@@ -244,15 +247,15 @@ var Video = function (_React$Component) {
                       style: {
                         backgroundImage: 'url(' + thumb + ')',
                         backgroundPosition: '' + (isVisible && !_this2.state.isLoading ? 'center center' : '100vw 100vw'),
-                        backgroundColor: hoverPlay ? 'transparent' : '#000',
+                        backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
                         display: _this2.state.coverVisible ? 'inline-block' : 'none'
                       }, className: 'jsx-1710641388' + ' ' + 'videoCover'
                     },
                     _this2.state.isLoading ? _react2.default.createElement(_Loader2.default, null) : '',
                     ' '
                   ),
-                  _this2.state.isMobile && hoverPlay ? '' : _react2.default.createElement(_reactPlayer2.default, {
-                    url: autoplay ? vidSource : isVisible ? vidSource : '',
+                  _this2.state.isMobile && (regPlay || hoverPlay) ? '' : _react2.default.createElement(_reactPlayer2.default, {
+                    url: autoplay ? vidSource : isVisible || loadActive ? vidSource : '',
                     playing: playing,
                     volume: autoplay ? 0 : 1,
                     muted: muted,
