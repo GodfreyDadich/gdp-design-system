@@ -250,7 +250,7 @@ export default class ResponsiveCarousel extends Component {
                 <div
                   key={`carouselImage${i}`}
                   style={Object.assign({
-                    boxShadow: shadow === 'yes' ? '0px 7px 20px rgba(0, 0, 0, 0.4)' : '',
+                    boxShadow: shadow === 'yes' ? '0px 4px 25px rgba(0, 0, 0, 0.4)' : '',
                     display: 'block',
                     verticalAlign: 'middle',
                     position: 'absolute',
