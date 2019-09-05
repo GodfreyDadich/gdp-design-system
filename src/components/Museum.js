@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SimpleGallery from './SimpleGallery'
 import Image from './Image'
-import CircularCarousel from './CircularCarousel'
+import ResponsiveCarousel from './ResponsiveCarousel'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
@@ -9,10 +9,13 @@ import { isMobile } from 'react-device-detect'
 const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspect, view, caption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageGallery, setImageGallery] = useState([])
+  const [clickedIndex, setClickedIndex] = useState('')
   const colWidth = 100 / columns;
   const [mobile, setMobile] = useState(false)
 
   useEffect(() => {
+    buildArray(galleries)
+    console.log('++++', imageGallery)
     setMobile(isMobile)
     if (modalView === true) {
       document.body.classList.add('modalOpen')
@@ -33,13 +36,25 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
     position: 'relative',
   }
 
-  const displayGallery = imageArray => {
-    setModalView(true)
-    setImageGallery(imageArray)
+  const buildArray = galleries => {
+    let imageGalleries = []
+    galleries.map((gallery, index) => {
+      imageGalleries.push(gallery.images)
+      return imageGalleries
+    })
+    imageGalleries.concat(imageGalleries)
+    setImageGallery(imageGalleries.flat())
   }
-  const closeGallery = imageArray => {
+
+  const displayGallery = gallery => {
+    setModalView(true)
+    setClickedIndex(gallery.startIndex)
+    console.log('!!!!', gallery.startIndex)
+  }
+
+  const closeGallery = () => {
     setModalView(false)
-    setImageGallery([])
+    setClickedIndex('')
   }
 
   return <div
@@ -49,10 +64,10 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
     })}
     className={`carouselWrapper ${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
     {mobile ?
-      <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
+      <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} >
         {
           galleries.map((gallery, index) =>
-            <div onClick={e => displayGallery(gallery.images)} style={mobileStyles} key={`galleryThumb-${index}`}>
+            <div style={mobileStyles} key={`galleryThumb-${index}`}>
               <Image
                 aspectRatio={thumbAspect || 'sixteen'}
                 imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
@@ -62,28 +77,30 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             </div>
           )
         }
-      </CircularCarousel>
+      </ResponsiveCarousel>
       : <div>
         <div className='museum-container'>
           <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO VIEW COLLECTION</span></div>
           {
-            galleries.map((gallery, index) =>
-              <div onClick={e => displayGallery(gallery.images)} style={thumbStyles} key={`galleryThumb-${index}`}>
-                <Image
-                  classAdd='grid-image'
-                  aspectRatio={thumbAspect || 'sixteen'}
-                  imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
-                  skipIntro
-                  visibilityOverride
-                />
-              </div>
+            galleries.map((gallery, index) => {
+              return (
+                <div onClick={e => displayGallery(gallery)} style={thumbStyles} key={`galleryThumb-${index}`}>
+                  <Image
+                    aspectRatio={thumbAspect || 'sixteen'}
+                    imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
+                    skipIntro
+                    visibilityOverride
+                  />
+                </div>
+              )
+            }
             )
           }
           {
             modalView
               ? <div className='modal'>
                 <div className='modalTouchArea' onClick={e => closeGallery()} />
-                <SimpleGallery images={imageGallery} aspectRatio='noAspect' view={view} />
+                <SimpleGallery images={imageGallery} aspectRatio='noAspect' view={view} startIndex={clickedIndex} />
               </div>
               : ''
           }

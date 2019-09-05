@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const SimpleGallery = ({ images, view }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [translateValue, setTranslateValue] = useState(0)
+const SimpleGallery = ({ images, view, startIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex || 0)
+  const [translateValue, setTranslateValue] = useState(-(startIndex * 100) || 0)
   const galleryContainer = useRef(null)
-
+  
   const goToPrevSlide = () => {
     const nextIndex = currentIndex === 0
       ? images.length - 1
@@ -26,7 +26,6 @@ const SimpleGallery = ({ images, view }) => {
     const nextTranslateValue = (currentIndex === images.length - 1)
       ? 0
       : -(nextIndex * 100)
-
     setCurrentIndex(nextIndex)
     setTranslateValue(nextTranslateValue)
   }

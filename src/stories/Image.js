@@ -15,54 +15,41 @@ import GridGallery from '../components/GridGallery'
 import StackedImage from '../components/StackedImage';
 
 const imageGallery = [
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  // 'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  // 'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  // 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+  'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',  
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
+
 ]
 
 const imageGallery2 = [ 
+  'https://upload.wikimedia.org/wikipedia/en/3/3f/Oxalis_tetraphylla_flower.jpg',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVjbzAxc3UwaW5qMzAxeGs4aGstMjQwNWZmLW1hZ2ljbGVhcC1sby1yMi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVvcTAxc3gwaW5qN2hrbWY2d3ctMjQxMmZmLWtub2xsLWxvLXIyLmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6OTB9LCJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6OXA0aDAwMXMwaW13M21hOHdpeHktMjQwMmZmcGwtb3BlbmVyLWludHJvLWxvLXIxLnBuZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6OTB9LCJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6NzJuMDAwNWQwaXA3cjBxYTVxcXYtMjExMWZmLWZvb2RuZXR3b3JrLWxvLXIyLnBuZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6OTB9LCJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVyczAxc3kwaW5qNm14b25wd3otMjQwN2ZmLXNwaWVsYmVyZy1sby1yMy5qcGciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6NHUxMjAwNHkwaXA3ZWlyYmtobWctMTctMDhmZi1hZGFtcy1sby1yMi5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6Ym1zaTAwMmgwaW13cXBuYmNiMTEtMjEwM2ZmLWJ1bGxldHMtbG8tcjIucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6MXI5czAwMnUwaXA3ODk5d2tpMDktMTYtMTBzbC1vcGVuZXItbG8tcjEucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5eWdoeTAwMHMwaW5qMzZqd3pmam0tMjMwNGZmLW5vcnRoa29yZWEtbG8tcjQucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5eWdhazAwMHEwaW5qNnNiN2ZueTItMjMwM2ZmLWhlbGxvdG91Y2gtZXZhLWRpbGRvc3JhbmtlZC1sby1yMS5qcGciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6MGJhOTAwMDUwaW13NTM4d3Q3ZGYtMjIwN2V0LWV0aXF1ZXR0ZXBhY2thZ2UtbG8tcjMucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx6MGJhcTAwMHcwaXA3YzdpeTZlanAtMTgtMDdmZi1jb2NrcGl0cy1sby1yMi5qcGciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjkwfSwicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0='
 ]
 
 const imageGallery3 = [
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunflower_from_Silesia2.jpg/1600px-Sunflower_from_Silesia2.jpg',
   'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-  'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_1.jpg',
-  'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_3.jpg',
-  'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'
 ]
 
 const galleries = [
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
-  //   images: imageGallery
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
-  //   images: imageGallery2
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
-  //   images: imageGallery3
-  // },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzeyr8002w0inj5mvflwjl-01-gxxl-58826efa-d964-4c67-bfff-66d80a771fd0.full.jpg',
+    images: imageGallery,
+    startIndex: 0
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
+    images: imageGallery2,
+    startIndex: 2
+
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzu2z4008m0injiij0kd20-01-1016widpnike002.full.jpg',
+    images: imageGallery3,
+    startIndex: 4
+  },
   // {
   //   name: '',
   //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
@@ -73,41 +60,41 @@ const galleries = [
   //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
   //   images: imageGallery2
   // },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzul8t009e0injparsz6s7-01-0616wiaiffgo001.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzw2av005s0ipgsubr4uuf-01-0916wiffbees004.full.jpg',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfv3i00170ip7dxa6mfyo-01-caitoppermann-2017-01-24-wired-nike-kenya-dsc0397.full.jpg',
-    images: imageGallery3
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzsmzc006m0inj8c09q04j-0516wiglessa001.full.jpg',
-    images: imageGallery
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzv3e500a90inj7pcvmrbu-01-0914wiffmang008.full.jpg',
-    images: imageGallery2
-  },
-  {
-    name: '',
-    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzwndg00cs0injhf78powl-01-0314wimpmusi003.full.jpg',
-    images: imageGallery3
-  }
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzul8t009e0injparsz6s7-01-0616wiaiffgo001.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzw2av005s0ipgsubr4uuf-01-0916wiffbees004.full.jpg',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfv3i00170ip7dxa6mfyo-01-caitoppermann-2017-01-24-wired-nike-kenya-dsc0397.full.jpg',
+  //   images: imageGallery3
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzsmzc006m0inj8c09q04j-0516wiglessa001.full.jpg',
+  //   images: imageGallery
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzv3e500a90inj7pcvmrbu-01-0914wiffmang008.full.jpg',
+  //   images: imageGallery2
+  // },
+  // {
+  //   name: '',
+  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzwndg00cs0injhf78powl-01-0314wimpmusi003.full.jpg',
+  //   images: imageGallery3
+  // }
 ]
 
 storiesOf('Styles', module)
