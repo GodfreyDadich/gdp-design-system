@@ -42,7 +42,6 @@ const galleries = [
     thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzgbp6003g0ip74bkqmpco-01-final-150331-white-v12rgb-blackbg-jmo-w-eh1-1800x1047.full.jpg',
     images: imageGallery2,
     startIndex: 2
-
   },
   {
     name: '',
@@ -50,51 +49,60 @@ const galleries = [
     images: imageGallery3,
     startIndex: 4
   },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
-  //   images: imageGallery
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
-  //   images: imageGallery2
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
-  //   images: imageGallery3
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzul8t009e0injparsz6s7-01-0616wiaiffgo001.full.jpg',
-  //   images: imageGallery
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzw2av005s0ipgsubr4uuf-01-0916wiffbees004.full.jpg',
-  //   images: imageGallery2
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfv3i00170ip7dxa6mfyo-01-caitoppermann-2017-01-24-wired-nike-kenya-dsc0397.full.jpg',
-  //   images: imageGallery3
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzsmzc006m0inj8c09q04j-0516wiglessa001.full.jpg',
-  //   images: imageGallery
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzv3e500a90inj7pcvmrbu-01-0914wiffmang008.full.jpg',
-  //   images: imageGallery2
-  // },
-  // {
-  //   name: '',
-  //   thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzwndg00cs0injhf78powl-01-0314wimpmusi003.full.jpg',
-  //   images: imageGallery3
-  // }
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmwp00as0injrv5vtwcu-01-1316wicvcove001.full.jpg',
+    images: imageGallery,
+    startIndex: 6
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfcno003q0injf7jh699h-01-1214wi1dnola001.full.jpg',
+    images: imageGallery2,
+    startIndex: 8
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzqfs4005q0inj3sn07a7l-01-0615wiffilmf035.full.jpg',
+    images: imageGallery3,
+    startIndex: 10
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzul8t009e0injparsz6s7-01-0616wiaiffgo001.full.jpg',
+    images: imageGallery,
+    startIndex: 12
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzw2av005s0ipgsubr4uuf-01-0916wiffbees004.full.jpg',
+    images: imageGallery2,
+    startIndex: 14
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzfv3i00170ip7dxa6mfyo-01-caitoppermann-2017-01-24-wired-nike-kenya-dsc0397.full.jpg',
+    images: imageGallery3,
+    startIndex: 16
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzsmzc006m0inj8c09q04j-0516wiglessa001.full.jpg',
+    images: imageGallery,
+    startIndex: 18
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzv3e500a90inj7pcvmrbu-01-0914wiffmang008.full.jpg',
+    images: imageGallery2,
+    startIndex: 20
+  },
+  {
+    name: '',
+    thumb: 'http://gdp-site.s3.amazonaws.com/attachments/cjzlzwndg00cs0injhf78powl-01-0314wimpmusi003.full.jpg',
+    images: imageGallery3,
+    startIndex: 22
+  }
 ]
 
 storiesOf('Styles', module)
