@@ -62,7 +62,6 @@ export default class ResponsiveCarousel extends Component {
     visibleArray.push(visibleArray[0] === 0 ? total - 1 : visibleArray[0] - 1)
     visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total - 1 : visibleArray[visibleArray.length - 1] - 1)
 
-    console.log(visibleArray)
     this.setState({
       visibleArray: visibleArray
     })

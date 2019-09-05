@@ -15,7 +15,6 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
 
   useEffect(() => {
     buildArray(galleries)
-    console.log('++++', imageGallery)
     setMobile(isMobile)
     if (modalView === true) {
       document.body.classList.add('modalOpen')
@@ -49,7 +48,6 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
   const displayGallery = gallery => {
     setModalView(true)
     setClickedIndex(gallery.startIndex)
-    console.log('!!!!', gallery.startIndex)
   }
 
   const closeGallery = () => {
