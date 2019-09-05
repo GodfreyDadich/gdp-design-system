@@ -22,17 +22,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SimpleGallery = function SimpleGallery(_ref) {
   var images = _ref.images,
-      view = _ref.view;
+      view = _ref.view,
+      startIndex = _ref.startIndex;
 
-  var _useState = (0, _react.useState)(0),
+  var _useState = (0, _react.useState)(startIndex || 0),
       _useState2 = _slicedToArray(_useState, 2),
       currentIndex = _useState2[0],
       setCurrentIndex = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(0),
+  var _useState3 = (0, _react.useState)(-(startIndex * 100) || 0),
       _useState4 = _slicedToArray(_useState3, 2),
       translateValue = _useState4[0],
       setTranslateValue = _useState4[1];
+
+  var _useState5 = (0, _react.useState)([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      visibleArray = _useState6[0],
+      setVisibleArray = _useState6[1];
 
   var galleryContainer = (0, _react.useRef)(null);
 
@@ -42,14 +48,15 @@ var SimpleGallery = function SimpleGallery(_ref) {
 
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
+    updateVisible(currentIndex);
   };
 
   var goToNextSlide = function goToNextSlide() {
     var nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     var nextTranslateValue = currentIndex === images.length - 1 ? 0 : -(nextIndex * 100);
-
     setCurrentIndex(nextIndex);
     setTranslateValue(nextTranslateValue);
+    updateVisible(nextIndex);
   };
 
   var handleKeyDown = function handleKeyDown(e) {
@@ -59,6 +66,17 @@ var SimpleGallery = function SimpleGallery(_ref) {
     if (e.keyCode === 37) {
       goToPrevSlide();
     }
+  };
+
+  var updateVisible = function updateVisible(currIndex) {
+    var total = images.length - 1;
+    var visibleArray = [currIndex];
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
+
+    setVisibleArray(visibleArray);
   };
 
   (0, _react.useEffect)(function () {
@@ -115,7 +133,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
               opacity: currentIndex === i ? 1 : 0,
               transition: 'opacity .3s, transform .3s'
             },
-            src: image,
+            src: visibleArray.includes(i) ? image : '',
             key: 'slide-image-' + i,
             className: 'jsx-2511592491' + ' ' + 'slide'
           })

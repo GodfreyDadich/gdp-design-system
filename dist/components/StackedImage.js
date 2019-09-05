@@ -17,8 +17,6 @@ var _Image2 = _interopRequireDefault(_Image);
 
 var _Type = require('./Type');
 
-var _aspectRatio = require('../utils/aspectRatio');
-
 var _reactDeviceDetect = require('react-device-detect');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
