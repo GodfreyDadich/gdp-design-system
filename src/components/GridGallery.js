@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import GalleryView from './GalleryView'
 import ResponsiveCarousel from './ResponsiveCarousel'
+import TrackVisibility from 'react-on-screen'
 import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
@@ -106,18 +107,26 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
                 {
                   thumbs.map((image, index) =>
-                    <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={mixedOrStyles} key={`galleryThumb-${index}`}>
-                      <img
-                        className='moasic-image'
-                        src={image}
-                      />
-                    </div>
+                    <TrackVisibility
+                      partialVisibility
+                      once
+                      className={`${carousel === 'yes' ? 'grid-image' : ''}`}
+                      style={mixedOrStyles} key={`galleryThumb-${index}`}
+                    >
+                      {({ isVisible }) =>
+                        <img
+                          className='moasic-image'
+                          onClick={e => { if (carousel === 'yes') { return displayGallery(index) } }}
+                          src={isVisible ? image : ''}
+                        />
+                      }
+                    </TrackVisibility>
                   )
                 }
                 {
                   modalView
                     ? <div className='modal'>
-                      <div className='modalTouchArea' onClick={e => closeGallery()} />
+                      <div className='modalTouchArea' onClick={closeGallery} />
                       <GalleryView images={images} index={imageIndex} aspectRatio='noAspect' view={view} />
                     </div>
                     : ''
@@ -133,7 +142,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
               {
                 thumbs.map((image, index) =>
-                  <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={carousel === 'yes' ? e => displayGallery(index) : ''} style={evenGridStyles} key={`galleryThumb-${index}`}>
+                  <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={e => { if (carousel === 'yes') { return displayGallery(index) } }} style={evenGridStyles} key={`galleryThumb-${index}`}>
                     <Image
                       aspectRatio={thumbAspect || 'noAspect'}
                       imgSource={image}
@@ -145,7 +154,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               {
                 modalView
                   ? <div className='modal'>
-                    <div className='modalTouchArea' onClick={e => closeGallery()} />
+                    <div className='modalTouchArea' onClick={closeGallery} />
                     <GalleryView images={images} index={imageIndex} aspectRatio='sixteen' view={view} />
                   </div>
                   : ''
