@@ -20,9 +20,9 @@ var _Image = require('./Image');
 
 var _Image2 = _interopRequireDefault(_Image);
 
-var _CircularCarousel = require('./CircularCarousel');
+var _ResponsiveCarousel = require('./ResponsiveCarousel');
 
-var _CircularCarousel2 = _interopRequireDefault(_CircularCarousel);
+var _ResponsiveCarousel2 = _interopRequireDefault(_ResponsiveCarousel);
 
 var _Type = require('./Type');
 
@@ -50,14 +50,20 @@ var Museum = function Museum(_ref) {
       imageGallery = _useState4[0],
       setImageGallery = _useState4[1];
 
+  var _useState5 = (0, _react.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      clickedIndex = _useState6[0],
+      setClickedIndex = _useState6[1];
+
   var colWidth = 100 / columns;
 
-  var _useState5 = (0, _react.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      mobile = _useState6[0],
-      setMobile = _useState6[1];
+  var _useState7 = (0, _react.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      mobile = _useState8[0],
+      setMobile = _useState8[1];
 
   (0, _react.useEffect)(function () {
+    buildArray(galleries);
     setMobile(_reactDeviceDetect.isMobile);
     if (modalView === true) {
       document.body.classList.add('modalOpen');
@@ -78,13 +84,24 @@ var Museum = function Museum(_ref) {
     position: 'relative'
   };
 
-  var displayGallery = function displayGallery(imageArray) {
-    setModalView(true);
-    setImageGallery(imageArray);
+  var buildArray = function buildArray(galleries) {
+    var imageGalleries = [];
+    galleries.map(function (gallery, index) {
+      imageGalleries.push(gallery.images);
+      return imageGalleries;
+    });
+    imageGalleries.concat(imageGalleries);
+    setImageGallery(imageGalleries.flat());
   };
-  var closeGallery = function closeGallery(imageArray) {
+
+  var displayGallery = function displayGallery(gallery) {
+    setModalView(true);
+    setClickedIndex(gallery.startIndex);
+  };
+
+  var closeGallery = function closeGallery() {
     setModalView(false);
-    setImageGallery([]);
+    setClickedIndex('');
   };
 
   return _react2.default.createElement(
@@ -96,19 +113,16 @@ var Museum = function Museum(_ref) {
       }),
       className: 'carouselWrapper ' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
     mobile ? _react2.default.createElement(
-      _CircularCarousel2.default,
+      _ResponsiveCarousel2.default,
       { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
       galleries.map(function (gallery, index) {
         return _react2.default.createElement(
           'div',
-          { onClick: function onClick(e) {
-              return displayGallery(gallery.images);
-            }, style: mobileStyles, key: 'galleryThumb-' + index },
+          { style: mobileStyles, key: 'galleryThumb-' + index },
           _react2.default.createElement(_Image2.default, {
             aspectRatio: thumbAspect || 'sixteen',
             imgSource: gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0],
-            skipIntro: true,
-            visibilityOverride: true
+            skipIntro: true
           })
         );
       })
@@ -130,15 +144,13 @@ var Museum = function Museum(_ref) {
         galleries.map(function (gallery, index) {
           return _react2.default.createElement(
             'div',
-            { onClick: function onClick(e) {
-                return displayGallery(gallery.images);
+            { className: 'grid-image', onClick: function onClick(e) {
+                return displayGallery(gallery);
               }, style: thumbStyles, key: 'galleryThumb-' + index },
             _react2.default.createElement(_Image2.default, {
-              classAdd: 'grid-image',
               aspectRatio: thumbAspect || 'sixteen',
               imgSource: gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0],
-              skipIntro: true,
-              visibilityOverride: true
+              skipIntro: true
             })
           );
         }),
@@ -148,7 +160,7 @@ var Museum = function Museum(_ref) {
           _react2.default.createElement('div', { className: 'modalTouchArea', onClick: function onClick(e) {
               return closeGallery();
             } }),
-          _react2.default.createElement(_SimpleGallery2.default, { images: imageGallery, aspectRatio: 'noAspect', view: view })
+          _react2.default.createElement(_SimpleGallery2.default, { images: imageGallery, aspectRatio: 'noAspect', view: view, startIndex: clickedIndex })
         ) : ''
       ),
       caption && caption.length > 0 ? _react2.default.createElement(
