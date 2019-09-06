@@ -75,6 +75,7 @@ var ImageWrap = function (_React$Component) {
             backgroundRepeat: 'no-repeat',
             position: 'relative',
             height: 'auto',
+            lineHeight: '0',
             overflow: '' + (!sideBar ? 'hidden' : 'visible'),
             paddingTop: paddingRef[aspectRatio],
             opacity: showImage ? 1 : 0,

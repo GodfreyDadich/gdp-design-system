@@ -9,9 +9,11 @@ import { isMobile } from 'react-device-detect'
 const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, mobileCarousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
+  const [mobile, setMobile] = useState(false)
   const colWidth = 100 / columns
 
   useEffect(() => {
+    setMobile(isMobile)
     if (modalView === true) {
       document.body.classList.add('modalOpen')
     } else {
@@ -53,7 +55,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         overflow: 'visible'
       })}
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-      {isMobile ? mobileCarousel && !altAsset ?
+      {mobile ? mobileCarousel && !altAsset ?
         // case for mobile carousel using the same assets as desktop
         <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
           {
@@ -68,7 +70,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             )
           }
         </ResponsiveCarousel>
-        : isMobile && (altAsset.length === 1) ?
+        : mobile && (altAsset.length === 1) ?
           // case for mobile flat using an alternate asset for mobile
           <div className='mobile-flat'>
             <div className='mobile-grid-container'>
