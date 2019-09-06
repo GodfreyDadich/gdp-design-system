@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SimpleGallery from './SimpleGallery'
-import ResponsiveCarousel from './ResponsiveCarousel'
+import CircularCarousel from './CircularCarousel'
 import TrackVisibility from 'react-on-screen'
 import Image from './Image'
 import { Caption } from './Type'
@@ -57,7 +57,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
       {mobile ? mobileCarousel && !altAsset ?
         // case for mobile carousel using the same assets as desktop
-        <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+        <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
           {
             images.map((image, index) =>
               <div style={mobileStyles} key={`${escape(image)}-${index}`}>
@@ -69,7 +69,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               </div>
             )
           }
-        </ResponsiveCarousel>
+        </CircularCarousel>
         : mobile && (altAsset.length === 1) ?
           // case for mobile flat using an alternate asset for mobile
           <div className='mobile-flat'>
@@ -86,7 +86,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           </div>
           :
           // mobile case for multiple alt assets 
-          <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} altRatio={altRatio} >
+          <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect} altRatio={altRatio} >
             {
               altAsset.map((alt, index) =>
                 <div style={mobileStyles} key={`${escape(alt)}-${index}`}>
@@ -98,7 +98,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 </div>
               )
             }
-          </ResponsiveCarousel>
+          </CircularCarousel>
         : mixedOr ?
           // case for desktop grid with mixed orientations
           <div>

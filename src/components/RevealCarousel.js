@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import Slide from './Slide'
-import ResponsiveCarousel from './ResponsiveCarousel'
-import Image from './Image'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
