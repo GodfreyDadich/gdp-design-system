@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean } from '@storybook/addon-knobs'
-import Card from '../components/Card'
 import SimpleGallery from '../components/SimpleGallery'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
