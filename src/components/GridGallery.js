@@ -9,9 +9,11 @@ import { isMobile } from 'react-device-detect'
 const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, mobileCarousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
+  const [mobile, setMobile] = useState(false)
   const colWidth = 100 / columns
 
   useEffect(() => {
+    setMobile(isMobile)
     if (modalView === true) {
       document.body.classList.add('modalOpen')
     } else {
@@ -53,7 +55,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         overflow: 'visible'
       })}
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
-      {isMobile ? mobileCarousel && !altAsset ?
+      {mobile ? mobileCarousel && !altAsset ?
         // case for mobile carousel using the same assets as desktop
         <ResponsiveCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
           {
@@ -68,7 +70,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             )
           }
         </ResponsiveCarousel>
-        : isMobile && (altAsset.length === 1) ?
+        : mobile && (altAsset.length === 1) ?
           // case for mobile flat using an alternate asset for mobile
           <div className='mobile-flat'>
             <div className='mobile-grid-container'>
@@ -102,7 +104,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           <div>
             <div className='grid-container'>
               <div className='image-wrapper'>
-                {carousel === 'yes' ? <div className='expand-indicator'><span className='expand-icon'></span><span className='expand-copy'>CLICK IMAGE TO EXPAND</span></div> : ''}
+                {carousel === 'yes' ? <div className='expand-indicator'><span className='expand-icon' style={{backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')"}}></span><span className='expand-copy'>CLICK IMAGE TO EXPAND</span></div> : ''}
                 {
                   thumbs.map((image, index) =>
                     <TrackVisibility
@@ -174,7 +176,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           </div>
       }
     </div>
-    <style>{`
+    <style jsx>{`
     .modalOpen {
       overflow: hidden;
     }
@@ -213,7 +215,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       margin-right: 10px;
       background-repeat: no-repeat;
       background-size: 100%;
-      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
       margin-left: .1vw;
       position: relative;
       transform: translateY(-50%);
