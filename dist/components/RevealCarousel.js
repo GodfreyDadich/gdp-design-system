@@ -19,14 +19,6 @@ var _Slide = require('./Slide');
 
 var _Slide2 = _interopRequireDefault(_Slide);
 
-var _ResponsiveCarousel = require('./ResponsiveCarousel');
-
-var _ResponsiveCarousel2 = _interopRequireDefault(_ResponsiveCarousel);
-
-var _Image = require('./Image');
-
-var _Image2 = _interopRequireDefault(_Image);
-
 var _Type = require('./Type');
 
 var _aspectRatio = require('../utils/aspectRatio');

@@ -49,15 +49,6 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
-var _GalleryView = require('./components/GalleryView');
-
-Object.defineProperty(exports, 'GalleryView', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_GalleryView).default;
-  }
-});
-
 var _GridGallery = require('./components/GridGallery');
 
 Object.defineProperty(exports, 'GridGallery', {
