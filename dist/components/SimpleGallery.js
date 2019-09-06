@@ -41,8 +41,6 @@ var SimpleGallery = function SimpleGallery(_ref) {
       setVisibleArray = _useState6[1];
 
   var galleryContainer = (0, _react.useRef)(null);
-  console.log('!!!', index);
-  console.log('----', visibleArray);
 
   var goToPrevSlide = function goToPrevSlide() {
     var nextIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;

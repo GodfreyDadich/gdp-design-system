@@ -49,6 +49,15 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
+var _ConditionalWrapper = require('./components/ConditionalWrapper');
+
+Object.defineProperty(exports, 'ConditionalWrapper', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ConditionalWrapper).default;
+  }
+});
+
 var _GridGallery = require('./components/GridGallery');
 
 Object.defineProperty(exports, 'GridGallery', {

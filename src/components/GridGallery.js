@@ -6,8 +6,9 @@ import TrackVisibility from 'react-on-screen'
 import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
+import ConditionalClass from './ConditionalClass'
 
-const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, mobileCarousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
+const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const [appliedImages, setAppliedImages] = useState(images)
@@ -86,42 +87,44 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           </div>
         : <div>
           <div className={mixedOr ? 'grid-container' : 'columns-grid-container'}>
-            {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
-            {
-              thumbs.map((image, index) =>
-                mixedOr
-                  ? <TrackVisibility
-                    partialVisibility
-                    once
-                    className={`${carousel === 'yes' ? 'grid-image' : ''}`}
-                    style={mixedOrStyles} key={`galleryThumb-${index}`}
-                  >
-                    {({ isVisible }) =>
-                      <img
-                        className='moasic-image'
-                        onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
-                        src={isVisible ? image : ''}
+            <ConditionalClass pass={mixedOr} classAdd='image-wrapper'>
+              {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+              {
+                thumbs.map((image, index) =>
+                  mixedOr
+                    ? <TrackVisibility
+                      partialVisibility
+                      once
+                      className={`${carousel === 'yes' ? 'grid-image' : ''}`}
+                      style={mixedOrStyles} key={`galleryThumb-${index}`}
+                    >
+                      {({ isVisible }) =>
+                        <img
+                          className='moasic-image'
+                          onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
+                          src={isVisible ? image : ''}
+                        />
+                      }
+                    </TrackVisibility>
+                    : <div
+                      className={`${carousel === 'yes' ? 'grid-image' : ''}`}
+                      onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
+                      style={evenGridStyles}
+                      key={`galleryThumb-${index}`}>
+                      <Image
+                        aspectRatio={thumbAspect || 'noAspect'}
+                        imgSource={image}
+                        skipIntro
                       />
-                    }
-                  </TrackVisibility>
-                  : <div
-                    className={`${carousel === 'yes' ? 'grid-image' : ''}`}
-                    onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
-                    style={evenGridStyles}
-                    key={`galleryThumb-${index}`}>
-                    <Image
-                      aspectRatio={thumbAspect || 'noAspect'}
-                      imgSource={image}
-                      skipIntro
-                    />
-                  </div>
-              )
-            }
-            <Modal
-              view={view}
-              modalVisible={modalView}>
-              <SimpleGallery images={images} view={view} index={imageIndex} />
-            </Modal>
+                    </div>
+                )
+              }
+              <Modal
+                view={view}
+                modalVisible={modalView}>
+                <SimpleGallery images={images} view={view} index={imageIndex} />
+              </Modal>
+            </ConditionalClass>
           </div>
           {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
@@ -136,6 +139,13 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       position: relative;
       height: 9.4vw;
       width: auto;
+    }
+    .image-wrapper {
+      margin: auto;
+      width: 80vw;
+      @media only screen and (max-width: 1025px) {
+        width: 60vw;
+      }
     }
       .expand {
         font-family: Atlas Grotesk;

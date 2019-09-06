@@ -36,6 +36,10 @@ var _Type = require('./Type');
 
 var _reactDeviceDetect = require('react-device-detect');
 
+var _ConditionalWrapper = require('./ConditionalWrapper');
+
+var _ConditionalWrapper2 = _interopRequireDefault(_ConditionalWrapper);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GridGallery = function GridGallery(_ref) {
@@ -46,7 +50,6 @@ var GridGallery = function GridGallery(_ref) {
       thumbAspect = _ref.thumbAspect,
       containerAspect = _ref.containerAspect,
       carousel = _ref.carousel,
-      mobileCarousel = _ref.mobileCarousel,
       view = _ref.view,
       caption = _ref.caption,
       mixedOr = _ref.mixedOr,
@@ -65,15 +68,23 @@ var GridGallery = function GridGallery(_ref) {
       imageIndex = _useState4[0],
       setImageIndex = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(false),
+  var _useState5 = (0, _react.useState)(images),
       _useState6 = _slicedToArray(_useState5, 2),
-      mobile = _useState6[0],
-      setMobile = _useState6[1];
+      appliedImages = _useState6[0],
+      setAppliedImages = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      mobile = _useState8[0],
+      setMobile = _useState8[1];
 
   var colWidth = 100 / columns;
 
   (0, _react.useEffect)(function () {
     setMobile(_reactDeviceDetect.isMobile);
+    if (altAsset) {
+      setAppliedImages(altAsset);
+    }
     if (modalView === true) {
       document.body.classList.add('modalOpen');
     } else {
@@ -103,9 +114,6 @@ var GridGallery = function GridGallery(_ref) {
     setModalView(true);
     setImageIndex(index);
   };
-  var closeGallery = function closeGallery() {
-    setModalView(false);
-  };
 
   return _react2.default.createElement(
     'div',
@@ -123,12 +131,10 @@ var GridGallery = function GridGallery(_ref) {
           overflow: 'visible'
         }),
         className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
-      mobile ? mobileCarousel && !altAsset ?
-      // case for mobile carousel using the same assets as desktop
-      _react2.default.createElement(
+      mobile ? appliedImages.length > 1 ? _react2.default.createElement(
         _CircularCarousel2.default,
         { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
-        images.map(function (image, index) {
+        appliedImages.map(function (image, index) {
           return _react2.default.createElement(
             'div',
             { style: mobileStyles, key: escape(image) + '-' + index },
@@ -139,9 +145,7 @@ var GridGallery = function GridGallery(_ref) {
             })
           );
         })
-      ) : mobile && altAsset.length === 1 ?
-      // case for mobile flat using an alternate asset for mobile
-      _react2.default.createElement(
+      ) : _react2.default.createElement(
         'div',
         { className: 'mobile-flat' },
         _react2.default.createElement(
@@ -152,7 +156,7 @@ var GridGallery = function GridGallery(_ref) {
             { style: evenGridStyles },
             _react2.default.createElement(_Image2.default, {
               aspectRatio: thumbAspect || 'noAspect',
-              imgSource: altAsset,
+              imgSource: appliedImages[0],
               skipIntro: true
             })
           )
@@ -162,33 +166,15 @@ var GridGallery = function GridGallery(_ref) {
           { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
           caption
         ) : ''
-      ) :
-      // mobile case for multiple alt assets 
-      _react2.default.createElement(
-        _CircularCarousel2.default,
-        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect, altRatio: altRatio },
-        altAsset.map(function (alt, index) {
-          return _react2.default.createElement(
-            'div',
-            { style: mobileStyles, key: escape(alt) + '-' + index },
-            _react2.default.createElement(_Image2.default, {
-              aspectRatio: thumbAspect,
-              imgSource: alt,
-              skipIntro: true
-            })
-          );
-        })
-      ) : mixedOr ?
-      // case for desktop grid with mixed orientations
-      _react2.default.createElement(
+      ) : _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'div',
-          { className: 'grid-container' },
+          { className: mixedOr ? 'grid-container' : 'columns-grid-container' },
           _react2.default.createElement(
-            'div',
-            { className: 'image-wrapper' },
+            _ConditionalWrapper2.default,
+            null,
             carousel === 'yes' ? _react2.default.createElement(
               'div',
               { className: 'expand' },
@@ -199,7 +185,7 @@ var GridGallery = function GridGallery(_ref) {
               )
             ) : '',
             thumbs.map(function (image, index) {
-              return _react2.default.createElement(
+              return mixedOr ? _react2.default.createElement(
                 _reactOnScreen2.default,
                 {
                   partialVisibility: true,
@@ -219,6 +205,22 @@ var GridGallery = function GridGallery(_ref) {
                     src: isVisible ? image : ''
                   });
                 }
+              ) : _react2.default.createElement(
+                'div',
+                {
+                  className: '' + (carousel === 'yes' ? 'grid-image' : ''),
+                  onClick: function onClick(e) {
+                    if (carousel === 'yes') {
+                      displayGallery(index);
+                    }
+                  },
+                  style: evenGridStyles,
+                  key: 'galleryThumb-' + index },
+                _react2.default.createElement(_Image2.default, {
+                  aspectRatio: thumbAspect || 'noAspect',
+                  imgSource: image,
+                  skipIntro: true
+                })
               );
             }),
             _react2.default.createElement(
@@ -235,57 +237,12 @@ var GridGallery = function GridGallery(_ref) {
           { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
           caption
         ) : ''
-      ) :
-      // case for desktop grid with aligned columns 
-      _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'columns-grid-container' },
-          carousel === 'yes' ? _react2.default.createElement(
-            'div',
-            { className: 'expand' },
-            _react2.default.createElement(
-              'span',
-              { className: 'expand-indicator' },
-              'CLICK IMAGE TO EXPAND'
-            )
-          ) : '',
-          thumbs.map(function (image, index) {
-            return _react2.default.createElement(
-              'div',
-              { className: '' + (carousel === 'yes' ? 'grid-image' : ''), onClick: function onClick(e) {
-                  if (carousel === 'yes') {
-                    displayGallery(index);
-                  }
-                }, style: evenGridStyles, key: 'galleryThumb-' + index },
-              _react2.default.createElement(_Image2.default, {
-                aspectRatio: thumbAspect || 'noAspect',
-                imgSource: image,
-                skipIntro: true
-              })
-            );
-          }),
-          _react2.default.createElement(
-            _Modal2.default,
-            {
-              view: view,
-              modalVisible: modalView },
-            _react2.default.createElement(_SimpleGallery2.default, { images: images, view: view, index: imageIndex })
-          )
-        ),
-        caption && caption.length > 0 ? _react2.default.createElement(
-          _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
-          caption
-        ) : ''
       )
     ),
     _react2.default.createElement(
       'style',
       null,
-      '\n    .modalOpen {\n      overflow: hidden;\n    }\n    .moasic-image {\n      display: inline-block;\n      position: relative;\n      height: 9.4vw;\n      width: auto;\n    }\n    .image-wrapper {\n      margin: auto;\n      width: 80vw;\n      @media only screen and (max-width: 1025px) {\n        width: 60vw;\n      }\n    }\n      .expand {\n        font-family: Atlas Grotesk;\n        color: #7F7F7F;\n        position: absolute;\n        top: 1vw;\n        left: 1vw;\n        font-weight: 400;\n        font-size: 10px;\n        letter-spacing: 1.25px;\n      }\n      .expand::before {\n        content: url(\'data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E\');\n      }\n      .expand-indicator {\n        margin-left: 8px;\n        position: absolute;\n        width: 40vw;\n        top: 50%;\n        transform: translateY(-50%);\n      }\n      .grid-container {\n        background: rgb(242,242,242);\n        display:block;\n        position: relative;\n        padding: 6vw;\n      }\n      .columns-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 5vw;\n      }\n      .mobile-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 15px;\n      }\n      .grid-image:hover {\n        filter: brightness(70%);\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100vw;\n        height: 100vh;\n        z-index: 1000;\n      }\n      .modalTouchArea {\n        cursor: pointer;\n        position: absolute;\n        top: 30px;\n        right: 30px;\n        width: 30px;\n        height: 30px;\n        z-index:9999;\n        background-repeat: no-repeat;\n      }\n    '
+      '\n    .modalOpen {\n      overflow: hidden;\n    }\n    .moasic-image {\n      display: inline-block;\n      position: relative;\n      height: 9.4vw;\n      width: auto;\n    }\n    .image-wrapper {\n      margin: auto;\n      width: 80vw;\n    }\n      .expand {\n        font-family: Atlas Grotesk;\n        color: #7F7F7F;\n        position: absolute;\n        top: 1vw;\n        left: 1vw;\n        font-weight: 400;\n        font-size: 10px;\n        letter-spacing: 1.25px;\n      }\n      .expand::before {\n        content: url(\'data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E\');\n      }\n      .expand-indicator {\n        margin-left: 8px;\n        position: absolute;\n        width: 40vw;\n        top: 50%;\n        transform: translateY(-50%);\n      }\n      .grid-container {\n        background: rgb(242,242,242);\n        display:block;\n        position: relative;\n        padding: 6vw;\n      }\n      .columns-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 5vw;\n      }\n      .mobile-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 15px;\n      }\n      .grid-image:hover {\n        filter: brightness(70%);\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100vw;\n        height: 100vh;\n        z-index: 1000;\n      }\n      .modalTouchArea {\n        cursor: pointer;\n        position: absolute;\n        top: 30px;\n        right: 30px;\n        width: 30px;\n        height: 30px;\n        z-index:9999;\n        background-repeat: no-repeat;\n      }\n    '
     )
   );
 };
