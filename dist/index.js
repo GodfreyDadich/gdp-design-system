@@ -49,12 +49,12 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
-var _ConditionalWrapper = require('./components/ConditionalWrapper');
+var _ConditionalClass = require('./components/ConditionalClass');
 
-Object.defineProperty(exports, 'ConditionalWrapper', {
+Object.defineProperty(exports, 'ConditionalClass', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_ConditionalWrapper).default;
+    return _interopRequireDefault(_ConditionalClass).default;
   }
 });
 
