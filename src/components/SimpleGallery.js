@@ -9,6 +9,7 @@ const SimpleGallery = ({ images, view, index }) => {
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
+    console.log('left clicked')
     const nextIndex = currentIndex === 0
       ? images.length - 1
       : currentIndex - 1
@@ -22,6 +23,7 @@ const SimpleGallery = ({ images, view, index }) => {
   }
 
   const goToNextSlide = () => {
+    console.log('right clicked')
     const nextIndex = (currentIndex === images.length - 1)
       ? 0
       : currentIndex + 1
