@@ -7,6 +7,9 @@ const SimpleGallery = ({ images, view, index }) => {
   const [translateValue, setTranslateValue] = useState(-(index * 100) || 0)
   const [visibleArray, setVisibleArray] = useState([index, index + 1, index + 2, index - 1, index - 2])
   const galleryContainer = useRef(null)
+  console.log('!!!', index)
+  console.log('----', visibleArray)
+
 
   const goToPrevSlide = () => {
     const nextIndex = currentIndex === 0
@@ -53,6 +56,7 @@ const SimpleGallery = ({ images, view, index }) => {
   }
 
   useEffect(() => {
+    updateVisible(currentIndex)
     if (isMobile) {
       return
     } else {

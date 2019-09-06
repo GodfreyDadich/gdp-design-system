@@ -1,7 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, boolean } from '@storybook/addon-knobs';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { text, boolean } from '@storybook/addon-knobs'
 import Card from '../components/Card'
+import SimpleGallery from '../components/SimpleGallery'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
 
@@ -13,23 +14,23 @@ const toastCallback = () => {
 }
 let modalState = true
 
+const imageGallery = [
+  'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
+]
+
 storiesOf('Modals', module)
-  .add('Modal Window', () => 
+  .add('Modal Window', () =>
     <div><p> this is some test content for below the modal</p>{modalState.toString()}
       <Modal
+        view={'darkMode'}
         closeCallback={modalClosed}
         modalVisible={boolean('Toggle modal', modalState)}>
-        <Card
-          cardTitle='Test Title'
-          cardSubTitle='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
-          cardContent='Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
-          linkText='Test Link'
-          linkUrl=''
-          mediaOrientation='top'
-          imageTitle='test'
-          aspectRatio='standard'
-          imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
-          horizontalAlign='center'
+        <SimpleGallery
+          images={imageGallery}
+          aspectRatio='noAspect'
+          view={'darkMode'}
+          index={0}
         />
       </Modal>
     </div>
