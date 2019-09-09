@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import { AltRightArrow, AltLeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
-const SimpleGallery = ({ images, view, startIndex }) => {
-  const [currentIndex, setCurrentIndex] = useState(startIndex || 0)
-  const [translateValue, setTranslateValue] = useState(-(startIndex * 100) || 0)
-  const [visibleArray, setVisibleArray] = useState([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2])
+const SimpleGallery = ({ images, view, index }) => {
+  const [currentIndex, setCurrentIndex] = useState(index || 0)
+  const [translateValue, setTranslateValue] = useState(-(index * 100) || 0)
+  const [visibleArray, setVisibleArray] = useState([index, index + 1, index + 2, index - 1, index - 2])
   const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
@@ -49,11 +49,11 @@ const SimpleGallery = ({ images, view, startIndex }) => {
     visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
     visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
     visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
-
     setVisibleArray(visibleArray)
   }
 
   useEffect(() => {
+    updateVisible(currentIndex)
     if (isMobile) {
       return
     } else {

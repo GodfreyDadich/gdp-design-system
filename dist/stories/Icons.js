@@ -22,7 +22,12 @@ var Icons = function Icons(props) {
     ' ',
     _react2.default.createElement('br', null),
     'LinkedIn:\xA0',
-    _react2.default.createElement(_Icons.LinkedInIcon, { color: 'green' })
+    _react2.default.createElement(_Icons.LinkedInIcon, { color: 'green' }),
+    _react2.default.createElement('br', null),
+    ' ',
+    _react2.default.createElement('br', null),
+    'Close Modal:\xA0',
+    _react2.default.createElement(_Icons.CloseModal, { color: 'green' })
   );
 };
 

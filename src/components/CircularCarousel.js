@@ -148,9 +148,7 @@ export default class CircularCarousel extends Component {
   getCarouselStyle (index) {
     const active = this.state.currentIndex
     const prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1
-    // const prevprev = this.state.currentIndex - 2 >= 0 ? this.state.currentIndex - 2 : this.props.children.length - 1
     const next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0
-    // const nextnext = this.state.currentIndex + 2 <= this.props.children.length - 1 ? this.state.currentIndex + 2 : 0
     const last = this.state.lastIndex
     switch (index) {
       case active:
@@ -196,7 +194,9 @@ export default class CircularCarousel extends Component {
       children,
       classAdd,
       shadow,
-      countIndicator
+      countIndicator,
+      imageAspect,
+      altRatio
     } = this.props
 
     const {
@@ -219,7 +219,7 @@ export default class CircularCarousel extends Component {
             overflow: 'visible',
             touchAction: 'pan-y',
             userSelect: 'none',
-            paddingTop: getPaddingTop(aspectRatio),
+            paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
             backgroundColor: 'rgb(242,242,242)'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
@@ -257,7 +257,8 @@ export default class CircularCarousel extends Component {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%',
+                    width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
                     height: 'auto'
                   }, this.getCarouselStyle(i))}>
                   { visibleArray.includes(i)
@@ -272,9 +273,9 @@ export default class CircularCarousel extends Component {
 
           </div>
           {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} />
+            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} />
             : countIndicator === 'dots'
-              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={aspectRatio} children={children} /> : '' : ''}
+              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>

@@ -8,9 +8,9 @@ var _react3 = require('@storybook/react');
 
 var _addonKnobs = require('@storybook/addon-knobs');
 
-var _Card = require('../components/Card');
+var _SimpleGallery = require('../components/SimpleGallery');
 
-var _Card2 = _interopRequireDefault(_Card);
+var _SimpleGallery2 = _interopRequireDefault(_SimpleGallery);
 
 var _Modal = require('../components/Modal');
 
@@ -30,6 +30,8 @@ var toastCallback = function toastCallback() {
 };
 var modalState = true;
 
+var imageGallery = ['https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'];
+
 (0, _react3.storiesOf)('Modals', module).add('Modal Window', function () {
   return _react2.default.createElement(
     'div',
@@ -43,19 +45,14 @@ var modalState = true;
     _react2.default.createElement(
       _Modal2.default,
       {
+        view: 'darkMode',
         closeCallback: modalClosed,
         modalVisible: (0, _addonKnobs.boolean)('Toggle modal', modalState) },
-      _react2.default.createElement(_Card2.default, {
-        cardTitle: 'Test Title',
-        cardSubTitle: 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.',
-        cardContent: 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.',
-        linkText: 'Test Link',
-        linkUrl: '',
-        mediaOrientation: 'top',
-        imageTitle: 'test',
-        aspectRatio: 'standard',
-        imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
-        horizontalAlign: 'center'
+      _react2.default.createElement(_SimpleGallery2.default, {
+        images: imageGallery,
+        aspectRatio: 'noAspect',
+        view: 'darkMode',
+        index: 0
       })
     )
   );
