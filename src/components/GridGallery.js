@@ -104,7 +104,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           <div>
             <div className='grid-container'>
               <div className='image-wrapper'>
-                {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+                {carousel === 'yes' ? <div className='expand-indicator'><span className='expand-icon' style={{backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')"}}></span><span className='expand-copy'>CLICK IMAGE TO EXPAND</span></div> : ''}
                 {
                   thumbs.map((image, index) =>
                     <TrackVisibility
@@ -145,7 +145,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           // case for desktop grid with aligned columns 
           <div>
             <div className='columns-grid-container'>
-              {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+              {carousel === 'yes' ? <div className='expand-indicator'><span className='expand-icon'></span><span className='expand-copy'>CLICK IMAGE TO EXPAND</span></div> : ''}
               {
                 thumbs.map((image, index) =>
                   <div className={`${carousel === 'yes' ? 'grid-image' : ''}`} onClick={e => { if (carousel === 'yes') { displayGallery(index) } }} style={evenGridStyles} key={`galleryThumb-${index}`}>
@@ -176,7 +176,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
           </div>
       }
     </div>
-    <style>{`
+    <style jsx>{`
     .modalOpen {
       overflow: hidden;
     }
@@ -193,26 +193,32 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         width: 60vw;
       }
     }
-      .expand {
-        font-family: Atlas Grotesk;
-        color: #7F7F7F;
-        position: absolute;
-        top: 1vw;
-        left: 1vw;
-        font-weight: 400;
-        font-size: 10px;
-        letter-spacing: 1.25px;
-      }
-      .expand::before {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
-      }
-      .expand-indicator {
-        margin-left: 8px;
-        position: absolute;
-        width: 40vw;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+    .expand-indicator {
+      font-family: Atlas Grotesk;
+      color: #7F7F7F;
+      position: absolute;
+      top: 1.25vw;
+      left: .8vw;
+    }
+    .expand-copy {
+      letter-spacing: 1.25px;
+      font-weight: 400;
+      font-size: 10px;
+      float: right;
+      width: 80vw;
+    }
+    .expand-icon {
+      display: inline-block;
+      height: 25px;
+      width: 25px;
+      top: 5px;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      margin-left: .1vw;
+      position: relative;
+      transform: translateY(-50%);
+    }
       .grid-container {
         background: rgb(242,242,242);
         display:block;
