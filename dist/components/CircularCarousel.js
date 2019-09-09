@@ -42,6 +42,7 @@ var CircularCarousel = function (_Component) {
     var _this = _possibleConstructorReturn(this, (CircularCarousel.__proto__ || Object.getPrototypeOf(CircularCarousel)).call(this, props));
 
     _this.state = {
+      swipe: false,
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
@@ -57,6 +58,7 @@ var CircularCarousel = function (_Component) {
     _this.hoverTeaseReset = _this.hoverTeaseReset.bind(_this);
     _this.handleTouchMove = _this.handleTouchMove.bind(_this);
     _this.handleTouchStart = _this.handleTouchStart.bind(_this);
+    _this.handleTouchEnd = _this.handleTouchEnd.bind(_this);
     _this.updateVisible = _this.updateVisible.bind(_this);
     return _this;
   }
@@ -125,21 +127,34 @@ var CircularCarousel = function (_Component) {
   }, {
     key: 'handleTouchStart',
     value: function handleTouchStart(e) {
+      this.carouselElem.addEventListener('touchend', this.handleTouchEnd, { passive: false });
       var firstTouch = this.getTouches(e)[0];
       this.xDown = firstTouch.clientX;
       this.yDown = firstTouch.clientY;
     }
   }, {
+    key: 'handleTouchEnd',
+    value: function handleTouchEnd(e) {
+      e.preventDefault();
+      if (e.target.classList.contains('nextArrow')) {
+        this.goToNextSlide();
+      } else {
+        this.goToPrevSlide();
+      }
+    }
+  }, {
     key: 'handleTouchMove',
     value: function handleTouchMove(e) {
+      this.carouselElem.removeEventListener('touchend', this.handleTouchEnd);
+      this.setState({ swipe: true });
       if (!this.xDown || !this.yDown) {
         return;
       }
-      var xLeft = e.touches[0].clientX;
-      var xDiff = this.xDown - xLeft;
-      if (Math.abs(xDiff) > 6) {
+      this.xLeft = e.touches[0].clientX;
+      this.xDiff = this.xDown - this.xLeft;
+      if (Math.abs(this.xDiff) > 6) {
         e.preventDefault();
-        var direction = xDiff > 0 ? 'right' : 'left';
+        var direction = this.xDiff > 0 ? 'right' : 'left';
         if (direction === 'right') {
           this.goToNextSlide();
         } else {
@@ -148,6 +163,7 @@ var CircularCarousel = function (_Component) {
       }
 
       /* reset values */
+      this.setState({ swipe: false });
       this.xDown = null;
       this.yDown = null;
     }
@@ -157,6 +173,7 @@ var CircularCarousel = function (_Component) {
       if (_reactDeviceDetect.isMobile) {
         this.carouselElem.addEventListener('touchstart', this.handleTouchStart, { passive: false });
         this.carouselElem.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+        this.carouselElem.addEventListener('touchend', this.handleTouchEnd, { passive: false });
       } else {
         document.addEventListener('keydown', this.handleKeyDown, false);
       }
@@ -172,6 +189,7 @@ var CircularCarousel = function (_Component) {
       if (_reactDeviceDetect.isMobile) {
         this.carouselElem.removeEventListener('touchstart', this.handleTouchStart);
         this.carouselElem.removeEventListener('touchmove', this.handleTouchMove);
+        this.carouselElem.removeEventListener('touchend', this.handleTouchEnd);
       } else {
         document.removeEventListener('keydown', this.handleKeyDown);
       }
