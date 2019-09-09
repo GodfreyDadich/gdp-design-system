@@ -45,6 +45,7 @@ export const CloseModal = ({ color, style }) =>
   <div>
     <div id='circle'>
       <div id='cross' />
+      <div id='cross2' />
     </div>
     <style>{`  
   #cross {
@@ -56,13 +57,13 @@ export const CloseModal = ({ color, style }) =>
     left: 11px;
     top: 4.5px;
   }
-  #cross:after {
+  #cross2 {
+    transform: rotate(45deg);
     background: black;
-    content: "";
     height: 1px;
-    left: -6px;
+    left: 5px;
     position: absolute;
-    top: 6px;
+    top: 11px;
     width: 13px;
   }
   #circle {
