@@ -128,9 +128,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
     </div>
     <style>{`
-      .modalOpen {
-        overflow: hidden;
-      }
       .moasic-image {
         display: inline-block;
         position: relative;

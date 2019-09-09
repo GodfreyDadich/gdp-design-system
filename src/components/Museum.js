@@ -98,9 +98,6 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       </div>
     }
     <style>{`
-      .modalOpen {
-        overflow: hidden;
-      }
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;

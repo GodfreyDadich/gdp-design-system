@@ -85,12 +85,13 @@ var CloseModal = exports.CloseModal = function CloseModal(_ref6) {
     _react2.default.createElement(
       'div',
       { id: 'circle' },
-      _react2.default.createElement('div', { id: 'cross' })
+      _react2.default.createElement('div', { id: 'cross' }),
+      _react2.default.createElement('div', { id: 'cross2' })
     ),
     _react2.default.createElement(
       'style',
       null,
-      '  \n  #cross {\n    transform: rotate(45deg);\n    background: black;\n    height: 13px;\n    position: relative;\n    width: 1px;\n    left: 11px;\n    top: 4.5px;\n  }\n  #cross:after {\n    background: black;\n    content: "";\n    height: 1px;\n    left: -6px;\n    position: absolute;\n    top: 6px;\n    width: 13px;\n  }\n  #circle {\n    position: absolute;\n    background-color:#fff;\n    border:1px solid black;    \n    height:23px;\n    border-radius:50%;\n    width:23px;\n  }\n  '
+      '  \n  #cross {\n    transform: rotate(45deg);\n    background: black;\n    height: 13px;\n    position: relative;\n    width: 1px;\n    left: 11px;\n    top: 4.5px;\n  }\n  #cross2 {\n    transform: rotate(45deg);\n    background: black;\n    height: 1px;\n    left: 5px;\n    position: absolute;\n    top: 11px;\n    width: 13px;\n  }\n  #circle {\n    position: absolute;\n    background-color:#fff;\n    border:1px solid black;    \n    height:23px;\n    border-radius:50%;\n    width:23px;\n  }\n  '
     )
   );
 };
