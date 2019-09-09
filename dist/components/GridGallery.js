@@ -85,11 +85,6 @@ var GridGallery = function GridGallery(_ref) {
     if (altAsset) {
       setAppliedImages(altAsset);
     }
-    if (modalView === true) {
-      document.body.classList.add('modalOpen');
-    } else {
-      document.body.classList.remove('modalOpen');
-    }
   }, [modalView]);
 
   var evenGridStyles = {
@@ -223,13 +218,13 @@ var GridGallery = function GridGallery(_ref) {
                 })
               );
             }),
-            _react2.default.createElement(
+            modalView ? _react2.default.createElement(
               _Modal2.default,
               {
                 view: view,
                 modalVisible: modalView },
               _react2.default.createElement(_SimpleGallery2.default, { images: images, view: view, index: imageIndex })
-            )
+            ) : ''
           )
         ),
         caption && caption.length > 0 ? _react2.default.createElement(

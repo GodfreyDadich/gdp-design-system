@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.LinkedInIcon = exports.InstagramIcon = exports.BioIcon = exports.AltIcon = exports.Icon = undefined;
+exports.CloseModal = exports.LinkedInIcon = exports.InstagramIcon = exports.BioIcon = exports.AltIcon = exports.Icon = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDeviceDetect = require('react-device-detect');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -76,4 +74,23 @@ var LinkedInIcon = exports.LinkedInIcon = function LinkedInIcon(_ref5) {
       width: '17px',
       backgroundImage: 'url(\'data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2215%22%20viewBox%3D%220%200%2016%2015%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cdefs%3E%3Cpath%20d%3D%22M4%2C5.36783931%20C4%2C5.87805266%204.41871975%2C6.28931003%205.06709195%2C6.28931003%20L5.07798064%2C6.28931003%20C5.75010999%2C6.28931003%206.1708095%2C5.87805266%206.1708095%2C5.36783931%20C6.15695117%2C4.84491602%205.75208975%2C4.45%205.09183898%2C4.45%20C4.43158821%2C4.45%204%2C4.84491602%204%2C5.36783931%20Z%20M9.06819182%2C7.77001816%20L9.05631324%2C7.00106673%20L7.0458645%2C7.00106673%20L7.05675319%2C12.45%20L9.06819182%2C12.45%20L9.06819182%2C9.36511575%20C9.06819182%2C9.20533364%209.08106027%2C9.04827508%209.1325341%2C8.93388561%20C9.27210735%2C8.61522923%209.55818302%2C8.28567862%2010.0927189%2C8.28567862%20C10.7905851%2C8.28567862%2010.9984602%2C8.7741035%2010.9984602%2C9.49039946%20L10.9984602%2C12.45%20L13%2C12.45%20L12.9980202%2C12.45%20L12.9980202%2C9.28613255%20C12.9980202%2C7.65108942%2012.0477343%2C6.89030867%2010.7777167%2C6.89030867%20C9.75318962%2C6.89030867%209.32556093%2C7.40596913%209.06819182%2C7.77001816%20Z%20M4.12472503%2C7.00106673%20L4.13561373%2C12.45%20L6.11933568%2C12.45%20L6.10943687%2C7.00106673%20L4.12472503%2C7.00106673%20Z%22%20id%3D%22a%22/%3E%3C/defs%3E%3Cg%20transform%3D%22translate%28-1%20-.45%29%22%20fill%3D%22' + (escape(color) || escape('#000')) + '%22%20fill-rule%3D%22evenodd%22%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22/%3E%3Cpath%20d%3D%22M13.032%2C0.45%20L4.968%2C0.45%20C2.78%2C0.45%201%2C2.11875%201%2C4.17%20L1%2C11.73%20C1%2C13.78125%202.78%2C15.45%204.968%2C15.45%20L13.032%2C15.45%20C15.22%2C15.45%2017%2C13.78125%2017%2C11.73%20L17%2C4.17%20C17%2C2.11875%2015.22%2C0.45%2013.032%2C0.45%20M13.032%2C1.90125%20C14.368%2C1.90125%2015.451%2C2.9175%2015.451%2C4.17%20L15.451%2C11.73%20C15.451%2C12.9825%2014.368%2C13.99875%2013.032%2C13.99875%20L4.968%2C13.99875%20C3.632%2C13.99875%202.548%2C12.9825%202.548%2C11.73%20L2.548%2C4.17%20C2.548%2C2.9175%203.632%2C1.90125%204.968%2C1.90125%20L13.032%2C1.90125%22/%3E%3C/g%3E%3C/svg%3E\')'
     }, style) });
+};
+
+var CloseModal = exports.CloseModal = function CloseModal(_ref6) {
+  var color = _ref6.color,
+      style = _ref6.style;
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { id: 'circle' },
+      _react2.default.createElement('div', { id: 'cross' })
+    ),
+    _react2.default.createElement(
+      'style',
+      null,
+      '  \n  #cross {\n    transform: rotate(45deg);\n    background: black;\n    height: 13px;\n    position: relative;\n    width: 1px;\n    left: 11px;\n    top: 4.5px;\n  }\n  #cross:after {\n    background: black;\n    content: "";\n    height: 1px;\n    left: -6px;\n    position: absolute;\n    top: 6px;\n    width: 13px;\n  }\n  #circle {\n    position: absolute;\n    background-color:#fff;\n    border:1px solid black;    \n    height:23px;\n    border-radius:50%;\n    width:23px;\n  }\n  '
+    )
+  );
 };

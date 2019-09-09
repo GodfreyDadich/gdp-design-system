@@ -20,11 +20,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     if (altAsset) {
       setAppliedImages(altAsset)
     }
-    if (modalView === true) {
-      document.body.classList.add('modalOpen')
-    } else {
-      document.body.classList.remove('modalOpen')
-    }
   }, [modalView])
 
   const evenGridStyles = {
@@ -119,11 +114,13 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                     </div>
                 )
               }
+              {modalView ? 
               <Modal
-                view={view}
-                modalVisible={modalView}>
+              view={view}
+              modalVisible={modalView}>
                 <SimpleGallery images={images} view={view} index={imageIndex} />
-              </Modal>
+              </Modal> : ''
+            }
             </ConditionalClass>
           </div>
           {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}

@@ -71,11 +71,11 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
           {
             galleries.map((gallery, index) => {
               return (
-                <div 
-                className='grid-image' 
-                onClick={e => displayGallery(gallery)}
-                style={thumbStyles} 
-                key={`galleryThumb-${index}`}>
+                <div
+                  className='grid-image'
+                  onClick={e => displayGallery(gallery)}
+                  style={thumbStyles}
+                  key={`galleryThumb-${index}`}>
                   <Image
                     aspectRatio={thumbAspect || 'sixteen'}
                     imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
@@ -86,11 +86,13 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             }
             )
           }
-          <Modal
-            view={view}
-            modalVisible={modalView}>
-            <SimpleGallery images={imageGallery} view={view} index={clickedIndex} />
-          </Modal>
+          {modalView ?
+            <Modal
+              view={view}
+              modalVisible={modalView}>
+              <SimpleGallery images={imageGallery} view={view} index={clickedIndex} />
+            </Modal> : ''
+          }
         </div>
         {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       </div>

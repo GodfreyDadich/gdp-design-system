@@ -11,10 +11,10 @@ class Modal extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    if (this.modalVisible === true) {
-      document.body.classList.add('modalOpen')
+    if (props.modalVisible === true) {
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.classList.remove('modalOpen')
+      document.body.style.overflow = 'auto'
     }
     this.setState({
       modalVisible: props.modalVisible
