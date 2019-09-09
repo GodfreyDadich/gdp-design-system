@@ -131,22 +131,29 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
     </div>
     <style>{`
-    .modalOpen {
-      overflow: hidden;
-    }
-    .moasic-image {
-      display: inline-block;
-      position: relative;
-      height: 9.4vw;
-      width: auto;
-    }
-    .image-wrapper {
-      margin: auto;
-      width: 80vw;
-      @media only screen and (max-width: 1025px) {
-        width: 60vw;
+      .modalOpen {
+        overflow: hidden;
       }
-    }
+      .moasic-image {
+        display: inline-block;
+        position: relative;
+        height: 9.4vw;
+        width: auto;
+      }
+      .image-wrapper {
+        margin: auto;
+        width: 80vw;
+      }
+      @media only screen and (max-width: 1025px) {
+        .image-wrapper {
+          width: 60vw;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .image-wrapper {
+          width: 57vw;
+        }
+      }
       .expand {
         font-family: Atlas Grotesk;
         color: #7F7F7F;
