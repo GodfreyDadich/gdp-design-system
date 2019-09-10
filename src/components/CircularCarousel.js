@@ -95,8 +95,11 @@ export default class CircularCarousel extends Component {
     e.preventDefault()
     if (e.target.classList.contains('nextArrow')) {
       this.goToNextSlide()
-    } else {
+    }
+    else if (e.target.classList.contains('backArrow')) {
       this.goToPrevSlide()
+    } else {
+      return
     }
   }
 
