@@ -8,10 +8,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _style = require('styled-jsx/style');
-
-var _style2 = _interopRequireDefault(_style);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -82,14 +78,12 @@ var GridGallery = function GridGallery(_ref) {
       mobile = _useState8[0],
       setMobile = _useState8[1];
 
-
   var colWidth = 100 / columns;
 
   (0, _react.useEffect)(function () {
     setMobile(_reactDeviceDetect.isMobile);
     if (altAsset) {
       setAppliedImages(altAsset);
-
     }
   }, [modalView]);
 
@@ -118,14 +112,10 @@ var GridGallery = function GridGallery(_ref) {
 
   return _react2.default.createElement(
     'div',
-    {
-      className: 'jsx-1215224865'
-    },
+    null,
     _react2.default.createElement(
       'div',
-      {
-        className: 'jsx-1215224865' + ' ' + 'col-6 skip-3 col-6-tab skip-1-tab'
-      },
+      { className: 'col-6 skip-3 col-6-tab skip-1-tab' },
       headingCaption || ''
     ),
     _react2.default.createElement(
@@ -142,8 +132,7 @@ var GridGallery = function GridGallery(_ref) {
         appliedImages.map(function (image, index) {
           return _react2.default.createElement(
             'div',
-            { style: mobileStyles, key: escape(image) + '-' + index, className: 'jsx-1215224865'
-            },
+            { style: mobileStyles, key: escape(image) + '-' + index },
             _react2.default.createElement(_Image2.default, {
               aspectRatio: thumbAspect,
               imgSource: image,
@@ -153,18 +142,13 @@ var GridGallery = function GridGallery(_ref) {
         })
       ) : _react2.default.createElement(
         'div',
-        {
-          className: 'jsx-1215224865' + ' ' + 'mobile-flat'
-        },
+        { className: 'mobile-flat' },
         _react2.default.createElement(
           'div',
-          {
-            className: 'jsx-1215224865' + ' ' + 'mobile-grid-container'
-          },
+          { className: 'mobile-grid-container' },
           _react2.default.createElement(
             'div',
-            { style: evenGridStyles, className: 'jsx-1215224865'
-            },
+            { style: evenGridStyles },
             _react2.default.createElement(_Image2.default, {
               aspectRatio: thumbAspect || 'noAspect',
               imgSource: appliedImages[0],
@@ -179,9 +163,7 @@ var GridGallery = function GridGallery(_ref) {
         ) : ''
       ) : _react2.default.createElement(
         'div',
-        {
-          className: 'jsx-1215224865'
-        },
+        null,
         _react2.default.createElement(
           'div',
           { className: mixedOr ? 'grid-container' : 'columns-grid-container' },
@@ -190,16 +172,10 @@ var GridGallery = function GridGallery(_ref) {
             { pass: mixedOr, classAdd: 'image-wrapper' },
             carousel === 'yes' ? _react2.default.createElement(
               'div',
-              {
-                className: 'jsx-1215224865' + ' ' + 'expand-indicator'
-              },
-              _react2.default.createElement('span', { style: { backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')" }, className: 'jsx-1215224865' + ' ' + 'expand-icon'
-              }),
+              { className: 'expand' },
               _react2.default.createElement(
                 'span',
-                {
-                  className: 'jsx-1215224865' + ' ' + 'expand-copy'
-                },
+                { className: 'expand-indicator' },
                 'CLICK IMAGE TO EXPAND'
               )
             ) : '',
@@ -215,13 +191,13 @@ var GridGallery = function GridGallery(_ref) {
                 function (_ref2) {
                   var isVisible = _ref2.isVisible;
                   return _react2.default.createElement('img', {
+                    className: 'moasic-image',
                     onClick: function onClick(e) {
                       if (carousel === 'yes') {
                         displayGallery(index);
                       }
                     },
-                    src: isVisible ? image : '',
-                    className: 'jsx-1215224865' + ' ' + 'moasic-image'
+                    src: isVisible ? image : ''
                   });
                 }
               ) : _react2.default.createElement(

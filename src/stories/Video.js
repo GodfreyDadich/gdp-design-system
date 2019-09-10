@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, selectV2 } from '@storybook/addon-knobs';
 import HoverVideo from '../components/HoverVideo'
-import VideoLoop from '../components/VideoLoop'
 import Video from '../components/Video'
 import Device from '../components/Device'
 import CircularCarousel from '../components/CircularCarousel'
