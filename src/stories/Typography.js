@@ -184,12 +184,12 @@ const Typography = props =>
 
 
     <div>
-      <div style={styles.smallText}><small>Pull Quote</small></div>
+      <div style={styles.smallText}><small>Atlas Grotesk PQ</small></div>
       <Pullquote classAdd='testadd'>
       The editorial team created new story forms and structures that could tackle big, bold ideas with provocative voice.
-    <QuoteAttribution classAdd='testadd'>
+    {/* <QuoteAttribution classAdd='testadd'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </QuoteAttribution>
+    </QuoteAttribution> */}
       </Pullquote>
     </div>
 
@@ -197,7 +197,7 @@ const Typography = props =>
 
 
     <div>
-      <div style={styles.smallText}><small>Body article small ({fontSizeBodyArticleSmall}pt)</small></div>
+      <div style={styles.smallText}><small>Atlas Grotesk Body ({fontSizeBodyArticleSmall}pt)</small></div>
       <div style={textBodyArticleSmall()}>
         Few magazines in the world are as revered as National Geographic. For 130 years its breathtaking photography and groundbreaking narratives have helped readers discover the world through its pages. While the brand has evolved with a changing industry—building a thriving television network, books and kids divisions, travel business, and social media audience (90+ million Instagram followers and counting)—the magazine itself hadn’t undergone a significant redesign for two decades.
         </div>
