@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, selectV2 } from '@storybook/addon-knobs';
 import HoverVideo from '../components/HoverVideo'
-import VideoLoop from '../components/VideoLoop'
 import Video from '../components/Video'
 import Device from '../components/Device'
 import CircularCarousel from '../components/CircularCarousel'
@@ -174,46 +173,6 @@ storiesOf('Video', module)
         thumb='https://i.vimeocdn.com/video/737702396_1000.jpg'
       />
       <HoverVideo
-        title=''
-        aspectRatio='sixteen'
-        fullBleed={false}
-        vidSource='https://vimeo.com/299543215'
-        thumb='https://i.vimeocdn.com/video/737702269_1000.jpg'
-      />
-    </div>
-  )
-
-  .add('Video with Img Alt', () =>
-    <div style={{ width: '50%', margin: '1000px auto 0' }}>
-      <VideoLoop
-        vidSource='https://player.vimeo.com/video/324374859'
-        thumb='https://i.vimeocdn.com/video/767777887'
-        aspectRatio='custom'
-        autoplay
-        customPadding='62%'
-      />
-      <VideoLoop
-        title=''
-        aspectRatio='cropped'
-        fullBleed={false}
-        vidSource='https://vimeo.com/299756718'
-        thumb='https://i.vimeocdn.com/video/737947212_1000.jpg'
-      />
-      <VideoLoop
-        title=''
-        aspectRatio='sixteen'
-        fullBleed={false}
-        vidSource='https://vimeo.com/299543193'
-        thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-      />
-      <VideoLoop
-        title=''
-        aspectRatio='sixteen'
-        fullBleed={false}
-        vidSource='https://vimeo.com/299543207'
-        thumb='https://i.vimeocdn.com/video/737702396_1000.jpg'
-      />
-      <VideoLoop
         title=''
         aspectRatio='sixteen'
         fullBleed={false}

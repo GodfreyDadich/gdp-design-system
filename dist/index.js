@@ -262,15 +262,6 @@ Object.defineProperty(exports, 'HoverVideo', {
   }
 });
 
-var _VideoLoop = require('./components/VideoLoop');
-
-Object.defineProperty(exports, 'VideoLoop', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_VideoLoop).default;
-  }
-});
-
 var _Device = require('./components/Device');
 
 Object.defineProperty(exports, 'Device', {
