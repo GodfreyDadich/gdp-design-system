@@ -12,10 +12,6 @@ var _HoverVideo = require('../components/HoverVideo');
 
 var _HoverVideo2 = _interopRequireDefault(_HoverVideo);
 
-var _VideoLoop = require('../components/VideoLoop');
-
-var _VideoLoop2 = _interopRequireDefault(_VideoLoop);
-
 var _Video = require('../components/Video');
 
 var _Video2 = _interopRequireDefault(_Video);

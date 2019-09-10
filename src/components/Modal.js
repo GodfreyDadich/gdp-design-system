@@ -10,6 +10,13 @@ class Modal extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.modalVisible === true) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }
   componentWillReceiveProps(props) {
     if (props.modalVisible === true) {
       document.body.style.overflow = 'hidden'
@@ -25,6 +32,7 @@ class Modal extends React.Component {
     this.setState({
       modalVisible: false
     })
+    document.body.style.overflow = 'auto'
   }
 
   render() {

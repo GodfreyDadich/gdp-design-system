@@ -39,6 +39,15 @@ var Modal = function (_React$Component) {
   }
 
   _createClass(Modal, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.props.modalVisible === true) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(props) {
       if (props.modalVisible === true) {
@@ -56,6 +65,7 @@ var Modal = function (_React$Component) {
       this.setState({
         modalVisible: false
       });
+      document.body.style.overflow = 'auto';
     }
   }, {
     key: 'render',
