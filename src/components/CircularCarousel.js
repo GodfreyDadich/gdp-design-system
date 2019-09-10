@@ -10,7 +10,6 @@ export default class CircularCarousel extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      swipe: false,
       currentIndex: 0,
       teaseState: '',
       direction: 'next',
@@ -105,13 +104,12 @@ export default class CircularCarousel extends Component {
 
   handleTouchMove(e) {
     this.carouselElem.removeEventListener('touchend', this.handleTouchEnd)
-    this.setState({ swipe: true })
     if (!this.xDown || !this.yDown) { return }
-    this.xLeft = e.touches[0].clientX
-    this.xDiff = this.xDown - this.xLeft
-    if (Math.abs(this.xDiff) > 6) {
+    const xLeft = e.touches[0].clientX
+    const xDiff = this.xDown - xLeft
+    if (Math.abs(xDiff) > 6) {
       e.preventDefault()
-      const direction = (this.xDiff > 0) ? 'right' : 'left'
+      const direction = (xDiff > 0) ? 'right' : 'left'
       if (direction === 'right') {
         this.goToNextSlide()
       } else {
@@ -120,7 +118,6 @@ export default class CircularCarousel extends Component {
     }
 
     /* reset values */
-    this.setState({ swipe: false })
     this.xDown = null
     this.yDown = null
   }
