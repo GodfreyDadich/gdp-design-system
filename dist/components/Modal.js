@@ -14,6 +14,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Icons = require('../components/Icons');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,8 +33,7 @@ var Modal = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
 
     _this.state = {
-      modalVisible: props.modalVisible,
-      closeCallback: props.closeCallback || null
+      modalVisible: props.modalVisible
     };
     return _this;
   }
@@ -40,19 +41,14 @@ var Modal = function (_React$Component) {
   _createClass(Modal, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(props) {
-      this.setState({
-        modalVisible: props.modalVisible,
-        closeCallback: props.closeCallback
-      });
-    }
-  }, {
-    key: 'overlayClick',
-    value: function overlayClick(target) {
-      if (Object.values(target.classList).some(function (clss) {
-        return clss === 'modal_container';
-      })) {
-        this.closeModal();
+      if (props.modalVisible === true) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
       }
+      this.setState({
+        modalVisible: props.modalVisible
+      });
     }
   }, {
     key: 'closeModal',
@@ -60,47 +56,45 @@ var Modal = function (_React$Component) {
       this.setState({
         modalVisible: false
       });
-      !!this.state.closeCallback();
     }
   }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      var _state = this.state,
-          chips = _state.chips,
-          modalVisible = _state.modalVisible;
+      var modalVisible = this.state.modalVisible;
 
       return _react2.default.createElement(
         'div',
-        { onClick: function onClick(e) {
-            return _this2.overlayClick(e.target);
-          }, className: 'jsx-3877234852' + ' ' + ('modal_container' + (modalVisible ? ' is_open' : ''))
+        {
+          className: 'jsx-3964263363' + ' ' + ('modal_container' + (modalVisible ? ' is_open' : ''))
         },
         _react2.default.createElement(
           'div',
           {
-            className: 'jsx-3877234852' + ' ' + 'modal'
+            style: {
+              background: this.props.view === 'lightMode' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'
+            }, className: 'jsx-3964263363' + ' ' + 'modal'
           },
           _react2.default.createElement(
             'div',
             { onClick: function onClick(e) {
                 return _this2.closeModal(e);
-              }, className: 'jsx-3877234852' + ' ' + 'modal__closeButton'
+              }, className: 'jsx-3964263363' + ' ' + 'modal__closeButton'
             },
-            'X'
+            _react2.default.createElement(_Icons.CloseModal, null)
           ),
           _react2.default.createElement(
             'div',
             {
-              className: 'jsx-3877234852' + ' ' + 'modal__content'
+              className: 'jsx-3964263363' + ' ' + 'modal__content'
             },
-            this.props.children
+            modalVisible ? this.props.children : ''
           )
         ),
         _react2.default.createElement(_style2.default, {
-          styleId: '3877234852',
-          css: '.modal_container.jsx-3877234852{content:\'\';position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:1000;display:none;}.modal_container.jsx-3877234852 .modal.jsx-3877234852{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background:#fff;border:1px solid transparent;border-radius:10px;max-width:70%;padding:24px;box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);z-index:1010;display:none;overflow:hidden;}.modal_container.jsx-3877234852 .modal__closeButton.jsx-3877234852{position:fixed;top:5px;right:5px;cursor:pointer;}.modal_container.jsx-3877234852 .modal__content.jsx-3877234852{position:relative;display:block;max-height:85vh;overflow-y:auto;}.modal_container.is_open.jsx-3877234852{display:block;}.modal_container.is_open.jsx-3877234852 .modal.jsx-3877234852{display:block;}'
+          styleId: '3964263363',
+          css: '.modal_container.jsx-3964263363{content:\'\';position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:1000;display:none;}.modal_container.jsx-3964263363 .modal.jsx-3964263363{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:1000;}.modal_container.jsx-3964263363 .modal__closeButton.jsx-3964263363{cursor:pointer;position:absolute;top:30px;right:30px;width:30px;height:30px;z-index:9999;background-repeat:no-repeat;}.modal_container.is_open.jsx-3964263363{display:block;}.modal_container.is_open.jsx-3964263363 .modal.jsx-3964263363{display:block;}'
         })
       );
     }

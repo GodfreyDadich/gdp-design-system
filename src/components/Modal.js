@@ -1,45 +1,46 @@
 import React from 'react'
+import { CloseModal } from '../components/Icons'
 
-class Modal extends React.Component { 
-  
+class Modal extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
-      modalVisible: props.modalVisible,
-      closeCallback: props.closeCallback || null
+      modalVisible: props.modalVisible
     }
   }
 
   componentWillReceiveProps(props) {
-    this.setState({
-      modalVisible: props.modalVisible,
-      closeCallback: props.closeCallback
-    })
-  }
-
-  overlayClick(target) {
-    if ( Object.values(target.classList).some(clss => clss ==='modal_container') ) {
-      this.closeModal()
+    if (props.modalVisible === true) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
     }
+    this.setState({
+      modalVisible: props.modalVisible
+    })
   }
 
   closeModal() {
     this.setState({
       modalVisible: false
     })
-    !!this.state.closeCallback()
   }
 
   render() {
     const {
-      chips,
       modalVisible
     } = this.state
     return (
-      <div className={`modal_container${modalVisible ? ' is_open' : ''}`} onClick={(e) => this.overlayClick(e.target)}>
-        <div className='modal'>
-          <div className='modal__closeButton' onClick={(e) => this.closeModal(e)}>X</div>
-            <div className='modal__content'>{this.props.children}</div>
+      <div className={`modal_container${modalVisible ? ' is_open' : ''}`}>
+        <div className='modal'
+          style={{
+            background: this.props.view === 'lightMode' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'
+          }}>                
+          <div className='modal__closeButton' onClick={e => this.closeModal(e)}>
+            <CloseModal/>
+          </div>
+          <div className='modal__content'>{modalVisible ? this.props.children : ''}</div>
         </div>
 
         <style jsx>{`
@@ -53,34 +54,24 @@ class Modal extends React.Component {
             background: rgba(0, 0, 0, 0.35);
             z-index: 1000;
             display: none;
-
+            
             .modal {
               position: fixed;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              background: #fff;
-              border: 1px solid transparent;
-              border-radius: 10px;
-              max-width: 70%;
-              padding: 24px;
-              box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-              z-index: 1010;
-              display: none;
-              overflow: hidden;
-  
-              &__closeButton {
-                position: fixed;
-                top: 5px;
-                right: 5px;
-                cursor: pointer;
-              }
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;       
+              z-index: 1000;
 
-              &__content {
-                position: relative;
-                display: block;
-                max-height: 85vh;
-                overflow-y: auto;
+              &__closeButton {
+                cursor: pointer;
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                width: 30px;
+                height: 30px;
+                z-index:9999;
+                background-repeat: no-repeat;
               }
             }
             

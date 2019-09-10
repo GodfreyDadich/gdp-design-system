@@ -202,9 +202,7 @@ var CircularCarousel = function (_Component) {
     value: function getCarouselStyle(index) {
       var active = this.state.currentIndex;
       var prev = this.state.currentIndex - 1 >= 0 ? this.state.currentIndex - 1 : this.props.children.length - 1;
-      // const prevprev = this.state.currentIndex - 2 >= 0 ? this.state.currentIndex - 2 : this.props.children.length - 1
       var next = this.state.currentIndex + 1 <= this.props.children.length - 1 ? this.state.currentIndex + 1 : 0;
-      // const nextnext = this.state.currentIndex + 2 <= this.props.children.length - 1 ? this.state.currentIndex + 2 : 0
       var last = this.state.lastIndex;
       switch (index) {
         case active:
@@ -254,7 +252,9 @@ var CircularCarousel = function (_Component) {
           children = _props.children,
           classAdd = _props.classAdd,
           shadow = _props.shadow,
-          countIndicator = _props.countIndicator;
+          countIndicator = _props.countIndicator,
+          imageAspect = _props.imageAspect,
+          altRatio = _props.altRatio;
       var visibleArray = this.state.visibleArray;
 
 
@@ -279,7 +279,7 @@ var CircularCarousel = function (_Component) {
               overflow: 'visible',
               touchAction: 'pan-y',
               userSelect: 'none',
-              paddingTop: (0, _aspectRatio.getPaddingTop)(aspectRatio),
+              paddingTop: _reactDeviceDetect.isMobile && altRatio ? (0, _aspectRatio.getPaddingTop)(altRatio) : (0, _aspectRatio.getPaddingTop)(aspectRatio),
               backgroundColor: 'rgb(242,242,242)'
             },
             className: 'carousel__container ' + this.state.teaseState },
@@ -320,7 +320,8 @@ var CircularCarousel = function (_Component) {
                     zIndex: '3',
                     top: '50%',
                     left: '50%',
-                    width: '75%',
+                    width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
                     height: 'auto'
                   }, _this2.getCarouselStyle(i)) },
                 visibleArray.includes(i) ? _react2.default.cloneElement(child, {
@@ -330,7 +331,7 @@ var CircularCarousel = function (_Component) {
               );
             })
           ),
-          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: aspectRatio, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: aspectRatio, children: children }) : '' : ''
+          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect || aspectRatio, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect || aspectRatio, children: children }) : '' : ''
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,

@@ -49,12 +49,12 @@ Object.defineProperty(exports, 'ConditionalLink', {
   }
 });
 
-var _GalleryView = require('./components/GalleryView');
+var _ConditionalClass = require('./components/ConditionalClass');
 
-Object.defineProperty(exports, 'GalleryView', {
+Object.defineProperty(exports, 'ConditionalClass', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_GalleryView).default;
+    return _interopRequireDefault(_ConditionalClass).default;
   }
 });
 

@@ -23,19 +23,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var SimpleGallery = function SimpleGallery(_ref) {
   var images = _ref.images,
       view = _ref.view,
-      startIndex = _ref.startIndex;
+      index = _ref.index;
 
-  var _useState = (0, _react.useState)(startIndex || 0),
+  var _useState = (0, _react.useState)(index || 0),
       _useState2 = _slicedToArray(_useState, 2),
       currentIndex = _useState2[0],
       setCurrentIndex = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(-(startIndex * 100) || 0),
+  var _useState3 = (0, _react.useState)(-(index * 100) || 0),
       _useState4 = _slicedToArray(_useState3, 2),
       translateValue = _useState4[0],
       setTranslateValue = _useState4[1];
 
-  var _useState5 = (0, _react.useState)([startIndex, startIndex + 1, startIndex + 2, startIndex - 1, startIndex - 2]),
+  var _useState5 = (0, _react.useState)([index, index + 1, index + 2, index - 1, index - 2]),
       _useState6 = _slicedToArray(_useState5, 2),
       visibleArray = _useState6[0],
       setVisibleArray = _useState6[1];
@@ -75,11 +75,11 @@ var SimpleGallery = function SimpleGallery(_ref) {
     visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
     visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
     visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
-
     setVisibleArray(visibleArray);
   };
 
   (0, _react.useEffect)(function () {
+    updateVisible(currentIndex);
     if (_reactDeviceDetect.isMobile) {
       return;
     } else {
