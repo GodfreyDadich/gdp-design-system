@@ -139,7 +139,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       .expand__copy {
         display: inline-block;
         vertical-align: top;
-        margin-top: 1px;
+        margin-top: 2px;
         color: #7F7F7F;
         font-family: Atlas Grotesk;
         letter-spacing: 1.25px;
