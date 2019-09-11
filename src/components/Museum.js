@@ -67,7 +67,9 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
       </CircularCarousel>
       : <div>
         <div className='museum-container'>
-        <div className='expand-indicator'><span className='expand-icon' style={{backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20d%3D%22M11.6%209.6h6.8v8.8h-6.8z%22/%3E%3Cpath%20d%3D%22M16.5%209.5v-2h-2m-3%209h-2v-2m5-7h-5v7m5-7v-2h-7v9h2%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')"}}></span><span className='expand-copy'>CLICK IMAGE TO VIEW COLLECTION</span></div>
+        <div className='expand'>
+          <span className='expand__icon' style={{backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20d%3D%22M11.6%209.6h6.8v8.8h-6.8z%22/%3E%3Cpath%20d%3D%22M16.5%209.5v-2h-2m-3%209h-2v-2m5-7h-5v7m5-7v-2h-7v9h2%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')"}}></span>
+        <span className='expand__copy'>CLICK IMAGE TO VIEW COLLECTION</span></div>
           {
             galleries.map((gallery, index) => {
               return (
@@ -99,20 +101,22 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
     }
     <style>{`
       .expand {
-        font-family: Atlas Grotesk;
-        color: #7F7F7F;
         position: absolute;
         top: 1.25vw;
-        left: .8vw;
+        left: 1.25vw;
       }
-      .expand-copy {
+      .expand__copy {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 2px;
+        color: #7F7F7F;
+        font-family: Atlas Grotesk;
         letter-spacing: 1.25px;
         font-weight: 400;
         font-size: 10px;
-        float: right;
-        width: 80vw;
+        white-space: nowrap;
       }
-      .expand-icon {
+      .expand__icon {
         display: inline-block;
         height: 25px;
         width: 25px;
@@ -120,7 +124,6 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
         margin-right: 10px;
         background-repeat: no-repeat;
         background-size: 100%;
-        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20d%3D%22M11.6%209.6h6.8v8.8h-6.8z%22/%3E%3Cpath%20d%3D%22M16.5%209.5v-2h-2m-3%209h-2v-2m5-7h-5v7m5-7v-2h-7v9h2%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
         margin-left: .1vw;
         position: relative;
         transform: translateY(-50%);
