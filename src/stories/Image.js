@@ -276,6 +276,7 @@ storiesOf('Image', module)
             aspectRatio='noAspect'
             skipIntro
             imgSource={img}
+            visibilityOverride
           />
         })}
       </CircularCarousel>

@@ -60,6 +60,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
                 aspectRatio={thumbAspect || 'sixteen'}
                 imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                 skipIntro
+                visibilityOverride
               />
             </div>
           )

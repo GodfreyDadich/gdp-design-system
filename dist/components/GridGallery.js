@@ -136,7 +136,8 @@ var GridGallery = function GridGallery(_ref) {
             _react2.default.createElement(_Image2.default, {
               aspectRatio: thumbAspect,
               imgSource: image,
-              skipIntro: true
+              skipIntro: true,
+              visibilityOverride: true
             })
           );
         })
