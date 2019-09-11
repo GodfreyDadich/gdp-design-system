@@ -106,14 +106,15 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
         left: 1.25vw;
       }
       .expand__copy {
-        font-family: Atlas Grotesk;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 1px;
         color: #7F7F7F;
         font-family: Atlas Grotesk;
         letter-spacing: 1.25px;
         font-weight: 400;
         font-size: 10px;
-        float: right;
-        width: 80vw;
+        white-space: nowrap;
       }
       .expand__icon {
         display: inline-block;
