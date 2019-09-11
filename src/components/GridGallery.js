@@ -83,7 +83,10 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         : <div>
           <div className={mixedOr ? 'grid-container' : 'columns-grid-container'}>
             <ConditionalClass pass={mixedOr} classAdd='image-wrapper'>
-              {carousel === 'yes' ? <div className='expand'><span className='expand-indicator'>CLICK IMAGE TO EXPAND</span></div> : ''}
+              {carousel === 'yes' ? <div className='expand'>
+                <span className='expand__icon' style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')" }}></span>
+                <span className='expand__copy'>CLICK IMAGE TO EXPAND</span></div>
+                : ''}
               {
                 thumbs.map((image, index) =>
                   mixedOr
@@ -114,13 +117,13 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                     </div>
                 )
               }
-              {modalView ? 
-              <Modal
-              view={view}
-              modalVisible={modalView}>
-                <SimpleGallery images={images} view={view} index={imageIndex} />
-              </Modal> : ''
-            }
+              {modalView ?
+                <Modal
+                  view={view}
+                  modalVisible={modalView}>
+                  <SimpleGallery images={images} view={view} index={imageIndex} />
+                </Modal> : ''
+              }
             </ConditionalClass>
           </div>
           {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
@@ -128,6 +131,33 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
     </div>
     <style>{`
+      .expand {
+        position: absolute;
+        top: 1.25vw;
+        left: 1.25vw;
+      }
+      .expand__copy {
+        font-family: Atlas Grotesk;
+        color: #7F7F7F;
+        font-family: Atlas Grotesk;
+        letter-spacing: 1.25px;
+        font-weight: 400;
+        font-size: 10px;
+        float: right;
+        width: 80vw;
+      }
+      .expand__icon {
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        top: 5px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin-left: .1vw;
+        position: relative;
+        transform: translateY(-50%);
+      }
       .moasic-image {
         display: inline-block;
         position: relative;
@@ -147,26 +177,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         .image-wrapper {
           width: 57vw;
         }
-      }
-      .expand {
-        font-family: Atlas Grotesk;
-        color: #7F7F7F;
-        position: absolute;
-        top: 1vw;
-        left: 1vw;
-        font-weight: 400;
-        font-size: 10px;
-        letter-spacing: 1.25px;
-      }
-      .expand::before {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E');
-      }
-      .expand-indicator {
-        margin-left: 8px;
-        position: absolute;
-        width: 40vw;
-        top: 50%;
-        transform: translateY(-50%);
       }
       .grid-container {
         background: rgb(242,242,242);
