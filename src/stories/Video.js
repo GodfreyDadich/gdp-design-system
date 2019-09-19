@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, selectV2 } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import HoverVideo from '../components/HoverVideo'
 import Video from '../components/Video'
 import Device from '../components/Device'
@@ -57,7 +57,7 @@ storiesOf('Video', module)
           text: text('Sidebar Text','Smaller length, Sidebar text area.'),
           image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
           isQuote: true,
-          location: selectV2('Sidebar Location', {
+          location: select('Sidebar Location', {
             TopLeft: 'left-top',
             TopRight: 'right-top',
             BottomLeft: 'left-bottom',
@@ -71,7 +71,7 @@ storiesOf('Video', module)
   .add('Device Video', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
       <Device
-        deviceColor={selectV2('Device Color', {
+        deviceColor={select('Device Color', {
           black: 'black',
           white: 'white'
         }, 'black')}>

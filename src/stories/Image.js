@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, boolean, select, selectV2, number } from '@storybook/addon-knobs'
+import { text, boolean, select, number } from '@storybook/addon-knobs'
 import Image from '../components/Image'
 import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
@@ -135,7 +135,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '110vh auto' }}><Image
       altAsset={'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvkja0d010in1g67mqizp-platon-diptych-mobile.full.png'}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
+      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://gdp-site.s3.amazonaws.com/attachments/cjzsrvki60djv0itgcr7ccd8t-platon-diptych.full.jpg'
       linkUrl={text('url', '')}
@@ -148,7 +148,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '50px auto' }}><Image
       caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       linkUrl={text('url', '')}
@@ -165,7 +165,7 @@ storiesOf('Image', module)
         isQuote: true,
         link: text('sidebar link', ''),
         quoter: text('Quoter', '—Blaine'),
-        location: selectV2('Sidebar Location', {
+        location: select('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
@@ -173,7 +173,7 @@ storiesOf('Image', module)
         }, 'top-left')
       }}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       linkUrl={text('url', '')}
@@ -186,7 +186,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '50px auto' }}>
       <ImageWithZoom
         imageTitle={text('Image Title/Alt', 'test')}
-        aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+        aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
         fullBleed={boolean('Full Bleed', false)}
         stretchH={boolean('Stretch Horizontal', false)}
         imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
@@ -199,7 +199,7 @@ storiesOf('Image', module)
 
   .add('Device Image', () =>
     <div style={{ width: '50%', margin: '10px auto' }}>
-      <Device classAdd='test' deviceColor={selectV2('Device Color', {
+      <Device classAdd='test' deviceColor={select('Device Color', {
         black: 'black',
         white: 'white'
       }, 'black')}>
@@ -219,7 +219,7 @@ storiesOf('Image', module)
     'Image with Hover',
     () => <div style={{ width: '50%', margin: '50px auto' }}><Image
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
+      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
       fullBleed={boolean('fullBleed', false)}
       imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
       imgHover='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
@@ -233,7 +233,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '50px auto' }}>
       <Slider
         images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+        aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
       <style>{`
@@ -254,9 +254,9 @@ storiesOf('Image', module)
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <RevealCarousel
         images={imageGallery}
-        countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-        containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+        countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+        containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
+        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
     </div>
@@ -265,10 +265,10 @@ storiesOf('Image', module)
     'Image Carousel (Circular)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <CircularCarousel
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard')}
-        countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard')}
+        countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-        shadow={selectV2('shadow', { yes: 'yes', no: 'no' }, 'no')}
+        shadow={select('shadow', { yes: 'yes', no: 'no' }, 'no')}
       >
         {imageGallery2.map((img, index) => {
           return <Image
@@ -287,11 +287,11 @@ storiesOf('Image', module)
     () => <Museum
       classAdd=''
       galleries={galleries}
-      countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-      view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+      countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+      view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
       columns={number('Columns', 4)}
-      thumbAspect={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')}
-      containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
+      thumbAspect={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')}
+      containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
       caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
     />)
 
@@ -303,17 +303,17 @@ storiesOf('Image', module)
       altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
         'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
-      altRatio={selectV2('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, '')}
+      altRatio={select('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, '')}
       classAdd=''
       headingCaption='Lesson 2: Design Matters'
       images={imageGallery2}
       thumbs={imageGallery2}
-      countIndicator={selectV2('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-      view={selectV2('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
-      carousel={selectV2('carousel', { yes: 'yes', no: 'no' }, 'no')}
+      countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+      view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+      carousel={select('carousel', { yes: 'yes', no: 'no' }, 'no')}
       columns={number('Columns', 3)}
-      thumbAspect={selectV2('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
-      containerAspect={selectV2('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+      thumbAspect={select('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+      containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
       caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
     />)
 
@@ -322,7 +322,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '75%' }}>
       <StackedImage
         images={imageGallery}
-        aspectRatio={selectV2('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
     </div>
