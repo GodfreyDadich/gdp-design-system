@@ -48,7 +48,7 @@ export const BioHeading = ({ children, style }) =>
       line-height: 0.97;
       letter-spacing: 0.3px;
       padding-bottom: 51px;
-      margin: 0 0 35px 0;
+      margin: 0 0 20px 0;
       color: #000;
 
       .clientName {
