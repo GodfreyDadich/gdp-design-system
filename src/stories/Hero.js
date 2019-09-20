@@ -6,6 +6,8 @@ import SideBySide from '../components/SideBySide'
 import Layered from '../components/Layered'
 import Inset from '../components/Inset'
 
+const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
+
 const breadCrumbData = [
   {
     title: 'home',
@@ -23,14 +25,14 @@ const breadCrumbData = [
 
 storiesOf('Hero', module)
   .add('Static Image', () =>
-    <Hero type='image' source='https://d36aj1cv2i74vd.cloudfront.net/attachments/cjqfi857i1l7ut0pfuca6v3tq-sfvisit2016-0643-1920.jpg' />
+    <Hero type='image' source={imgSixteenNine} />
   )
   .add('Video', () =>
     <Hero type='video' source='https://vimeo.com/299978304' thumb='https://i.vimeocdn.com/video/738220216_1000.jpg' />
   )
-  .add('Image with Zoom effect', () =>
-    <Hero type='image' withZoom='true' source='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg' />
-  )
+  // .add('Image with Zoom effect', () =>
+  //   <Hero type='image' withZoom='true' source={imgSixteenNine} />
+  // )
   .add('Side by side', () =>
     <SideBySide
       title={text('Title', 'Marcus Wohlsen')}

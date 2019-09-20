@@ -55,7 +55,7 @@ storiesOf('Video', module)
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         sideBar={{ 
           text: text('Sidebar Text','Smaller length, Sidebar text area.'),
-          image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+          image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH19fQ==',
           isQuote: true,
           location: select('Sidebar Location', {
             TopLeft: 'left-top',
@@ -143,7 +143,7 @@ storiesOf('Video', module)
   )
 
   .add('Hover Video', () =>
-    <div style={{ width: '50%', margin: '1000px auto 0' }}>
+    <div style={{ width: '50%', margin: '100px auto 0' }}>
       <HoverVideo
         vidSource='https://player.vimeo.com/video/324374859'
         thumb='https://i.vimeocdn.com/video/767777887'

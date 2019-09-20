@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react'
 import { text, boolean, select } from '@storybook/addon-knobs'
 import Card from '../components/Card'
 
+const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
+
 storiesOf('Card', module)
   .add(
     'basic card',
@@ -16,7 +18,7 @@ storiesOf('Card', module)
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={select('Aspect Ratio', { SixteenNine:'sixteen', FourThree:'standard', OneOne:'square', Cropped:'cropped'}, 'standard')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      imgSource={imgSixteenNine}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}    
     /></div>

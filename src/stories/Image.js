@@ -14,6 +14,8 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 import StackedImage from '../components/StackedImage';
 
+
+const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
 const imageGallery = [
   'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
@@ -132,12 +134,12 @@ storiesOf('Styles', module)
 storiesOf('Image', module)
   .add(
     'Image',
-    () => <div style={{ width: '50%', margin: '110vh auto' }}><Image
-      altAsset={'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvkja0d010in1g67mqizp-platon-diptych-mobile.full.png'}
+    () => <div style={{ width: '50%', margin: '10vh auto' }}><Image
+      altAsset={imgSixteenNine}
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://gdp-site.s3.amazonaws.com/attachments/cjzsrvki60djv0itgcr7ccd8t-platon-diptych.full.jpg'
+      imgSource={imgSixteenNine}
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
@@ -150,7 +152,7 @@ storiesOf('Image', module)
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      imgSource={imgSixteenNine}
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
@@ -161,7 +163,7 @@ storiesOf('Image', module)
     () => <div style={{ width: '50%', margin: '50px auto' }}><Image
       sideBar={{
         text: text('Sidebar Text', 'Smaller length, Sidebar text area.'),
-        image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
+        image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH19fQ==',
         isQuote: true,
         link: text('sidebar link', ''),
         quoter: text('Quoter', '—Blaine'),
@@ -175,7 +177,7 @@ storiesOf('Image', module)
       imageTitle={text('Image Title/Alt', 'test')}
       aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+      imgSource={imgSixteenNine}
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
@@ -189,9 +191,7 @@ storiesOf('Image', module)
         aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
         fullBleed={boolean('Full Bleed', false)}
         stretchH={boolean('Stretch Horizontal', false)}
-        imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
-        // imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
-        // imgSource='https://d11b794nw2x0wi.cloudfront.net/attachments/cjdkx87gb0023njawm9h9o3v6-eye-level-even-0021-patrick.png'
+        imgSource={imgSixteenNine}
         verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
         horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
       /></div>
@@ -207,7 +207,7 @@ storiesOf('Image', module)
           imageTitle={text('Image Title/Alt', 'test')}
           aspectRatio='standard'
           skipIntro
-          imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
+          imgSource={imgSixteenNine}
           verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
           horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
         />
@@ -219,10 +219,10 @@ storiesOf('Image', module)
     'Image with Hover',
     () => <div style={{ width: '50%', margin: '50px auto' }}><Image
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
+      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
       fullBleed={boolean('fullBleed', false)}
-      imgSource='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
-      imgHover='http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg'
+      imgSource={imgSixteenNine}
+      imgHover={imageGallery2[1]}
       linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
@@ -232,7 +232,7 @@ storiesOf('Image', module)
     'Image Slider',
     () => <div style={{ width: '50%', margin: '50px auto' }}>
       <Slider
-        images={imageGallery}
+        images={imageGallery2}
         aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
         caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
       />
@@ -253,7 +253,7 @@ storiesOf('Image', module)
     'Image Carousel (Reveal)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <RevealCarousel
-        images={imageGallery}
+        images={imageGallery2}
         countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
         containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
         aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
