@@ -17,7 +17,7 @@ export const fontSizeBodyArticle = 20;
 export const fontSizeBodyArticleSmall = 16;
 export const fontSizeBodySmall = 14;
 export const fontSizeAccent = 16;
-export const fontSizeUppercase = 11;
+export const fontSizeUppercase = 9;
 
 export const lineHeightSuper = (96 / fontSizeSuper);
 export const lineHeightHeading1 = (72 / fontSizeHeading1);
