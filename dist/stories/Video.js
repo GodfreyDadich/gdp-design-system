@@ -78,7 +78,7 @@ var videoEnded = function videoEnded() {
         text: (0, _addonKnobs.text)('Sidebar Text', 'Smaller length, Sidebar text area.'),
         image: 'http://localhost:1111//uploads/attachments/cjnvzldyw002oq5awhgt8svof-2000px-adweek-logo.png',
         isQuote: true,
-        location: (0, _addonKnobs.selectV2)('Sidebar Location', {
+        location: (0, _addonKnobs.select)('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
@@ -94,7 +94,7 @@ var videoEnded = function videoEnded() {
     _react2.default.createElement(
       _Device2.default,
       {
-        deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+        deviceColor: (0, _addonKnobs.select)('Device Color', {
           black: 'black',
           white: 'white'
         }, 'black') },

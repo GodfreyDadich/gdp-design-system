@@ -26,7 +26,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       linkUrl: (0, _addonKnobs.text)('Link Url', ''),
       mediaOrientation: (0, _addonKnobs.select)('Media Orientation', ['top', 'left', 'right', 'bottom'], 'top'),
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'standard'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'standard'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       verticalAlign: (0, _addonKnobs.select)('Vertical Align', ['top', 'center', 'bottom'], 'center'),
