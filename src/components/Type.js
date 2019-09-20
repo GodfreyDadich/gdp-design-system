@@ -206,7 +206,7 @@ export const SubHead = ({ children, style, className }) =>
 <h4
   style={Object.assign({
     fontFamily: 'Atlas Grotesk',
-    fontWeight: 'bold',
+    fontWeight: '900',
     marginTop: 0,
     marginBottom: 0
   }, style)}
@@ -216,7 +216,6 @@ export const SubHead = ({ children, style, className }) =>
   <style jsx>{`
    .subhead {
     font-family: 'Atlas Grotesk';
-    font-weight: 900;
     font-size: 20px;
     margin-bottom: 0;
     line-height: 1.29px;
@@ -230,7 +229,7 @@ export const SubHeadBlack = ({ children, style, className }) =>
 <h4
   style={Object.assign({
     fontFamily: 'Atlas Grotesk',
-    fontWeight: 'bold',
+    fontWeight: '900',
     marginTop: 0,
     marginBottom: 0
   }, style)}
@@ -240,7 +239,6 @@ export const SubHeadBlack = ({ children, style, className }) =>
   <style jsx>{`
     .subheadBlack {
       font-family: 'Atlas Grotesk';
-      font-weight: 900;
       font-size: 20px;
       margin-bottom: 0;
       line-height: 1.29px;
