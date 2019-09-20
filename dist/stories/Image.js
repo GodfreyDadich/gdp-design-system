@@ -141,7 +141,7 @@ var galleries = [{
     _react2.default.createElement(_Image2.default, {
       altAsset: 'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvkja0d010in1g67mqizp-platon-diptych-mobile.full.png',
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://gdp-site.s3.amazonaws.com/attachments/cjzsrvki60djv0itgcr7ccd8t-platon-diptych.full.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -156,7 +156,7 @@ var galleries = [{
     _react2.default.createElement(_Image2.default, {
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -175,7 +175,7 @@ var galleries = [{
         isQuote: true,
         link: (0, _addonKnobs.text)('sidebar link', ''),
         quoter: (0, _addonKnobs.text)('Quoter', '—Blaine'),
-        location: (0, _addonKnobs.selectV2)('Sidebar Location', {
+        location: (0, _addonKnobs.select)('Sidebar Location', {
           TopLeft: 'left-top',
           TopRight: 'right-top',
           BottomLeft: 'left-bottom',
@@ -183,7 +183,7 @@ var galleries = [{
         }, 'top-left')
       },
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -197,7 +197,7 @@ var galleries = [{
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_ImageWithZoom2.default, {
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect'),
       fullBleed: (0, _addonKnobs.boolean)('Full Bleed', false),
       stretchH: (0, _addonKnobs.boolean)('Stretch Horizontal', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg'
@@ -213,7 +213,7 @@ var galleries = [{
     { style: { width: '50%', margin: '10px auto' } },
     _react2.default.createElement(
       _Device2.default,
-      { classAdd: 'test', deviceColor: (0, _addonKnobs.selectV2)('Device Color', {
+      { classAdd: 'test', deviceColor: (0, _addonKnobs.select)('Device Color', {
           black: 'black',
           white: 'white'
         }, 'black') },
@@ -233,7 +233,7 @@ var galleries = [{
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_Image2.default, {
       imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square'),
       fullBleed: (0, _addonKnobs.boolean)('fullBleed', false),
       imgSource: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_hero.jpg',
       imgHover: 'http://nine-eleven-memorial.s3-website-us-west-1.amazonaws.com/public/img/exhibition_object_5.jpg',
@@ -248,7 +248,7 @@ var galleries = [{
     { style: { width: '50%', margin: '50px auto' } },
     _react2.default.createElement(_Slider2.default, {
       images: imageGallery,
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
     }),
     _react2.default.createElement(
@@ -263,9 +263,9 @@ var galleries = [{
     { style: { width: '75%', margin: '50px auto' } },
     _react2.default.createElement(_RevealCarousel2.default, {
       images: imageGallery,
-      countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
-      containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
+      countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+      containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
     })
   );
@@ -276,10 +276,10 @@ var galleries = [{
     _react2.default.createElement(
       _CircularCarousel2.default,
       {
-        aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard'),
-        countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+        aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard'),
+        countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
         caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
-        shadow: (0, _addonKnobs.selectV2)('shadow', { yes: 'yes', no: 'no' }, 'no')
+        shadow: (0, _addonKnobs.select)('shadow', { yes: 'yes', no: 'no' }, 'no')
       },
       imageGallery2.map(function (img, index) {
         return _react2.default.createElement(_Image2.default, {
@@ -296,11 +296,11 @@ var galleries = [{
   return _react2.default.createElement(_Museum2.default, {
     classAdd: '',
     galleries: galleries,
-    countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
-    view: (0, _addonKnobs.selectV2)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
+    countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+    view: (0, _addonKnobs.select)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
     columns: (0, _addonKnobs.number)('Columns', 4),
-    thumbAspect: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen'),
-    containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
+    thumbAspect: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen'),
+    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
     caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
   });
 }).add('Grid Gallery (Mosaic)', function () {
@@ -308,17 +308,17 @@ var galleries = [{
     mobileCarousel: (0, _addonKnobs.boolean)('mobileCarousel', true),
     mixedOr: (0, _addonKnobs.boolean)('mixedOr', false),
     altAsset: ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'],
-    altRatio: (0, _addonKnobs.selectV2)('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, ''),
+    altRatio: (0, _addonKnobs.select)('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, ''),
     classAdd: '',
     headingCaption: 'Lesson 2: Design Matters',
     images: imageGallery2,
     thumbs: imageGallery2,
-    countIndicator: (0, _addonKnobs.selectV2)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
-    view: (0, _addonKnobs.selectV2)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
-    carousel: (0, _addonKnobs.selectV2)('carousel', { yes: 'yes', no: 'no' }, 'no'),
+    countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
+    view: (0, _addonKnobs.select)('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode'),
+    carousel: (0, _addonKnobs.select)('carousel', { yes: 'yes', no: 'no' }, 'no'),
     columns: (0, _addonKnobs.number)('Columns', 3),
-    thumbAspect: (0, _addonKnobs.selectV2)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
-    containerAspect: (0, _addonKnobs.selectV2)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
+    thumbAspect: (0, _addonKnobs.select)('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
+    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square'),
     caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
   });
 }).add('Images Stacked', function () {
@@ -327,7 +327,7 @@ var galleries = [{
     { style: { width: '75%' } },
     _react2.default.createElement(_StackedImage2.default, {
       images: imageGallery,
-      aspectRatio: (0, _addonKnobs.selectV2)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
+      aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
       caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
     })
   );
