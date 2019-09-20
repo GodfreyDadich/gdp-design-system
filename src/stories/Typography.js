@@ -73,7 +73,7 @@ const Typography = props =>
     <br /><br />
 
     <div>
-      <div style={styles.smallText}><small>Uppercase ({fontSizeUppercase}pt)</small></div>
+      <div style={styles.smallText}><small>Uppercase (9pt)</small></div>
       <div style={textUppercase()}>
         Senior Account Manager
     </div>
