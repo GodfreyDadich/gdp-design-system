@@ -1,6 +1,7 @@
 import { configure, addDecorator } from '@storybook/react';
 // import { withThemes } from 'storybook-styled-components'
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 // import GDPTheme from '../src/themes/GDPTheme'
 // import DarkTheme from '../src/themes/DarkTheme'
@@ -13,6 +14,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 // addDecorator(withThemes(themes))
 addDecorator(withKnobs)
+addDecorator(withInfo)
 
 function loadStories() {
   require('../src/stories/Typography');
