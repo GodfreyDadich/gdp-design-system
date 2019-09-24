@@ -1,31 +1,29 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { text, boolean, select, number } from '@storybook/addon-knobs'
 import Image from '../components/Image'
-import ImageWithZoom from '../components/ImageWithZoom'
+// import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
 import RevealCarousel from '../components/RevealCarousel'
 import CircularCarousel from '../components/CircularCarousel'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
-import StackedImage from '../components/StackedImage';
-
+import StackedImage from '../components/StackedImage'
 
 const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
 const imageGallery = [
   'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'
 ]
 
-const imageGallery2 = [ 
+const imageGallery2 = [
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHoyNzAwNXkwaXA3ZnQ0cTcyeDctMjQxMmZmLWFtZXJpY2EtbG8tcjMucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHozdDAwNWQwaXFlcnJ3NWg2cDgtMjIwOWZmLW1hbmdvLWxvLXIyNS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHoxdDAwNWMwaXFlZ243bWwxZWotMjMwNWZmLXdhdGNoLWxvLXIyMy5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em01ZjAwNjAwaXFlMXJoM213Y2MtMjMwMmZmLW5hZGVsbGEtbG8tcjIucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em04eDAxZWowaW5qNnlyd3hpdWstMjMwMmZmLW5hZGVsbGEtbG8tcjIyLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1haDAxZWswaW5qc3lla2cxamwtMjMxMnN3LWpqaW50ZXJ2aWV3LWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
+  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1haDAxZWswaW5qc3lla2cxamwtMjMxMnN3LWpqaW50ZXJ2aWV3LWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'
   // 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1hYzAwMGIwaW44N2ZoanFseDItMjIwNmZmLWR3YXZlLWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19',
   // 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVsYzAxc3cwaW5qd2UybnU5eWctMjUwMWZmLWFicmFoYW1mcmFuY2stbG8tcjIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=',
   // 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5eWcxNzAwMG4waW5qbW13a3ZkbnctMjQwMXNwLXN1cnZpdmFscGFja2FnZW9wZW5lci1yMS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
@@ -36,7 +34,7 @@ const imageGallery2 = [
 
 const imageGallery3 = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunflower_from_Silesia2.jpg/1600px-Sunflower_from_Silesia2.jpg',
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70'
 ]
 
 const galleries = [
@@ -114,199 +112,167 @@ const galleries = [
   }
 ]
 
-storiesOf('Image', module)
-  .add(
-    'Image',
-    () => <div style={{ width: '50%', margin: '10vh auto' }}><Image
-      altAsset={imgSixteenNine}
-      imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
-      fullBleed={boolean('fullBleed', false)}
-      imgSource={imgSixteenNine}
-      linkUrl={text('url', '')}
-      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
-      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    /></div>
-  )
-  .add(
-    'Image with Caption',
-    () => <div style={{ width: '50%', margin: '50px auto' }}><Image
-      caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-      imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
-      fullBleed={boolean('fullBleed', false)}
-      imgSource={imgSixteenNine}
-      linkUrl={text('url', '')}
-      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
-      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    /></div>
-  )
-  .add(
-    'Image with SideBar',
-    () => <div style={{ width: '50%', margin: '50px auto' }}><Image
-      sideBar={{
-        text: text('Sidebar Text', 'Smaller length, Sidebar text area.'),
-        image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH19fQ==',
-        isQuote: true,
-        link: text('sidebar link', ''),
-        quoter: text('Quoter', '—Blaine'),
-        location: select('Sidebar Location', {
-          TopLeft: 'left-top',
-          TopRight: 'right-top',
-          BottomLeft: 'left-bottom',
-          BottomRight: 'right-bottom'
-        }, 'top-left')
-      }}
-      imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
-      fullBleed={boolean('fullBleed', false)}
-      imgSource={imgSixteenNine}
-      linkUrl={text('url', '')}
-      verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
-      horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    /></div>
-  )
-  .add(
-    'Image with Zoom',
-    () => <div style={{ width: '50%', margin: '50px auto' }}>
-      <ImageWithZoom
-        imageTitle={text('Image Title/Alt', 'test')}
-        aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
-        fullBleed={boolean('Full Bleed', false)}
-        stretchH={boolean('Stretch Horizontal', false)}
-        imgSource={imgSixteenNine}
-        verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
-        horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-      /></div>
-  )
+export default {
+  title: 'Design System|Image',
+  component: Image
+}
 
-  .add('Device Image', () =>
-    <div style={{ width: '50%', margin: '10px auto' }}>
-      <Device classAdd='test' deviceColor={select('Device Color', {
-        black: 'black',
-        white: 'white'
-      }, 'black')}>
-        <Image
-          imageTitle={text('Image Title/Alt', 'test')}
-          aspectRatio='standard'
-          skipIntro
-          imgSource={imgSixteenNine}
-          verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
-          horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-        />
-      </Device>
-    </div>
-  )
+export const DefaultImage = () =>
+  <Image
+    altAsset={imgSixteenNine}
+    imageTitle={text('Image Title/Alt', 'test')}
+    aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'square')}
+    fullBleed={boolean('fullBleed', false)}
+    imgSource={imgSixteenNine}
+    linkUrl={text('url', '')}
+    verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+    horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+  />
 
-  .add(
-    'Image with Hover',
-    () => <div style={{ width: '50%', margin: '50px auto' }}><Image
+export const ImageWithCaption = () =>
+  <Image
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+    imageTitle={text('Image Title/Alt', 'test')}
+    aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+    fullBleed={boolean('fullBleed', false)}
+    imgSource={imgSixteenNine}
+    linkUrl={text('url', '')}
+    verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+    horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+  />
+
+export const ImageWithSidebar = () =>
+  <Image
+    sideBar={{
+      text: text('Sidebar Text', 'Smaller length, Sidebar text area.'),
+      image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH19fQ==',
+      isQuote: true,
+      link: text('sidebar link', ''),
+      quoter: text('Quoter', '—Blaine'),
+      location: select('Sidebar Location', {
+        TopLeft: 'left-top',
+        TopRight: 'right-top',
+        BottomLeft: 'left-bottom',
+        BottomRight: 'right-bottom'
+      }, 'top-left')
+    }}
+    imageTitle={text('Image Title/Alt', 'test')}
+    aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+    fullBleed={boolean('fullBleed', false)}
+    imgSource={imgSixteenNine}
+    linkUrl={text('url', '')}
+    verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+    horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+  />
+
+// export const ImageZoom = () =>
+//   <ImageWithZoom
+//     imageTitle={text('Image Title/Alt', 'test')}
+//     aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'noAspect')}
+//     fullBleed={boolean('Full Bleed', false)}
+//     stretchH={boolean('Stretch Horizontal', false)}
+//     imgSource={imgSixteenNine}
+//     verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'bottom')}
+//     horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+//   />
+
+export const DeviceImage = () =>
+  <Device classAdd='test' deviceColor={select('Device Color', {
+    black: 'black',
+    white: 'white'
+  }, 'black')}>
+    <Image
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
-      fullBleed={boolean('fullBleed', false)}
+      aspectRatio='standard'
+      skipIntro
       imgSource={imgSixteenNine}
-      imgHover={imageGallery2[1]}
-      linkUrl={text('url', '')}
       verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
       horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
-    /></div>
-  )
-  .add(
-    'Image Slider',
-    () => <div style={{ width: '50%', margin: '50px auto' }}>
-      <Slider
-        images={imageGallery2}
-        aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
-        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+    />
+  </Device>
+
+export const ImageWithHover = () =>
+  <Image
+    imageTitle={text('Image Title/Alt', 'test')}
+    aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+    fullBleed={boolean('fullBleed', false)}
+    imgSource={imgSixteenNine}
+    imgHover={imageGallery2[1]}
+    linkUrl={text('url', '')}
+    verticalAlign={select('Vertical Align', ['top', 'center', 'bottom'], 'center')}
+    horizontalAlign={select('Horizontal Align', ['left', 'center', 'right'], 'center')}
+  />
+
+export const ImageSlider = () =>
+  <Slider
+    images={imageGallery2}
+    aspectRatio={select('Aspect Ratio', { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+  />
+
+export const ImageRevealCarousel = () =>
+  <RevealCarousel
+    images={imageGallery2}
+    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+  />
+
+export const ImageCircularCarousel = () =>
+  <CircularCarousel
+    aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard')}
+    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+    shadow={select('shadow', { yes: 'yes', no: 'no' }, 'no')}
+  >
+    {imageGallery2.map((img, index) => {
+      return <Image
+        key={`img-${index}`}
+        aspectRatio='noAspect'
+        skipIntro
+        imgSource={img}
+        visibilityOverride
       />
-      <style>{`
-        .backArrow {
-          position: absolute;
-          left: 0;
-        }
-        .nextArrow {
-          position: absolute;
-          right: 0;
-        }
-      `}</style>
-    </div>
-  )
+    })}
+  </CircularCarousel>
 
-  .add(
-    'Image Carousel (Reveal)',
-    () => <div style={{ width: '75%', margin: '50px auto' }}>
-      <RevealCarousel
-        images={imageGallery2}
-        countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-        containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
-        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
-        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-      />
-    </div>
-  )
-  .add(
-    'Image Carousel (Circular)',
-    () => <div style={{ width: '75%', margin: '50px auto' }}>
-      <CircularCarousel
-        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped', NoAspect: 'noAspect' }, 'standard')}
-        countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-        shadow={select('shadow', { yes: 'yes', no: 'no' }, 'no')}
-      >
-        {imageGallery2.map((img, index) => {
-          return <Image
-            key={`img-${index}`}
-            aspectRatio='noAspect'
-            skipIntro
-            imgSource={img}
-            visibilityOverride
-          />
-        })}
-      </CircularCarousel>
-    </div>
-  )
-  .add(
-    'Museum (Gallery of Galleries)',
-    () => <Museum
-      classAdd=''
-      galleries={galleries}
-      countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-      view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
-      columns={number('Columns', 4)}
-      thumbAspect={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')}
-      containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
-      caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-    />)
+export const ImageMuseumView = () =>
+  <Museum
+    classAdd=''
+    galleries={galleries}
+    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+    columns={number('Columns', 4)}
+    thumbAspect={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square' }, 'sixteen')}
+    containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+  />
 
-  .add(
-    'Grid Gallery (Mosaic)',
-    () => <GridGallery
-      mobileCarousel={boolean('mobileCarousel', true)}
-      mixedOr={boolean('mixedOr', false)}
-      altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
-        'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
-        'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
-      altRatio={select('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, '')}
-      classAdd=''
-      headingCaption='Lesson 2: Design Matters'
-      images={imageGallery2}
-      thumbs={imageGallery2}
-      countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-      view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
-      carousel={select('carousel', { yes: 'yes', no: 'no' }, 'no')}
-      columns={number('Columns', 3)}
-      thumbAspect={select('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
-      containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
-      caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-    />)
+export const ImageGridGallery = () =>
+  <GridGallery
+    mobileCarousel={boolean('mobileCarousel', true)}
+    mixedOr={boolean('mixedOr', false)}
+    altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
+      'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70',
+      'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
+    altRatio={select('Alt Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect', None: '' }, '')}
+    classAdd=''
+    headingCaption='Lesson 2: Design Matters'
+    images={imageGallery2}
+    thumbs={imageGallery2}
+    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+    carousel={select('carousel', { yes: 'yes', no: 'no' }, 'no')}
+    columns={number('Columns', 3)}
+    thumbAspect={select('Image Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+    containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'square')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+  />
 
-  .add(
-    'Images Stacked',
-    () => <div style={{ width: '75%' }}>
-      <StackedImage
-        images={imageGallery}
-        aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
-        caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
-      />
-    </div>
-  )
+export const ImagesStacked = () =>
+  <StackedImage
+    images={imageGallery}
+    aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}
+    caption={text('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')}
+  />

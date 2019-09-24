@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react'
+import styles from './styles.json'
+import { rgba } from '../utils/color'
+import colors from '../styles/colors'
 
-import styles from "./styles.json";
-import { rgba } from "../utils/color";
-import colors from "../styles/colors";
+export default {
+  title: 'Design System|Colors'
+}
 
-function Colors() {
-  const borderColor = rgba(colors.textSecondary, 0.2);
+export const GDPColors = () => {
+  const borderColor = rgba(colors.textSecondary, 0.2)
   const textColors = []
   const primaryColors = []
   const gilmoreColors = []
@@ -14,34 +17,34 @@ function Colors() {
   Object.keys(colors).forEach((name) => {
     if (name.includes('text')) {
       textColors.push(
-        <div style={{ marginBottom: "5px", marginTop: "5px" }}>
+        <div style={{ marginBottom: '5px', marginTop: '5px' }}>
           <div
             style={{
               backgroundColor: colors[name],
-              borderColor: (colors[name] === "#fff") ? borderColor : "transparent",
-              borderStyle: "solid",
-              borderWidth: "1px",
-              display: "inline-block",
-              height: "30px",
-              marginRight: "10px",
-              width: "30px",
-              borderRadius: "10%"
+              borderColor: (colors[name] === '#fff') ? borderColor : 'transparent',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              display: 'inline-block',
+              height: '30px',
+              marginRight: '10px',
+              width: '30px',
+              borderRadius: '10%'
             }}
           />
           <pre
             style={{
-              display: "inline-block",
-              fontSize: "14px",
-              lineHeight: "30px",
+              display: 'inline-block',
+              fontSize: '14px',
+              lineHeight: '30px'
             }}
           >
             <span
               style={{
-                display: "inline-block",
-                width: "250px",
+                display: 'inline-block',
+                width: '250px'
               }}
             >
-              <span style={{ userSelect: "none" }}>{colors[name]}</span>
+              <span style={{ userSelect: 'none' }}>{colors[name]}</span>
             </span><span>{name}</span>
           </pre>
         </div>
@@ -49,113 +52,112 @@ function Colors() {
     }
     if (name.includes('UI')) {
       uiColors.push(
-        <div style={{ marginBottom: "5px", marginTop: "5px" }}>
+        <div style={{ marginBottom: '5px', marginTop: '5px' }}>
           <div
             style={{
               backgroundColor: colors[name],
-              borderColor: (colors[name] === "#fff") ? borderColor : "transparent",
-              borderStyle: "solid",
-              borderWidth: "1px",
-              display: "inline-block",
-              height: "30px",
-              marginRight: "10px",
-              width: "30px",
-              borderRadius: "10%"
+              borderColor: (colors[name] === '#fff') ? borderColor : 'transparent',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              display: 'inline-block',
+              height: '30px',
+              marginRight: '10px',
+              width: '30px',
+              borderRadius: '10%'
             }}
           />
           <pre
             style={{
-              display: "inline-block",
-              fontSize: "14px",
-              lineHeight: "30px",
+              display: 'inline-block',
+              fontSize: '14px',
+              lineHeight: '30px'
             }}
           >
             <span
               style={{
-                display: "inline-block",
-                width: "250px",
+                display: 'inline-block',
+                width: '250px'
               }}
             >
-              <span style={{ userSelect: "none" }}>{colors[name]}</span>
+              <span style={{ userSelect: 'none' }}>{colors[name]}</span>
             </span><span>{name}</span>
           </pre>
         </div>
-      );
+      )
     }
 
     if (name.includes('gdpPrimary')) {
       primaryColors.push(
-        <div style={{ marginBottom: "5px", marginTop: "5px" }}>
+        <div style={{ marginBottom: '5px', marginTop: '5px' }}>
           <div
             style={{
               backgroundColor: colors[name],
-              borderColor: (colors[name] === "#fff") ? borderColor : "transparent",
-              borderStyle: "solid",
-              borderWidth: "1px",
-              display: "inline-block",
-              height: "30px",
-              marginRight: "10px",
-              width: "30px",
-              borderRadius: "10%"
+              borderColor: (colors[name] === '#fff') ? borderColor : 'transparent',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              display: 'inline-block',
+              height: '30px',
+              marginRight: '10px',
+              width: '30px',
+              borderRadius: '10%'
             }}
           />
           <pre
             style={{
-              display: "inline-block",
-              fontSize: "14px",
-              lineHeight: "30px",
+              display: 'inline-block',
+              fontSize: '14px',
+              lineHeight: '30px'
             }}
           >
             <span
               style={{
-                display: "inline-block",
-                width: "250px",
+                display: 'inline-block',
+                width: '250px'
               }}
             >
-              <span style={{ userSelect: "none" }}>{colors[name]}</span>
+              <span style={{ userSelect: 'none' }}>{colors[name]}</span>
             </span><span>{name}</span>
           </pre>
         </div>
-      );
+      )
     }
 
     if (name.includes('gilmore')) {
       gilmoreColors.push(
-        <div style={{ marginBottom: "5px", marginTop: "5px" }}>
+        <div style={{ marginBottom: '5px', marginTop: '5px' }}>
           <div
             style={{
               backgroundColor: colors[name],
-              borderColor: (colors[name] === "#fff") ? borderColor : "transparent",
-              borderStyle: "solid",
-              borderWidth: "1px",
-              display: "inline-block",
-              height: "30px",
-              marginRight: "10px",
-              width: "30px",
-              borderRadius: "10%"
+              borderColor: (colors[name] === '#fff') ? borderColor : 'transparent',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              display: 'inline-block',
+              height: '30px',
+              marginRight: '10px',
+              width: '30px',
+              borderRadius: '10%'
             }}
           />
           <pre
             style={{
-              display: "inline-block",
-              fontSize: "14px",
-              lineHeight: "30px",
+              display: 'inline-block',
+              fontSize: '14px',
+              lineHeight: '30px'
             }}
           >
             <span
               style={{
-                display: "inline-block",
-                width: "250px",
+                display: 'inline-block',
+                width: '250px'
               }}
             >
-              <span style={{ userSelect: "none" }}>{colors[name]}</span>
+              <span style={{ userSelect: 'none' }}>{colors[name]}</span>
             </span><span>{name}</span>
           </pre>
         </div>
-      );
+      )
     }
-  });
-
+  })
 
   return (
     <div style={styles.main}>
@@ -165,11 +167,11 @@ function Colors() {
 
       <ul
         style={{
-          display: "inline-block",
-          listStyle: "none",
+          display: 'inline-block',
+          listStyle: 'none',
           margin: 0,
           padding: 0,
-          textAlign: "left",
+          textAlign: 'left'
         }}
       >
         {textColors.map((el, i) => (
@@ -181,11 +183,11 @@ function Colors() {
 
       <ul
         style={{
-          display: "inline-block",
-          listStyle: "none",
+          display: 'inline-block',
+          listStyle: 'none',
           margin: 0,
           padding: 0,
-          textAlign: "left",
+          textAlign: 'left'
         }}
       >
         {uiColors.map((el, i) => (
@@ -197,11 +199,11 @@ function Colors() {
 
       <ul
         style={{
-          display: "inline-block",
-          listStyle: "none",
+          display: 'inline-block',
+          listStyle: 'none',
           margin: 0,
           padding: 0,
-          textAlign: "left",
+          textAlign: 'left'
         }}
       >
         {primaryColors.map((el, i) => (
@@ -213,11 +215,11 @@ function Colors() {
 
       <ul
         style={{
-          display: "inline-block",
-          listStyle: "none",
+          display: 'inline-block',
+          listStyle: 'none',
           margin: 0,
           padding: 0,
-          textAlign: "left",
+          textAlign: 'left'
         }}
       >
         {gilmoreColors.map((el, i) => (
@@ -225,7 +227,5 @@ function Colors() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
-
-export default Colors;

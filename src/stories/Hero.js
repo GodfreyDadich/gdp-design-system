@@ -1,5 +1,4 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { text } from '@storybook/addon-knobs'
 import Hero from '../components/Hero'
 import SideBySide from '../components/SideBySide'
@@ -23,33 +22,39 @@ const breadCrumbData = [
   }
 ]
 
-storiesOf('Hero', module)
-  .add('Static Image', () =>
-    <Hero type='image' source={imgSixteenNine} />
-  )
-  .add('Video', () =>
-    <Hero type='video' source='https://vimeo.com/299978304' thumb='https://i.vimeocdn.com/video/738220216_1000.jpg' />
-  )
-  // .add('Image with Zoom effect', () =>
-  //   <Hero type='image' withZoom='true' source={imgSixteenNine} />
-  // )
-  .add('Side by side', () =>
-    <SideBySide
-      title={text('Title', 'Marcus Wohlsen')}
-      subtitle={text('Subtitle', 'A rare peek inside Amazon\'s massive wish- fulfiling machine')}
-      breadCrumbData={breadCrumbData}
-      delimiter={text('Separator', '/')}
-      source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg' />
-  )
-  .add('Layered', () =>
-    <Layered
-      title={text('Title', 'WIRED')}
-      subtitle={text('Subtitle', 'A rare peek inside Amazon\'s massive wish- fulfiling machine')}
-      breadCrumbData={breadCrumbData}
-      delimiter={text('Separator', '/')}
-      source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg' />
-  )
-  .add('Inset', () =>
-    <Inset
-      source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg' />
-  )
+export default {
+  title: 'Design System|Hero',
+  component: Hero
+}
+
+export const StaticImage = () => <Hero type='image' source={imgSixteenNine} />
+
+export const WithVideo = () =>
+  <Hero
+    type='video'
+    source='https://vimeo.com/299978304'
+    thumb='https://i.vimeocdn.com/video/738220216_1000.jpg'
+  />
+
+export const DipticHero = () =>
+  <SideBySide
+    title={text('Title', 'Marcus Wohlsen')}
+    subtitle={text('Subtitle', 'A rare peek inside Amazon\'s massive wish- fulfiling machine')}
+    breadCrumbData={breadCrumbData}
+    delimiter={text('Separator', '/')}
+    source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
+  />
+
+export const LayeredHero = () =>
+  <Layered
+    title={text('Title', 'WIRED')}
+    subtitle={text('Subtitle', 'A rare peek inside Amazon\'s massive wish- fulfiling machine')}
+    breadCrumbData={breadCrumbData}
+    delimiter={text('Separator', '/')}
+    source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
+  />
+
+export const InsetHero = () =>
+  <Inset
+    source='https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
+  />

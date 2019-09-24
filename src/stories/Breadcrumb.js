@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 import Breadcrumb from '../components/Breadcrumb';
 
@@ -17,11 +16,14 @@ const breadCrumbData = [
     slug: 'http://google.com'
   }
 ]
-storiesOf('Navigation', module)
-  .add(
-    'breadcrumb',
-    () => <Breadcrumb
-      delimiter={text('Separator', '/')}
-      links={breadCrumbData}
-    />
-  )
+
+export default {
+  title: 'Design System|Navigation/Breadcrumb',
+  component: Breadcrumb
+}
+
+export const GDPBreadCrumb = () =>
+  <Breadcrumb
+    delimiter={text('Separator', '/')}
+    links={breadCrumbData}
+  />

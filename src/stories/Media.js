@@ -1,12 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
 import PodcastEmbed from '../components/PodcastEmbed'
 import InstaEmbed from '../components/InstaEmbed'
 
-storiesOf('Media', module)
-.add('Podcast Embed', () =>
-  <PodcastEmbed />
-)
-.add('Instagram Embed', () =>
-  <InstaEmbed />
-)
+export default {
+  title: 'Design System|Media Embeds'
+}
+
+export const EmbedPodcast = () => <PodcastEmbed />
+
+export const EmbedInstagram = () => <InstaEmbed />
