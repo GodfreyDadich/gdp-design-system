@@ -6,9 +6,6 @@ import ImageWithZoom from '../components/ImageWithZoom'
 import Slider from '../components/Slider'
 import RevealCarousel from '../components/RevealCarousel'
 import CircularCarousel from '../components/CircularCarousel'
-import Colors from './Colors'
-import Icons from './Icons'
-import Typography from './Typography'
 import Device from '../components/Device'
 import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
@@ -116,20 +113,6 @@ const galleries = [
     startIndex: 22
   }
 ]
-
-storiesOf('Styles', module)
-  .add(
-    'Colors',
-    () => <Colors />
-  )
-  .add(
-    'Typeography',
-    () => <Typography />
-  )
-  .add(
-    'Icons',
-    () => <Icons />
-  )
 
 storiesOf('Image', module)
   .add(

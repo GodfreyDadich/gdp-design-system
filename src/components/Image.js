@@ -4,7 +4,7 @@ import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import supportsWebP from 'supports-webp'
-import { isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect'
 
 // d36aj1cv2i74vd
 class Image extends React.Component {

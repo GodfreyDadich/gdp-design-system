@@ -1,25 +1,21 @@
-import { configure, addDecorator } from '@storybook/react';
-// import { withThemes } from 'storybook-styled-components'
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
+// import { withInfo } from '@storybook/addon-info';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
-// import GDPTheme from '../src/themes/GDPTheme'
-// import DarkTheme from '../src/themes/DarkTheme'
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  }
+});
 
-
-// const themes = {
-//   'GDP': GDPTheme,
-//   'Dark': DarkTheme
-// }
-
-// addDecorator(withThemes(themes))
 addDecorator(withKnobs)
-addDecorator(withInfo)
+// addDecorator(withInfo)
 
 function loadStories() {
   require('../src/stories/Typography');
   require('../src/stories/Card');
-  require('../src/stories/Chips');
   require('../src/stories/Colors');
   require('../src/stories/Gilmore');
   require('../src/stories/Hero');

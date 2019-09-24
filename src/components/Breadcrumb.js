@@ -14,7 +14,7 @@ const Breadcrumb = ({delimiter, links, linkLast}) => (
             href={link.slug}>{link.title}</a> :
           link.title
         }
-        {index !== (links.length - 1) ? <span className="delimiter">{delimiter}</span> : ''}
+        {index !== (links.length - 1) ? <span className='delimiter'>{delimiter}</span> : ''}
       </li>
     )}
     <style jsx>{`

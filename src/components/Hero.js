@@ -2,6 +2,7 @@ import React from 'react'
 import Image from './Image'
 import Video from './Video'
 import supportsWebP from 'supports-webp'
+// import PropTypes from 'prop-types'
 
 class Hero extends React.Component {
   constructor (props) {
@@ -72,7 +73,7 @@ class Hero extends React.Component {
               controls={false}
               autoplay
               skipIntro
-              loop={true}
+              loop
               vidSource={source}
               thumb={thumb}
               loader
@@ -102,5 +103,12 @@ class Hero extends React.Component {
     )
   }
 }
+
+// Hero.PropTypes = {
+//   type: PropTypes.oneOf(['image', 'video'])
+// }
+// Hero.defaultProps = {
+//   type: 'image'
+// }
 
 export default Hero
