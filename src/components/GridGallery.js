@@ -46,7 +46,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   }
 
   return <div>
-    <div className='col-6 skip-3 col-6-tab skip-1-tab'>{headingCaption || ''}</div>
+    <ConditionalClass pass={headingCaption} classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{headingCaption || ''}</ConditionalClass>
     <div
       style={Object.assign({}, {
         position: 'relative',
