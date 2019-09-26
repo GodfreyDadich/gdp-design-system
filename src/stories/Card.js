@@ -1,7 +1,17 @@
 import React from 'react'
 import { text, boolean, select } from '@storybook/addon-knobs'
 import Card from '../components/Card'
-import { imgSixteenNine, verticalAligns, horizontalAligns, aspectRatiosObj, contentOrientations } from '../utils/defaults'
+import {
+  defaultTitle,
+  defaultSubTitle,
+  defaultCopyBlock,
+  defaultCta,
+  imgSixteenNine,
+  verticalAligns,
+  horizontalAligns,
+  aspectRatiosObj,
+  contentOrientations
+} from '../utils/defaults'
 
 export default {
   title: 'Design System|Card',
@@ -11,10 +21,10 @@ export default {
 export const DefaultCard = () =>
   <div style={{ width: '50%', margin: '50px auto' }}>
     <Card
-      cardTitle={text('Card Title', 'Test Title')}
-      cardSubTitle={text('Card Subtitle', 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.')}
-      cardContent={text('Card Text', 'Test subtitle text ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.')}
-      linkText={text('Link Text', 'Test Link')}
+      cardTitle={text('Card Title', defaultTitle)}
+      cardSubTitle={text('Card Subtitle', defaultSubTitle)}
+      cardContent={text('Card Text', defaultCopyBlock)}
+      linkText={text('Link Text', defaultCta)}
       linkUrl={text('Link Url', '')}
       mediaOrientation={select('Media Orientation', contentOrientations, 'top')}
       imageTitle={text('Image Title/Alt', 'test')}

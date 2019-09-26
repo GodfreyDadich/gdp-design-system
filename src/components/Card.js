@@ -2,7 +2,6 @@ import React from 'react'
 import Image from './Image'
 import CardText from './CardText'
 import PropTypes from 'prop-types'
-import { contentOrientations, aspectRationsArray, verticalAligns, horizontalAligns } from '../utils/defaults'
 
 const imagePropsObject = props => {
   const newObj = Object.assign({}, props)
@@ -10,7 +9,7 @@ const imagePropsObject = props => {
   return newObj
 }
 
-const Card = props =>
+const Card = props => (
   <div className={props.classAdd} style={props.style} >
     {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
     <div className='cardMedia'>
@@ -24,6 +23,7 @@ const Card = props =>
       }
     `}</style>
   </div>
+)
 
 Card.propTypes = {
   cardTitle: PropTypes.string,
@@ -31,12 +31,12 @@ Card.propTypes = {
   cardContent: PropTypes.string,
   linkText: PropTypes.string,
   linkURL: PropTypes.string,
-  mediaOrientation: PropTypes.oneOf(contentOrientations),
+  mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   imageTitle: PropTypes.string,
-  aspectRatio: PropTypes.oneOf(aspectRationsArray),
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped']),
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
-  verticalAlign: PropTypes.oneOf(verticalAligns),
+  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
   horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
 }
 
