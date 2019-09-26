@@ -22,7 +22,7 @@ var fontSizeBodyArticle = exports.fontSizeBodyArticle = 20;
 var fontSizeBodyArticleSmall = exports.fontSizeBodyArticleSmall = 16;
 var fontSizeBodySmall = exports.fontSizeBodySmall = 14;
 var fontSizeAccent = exports.fontSizeAccent = 16;
-var fontSizeUppercase = exports.fontSizeUppercase = 11;
+var fontSizeUppercase = exports.fontSizeUppercase = 9;
 
 var lineHeightSuper = exports.lineHeightSuper = 96 / fontSizeSuper;
 var lineHeightHeading1 = exports.lineHeightHeading1 = 72 / fontSizeHeading1;

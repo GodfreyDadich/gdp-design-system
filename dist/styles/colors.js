@@ -3,59 +3,56 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _color = require('../utils/color');
-
-// Background colors
-var backgroundHome = '#000';
-var backgroundPrimary = '#fff';
-
-// Link colors
-var linkPrimary = '#333';
-var gdpNeon = '#00FF00';
-
 // Text colors
-var textPrimary = '#333';
-var textSecondary = '#6D6A60';
+var textGray = '#7F7F7F';
+var textMatteBlack = '#333';
 
-// Accent colors
-var gdpOrange = '#FF6600';
+// UI Elements
+var blackUI = '#000';
+var gdpNeonUI = '#00FF00';
+var gdpGrayUI = '#6D6A60';
+var whiteUI = '#fff';
+
+// GDP Primary Colors
+var gdpPrimaryOrange = '#FF6600';
+var gdpPrimaryGreen = '#00AD68';
+var gdpPrimaryTeal = '#0C9094';
+
+// Gilmore Palette colors
 var gdpOrange1 = '#EC6724';
 var gdpOrange2 = '#EE8028';
-var gdpGreen = '#00AD68';
-var gdpTeal = '#0C9094';
-var gdpRed = '#A9233A';
-var gdpRed1 = '#D72637';
-var gdpRed2 = '#EE2E2B';
-var gdpRed3 = '#EA4F29';
-var gdpGold = '#E99E28';
-var gdpGold2 = '#E4BA3C';
-var gdpBlue = '#008B9B';
-var gdpBlue1 = '#00B1BF';
-var gdpBlue2 = '#5EBBBC';
+var gilmoreRed = '#A9233A';
+var gilmoreRed1 = '#D72637';
+var gilmoreRed2 = '#EE2E2B';
+var gilmoreRed3 = '#EA4F29';
+var gilmoreGold = '#E99E28';
+var gilmoreGold2 = '#E4BA3C';
+var gilmoreBlue = '#008B9B';
+var gilmoreBlue1 = '#00B1BF';
+var gilmoreBlue2 = '#5EBBBC';
 
 exports.default = {
-  backgroundHome: backgroundHome,
-  backgroundPrimary: backgroundPrimary,
+  textGray: textGray,
+  textMatteBlack: textMatteBlack,
 
-  linkPrimary: linkPrimary,
-  gdpNeon: gdpNeon,
+  blackUI: blackUI,
+  gdpNeonUI: gdpNeonUI,
+  gdpGrayUI: gdpGrayUI,
+  whiteUI: whiteUI,
 
-  textPrimary: textPrimary,
-  textSecondary: textSecondary,
+  gdpPrimaryOrange: gdpPrimaryOrange,
+  gdpPrimaryGreen: gdpPrimaryGreen,
+  gdpPrimaryTeal: gdpPrimaryTeal,
 
-  gdpOrange: gdpOrange,
   gdpOrange1: gdpOrange1,
   gdpOrange2: gdpOrange2,
-  gdpGreen: gdpGreen,
-  gdpTeal: gdpTeal,
-  gdpBlue: gdpBlue,
-  gdpBlue1: gdpBlue1,
-  gdpBlue2: gdpBlue2,
-  gdpRed: gdpRed,
-  gdpRed1: gdpRed1,
-  gdpRed2: gdpRed2,
-  gdpRed3: gdpRed3,
-  gdpGold: gdpGold,
-  gdpGold2: gdpGold2
+  gilmoreRed: gilmoreRed,
+  gilmoreRed1: gilmoreRed1,
+  gilmoreRed2: gilmoreRed2,
+  gilmoreRed3: gilmoreRed3,
+  gilmoreGold: gilmoreGold,
+  gilmoreGold2: gilmoreGold2,
+  gilmoreBlue2: gilmoreBlue2,
+  gilmoreBlue1: gilmoreBlue1,
+  gilmoreBlue: gilmoreBlue
 };
