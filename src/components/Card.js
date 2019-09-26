@@ -1,7 +1,8 @@
 import React from 'react'
-import ConditionalLink from './ConditionalLink'
 import Image from './Image'
 import CardText from './CardText'
+import PropTypes from 'prop-types'
+import { contentOrientations, aspectRationsArray, verticalAligns, horizontalAligns } from '../utils/defaults'
 
 const imagePropsObject = props => {
   const newObj = Object.assign({}, props)
@@ -24,4 +25,26 @@ const Card = props =>
     `}</style>
   </div>
 
+Card.propTypes = {
+  cardTitle: PropTypes.string,
+  cardSubtitle: PropTypes.string,
+  cardContent: PropTypes.string,
+  linkText: PropTypes.string,
+  linkURL: PropTypes.string,
+  mediaOrientation: PropTypes.oneOf(contentOrientations),
+  imageTitle: PropTypes.string,
+  aspectRatio: PropTypes.oneOf(aspectRationsArray),
+  fullBleed: PropTypes.bool,
+  imgSource: PropTypes.string,
+  verticalAlign: PropTypes.oneOf(verticalAligns),
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
+}
+
+Card.defaultProps = {
+  mediaOrientation: 'top',
+  aspectRatio: 'standard',
+  fullBleed: false,
+  verticalAlign: 'center',
+  horizontalAlign: 'center'
+}
 export default Card
