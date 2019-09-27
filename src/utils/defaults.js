@@ -4,6 +4,20 @@ export const defaultSubTitle = 'Subtitle Tk'
 export const defaultCta = 'CTA Tk'
 export const defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
 export const defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'
+export const breadCrumbData = [
+  {
+    title: 'home',
+    slug: 'http://google.com'
+  },
+  {
+    title: 'work',
+    slug: 'http://google.com'
+  },
+  {
+    title: 'wired',
+    slug: 'http://google.com'
+  }
+]
 
 /* Options */
 export const aspectRatiosObj = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']

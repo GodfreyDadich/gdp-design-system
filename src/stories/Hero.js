@@ -9,23 +9,9 @@ import {
   image3,
   video1,
   defaultSubTitle,
-  defaultTitle
+  defaultTitle,
+  breadCrumbData
 } from '../utils/defaults'
-
-const breadCrumbData = [
-  {
-    title: 'home',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'work',
-    slug: 'http://google.com'
-  },
-  {
-    title: 'wired',
-    slug: 'http://google.com'
-  }
-]
 
 export default {
   title: 'Design System|Hero',
