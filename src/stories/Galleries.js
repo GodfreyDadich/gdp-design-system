@@ -11,7 +11,11 @@ import {
   aspectRatiosObj,
   imageGallery2,
   galleries,
-  aspectRationsArray
+  aspectRationsArray,
+  countIndicator,
+  addDropShadow,
+  viewMode,
+  isCarousel
 } from '../utils/defaults'
 
 export default {
@@ -28,7 +32,7 @@ export const ImageSlider = () =>
 export const ImageRevealCarousel = () =>
   <RevealCarousel
     images={imageGallery2}
-    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    countIndicator={select('Count Indicator', countIndicator, 'dots')}
     containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
     aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
     caption={text('Caption', defaultCaption)}
@@ -37,9 +41,9 @@ export const ImageRevealCarousel = () =>
 export const ImageCircularCarousel = () =>
   <CircularCarousel
     aspectRatio={select('Aspect Ratio', aspectRationsArray, 'standard')}
-    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
+    countIndicator={select('Count Indicator', countIndicator, 'dots')}
     caption={text('Caption', defaultCaption)}
-    shadow={select('shadow', { yes: 'yes', no: 'no' }, 'no')}
+    shadow={select('shadow', addDropShadow, 'no')}
   >
     {imageGallery2.map((img, index) => {
       return <Image
@@ -56,8 +60,8 @@ export const ImageMuseumView = () =>
   <Museum
     classAdd=''
     galleries={galleries}
-    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-    view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
+    countIndicator={select('Count Indicator', countIndicator, 'dots')}
+    view={select('View Mode', viewMode, 'lightMode')}
     columns={number('Columns', 4)}
     thumbAspect={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
     containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
@@ -76,11 +80,11 @@ export const ImageGridGallery = () =>
     headingCaption={text('Heading Caption', 'Lesson 2: Design Matters')}
     images={imageGallery2}
     thumbs={imageGallery2}
-    countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
-    view={select('View Mode', { lightMode: 'lightMode', darkMode: 'darkMode' }, 'lightMode')}
-    carousel={select('carousel', { yes: 'yes', no: 'no' }, 'no')}
+    countIndicator={select('Count Indicator', countIndicator, 'dots')}
+    view={select('View Mode', viewMode, 'lightMode')}
+    carousel={select('carousel', isCarousel, 'no')}
     columns={number('Columns', 3)}
-    thumbAspect={select('Image Aspect Ratio', aspectRatiosObj, 'square')}
-    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'square')}
+    thumbAspect={select('Image Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
     caption={text('Caption', defaultCaption)}
   />
