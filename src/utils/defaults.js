@@ -6,16 +6,16 @@ export const defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue.
 export const defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'
 
 /* Options */
-export const aspectRatiosObj = { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }
+export const aspectRatiosObj = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
 export const aspectRationsArray = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
 export const verticalAligns = ['top', 'center', 'bottom']
 export const horizontalAligns = ['left', 'center', 'right']
 export const contentOrientations = ['top', 'left', 'right', 'bottom']
-export const sidebarLocations = { TopLeft: 'left-top', TopRight: 'right-top', BottomLeft: 'left-bottom', BottomRight: 'right-bottom' }
-export const countIndicator = { counter: 'counter', dots: 'dots', none: 'none' }
-export const addDropShadow = { yes: 'yes', no: 'no' }
-export const viewMode = { lightMode: 'lightMode', darkMode: 'darkMode' }
-export const isCarousel = { yes: 'yes', no: 'no' }
+export const sidebarLocations = ['left-top', 'right-top', 'left-bottom', 'right-bottom']
+export const countIndicator = ['counter', 'dots', 'none']
+export const addDropShadow = ['yes', 'no']
+export const viewMode = ['lightMode', 'darkMode']
+export const isCarousel = ['yes', 'no']
 
 /* Media */
 export const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
