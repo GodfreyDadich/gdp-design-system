@@ -104,6 +104,7 @@ class Hero extends React.Component {
   }
 }
 
+// this component will need to be converted to a functional component to work with proptypes
 // Hero.PropTypes = {
 //   type: PropTypes.oneOf(['image', 'video'])
 // }
