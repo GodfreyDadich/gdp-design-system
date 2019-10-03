@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Breadcrumb = ({delimiter, links, linkLast}) => (
   <ul className='breadcrumb'>
@@ -41,5 +42,13 @@ const Breadcrumb = ({delimiter, links, linkLast}) => (
     `}</style>
   </ul>
 )
+
+Breadcrumb.propTypes = {
+  delimiter: PropTypes.string,
+  links: PropTypes.array
+}
+
+Breadcrumb.defaultProps = {
+}
 
 export default Breadcrumb

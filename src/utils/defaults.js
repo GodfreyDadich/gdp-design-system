@@ -4,20 +4,38 @@ export const defaultSubTitle = 'Subtitle Tk'
 export const defaultCta = 'CTA Tk'
 export const defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
 export const defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'
+export const breadCrumbData = [
+  {
+    title: 'home',
+    slug: 'http://google.com'
+  },
+  {
+    title: 'work',
+    slug: 'http://google.com'
+  },
+  {
+    title: 'wired',
+    slug: 'http://google.com'
+  }
+]
 
 /* Options */
-export const aspectRatiosObj = { NoAspect: 'noAspect', SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }
+export const aspectRatiosObj = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
 export const aspectRationsArray = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
 export const verticalAligns = ['top', 'center', 'bottom']
 export const horizontalAligns = ['left', 'center', 'right']
 export const contentOrientations = ['top', 'left', 'right', 'bottom']
-export const sidebarLocations = { TopLeft: 'left-top', TopRight: 'right-top', BottomLeft: 'left-bottom', BottomRight: 'right-bottom' }
+export const sidebarLocations = ['left-top', 'right-top', 'left-bottom', 'right-bottom']
+export const countIndicator = ['counter', 'dots', 'none']
+export const addDropShadow = ['yes', 'no']
+export const viewMode = ['lightMode', 'darkMode']
+export const isCarousel = ['yes', 'no']
 
 /* Media */
 export const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
 export const imageGallery = [
-  'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg',
-  'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx5dXVzeTAxc3owaW5qbWc0ZXl3enItMjQwOGZwMS1vcGVuZXItbG8tcjIuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo5MH0sInJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn6e00av0injox68giu4-06-1316wieaopen002.full.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmzs004y0ipgfjyriq15-03-1316wicxopen001.full.jpg'
 ]
 export const imageGallery2 = [
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==',
@@ -29,8 +47,8 @@ export const imageGallery2 = [
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1haDAxZWswaW5qc3lla2cxamwtMjMxMnN3LWpqaW50ZXJ2aWV3LWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'
 ]
 export const imageGallery3 = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunflower_from_Silesia2.jpg/1600px-Sunflower_from_Silesia2.jpg',
-  'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70'
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn4w00au0injsf6wzl76-05-1316wiwkopen001.full.jpg',
+  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn2m00at0injl51tmrkf-07-1316wismopen001.full.jpg'
 ]
 export const galleries = [
   {
@@ -106,3 +124,11 @@ export const galleries = [
     startIndex: 22
   }
 ]
+
+/* Static Images */
+export const image1 = 'https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
+export const image2 = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
+export const image3 = 'https://i.vimeocdn.com/video/738220216_1000.jpg'
+
+/* Static Videos */
+export const video1 = 'https://vimeo.com/299978304'

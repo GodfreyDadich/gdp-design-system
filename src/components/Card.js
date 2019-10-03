@@ -41,10 +41,7 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
-  mediaOrientation: 'top',
   aspectRatio: 'standard',
-  fullBleed: false,
-  verticalAlign: 'center',
-  horizontalAlign: 'center'
+  fullBleed: false
 }
 export default Card
