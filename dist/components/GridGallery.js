@@ -114,8 +114,8 @@ var GridGallery = function GridGallery(_ref) {
     'div',
     null,
     _react2.default.createElement(
-      'div',
-      { className: 'col-6 skip-3 col-6-tab skip-1-tab' },
+      _ConditionalClass2.default,
+      { pass: headingCaption, classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
       headingCaption || ''
     ),
     _react2.default.createElement(

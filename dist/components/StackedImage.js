@@ -44,17 +44,12 @@ var StackedImage = function (_Component) {
   _createClass(StackedImage, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         null,
         _reactDeviceDetect.isMobile ? _react2.default.createElement(
-          'figure',
+          'div',
           {
-            ref: function ref(elem) {
-              _this2.carouselElem = elem;
-            },
             style: {
               position: 'relative',
               display: 'block',
@@ -64,7 +59,7 @@ var StackedImage = function (_Component) {
             className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
           this.props.images.map(function (img, index) {
             return _react2.default.createElement(
-              'div',
+              'figure',
               {
                 key: 'image' + index,
                 style: {
@@ -85,24 +80,12 @@ var StackedImage = function (_Component) {
             this.props.caption
           ) : ''
         ) : _react2.default.createElement(
-          'figure',
+          'div',
           {
-            ref: function ref(elem) {
-              _this2.carouselElem = elem;
-            },
-            style: {
-              position: 'relative',
-              display: 'inline-block',
-              width: '100%',
-              height: '100%'
-            },
             className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
           _react2.default.createElement(
             'div',
             {
-              ref: function ref(elem) {
-                _this2.carouselElem = elem;
-              },
               style: {
                 position: 'relative',
                 display: 'flex',
@@ -112,11 +95,15 @@ var StackedImage = function (_Component) {
               } },
             this.props.images.map(function (img, index) {
               return _react2.default.createElement(
-                'div',
+                'figure',
                 {
                   key: 'image' + index,
                   style: {
-                    margin: '0 1vw'
+                    margin: '0 1vw',
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: '100%',
+                    height: '100%'
                   } },
                 _react2.default.createElement(_Image2.default, {
                   key: 'img-' + index,

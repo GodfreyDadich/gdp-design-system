@@ -16,8 +16,7 @@ export default class StackedImage extends Component {
     return (
       <div>
         {isMobile ?
-          <figure
-            ref={elem => { this.carouselElem = elem }}
+          <div
             style={{
               position: 'relative',
               display: 'block',
@@ -26,34 +25,26 @@ export default class StackedImage extends Component {
             }}
             className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
             {this.props.images.map((img, index) => {
-                return <div
+              return <figure
                 key={`image${index}`}
                 style={{
                   margin: '1.5vw 0'
                 }}>
                 <Image
                   key={`img-${index}`}
-                  aspectRatio='noAspect'
+                  aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
                   skipIntro
                   imgSource={img}
                   visibilityOverride
                 />
-                </div>
+              </figure>
             })}
             {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
-          </figure>
+          </div>
           :
-          <figure
-            ref={elem => { this.carouselElem = elem }}
-            style={{
-              position: 'relative',
-              display: 'inline-block',
-              width: '100%',
-              height: '100%'
-            }}
+          <div
             className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
             <div
-              ref={elem => { this.carouselElem = elem }}
               style={{
                 position: 'relative',
                 display: 'flex',
@@ -62,23 +53,27 @@ export default class StackedImage extends Component {
                 height: '100%'
               }}>
               {this.props.images.map((img, index) => {
-                return <div
-                key={`image${index}`}
-                style={{
-                  margin: '0 1vw'
-                }}>
-                <Image
-                  key={`img-${index}`}
-                  aspectRatio='noAspect'
-                  skipIntro
-                  imgSource={img}
-                  visibilityOverride
-                />
-                </div>
+                return <figure
+                  key={`image${index}`}
+                  style={{
+                    margin: '0 1vw',
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: '100%',
+                    height: '100%'
+                  }}>
+                  <Image
+                    key={`img-${index}`}
+                    aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
+                    skipIntro
+                    imgSource={img}
+                    visibilityOverride
+                  />
+                </figure>
               })}
             </div>
             {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
-          </figure>
+          </div>
         }
       </div>
     )

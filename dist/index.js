@@ -193,6 +193,15 @@ Object.defineProperty(exports, 'SimpleGallery', {
   }
 });
 
+var _StackedImage = require('./components/StackedImage');
+
+Object.defineProperty(exports, 'StackedImage', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_StackedImage).default;
+  }
+});
+
 var _Slide = require('./components/Slide');
 
 Object.defineProperty(exports, 'Slide', {
