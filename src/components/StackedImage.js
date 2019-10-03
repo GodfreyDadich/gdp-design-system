@@ -32,7 +32,7 @@ export default class StackedImage extends Component {
                 }}>
                 <Image
                   key={`img-${index}`}
-                  aspectRatio='noAspect'
+                  aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
                   skipIntro
                   imgSource={img}
                   visibilityOverride
@@ -64,7 +64,7 @@ export default class StackedImage extends Component {
                   }}>
                   <Image
                     key={`img-${index}`}
-                    aspectRatio='noAspect'
+                    aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
                     skipIntro
                     imgSource={img}
                     visibilityOverride
