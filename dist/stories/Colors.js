@@ -21,12 +21,15 @@ var _colors2 = _interopRequireDefault(_colors);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Colors() {
-  var colorsArray = [];
   var borderColor = (0, _color.rgba)(_colors2.default.textSecondary, 0.2);
+  var textColors = [];
+  var primaryColors = [];
+  var gilmoreColors = [];
+  var uiColors = [];
 
   Object.keys(_colors2.default).forEach(function (name) {
-    if (_colors2.default[name]) {
-      colorsArray.push(_react2.default.createElement(
+    if (name.includes('text')) {
+      textColors.push(_react2.default.createElement(
         "div",
         { style: { marginBottom: "5px", marginTop: "5px" } },
         _react2.default.createElement("div", {
@@ -38,7 +41,154 @@ function Colors() {
             display: "inline-block",
             height: "30px",
             marginRight: "10px",
-            width: "30px"
+            width: "30px",
+            borderRadius: "10%"
+          }
+        }),
+        _react2.default.createElement(
+          "pre",
+          {
+            style: {
+              display: "inline-block",
+              fontSize: "14px",
+              lineHeight: "30px"
+            }
+          },
+          _react2.default.createElement(
+            "span",
+            {
+              style: {
+                display: "inline-block",
+                width: "250px"
+              }
+            },
+            _react2.default.createElement(
+              "span",
+              { style: { userSelect: "none" } },
+              _colors2.default[name]
+            )
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            name
+          )
+        )
+      ));
+    }
+    if (name.includes('UI')) {
+      uiColors.push(_react2.default.createElement(
+        "div",
+        { style: { marginBottom: "5px", marginTop: "5px" } },
+        _react2.default.createElement("div", {
+          style: {
+            backgroundColor: _colors2.default[name],
+            borderColor: _colors2.default[name] === "#fff" ? borderColor : "transparent",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            display: "inline-block",
+            height: "30px",
+            marginRight: "10px",
+            width: "30px",
+            borderRadius: "10%"
+          }
+        }),
+        _react2.default.createElement(
+          "pre",
+          {
+            style: {
+              display: "inline-block",
+              fontSize: "14px",
+              lineHeight: "30px"
+            }
+          },
+          _react2.default.createElement(
+            "span",
+            {
+              style: {
+                display: "inline-block",
+                width: "250px"
+              }
+            },
+            _react2.default.createElement(
+              "span",
+              { style: { userSelect: "none" } },
+              _colors2.default[name]
+            )
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            name
+          )
+        )
+      ));
+    }
+
+    if (name.includes('gdpPrimary')) {
+      primaryColors.push(_react2.default.createElement(
+        "div",
+        { style: { marginBottom: "5px", marginTop: "5px" } },
+        _react2.default.createElement("div", {
+          style: {
+            backgroundColor: _colors2.default[name],
+            borderColor: _colors2.default[name] === "#fff" ? borderColor : "transparent",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            display: "inline-block",
+            height: "30px",
+            marginRight: "10px",
+            width: "30px",
+            borderRadius: "10%"
+          }
+        }),
+        _react2.default.createElement(
+          "pre",
+          {
+            style: {
+              display: "inline-block",
+              fontSize: "14px",
+              lineHeight: "30px"
+            }
+          },
+          _react2.default.createElement(
+            "span",
+            {
+              style: {
+                display: "inline-block",
+                width: "250px"
+              }
+            },
+            _react2.default.createElement(
+              "span",
+              { style: { userSelect: "none" } },
+              _colors2.default[name]
+            )
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            name
+          )
+        )
+      ));
+    }
+
+    if (name.includes('gilmore')) {
+      gilmoreColors.push(_react2.default.createElement(
+        "div",
+        { style: { marginBottom: "5px", marginTop: "5px" } },
+        _react2.default.createElement("div", {
+          style: {
+            backgroundColor: _colors2.default[name],
+            borderColor: _colors2.default[name] === "#fff" ? borderColor : "transparent",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            display: "inline-block",
+            height: "30px",
+            marginRight: "10px",
+            width: "30px",
+            borderRadius: "10%"
           }
         }),
         _react2.default.createElement(
@@ -80,7 +230,12 @@ function Colors() {
     _react2.default.createElement(
       "h1",
       null,
-      "Colors"
+      "GDP Web Colors"
+    ),
+    _react2.default.createElement(
+      "h3",
+      null,
+      "Text / Type"
     ),
     _react2.default.createElement(
       "ul",
@@ -93,7 +248,79 @@ function Colors() {
           textAlign: "left"
         }
       },
-      colorsArray.map(function (el, i) {
+      textColors.map(function (el, i) {
+        return _react2.default.createElement(
+          "li",
+          { key: i, style: { borderTop: "1px solid " + borderColor } },
+          el
+        );
+      })
+    ),
+    _react2.default.createElement(
+      "h3",
+      null,
+      "UI Elements"
+    ),
+    _react2.default.createElement(
+      "ul",
+      {
+        style: {
+          display: "inline-block",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+          textAlign: "left"
+        }
+      },
+      uiColors.map(function (el, i) {
+        return _react2.default.createElement(
+          "li",
+          { key: i, style: { borderTop: "1px solid " + borderColor } },
+          el
+        );
+      })
+    ),
+    _react2.default.createElement(
+      "h3",
+      null,
+      "GDP Primary Colors"
+    ),
+    _react2.default.createElement(
+      "ul",
+      {
+        style: {
+          display: "inline-block",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+          textAlign: "left"
+        }
+      },
+      primaryColors.map(function (el, i) {
+        return _react2.default.createElement(
+          "li",
+          { key: i, style: { borderTop: "1px solid " + borderColor } },
+          el
+        );
+      })
+    ),
+    _react2.default.createElement(
+      "h3",
+      null,
+      "Gilmore Palette"
+    ),
+    _react2.default.createElement(
+      "ul",
+      {
+        style: {
+          display: "inline-block",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+          textAlign: "left"
+        }
+      },
+      gilmoreColors.map(function (el, i) {
         return _react2.default.createElement(
           "li",
           { key: i, style: { borderTop: "1px solid " + borderColor } },

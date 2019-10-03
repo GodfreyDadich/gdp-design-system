@@ -33,27 +33,10 @@ var Typography = function Typography(props) {
       null,
       'Typography'
     ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
     _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Super (',
-          _typography.fontSizeSuper,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        _Type.HeadingSuper,
-        null,
-        'Top experiences in Asia'
-      )
+      'h2',
+      { style: { color: '#7f7f7f' } },
+      'Desktop Type'
     ),
     _react2.default.createElement('br', null),
     _react2.default.createElement('br', null),
@@ -66,9 +49,9 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
-          'Heading 1 (',
+          'H1 (Noe Display) (',
           _typography.fontSizeHeading1,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
@@ -77,9 +60,11 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'span',
           { style: { display: 'block', color: '#7F7F7F' } },
-          'National Geographic'
+          'Client Name'
         ),
-        ' Redefining the nature of exploration'
+        ' Project Title ',
+        _react2.default.createElement('br', null),
+        'Title Tk'
       )
     ),
     _react2.default.createElement('br', null),
@@ -93,37 +78,62 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
-          'Heading 2 (',
-          _typography.fontSizeHeading2,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        _Type.Heading2,
-        null,
-        'Top experiences in Asia'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Heading 3 (',
+          'Card Title & Subtitle (',
           _typography.fontSizeHeading3,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
-        _Type.Heading3,
+        _Type.CardTitle,
         null,
-        'Top experiences in Asia'
+        'Client Name'
+      ),
+      _react2.default.createElement(
+        _Type.CardSubTitle,
+        null,
+        'Dek/Editorial project title that may run into two sentences'
+      )
+    ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
+          'Uppercase (9pt)'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { style: (0, _typography2.textUppercase)() },
+        'Senior Account Manager'
+      )
+    ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
+          'Atlas Grotesk Caption (12pt)'
+        )
+      ),
+      _react2.default.createElement(
+        _Type.Caption,
+        null,
+        'GDP divided front-of-book into three sections that each have their own distinctive look and ',
+        _react2.default.createElement('br', null),
+        'approach'
       )
     ),
     _react2.default.createElement('br', null),
@@ -139,7 +149,7 @@ var Typography = function Typography(props) {
           null,
           'Heading 4 (',
           _typography.fontSizeHeading4,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
@@ -161,7 +171,7 @@ var Typography = function Typography(props) {
           null,
           'SubHead (',
           _typography.fontSizeHeading4,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
@@ -183,7 +193,7 @@ var Typography = function Typography(props) {
           null,
           'SubHeadBlack (',
           _typography.fontSizeHeading4,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
@@ -223,199 +233,13 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
-          'Heading 5 (',
-          _typography.fontSizeHeading5,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textHeading5)() },
-        'Top experiences in Asia'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Heading 6 (',
-          _typography.fontSizeHeading6,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textHeading6)() },
-        'Top experiences in Asia'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Heading 7 (',
-          _typography.fontSizeHeading7,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textHeading7)() },
-        'Top experiences in Asia'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Heading 8 (',
-          _typography.fontSizeHeading8,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textHeading8)() },
-        'Top experiences in Asia'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Body article (',
-          _typography.fontSizeBodyArticle,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'p',
-        null,
-        'Few magazines in the world are as revered as ',
-        _react2.default.createElement(
-          'span',
-          { style: { fontStyle: 'italic' } },
-          'National Geographic'
-        ),
-        '. For 130 years its breathtaking photography and groundbreaking narratives have helped readers discover the world through its pages. While the brand has evolved with a changing industry\u2014building a thriving television network, books and kids divisions, travel business, and social media audience (90+ million Instagram followers and counting)\u2014the magazine itself hadn\u2019t undergone a significant redesign for two decades.'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Body article small (',
-          _typography.fontSizeBodyArticleSmall,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textBodyArticleSmall)() },
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit enim ut metus feugiat, vitae pharetra massa aliquet.'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'WiredType (',
-          _typography.fontSizeHeading4,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        _Type.WiredType,
-        null,
-        'wired'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'InquiryText (',
-          _typography.fontSizeHeading4,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        _Type.InquiryText,
-        null,
-        _react2.default.createElement(
-          'h5',
-          null,
-          'For speaking engagement inquiries, please contact inquiries@godfreydadich.com'
-        )
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Pull Quote'
+          'Atlas Grotesk PQ'
         )
       ),
       _react2.default.createElement(
         _Pullquote2.default,
         { classAdd: 'testadd' },
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum.',
+        'The editorial team created new story forms and structures that could tackle big, bold ideas with provocative voice.',
         _react2.default.createElement(
           _Type.QuoteAttribution,
           { classAdd: 'testadd' },
@@ -434,18 +258,69 @@ var Typography = function Typography(props) {
         _react2.default.createElement(
           'small',
           null,
-          'Body small (',
-          _typography.fontSizeBodySmall,
-          ')'
+          'Atlas Grotesk Body (',
+          _typography.fontSizeBodyArticleSmall,
+          'pt)'
         )
       ),
       _react2.default.createElement(
         'div',
-        { style: (0, _typography2.textBodySmall)() },
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit enim ut metus feugiat, vitae pharetra massa aliquet.'
+        { style: (0, _typography2.textBodyArticleSmall)() },
+        'Few magazines in the world are as revered as National Geographic. For 130 years its breathtaking photography and groundbreaking narratives have helped readers discover the world through its pages. While the brand has evolved with a changing industry\u2014building a thriving television network, books and kids divisions, travel business, and social media audience (90+ million Instagram followers and counting)\u2014the magazine itself hadn\u2019t undergone a significant redesign for two decades.'
       )
     ),
     _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
+          'Small Caps (Noe Text) (',
+          _typography.fontSizeHeading4,
+          'pt)'
+        )
+      ),
+      _react2.default.createElement(
+        _Type.WiredType,
+        null,
+        _react2.default.createElement(
+          'span',
+          { style: { fontFamily: 'Noe Text' } },
+          'wired'
+        )
+      )
+    ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { style: _styles2.default.smallText },
+        _react2.default.createElement(
+          'small',
+          null,
+          'CTA Type (',
+          _typography.fontSizeHeading4,
+          'pt)'
+        )
+      ),
+      _react2.default.createElement(
+        _Type.InquiryText,
+        null,
+        _react2.default.createElement(
+          'h5',
+          null,
+          'For speaking engagement inquiries, please contact inquiries@godfreydadich.com'
+        )
+      )
+    ),
     _react2.default.createElement('br', null),
     _react2.default.createElement(
       'div',
@@ -458,113 +333,13 @@ var Typography = function Typography(props) {
           null,
           'Accent (',
           _typography.fontSizeAccent,
-          ')'
+          'pt)'
         )
       ),
       _react2.default.createElement(
         'div',
         { style: (0, _typography2.textAccent)() },
         'Lorem ipsum dolor sit amet'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Uppercase (',
-          _typography.fontSizeUppercase,
-          ')'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: (0, _typography2.textUppercase)() },
-        'Sectional navigation'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Left Carving'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: { width: '65%', margin: 'auto', fontSize: '15px', fontFamily: 'Noe Text' } },
-        _react2.default.createElement(
-          _Type.LeftCarving,
-          null,
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.'
-        ),
-        'Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.'
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Quote Block'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _Pullquote2.default,
-          { pqOptions: 'quote-block' },
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.'
-        )
-      )
-    ),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { style: _styles2.default.smallText },
-        _react2.default.createElement(
-          'small',
-          null,
-          'Sidebar Quote'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _Type.SidebarQuote,
-          null,
-          'Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { style: { width: '59%', fontSize: '15px', margin: 'auto', fontFamily: 'Noe Text' } },
-        'Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus. Lorem ipsum dolor sit amet, adipiscing elit. Curabi in lobortis massa, at mollis mauris. nec commodo eros, id hendrerit est. Vestibulum eu volutpat  Nam id mauris metus.'
       )
     )
   );

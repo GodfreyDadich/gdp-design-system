@@ -154,16 +154,16 @@ var SubHead = exports.SubHead = function SubHead(_ref7) {
     {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
-        fontWeight: 'bold',
+        fontWeight: '900',
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-1284517413' + ' ' + ('subhead ' + className)
+      className: 'jsx-2847297487' + ' ' + ('subhead ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '1284517413',
-      css: '.subhead.jsx-1284517413{font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}'
+      styleId: '2847297487',
+      css: '.subhead.jsx-2847297487{font-family:\'Atlas Grotesk\';font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}'
     })
   );
 };
@@ -177,16 +177,16 @@ var SubHeadBlack = exports.SubHeadBlack = function SubHeadBlack(_ref8) {
     {
       style: _extends({
         fontFamily: 'Atlas Grotesk',
-        fontWeight: 'bold',
+        fontWeight: '900',
         marginTop: 0,
         marginBottom: 0
       }, style),
-      className: 'jsx-2770374667' + ' ' + ('subheadBlack ' + className)
+      className: 'jsx-1095621166' + ' ' + ('subheadBlack ' + className)
     },
     children,
     _react2.default.createElement(_style2.default, {
-      styleId: '2770374667',
-      css: '.subheadBlack.jsx-2770374667{font-family:\'Atlas Grotesk\';font-weight:900;font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#333;}'
+      styleId: '1095621166',
+      css: '.subheadBlack.jsx-1095621166{font-family:\'Atlas Grotesk\';font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#333;}'
     })
   );
 };
