@@ -7,6 +7,7 @@ import Image from './Image'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 import ConditionalClass from './ConditionalClass'
+import PropTypes from 'prop-types'
 
 const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
@@ -224,5 +225,27 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
     `}</style>
   </div>
 }
+
+
+GridGallery.propTypes = {
+  cardTitle: PropTypes.string,
+  cardSubtitle: PropTypes.string,
+  cardContent: PropTypes.string,
+  linkText: PropTypes.string,
+  linkURL: PropTypes.string,
+  mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+  imageTitle: PropTypes.string,
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped']),
+  fullBleed: PropTypes.bool,
+  imgSource: PropTypes.string,
+  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
+}
+
+GridGallery.defaultProps = {
+  aspectRatio: 'standard',
+  fullBleed: false
+}
+
 
 export default GridGallery

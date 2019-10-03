@@ -20,24 +20,9 @@ import {
 } from '../utils/defaults'
 
 export default {
-  title: 'Design System|Galleries'
+  title: 'Design System|Galleries',
+  component: CircularCarousel
 }
-
-export const ImageSlider = () =>
-  <Slider
-    images={imageGallery2}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    caption={text('Caption', defaultCaption)}
-  />
-
-export const ImageRevealCarousel = () =>
-  <RevealCarousel
-    images={imageGallery2}
-    countIndicator={select('Count Indicator', countIndicator, 'dots')}
-    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    caption={text('Caption', defaultCaption)}
-  />
 
 export const ImageCircularCarousel = () =>
   <CircularCarousel
@@ -56,6 +41,22 @@ export const ImageCircularCarousel = () =>
       />
     })}
   </CircularCarousel>
+
+export const ImageSlider = () =>
+  <Slider
+    images={imageGallery2}
+    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    caption={text('Caption', defaultCaption)}
+  />
+
+export const ImageRevealCarousel = () =>
+  <RevealCarousel
+    images={imageGallery2}
+    countIndicator={select('Count Indicator', countIndicator, 'dots')}
+    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    caption={text('Caption', defaultCaption)}
+  />
 
 export const ImageMuseumView = () =>
   <Museum
