@@ -44,6 +44,8 @@ var StackedImage = function (_Component) {
   _createClass(StackedImage, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -67,7 +69,7 @@ var StackedImage = function (_Component) {
                 } },
               _react2.default.createElement(_Image2.default, {
                 key: 'img-' + index,
-                aspectRatio: 'noAspect',
+                aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
                 skipIntro: true,
                 imgSource: img,
                 visibilityOverride: true
@@ -107,7 +109,7 @@ var StackedImage = function (_Component) {
                   } },
                 _react2.default.createElement(_Image2.default, {
                   key: 'img-' + index,
-                  aspectRatio: 'noAspect',
+                  aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
                   skipIntro: true,
                   imgSource: img,
                   visibilityOverride: true
