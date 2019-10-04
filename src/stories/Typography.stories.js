@@ -61,7 +61,7 @@ export const PhotoCaption = () =>
   <Caption>GDP divided front-of-book into three sections that each have their own distinctive look and approach</Caption>
 
 export const ImageSidebar = () =>
-  <div style={{ position: 'relative', width: '25%', margin: '50px auto' }}>
+  <div style={{ position: 'relative', width: '25%', paddingTop: '100px', margin: '50px auto' }}>
     <SideBar sideBar={{
       text: 'Smaller length, Sidebar text area.',
       image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIn0=',
@@ -70,7 +70,7 @@ export const ImageSidebar = () =>
   </div>
 
 export const ImageSidebarAsQuote = () =>
-  <div style={{ position: 'relative', width: '25%', margin: '50px auto' }}>
+  <div style={{ position: 'relative', width: '25%', paddingTop: '100px', margin: '50px auto' }}>
     <SideBar sideBar={{
       text: 'Smaller length, Sidebar text area.',
       image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtpN3Y4aTAycmJmemF3aG54bmZxeHctd2lyZWQtbG9nby1yZ2IucG5nIn0=',
