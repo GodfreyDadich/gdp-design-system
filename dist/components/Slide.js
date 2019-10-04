@@ -1,22 +1,20 @@
-'use strict';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var Slide = function Slide(_ref) {
   var image = _ref.image,
       renderImage = _ref.renderImage,
       classAdd = _ref.classAdd;
-
   var styles = {
-    backgroundImage: 'url(' + image + ')',
+    backgroundImage: "url(".concat(image, ")"),
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
@@ -27,11 +25,16 @@ var Slide = function Slide(_ref) {
     backgroundColor: '#f2f2f2',
     position: 'relative'
   };
-  return _react2.default.createElement(
-    'div',
-    { className: 'slide ' + !!classAdd, style: styles },
-    renderImage ? _react2.default.createElement('img', { src: image, style: { width: '100%' } }) : ''
-  );
+  return _react["default"].createElement("div", {
+    className: "slide ".concat(!!classAdd),
+    style: styles
+  }, renderImage ? _react["default"].createElement("img", {
+    src: image,
+    style: {
+      width: '100%'
+    }
+  }) : '');
 };
 
-exports.default = Slide;
+var _default = Slide;
+exports["default"] = _default;

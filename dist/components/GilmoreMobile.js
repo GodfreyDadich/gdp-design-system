@@ -1,18 +1,17 @@
-'use strict';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var GilmoreMobile = function GilmoreMobile(_ref) {
   var style = _ref.style;
-  return _react2.default.createElement('div', {
+  return _react["default"].createElement("div", {
     style: {
       position: 'relative',
       paddingTop: '170%'
@@ -23,4 +22,5 @@ var GilmoreMobile = function GilmoreMobile(_ref) {
   });
 };
 
-exports.default = GilmoreMobile;
+var _default = GilmoreMobile;
+exports["default"] = _default;

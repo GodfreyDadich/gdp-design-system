@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -18,25 +20,22 @@ exports.textBodySmall = textBodySmall;
 exports.textAccent = textAccent;
 exports.textUppercase = textUppercase;
 
-var _font = require("./font");
-
-var _font2 = _interopRequireDefault(_font);
+var _font = _interopRequireDefault(require("./font"));
 
 var _typography = require("../styles/typography");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var weights = {
   light: _typography.fontWeightLight,
   regular: _typography.fontWeightRegular,
   medium: _typography.fontWeightMedium,
   book: _typography.fontWeightRegular // Book is deprecated and will be removed in the next major release
+
 };
 
 function textSuper() {
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeSuper + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeSuper, "px"),
     fontWeight: _typography.fontWeightMedium,
     lineHeight: _typography.lineHeightSuper
   };
@@ -44,10 +43,9 @@ function textSuper() {
 
 function textHeading1() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading1 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading1, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading1
   };
@@ -55,10 +53,9 @@ function textHeading1() {
 
 function textHeading2() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading2 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading2, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading2
   };
@@ -66,10 +63,9 @@ function textHeading2() {
 
 function textHeading3() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading3 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading3, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading3
   };
@@ -77,10 +73,9 @@ function textHeading3() {
 
 function textHeading4() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading4 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading4, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading4
   };
@@ -88,10 +83,9 @@ function textHeading4() {
 
 function textHeading5() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading5 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading5, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading5
   };
@@ -99,10 +93,9 @@ function textHeading5() {
 
 function textHeading6() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading6 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading6, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading6
   };
@@ -110,10 +103,9 @@ function textHeading6() {
 
 function textHeading7() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading7 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading7, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading7
   };
@@ -121,10 +113,9 @@ function textHeading7() {
 
 function textHeading8() {
   var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
-
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeHeading8 + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeHeading8, "px"),
     fontWeight: weights[weight],
     lineHeight: _typography.lineHeightHeading8
   };
@@ -132,32 +123,32 @@ function textHeading8() {
 
 function textBodyArticle() {
   return {
-    fontFamily: (0, _font2.default)("miller"),
-    fontSize: _typography.fontSizeBodyArticle + "px",
+    fontFamily: (0, _font["default"])("miller"),
+    fontSize: "".concat(_typography.fontSizeBodyArticle, "px"),
     lineHeight: _typography.lineHeightBodyArticle
   };
 }
 
 function textBodyArticleSmall() {
   return {
-    fontFamily: (0, _font2.default)("miller"),
-    fontSize: _typography.fontSizeBodyArticleSmall + "px",
+    fontFamily: (0, _font["default"])("miller"),
+    fontSize: "".concat(_typography.fontSizeBodyArticleSmall, "px"),
     lineHeight: _typography.lineHeightBodyArticleSmall
   };
 }
 
 function textBodySmall() {
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeBodySmall + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeBodySmall, "px"),
     lineHeight: _typography.lineHeightBodySmall
   };
 }
 
 function textAccent() {
   return {
-    fontFamily: (0, _font2.default)("miller"),
-    fontSize: _typography.fontSizeAccent + "px",
+    fontFamily: (0, _font["default"])("miller"),
+    fontSize: "".concat(_typography.fontSizeAccent, "px"),
     fontStyle: "italic",
     lineHeight: _typography.lineHeightAccent
   };
@@ -165,8 +156,8 @@ function textAccent() {
 
 function textUppercase() {
   return {
-    fontFamily: (0, _font2.default)("benton"),
-    fontSize: _typography.fontSizeUppercase + "px",
+    fontFamily: (0, _font["default"])("benton"),
+    fontSize: "".concat(_typography.fontSizeUppercase, "px"),
     fontWeight: _typography.fontWeightMedium,
     lineHeight: _typography.lineHeightUppercase,
     textTransform: "uppercase"
