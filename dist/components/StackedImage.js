@@ -78,7 +78,7 @@ var StackedImage = function (_Component) {
           }),
           this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
-            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+            { classAdd: 'col-6 skip-1 col-4-tab skip-1-tab' },
             this.props.caption
           ) : ''
         ) : _react2.default.createElement(
@@ -119,7 +119,7 @@ var StackedImage = function (_Component) {
           ),
           this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
-            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+            { classAdd: 'col-6 skip-1 col-4-tab skip-1-tab' },
             this.props.caption
           ) : ''
         )
