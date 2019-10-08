@@ -67,6 +67,7 @@ var StackedImage = function (_Component) {
                 key: 'image' + index
               },
               _react2.default.createElement(_Image2.default, {
+                stackedImage: true,
                 key: 'img-' + index,
                 aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
                 skipIntro: true,
@@ -114,7 +115,7 @@ var StackedImage = function (_Component) {
           ),
           this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
-            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+            { classAdd: 'col-6 skip-1 col-6-tab skip-0-tab' },
             this.props.caption
           ) : ''
         ),
