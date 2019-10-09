@@ -128,7 +128,7 @@ var GridGallery = function GridGallery(_ref) {
         className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
       mobile ? appliedImages.length > 1 ? _react2.default.createElement(
         _CircularCarousel2.default,
-        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
+        { gridGallery: true, countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
         appliedImages.map(function (image, index) {
           return _react2.default.createElement(
             'div',
@@ -159,7 +159,7 @@ var GridGallery = function GridGallery(_ref) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          { classAdd: 'col-6 skip-2 col-6-tab skip-0-tab' },
           caption
         ) : ''
       ) : _react2.default.createElement(

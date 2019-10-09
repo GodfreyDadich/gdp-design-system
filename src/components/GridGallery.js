@@ -55,7 +55,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
       {mobile
         ? appliedImages.length > 1
-          ? <CircularCarousel countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+          ? <CircularCarousel gridGallery countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
             {
               appliedImages.map((image, index) =>
                 <div style={mobileStyles} key={`${escape(image)}-${index}`}>
@@ -79,7 +79,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 />
               </div>
             </div>
-            {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-4-tab skip-1-tab'>{caption}</Caption> : ''}
+            {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-0-tab'>{caption}</Caption> : ''}
           </div>
         : <div>
           <div className={mixedOr ? 'grid-container' : 'columns-grid-container'}>
@@ -127,7 +127,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
             </ConditionalClass>
           </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-4-tab skip-1-tab'>{caption}</Caption> : ''}
+          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
         </div>
       }
     </div>

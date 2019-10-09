@@ -23,27 +23,27 @@ export default class StackedImage extends Component {
               width: '100%',
               height: '100%'
             }}
-            className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
+            className={`imagesWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
             {this.props.images.map((img, index) => {
               return <figure
+                className={`itemWrap ${(index === this.props.images.length - 1) ? 'withCaption' : ''}`}
                 key={`image${index}`}
-                style={{
-                  margin: '1.5vw 0'
-                }}>
+              >
                 <Image
+                  stackedImage
                   key={`img-${index}`}
                   aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
                   skipIntro
                   imgSource={img}
                   visibilityOverride
+                  caption={(index === this.props.images.length - 1) ? this.props.caption : ''}
                 />
               </figure>
             })}
-            {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-1 col-4-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
           </div>
           :
           <div
-            className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
+            className={`imagesWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
             <div
               style={{
                 position: 'relative',
@@ -54,9 +54,9 @@ export default class StackedImage extends Component {
               }}>
               {this.props.images.map((img, index) => {
                 return <figure
+                  className='imageWrapDesktop'
                   key={`image${index}`}
                   style={{
-                    margin: '0 1vw',
                     position: 'relative',
                     display: 'inline-block',
                     width: '100%',
@@ -72,9 +72,25 @@ export default class StackedImage extends Component {
                 </figure>
               })}
             </div>
-            {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-1 col-4-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
+            {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-1 col-6-tab skip-0-tab'>{this.props.caption}</Caption> : ''}
           </div>
         }
+        <style>
+          {`
+          .imageWrapDesktop {
+            margin-left: 2vw;
+          }
+          .imageWrapDesktop:first-child {
+            margin-left: 0;
+          }
+          .itemWrap {
+            margin: 3.5vw 0;
+          }
+          .itemWrap:first-child {
+            margin: 0 0 3.5vw 0;
+          }
+          `}
+        </style>
       </div>
     )
   }

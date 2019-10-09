@@ -65,6 +65,7 @@ var Image = function (_React$Component) {
           imgHover = _props.imgHover,
           aspectRatio = _props.aspectRatio,
           classAdd = _props.classAdd,
+          stackedImage = _props.stackedImage,
           style = _props.style;
 
 
@@ -92,7 +93,7 @@ var Image = function (_React$Component) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+          { classAdd: '' + (stackedImage ? 'col-6 skip-1 col-6-tab skip-0-tab' : 'col-6 skip-3 col-6-tab skip-1-tab') },
           caption
         ) : '',
         _react2.default.createElement(_style2.default, {
