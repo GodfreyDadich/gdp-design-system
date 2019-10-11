@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { RightArrow, LeftArrow } from './SliderArrows'
+import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './SliderArrows'
 import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
@@ -12,7 +12,9 @@ export default class RevealCarousel extends Component {
     this.state = {
       currentIndex: 0,
       teaseState: '',
-      hoverPause: false
+      hoverPause: false,
+      clickedLeftArrow: false,
+      clickedRightArrow: false
     }
     this.goToNextSlide = this.goToNextSlide.bind(this)
     this.goToPrevSlide = this.goToPrevSlide.bind(this)
@@ -27,8 +29,14 @@ export default class RevealCarousel extends Component {
     this.setState(prevState => ({
       currentIndex: this.state.currentIndex === 0 ? this.props.images.length - 1 : prevState.currentIndex - 1,
       teaseState: '',
-      hoverPause: true
+      hoverPause: true,
+      clickedLeftArrow: true
     }))
+    setTimeout(() => {
+      this.setState({
+        clickedLeftArrow: false
+      })
+    }, 680)
     setTimeout(() => {
       this.setState({
         hoverPause: false
@@ -40,8 +48,14 @@ export default class RevealCarousel extends Component {
     this.setState(prevState => ({
       currentIndex: (this.state.currentIndex === this.props.images.length - 1) ? 0 : prevState.currentIndex + 1,
       teaseState: '',
-      hoverPause: true
+      hoverPause: true,
+      clickedRightArrow: true
     }))
+    setTimeout(() => {
+      this.setState({
+        clickedRightArrow: false
+      })
+    }, 680)
     setTimeout(() => {
       this.setState({
         hoverPause: false
@@ -133,7 +147,68 @@ export default class RevealCarousel extends Component {
     return (
       <div>
         {isMobile ?
-          ''
+          <figure
+          ref={elem => { this.carouselElem = elem }}
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '100%'
+          }}
+          className={`carouselWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
+          <div
+            style={{
+              position: 'relative',
+              height: '100%',
+              width: '100%',
+              overflow: 'hidden',
+              touchAction: 'pan-y',
+              userSelect: 'none',
+              paddingTop: getPaddingTop(this.props.aspectRatio)
+            }}
+            className={`carousel__container ${this.state.teaseState}`}>
+            <RevealLeftArrow
+              clickedArrow={this.state.clickedLeftArrow}
+              clickAction={this.goToPrevSlide}
+              over={this.hoverTeasePrev}
+              out={this.hoverTeaseReset}
+            />
+            <RevealRightArrow
+              clickedArrow={this.state.clickedRightArrow}
+              clickAction={this.goToNextSlide}
+              over={this.hoverTeaseNext}
+              out={this.hoverTeaseReset}
+            />
+            <div
+              style={{
+                position: this.props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                transition: 'transform .75s ease, box-shadow .3s ease'
+              }}
+              className='carousel__images-container'>
+              {
+                this.props.images.map((image, i) => (
+                  <div
+                    key={`carouselImage${i}`}
+                    style={Object.assign({
+                      display: 'none',
+                      height: '100%',
+                      width: '100%',
+                      position: 'absolute',
+                      top: 0,
+                      overflow: 'hidden',
+                      zIndex: '3'
+                    }, this.getCarouselStyle(i))}>
+                    <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={this.props.aspectRatio === 'noAspect'} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
+        </figure>
           :
           <figure
             ref={elem => { this.carouselElem = elem }}

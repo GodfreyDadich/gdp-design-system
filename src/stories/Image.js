@@ -253,7 +253,7 @@ storiesOf('Image', module)
     'Image Carousel (Reveal)',
     () => <div style={{ width: '75%', margin: '50px auto' }}>
       <RevealCarousel
-        images={imageGallery}
+        images={imageGallery2}
         countIndicator={select('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots')}
         containerAspect={select('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen')}
         aspectRatio={select('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen')}

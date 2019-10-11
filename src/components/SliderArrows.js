@@ -146,3 +146,91 @@ export const AltLeftArrow = props => {
     </div>
   )
 }
+
+
+
+
+
+export const RevealRightArrow = props => {
+  return (
+    <div
+      className='nextArrow'
+      onClick={props.clickAction}
+      onMouseEnter={props.over}
+      onMouseMove={props.over}
+      onMouseLeave={props.out}
+      style={{
+        position: 'absolute',
+        top: '0',
+        right: '0',
+        width: '40%',
+        height: '100%',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}>
+      <div className='right-arrow-wrapper'><i className="right-arrow-head"></i></div>
+      <style jsx>{`
+        .right-arrow-wrapper {
+          position: absolute;
+          top: 50%;
+          margin:0;
+          transform: translateY(-50%);
+          right: 15%;
+        }
+        .right-arrow-head {
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(-45deg);  
+          ${props.clickedArrow ? 
+            'opacity: .5; transition: opacity .1s ease' : ''}
+        }
+  `}</style>
+    </div>
+  )
+}
+
+
+export const RevealLeftArrow = props => {
+  return (
+    <div
+      className='backArrow'
+      onClick={props.clickAction}
+      onMouseEnter={props.over}
+      onMouseMove={props.over}
+      onMouseLeave={props.out}
+      style={{
+          position: 'absolute' ,
+          top: '0',
+          left: '0',
+          width: '40%',
+          height: '100%',
+          zIndex: '101',
+          cursor: 'pointer',
+          WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+      }}
+    >
+      <div className='left-arrow-wrapper'><i className="left-arrow-head"></i></div>
+      <style jsx>{`
+        .left-arrow-wrapper {
+          position: absolute;
+          top: 50%;
+          margin:0;
+          transform: translateY(-50%);
+          left: 15%;
+        }
+        .left-arrow-head {
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(135deg);  
+          ${props.clickedArrow ? 
+          'opacity: .5; transition: opacity .1s ease' : ''}
+        }
+    `}</style>
+    </div>
+  )
+}
