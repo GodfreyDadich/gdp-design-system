@@ -170,7 +170,7 @@ export const RevealRightArrow = props => {
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }}>
       <div className='right-arrow-wrapper'>
-        <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={`revealArrow ${props.clickedArrow ? 'clicked' : ''}`} width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d)">
             <mask id="path-1-inside-1" fill="white">
               <path fillRule="evenodd" clipRule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" />
@@ -192,11 +192,16 @@ export const RevealRightArrow = props => {
         </svg>
       </div>
       <style jsx>{`
-      svg {
-        transform: rotate(180deg);
-        ${props.clickedArrow ?
-          'opacity: .5; transition: opacity .1s ease' : ''}
-      }
+        svg {
+          transform: rotate(180deg);
+        }
+        .revealArrow {
+          opacity: 1;
+        }
+        .clicked {
+          opacity: .5; 
+          transition: opacity .1s ease;
+        }
         .right-arrow-wrapper {
           position: absolute;
           top: 50%;
@@ -230,7 +235,7 @@ export const RevealLeftArrow = props => {
       }}
     >
       <div className='left-arrow-wrapper'>
-        <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={`revealArrow ${props.clickedArrow ? 'clicked' : ''}`} width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d)">
             <mask id="path-1-inside-1" fill="white">
               <path fillRule="evenodd" clipRule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" />
@@ -259,9 +264,12 @@ export const RevealLeftArrow = props => {
           transform: translateY(-50%);
           left: 10%;
         }
-        svg {
-          ${props.clickedArrow ?
-          'opacity: .5; transition: opacity .1s ease' : ''}
+        .revealArrow {
+          opacity: 1;
+        }
+        .clicked {
+          opacity: .5; 
+          transition: opacity .1s ease;
         }
     `}</style>
     </div>
