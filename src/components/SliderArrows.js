@@ -180,7 +180,8 @@ export const RevealRightArrow = props => {
         }
         .right-arrow-head {
           border: solid white;
-          border-width: 0 3px 3px 0;
+          border-width: 0 3px 3px 0px;
+          box-shadow: 4px 6px 7px -3px rgba(0,0,0,0.75);
           display: inline-block;
           padding: 3px;
           transform: rotate(-45deg);  
@@ -224,6 +225,7 @@ export const RevealLeftArrow = props => {
         .left-arrow-head {
           border: solid white;
           border-width: 0 3px 3px 0;
+          box-shadow: 4px 6px 7px -3px rgba(0,0,0,0.75);
           display: inline-block;
           padding: 3px;
           transform: rotate(135deg);  
