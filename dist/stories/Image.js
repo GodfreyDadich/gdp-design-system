@@ -262,7 +262,7 @@ var galleries = [{
     'div',
     { style: { width: '75%', margin: '50px auto' } },
     _react2.default.createElement(_RevealCarousel2.default, {
-      images: imageGallery,
+      images: imageGallery2,
       countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
       containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
       aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),

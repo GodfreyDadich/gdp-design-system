@@ -56,7 +56,6 @@ var GridGallery = function GridGallery(_ref) {
       removeGrayBackground = _ref.removeGrayBackground,
       mixedOr = _ref.mixedOr,
       altAsset = _ref.altAsset,
-      altRatio = _ref.altRatio,
       headingCaption = _ref.headingCaption,
       classAdd = _ref.classAdd;
 
