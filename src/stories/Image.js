@@ -298,6 +298,7 @@ storiesOf('Image', module)
   .add(
     'Grid Gallery (Mosaic)',
     () => <GridGallery
+      removeGrayBackground={boolean('Remove Gray Background', false)}
       mobileCarousel={boolean('mobileCarousel', true)}
       mixedOr={boolean('mixedOr', false)}
       altAsset={['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70',
