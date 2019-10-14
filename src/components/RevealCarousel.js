@@ -217,7 +217,7 @@ export default class RevealCarousel extends Component {
               <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
                 <span style={{
                   opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
-                  transition: 'opacity .2s ease-in-out'
+                  transition: 'opacity .4s ease-in-out'
                 }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
               </Caption> :
               this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
@@ -285,7 +285,7 @@ export default class RevealCarousel extends Component {
               <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
                 <span style={{
                   opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
-                  transition: 'opacity .2s ease-in-out'
+                  transition: 'opacity .4s ease-in-out'
                 }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
               </Caption> :
               this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
