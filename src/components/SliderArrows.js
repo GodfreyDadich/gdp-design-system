@@ -194,6 +194,8 @@ export const RevealRightArrow = props => {
       <style jsx>{`
       svg {
         transform: rotate(180deg);
+        ${props.clickedArrow ?
+          'opacity: .5; transition: opacity .1s ease' : ''}
       }
         .right-arrow-wrapper {
           position: absolute;
@@ -201,16 +203,6 @@ export const RevealRightArrow = props => {
           margin:0;
           transform: translateY(-50%);
           right: 10%;
-        }
-        .right-arrow-head {
-          border: solid white;
-          border-width: 0 3px 3px 0px;
-          box-shadow: 4px 6px 7px -3px rgba(0,0,0,0.75);
-          display: inline-block;
-          padding: 3px;
-          transform: rotate(-45deg);  
-          ${props.clickedArrow ?
-          'opacity: .5; transition: opacity .1s ease' : ''}
         }
   `}</style>
     </div>
@@ -267,13 +259,7 @@ export const RevealLeftArrow = props => {
           transform: translateY(-50%);
           left: 10%;
         }
-        .left-arrow-head {
-          border: solid white;
-          border-width: 0 3px 3px 0;
-          box-shadow: 4px 6px 7px -3px rgba(0,0,0,0.75);
-          display: inline-block;
-          padding: 3px;
-          transform: rotate(135deg);  
+        svg {
           ${props.clickedArrow ?
           'opacity: .5; transition: opacity .1s ease' : ''}
         }

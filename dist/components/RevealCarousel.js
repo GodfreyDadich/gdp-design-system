@@ -284,7 +284,7 @@ var RevealCarousel = function (_Component) {
           ),
           this.props.captionsArray ? _react2.default.createElement(
             'div',
-            { style: { height: '100px' } },
+            { style: { height: '60px' } },
             _react2.default.createElement(
               _Type.Caption,
               { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
@@ -370,7 +370,7 @@ var RevealCarousel = function (_Component) {
           ),
           this.props.captionsArray ? _react2.default.createElement(
             'div',
-            { style: { height: '100px' } },
+            { style: { height: '60px' } },
             _react2.default.createElement(
               _Type.Caption,
               { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
