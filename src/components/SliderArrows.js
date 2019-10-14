@@ -109,14 +109,14 @@ export const AltLeftArrow = props => {
       onMouseMove={props.over}
       onMouseLeave={props.out}
       style={{
-          position: 'absolute' ,
-          top: '0',
-          left: '-15%',
-          width: '40%',
-          height: '100%',
-          zIndex: '101',
-          cursor: 'pointer',
-          WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+        position: 'absolute',
+        top: '0',
+        left: '-15%',
+        width: '40%',
+        height: '100%',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }}
     >
       <div className='left-arrow-wrapper'><i className="left-arrow-head"></i><div className="left-arrow-body"></div></div>
@@ -169,14 +169,38 @@ export const RevealRightArrow = props => {
         cursor: 'pointer',
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }}>
-      <div className='right-arrow-wrapper'><i className="right-arrow-head"></i></div>
+      <div className='right-arrow-wrapper'>
+        <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d)">
+            <mask id="path-1-inside-1" fill="white">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" fill="white" />
+            <path d="M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z" fill="white" mask="url(#path-1-inside-1)" />
+          </g>
+          <defs>
+            <filter id="filter0_d" x="0.234009" y="0.537245" width="15.7782" height="20.7279" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="2" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
       <style jsx>{`
+      svg {
+        transform: rotate(180deg);
+      }
         .right-arrow-wrapper {
           position: absolute;
           top: 50%;
           margin:0;
           transform: translateY(-50%);
-          right: 15%;
+          right: 10%;
         }
         .right-arrow-head {
           border: solid white;
@@ -185,8 +209,8 @@ export const RevealRightArrow = props => {
           display: inline-block;
           padding: 3px;
           transform: rotate(-45deg);  
-          ${props.clickedArrow ? 
-            'opacity: .5; transition: opacity .1s ease' : ''}
+          ${props.clickedArrow ?
+          'opacity: .5; transition: opacity .1s ease' : ''}
         }
   `}</style>
     </div>
@@ -203,24 +227,45 @@ export const RevealLeftArrow = props => {
       onMouseMove={props.over}
       onMouseLeave={props.out}
       style={{
-          position: 'absolute' ,
-          top: '0',
-          left: '0',
-          width: '40%',
-          height: '100%',
-          zIndex: '101',
-          cursor: 'pointer',
-          WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '40%',
+        height: '100%',
+        zIndex: '101',
+        cursor: 'pointer',
+        WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }}
     >
-      <div className='left-arrow-wrapper'><i className="left-arrow-head"></i></div>
+      <div className='left-arrow-wrapper'>
+        <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d)">
+            <mask id="path-1-inside-1" fill="white">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z" fill="white" />
+            <path d="M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z" fill="white" mask="url(#path-1-inside-1)" />
+          </g>
+          <defs>
+            <filter id="filter0_d" x="0.234009" y="0.537245" width="15.7782" height="20.7279" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="2" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
       <style jsx>{`
         .left-arrow-wrapper {
           position: absolute;
           top: 50%;
           margin:0;
           transform: translateY(-50%);
-          left: 15%;
+          left: 10%;
         }
         .left-arrow-head {
           border: solid white;
@@ -229,7 +274,7 @@ export const RevealLeftArrow = props => {
           display: inline-block;
           padding: 3px;
           transform: rotate(135deg);  
-          ${props.clickedArrow ? 
+          ${props.clickedArrow ?
           'opacity: .5; transition: opacity .1s ease' : ''}
         }
     `}</style>
