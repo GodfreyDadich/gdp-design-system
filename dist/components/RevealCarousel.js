@@ -46,7 +46,9 @@ var RevealCarousel = function (_Component) {
       teaseState: '',
       hoverPause: false,
       clickedLeftArrow: false,
-      clickedRightArrow: false
+      clickedRightArrow: false,
+      currentCapIndex: 0,
+      captionIndex: 0
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -68,12 +70,16 @@ var RevealCarousel = function (_Component) {
           currentIndex: _this2.state.currentIndex === 0 ? _this2.props.images.length - 1 : prevState.currentIndex - 1,
           teaseState: '',
           hoverPause: true,
-          clickedLeftArrow: true
+          clickedLeftArrow: true,
+          captionIndex: _this2.props.captionsArray[_this2.state.currentCapIndex]
         };
       });
       setTimeout(function () {
-        _this2.setState({
-          clickedLeftArrow: false
+        _this2.setState(function (prevState) {
+          return {
+            clickedLeftArrow: false,
+            currentCapIndex: _this2.state.currentCapIndex === 0 ? _this2.props.images.length - 1 : prevState.currentCapIndex - 1
+          };
         });
       }, 680);
       setTimeout(function () {
@@ -92,12 +98,16 @@ var RevealCarousel = function (_Component) {
           currentIndex: _this3.state.currentIndex === _this3.props.images.length - 1 ? 0 : prevState.currentIndex + 1,
           teaseState: '',
           hoverPause: true,
-          clickedRightArrow: true
+          clickedRightArrow: true,
+          captionIndex: _this3.props.captionsArray[_this3.state.currentCapIndex]
         };
       });
       setTimeout(function () {
-        _this3.setState({
-          clickedRightArrow: false
+        _this3.setState(function (prevState) {
+          return {
+            clickedRightArrow: false,
+            currentCapIndex: _this3.state.currentCapIndex === _this3.props.images.length - 1 ? 0 : prevState.currentCapIndex + 1
+          };
         });
       }, 680);
       setTimeout(function () {
@@ -272,7 +282,22 @@ var RevealCarousel = function (_Component) {
               })
             )
           ),
-          this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+          this.props.captionsArray ? _react2.default.createElement(
+            'div',
+            { style: { height: '100px' } },
+            _react2.default.createElement(
+              _Type.Caption,
+              { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+              _react2.default.createElement(
+                'span',
+                { style: {
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  } },
+                this.props.captionsArray[this.state.currentCapIndex]
+              )
+            )
+          ) : this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
             { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
             this.props.caption
@@ -343,7 +368,22 @@ var RevealCarousel = function (_Component) {
               })
             )
           ),
-          this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+          this.props.captionsArray ? _react2.default.createElement(
+            'div',
+            { style: { height: '100px' } },
+            _react2.default.createElement(
+              _Type.Caption,
+              { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+              _react2.default.createElement(
+                'span',
+                { style: {
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  } },
+                this.props.captionsArray[this.state.currentCapIndex]
+              )
+            )
+          ) : this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
             { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
             this.props.caption

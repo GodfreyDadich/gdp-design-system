@@ -182,10 +182,10 @@ var RevealRightArrow = exports.RevealRightArrow = function RevealRightArrow(prop
             'mask',
             { id: 'path-1-inside-1', fill: 'white', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             },
-            _react2.default.createElement('path', { 'fill-rule': 'evenodd', 'clip-rule': 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             })
           ),
-          _react2.default.createElement('path', { 'fill-rule': 'evenodd', 'clip-rule': 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
           }),
           _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
           })
@@ -197,9 +197,9 @@ var RevealRightArrow = exports.RevealRightArrow = function RevealRightArrow(prop
           },
           _react2.default.createElement(
             'filter',
-            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', 'color-interpolation-filters': 'sRGB', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             },
-            _react2.default.createElement('feFlood', { 'flood-opacity': '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             }),
             _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: _style2.default.dynamic([['49276182', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             }),
@@ -263,10 +263,10 @@ var RevealLeftArrow = exports.RevealLeftArrow = function RevealLeftArrow(props) 
             'mask',
             { id: 'path-1-inside-1', fill: 'white', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             },
-            _react2.default.createElement('path', { 'fill-rule': 'evenodd', 'clip-rule': 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             })
           ),
-          _react2.default.createElement('path', { 'fill-rule': 'evenodd', 'clip-rule': 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
           }),
           _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
           })
@@ -278,9 +278,9 @@ var RevealLeftArrow = exports.RevealLeftArrow = function RevealLeftArrow(props) 
           },
           _react2.default.createElement(
             'filter',
-            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', 'color-interpolation-filters': 'sRGB', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             },
-            _react2.default.createElement('feFlood', { 'flood-opacity': '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             }),
             _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: _style2.default.dynamic([['1736050407', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
             }),

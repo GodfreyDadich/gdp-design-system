@@ -214,12 +214,15 @@ export default class RevealCarousel extends Component {
               </div>
             </div>
             {this.props.captionsArray ?
-              <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
-                <span style={{
-                  opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
-                  transition: 'opacity .4s ease-in-out'
-                }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
-              </Caption> :
+              <div style={{ height: '60px' }}>
+                <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
+                  <span style={{
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
+                </Caption>
+              </div>
+              :
               this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
           </figure>
           :
@@ -282,12 +285,15 @@ export default class RevealCarousel extends Component {
               </div>
             </div>
             {this.props.captionsArray ?
-              <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
-                <span style={{
-                  opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
-                  transition: 'opacity .4s ease-in-out'
-                }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
-              </Caption> :
+              <div style={{ height: '60px' }}>
+                <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
+                  <span style={{
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  }}>{this.props.captionsArray[this.state.currentCapIndex]}</span>
+                </Caption>
+              </div>
+              :
               this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
           </figure>}
       </div>
