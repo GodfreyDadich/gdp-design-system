@@ -8,7 +8,7 @@ import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 import ConditionalClass from './ConditionalClass'
 
-const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, mixedOr, altAsset, altRatio, headingCaption, classAdd }) => {
+const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const [appliedImages, setAppliedImages] = useState(images)
@@ -70,7 +70,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             }
           </CircularCarousel>
           : <div className='mobile-flat'>
-            <div className='mobile-grid-container'>
+            <div className='mobile-grid-container' style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)' }}>
               <div style={evenGridStyles}>
                 <Image
                   aspectRatio={thumbAspect || 'noAspect'}
@@ -79,12 +79,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 />
               </div>
             </div>
-            {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-0-tab'>{caption}</Caption> : ''}
+            {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-0-tab' }`}>{caption}</Caption> : ''}
           </div>
         : <div>
-          <div className={mixedOr ? 'grid-container' : 'columns-grid-container'}>
+          <div className={mixedOr ? 'grid-container' : removeGrayBackground ? 'columns-grid-container-transparent' : 'columns-grid-container'} style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)' }}>
             <ConditionalClass pass={mixedOr} classAdd='image-wrapper'>
-              {carousel === 'yes' ? <div className='expand'>
+              {carousel === 'yes' ? <div className={`${removeGrayBackground ? 'expand-transparent' : 'expand'}`}>
                 <span className='expand__icon' style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2211.9%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3Cpath%20d%3D%22M18%207v5-5zM13%207h5-5zM7%2018v-5%205zM12%2018H7h5z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2018L18%207%207%2018z%22%20stroke%3D%22%237F7F7F%22%20stroke-width%3D%221.3%22/%3E%3C/svg%3E')" }}></span>
                 <span className='expand__copy'>CLICK IMAGE TO EXPAND</span></div>
                 : ''}
@@ -127,11 +127,16 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
             </ConditionalClass>
           </div>
-          {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+          {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-1-tab' }`}>{caption}</Caption> : ''}
         </div>
       }
     </div>
     <style>{`
+      .expand-transparent {
+        position: absolute;
+        top: 1.25vw;
+        left: 6vw;
+      }
       .expand {
         position: absolute;
         top: 1.25vw;
@@ -181,20 +186,23 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         }
       }
       .grid-container {
-        background: rgb(242,242,242);
         display:block;
         position: relative;
         padding: 6vw;
       }
       .columns-grid-container {
-        background: rgb(242,242,242);
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
         padding: 5vw;
       }
+      .columns-grid-container-transparent {
+        flex-direction: row;
+        flex-wrap: wrap;
+        display:flex;
+        padding: 5vw 5vw 0px 5vw;
+      }
       .mobile-grid-container {
-        background: rgb(242,242,242);
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;

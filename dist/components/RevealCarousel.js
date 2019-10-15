@@ -44,7 +44,11 @@ var RevealCarousel = function (_Component) {
     _this.state = {
       currentIndex: 0,
       teaseState: '',
-      hoverPause: false
+      hoverPause: false,
+      clickedLeftArrow: false,
+      clickedRightArrow: false,
+      currentCapIndex: 0,
+      captionIndex: 0
     };
     _this.goToNextSlide = _this.goToNextSlide.bind(_this);
     _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
@@ -65,9 +69,19 @@ var RevealCarousel = function (_Component) {
         return {
           currentIndex: _this2.state.currentIndex === 0 ? _this2.props.images.length - 1 : prevState.currentIndex - 1,
           teaseState: '',
-          hoverPause: true
+          hoverPause: true,
+          clickedLeftArrow: true,
+          captionIndex: _this2.props.captionsArray[_this2.state.currentCapIndex]
         };
       });
+      setTimeout(function () {
+        _this2.setState(function (prevState) {
+          return {
+            clickedLeftArrow: false,
+            currentCapIndex: _this2.state.currentCapIndex === 0 ? _this2.props.images.length - 1 : prevState.currentCapIndex - 1
+          };
+        });
+      }, 680);
       setTimeout(function () {
         _this2.setState({
           hoverPause: false
@@ -83,9 +97,19 @@ var RevealCarousel = function (_Component) {
         return {
           currentIndex: _this3.state.currentIndex === _this3.props.images.length - 1 ? 0 : prevState.currentIndex + 1,
           teaseState: '',
-          hoverPause: true
+          hoverPause: true,
+          clickedRightArrow: true,
+          captionIndex: _this3.props.captionsArray[_this3.state.currentCapIndex]
         };
       });
+      setTimeout(function () {
+        _this3.setState(function (prevState) {
+          return {
+            clickedRightArrow: false,
+            currentCapIndex: _this3.state.currentCapIndex === _this3.props.images.length - 1 ? 0 : prevState.currentCapIndex + 1
+          };
+        });
+      }, 680);
       setTimeout(function () {
         _this3.setState({
           hoverPause: false
@@ -190,7 +214,95 @@ var RevealCarousel = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _reactDeviceDetect.isMobile ? '' : _react2.default.createElement(
+        _reactDeviceDetect.isMobile ? _react2.default.createElement(
+          'figure',
+          {
+            ref: function ref(elem) {
+              _this4.carouselElem = elem;
+            },
+            style: {
+              position: 'relative',
+              width: '100%',
+              height: '100%'
+            },
+            className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
+          _react2.default.createElement(
+            'div',
+            {
+              style: {
+                position: 'relative',
+                height: '100%',
+                width: '100%',
+                overflow: 'hidden',
+                touchAction: 'pan-y',
+                userSelect: 'none',
+                paddingTop: (0, _aspectRatio.getPaddingTop)(this.props.aspectRatio)
+              },
+              className: 'carousel__container ' + this.state.teaseState },
+            _react2.default.createElement(_SliderArrows.RevealLeftArrow, {
+              clickedArrow: this.state.clickedLeftArrow,
+              clickAction: this.goToPrevSlide,
+              over: this.hoverTeasePrev,
+              out: this.hoverTeaseReset
+            }),
+            _react2.default.createElement(_SliderArrows.RevealRightArrow, {
+              clickedArrow: this.state.clickedRightArrow,
+              clickAction: this.goToNextSlide,
+              over: this.hoverTeaseNext,
+              out: this.hoverTeaseReset
+            }),
+            _react2.default.createElement(
+              'div',
+              {
+                style: {
+                  position: this.props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+                  top: '0',
+                  left: '0',
+                  width: '100%',
+                  height: '100%',
+                  transition: 'transform .75s ease, box-shadow .3s ease'
+                },
+                className: 'carousel__images-container' },
+              this.props.images.map(function (image, i) {
+                return _react2.default.createElement(
+                  'div',
+                  {
+                    key: 'carouselImage' + i,
+                    style: _extends({
+                      display: 'none',
+                      height: '100%',
+                      width: '100%',
+                      position: 'absolute',
+                      top: 0,
+                      overflow: 'hidden',
+                      zIndex: '3'
+                    }, _this4.getCarouselStyle(i)) },
+                  _react2.default.createElement(_Slide2.default, { key: i, image: image, classAdd: 'carousel__image-wrapper', renderImage: _this4.props.aspectRatio === 'noAspect' })
+                );
+              })
+            )
+          ),
+          this.props.captionsArray ? _react2.default.createElement(
+            'div',
+            { style: { height: '60px' } },
+            _react2.default.createElement(
+              _Type.Caption,
+              { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+              _react2.default.createElement(
+                'span',
+                { style: {
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  } },
+                this.props.captionsArray[this.state.currentCapIndex]
+              )
+            )
+          ) : this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+            _Type.Caption,
+            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+            this.props.caption
+          ) : ''
+        ) : _react2.default.createElement(
           'figure',
           {
             ref: function ref(elem) {
@@ -256,7 +368,22 @@ var RevealCarousel = function (_Component) {
               })
             )
           ),
-          this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
+          this.props.captionsArray ? _react2.default.createElement(
+            'div',
+            { style: { height: '60px' } },
+            _react2.default.createElement(
+              _Type.Caption,
+              { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+              _react2.default.createElement(
+                'span',
+                { style: {
+                    opacity: this.state.clickedLeftArrow || this.state.clickedRightArrow ? 0 : 1,
+                    transition: 'opacity .4s ease-in-out'
+                  } },
+                this.props.captionsArray[this.state.currentCapIndex]
+              )
+            )
+          ) : this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
             { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
             this.props.caption
