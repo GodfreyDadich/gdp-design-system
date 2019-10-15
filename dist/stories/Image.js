@@ -308,6 +308,7 @@ var galleries = [{
   });
 }).add('Grid Gallery (Mosaic)', function () {
   return _react2.default.createElement(_GridGallery2.default, {
+    removeGrayBackground: (0, _addonKnobs.boolean)('Remove Gray Background', false),
     mobileCarousel: (0, _addonKnobs.boolean)('mobileCarousel', true),
     mixedOr: (0, _addonKnobs.boolean)('mixedOr', false),
     altAsset: ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'],

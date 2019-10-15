@@ -163,65 +163,64 @@ var RevealRightArrow = exports.RevealRightArrow = function RevealRightArrow(prop
         zIndex: '101',
         cursor: 'pointer',
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
-      }, className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]]) + ' ' + 'nextArrow'
+      }, className: 'jsx-1036603183' + ' ' + 'nextArrow'
     },
     _react2.default.createElement(
       'div',
       {
-        className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]]) + ' ' + 'right-arrow-wrapper'
+        className: 'jsx-1036603183' + ' ' + 'right-arrow-wrapper'
       },
       _react2.default.createElement(
         'svg',
-        { width: '17', height: '22', viewBox: '0 0 17 22', fill: 'none', xmlns: 'http://www.w3.org/2000/svg', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+        { width: '17', height: '22', viewBox: '0 0 17 22', fill: 'none', xmlns: 'http://www.w3.org/2000/svg', className: 'jsx-1036603183' + ' ' + ('revealArrow ' + (props.clickedArrow ? 'clicked' : ''))
         },
         _react2.default.createElement(
           'g',
-          { filter: 'url(#filter0_d)', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          { filter: 'url(#filter0_d)', className: 'jsx-1036603183'
           },
           _react2.default.createElement(
             'mask',
-            { id: 'path-1-inside-1', fill: 'white', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'path-1-inside-1', fill: 'white', className: 'jsx-1036603183'
             },
-            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: 'jsx-1036603183'
             })
           ),
-          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: 'jsx-1036603183'
           }),
-          _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: 'jsx-1036603183'
           })
         ),
         _react2.default.createElement(
           'defs',
           {
-            className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            className: 'jsx-1036603183'
           },
           _react2.default.createElement(
             'filter',
-            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: 'jsx-1036603183'
             },
-            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: 'jsx-1036603183'
             }),
-            _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: 'jsx-1036603183'
             }),
             _react2.default.createElement('feOffset', {
-              className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+              className: 'jsx-1036603183'
             }),
-            _react2.default.createElement('feGaussianBlur', { stdDeviation: '2', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feGaussianBlur', { stdDeviation: '2', className: 'jsx-1036603183'
             }),
-            _react2.default.createElement('feColorMatrix', { type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feColorMatrix', { type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0', className: 'jsx-1036603183'
             }),
-            _react2.default.createElement('feBlend', { mode: 'normal', in2: 'BackgroundImageFix', result: 'effect1_dropShadow', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feBlend', { mode: 'normal', in2: 'BackgroundImageFix', result: 'effect1_dropShadow', className: 'jsx-1036603183'
             }),
-            _react2.default.createElement('feBlend', { mode: 'normal', 'in': 'SourceGraphic', in2: 'effect1_dropShadow', result: 'shape', className: _style2.default.dynamic([['2788233467', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feBlend', { mode: 'normal', 'in': 'SourceGraphic', in2: 'effect1_dropShadow', result: 'shape', className: 'jsx-1036603183'
             })
           )
         )
       )
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '2788233467',
-      css: 'svg.__jsx-style-dynamic-selector{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);' + (props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '') + ';}.right-arrow-wrapper.__jsx-style-dynamic-selector{position:absolute;top:50%;margin:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);right:10%;}',
-      dynamic: [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']
+      styleId: '1036603183',
+      css: 'svg.jsx-1036603183{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);}.revealArrow.jsx-1036603183{opacity:1;}.clicked.jsx-1036603183{opacity:.5;-webkit-transition:opacity .1s ease;transition:opacity .1s ease;}.right-arrow-wrapper.jsx-1036603183{position:absolute;top:50%;margin:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);right:10%;}'
     })
   );
 };
@@ -244,65 +243,64 @@ var RevealLeftArrow = exports.RevealLeftArrow = function RevealLeftArrow(props) 
         cursor: 'pointer',
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       },
-      className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]]) + ' ' + 'backArrow'
+      className: 'jsx-2467651503' + ' ' + 'backArrow'
     },
     _react2.default.createElement(
       'div',
       {
-        className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]]) + ' ' + 'left-arrow-wrapper'
+        className: 'jsx-2467651503' + ' ' + 'left-arrow-wrapper'
       },
       _react2.default.createElement(
         'svg',
-        { width: '17', height: '22', viewBox: '0 0 17 22', fill: 'none', xmlns: 'http://www.w3.org/2000/svg', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+        { width: '17', height: '22', viewBox: '0 0 17 22', fill: 'none', xmlns: 'http://www.w3.org/2000/svg', className: 'jsx-2467651503' + ' ' + ('revealArrow ' + (props.clickedArrow ? 'clicked' : ''))
         },
         _react2.default.createElement(
           'g',
-          { filter: 'url(#filter0_d)', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          { filter: 'url(#filter0_d)', className: 'jsx-2467651503'
           },
           _react2.default.createElement(
             'mask',
-            { id: 'path-1-inside-1', fill: 'white', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'path-1-inside-1', fill: 'white', className: 'jsx-2467651503'
             },
-            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', className: 'jsx-2467651503'
             })
           ),
-          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.06246 10.9012L12.0122 15.851L10.598 17.2652L4.94114 11.6083L4.23403 10.9012L4.94114 10.1941L10.598 4.53725L12.0122 5.95146L7.06246 10.9012Z', fill: 'white', className: 'jsx-2467651503'
           }),
-          _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+          _react2.default.createElement('path', { d: 'M12.0122 15.851L13.4264 17.2652L14.8406 15.851L13.4264 14.4367L12.0122 15.851ZM7.06246 10.9012L5.64825 9.48699L4.23403 10.9012L5.64825 12.3154L7.06246 10.9012ZM10.598 17.2652L9.18378 18.6794L10.598 20.0936L12.0122 18.6794L10.598 17.2652ZM4.23403 10.9012L2.81982 9.48699L1.40561 10.9012L2.81982 12.3154L4.23403 10.9012ZM4.94114 10.1941L6.35535 11.6083L4.94114 10.1941ZM10.598 4.53725L12.0122 3.12303L10.598 1.70882L9.18378 3.12303L10.598 4.53725ZM12.0122 5.95146L13.4264 7.36567L14.8406 5.95146L13.4264 4.53725L12.0122 5.95146ZM13.4264 14.4367L8.47667 9.48699L5.64825 12.3154L10.598 17.2652L13.4264 14.4367ZM12.0122 18.6794L13.4264 17.2652L10.598 14.4367L9.18378 15.851L12.0122 18.6794ZM3.52693 13.0225L9.18378 18.6794L12.0122 15.851L6.35535 10.1941L3.52693 13.0225ZM2.81982 12.3154L3.52693 13.0225L6.35535 10.1941L5.64825 9.48699L2.81982 12.3154ZM3.52693 8.77989L2.81982 9.48699L5.64825 12.3154L6.35535 11.6083L3.52693 8.77989ZM9.18378 3.12303L3.52693 8.77989L6.35535 11.6083L12.0122 5.95146L9.18378 3.12303ZM13.4264 4.53725L12.0122 3.12303L9.18378 5.95146L10.598 7.36567L13.4264 4.53725ZM8.47667 12.3154L13.4264 7.36567L10.598 4.53725L5.64825 9.48699L8.47667 12.3154Z', fill: 'white', mask: 'url(#path-1-inside-1)', className: 'jsx-2467651503'
           })
         ),
         _react2.default.createElement(
           'defs',
           {
-            className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            className: 'jsx-2467651503'
           },
           _react2.default.createElement(
             'filter',
-            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            { id: 'filter0_d', x: '0.234009', y: '0.537245', width: '15.7782', height: '20.7279', filterUnits: 'userSpaceOnUse', colorInterpolationFilters: 'sRGB', className: 'jsx-2467651503'
             },
-            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feFlood', { floodOpacity: '0', result: 'BackgroundImageFix', className: 'jsx-2467651503'
             }),
-            _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feColorMatrix', { 'in': 'SourceAlpha', type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0', className: 'jsx-2467651503'
             }),
             _react2.default.createElement('feOffset', {
-              className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+              className: 'jsx-2467651503'
             }),
-            _react2.default.createElement('feGaussianBlur', { stdDeviation: '2', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feGaussianBlur', { stdDeviation: '2', className: 'jsx-2467651503'
             }),
-            _react2.default.createElement('feColorMatrix', { type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feColorMatrix', { type: 'matrix', values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0', className: 'jsx-2467651503'
             }),
-            _react2.default.createElement('feBlend', { mode: 'normal', in2: 'BackgroundImageFix', result: 'effect1_dropShadow', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feBlend', { mode: 'normal', in2: 'BackgroundImageFix', result: 'effect1_dropShadow', className: 'jsx-2467651503'
             }),
-            _react2.default.createElement('feBlend', { mode: 'normal', 'in': 'SourceGraphic', in2: 'effect1_dropShadow', result: 'shape', className: _style2.default.dynamic([['2852704700', [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']]])
+            _react2.default.createElement('feBlend', { mode: 'normal', 'in': 'SourceGraphic', in2: 'effect1_dropShadow', result: 'shape', className: 'jsx-2467651503'
             })
           )
         )
       )
     ),
     _react2.default.createElement(_style2.default, {
-      styleId: '2852704700',
-      css: '.left-arrow-wrapper.__jsx-style-dynamic-selector{position:absolute;top:50%;margin:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);left:10%;}svg.__jsx-style-dynamic-selector{' + (props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '') + ';}',
-      dynamic: [props.clickedArrow ? 'opacity: .5; transition: opacity .1s ease' : '']
+      styleId: '2467651503',
+      css: '.left-arrow-wrapper.jsx-2467651503{position:absolute;top:50%;margin:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);left:10%;}.revealArrow.jsx-2467651503{opacity:1;}.clicked.jsx-2467651503{opacity:.5;-webkit-transition:opacity .1s ease;transition:opacity .1s ease;}'
     })
   );
 };
