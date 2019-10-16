@@ -25,6 +25,8 @@ var _DotIndicator = require('./DotIndicator');
 
 var _CountIndicator = require('./CountIndicator');
 
+var _ = require('..');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -271,6 +273,7 @@ var CircularCarousel = function (_Component) {
           shadow = _props.shadow,
           countIndicator = _props.countIndicator,
           imageAspect = _props.imageAspect,
+          gridGallery = _props.gridGallery,
           altRatio = _props.altRatio;
       var visibleArray = this.state.visibleArray;
 
@@ -352,7 +355,7 @@ var CircularCarousel = function (_Component) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          { classAdd: '' + (gridGallery ? 'col-6 skip-2 col-6-tab skip-0-tab' : 'col-6 skip-2 col-6-tab skip-1-tab') },
           caption
         ) : ''
       );

@@ -5,6 +5,7 @@ import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
 import { DotIndicator } from './DotIndicator'
 import { CountIndicator } from './CountIndicator';
+import { GridGallery } from '..'
 
 export default class CircularCarousel extends Component {
   constructor(props) {
@@ -213,6 +214,7 @@ export default class CircularCarousel extends Component {
       shadow,
       countIndicator,
       imageAspect,
+      gridGallery,
       altRatio
     } = this.props
 
@@ -294,7 +296,7 @@ export default class CircularCarousel extends Component {
             : countIndicator === 'dots'
               ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
         </div>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-2 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 skip-2 col-6-tab skip-0-tab' : 'col-6 skip-2 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
       </div>
     )
   }

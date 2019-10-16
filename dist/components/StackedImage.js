@@ -50,59 +50,40 @@ var StackedImage = function (_Component) {
         'div',
         null,
         _reactDeviceDetect.isMobile ? _react2.default.createElement(
-          'figure',
+          'div',
           {
-            ref: function ref(elem) {
-              _this2.carouselElem = elem;
-            },
             style: {
               position: 'relative',
               display: 'block',
               width: '100%',
               height: '100%'
             },
-            className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
+            className: 'imagesWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
           this.props.images.map(function (img, index) {
             return _react2.default.createElement(
-              'div',
+              'figure',
               {
-                key: 'image' + index,
-                style: {
-                  margin: '1.5vw 0'
-                } },
+                className: 'itemWrap ' + (index === _this2.props.images.length - 1 ? 'withCaption' : ''),
+                key: 'image' + index
+              },
               _react2.default.createElement(_Image2.default, {
+                stackedImage: true,
                 key: 'img-' + index,
-                aspectRatio: 'noAspect',
+                aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
                 skipIntro: true,
                 imgSource: img,
-                visibilityOverride: true
+                visibilityOverride: true,
+                caption: index === _this2.props.images.length - 1 ? _this2.props.caption : ''
               })
             );
-          }),
-          this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
-            _Type.Caption,
-            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
-            this.props.caption
-          ) : ''
+          })
         ) : _react2.default.createElement(
-          'figure',
+          'div',
           {
-            ref: function ref(elem) {
-              _this2.carouselElem = elem;
-            },
-            style: {
-              position: 'relative',
-              display: 'inline-block',
-              width: '100%',
-              height: '100%'
-            },
-            className: 'carouselWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
+            className: 'imagesWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
           _react2.default.createElement(
             'div',
             {
-              ref: function ref(elem) {
-                _this2.carouselElem = elem;
-              },
               style: {
                 position: 'relative',
                 display: 'flex',
@@ -112,15 +93,19 @@ var StackedImage = function (_Component) {
               } },
             this.props.images.map(function (img, index) {
               return _react2.default.createElement(
-                'div',
+                'figure',
                 {
+                  className: 'imageWrapDesktop',
                   key: 'image' + index,
                   style: {
-                    margin: '0 1vw'
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: '100%',
+                    height: '100%'
                   } },
                 _react2.default.createElement(_Image2.default, {
                   key: 'img-' + index,
-                  aspectRatio: 'noAspect',
+                  aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
                   skipIntro: true,
                   imgSource: img,
                   visibilityOverride: true
@@ -130,9 +115,14 @@ var StackedImage = function (_Component) {
           ),
           this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
             _Type.Caption,
-            { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
+            { classAdd: 'col-6 skip-1 col-6-tab skip-0-tab' },
             this.props.caption
           ) : ''
+        ),
+        _react2.default.createElement(
+          'style',
+          null,
+          '\n          .imageWrapDesktop {\n            margin-left: 2vw;\n          }\n          .imageWrapDesktop:first-child {\n            margin-left: 0;\n          }\n          .itemWrap {\n            margin: 3.5vw 0;\n          }\n          .itemWrap:first-child {\n            margin: 0 0 3.5vw 0;\n          }\n          '
         )
       );
     }

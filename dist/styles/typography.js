@@ -34,7 +34,7 @@ var lineHeightHeading6 = exports.lineHeightHeading6 = 28 / fontSizeHeading6;
 var lineHeightHeading7 = exports.lineHeightHeading7 = 24 / fontSizeHeading7;
 var lineHeightHeading8 = exports.lineHeightHeading8 = 16 / fontSizeHeading8;
 var lineHeightBodyArticle = exports.lineHeightBodyArticle = 36 / fontSizeBodyArticle;
-var lineHeightBodyArticleSmall = exports.lineHeightBodyArticleSmall = 32 / fontSizeBodyArticleSmall;
+var lineHeightBodyArticleSmall = exports.lineHeightBodyArticleSmall = 22.72 / fontSizeBodyArticleSmall;
 var lineHeightBodySmall = exports.lineHeightBodySmall = 20 / fontSizeBodySmall;
 var lineHeightAccent = exports.lineHeightAccent = 24 / fontSizeAccent;
 var lineHeightUppercase = exports.lineHeightUppercase = 11 / fontSizeUppercase;

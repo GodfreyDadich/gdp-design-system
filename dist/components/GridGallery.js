@@ -52,9 +52,10 @@ var GridGallery = function GridGallery(_ref) {
       carousel = _ref.carousel,
       view = _ref.view,
       caption = _ref.caption,
+      fullWidthCaption = _ref.fullWidthCaption,
+      removeGrayBackground = _ref.removeGrayBackground,
       mixedOr = _ref.mixedOr,
       altAsset = _ref.altAsset,
-      altRatio = _ref.altRatio,
       headingCaption = _ref.headingCaption,
       classAdd = _ref.classAdd;
 
@@ -128,7 +129,7 @@ var GridGallery = function GridGallery(_ref) {
         className: '' + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
       mobile ? appliedImages.length > 1 ? _react2.default.createElement(
         _CircularCarousel2.default,
-        { countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
+        { gridGallery: true, countIndicator: countIndicator, caption: caption, imageAspect: thumbAspect, aspectRatio: containerAspect },
         appliedImages.map(function (image, index) {
           return _react2.default.createElement(
             'div',
@@ -146,7 +147,7 @@ var GridGallery = function GridGallery(_ref) {
         { className: 'mobile-flat' },
         _react2.default.createElement(
           'div',
-          { className: 'mobile-grid-container' },
+          { className: 'mobile-grid-container', style: removeGrayBackground ? { background: 'rgb(242,242,242)' } : { background: 'transparent' } },
           _react2.default.createElement(
             'div',
             { style: evenGridStyles },
@@ -159,7 +160,7 @@ var GridGallery = function GridGallery(_ref) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          { classAdd: '' + (fullWidthCaption ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-0-tab') },
           caption
         ) : ''
       ) : _react2.default.createElement(
@@ -167,7 +168,7 @@ var GridGallery = function GridGallery(_ref) {
         null,
         _react2.default.createElement(
           'div',
-          { className: mixedOr ? 'grid-container' : 'columns-grid-container' },
+          { className: mixedOr ? 'grid-container' : 'columns-grid-container', style: removeGrayBackground ? { background: 'transparent' } : { background: 'rgb(242,242,242)' } },
           _react2.default.createElement(
             _ConditionalClass2.default,
             { pass: mixedOr, classAdd: 'image-wrapper' },
@@ -231,7 +232,7 @@ var GridGallery = function GridGallery(_ref) {
         ),
         caption && caption.length > 0 ? _react2.default.createElement(
           _Type.Caption,
-          { classAdd: 'col-6 skip-2 col-6-tab skip-1-tab' },
+          { classAdd: '' + (fullWidthCaption ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-1-tab') },
           caption
         ) : ''
       )
@@ -239,7 +240,7 @@ var GridGallery = function GridGallery(_ref) {
     _react2.default.createElement(
       'style',
       null,
-      '\n      .expand {\n        position: absolute;\n        top: 1.25vw;\n        left: 1.25vw;\n      }\n      .expand__copy {\n        display: inline-block;\n        vertical-align: top;\n        margin-top: 2px;\n        color: #7F7F7F;\n        font-family: Atlas Grotesk;\n        letter-spacing: 1.25px;\n        font-weight: 400;\n        font-size: 10px;\n        white-space: nowrap;\n      }\n      .expand__icon {\n        display: inline-block;\n        height: 25px;\n        width: 25px;\n        top: 5px;\n        margin-right: 10px;\n        background-repeat: no-repeat;\n        background-size: 100%;\n        margin-left: .1vw;\n        position: relative;\n        transform: translateY(-50%);\n      }\n      .moasic-image {\n        display: inline-block;\n        position: relative;\n        height: 9.4vw;\n        width: auto;\n      }\n      .image-wrapper {\n        margin: auto;\n        width: 80vw;\n      }\n      @media only screen and (max-width: 1025px) {\n        .image-wrapper {\n          width: 60vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .image-wrapper {\n          width: 57vw;\n        }\n      }\n      .grid-container {\n        background: rgb(242,242,242);\n        display:block;\n        position: relative;\n        padding: 6vw;\n      }\n      .columns-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 5vw;\n      }\n      .mobile-grid-container {\n        background: rgb(242,242,242);\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 15px;\n      }\n      .grid-image:hover {\n        filter: brightness(70%);\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100vw;\n        height: 100vh;\n        z-index: 1000;\n      }\n      .modalTouchArea {\n        cursor: pointer;\n        position: absolute;\n        top: 30px;\n        right: 30px;\n        width: 30px;\n        height: 30px;\n        z-index:9999;\n        background-repeat: no-repeat;\n      }\n    '
+      '\n      .expand {\n        position: absolute;\n        top: 1.25vw;\n        left: 1.25vw;\n      }\n      .expand__copy {\n        display: inline-block;\n        vertical-align: top;\n        margin-top: 2px;\n        color: #7F7F7F;\n        font-family: Atlas Grotesk;\n        letter-spacing: 1.25px;\n        font-weight: 400;\n        font-size: 10px;\n        white-space: nowrap;\n      }\n      .expand__icon {\n        display: inline-block;\n        height: 25px;\n        width: 25px;\n        top: 5px;\n        margin-right: 10px;\n        background-repeat: no-repeat;\n        background-size: 100%;\n        margin-left: .1vw;\n        position: relative;\n        transform: translateY(-50%);\n      }\n      .moasic-image {\n        display: inline-block;\n        position: relative;\n        height: 9.4vw;\n        width: auto;\n      }\n      .image-wrapper {\n        margin: auto;\n        width: 80vw;\n      }\n      @media only screen and (max-width: 1025px) {\n        .image-wrapper {\n          width: 60vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .image-wrapper {\n          width: 57vw;\n        }\n      }\n      .grid-container {\n        display:block;\n        position: relative;\n        padding: 6vw;\n      }\n      .columns-grid-container {\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 5vw;\n      }\n      .mobile-grid-container {\n        flex-direction: row;\n        flex-wrap: wrap;\n        display:flex;\n        padding: 15px;\n      }\n      .grid-image:hover {\n        filter: brightness(70%);\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100vw;\n        height: 100vh;\n        z-index: 1000;\n      }\n      .modalTouchArea {\n        cursor: pointer;\n        position: absolute;\n        top: 30px;\n        right: 30px;\n        width: 30px;\n        height: 30px;\n        z-index:9999;\n        background-repeat: no-repeat;\n      }\n    '
     )
   );
 };
