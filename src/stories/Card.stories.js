@@ -9,7 +9,7 @@ import {
   imgSixteenNine,
   verticalAligns,
   horizontalAligns,
-  aspectRatiosObj,
+  aspectRatios,
   contentOrientations
 } from '../utils/defaults'
 
@@ -28,7 +28,7 @@ export const DefaultCard = () =>
       linkUrl={text('Link Url', '')}
       mediaOrientation={select('Media Orientation', contentOrientations, 'top')}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'standard')}
+      aspectRatio={select('Aspect Ratio', aspectRatios, 'standard')}
       fullBleed={boolean('fullBleed', false)}
       imgSource={imgSixteenNine}
       verticalAlign={select('Vertical Align', verticalAligns, 'center')}

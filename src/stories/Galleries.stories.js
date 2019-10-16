@@ -8,10 +8,9 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 import {
   defaultCaption,
-  aspectRatiosObj,
   imageGallery2,
   galleries,
-  aspectRationsArray,
+  aspectRatios,
   countIndicator,
   addDropShadow,
   viewMode,
@@ -26,7 +25,7 @@ export default {
 
 export const ImageCircularCarousel = () =>
   <CircularCarousel
-    aspectRatio={select('Aspect Ratio', aspectRationsArray, 'standard')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'standard')}
     countIndicator={select('Count Indicator', countIndicator, 'dots')}
     caption={text('Caption', defaultCaption)}
     shadow={select('shadow', addDropShadow, 'no')}
@@ -45,7 +44,7 @@ export const ImageCircularCarousel = () =>
 export const ImageSlider = () =>
   <Slider
     images={imageGallery2}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
   />
 
@@ -53,8 +52,8 @@ export const ImageRevealCarousel = () =>
   <RevealCarousel
     images={imageGallery2}
     countIndicator={select('Count Indicator', countIndicator, 'dots')}
-    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
   />
 
@@ -65,8 +64,8 @@ export const ImageMuseumView = () =>
     countIndicator={select('Count Indicator', countIndicator, 'dots')}
     view={select('View Mode', viewMode, 'lightMode')}
     columns={number('Columns', 4)}
-    thumbAspect={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    thumbAspect={select('Aspect Ratio', aspectRatios, 'sixteen')}
+    containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
   />
 
@@ -77,7 +76,7 @@ export const ImageGridGallery = () =>
       'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70']}
     mobileCarousel={boolean('Carousel on Mobile Device', true)}
     mixedOr={boolean('Various Orientation Images', false)}
-    altRatio={select('Alt Aspect Ratio', aspectRatiosObj, '')}
+    altRatio={select('Alt Aspect Ratio', aspectRatios, '')}
     classAdd=''
     images={imageGallery2}
     thumbs={imageGallery2}
@@ -87,6 +86,6 @@ export const ImageGridGallery = () =>
     columns={number('Columns', 3)}
     headingCaption={text('Heading Caption', defaultSubTitle)}
     caption={text('Caption', defaultCaption)}
-    thumbAspect={select('Image Aspect Ratio', aspectRatiosObj, 'sixteen')}
-    containerAspect={select('Container Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    thumbAspect={select('Image Aspect Ratio', aspectRatios, 'sixteen')}
+    containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
   />

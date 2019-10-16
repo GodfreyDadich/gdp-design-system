@@ -6,7 +6,7 @@ import Device from '../components/Device'
 import StackedImage from '../components/StackedImage'
 import {
   defaultCaption,
-  aspectRatiosObj,
+  aspectRatios,
   verticalAligns,
   horizontalAligns,
   sidebarLocations,
@@ -24,7 +24,7 @@ export const DefaultImage = () =>
   <Image
     altAsset={imgSixteenNine}
     imageTitle={text('Image Title/Alt', 'test')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'square')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'square')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
     linkUrl={text('url', '')}
@@ -36,7 +36,7 @@ export const ImageWithCaption = () =>
   <Image
     caption={text('Caption', defaultCaption)}
     imageTitle={text('Image Title/Alt', 'test')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'noAspect')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
     linkUrl={text('url', '')}
@@ -55,7 +55,7 @@ export const ImageWithSidebar = () =>
       location: select('Sidebar Location', sidebarLocations, 'top-left')
     }}
     imageTitle={text('Image Title/Alt', 'test')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'noAspect')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
     linkUrl={text('url', '')}
@@ -66,7 +66,7 @@ export const ImageWithSidebar = () =>
 // export const ImageZoom = () =>
 //   <ImageWithZoom
 //     imageTitle={text('Image Title/Alt', 'test')}
-//     aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'noAspect')}
+//     aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
 //     fullBleed={boolean('Full Bleed', false)}
 //     stretchH={boolean('Stretch Horizontal', false)}
 //     imgSource={imgSixteenNine}
@@ -92,7 +92,7 @@ export const DeviceImage = () =>
 export const ImageWithHover = () =>
   <Image
     imageTitle={text('Image Title/Alt', 'test')}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
     imgHover={imageGallery2[1]}
@@ -104,6 +104,6 @@ export const ImageWithHover = () =>
 export const ImagesStacked = () =>
   <StackedImage
     images={imageGallery}
-    aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'sixteen')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
   />

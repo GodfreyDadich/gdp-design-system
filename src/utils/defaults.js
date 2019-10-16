@@ -20,14 +20,13 @@ export const breadCrumbData = [
 ]
 
 /* Options */
-export const aspectRatiosObj = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
-export const aspectRationsArray = ['noAspect', 'sixteen', 'standard', 'square', 'cropped']
+export const aspectRatios = ['sixteen', 'standard', 'square', 'cropped', 'noAspect']
 export const verticalAligns = ['top', 'center', 'bottom']
 export const horizontalAligns = ['left', 'center', 'right']
 export const contentOrientations = ['top', 'left', 'right', 'bottom']
 export const sidebarLocations = ['left-top', 'right-top', 'left-bottom', 'right-bottom']
 export const countIndicator = ['counter', 'dots', 'none']
-export const addDropShadow = ['yes', 'no']
+export const addDropShadow = ['yes', 'no'] // TODO: Transition this to a boolean
 export const viewMode = ['lightMode', 'darkMode']
 export const isCarousel = ['yes', 'no']
 

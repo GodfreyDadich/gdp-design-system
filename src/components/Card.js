@@ -33,7 +33,7 @@ Card.propTypes = {
   linkURL: PropTypes.string,
   mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   imageTitle: PropTypes.string,
-  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped']),
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
@@ -41,7 +41,6 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
-  aspectRatio: 'standard',
   fullBleed: false
 }
 export default Card

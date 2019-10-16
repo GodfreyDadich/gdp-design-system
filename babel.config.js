@@ -1,10 +1,10 @@
 module.exports = api => {
-  api.cache(true);
+  api.cache(true)
 
   return {
     presets: ['@babel/env', '@babel/react'],
     plugins: [
-      '@babel/plugin-proposal-object-rest-spread', 
+      '@babel/plugin-proposal-object-rest-spread',
       '@babel/transform-runtime',
       ['styled-jsx/babel', { 'plugins': ['styled-jsx-plugin-sass'] }]],
     env: {
