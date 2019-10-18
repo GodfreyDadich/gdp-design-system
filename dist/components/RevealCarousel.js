@@ -218,7 +218,7 @@ var RevealCarousel = function RevealCarousel(props) {
     }));
   }))), props.captionsArray ? _react["default"].createElement("div", {
     style: {
-      height: '4.61vw',
+      height: _reactDeviceDetect.isMobile ? '11vw' : '2vw',
       margin: captionMargin
     }
   }, _react["default"].createElement(_Type.Caption, {
