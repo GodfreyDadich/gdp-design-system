@@ -19,6 +19,7 @@ class Image extends React.Component {
       imgHover,
       aspectRatio,
       classAdd,
+      stackedImage,
       style
     } = this.props
 
@@ -36,7 +37,7 @@ class Image extends React.Component {
           </ImageWrap>
         </TrackVisibility>
 
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 skip-1 col-6-tab skip-0-tab' : 'col-6 skip-3 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
         <style jsx>{`
           figure {
             position: relative;

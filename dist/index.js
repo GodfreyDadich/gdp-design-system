@@ -166,7 +166,23 @@ Object.defineProperty(exports, "Slide", {
     return _Slide["default"];
   }
 });
+<<<<<<< HEAD
 Object.defineProperty(exports, "Slider", {
+=======
+
+var _StackedImage = require('./components/StackedImage');
+
+Object.defineProperty(exports, 'StackedImage', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_StackedImage).default;
+  }
+});
+
+var _Slide = require('./components/Slide');
+
+Object.defineProperty(exports, 'Slide', {
+>>>>>>> master
   enumerable: true,
   get: function get() {
     return _Slider["default"];

@@ -8,6 +8,7 @@ import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
 import {
   defaultCaption,
+  captionsArray,  
   imageGallery2,
   galleries,
   aspectRatios,
@@ -55,6 +56,7 @@ export const ImageRevealCarousel = () =>
     containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
+    captionsArray={captionsArray}
   />
 
 export const ImageMuseumView = () =>

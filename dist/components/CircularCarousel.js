@@ -29,7 +29,13 @@ var _Type = require("./Type");
 
 var _aspectRatio = require("../utils/aspectRatio");
 
+<<<<<<< HEAD
 var _reactDeviceDetect = require("react-device-detect");
+=======
+var _ = require('..');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+>>>>>>> master
 
 var _DotIndicator = require("./DotIndicator");
 
@@ -286,6 +292,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
+<<<<<<< HEAD
       var _this$props = this.props,
           fullBleed = _this$props.fullBleed,
           caption = _this$props.caption,
@@ -368,6 +375,103 @@ function (_Component) {
       }) : '' : ''), caption && caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
         classAdd: "col-6 skip-2 col-6-tab skip-1-tab"
       }, caption) : '');
+=======
+      var _props = this.props,
+          fullBleed = _props.fullBleed,
+          caption = _props.caption,
+          aspectRatio = _props.aspectRatio,
+          children = _props.children,
+          classAdd = _props.classAdd,
+          shadow = _props.shadow,
+          countIndicator = _props.countIndicator,
+          imageAspect = _props.imageAspect,
+          gridGallery = _props.gridGallery,
+          altRatio = _props.altRatio;
+      var visibleArray = this.state.visibleArray;
+
+
+      return _react2.default.createElement(
+        'div',
+        {
+          style: _extends({}, {
+            position: 'relative',
+            overflow: 'visible'
+          }),
+          className: 'carouselWrapper ' + (fullBleed ? ' full-bleed' : '') + (caption && caption.length > 0 ? ' withCaption' : '') + (classAdd ? ' ' + classAdd : '') },
+        _react2.default.createElement(
+          'div',
+          {
+            ref: function ref(elem) {
+              _this2.carouselElem = elem;
+            },
+            style: {
+              position: 'relative',
+              height: '100%',
+              width: '100%',
+              overflow: 'visible',
+              touchAction: 'pan-y',
+              userSelect: 'none',
+              paddingTop: _reactDeviceDetect.isMobile && altRatio ? (0, _aspectRatio.getPaddingTop)(altRatio) : (0, _aspectRatio.getPaddingTop)(aspectRatio),
+              backgroundColor: 'rgb(242,242,242)'
+            },
+            className: 'carousel__container ' + this.state.teaseState },
+          _react2.default.createElement(_SliderArrows.LeftArrow, {
+            clickAction: this.goToPrevSlide,
+            over: this.hoverTeasePrev,
+            out: this.hoverTeaseReset
+          }),
+          _react2.default.createElement(_SliderArrows.RightArrow, {
+            clickAction: this.goToNextSlide,
+            over: this.hoverTeaseNext,
+            out: this.hoverTeaseReset
+          }),
+          _react2.default.createElement(
+            'div',
+            {
+              style: {
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                transition: 'transform .3s ease, box-shadow .3s ease'
+              },
+              className: 'carousel__images-container' },
+            children.map(function (child, i) {
+              return _react2.default.createElement(
+                'div',
+                {
+                  key: 'carouselImage' + i,
+                  style: _extends({
+                    boxShadow: shadow === 'yes' ? '0px 4px 25px rgba(0, 0, 0, 0.4)' : '',
+                    display: 'block',
+                    verticalAlign: 'middle',
+                    position: 'absolute',
+                    transform: 'translateX(-50%) translateY(-50%) scale(1.1)',
+                    transition: 'transform 0.75s',
+                    zIndex: '3',
+                    top: '50%',
+                    left: '50%',
+                    width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
+                    maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
+                    height: 'auto'
+                  }, _this2.getCarouselStyle(i)) },
+                visibleArray.includes(i) ? _react2.default.cloneElement(child, {
+                  active: _this2.state.currentIndex === i,
+                  visibilityOverride: true
+                }) : _react2.default.createElement(_react.Fragment, null)
+              );
+            })
+          ),
+          _reactDeviceDetect.isMobile ? countIndicator === 'counter' ? _react2.default.createElement(_CountIndicator.CountIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect || aspectRatio, children: children }) : countIndicator === 'dots' ? _react2.default.createElement(_DotIndicator.DotIndicator, { currentIndex: this.state.currentIndex, imageAspect: imageAspect || aspectRatio, children: children }) : '' : ''
+        ),
+        caption && caption.length > 0 ? _react2.default.createElement(
+          _Type.Caption,
+          { classAdd: '' + (gridGallery ? 'col-6 skip-2 col-6-tab skip-0-tab' : 'col-6 skip-2 col-6-tab skip-1-tab') },
+          caption
+        ) : ''
+      );
+>>>>>>> master
     }
   }]);
   return CircularCarousel;

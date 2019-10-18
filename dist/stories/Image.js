@@ -62,6 +62,8 @@ var imageGallery = ['https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jp
 
 var imageGallery2 = ['https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHoyNzAwNXkwaXA3ZnQ0cTcyeDctMjQxMmZmLWFtZXJpY2EtbG8tcjMucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHozdDAwNWQwaXFlcnJ3NWg2cDgtMjIwOWZmLW1hbmdvLWxvLXIyNS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3eHoxdDAwNWMwaXFlZ243bWwxZWotMjMwNWZmLXdhdGNoLWxvLXIyMy5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ==', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em01ZjAwNjAwaXFlMXJoM213Y2MtMjMwMmZmLW5hZGVsbGEtbG8tcjIucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpdGhvdXRFbmxhcmdlbWVudCI6dHJ1ZSwid2lkdGgiOjEwMjR9fX0=', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em04eDAxZWowaW5qNnlyd3hpdWstMjMwMmZmLW5hZGVsbGEtbG8tcjIyLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1haDAxZWswaW5qc3lla2cxamwtMjMxMnN3LWpqaW50ZXJ2aWV3LWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'];
 
+var captionsArray = ['caption1 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption2 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption3 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption4 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption5 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption6 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption7 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd'];
+
 var imageGallery3 = ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunflower_from_Silesia2.jpg/1600px-Sunflower_from_Silesia2.jpg', 'https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70'];
 
 var galleries = [{
@@ -262,11 +264,12 @@ var galleries = [{
     'div',
     { style: { width: '75%', margin: '50px auto' } },
     _react2.default.createElement(_RevealCarousel2.default, {
-      images: imageGallery,
+      images: imageGallery2,
       countIndicator: (0, _addonKnobs.select)('Count Indicator', { counter: 'counter', dots: 'dots', none: 'none' }, 'dots'),
       containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', NoAspect: 'noAspect' }, 'sixteen'),
       aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', { SixteenNine: 'sixteen', FourThree: 'standard', OneOne: 'square', Cropped: 'cropped' }, 'sixteen'),
-      caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.')
+      caption: (0, _addonKnobs.text)('Caption', 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'),
+      captionsArray: captionsArray
     })
   );
 }).add('Image Carousel (Circular)', function () {

@@ -123,6 +123,7 @@ var WiredType = function WiredType(_ref7) {
   var children = _ref7.children,
       style = _ref7.style,
       className = _ref7.className;
+<<<<<<< HEAD
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk'
@@ -131,6 +132,25 @@ var WiredType = function WiredType(_ref7) {
   }, children, _react["default"].createElement(_style["default"], {
     id: "1225945618"
   }, ".wiredtype.jsx-1225945618{font-size:19px;line-height:.5;color:#333;font-variant:small-caps;-webkit-letter-spacing:.5px;-moz-letter-spacing:.5px;-ms-letter-spacing:.5px;letter-spacing:.5px;}@media only screen and (max-width:500px){.wiredtype.jsx-1225945618{line-height:22px;font-size:15px;}}"));
+=======
+  return _react2.default.createElement(
+    'h4',
+    {
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: '900',
+        marginTop: 0,
+        marginBottom: 0
+      }, style),
+      className: 'jsx-2847297487' + ' ' + ('subhead ' + className)
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '2847297487',
+      css: '.subhead.jsx-2847297487{font-family:\'Atlas Grotesk\';font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#7F7F7F;}'
+    })
+  );
+>>>>>>> master
 };
 
 exports.WiredType = WiredType;
@@ -139,6 +159,7 @@ var InquiryText = function InquiryText(_ref8) {
   var children = _ref8.children,
       style = _ref8.style,
       className = _ref8.className;
+<<<<<<< HEAD
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Noe Text'
@@ -147,6 +168,25 @@ var InquiryText = function InquiryText(_ref8) {
   }, children, _react["default"].createElement(_style["default"], {
     id: "3946180267"
   }, ".inquiryText.jsx-3946180267{font-style:italic;color:#333;font-weight:400;display:block;font-size:19px;line-height:22px;-webkit-letter-spacing:-0.1px;-moz-letter-spacing:-0.1px;-ms-letter-spacing:-0.1px;letter-spacing:-0.1px;}"));
+=======
+  return _react2.default.createElement(
+    'h4',
+    {
+      style: _extends({
+        fontFamily: 'Atlas Grotesk',
+        fontWeight: '900',
+        marginTop: 0,
+        marginBottom: 0
+      }, style),
+      className: 'jsx-1095621166' + ' ' + ('subheadBlack ' + className)
+    },
+    children,
+    _react2.default.createElement(_style2.default, {
+      styleId: '1095621166',
+      css: '.subheadBlack.jsx-1095621166{font-family:\'Atlas Grotesk\';font-size:20px;margin-bottom:0;line-height:1.29px;-webkit-letter-spacing:-0.18px;-moz-letter-spacing:-0.18px;-ms-letter-spacing:-0.18px;letter-spacing:-0.18px;color:#333;}'
+    })
+  );
+>>>>>>> master
 };
 
 exports.InquiryText = InquiryText;

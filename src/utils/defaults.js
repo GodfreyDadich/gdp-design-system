@@ -4,6 +4,15 @@ export const defaultSubTitle = 'Subtitle Tk'
 export const defaultCta = 'CTA Tk'
 export const defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
 export const defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'
+export const captionsArray = [
+  'caption1 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption2 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption3 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption4 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption5 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption6 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
+  'caption7 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd'
+]
 export const breadCrumbData = [
   {
     title: 'home',
