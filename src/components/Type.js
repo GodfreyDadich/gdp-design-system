@@ -1,45 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { BioIcon } from './Icons'
-import { isMobile, isMobileOnly } from 'react-device-detect'
 
 import {
   fontSizeSuper, lineHeightSuper,
-  // fontSizeHeading1, lineHeightHeading1,
-  fontSizeHeading2, 
-  // lineHeightHeading2,
-  // fontSizeHeading3, lineHeightHeading3,
-  // fontSizeHeading4, lineHeightHeading4,
-  // fontSizeHeading5,
-  // fontSizeHeading6,
-  // fontSizeHeading7,
-  // fontSizeHeading8,
-  // fontSizeBodyArticle,
-  // fontSizeBodyArticleSmall,
-  // fontSizeBodySmall,
-  // fontSizeAccent,
-  // fontSizeUppercase,
+  fontSizeHeading2
 } from "../styles/typography";
 
-export const HeadingSuper = ({ children }) =>
-  <h1 className='super' >
+export const BioHeading = ({ children, style }) =>
+  <h1
+    style={style}
+    className='bioHeading' >
     {children}
     <style jsx>{`
-      .super {
-        font-size: ${fontSizeSuper}px;
-        line-height: ${lineHeightSuper};
-        margin: 0;
-      }
-    `}</style>
-  </h1>
-
-export const BioHeading = ({ children, style }) =>
-<h1
-  style={style}
-  className='bioHeading' >
-  {children}
-  <style jsx>{`
     .bioHeading {
       position: relative;
       font-family: 'Noe Display';
@@ -86,7 +60,7 @@ export const BioHeading = ({ children, style }) =>
       }             
     }
   `}</style>
-</h1>
+  </h1>
 
 export const Heading1 = ({ children, style }) =>
   <h1
@@ -203,120 +177,97 @@ export const Heading4 = ({ children, style, className }) =>
   </h4>
 
 export const SubHead = ({ children, style, className }) =>
-<h4
-  style={Object.assign({
-    fontFamily: 'Atlas Grotesk',
-    fontWeight: '900',
-    marginTop: 0,
-    marginBottom: 0
-  }, style)}
-  className={`subhead ${className}`}
->
-  {children}
-  <style jsx>{`
-   .subhead {
-    font-family: 'Atlas Grotesk';
-    font-size: 20px;
-    margin-bottom: 0;
-    line-height: 1.29px;
-    letter-spacing: -0.18px;          
-    color: #7F7F7F;
-  }
-  `}</style>
-</h4>
-
-export const SubHeadBlack = ({ children, style, className }) =>
-<h4
-  style={Object.assign({
-    fontFamily: 'Atlas Grotesk',
-    fontWeight: '900',
-    marginTop: 0,
-    marginBottom: 0
-  }, style)}
-  className={`subheadBlack ${className}`}
->
-  {children}
-  <style jsx>{`
-    .subheadBlack {
+  <h4
+    style={Object.assign({
+      fontFamily: 'Atlas Grotesk',
+      fontWeight: '900',
+      marginTop: 0,
+      marginBottom: 0,
+      color: '#7F7F7F'
+    }, style)}
+    className={`subhead ${className}`}
+  >
+    {children}
+    <style jsx>{`
+    .subhead {
       font-family: 'Atlas Grotesk';
       font-size: 20px;
       margin-bottom: 0;
       line-height: 1.29px;
       letter-spacing: -0.18px;          
-      color: #333;
     }
-  `}</style>
-</h4>
+    `}</style>
+  </h4>
 
 export const WiredType = ({ children, style, className }) =>
-<span
-  style={Object.assign({
-    fontFamily: 'Atlas Grotesk'
-  }, style)}
-  className={`wiredtype ${className}`}
->
-  {children}
-  <style jsx>{`
-    .wiredtype {
-      font-size: 19px;
-      line-height: .5;
-      color: #333;
-      font-variant: small-caps;
-      letter-spacing: .5px;       
-      @media only screen and (max-width: 500px) {
-      line-height:22px;
-      font-size: 15px;
-      }                
-    }
-  `}</style>
-</span>
+  <span
+    style={Object.assign({
+      fontFamily: 'Atlas Grotesk'
+    }, style)}
+    className={`wiredtype ${className}`}
+  >
+    {children}
+    <style jsx>{`
+      .wiredtype {
+        font-size: 19px;
+        line-height: .5;
+        color: #333;
+        font-variant: small-caps;
+        letter-spacing: .5px;       
+        @media only screen and (max-width: 500px) {
+          line-height:22px;
+          font-size: 15px;
+        }                
+      }
+    `}</style>
+  </span>
 
 export const InquiryText = ({ children, style, className }) =>
-<span
-  style={Object.assign({
-    fontFamily: 'Noe Text'
-  }, style)}
-  className={`inquiryText ${className}`}
->
-  {children}
-  <style jsx>{`
-      .inquiryText {
-        font-style: italic;
-        color: #333;
-        font-weight: 400;
-        display: block;
-        font-size: 19px;
-        line-height: 22px;
-        letter-spacing: -0.1px;
-      } 
-  `}</style>
-</span>
+  <span
+    style={Object.assign({
+      fontFamily: 'Noe Text'
+    }, style)}
+    className={`inquiryText ${className}`}
+  >
+    {children}
+    <style jsx>{`
+        .inquiryText {
+          font-style: italic;
+          color: #333;
+          font-weight: 400;
+          display: block;
+          font-size: 19px;
+          line-height: 22px;
+          letter-spacing: -0.1px;
+        } 
+    `}</style>
+  </span>
 
 export const QuoteAttribution = ({ children, style, className }) =>
-<span
-  style={Object.assign({
-    fontFamily: 'Institut'
-  }, style)}
-  className={`quoteAttribution ${className}`}
->
-  {children}
-  <style jsx>{`
-      .quoteAttribution {
-        color: #7F7F7F;
-        font-weight: 200;
-        display: block;
-        font-size: 14px;
-        line-height: 14px;
-        letter-spacing: 2px;
-        margin-top: 15px;
-        text-align: center;
-        
-        @media only screen and (max-width: 500px) {
+  <span
+    style={Object.assign({
+      fontFamily: 'Institut'
+    }, style)}
+    className={`quoteAttribution ${className}`}
+  >
+    {children}
+    <style jsx>{`
+        .quoteAttribution {
+          color: #7F7F7F;
+          font-weight: 200;
+          display: block;
+          font-size: 14px;
+          line-height: 14px;
+          letter-spacing: 2px;
           margin-top: 15px;
-        }
-      } 
-  `}</style>
-</span>
+          text-align: center;
+          
+          @media only screen and (max-width: 500px) {
+            margin-top: 15px;
+          }
+        } 
+    `}</style>
+  </span>
 
 export const BioHeader = ({ personName, personTitle, insta }) =>
   <BioHeading

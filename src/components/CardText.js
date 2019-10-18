@@ -1,7 +1,8 @@
 import React from 'react'
 import { CardTitle, CardSubTitle, CardContent } from './Type'
+import PropTypes from 'prop-types'
 
-const CardText = props => 
+const CardText = props =>
   <div className='cardText'>
     {!!props.cardTitle && <CardTitle>{props.cardTitle}</CardTitle>}
     {!!props.cardSubTitle && <CardSubTitle>{props.cardSubTitle}</CardSubTitle>}
@@ -17,5 +18,13 @@ const CardText = props =>
       }
       `}</style>
   </div>
+
+CardText.propTypes = {
+  cardTitle: PropTypes.string,
+  cardSubtitle: PropTypes.string,
+  cardContent: PropTypes.string,
+  linkText: PropTypes.string,
+  linkURL: PropTypes.string
+}
 
 export default CardText

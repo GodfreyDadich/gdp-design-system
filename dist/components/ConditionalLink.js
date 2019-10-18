@@ -1,24 +1,23 @@
-'use strict';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var ConditionalLink = function ConditionalLink(_ref) {
   var linkUrl = _ref.linkUrl,
       linkTarget = _ref.linkTarget,
       children = _ref.children;
-  return typeof linkUrl === 'string' && linkUrl.length > 0 ? _react2.default.createElement(
-    'a',
-    { href: linkUrl, target: linkTarget || '' },
-    children
-  ) : children;
+  return typeof linkUrl === 'string' && linkUrl.length > 0 ? _react["default"].createElement("a", {
+    href: linkUrl,
+    target: linkTarget || ''
+  }, children) : children;
 };
 
-exports.default = ConditionalLink;
+var _default = ConditionalLink;
+exports["default"] = _default;

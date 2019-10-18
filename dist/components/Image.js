@@ -1,60 +1,96 @@
-'use strict';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _style = _interopRequireDefault(require("styled-jsx/style"));
 
-var _style = require('styled-jsx/style');
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _style2 = _interopRequireDefault(_style);
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _react = require('react');
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-var _react2 = _interopRequireDefault(_react);
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _ConditionalLink = require('./ConditionalLink');
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _ConditionalLink2 = _interopRequireDefault(_ConditionalLink);
+var _react = _interopRequireDefault(require("react"));
 
-var _ImageWrap = require('./ImageWrap');
+var _ConditionalLink = _interopRequireDefault(require("./ConditionalLink"));
 
-var _ImageWrap2 = _interopRequireDefault(_ImageWrap);
+var _ImageWrap = _interopRequireDefault(require("./ImageWrap"));
 
-var _Type = require('./Type');
+var _Type = require("./Type");
 
-var _reactOnScreen = require('react-on-screen');
+var _reactOnScreen = _interopRequireDefault(require("react-on-screen"));
 
-var _reactOnScreen2 = _interopRequireDefault(_reactOnScreen);
+var _supportsWebp = _interopRequireDefault(require("supports-webp"));
 
-var _supportsWebp = require('supports-webp');
+var _reactDeviceDetect = require("react-device-detect");
 
-var _supportsWebp2 = _interopRequireDefault(_supportsWebp);
-
-var _reactDeviceDetect = require('react-device-detect');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 // d36aj1cv2i74vd
-var Image = function (_React$Component) {
-  _inherits(Image, _React$Component);
+var Image =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2["default"])(Image, _React$Component);
 
   function Image() {
-    _classCallCheck(this, Image);
-
-    return _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).apply(this, arguments));
+    (0, _classCallCheck2["default"])(this, Image);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Image).apply(this, arguments));
   }
 
-  _createClass(Image, [{
-    key: 'render',
+  (0, _createClass2["default"])(Image, [{
+    key: "render",
     value: function render() {
+<<<<<<< HEAD
+      var _this$props = this.props,
+          imageTitle = _this$props.imageTitle,
+          altAsset = _this$props.altAsset,
+          imgSource = _this$props.imgSource,
+          linkUrl = _this$props.linkUrl,
+          caption = _this$props.caption,
+          sideBar = _this$props.sideBar,
+          imgHover = _this$props.imgHover,
+          aspectRatio = _this$props.aspectRatio,
+          classAdd = _this$props.classAdd,
+          style = _this$props.style;
+      return _react["default"].createElement("figure", {
+        style: style,
+        className: _style["default"].dynamic([["3442743642", [aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '']]]) + " " + "".concat(imgHover ? 'hoverWrap' : '').concat(caption && caption.length > 0 ? ' withCaption' : '')
+      }, _react["default"].createElement(_reactOnScreen["default"], {
+        partialVisibility: true,
+        className: classAdd
+      }, _react["default"].createElement(_ImageWrap["default"], this.props, _react["default"].createElement(_ConditionalLink["default"], {
+        linkUrl: linkUrl
+      }, _reactDeviceDetect.isMobile && altAsset ? _react["default"].createElement("img", {
+        alt: imageTitle,
+        src: altAsset,
+        className: _style["default"].dynamic([["3442743642", [aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '']]]) + " " + 'wrappedImage'
+      }) : _react["default"].createElement("img", {
+        alt: imageTitle,
+        src: imgSource,
+        className: _style["default"].dynamic([["3442743642", [aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '']]]) + " " + 'wrappedImage'
+      }), imgHover ? _react["default"].createElement("img", {
+        alt: imageTitle,
+        src: imgHover,
+        className: _style["default"].dynamic([["3442743642", [aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '']]]) + " " + 'wrappedImage imageHover'
+      }) : '', sideBar && sideBar.text.length > 0 ? _react["default"].createElement(_Type.SideBar, {
+        sideBar: sideBar,
+        isVisible: true
+      }) : ''))), caption && caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
+      }, caption) : '', _react["default"].createElement(_style["default"], {
+        id: "3442743642",
+        dynamic: [aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '']
+      }, "figure.__jsx-style-dynamic-selector{position:relative;margin:0;display:block;}.wrappedImage.__jsx-style-dynamic-selector{position:absolute;top:0;left:0;min-width:100%;height:auto;opacity:0;".concat(aspectRatio === 'noAspect' ? "position: relative;\n            width: 100%;\n            opacity: 1;\n            " : '', ";}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector{-webkit-transition:opacity 0.4s;transition:opacity 0.4s;width:100%;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.__jsx-style-dynamic-selector:first-child{opacity:0;}.hoverWrap.__jsx-style-dynamic-selector:hover .wrappedImage.imageHover.__jsx-style-dynamic-selector{opacity:1;}.hoverWrap.__jsx-style-dynamic-selector .wrappedImage.imageHover.__jsx-style-dynamic-selector{position:absolute;top:0;opacity:0;z-index:10;}")));
+=======
       var _props = this.props,
           imageTitle = _props.imageTitle,
           altAsset = _props.altAsset,
@@ -102,10 +138,24 @@ var Image = function (_React$Component) {
           dynamic: [aspectRatio === 'noAspect' ? 'position: relative;\n            width: 100%;\n            opacity: 1;\n            ' : '']
         })
       );
+>>>>>>> master
     }
   }]);
-
   return Image;
-}(_react2.default.Component);
+}(_react["default"].Component);
 
-exports.default = Image;
+Image.propTypes = {
+  linkUrl: _propTypes["default"].string,
+  imageTitle: _propTypes["default"].string,
+  aspectRatio: _propTypes["default"].oneOf(['sixteen', 'standard', 'square', 'cropped']),
+  fullBleed: _propTypes["default"].bool,
+  imgSource: _propTypes["default"].string,
+  verticalAlign: _propTypes["default"].oneOf(['top', 'center', 'bottom']),
+  horizontalAlign: _propTypes["default"].oneOf(['left', 'center', 'right'])
+};
+Image.defaultProps = {
+  aspectRatio: 'standard',
+  fullBleed: false
+};
+var _default = Image;
+exports["default"] = _default;

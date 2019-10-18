@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = font;
+exports["default"] = font;
 
 var _styles = require("../styles");
 

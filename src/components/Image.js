@@ -3,8 +3,8 @@ import ConditionalLink from './ConditionalLink'
 import ImageWrap from './ImageWrap'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
-import supportsWebP from 'supports-webp'
-import { isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect'
+import PropTypes from 'prop-types'
 
 // d36aj1cv2i74vd
 class Image extends React.Component {
@@ -87,5 +87,18 @@ class Image extends React.Component {
     )
   }
 }
+Image.propTypes = {
+  linkUrl: PropTypes.string,
+  imageTitle: PropTypes.string,
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  fullBleed: PropTypes.bool,
+  imgSource: PropTypes.string,
+  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
+}
 
+Image.defaultProps = {
+  aspectRatio: 'standard',
+  fullBleed: false
+}
 export default Image

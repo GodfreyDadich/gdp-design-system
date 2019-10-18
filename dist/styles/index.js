@@ -1,30 +1,26 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.colors = exports.typography = exports.fonts = undefined;
-
-var _colors = require("./colors");
-
 Object.defineProperty(exports, "colors", {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_colors).default;
+    return _colors["default"];
   }
 });
+exports.typography = exports.fonts = void 0;
 
-var _fonts = require("./fonts");
-
-var fonts = _interopRequireWildcard(_fonts);
-
-var _typography = require("./typography");
-
-var typography = _interopRequireWildcard(_typography);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var fonts = _interopRequireWildcard(require("./fonts"));
 
 exports.fonts = fonts;
+
+var typography = _interopRequireWildcard(require("./typography"));
+
 exports.typography = typography;
+
+var _colors = _interopRequireDefault(require("./colors"));

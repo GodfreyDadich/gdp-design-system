@@ -1,7 +1,7 @@
 import React from 'react'
-import ConditionalLink from './ConditionalLink'
 import Image from './Image'
 import CardText from './CardText'
+import PropTypes from 'prop-types'
 
 const imagePropsObject = props => {
   const newObj = Object.assign({}, props)
@@ -9,7 +9,7 @@ const imagePropsObject = props => {
   return newObj
 }
 
-const Card = props =>
+const Card = props => (
   <div className={props.classAdd} style={props.style} >
     {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
     <div className='cardMedia'>
@@ -23,5 +23,24 @@ const Card = props =>
       }
     `}</style>
   </div>
+)
 
+Card.propTypes = {
+  cardTitle: PropTypes.string,
+  cardSubtitle: PropTypes.string,
+  cardContent: PropTypes.string,
+  linkText: PropTypes.string,
+  linkURL: PropTypes.string,
+  mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+  imageTitle: PropTypes.string,
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  fullBleed: PropTypes.bool,
+  imgSource: PropTypes.string,
+  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
+}
+
+Card.defaultProps = {
+  fullBleed: false
+}
 export default Card

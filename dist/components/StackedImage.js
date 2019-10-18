@@ -1,51 +1,119 @@
-'use strict';
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports["default"] = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _react = require('react');
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-var _Image = require('./Image');
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _Image2 = _interopRequireDefault(_Image);
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _Type = require('./Type');
+var _react = _interopRequireWildcard(require("react"));
 
-var _reactDeviceDetect = require('react-device-detect');
+var _Image = _interopRequireDefault(require("./Image"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Type = require("./Type");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _reactDeviceDetect = require("react-device-detect");
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var StackedImage = function (_Component) {
-  _inherits(StackedImage, _Component);
+var StackedImage =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inherits2["default"])(StackedImage, _Component);
 
   function StackedImage(props) {
-    _classCallCheck(this, StackedImage);
+    var _this;
 
-    var _this = _possibleConstructorReturn(this, (StackedImage.__proto__ || Object.getPrototypeOf(StackedImage)).call(this, props));
-
+    (0, _classCallCheck2["default"])(this, StackedImage);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(StackedImage).call(this, props));
     _this.state = {
       isMobile: _reactDeviceDetect.isMobile
     };
     return _this;
   }
 
-  _createClass(StackedImage, [{
-    key: 'render',
+  (0, _createClass2["default"])(StackedImage, [{
+    key: "render",
     value: function render() {
       var _this2 = this;
 
+<<<<<<< HEAD
+      return _react["default"].createElement("div", null, _reactDeviceDetect.isMobile ? _react["default"].createElement("figure", {
+        ref: function ref(elem) {
+          _this2.carouselElem = elem;
+        },
+        style: {
+          position: 'relative',
+          display: 'block',
+          width: '100%',
+          height: '100%'
+        },
+        className: "carouselWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
+      }, this.props.images.map(function (img, index) {
+        return _react["default"].createElement("div", {
+          key: "image".concat(index),
+          style: {
+            margin: '1.5vw 0'
+          }
+        }, _react["default"].createElement(_Image["default"], {
+          key: "img-".concat(index),
+          aspectRatio: "noAspect",
+          skipIntro: true,
+          imgSource: img,
+          visibilityOverride: true
+        }));
+      }), this.props.caption && this.props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
+      }, this.props.caption) : '') : _react["default"].createElement("figure", {
+        ref: function ref(elem) {
+          _this2.carouselElem = elem;
+        },
+        style: {
+          position: 'relative',
+          display: 'inline-block',
+          width: '100%',
+          height: '100%'
+        },
+        className: "carouselWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
+      }, _react["default"].createElement("div", {
+        ref: function ref(elem) {
+          _this2.carouselElem = elem;
+        },
+        style: {
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%'
+        }
+      }, this.props.images.map(function (img, index) {
+        return _react["default"].createElement("div", {
+          key: "image".concat(index),
+          style: {
+            margin: '0 1vw'
+          }
+        }, _react["default"].createElement(_Image["default"], {
+          key: "img-".concat(index),
+          aspectRatio: "noAspect",
+          skipIntro: true,
+          imgSource: img,
+          visibilityOverride: true
+        }));
+      })), this.props.caption && this.props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
+      }, this.props.caption) : ''));
+=======
       return _react2.default.createElement(
         'div',
         null,
@@ -125,10 +193,10 @@ var StackedImage = function (_Component) {
           '\n          .imageWrapDesktop {\n            margin-left: 2vw;\n          }\n          .imageWrapDesktop:first-child {\n            margin-left: 0;\n          }\n          .itemWrap {\n            margin: 3.5vw 0;\n          }\n          .itemWrap:first-child {\n            margin: 0 0 3.5vw 0;\n          }\n          '
         )
       );
+>>>>>>> master
     }
   }]);
-
   return StackedImage;
 }(_react.Component);
 
-exports.default = StackedImage;
+exports["default"] = StackedImage;

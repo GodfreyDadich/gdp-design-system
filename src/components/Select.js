@@ -1,7 +1,7 @@
 import React from 'react'
 
-/* TODO: 
-  Lifecycle functions. Calculate height of UL 
+/* TODO:
+  Lifecycle functions. Calculate height of UL
 */
 class Select extends React.Component {
   constructor(props) {
@@ -115,10 +115,6 @@ class Select extends React.Component {
 
               div {
                 display:none;
-              }
-
-              .${selectIcon}{
-                display:block;
               }
 
               .triangle {

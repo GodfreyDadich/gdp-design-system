@@ -1,57 +1,59 @@
-'use strict';
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports["default"] = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _style = _interopRequireDefault(require("styled-jsx/style"));
 
-var _style = require('styled-jsx/style');
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _style2 = _interopRequireDefault(_style);
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _react = require('react');
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-var _react2 = _interopRequireDefault(_react);
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _Slide = require('./Slide');
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
-var _Slide2 = _interopRequireDefault(_Slide);
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _SliderArrows = require('./SliderArrows');
+var _react = _interopRequireWildcard(require("react"));
 
-var _Type = require('./Type');
+var _Slide = _interopRequireDefault(require("./Slide"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _SliderArrows = require("./SliderArrows");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _Type = require("./Type");
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Slider = function (_Component) {
-  _inherits(Slider, _Component);
+var Slider =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inherits2["default"])(Slider, _Component);
 
   function Slider(props) {
-    _classCallCheck(this, Slider);
+    var _this;
 
-    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
-
+    (0, _classCallCheck2["default"])(this, Slider);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Slider).call(this, props));
     _this.state = {
       currentIndex: 0,
       translateValue: 0
     };
-    _this.goToNextSlide = _this.goToNextSlide.bind(_this);
-    _this.goToPrevSlide = _this.goToPrevSlide.bind(_this);
-    _this.slideWidth = _this.slideWidth.bind(_this);
-    _this.handleKeyDown = _this.handleKeyDown.bind(_this);
+    _this.goToNextSlide = _this.goToNextSlide.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.goToPrevSlide = _this.goToPrevSlide.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.slideWidth = _this.slideWidth.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2["default"])(_this));
     return _this;
   }
 
-  _createClass(Slider, [{
-    key: 'goToPrevSlide',
+  (0, _createClass2["default"])(Slider, [{
+    key: "goToPrevSlide",
     value: function goToPrevSlide() {
       var _this2 = this;
 
@@ -70,7 +72,7 @@ var Slider = function (_Component) {
       });
     }
   }, {
-    key: 'goToNextSlide',
+    key: "goToNextSlide",
     value: function goToNextSlide() {
       var _this3 = this;
 
@@ -89,7 +91,7 @@ var Slider = function (_Component) {
       });
     }
   }, {
-    key: 'goToSlide',
+    key: "goToSlide",
     value: function goToSlide(slideNum, clickRef) {
       var _this4 = this;
 
@@ -103,88 +105,83 @@ var Slider = function (_Component) {
       }
     }
   }, {
-    key: 'handleKeyDown',
+    key: "handleKeyDown",
     value: function handleKeyDown(e) {
       if (e.keyCode === 39) {
         this.goToNextSlide();
       }
+
       if (e.keyCode === 37) {
         this.goToPrevSlide();
       }
     }
   }, {
-    key: 'slideWidth',
+    key: "slideWidth",
     value: function slideWidth() {
       return document.querySelector('.slide').clientWidth;
     }
   }, {
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       document.addEventListener('keydown', this.handleKeyDown, false);
     }
   }, {
-    key: 'currentDot',
+    key: "currentDot",
     value: function currentDot(index) {
       return this.state.currentIndex === index ? 'current' : '';
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this5 = this;
 
-      return _react2.default.createElement(
-        'figure',
-        {
-          className: 'jsx-157794080' + ' ' + ('sliderWrap ' + this.props.aspectRatio + (this.props.fullBleed ? ' full-bleed' : ''))
+      return _react["default"].createElement("figure", {
+        className: "jsx-157794080" + " " + "sliderWrap ".concat(this.props.aspectRatio).concat(this.props.fullBleed ? ' full-bleed' : '')
+      }, _react["default"].createElement("div", {
+        style: {
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden'
         },
-        _react2.default.createElement(
-          'div',
-          { style: { width: '100%', height: '100%', overflow: 'hidden' }, onKeyDown: this.onKeyDown, className: 'jsx-157794080' + ' ' + 'slider'
+        onKeyDown: this.onKeyDown,
+        className: "jsx-157794080" + " " + 'slider'
+      }, _react["default"].createElement("div", {
+        style: {
+          transform: "translateX(".concat(this.state.translateValue, "px)"),
+          transition: 'transform ease-out 0.45s',
+          width: '100%',
+          height: '100%',
+          whiteSpace: 'nowrap'
+        },
+        className: "jsx-157794080" + " " + 'slider-wrapper'
+      }, this.props.images.map(function (image, i) {
+        return _react["default"].createElement(_Slide["default"], {
+          key: i,
+          image: image,
+          renderImage: _this5.props.aspectRatio === 'noAspect'
+        });
+      })), _react["default"].createElement("ul", {
+        className: "jsx-157794080" + " " + 'slideDots'
+      }, this.props.images.map(function (image, i) {
+        return _react["default"].createElement("li", {
+          key: "slide-dot-for-".concat(i),
+          onClick: function onClick() {
+            return _this5.goToSlide(i);
           },
-          _react2.default.createElement(
-            'div',
-            {
-              style: {
-                transform: 'translateX(' + this.state.translateValue + 'px)',
-                transition: 'transform ease-out 0.45s',
-                width: '100%',
-                height: '100%',
-                whiteSpace: 'nowrap'
-              }, className: 'jsx-157794080' + ' ' + 'slider-wrapper'
-            },
-            this.props.images.map(function (image, i) {
-              return _react2.default.createElement(_Slide2.default, { key: i, image: image, renderImage: _this5.props.aspectRatio === 'noAspect' });
-            })
-          ),
-          _react2.default.createElement(
-            'ul',
-            {
-              className: 'jsx-157794080' + ' ' + 'slideDots'
-            },
-            this.props.images.map(function (image, i) {
-              return _react2.default.createElement('li', { key: 'slide-dot-for-' + i, onClick: function onClick() {
-                  return _this5.goToSlide(i);
-                }, className: 'jsx-157794080' + ' ' + ('slideDot ' + _this5.currentDot(i))
-              });
-            })
-          ),
-          _react2.default.createElement(_SliderArrows.LeftArrow, { clickAction: this.goToPrevSlide }),
-          _react2.default.createElement(_SliderArrows.RightArrow, { clickAction: this.goToNextSlide })
-        ),
-        this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
-          _Type.Caption,
-          { classAdd: 'col-6 skip-3 col-6-tab skip-1-tab' },
-          this.props.caption
-        ) : '',
-        _react2.default.createElement(_style2.default, {
-          styleId: '157794080',
-          css: '.slider.jsx-157794080{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-157794080{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-157794080{padding-top:56.25%;}.sliderWrap.standard.jsx-157794080{padding-top:75%;}.sliderWrap.cropped.jsx-157794080{padding-top:41.67%;}.sliderWrap.square.jsx-157794080{padding-top:100%;}.sliderWrap.zoomedIn.jsx-157794080{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-157794080 .slider.jsx-157794080{position:relative;width:100%;opacity:1;}.slideDots.jsx-157794080{position:absolute;bottom:25px;width:100%;padding:0;margin:0;text-align:center;z-index:102;opacity:0.75;}.slideDot.jsx-157794080{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0.3;margin:0 5px;}.slideDot.jsx-157794080:hover,.slideDot.current.jsx-157794080{opacity:1;}'
-        })
-      );
+          className: "jsx-157794080" + " " + "slideDot ".concat(_this5.currentDot(i))
+        });
+      })), _react["default"].createElement(_SliderArrows.LeftArrow, {
+        clickAction: this.goToPrevSlide
+      }), _react["default"].createElement(_SliderArrows.RightArrow, {
+        clickAction: this.goToNextSlide
+      })), this.props.caption && this.props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
+      }, this.props.caption) : '', _react["default"].createElement(_style["default"], {
+        id: "157794080"
+      }, ".slider.jsx-157794080{position:absolute;width:100%;height:100%;overflow:hidden;top:0;}.sliderWrap.jsx-157794080{position:relative;height:auto;background-size:cover;background-repeat:no-repeat;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;}.sliderWrap.sixteen.jsx-157794080{padding-top:56.25%;}.sliderWrap.standard.jsx-157794080{padding-top:75%;}.sliderWrap.cropped.jsx-157794080{padding-top:41.67%;}.sliderWrap.square.jsx-157794080{padding-top:100%;}.sliderWrap.zoomedIn.jsx-157794080{-webkit-transform:scale(1.5);-ms-transform:scale(1.5);transform:scale(1.5);}.sliderWrap.noAspect.jsx-157794080 .slider.jsx-157794080{position:relative;width:100%;opacity:1;}.slideDots.jsx-157794080{position:absolute;bottom:25px;width:100%;padding:0;margin:0;text-align:center;z-index:102;opacity:0.75;}.slideDot.jsx-157794080{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0.3;margin:0 5px;}.slideDot.jsx-157794080:hover,.slideDot.current.jsx-157794080{opacity:1;}"));
     }
   }]);
-
   return Slider;
 }(_react.Component);
 
-exports.default = Slider;
+exports["default"] = Slider;

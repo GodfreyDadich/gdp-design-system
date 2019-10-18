@@ -1,11 +1,14 @@
+/// TODO: Convert to functional component.
+
 import React, { Component, Fragment } from 'react'
 import { RightArrow, LeftArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
 import { DotIndicator } from './DotIndicator'
-import { CountIndicator } from './CountIndicator';
-import { GridGallery } from '..'
+import { CountIndicator } from './CountIndicator'
+import PropTypes from 'prop-types'
+
 
 export default class CircularCarousel extends Component {
   constructor(props) {
@@ -300,4 +303,23 @@ export default class CircularCarousel extends Component {
       </div>
     )
   }
+}
+
+CircularCarousel.propTypes = {
+  fullBleed: PropTypes.bool,
+  caption: PropTypes.string,
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  classAdd: PropTypes.string,
+  shadow: PropTypes.bool,
+  countIndicator: PropTypes.oneOf(['counter', 'dots', 'none']),
+  imageAspect: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  altRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect'])
+}
+
+CircularCarousel.defaultProps = {
+  aspectRatio: 'standard',
+  fullBleed: false,
+  shadow: false,
+  countIndicator: 'none',
+  imageAspect: 'standard'
 }

@@ -1,7 +1,6 @@
 export { default as Breadcrumb } from './components/Breadcrumb'
 export { default as Card } from './components/Card'
 export { default as CardText } from './components/CardText'
-export { default as Chips } from './components/Chips'
 export { default as ConditionalLink } from './components/ConditionalLink'
 export { default as ConditionalClass } from './components/ConditionalClass'
 export { default as GridGallery } from './components/GridGallery'

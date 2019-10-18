@@ -1,20 +1,21 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Breadcrumb = ({delimiter, links, linkLast}) => (
+const Breadcrumb = ({ delimiter, links, linkLast }) => (
   <ul className='breadcrumb'>
-    { links.map( (link,index) => 
+    { links.map((link, index) =>
       <li className='breadcrumb__item' key={`bread-crumb-item-${index}`}>
-        {index !== (linkLast ? links.length : (links.length - 1)) ?
-          <a
+        {index !== (linkLast ? links.length : (links.length - 1))
+          ? <a
             style={{
               boxShadow: 'inset 0 -4px 0 #06ff02',
               paddingBottom: '2px'
             }}
             className='breadcrumb__link'
-            href={link.slug}>{link.title}</a> :
-          link.title
+            href={link.slug}>{link.title}</a>
+          : link.title
         }
-        {index !== (links.length - 1) ? <span className="delimiter">{delimiter}</span> : ''}
+        {index !== (links.length - 1) ? <span className='delimiter'>{delimiter}</span> : ''}
       </li>
     )}
     <style jsx>{`
@@ -41,5 +42,10 @@ const Breadcrumb = ({delimiter, links, linkLast}) => (
     `}</style>
   </ul>
 )
+
+Breadcrumb.propTypes = {
+  delimiter: PropTypes.string,
+  links: PropTypes.array
+}
 
 export default Breadcrumb
