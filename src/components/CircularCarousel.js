@@ -8,7 +8,6 @@ import { isMobile } from 'react-device-detect'
 import { DotIndicator } from './DotIndicator'
 import { CountIndicator } from './CountIndicator'
 import PropTypes from 'prop-types'
-import { CountIndicator } from './CountIndicator';
 
 
 export default class CircularCarousel extends Component {

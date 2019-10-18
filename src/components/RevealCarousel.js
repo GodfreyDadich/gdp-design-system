@@ -1,35 +1,33 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './SliderArrows'
 import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile } from 'react-device-detect'
-
 const RevealCarousel = props => {
-
   const [currentIndex, setCurrentIndex] = useState(0)
   const [teaseState, setTeaseState] = useState('')
   const [hoverPause, setHoverPause] = useState(false)
   const [clickedLeftArrow, setClickedLeftArrow] = useState(false)
   const [clickedRightArrow, setClickedRightArrow] = useState(false)
   const [currentCapIndex, setCurrentCapIndex] = useState(0)
-
+  const carouselElem = useRef(null)
+  
   useEffect(() => {
     if (isMobile) {
       return
     } else {
-      carouselElem.addEventListener('keydown', handleKeyDown, false)
+      carouselElem.current.addEventListener('keydown', handleKeyDown, false)
     }
     return () => {
       killListeners()
     }
   }, [])
-
   const killListeners = () => {
     if (isMobile) {
       return
     } else {
-      carouselElem.removeEventListener('keydown', handleKeyDown)
+      carouselElem.current.removeEventListener('keydown', handleKeyDown)
     }
   }
   
@@ -37,23 +35,21 @@ const goToSlide = (slideIndex) => {
   setCurrentIndex(slideIndex)
   setTeaseState('')
   setHoverPause(true)
-  setClickedLeftArrow(true)
   
   setTimeout(() => {
+      setClickedRightArrow(false)
       setClickedLeftArrow(false)
       setCurrentCapIndex(slideIndex)
+      setHoverPause(false)
   }, 680)
-
-  setTimeout(() => {
-    setHoverPause(false)
-  }, 1000)
 }
-
 const goToPrevSlide = () => {
+  setClickedLeftArrow(true)
   const prevSlide = currentIndex === 0 ? props.images.length -1 : currentIndex - 1
   goToSlide(prevSlide)
 }
 const goToNextSlide = () => {
+  setClickedRightArrow(true)
   const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
   goToSlide(nextSlide)
 }
@@ -65,7 +61,6 @@ const handleKeyDown = (e) => {
     goToPrevSlide()
   }
 }
-
 const hoverTeasePrev = () => {
   setTeaseState(hoverPause ? '' : 'tease-prev' )
 }
@@ -76,7 +71,6 @@ const hoverTeaseReset = () => {
   setTeaseState('')
 }
   
-
 const getCarouselStyle = index => {
     const active = currentIndex
     const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.images.length - 1
@@ -112,10 +106,9 @@ const getCarouselStyle = index => {
         }
     }
   }
-
   return <div>
       <figure
-        ref={elem => { carouselElem = elem }}
+        ref={carouselElem}
         style={{
           position: 'relative',
           width: '100%',
@@ -203,3 +196,4 @@ const getCarouselStyle = index => {
       </figure>
     </div>
   }
+export default RevealCarousel
