@@ -42,6 +42,5 @@ Breadcrumb.propTypes = {
   delimiter: _propTypes["default"].string,
   links: _propTypes["default"].array
 };
-Breadcrumb.defaultProps = {};
 var _default = Breadcrumb;
 exports["default"] = _default;

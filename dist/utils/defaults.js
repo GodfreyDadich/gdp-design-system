@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.video1 = exports.image3 = exports.image2 = exports.image1 = exports.galleries = exports.imageGallery3 = exports.imageGallery2 = exports.imageGallery = exports.imgSixteenNine = exports.isCarousel = exports.viewMode = exports.addDropShadow = exports.countIndicator = exports.sidebarLocations = exports.contentOrientations = exports.horizontalAligns = exports.verticalAligns = exports.aspectRationsArray = exports.aspectRatiosObj = exports.breadCrumbData = exports.defaultCaption = exports.defaultCopyBlock = exports.defaultCta = exports.defaultSubTitle = exports.defaultTitle = void 0;
+exports.video1 = exports.image3 = exports.image2 = exports.image1 = exports.galleries = exports.imageGallery3 = exports.imageGallery2 = exports.imageGallery = exports.imgSixteenNine = exports.isCarousel = exports.viewMode = exports.addDropShadow = exports.countIndicator = exports.sidebarLocations = exports.contentOrientations = exports.horizontalAligns = exports.verticalAligns = exports.aspectRatios = exports.breadCrumbData = exports.captionsArray = exports.defaultCaption = exports.defaultCopyBlock = exports.defaultCta = exports.defaultSubTitle = exports.defaultTitle = void 0;
 
 /* Copy */
 var defaultTitle = 'Title Tk';
@@ -16,6 +16,8 @@ var defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue. Maect as
 exports.defaultCopyBlock = defaultCopyBlock;
 var defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.';
 exports.defaultCaption = defaultCaption;
+var captionsArray = ['caption1 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption2 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption3 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption4 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption5 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption6 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd', 'caption7 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd'];
+exports.captionsArray = captionsArray;
 var breadCrumbData = [{
   title: 'home',
   slug: 'http://google.com'
@@ -29,10 +31,8 @@ var breadCrumbData = [{
 /* Options */
 
 exports.breadCrumbData = breadCrumbData;
-var aspectRatiosObj = ['noAspect', 'sixteen', 'standard', 'square', 'cropped'];
-exports.aspectRatiosObj = aspectRatiosObj;
-var aspectRationsArray = ['noAspect', 'sixteen', 'standard', 'square', 'cropped'];
-exports.aspectRationsArray = aspectRationsArray;
+var aspectRatios = ['sixteen', 'standard', 'square', 'cropped', 'noAspect'];
+exports.aspectRatios = aspectRatios;
 var verticalAligns = ['top', 'center', 'bottom'];
 exports.verticalAligns = verticalAligns;
 var horizontalAligns = ['left', 'center', 'right'];
@@ -43,7 +43,8 @@ var sidebarLocations = ['left-top', 'right-top', 'left-bottom', 'right-bottom'];
 exports.sidebarLocations = sidebarLocations;
 var countIndicator = ['counter', 'dots', 'none'];
 exports.countIndicator = countIndicator;
-var addDropShadow = ['yes', 'no'];
+var addDropShadow = ['yes', 'no']; // TODO: Transition this to a boolean
+
 exports.addDropShadow = addDropShadow;
 var viewMode = ['lightMode', 'darkMode'];
 exports.viewMode = viewMode;

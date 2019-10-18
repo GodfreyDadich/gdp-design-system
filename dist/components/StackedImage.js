@@ -48,48 +48,30 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-<<<<<<< HEAD
-      return _react["default"].createElement("div", null, _reactDeviceDetect.isMobile ? _react["default"].createElement("figure", {
-        ref: function ref(elem) {
-          _this2.carouselElem = elem;
-        },
+      return _react["default"].createElement("div", null, _reactDeviceDetect.isMobile ? _react["default"].createElement("div", {
         style: {
           position: 'relative',
           display: 'block',
           width: '100%',
           height: '100%'
         },
-        className: "carouselWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
+        className: "imagesWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
       }, this.props.images.map(function (img, index) {
-        return _react["default"].createElement("div", {
-          key: "image".concat(index),
-          style: {
-            margin: '1.5vw 0'
-          }
+        return _react["default"].createElement("figure", {
+          className: "itemWrap ".concat(index === _this2.props.images.length - 1 ? 'withCaption' : ''),
+          key: "image".concat(index)
         }, _react["default"].createElement(_Image["default"], {
+          stackedImage: true,
           key: "img-".concat(index),
-          aspectRatio: "noAspect",
+          aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
           skipIntro: true,
           imgSource: img,
-          visibilityOverride: true
+          visibilityOverride: true,
+          caption: index === _this2.props.images.length - 1 ? _this2.props.caption : ''
         }));
-      }), this.props.caption && this.props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
-        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
-      }, this.props.caption) : '') : _react["default"].createElement("figure", {
-        ref: function ref(elem) {
-          _this2.carouselElem = elem;
-        },
-        style: {
-          position: 'relative',
-          display: 'inline-block',
-          width: '100%',
-          height: '100%'
-        },
-        className: "carouselWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
+      })) : _react["default"].createElement("div", {
+        className: "imagesWrapper ".concat(this.props.fullBleed ? ' full-bleed' : '').concat(this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '')
       }, _react["default"].createElement("div", {
-        ref: function ref(elem) {
-          _this2.carouselElem = elem;
-        },
         style: {
           position: 'relative',
           display: 'flex',
@@ -98,102 +80,25 @@ function (_Component) {
           height: '100%'
         }
       }, this.props.images.map(function (img, index) {
-        return _react["default"].createElement("div", {
+        return _react["default"].createElement("figure", {
+          className: "imageWrapDesktop",
           key: "image".concat(index),
           style: {
-            margin: '0 1vw'
+            position: 'relative',
+            display: 'inline-block',
+            width: '100%',
+            height: '100%'
           }
         }, _react["default"].createElement(_Image["default"], {
           key: "img-".concat(index),
-          aspectRatio: "noAspect",
+          aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
           skipIntro: true,
           imgSource: img,
           visibilityOverride: true
         }));
       })), this.props.caption && this.props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
-        classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
-      }, this.props.caption) : ''));
-=======
-      return _react2.default.createElement(
-        'div',
-        null,
-        _reactDeviceDetect.isMobile ? _react2.default.createElement(
-          'div',
-          {
-            style: {
-              position: 'relative',
-              display: 'block',
-              width: '100%',
-              height: '100%'
-            },
-            className: 'imagesWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
-          this.props.images.map(function (img, index) {
-            return _react2.default.createElement(
-              'figure',
-              {
-                className: 'itemWrap ' + (index === _this2.props.images.length - 1 ? 'withCaption' : ''),
-                key: 'image' + index
-              },
-              _react2.default.createElement(_Image2.default, {
-                stackedImage: true,
-                key: 'img-' + index,
-                aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
-                skipIntro: true,
-                imgSource: img,
-                visibilityOverride: true,
-                caption: index === _this2.props.images.length - 1 ? _this2.props.caption : ''
-              })
-            );
-          })
-        ) : _react2.default.createElement(
-          'div',
-          {
-            className: 'imagesWrapper ' + (this.props.fullBleed ? ' full-bleed' : '') + (this.props.caption && this.props.caption.length > 0 ? ' withCaption' : '') },
-          _react2.default.createElement(
-            'div',
-            {
-              style: {
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'space-between',
-                width: '100%',
-                height: '100%'
-              } },
-            this.props.images.map(function (img, index) {
-              return _react2.default.createElement(
-                'figure',
-                {
-                  className: 'imageWrapDesktop',
-                  key: 'image' + index,
-                  style: {
-                    position: 'relative',
-                    display: 'inline-block',
-                    width: '100%',
-                    height: '100%'
-                  } },
-                _react2.default.createElement(_Image2.default, {
-                  key: 'img-' + index,
-                  aspectRatio: _this2.props.aspectRatio ? _this2.props.aspectRatio : 'noAspect',
-                  skipIntro: true,
-                  imgSource: img,
-                  visibilityOverride: true
-                })
-              );
-            })
-          ),
-          this.props.caption && this.props.caption.length > 0 ? _react2.default.createElement(
-            _Type.Caption,
-            { classAdd: 'col-6 skip-1 col-6-tab skip-0-tab' },
-            this.props.caption
-          ) : ''
-        ),
-        _react2.default.createElement(
-          'style',
-          null,
-          '\n          .imageWrapDesktop {\n            margin-left: 2vw;\n          }\n          .imageWrapDesktop:first-child {\n            margin-left: 0;\n          }\n          .itemWrap {\n            margin: 3.5vw 0;\n          }\n          .itemWrap:first-child {\n            margin: 0 0 3.5vw 0;\n          }\n          '
-        )
-      );
->>>>>>> master
+        classAdd: "col-6 skip-1 col-6-tab skip-0-tab"
+      }, this.props.caption) : ''), _react["default"].createElement("style", null, "\n          .imageWrapDesktop {\n            margin-left: 2vw;\n          }\n          .imageWrapDesktop:first-child {\n            margin-left: 0;\n          }\n          .itemWrap {\n            margin: 3.5vw 0;\n          }\n          .itemWrap:first-child {\n            margin: 0 0 3.5vw 0;\n          }\n          "));
     }
   }]);
   return StackedImage;
