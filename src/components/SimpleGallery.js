@@ -6,7 +6,6 @@ const SimpleGallery = ({ images, view, index }) => {
   const [currentIndex, setCurrentIndex] = useState(index || 0)
   const [translateValue, setTranslateValue] = useState(-(index * 100) || 0)
   const [visibleArray, setVisibleArray] = useState([index, index + 1, index + 2, index - 1, index - 2])
-  const galleryContainer = useRef(null)
 
   const goToPrevSlide = () => {
     const nextIndex = currentIndex === 0
@@ -64,7 +63,7 @@ const SimpleGallery = ({ images, view, index }) => {
     }
   }, [currentIndex])
 
-  return <div className='slider' ref={galleryContainer}>
+  return <div className='slider'>
     <div className='slider-wrapper'
       style={{
         transform: `translateX(${translateValue}%)`,
@@ -97,7 +96,7 @@ const SimpleGallery = ({ images, view, index }) => {
                 backgroundColor: '#f2f2f2',
                 position: 'absolute',
                 margin: '0 auto',
-                opacity: currentIndex === i ? 1 : 0,
+                // opacity: currentIndex === i ? 1 : 0,
                 transition: 'opacity .3s, transform .3s'
               }}
               src={visibleArray.includes(i) ? image : ''}

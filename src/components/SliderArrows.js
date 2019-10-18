@@ -56,7 +56,7 @@ export const LeftArrow = props => {
 export const AltRightArrow = props => {
   return (
     <div
-      className='nextArrow'
+      className={`nextArrow ${props.view}`}
       onClick={props.clickAction}
       onMouseEnter={props.over}
       onMouseMove={props.over}
@@ -81,7 +81,7 @@ export const AltRightArrow = props => {
           right: 15%;
         }
         .right-arrow-head {
-          border: solid ${props.view === 'lightMode' ? 'black' : 'white'};
+          border: solid black;
           border-width: 0 1px 1px 0;
           display: inline-block;
           padding: 3px;
@@ -90,9 +90,18 @@ export const AltRightArrow = props => {
         .right-arrow-body{
           height: 18px;
           width: 1px;
-          background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
+          background-color: black;
           margin-right: 1px;
           transform: translate(-3px,-18.58px) rotate(-90deg);
+        }
+
+        .darkMode {
+          .right-arrow-head {
+            border: solid white;
+          }
+          .right-arrow-body{
+            background-color: white;
+          }
         }
   `}</style>
     </div>
@@ -103,7 +112,7 @@ export const AltRightArrow = props => {
 export const AltLeftArrow = props => {
   return (
     <div
-      className='backArrow'
+      className={`backArrow ${props.view}`}
       onClick={props.clickAction}
       onMouseEnter={props.over}
       onMouseMove={props.over}
@@ -129,7 +138,7 @@ export const AltLeftArrow = props => {
           left: 15%;
         }
         .left-arrow-head {
-          border: solid ${props.view === 'lightMode' ? 'black' : 'white'};
+          border: solid black;
           border-width: 0 1px 1px 0;
           display: inline-block;
           padding: 3px;
@@ -138,10 +147,18 @@ export const AltLeftArrow = props => {
         .left-arrow-body{
           height: 18px;
           width: 1px;
-          background-color: ${props.view === 'lightMode' ? 'black' : 'white'};
+          background-color: black;
           margin-left: 1px;
           transform: translate(8px,-18.58px) rotate(90deg);
         }
+        .darkMode {
+          .left-arrow-head {
+            border: solid white;
+          }
+          .left-arrow-body{
+            background-color: white;
+          }
+        }        
     `}</style>
     </div>
   )

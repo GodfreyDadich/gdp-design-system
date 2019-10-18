@@ -2,7 +2,6 @@ import React from 'react'
 import { CloseModal } from '../components/Icons'
 
 class Modal extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {

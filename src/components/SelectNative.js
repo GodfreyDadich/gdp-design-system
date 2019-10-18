@@ -72,10 +72,6 @@ const SelectNative = ({
           display:none;
         }
 
-        .${selectIcon}{
-          display:block;
-        }
-
         .triangle {
           position: relative;
           width: 0;

@@ -117,10 +117,6 @@ class Select extends React.Component {
                 display:none;
               }
 
-              .${selectIcon}{
-                display:block;
-              }
-
               .triangle {
                 position: relative;
                 width: 0;
