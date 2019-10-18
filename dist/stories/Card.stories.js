@@ -35,7 +35,7 @@ var DefaultCard = function DefaultCard() {
     linkUrl: (0, _addonKnobs.text)('Link Url', ''),
     mediaOrientation: (0, _addonKnobs.select)('Media Orientation', _defaults.contentOrientations, 'top'),
     imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'standard'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'standard'),
     fullBleed: (0, _addonKnobs["boolean"])('fullBleed', false),
     imgSource: _defaults.imgSixteenNine,
     verticalAlign: (0, _addonKnobs.select)('Vertical Align', _defaults.verticalAligns, 'center'),

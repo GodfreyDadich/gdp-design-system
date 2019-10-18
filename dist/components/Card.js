@@ -43,14 +43,13 @@ Card.propTypes = {
   linkURL: _propTypes["default"].string,
   mediaOrientation: _propTypes["default"].oneOf(['top', 'left', 'right', 'bottom']),
   imageTitle: _propTypes["default"].string,
-  aspectRatio: _propTypes["default"].oneOf(['sixteen', 'standard', 'square', 'cropped']),
+  aspectRatio: _propTypes["default"].oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
   fullBleed: _propTypes["default"].bool,
   imgSource: _propTypes["default"].string,
   verticalAlign: _propTypes["default"].oneOf(['top', 'center', 'bottom']),
   horizontalAlign: _propTypes["default"].oneOf(['left', 'center', 'right'])
 };
 Card.defaultProps = {
-  aspectRatio: 'standard',
   fullBleed: false
 };
 var _default = Card;

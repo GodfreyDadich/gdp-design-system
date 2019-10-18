@@ -9,6 +9,8 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var ConditionalLink = function ConditionalLink(_ref) {
   var linkUrl = _ref.linkUrl,
       linkTarget = _ref.linkTarget,
@@ -19,5 +21,12 @@ var ConditionalLink = function ConditionalLink(_ref) {
   }, children) : children;
 };
 
+ConditionalLink.propTypes = {
+  linkUrl: _propTypes["default"].string,
+  linkTarget: _propTypes["default"].string
+};
+ConditionalLink.defaultProps = {
+  linkTarget: ''
+};
 var _default = ConditionalLink;
 exports["default"] = _default;

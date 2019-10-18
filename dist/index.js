@@ -26,6 +26,7 @@ var _exportNames = {
   SelectNative: true,
   SideBySide: true,
   SimpleGallery: true,
+  StackedImage: true,
   Slide: true,
   Slider: true,
   RevealCarousel: true,
@@ -160,29 +161,19 @@ Object.defineProperty(exports, "SimpleGallery", {
     return _SimpleGallery["default"];
   }
 });
+Object.defineProperty(exports, "StackedImage", {
+  enumerable: true,
+  get: function get() {
+    return _StackedImage["default"];
+  }
+});
 Object.defineProperty(exports, "Slide", {
   enumerable: true,
   get: function get() {
     return _Slide["default"];
   }
 });
-<<<<<<< HEAD
 Object.defineProperty(exports, "Slider", {
-=======
-
-var _StackedImage = require('./components/StackedImage');
-
-Object.defineProperty(exports, 'StackedImage', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_StackedImage).default;
-  }
-});
-
-var _Slide = require('./components/Slide');
-
-Object.defineProperty(exports, 'Slide', {
->>>>>>> master
   enumerable: true,
   get: function get() {
     return _Slider["default"];
@@ -294,6 +285,8 @@ var _SelectNative = _interopRequireDefault(require("./components/SelectNative"))
 var _SideBySide = _interopRequireDefault(require("./components/SideBySide"));
 
 var _SimpleGallery = _interopRequireDefault(require("./components/SimpleGallery"));
+
+var _StackedImage = _interopRequireDefault(require("./components/StackedImage"));
 
 var _Slide = _interopRequireDefault(require("./components/Slide"));
 

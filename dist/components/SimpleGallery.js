@@ -39,8 +39,6 @@ var SimpleGallery = function SimpleGallery(_ref) {
       visibleArray = _useState6[0],
       setVisibleArray = _useState6[1];
 
-  var galleryContainer = (0, _react.useRef)(null);
-
   var goToPrevSlide = function goToPrevSlide() {
     var nextIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     var nextTranslateValue = currentIndex === 1 ? 0 : -(nextIndex * 100);
@@ -90,7 +88,6 @@ var SimpleGallery = function SimpleGallery(_ref) {
     }
   }, [currentIndex]);
   return _react["default"].createElement("div", {
-    ref: galleryContainer,
     className: "jsx-2511592491" + " " + 'slider'
   }, _react["default"].createElement("div", {
     style: {
@@ -124,7 +121,7 @@ var SimpleGallery = function SimpleGallery(_ref) {
         backgroundColor: '#f2f2f2',
         position: 'absolute',
         margin: '0 auto',
-        opacity: currentIndex === i ? 1 : 0,
+        // opacity: currentIndex === i ? 1 : 0,
         transition: 'opacity .3s, transform .3s'
       },
       src: visibleArray.includes(i) ? image : '',

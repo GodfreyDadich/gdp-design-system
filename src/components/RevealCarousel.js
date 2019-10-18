@@ -178,7 +178,7 @@ const getCarouselStyle = index => {
           </div>
         </div>
         {props.captionsArray ?
-          <div style={{ height: '60px', margin: captionMargin }}>
+          <div style={{ height: isMobile ? '11vw' : '2vw', margin: captionMargin }}>
             <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
               <span>{props.captionsArray[currentCapIndex]}</span>
             </Caption>

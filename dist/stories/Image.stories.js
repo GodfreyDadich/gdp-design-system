@@ -30,7 +30,7 @@ var DefaultImage = function DefaultImage() {
   return _react["default"].createElement(_Image["default"], {
     altAsset: _defaults.imgSixteenNine,
     imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'square'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'square'),
     fullBleed: (0, _addonKnobs["boolean"])('fullBleed', false),
     imgSource: _defaults.imgSixteenNine,
     linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -45,7 +45,7 @@ var ImageWithCaption = function ImageWithCaption() {
   return _react["default"].createElement(_Image["default"], {
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption),
     imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'noAspect'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'noAspect'),
     fullBleed: (0, _addonKnobs["boolean"])('fullBleed', false),
     imgSource: _defaults.imgSixteenNine,
     linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -69,7 +69,7 @@ var ImageWithSidebar = function ImageWithSidebar() {
       location: (0, _addonKnobs.select)('Sidebar Location', _defaults.sidebarLocations, 'top-left')
     },
     imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'noAspect'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'noAspect'),
     fullBleed: (0, _addonKnobs["boolean"])('fullBleed', false),
     imgSource: _defaults.imgSixteenNine,
     linkUrl: (0, _addonKnobs.text)('url', ''),
@@ -79,7 +79,7 @@ var ImageWithSidebar = function ImageWithSidebar() {
 }; // export const ImageZoom = () =>
 //   <ImageWithZoom
 //     imageTitle={text('Image Title/Alt', 'test')}
-//     aspectRatio={select('Aspect Ratio', aspectRatiosObj, 'noAspect')}
+//     aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
 //     fullBleed={boolean('Full Bleed', false)}
 //     stretchH={boolean('Stretch Horizontal', false)}
 //     imgSource={imgSixteenNine}
@@ -112,7 +112,7 @@ exports.DeviceImage = DeviceImage;
 var ImageWithHover = function ImageWithHover() {
   return _react["default"].createElement(_Image["default"], {
     imageTitle: (0, _addonKnobs.text)('Image Title/Alt', 'test'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
     fullBleed: (0, _addonKnobs["boolean"])('fullBleed', false),
     imgSource: _defaults.imgSixteenNine,
     imgHover: _defaults.imageGallery2[1],
@@ -127,7 +127,7 @@ exports.ImageWithHover = ImageWithHover;
 var ImagesStacked = function ImagesStacked() {
   return _react["default"].createElement(_StackedImage["default"], {
     images: _defaults.imageGallery,
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption)
   });
 };
