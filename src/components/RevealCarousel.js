@@ -9,7 +9,7 @@ const RevealCarousel = props => {
   const [teaseState, setTeaseState] = useState('')
   const [hoverPause, setHoverPause] = useState(false)
   const [currentCapIndex, setCurrentCapIndex] = useState(0)
-  const [captionMargin, setCaptionMargin] = useState('')
+  const [captionMargin, setCaptionMargin] = useState('0')
   const carouselElem = useRef(null)
   
   useEffect(() => {
