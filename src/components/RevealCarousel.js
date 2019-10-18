@@ -3,17 +3,17 @@ import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './Slid
 import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
-import { isMobile } from 'react-device-detect'
+import { isMobile, isMobileOnly, isTablet } from 'react-device-detect'
 const RevealCarousel = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [teaseState, setTeaseState] = useState('')
   const [hoverPause, setHoverPause] = useState(false)
-  const [clickedLeftArrow, setClickedLeftArrow] = useState(false)
-  const [clickedRightArrow, setClickedRightArrow] = useState(false)
   const [currentCapIndex, setCurrentCapIndex] = useState(0)
+  const [captionMargin, setCaptionMargin] = useState('')
   const carouselElem = useRef(null)
   
   useEffect(() => {
+    setCaptionMargin(isMobileOnly ?  '0 24px' : isTablet ? '0 30px' : '0 42px')
     if (isMobile) {
       return
     } else {
@@ -23,6 +23,7 @@ const RevealCarousel = props => {
       killListeners()
     }
   }, [])
+
   const killListeners = () => {
     if (isMobile) {
       return
@@ -35,21 +36,17 @@ const goToSlide = (slideIndex) => {
   setCurrentIndex(slideIndex)
   setTeaseState('')
   setHoverPause(true)
+  setCurrentCapIndex(slideIndex)
   
   setTimeout(() => {
-      setClickedRightArrow(false)
-      setClickedLeftArrow(false)
-      setCurrentCapIndex(slideIndex)
       setHoverPause(false)
-  }, 680)
+  }, 1000)
 }
 const goToPrevSlide = () => {
-  setClickedLeftArrow(true)
   const prevSlide = currentIndex === 0 ? props.images.length -1 : currentIndex - 1
   goToSlide(prevSlide)
 }
 const goToNextSlide = () => {
-  setClickedRightArrow(true)
   const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
   goToSlide(nextSlide)
 }
@@ -128,7 +125,6 @@ const getCarouselStyle = index => {
           className={`carousel__container ${teaseState}`}>
           {isMobile ?
             <RevealLeftArrow
-              clickedArrow={clickedLeftArrow}
               clickAction={goToPrevSlide}
               over={hoverTeasePrev}
               out={hoverTeaseReset}
@@ -141,7 +137,6 @@ const getCarouselStyle = index => {
             />}
           {isMobile ?
             <RevealRightArrow
-              clickedArrow={clickedRightArrow}
               clickAction={goToNextSlide}
               over={hoverTeaseNext}
               out={hoverTeaseReset}
@@ -183,12 +178,9 @@ const getCarouselStyle = index => {
           </div>
         </div>
         {props.captionsArray ?
-          <div style={{ height: '60px' }}>
+          <div style={{ height: '60px', margin: captionMargin }}>
             <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
-              <span style={{
-                opacity: clickedLeftArrow || clickedRightArrow ? 0 : 1,
-                transition: 'opacity .4s ease-in-out'
-              }}>{props.captionsArray[currentCapIndex]}</span>
+              <span>{props.captionsArray[currentCapIndex]}</span>
             </Caption>
           </div>
           :
