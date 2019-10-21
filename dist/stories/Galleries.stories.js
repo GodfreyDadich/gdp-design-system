@@ -33,7 +33,7 @@ exports["default"] = _default;
 
 var ImageCircularCarousel = function ImageCircularCarousel() {
   return _react["default"].createElement(_CircularCarousel["default"], {
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRationsArray, 'standard'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'standard'),
     countIndicator: (0, _addonKnobs.select)('Count Indicator', _defaults.countIndicator, 'dots'),
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption),
     shadow: (0, _addonKnobs.select)('shadow', _defaults.addDropShadow, 'no')
@@ -53,7 +53,7 @@ exports.ImageCircularCarousel = ImageCircularCarousel;
 var ImageSlider = function ImageSlider() {
   return _react["default"].createElement(_Slider["default"], {
     images: _defaults.imageGallery2,
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption)
   });
 };
@@ -64,9 +64,10 @@ var ImageRevealCarousel = function ImageRevealCarousel() {
   return _react["default"].createElement(_RevealCarousel["default"], {
     images: _defaults.imageGallery2,
     countIndicator: (0, _addonKnobs.select)('Count Indicator', _defaults.countIndicator, 'dots'),
-    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
-    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
-    caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption)
+    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
+    aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
+    caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption),
+    captionsArray: _defaults.captionsArray
   });
 };
 
@@ -79,8 +80,8 @@ var ImageMuseumView = function ImageMuseumView() {
     countIndicator: (0, _addonKnobs.select)('Count Indicator', _defaults.countIndicator, 'dots'),
     view: (0, _addonKnobs.select)('View Mode', _defaults.viewMode, 'lightMode'),
     columns: (0, _addonKnobs.number)('Columns', 4),
-    thumbAspect: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
-    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
+    thumbAspect: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
+    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption)
   });
 };
@@ -92,7 +93,7 @@ var ImageGridGallery = function ImageGridGallery() {
     altAsset: ['https://i.vimeocdn.com/video/737947212.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737973734.webp?mw=2800&q=70', 'https://i.vimeocdn.com/video/737960529.webp?mw=1400&mh=583&q=70'],
     mobileCarousel: (0, _addonKnobs["boolean"])('Carousel on Mobile Device', true),
     mixedOr: (0, _addonKnobs["boolean"])('Various Orientation Images', false),
-    altRatio: (0, _addonKnobs.select)('Alt Aspect Ratio', _defaults.aspectRatiosObj, ''),
+    altRatio: (0, _addonKnobs.select)('Alt Aspect Ratio', _defaults.aspectRatios, ''),
     classAdd: "",
     images: _defaults.imageGallery2,
     thumbs: _defaults.imageGallery2,
@@ -102,8 +103,8 @@ var ImageGridGallery = function ImageGridGallery() {
     columns: (0, _addonKnobs.number)('Columns', 3),
     headingCaption: (0, _addonKnobs.text)('Heading Caption', _defaults.defaultSubTitle),
     caption: (0, _addonKnobs.text)('Caption', _defaults.defaultCaption),
-    thumbAspect: (0, _addonKnobs.select)('Image Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen'),
-    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatiosObj, 'sixteen')
+    thumbAspect: (0, _addonKnobs.select)('Image Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
+    containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatios, 'sixteen')
   });
 };
 

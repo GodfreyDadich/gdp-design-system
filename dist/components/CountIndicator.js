@@ -9,7 +9,13 @@ exports.CountIndicator = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var CountIndicator = function CountIndicator(props) {
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+// import { aspectRatios } from '../utils/defaults'
+var CountIndicator = function CountIndicator(_ref) {
+  var imageAspect = _ref.imageAspect,
+      currentIndex = _ref.currentIndex,
+      children = _ref.children;
   return _react["default"].createElement("div", {
     className: "counter-wrapper",
     style: {
@@ -19,7 +25,7 @@ var CountIndicator = function CountIndicator(props) {
       fontColor: '#6D6A60',
       fontFamily: 'Atlas Grotesk',
       fontSize: '12.5px',
-      marginTop: props.imageAspect === 'sixteen' ? '40px' : props.imageAspect === 'noAspect' ? '80px' : props.imageAspect === 'square' ? '20px' : '30px',
+      marginTop: imageAspect === 'sixteen' ? '40px' : imageAspect === 'noAspect' ? '80px' : imageAspect === 'square' ? '20px' : '30px',
       marginBottom: '16px'
     }
   }, _react["default"].createElement("span", {
@@ -46,7 +52,7 @@ var CountIndicator = function CountIndicator(props) {
       letterSpacing: '.75px',
       fontWeight: 400
     }
-  }, "\xA0\xA0", props.currentIndex + 1, "/", props.children.length, "\xA0\xA0"), _react["default"].createElement("span", {
+  }, "\xA0\xA0", currentIndex + 1, "/", children.length, "\xA0\xA0"), _react["default"].createElement("span", {
     className: "right-arrow-wrapper",
     style: {
       top: '50%',
@@ -67,3 +73,7 @@ var CountIndicator = function CountIndicator(props) {
 };
 
 exports.CountIndicator = CountIndicator;
+CountIndicator.propTypes = {
+  imageAspect: _propTypes["default"].oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  currentIndex: _propTypes["default"].number
+};

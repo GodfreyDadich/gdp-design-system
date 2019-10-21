@@ -13,6 +13,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Type = require("./Type");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var CardText = function CardText(props) {
   return _react["default"].createElement("div", {
     className: _style["default"].dynamic([["4188709075", [props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(49% - 12px)' : '100%', props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '24px' : '0']]]) + " " + 'cardText'
@@ -25,5 +27,12 @@ var CardText = function CardText(props) {
   }, ".cardText.__jsx-style-dynamic-selector{display:inline-block;vertical-align:top;width:".concat(props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(49% - 12px)' : '100%', ";margin-left:").concat(props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '24px' : '0', ";}")));
 };
 
+CardText.propTypes = {
+  cardTitle: _propTypes["default"].string,
+  cardSubtitle: _propTypes["default"].string,
+  cardContent: _propTypes["default"].string,
+  linkText: _propTypes["default"].string,
+  linkURL: _propTypes["default"].string
+};
 var _default = CardText;
 exports["default"] = _default;
