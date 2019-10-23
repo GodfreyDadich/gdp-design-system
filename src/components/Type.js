@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { InstagramIcon, LinkedInIcon } from './Icons'
@@ -19,7 +19,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
   return <BioHeading
   style={{
     paddingBottom: '3.7vw',
-    marginTop: '38px'
+    marginTop: mobile ? '16px' : '38px'
   }}
   >
     {personName}
@@ -96,6 +96,9 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
       @media only screen and (max-width: 500px) {
         .bioPersonTitle{
           font-size: 5.4vw;
+        }
+        .socials-wrap {
+          margin-top: 24px;
         }
       }
       `}</style>
