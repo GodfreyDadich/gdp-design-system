@@ -45,13 +45,14 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
               </a>
             </div>
           default:
-            return <div key={`item-${i}`}>Build this social type: {item.social}</div>
+            return ''
         }
       }) : ''}
     </div>
     <style>{`
       .socials-wrap {
         margin-top: 1vw;
+        // margin-bottom: 1vw;
       }
       .social-anchor {
         line-height: 1;

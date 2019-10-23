@@ -43,7 +43,7 @@ var BioHeader = function BioHeader(_ref) {
     style: {
       fontSize: _reactDeviceDetect.isMobile ? '12px' : '0.93vw'
     }
-  }, socialsArray.map(function (item, i) {
+  }, socialsArray.length > 0 ? socialsArray.map(function (item, i) {
     switch (item.social) {
       case 'insta':
         return _react["default"].createElement("div", {
@@ -95,7 +95,7 @@ var BioHeader = function BioHeader(_ref) {
           key: "item-".concat(i)
         }, "Build this social type: ", item.social);
     }
-  })), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-18%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
+  }) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-18%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
 };
 
 exports.BioHeader = BioHeader;
