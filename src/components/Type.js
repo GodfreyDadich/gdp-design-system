@@ -11,7 +11,7 @@ import {
 export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
   <BioHeading
     style={{
-      paddingBottom: '4vw',
+      paddingBottom: '3.7vw',
       marginTop: '38px'
     }}
   >
