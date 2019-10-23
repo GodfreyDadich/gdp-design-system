@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.BioHeading = void 0;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.BioHeading = exports.BioHeader = void 0;
 
 var _style = _interopRequireDefault(require("styled-jsx/style"));
 
@@ -19,22 +19,74 @@ var _Icons = require("./Icons");
 
 var _typography = require("../styles/typography");
 
-var BioHeading = function BioHeading(_ref) {
-  var children = _ref.children,
-      style = _ref.style;
+var BioHeader = function BioHeader(_ref) {
+  var personName = _ref.personName,
+      personTitle = _ref.personTitle,
+      insta = _ref.insta,
+      linkedIn = _ref.linkedIn;
+  return _react["default"].createElement(BioHeading, {
+    style: {
+      paddingBottom: '4vw',
+      marginTop: '38px'
+    }
+  }, personName, _react["default"].createElement("br", null), _react["default"].createElement("span", {
+    style: {
+      fontFamily: 'Atlas Grotesk',
+      display: 'inline-block',
+      lineHeight: 1,
+      whiteSpace: 'nowrap'
+    },
+    className: "bioPersonTitle"
+  }, personTitle), _react["default"].createElement("div", {
+    className: "socials-wrap"
+  }, insta ? _react["default"].createElement("div", {
+    style: {
+      display: 'inline-block'
+    }
+  }, _react["default"].createElement(_Icons.BioIcon, null), " ", _react["default"].createElement("a", {
+    className: "social-anchor",
+    href: "https://www.instagram.com/".concat(insta),
+    target: "_blank",
+    style: {
+      display: 'inline-block'
+    }
+  }, _react["default"].createElement("span", {
+    className: "social-outlet"
+  }, "Instagram"))) : '', !linkedIn ? _react["default"].createElement("div", {
+    style: {
+      display: 'inline-block',
+      marginLeft: insta ? '20px' : '0px'
+    }
+  }, _react["default"].createElement(_Icons.BioLinkedInIcon, null), " ", _react["default"].createElement("a", {
+    className: "social-anchor",
+    href: "https://www.linkedin.com/".concat(insta),
+    target: "_blank",
+    style: {
+      display: 'inline-block'
+    }
+  }, _react["default"].createElement("span", {
+    className: "social-outlet"
+  }, "LinkedIn"))) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        line-height: 38px;\n      }\n      .social-anchor {\n        font-size: 0.9vw;\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-10%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n      @media only screen and (min-width: 2024px) {\n        .social-outlet {\n          font-size: 0.62vw;\n        }\n      }\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n          font-size: 2.2vw;\n        }\n        .social-anchor {\n          transform: translateY(-18%);\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
+};
+
+exports.BioHeader = BioHeader;
+
+var BioHeading = function BioHeading(_ref2) {
+  var children = _ref2.children,
+      style = _ref2.style;
   return _react["default"].createElement("h1", {
     style: style,
-    className: "jsx-1035482751" + " " + 'bioHeading'
+    className: "jsx-4097120068" + " " + 'bioHeading'
   }, children, _react["default"].createElement(_style["default"], {
-    id: "1035482751"
-  }, ".bioHeading.jsx-1035482751{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 20px 0;color:#000;}.bioHeading.jsx-1035482751 .clientName.jsx-1035482751{display:block;color:#7F7F7F;}.bioHeading.jsx-1035482751:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-1035482751{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-1035482751:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-1035482751{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-1035482751:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    id: "4097120068"
+  }, ".bioHeading.jsx-4097120068{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.7;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 20px 0;color:#000;}.bioHeading.jsx-4097120068 .clientName.jsx-4097120068{display:block;color:#7F7F7F;}.bioHeading.jsx-4097120068:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-4097120068{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-4097120068:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-4097120068{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-4097120068:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
 };
 
 exports.BioHeading = BioHeading;
 
-var Heading1 = function Heading1(_ref2) {
-  var children = _ref2.children,
-      style = _ref2.style;
+var Heading1 = function Heading1(_ref3) {
+  var children = _ref3.children,
+      style = _ref3.style;
   return _react["default"].createElement("h1", {
     style: style,
     className: "jsx-895223534" + " " + 'headingOne'
@@ -45,10 +97,10 @@ var Heading1 = function Heading1(_ref2) {
 
 exports.Heading1 = Heading1;
 
-var Heading2 = function Heading2(_ref3) {
-  var children = _ref3.children,
-      style = _ref3.style,
-      className = _ref3.className;
+var Heading2 = function Heading2(_ref4) {
+  var children = _ref4.children,
+      style = _ref4.style,
+      className = _ref4.className;
   return _react["default"].createElement("h2", {
     style: Object.assign({
       fontSize: _typography.fontSizeHeading2 / 1280 * 100 + 'vw',
@@ -61,10 +113,10 @@ var Heading2 = function Heading2(_ref3) {
 
 exports.Heading2 = Heading2;
 
-var Heading3 = function Heading3(_ref4) {
-  var children = _ref4.children,
-      style = _ref4.style,
-      className = _ref4.className;
+var Heading3 = function Heading3(_ref5) {
+  var children = _ref5.children,
+      style = _ref5.style,
+      className = _ref5.className;
   return _react["default"].createElement("h3", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
@@ -80,10 +132,10 @@ var Heading3 = function Heading3(_ref4) {
 
 exports.Heading3 = Heading3;
 
-var Heading4 = function Heading4(_ref5) {
-  var children = _ref5.children,
-      style = _ref5.style,
-      className = _ref5.className;
+var Heading4 = function Heading4(_ref6) {
+  var children = _ref6.children,
+      style = _ref6.style,
+      className = _ref6.className;
   return _react["default"].createElement("h4", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
@@ -99,10 +151,10 @@ var Heading4 = function Heading4(_ref5) {
 
 exports.Heading4 = Heading4;
 
-var SubHead = function SubHead(_ref6) {
-  var children = _ref6.children,
-      style = _ref6.style,
-      className = _ref6.className;
+var SubHead = function SubHead(_ref7) {
+  var children = _ref7.children,
+      style = _ref7.style,
+      className = _ref7.className;
   return _react["default"].createElement("h4", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
@@ -119,10 +171,10 @@ var SubHead = function SubHead(_ref6) {
 
 exports.SubHead = SubHead;
 
-var WiredType = function WiredType(_ref7) {
-  var children = _ref7.children,
-      style = _ref7.style,
-      className = _ref7.className;
+var WiredType = function WiredType(_ref8) {
+  var children = _ref8.children,
+      style = _ref8.style,
+      className = _ref8.className;
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk'
@@ -135,10 +187,10 @@ var WiredType = function WiredType(_ref7) {
 
 exports.WiredType = WiredType;
 
-var InquiryText = function InquiryText(_ref8) {
-  var children = _ref8.children,
-      style = _ref8.style,
-      className = _ref8.className;
+var InquiryText = function InquiryText(_ref9) {
+  var children = _ref9.children,
+      style = _ref9.style,
+      className = _ref9.className;
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Noe Text'
@@ -151,10 +203,10 @@ var InquiryText = function InquiryText(_ref8) {
 
 exports.InquiryText = InquiryText;
 
-var QuoteAttribution = function QuoteAttribution(_ref9) {
-  var children = _ref9.children,
-      style = _ref9.style,
-      className = _ref9.className;
+var QuoteAttribution = function QuoteAttribution(_ref10) {
+  var children = _ref10.children,
+      style = _ref10.style,
+      className = _ref10.className;
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Institut'
@@ -166,35 +218,6 @@ var QuoteAttribution = function QuoteAttribution(_ref9) {
 };
 
 exports.QuoteAttribution = QuoteAttribution;
-
-var BioHeader = function BioHeader(_ref10) {
-  var personName = _ref10.personName,
-      personTitle = _ref10.personTitle,
-      insta = _ref10.insta;
-  return _react["default"].createElement(BioHeading, {
-    style: {
-      paddingBottom: '2.5vw'
-    }
-  }, personName, _react["default"].createElement("br", null), _react["default"].createElement("span", {
-    style: {
-      fontFamily: 'Atlas Grotesk',
-      display: 'inline-block',
-      lineHeight: 1,
-      whiteSpace: 'nowrap'
-    },
-    className: "bioPersonTitle"
-  }, personTitle), insta ? _react["default"].createElement("a", {
-    href: "https://www.instagram.com/".concat(insta),
-    target: "_blank",
-    className: "noGreen"
-  }, _react["default"].createElement(_Icons.BioIcon, {
-    style: {
-      marginLeft: '16px'
-    }
-  })) : '', _react["default"].createElement("style", null, "\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
-};
-
-exports.BioHeader = BioHeader;
 
 var Caption = function Caption(_ref11) {
   var classAdd = _ref11.classAdd,

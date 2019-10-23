@@ -11,7 +11,8 @@ import {
 export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
   <BioHeading
     style={{
-      paddingBottom: '2.5vw'
+      paddingBottom: '4vw',
+      marginTop: '38px'
     }}
   >
     {personName}
@@ -37,7 +38,7 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
     </div>
     <style>{`
       .socials-wrap {
-        line-height: 23.8px;
+        line-height: 38px;
       }
       .social-anchor {
         font-size: 0.9vw;
@@ -99,7 +100,7 @@ export const BioHeading = ({ children, style }) =>
       font-family: 'Noe Display';
       font-weight: bold;
       font-size: 3.52vw; 
-      line-height: 0.97;
+      line-height: 0.7;
       letter-spacing: 0.3px;
       padding-bottom: 51px;
       margin: 0 0 20px 0;
@@ -117,7 +118,7 @@ export const BioHeading = ({ children, style }) =>
         max-width: 33%;
         height: 7px;
         background-color: #000;
-        bottom: -15px;
+        bottom: 15px;
         left: 0;
       }
       @media only screen and (max-width: 500px) {
