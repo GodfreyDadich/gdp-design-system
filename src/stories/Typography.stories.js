@@ -106,5 +106,5 @@ export const BioPageHeader = () =>
   <BioHeader
     personName='Scott Dadich'
     personTitle='Founder, Co-CEO'
-    insta='sdadich'
+    socialsArray={[{social:'insta', handle: 'sdadich'}, {social:'linkedin', handle: 'sdadich'}]}
   />

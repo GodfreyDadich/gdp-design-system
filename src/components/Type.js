@@ -9,7 +9,7 @@ import {
 } from "../styles/typography";
 import { isMobile } from 'react-device-detect';
 
-export const BioHeader = ({ personName, personTitle, insta, linkedin }) =>
+export const BioHeader = ({ personName, personTitle, socialsArray }) =>
   <BioHeading
     style={{
       paddingBottom: '3.7vw',
@@ -27,25 +27,27 @@ export const BioHeader = ({ personName, personTitle, insta, linkedin }) =>
       }}
       className='bioPersonTitle'
     >{personTitle}</span>
-    <div className={`${insta || linkedin ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
-      {insta
-        ? <div style={{ display: 'inline-block' }}>
-          <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
-          <a className='social-anchor' href={`https://www.instagram.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}>
-            <span className='social-outlet'>Instagram</span>
-          </a>
-        </div>
-        : ''
-      }
-      {linkedin
-        ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}>
-          <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
-          <a className='social-anchor' href={`https://www.linkedin.com/in/${linkedin}`} target='_blank' style={{ display: 'inline-block' }}>
-            <span className='social-outlet'>LinkedIn</span>
-          </a>
-        </div>
-        : ''
-      }
+    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
+      {socialsArray.map((item, i) => {
+        switch (item.social) {
+          case 'insta':
+            return <div style={{ display: 'inline-block' }} key={`item-${i}`}>
+              <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+        <a className='social-anchor' href={`https://www.instagram.com/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
+                <span className='social-outlet'>Instagram</span>
+              </a>
+            </div>
+          case 'linkedin':
+            return <div style={{ display: 'inline-block', marginLeft: socialsArray.length > 1 ? '20px' : '0px' }} key={`item-${i}`}>
+              <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+          <a className='social-anchor' href={`https://www.linkedin.com/in/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
+                <span className='social-outlet'>LinkedIn</span>
+              </a>
+            </div>
+          default:
+            return <div key={`item-${i}`}>Build this social type: {item.social}</div>
+        }
+      })}
     </div>
     <style>{`
       .socials-wrap {
