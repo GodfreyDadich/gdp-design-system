@@ -9,7 +9,7 @@ import {
 } from "../styles/typography";
 import { isMobile } from 'react-device-detect';
 
-export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
+export const BioHeader = ({ personName, personTitle, insta, linkedin }) =>
   <BioHeading
     style={{
       paddingBottom: '3.7vw',
@@ -27,7 +27,7 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
       }}
       className='bioPersonTitle'
     >{personTitle}</span>
-    <div className={`${insta || linked ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
+    <div className={`${insta || linkedin ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
       {insta
         ? <div style={{ display: 'inline-block' }}>
           <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
@@ -37,10 +37,10 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
         </div>
         : ''
       }
-      {linkedIn
+      {linkedin
         ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}>
           <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
-          <a className='social-anchor' href={`https://www.linkedin.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}>
+          <a className='social-anchor' href={`https://www.linkedin.com/in/${linkedin}`} target='_blank' style={{ display: 'inline-block' }}>
             <span className='social-outlet'>LinkedIn</span>
           </a>
         </div>

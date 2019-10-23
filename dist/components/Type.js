@@ -40,7 +40,7 @@ var BioHeader = function BioHeader(_ref) {
     },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
-    className: "socials-wrap",
+    className: "".concat(insta || linked ? 'socials-wrap' : ''),
     style: {
       fontSize: _reactDeviceDetect.isMobile ? '12px' : '0.93vw'
     }
