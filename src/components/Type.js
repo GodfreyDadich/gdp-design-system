@@ -28,7 +28,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
       className='bioPersonTitle'
     >{personTitle}</span>
     <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
-      {socialsArray.map((item, i) => {
+      {socialsArray.length > 0 ? socialsArray.map((item, i) => {
         switch (item.social) {
           case 'insta':
             return <div style={{ display: 'inline-block' }} key={`item-${i}`}>
@@ -47,7 +47,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
           default:
             return <div key={`item-${i}`}>Build this social type: {item.social}</div>
         }
-      })}
+      }) : ''}
     </div>
     <style>{`
       .socials-wrap {

@@ -24,8 +24,7 @@ var _reactDeviceDetect = require("react-device-detect");
 var BioHeader = function BioHeader(_ref) {
   var personName = _ref.personName,
       personTitle = _ref.personTitle,
-      insta = _ref.insta,
-      linkedin = _ref.linkedin;
+      socialsArray = _ref.socialsArray;
   return _react["default"].createElement(BioHeading, {
     style: {
       paddingBottom: '3.7vw',
@@ -40,48 +39,63 @@ var BioHeader = function BioHeader(_ref) {
     },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
-    className: "".concat(insta || linkedin ? 'socials-wrap' : ''),
+    className: "".concat(socialsArray.length > 0 ? 'socials-wrap' : ''),
     style: {
       fontSize: _reactDeviceDetect.isMobile ? '12px' : '0.93vw'
     }
-  }, insta ? _react["default"].createElement("div", {
-    style: {
-      display: 'inline-block'
+  }, socialsArray.map(function (item, i) {
+    switch (item.social) {
+      case 'insta':
+        return _react["default"].createElement("div", {
+          style: {
+            display: 'inline-block'
+          },
+          key: "item-".concat(i)
+        }, _react["default"].createElement(_Icons.InstagramIcon, {
+          style: {
+            width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
+            height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
+          }
+        }), " \xA0\xA0", _react["default"].createElement("a", {
+          className: "social-anchor",
+          href: "https://www.instagram.com/".concat(item.handle),
+          target: "_blank",
+          style: {
+            display: 'inline-block'
+          }
+        }, _react["default"].createElement("span", {
+          className: "social-outlet"
+        }, "Instagram")));
+
+      case 'linkedin':
+        return _react["default"].createElement("div", {
+          style: {
+            display: 'inline-block',
+            marginLeft: socialsArray.length > 1 ? '20px' : '0px'
+          },
+          key: "item-".concat(i)
+        }, _react["default"].createElement(_Icons.LinkedInIcon, {
+          style: {
+            width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
+            height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
+          }
+        }), " \xA0\xA0", _react["default"].createElement("a", {
+          className: "social-anchor",
+          href: "https://www.linkedin.com/in/".concat(item.handle),
+          target: "_blank",
+          style: {
+            display: 'inline-block'
+          }
+        }, _react["default"].createElement("span", {
+          className: "social-outlet"
+        }, "LinkedIn")));
+
+      default:
+        return _react["default"].createElement("div", {
+          key: "item-".concat(i)
+        }, "Build this social type: ", item.social);
     }
-  }, _react["default"].createElement(_Icons.InstagramIcon, {
-    style: {
-      width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
-      height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
-    }
-  }), " \xA0\xA0", _react["default"].createElement("a", {
-    className: "social-anchor",
-    href: "https://www.instagram.com/".concat(insta),
-    target: "_blank",
-    style: {
-      display: 'inline-block'
-    }
-  }, _react["default"].createElement("span", {
-    className: "social-outlet"
-  }, "Instagram"))) : '', linkedin ? _react["default"].createElement("div", {
-    style: {
-      display: 'inline-block',
-      marginLeft: insta ? '20px' : '0px'
-    }
-  }, _react["default"].createElement(_Icons.LinkedInIcon, {
-    style: {
-      width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
-      height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
-    }
-  }), " \xA0\xA0", _react["default"].createElement("a", {
-    className: "social-anchor",
-    href: "https://www.linkedin.com/in/".concat(linkedin),
-    target: "_blank",
-    style: {
-      display: 'inline-block'
-    }
-  }, _react["default"].createElement("span", {
-    className: "social-outlet"
-  }, "LinkedIn"))) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-18%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
+  })), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-18%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
 };
 
 exports.BioHeader = BioHeader;
