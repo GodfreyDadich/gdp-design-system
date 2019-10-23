@@ -1,12 +1,92 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
-import { BioIcon } from './Icons'
+import { BioIcon, BioLinkedInIcon } from './Icons'
 
 import {
   fontSizeSuper, lineHeightSuper,
   fontSizeHeading2
 } from "../styles/typography";
+
+export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
+  <BioHeading
+    style={{
+      paddingBottom: '2.5vw'
+    }}
+  >
+    {personName}
+    <br />
+    <span
+      style={{
+        fontFamily: 'Atlas Grotesk',
+        display: 'inline-block',
+        lineHeight: 1,
+        whiteSpace: 'nowrap'
+      }}
+      className='bioPersonTitle'
+    >{personTitle}</span>
+    <div className='socials-wrap'>
+      {insta
+        ? <div style={{ display: 'inline-block' }}><BioIcon /> <a className='social-anchor' href={`https://www.instagram.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}><span className='social-outlet'>Instagram</span></a></div>
+        : ''
+      }
+      {!linkedIn
+        ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}><BioLinkedInIcon /> <a className='social-anchor' href={`https://www.linkedin.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}><span className='social-outlet'>LinkedIn</span></a></div>
+        : ''
+      }
+    </div>
+    <style>{`
+      .socials-wrap {
+        line-height: 23.8px;
+      }
+      .social-anchor {
+        font-size: 0.9vw;
+        line-height: 1;
+        padding-bottom: 0px;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-10%);
+      }
+      .social-outlet {
+        font-family: Atlas Grotesk;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.22px;
+        color: #333333;
+        
+      }
+      @media only screen and (min-width: 2024px) {
+        .social-outlet {
+          font-size: 0.62vw;
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        .social-outlet {
+          margin-top: 18px;
+          font-size: 2.2vw;
+        }
+        .social-anchor {
+          transform: translateY(-18%);
+          padding-bottom: 1px;
+        }
+      }
+
+      .bioPersonTitle {
+        font-size: 1.48vw;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        .bioPersonTitle{
+          font-size: 1.95vw;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .bioPersonTitle{
+          font-size: 5.4vw;
+        }
+      }
+      `}</style>
+  </BioHeading>
 
 export const BioHeading = ({ children, style }) =>
   <h1
@@ -37,7 +117,7 @@ export const BioHeading = ({ children, style }) =>
         max-width: 33%;
         height: 7px;
         background-color: #000;
-        bottom: 15px;
+        bottom: -15px;
         left: 0;
       }
       @media only screen and (max-width: 500px) {
@@ -269,43 +349,6 @@ export const QuoteAttribution = ({ children, style, className }) =>
     `}</style>
   </span>
 
-export const BioHeader = ({ personName, personTitle, insta }) =>
-  <BioHeading
-    style={{
-      paddingBottom: '2.5vw'
-    }}
-  >
-    {personName}
-    <br />
-    <span
-      style={{
-        fontFamily: 'Atlas Grotesk',
-        display: 'inline-block',
-        lineHeight: 1,
-        whiteSpace: 'nowrap'
-      }}
-      className='bioPersonTitle'
-    >{personTitle}</span>
-    { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><BioIcon style={{ marginLeft: '16px' }} /></a>
-      : ''
-    }
-    <style>{`
-      .bioPersonTitle {
-        font-size: 1.48vw;
-      }
-      @media only screen and (max-width: 1024px) {
-        .bioPersonTitle{
-          font-size: 1.95vw;
-        }
-      }
-      @media only screen and (max-width: 500px) {
-        .bioPersonTitle{
-          font-size: 5.4vw;
-        }
-      }
-      `}</style>
-  </BioHeading>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
