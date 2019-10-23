@@ -1,12 +1,13 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
-import { BioIcon, BioLinkedInIcon } from './Icons'
+import { InstagramIcon, LinkedInIcon } from './Icons'
 
 import {
   fontSizeSuper, lineHeightSuper,
   fontSizeHeading2
 } from "../styles/typography";
+import { isMobile } from 'react-device-detect';
 
 export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
   <BioHeading
@@ -26,27 +27,36 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
       }}
       className='bioPersonTitle'
     >{personTitle}</span>
-    <div className='socials-wrap'>
+    <div className='socials-wrap' style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
       {insta
-        ? <div style={{ display: 'inline-block' }}><BioIcon /> <a className='social-anchor' href={`https://www.instagram.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}><span className='social-outlet'>Instagram</span></a></div>
+        ? <div style={{ display: 'inline-block' }}>
+          <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+          <a className='social-anchor' href={`https://www.instagram.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}>
+            <span className='social-outlet'>Instagram</span>
+          </a>
+        </div>
         : ''
       }
       {!linkedIn
-        ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}><BioLinkedInIcon /> <a className='social-anchor' href={`https://www.linkedin.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}><span className='social-outlet'>LinkedIn</span></a></div>
+        ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}>
+          <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+          <a className='social-anchor' href={`https://www.linkedin.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}>
+            <span className='social-outlet'>LinkedIn</span>
+          </a>
+        </div>
         : ''
       }
     </div>
     <style>{`
       .socials-wrap {
-        line-height: 38px;
+        margin-top: 12px;
       }
       .social-anchor {
-        font-size: 0.9vw;
         line-height: 1;
         padding-bottom: 0px;
         margin: auto;
         top: 50%;
-        transform: translateY(-10%);
+        transform: translateY(-18%);
       }
       .social-outlet {
         font-family: Atlas Grotesk;
@@ -56,18 +66,12 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
         color: #333333;
         
       }
-      @media only screen and (min-width: 2024px) {
-        .social-outlet {
-          font-size: 0.62vw;
-        }
-      }
+
       @media only screen and (max-width: 700px) {
         .social-outlet {
           margin-top: 18px;
-          font-size: 2.2vw;
         }
         .social-anchor {
-          transform: translateY(-18%);
           padding-bottom: 1px;
         }
       }
@@ -100,7 +104,7 @@ export const BioHeading = ({ children, style }) =>
       font-family: 'Noe Display';
       font-weight: bold;
       font-size: 3.52vw; 
-      line-height: 0.7;
+      line-height: 0.75;
       letter-spacing: 0.3px;
       padding-bottom: 51px;
       margin: 0 0 20px 0;
@@ -122,7 +126,7 @@ export const BioHeading = ({ children, style }) =>
         left: 0;
       }
       @media only screen and (max-width: 500px) {
-        font-size: 12vw !important;
+        font-size: 12vw;
         padding-bottom: 35px !important;
         margin-bottom: 28px !important;
 
@@ -131,7 +135,7 @@ export const BioHeading = ({ children, style }) =>
         }
       }  
       @media only screen and (max-width: 769px) {
-        font-size: 40px !important;
+        font-size: 40px;
         padding-bottom: 41px !important;
         margin-bottom: 28px !important;
 
