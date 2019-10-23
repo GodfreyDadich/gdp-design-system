@@ -25,7 +25,7 @@ var BioHeader = function BioHeader(_ref) {
   var personName = _ref.personName,
       personTitle = _ref.personTitle,
       insta = _ref.insta,
-      linkedIn = _ref.linkedIn;
+      linkedin = _ref.linkedin;
   return _react["default"].createElement(BioHeading, {
     style: {
       paddingBottom: '3.7vw',
@@ -40,7 +40,7 @@ var BioHeader = function BioHeader(_ref) {
     },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
-    className: "".concat(insta || linked ? 'socials-wrap' : ''),
+    className: "".concat(insta || linkedin ? 'socials-wrap' : ''),
     style: {
       fontSize: _reactDeviceDetect.isMobile ? '12px' : '0.93vw'
     }
@@ -62,7 +62,7 @@ var BioHeader = function BioHeader(_ref) {
     }
   }, _react["default"].createElement("span", {
     className: "social-outlet"
-  }, "Instagram"))) : '', linkedIn ? _react["default"].createElement("div", {
+  }, "Instagram"))) : '', linkedin ? _react["default"].createElement("div", {
     style: {
       display: 'inline-block',
       marginLeft: insta ? '20px' : '0px'
@@ -74,7 +74,7 @@ var BioHeader = function BioHeader(_ref) {
     }
   }), " \xA0\xA0", _react["default"].createElement("a", {
     className: "social-anchor",
-    href: "https://www.linkedin.com/".concat(insta),
+    href: "https://www.linkedin.com/in/".concat(linkedin),
     target: "_blank",
     style: {
       display: 'inline-block'
