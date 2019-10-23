@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { InstagramIcon, LinkedInIcon } from './Icons'
@@ -9,12 +9,18 @@ import {
 } from "../styles/typography";
 import { isMobile } from 'react-device-detect';
 
-export const BioHeader = ({ personName, personTitle, socialsArray }) =>
-  <BioHeading
-    style={{
-      paddingBottom: '3.7vw',
-      marginTop: '38px'
-    }}
+export const BioHeader = ({ personName, personTitle, socialsArray }) => {
+  const [mobile, setMobile] = useState(false)
+
+  useEffect(() => {
+    setMobile(isMobile)
+  }, [])
+
+  return <BioHeading
+  style={{
+    paddingBottom: '3.7vw',
+    marginTop: '38px'
+  }}
   >
     {personName}
     <br />
@@ -26,33 +32,32 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
         whiteSpace: 'nowrap'
       }}
       className='bioPersonTitle'
-    >{personTitle}</span>
-    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
+      >{personTitle}</span>
+    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: mobile ? '12px' : '0.93vw' }} >
       {socialsArray.length > 0 ? socialsArray.map((item, i) => {
         switch (item.social) {
           case 'insta':
             return <div style={{ display: 'inline-block' }} key={`item-${i}`}>
-              <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+              <InstagramIcon style={{ width: mobile ? '12px' : '.93vw', height: mobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
         <a className='social-anchor' href={`https://www.instagram.com/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
                 <span className='social-outlet'>Instagram</span>
               </a>
             </div>
           case 'linkedin':
             return <div style={{ display: 'inline-block', marginLeft: socialsArray.length > 1 ? '20px' : '0px' }} key={`item-${i}`}>
-              <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+              <LinkedInIcon style={{ width: mobile ? '12px' : '.93vw', height: mobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
           <a className='social-anchor' href={`https://www.linkedin.com/in/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
                 <span className='social-outlet'>LinkedIn</span>
               </a>
             </div>
           default:
             return ''
-        }
-      }) : ''}
+          }
+        }) : ''}
     </div>
     <style>{`
       .socials-wrap {
         margin-top: 1vw;
-        // margin-bottom: 1vw;
       }
       .social-anchor {
         line-height: 1;
@@ -69,7 +74,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
         color: #333333;
         
       }
-
+      
       @media only screen and (max-width: 700px) {
         .social-outlet {
           margin-top: 18px;
@@ -78,11 +83,11 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
           padding-bottom: 1px;
         }
       }
-
+      
       .bioPersonTitle {
         font-size: 1.48vw;
       }
-
+      
       @media only screen and (max-width: 1024px) {
         .bioPersonTitle{
           font-size: 1.95vw;
@@ -95,6 +100,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) =>
       }
       `}</style>
   </BioHeading>
+}
 
 export const BioHeading = ({ children, style }) =>
   <h1
