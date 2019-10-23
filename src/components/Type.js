@@ -49,7 +49,7 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
     </div>
     <style>{`
       .socials-wrap {
-        margin-top: 12px;
+        margin-top: 1vw;
       }
       .social-anchor {
         line-height: 1;
