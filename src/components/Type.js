@@ -27,7 +27,7 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
       }}
       className='bioPersonTitle'
     >{personTitle}</span>
-    <div className='socials-wrap' style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
+    <div className={`${insta || linked ? 'socials-wrap' : ''}`} style={{ fontSize: isMobile ? '12px' : '0.93vw' }} >
       {insta
         ? <div style={{ display: 'inline-block' }}>
           <InstagramIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;

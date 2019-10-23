@@ -62,7 +62,7 @@ var BioHeader = function BioHeader(_ref) {
     }
   }, _react["default"].createElement("span", {
     className: "social-outlet"
-  }, "Instagram"))) : '', !linkedIn ? _react["default"].createElement("div", {
+  }, "Instagram"))) : '', linkedIn ? _react["default"].createElement("div", {
     style: {
       display: 'inline-block',
       marginLeft: insta ? '20px' : '0px'
