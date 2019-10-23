@@ -37,7 +37,7 @@ export const BioHeader = ({ personName, personTitle, insta, linkedIn }) =>
         </div>
         : ''
       }
-      {!linkedIn
+      {linkedIn
         ? <div style={{ display: 'inline-block', marginLeft: insta ? '20px' : '0px' }}>
           <LinkedInIcon style={{ width: isMobile ? '12px' : '.93vw', height: isMobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
           <a className='social-anchor' href={`https://www.linkedin.com/${insta}`} target='_blank' style={{ display: 'inline-block' }}>
