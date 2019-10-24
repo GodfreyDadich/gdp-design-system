@@ -118,8 +118,6 @@ export const BioHeading = ({ children, style }) =>
       font-size: 3.52vw; 
       line-height: 0.8;
       letter-spacing: 0.3px;
-      padding-bottom: 51px;
-      margin: 0 0 20px 0;
       color: #000;
 
       .clientName {
@@ -139,8 +137,6 @@ export const BioHeading = ({ children, style }) =>
       }
       @media only screen and (max-width: 500px) {
         font-size: 12vw;
-        padding-bottom: 35px !important;
-        margin-bottom: 28px !important;
 
         &:before {
           width: calc(50% - 16px) !important;
@@ -148,8 +144,6 @@ export const BioHeading = ({ children, style }) =>
       }  
       @media only screen and (max-width: 769px) {
         font-size: 40px;
-        padding-bottom: 41px !important;
-        margin-bottom: 28px !important;
 
         &:before {
           width: calc(((100vw - 60px) / 4) - 12px) !important;
