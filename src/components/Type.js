@@ -116,7 +116,7 @@ export const BioHeading = ({ children, style }) =>
       font-family: 'Noe Display';
       font-weight: bold;
       font-size: 3.52vw; 
-      line-height: 0.75;
+      line-height: 0.8;
       letter-spacing: 0.3px;
       padding-bottom: 51px;
       margin: 0 0 20px 0;
