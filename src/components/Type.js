@@ -18,7 +18,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
 
   return <BioHeading
     style={{
-      paddingBottom: '3.7vw',
+      paddingBottom: '3vw',
       marginTop: mobile ? '16px' : '20px'
     }}
   >
