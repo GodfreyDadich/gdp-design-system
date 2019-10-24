@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -9,7 +11,9 @@ exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardConte
 
 var _style = _interopRequireDefault(require("styled-jsx/style"));
 
-var _react = _interopRequireDefault(require("react"));
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactOnScreen = _interopRequireDefault(require("react-on-screen"));
 
@@ -25,10 +29,19 @@ var BioHeader = function BioHeader(_ref) {
   var personName = _ref.personName,
       personTitle = _ref.personTitle,
       socialsArray = _ref.socialsArray;
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
+      mobile = _useState2[0],
+      setMobile = _useState2[1];
+
+  (0, _react.useEffect)(function () {
+    setMobile(_reactDeviceDetect.isMobile);
+  }, []);
   return _react["default"].createElement(BioHeading, {
     style: {
       paddingBottom: '3.7vw',
-      marginTop: '38px'
+      marginTop: mobile ? '16px' : '20px'
     }
   }, personName, _react["default"].createElement("br", null), _react["default"].createElement("span", {
     style: {
@@ -41,7 +54,7 @@ var BioHeader = function BioHeader(_ref) {
   }, personTitle), _react["default"].createElement("div", {
     className: "".concat(socialsArray.length > 0 ? 'socials-wrap' : ''),
     style: {
-      fontSize: _reactDeviceDetect.isMobile ? '12px' : '0.93vw'
+      fontSize: mobile ? '12px' : '0.82vw'
     }
   }, socialsArray.length > 0 ? socialsArray.map(function (item, i) {
     switch (item.social) {
@@ -53,8 +66,8 @@ var BioHeader = function BioHeader(_ref) {
           key: "item-".concat(i)
         }, _react["default"].createElement(_Icons.InstagramIcon, {
           style: {
-            width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
-            height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
+            width: mobile ? '12px' : '.98vw',
+            height: mobile ? '12px' : '.98vw'
           }
         }), " \xA0\xA0", _react["default"].createElement("a", {
           className: "social-anchor",
@@ -76,8 +89,8 @@ var BioHeader = function BioHeader(_ref) {
           key: "item-".concat(i)
         }, _react["default"].createElement(_Icons.LinkedInIcon, {
           style: {
-            width: _reactDeviceDetect.isMobile ? '12px' : '.93vw',
-            height: _reactDeviceDetect.isMobile ? '12px' : '.93vw'
+            width: mobile ? '12px' : '.98vw',
+            height: mobile ? '12px' : '.98vw'
           }
         }), " \xA0\xA0", _react["default"].createElement("a", {
           className: "social-anchor",
@@ -91,11 +104,9 @@ var BioHeader = function BioHeader(_ref) {
         }, "LinkedIn")));
 
       default:
-        return _react["default"].createElement("div", {
-          key: "item-".concat(i)
-        }, "Build this social type: ", item.social);
+        return '';
     }
-  }) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-18%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n        \n      }\n\n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
+  }) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1.45vw;\n        margin-bottom: 45px;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-28%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n      }\n      \n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n      \n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      \n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n        .socials-wrap {\n          margin-top: 24px;\n        }\n      }\n      "));
 };
 
 exports.BioHeader = BioHeader;

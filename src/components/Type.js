@@ -17,10 +17,10 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
   }, [])
 
   return <BioHeading
-  style={{
-    paddingBottom: '3.7vw',
-    marginTop: mobile ? '16px' : '38px'
-  }}
+    style={{
+      paddingBottom: '3.7vw',
+      marginTop: mobile ? '16px' : '20px'
+    }}
   >
     {personName}
     <br />
@@ -32,39 +32,40 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
         whiteSpace: 'nowrap'
       }}
       className='bioPersonTitle'
-      >{personTitle}</span>
-    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: mobile ? '12px' : '0.93vw' }} >
+    >{personTitle}</span>
+    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} style={{ fontSize: mobile ? '12px' : '0.82vw' }} >
       {socialsArray.length > 0 ? socialsArray.map((item, i) => {
         switch (item.social) {
           case 'insta':
             return <div style={{ display: 'inline-block' }} key={`item-${i}`}>
-              <InstagramIcon style={{ width: mobile ? '12px' : '.93vw', height: mobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+              <InstagramIcon style={{ width: mobile ? '12px' : '.98vw', height: mobile ? '12px' : '.98vw' }} /> &nbsp;&nbsp;
         <a className='social-anchor' href={`https://www.instagram.com/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
                 <span className='social-outlet'>Instagram</span>
               </a>
             </div>
           case 'linkedin':
             return <div style={{ display: 'inline-block', marginLeft: socialsArray.length > 1 ? '20px' : '0px' }} key={`item-${i}`}>
-              <LinkedInIcon style={{ width: mobile ? '12px' : '.93vw', height: mobile ? '12px' : '.93vw' }} /> &nbsp;&nbsp;
+              <LinkedInIcon style={{ width: mobile ? '12px' : '.98vw', height: mobile ? '12px' : '.98vw' }} /> &nbsp;&nbsp;
           <a className='social-anchor' href={`https://www.linkedin.com/in/${item.handle}`} target='_blank' style={{ display: 'inline-block' }}>
                 <span className='social-outlet'>LinkedIn</span>
               </a>
             </div>
           default:
             return ''
-          }
-        }) : ''}
+        }
+      }) : ''}
     </div>
     <style>{`
       .socials-wrap {
-        margin-top: 1vw;
+        margin-top: 1.45vw;
+        margin-bottom: 45px;
       }
       .social-anchor {
         line-height: 1;
         padding-bottom: 0px;
         margin: auto;
         top: 50%;
-        transform: translateY(-18%);
+        transform: translateY(-28%);
       }
       .social-outlet {
         font-family: Atlas Grotesk;
@@ -72,7 +73,6 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
         font-weight: 500;
         letter-spacing: 0.22px;
         color: #333333;
-        
       }
       
       @media only screen and (max-width: 700px) {
