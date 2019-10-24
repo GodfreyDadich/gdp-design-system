@@ -40,7 +40,7 @@ var BioHeader = function BioHeader(_ref) {
   }, []);
   return _react["default"].createElement(BioHeading, {
     style: {
-      paddingBottom: '3.7vw',
+      paddingBottom: '3vw',
       marginTop: mobile ? '16px' : '20px'
     }
   }, personName, _react["default"].createElement("br", null), _react["default"].createElement("span", {
