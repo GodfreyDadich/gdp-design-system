@@ -116,10 +116,10 @@ var BioHeading = function BioHeading(_ref2) {
       style = _ref2.style;
   return _react["default"].createElement("h1", {
     style: style,
-    className: "jsx-325258777" + " " + 'bioHeading'
+    className: "jsx-1912180070" + " " + 'bioHeading'
   }, children, _react["default"].createElement(_style["default"], {
-    id: "325258777"
-  }, ".bioHeading.jsx-325258777{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.8;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;color:#000;}.bioHeading.jsx-325258777 .clientName.jsx-325258777{display:block;color:#7F7F7F;}.bioHeading.jsx-325258777:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-325258777{font-size:12vw;}.bioHeading.jsx-325258777:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-325258777{font-size:40px;}.bioHeading.jsx-325258777:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    id: "1912180070"
+  }, ".bioHeading.jsx-1912180070{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.8;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:0px;margin:0;color:#000;}.bioHeading.jsx-1912180070 .clientName.jsx-1912180070{display:block;color:#7F7F7F;}.bioHeading.jsx-1912180070:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-1912180070{font-size:12vw;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-1912180070:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-1912180070{font-size:40px;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-1912180070:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
 };
 
 exports.BioHeading = BioHeading;
@@ -129,10 +129,10 @@ var Heading1 = function Heading1(_ref3) {
       style = _ref3.style;
   return _react["default"].createElement("h1", {
     style: style,
-    className: "jsx-895223534" + " " + 'headingOne'
+    className: "jsx-3758498069" + " " + 'headingOne'
   }, children, _react["default"].createElement(_style["default"], {
-    id: "895223534"
-  }, ".headingOne.jsx-895223534{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    id: "3758498069"
+  }, ".headingOne.jsx-3758498069{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:0px;margin:0;color:#000;}.headingOne.jsx-3758498069 .clientName.jsx-3758498069{display:block;color:#7F7F7F;}.headingOne.jsx-3758498069:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-3758498069{font-size:12vw !important;padding-bottom:0px !important;margin-bottom:0px !important;}.headingOne.jsx-3758498069:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-3758498069{font-size:40px !important;padding-bottom:0px !important;margin-bottom:0px !important;}.headingOne.jsx-3758498069:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
 };
 
 exports.Heading1 = Heading1;

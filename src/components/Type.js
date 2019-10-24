@@ -117,6 +117,8 @@ export const BioHeading = ({ children, style }) =>
       font-size: 3.52vw; 
       line-height: 0.8;
       letter-spacing: 0.3px;
+      padding-bottom: 0px;
+      margin: 0;
       color: #000;
 
       .clientName {
@@ -131,11 +133,13 @@ export const BioHeading = ({ children, style }) =>
         max-width: 33%;
         height: 7px;
         background-color: #000;
-        bottom: 0px;
+        bottom: 15px;
         left: 0;
       }
       @media only screen and (max-width: 500px) {
         font-size: 12vw;
+        padding-bottom: 35px !important;
+        margin-bottom: 28px !important;
 
         &:before {
           width: calc(50% - 16px) !important;
@@ -143,6 +147,8 @@ export const BioHeading = ({ children, style }) =>
       }  
       @media only screen and (max-width: 769px) {
         font-size: 40px;
+        padding-bottom: 41px !important;
+        margin-bottom: 28px !important;
 
         &:before {
           width: calc(((100vw - 60px) / 4) - 12px) !important;
@@ -165,8 +171,8 @@ export const Heading1 = ({ children, style }) =>
         font-size: 3.52vw; 
         line-height: 0.97;
         letter-spacing: 0.3px;
-        padding-bottom: 51px;
-        margin: 0 0 35px 0;
+        padding-bottom: 0px;
+        margin: 0;
         color: #000;
 
         .clientName {
@@ -186,8 +192,8 @@ export const Heading1 = ({ children, style }) =>
         }
         @media only screen and (max-width: 500px) {
           font-size: 12vw !important;
-          padding-bottom: 35px !important;
-          margin-bottom: 28px !important;
+          padding-bottom: 0px !important;
+          margin-bottom: 0px !important;
 
           &:before {
             width: calc(50% - 16px) !important;
@@ -195,8 +201,8 @@ export const Heading1 = ({ children, style }) =>
         }  
         @media only screen and (max-width: 769px) {
           font-size: 40px !important;
-          padding-bottom: 41px !important;
-          margin-bottom: 28px !important;
+          padding-bottom: 0px !important;
+          margin-bottom: 0px !important;
 
           &:before {
             width: calc(((100vw - 60px) / 4) - 12px) !important;
