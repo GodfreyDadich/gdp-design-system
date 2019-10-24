@@ -58,7 +58,6 @@ export const BioHeader = ({ personName, personTitle, socialsArray }) => {
     <style>{`
       .socials-wrap {
         margin-top: 1.45vw;
-        margin-bottom: 45px;
       }
       .social-anchor {
         line-height: 1;
@@ -132,7 +131,7 @@ export const BioHeading = ({ children, style }) =>
         max-width: 33%;
         height: 7px;
         background-color: #000;
-        bottom: 15px;
+        bottom: 0px;
         left: 0;
       }
       @media only screen and (max-width: 500px) {

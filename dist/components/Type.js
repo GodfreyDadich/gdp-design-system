@@ -106,7 +106,7 @@ var BioHeader = function BioHeader(_ref) {
       default:
         return '';
     }
-  }) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1.45vw;\n        margin-bottom: 45px;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-28%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n      }\n      \n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n      \n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      \n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n        .socials-wrap {\n          margin-top: 24px;\n        }\n      }\n      "));
+  }) : ''), _react["default"].createElement("style", null, "\n      .socials-wrap {\n        margin-top: 1.45vw;\n      }\n      .social-anchor {\n        line-height: 1;\n        padding-bottom: 0px;\n        margin: auto;\n        top: 50%;\n        transform: translateY(-28%);\n      }\n      .social-outlet {\n        font-family: Atlas Grotesk;\n        font-style: normal;\n        font-weight: 500;\n        letter-spacing: 0.22px;\n        color: #333333;\n      }\n      \n      @media only screen and (max-width: 700px) {\n        .social-outlet {\n          margin-top: 18px;\n        }\n        .social-anchor {\n          padding-bottom: 1px;\n        }\n      }\n      \n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      \n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n        .socials-wrap {\n          margin-top: 24px;\n        }\n      }\n      "));
 };
 
 exports.BioHeader = BioHeader;
@@ -116,10 +116,10 @@ var BioHeading = function BioHeading(_ref2) {
       style = _ref2.style;
   return _react["default"].createElement("h1", {
     style: style,
-    className: "jsx-1036102988" + " " + 'bioHeading'
+    className: "jsx-325258777" + " " + 'bioHeading'
   }, children, _react["default"].createElement(_style["default"], {
-    id: "1036102988"
-  }, ".bioHeading.jsx-1036102988{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.8;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;color:#000;}.bioHeading.jsx-1036102988 .clientName.jsx-1036102988{display:block;color:#7F7F7F;}.bioHeading.jsx-1036102988:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-1036102988{font-size:12vw;}.bioHeading.jsx-1036102988:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-1036102988{font-size:40px;}.bioHeading.jsx-1036102988:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    id: "325258777"
+  }, ".bioHeading.jsx-325258777{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.8;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;color:#000;}.bioHeading.jsx-325258777 .clientName.jsx-325258777{display:block;color:#7F7F7F;}.bioHeading.jsx-325258777:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-325258777{font-size:12vw;}.bioHeading.jsx-325258777:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-325258777{font-size:40px;}.bioHeading.jsx-325258777:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
 };
 
 exports.BioHeading = BioHeading;
