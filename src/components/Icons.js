@@ -22,7 +22,6 @@ export const LinkedInIcon = ({ color, style }) =>
     backgroundImage: `url('data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20x%3D%220%22%20y%3D%220%22%20viewBox%3D%220%200%2013%2013%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%3E.st0%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%7D%3C/style%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M2.8%203.8c0%20.5.3.8.9.8.6%200%20.9-.4.9-.8-.1-.4-.4-.8-.9-.8-.6%200-.9.4-.9.8zM6.9%206v-.7H5.3v4.9H7V7.4c0-.1%200-.3.1-.4.1-.3.3-.6.8-.6.6%200%20.7.4.7%201.1v2.6h1.6V7.3c0-1.5-.8-2.1-1.8-2.1-.9%200-1.3.4-1.5.8zm-4-.7v4.9h1.6V5.3H2.9z%22/%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M9.8%200H3.2C1.4%200%200%201.4%200%203.2v6.6C0%2011.6%201.4%2013%203.2%2013h6.6c1.8%200%203.2-1.4%203.2-3.2V3.2C13%201.4%2011.6%200%209.8%200m0%201.3a2%202%200%20012%202v6.6a2%202%200%2001-2%202H3.2a2%202%200%2001-2-2V3.2c0-1.1.9-2%202-2h6.6%22/%3E%3C/svg%3E')`
   }, style)} />
 
-
 export const CloseModal = ({ color, style }) =>
   <div>
     <div id='circle'>
