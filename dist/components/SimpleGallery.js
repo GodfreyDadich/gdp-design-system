@@ -1,0 +1,151 @@
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _style = _interopRequireDefault(require("styled-jsx/style"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _SliderArrows = require("./SliderArrows");
+
+var _reactDeviceDetect = require("react-device-detect");
+
+var SimpleGallery = function SimpleGallery(_ref) {
+  var images = _ref.images,
+      view = _ref.view,
+      index = _ref.index;
+
+  var _useState = (0, _react.useState)(index || 0),
+      _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
+      currentIndex = _useState2[0],
+      setCurrentIndex = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(-(index * 100) || 0),
+      _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
+      translateValue = _useState4[0],
+      setTranslateValue = _useState4[1];
+
+  var _useState5 = (0, _react.useState)([index, index + 1, index + 2, index - 1, index - 2]),
+      _useState6 = (0, _slicedToArray2["default"])(_useState5, 2),
+      visibleArray = _useState6[0],
+      setVisibleArray = _useState6[1];
+
+  var goToPrevSlide = function goToPrevSlide() {
+    var nextIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    var nextTranslateValue = currentIndex === 1 ? 0 : -(nextIndex * 100);
+    setCurrentIndex(nextIndex);
+    setTranslateValue(nextTranslateValue);
+    updateVisible(currentIndex);
+  };
+
+  var goToNextSlide = function goToNextSlide() {
+    var nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    var nextTranslateValue = currentIndex === images.length - 1 ? 0 : -(nextIndex * 100);
+    setCurrentIndex(nextIndex);
+    setTranslateValue(nextTranslateValue);
+    updateVisible(nextIndex);
+  };
+
+  var handleKeyDown = function handleKeyDown(e) {
+    if (e.keyCode === 39) {
+      goToNextSlide();
+    }
+
+    if (e.keyCode === 37) {
+      goToPrevSlide();
+    }
+  };
+
+  var updateVisible = function updateVisible(currIndex) {
+    var total = images.length - 1;
+    var visibleArray = [currIndex];
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1);
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1);
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1);
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1);
+    setVisibleArray(visibleArray);
+  };
+
+  (0, _react.useEffect)(function () {
+    updateVisible(currentIndex);
+
+    if (_reactDeviceDetect.isMobile) {
+      return;
+    } else {
+      window.addEventListener('keydown', handleKeyDown);
+      return function () {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [currentIndex]);
+  return _react["default"].createElement("div", {
+    className: "jsx-2511592491" + " " + 'slider'
+  }, _react["default"].createElement("div", {
+    style: {
+      transform: "translateX(".concat(translateValue, "%)"),
+      transition: 'transform ease-out 0.45s',
+      width: '100%',
+      height: '100%',
+      whiteSpace: 'nowrap'
+    },
+    className: "jsx-2511592491" + " " + 'slider-wrapper'
+  }, images.map(function (image, i) {
+    return _react["default"].createElement("div", {
+      key: "item-".concat(i),
+      style: {
+        height: '80%',
+        width: '100%',
+        margin: 'auto',
+        top: '10%',
+        position: 'relative',
+        display: 'inline-block'
+      },
+      className: "jsx-2511592491"
+    }, _react["default"].createElement("img", {
+      style: {
+        top: '50%',
+        left: '50%',
+        height: '100%',
+        transform: 'translateX(-50%) translateY(-50%)',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        backgroundColor: '#f2f2f2',
+        position: 'absolute',
+        margin: '0 auto',
+        // opacity: currentIndex === i ? 1 : 0,
+        transition: 'opacity .3s, transform .3s'
+      },
+      src: visibleArray.includes(i) ? image : '',
+      key: "slide-image-".concat(i),
+      className: "jsx-2511592491" + " " + 'slide'
+    }));
+  })), _react["default"].createElement(_SliderArrows.AltLeftArrow, {
+    clickAction: goToPrevSlide,
+    view: view,
+    style: {
+      width: '10%',
+      left: '-10%'
+    }
+  }), _react["default"].createElement(_SliderArrows.AltRightArrow, {
+    clickAction: goToNextSlide,
+    view: view,
+    style: {
+      width: '10%',
+      right: '-10%'
+    }
+  }), _react["default"].createElement(_style["default"], {
+    id: "2511592491"
+  }, ".slider.jsx-2511592491{position:absolute;width:80%;height:100%;margin:0 10%;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}"));
+};
+
+var _default = SimpleGallery;
+exports["default"] = _default;
