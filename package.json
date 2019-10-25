@@ -2,7 +2,7 @@
   "name": "gdp-design-system",
   "version": "1.2.5-uncomp",
   "private": true,
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "color": "^3.1.2",
     "prop-types": "^15.7.2",
