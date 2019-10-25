@@ -150,7 +150,7 @@ export const Heading1 = ({ children, style, hideStroke}) =>
     style={style}
     className={`headingOne ${hideStroke ? '' : 'withStroke'}`} >
     {children}
-    <style>{`
+    <style jsx>{`
       .headingOne {
         position: relative;
         font-family: 'Noe Display';
