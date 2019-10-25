@@ -39,6 +39,7 @@ var RevealCarousel = function RevealCarousel(props) {
       hoverPause = _useState6[0],
       setHoverPause = _useState6[1];
 
+<<<<<<< HEAD
   var _useState7 = (0, _react.useState)(false),
       _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
       clickedLeftArrow = _useState8[0],
@@ -56,6 +57,22 @@ var RevealCarousel = function RevealCarousel(props) {
 
   var carouselElem = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
+=======
+  var _useState7 = (0, _react.useState)(0),
+      _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
+      currentCapIndex = _useState8[0],
+      setCurrentCapIndex = _useState8[1];
+
+  var _useState9 = (0, _react.useState)('0'),
+      _useState10 = (0, _slicedToArray2["default"])(_useState9, 2),
+      captionMargin = _useState10[0],
+      setCaptionMargin = _useState10[1];
+
+  var carouselElem = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
+    setCaptionMargin(_reactDeviceDetect.isMobileOnly ? '0 24px' : _reactDeviceDetect.isTablet ? '0 30px' : '0 42px');
+
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
     if (_reactDeviceDetect.isMobile) {
       return;
     } else {
@@ -79,6 +96,7 @@ var RevealCarousel = function RevealCarousel(props) {
     setCurrentIndex(slideIndex);
     setTeaseState('');
     setHoverPause(true);
+<<<<<<< HEAD
     setTimeout(function () {
       setClickedRightArrow(false);
       setClickedLeftArrow(false);
@@ -89,12 +107,24 @@ var RevealCarousel = function RevealCarousel(props) {
 
   var goToPrevSlide = function goToPrevSlide() {
     setClickedLeftArrow(true);
+=======
+    setCurrentCapIndex(slideIndex);
+    setTimeout(function () {
+      setHoverPause(false);
+    }, 1000);
+  };
+
+  var goToPrevSlide = function goToPrevSlide() {
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
     var prevSlide = currentIndex === 0 ? props.images.length - 1 : currentIndex - 1;
     goToSlide(prevSlide);
   };
 
   var goToNextSlide = function goToNextSlide() {
+<<<<<<< HEAD
     setClickedRightArrow(true);
+=======
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
     var nextSlide = currentIndex === props.images.length - 1 ? 0 : currentIndex + 1;
     goToSlide(nextSlide);
   };
@@ -157,6 +187,7 @@ var RevealCarousel = function RevealCarousel(props) {
 
       default:
         return {};
+<<<<<<< HEAD
     }
   };
 
@@ -237,6 +268,82 @@ var RevealCarousel = function RevealCarousel(props) {
       transition: 'opacity .4s ease-in-out'
     }
   }, props.captionsArray[currentCapIndex]))) : props.caption && props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+=======
+    }
+  };
+
+  return _react["default"].createElement("div", null, _react["default"].createElement("figure", {
+    ref: carouselElem,
+    style: {
+      position: 'relative',
+      width: '100%',
+      height: '100%'
+    },
+    className: "carouselWrapper ".concat(props.fullBleed ? ' full-bleed' : '').concat(props.caption && props.caption.length > 0 ? ' withCaption' : '')
+  }, _react["default"].createElement("div", {
+    style: {
+      position: 'relative',
+      height: '100%',
+      width: '100%',
+      overflow: 'hidden',
+      touchAction: 'pan-y',
+      userSelect: 'none',
+      paddingTop: (0, _aspectRatio.getPaddingTop)(props.aspectRatio)
+    },
+    className: "carousel__container ".concat(teaseState)
+  }, _reactDeviceDetect.isMobile ? _react["default"].createElement(_SliderArrows.RevealLeftArrow, {
+    clickAction: goToPrevSlide,
+    over: hoverTeasePrev,
+    out: hoverTeaseReset
+  }) : _react["default"].createElement(_SliderArrows.LeftArrow, {
+    clickAction: goToPrevSlide,
+    over: hoverTeasePrev,
+    out: hoverTeaseReset
+  }), _reactDeviceDetect.isMobile ? _react["default"].createElement(_SliderArrows.RevealRightArrow, {
+    clickAction: goToNextSlide,
+    over: hoverTeaseNext,
+    out: hoverTeaseReset
+  }) : _react["default"].createElement(_SliderArrows.RightArrow, {
+    clickAction: goToNextSlide,
+    over: hoverTeaseNext,
+    out: hoverTeaseReset
+  }), _react["default"].createElement("div", {
+    style: {
+      position: props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      transition: 'transform .75s ease, box-shadow .3s ease'
+    },
+    className: "carousel__images-container"
+  }, props.images.map(function (image, i) {
+    return _react["default"].createElement("div", {
+      key: "carouselImage".concat(i),
+      style: Object.assign({
+        display: 'none',
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        overflow: 'hidden',
+        zIndex: '3'
+      }, getCarouselStyle(i))
+    }, _react["default"].createElement(_Slide["default"], {
+      key: i,
+      image: image,
+      classAdd: "carousel__image-wrapper",
+      renderImage: props.aspectRatio === 'noAspect'
+    }));
+  }))), props.captionsArray ? _react["default"].createElement("div", {
+    style: {
+      height: _reactDeviceDetect.isMobile ? '11vw' : '2vw',
+      margin: captionMargin
+    }
+  }, _react["default"].createElement(_Type.Caption, {
+    classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
+  }, _react["default"].createElement("span", null, props.captionsArray[currentCapIndex]))) : props.caption && props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
     classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
   }, props.caption) : ''));
 };

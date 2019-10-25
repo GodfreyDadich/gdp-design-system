@@ -165,7 +165,13 @@ var BioPageHeader = function BioPageHeader() {
   return _react["default"].createElement(_Type.BioHeader, {
     personName: "Scott Dadich",
     personTitle: "Founder, Co-CEO",
-    insta: "sdadich"
+    socialsArray: [{
+      social: 'insta',
+      handle: 'sdadich'
+    }, {
+      social: 'linkedin',
+      handle: 'sdadich'
+    }]
   });
 };
 

@@ -1,15 +1,17 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.BioHeader = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.BioHeading = void 0;
+exports.SidebarQuote = exports.LeftCarving = exports.SideBar = exports.CardContent = exports.CardSubTitle = exports.CardTitle = exports.Caption = exports.QuoteAttribution = exports.InquiryText = exports.WiredType = exports.SubHead = exports.Heading4 = exports.Heading3 = exports.Heading2 = exports.Heading1 = exports.SocialLink = exports.BioHeader = void 0;
 
 var _style = _interopRequireDefault(require("styled-jsx/style"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactOnScreen = _interopRequireDefault(require("react-on-screen"));
 
@@ -19,36 +21,116 @@ var _Icons = require("./Icons");
 
 var _typography = require("../styles/typography");
 
-var BioHeading = function BioHeading(_ref) {
-  var children = _ref.children,
+var BioHeader = function BioHeader(_ref) {
+  var personName = _ref.personName,
+      personTitle = _ref.personTitle,
+      socialsArray = _ref.socialsArray,
       style = _ref.style;
-  return _react["default"].createElement("h1", {
+  return _react["default"].createElement("div", {
     style: style,
-    className: "jsx-1035482751" + " " + 'bioHeading'
-  }, children, _react["default"].createElement(_style["default"], {
-    id: "1035482751"
-  }, ".bioHeading.jsx-1035482751{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 20px 0;color:#000;}.bioHeading.jsx-1035482751 .clientName.jsx-1035482751{display:block;color:#7F7F7F;}.bioHeading.jsx-1035482751:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:15px;left:0;}@media only screen and (max-width:500px){.bioHeading.jsx-1035482751{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.bioHeading.jsx-1035482751:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.bioHeading.jsx-1035482751{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.bioHeading.jsx-1035482751:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    className: "jsx-2610529634" + " " + 'bioHeading'
+  }, _react["default"].createElement(Heading1, {
+    hideStroke: true,
+    style: {
+      margin: 0,
+      paddingBottom: 0
+    }
+  }, personName), _react["default"].createElement(Heading3, {
+    style: {
+      whiteSpace: 'nowrap'
+    },
+    className: "bioPersonTitle"
+  }, personTitle), _react["default"].createElement("div", {
+    className: "jsx-2610529634" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
+  }, socialsArray && socialsArray.length > 0 ? socialsArray.map(function (item, i) {
+    return _react["default"].createElement(SocialLink, {
+      linkData: item,
+      key: "socialLink-".concat(i)
+    });
+  }) : ''), _react["default"].createElement(_style["default"], {
+    id: "2610529634"
+  }, ".bioHeading.jsx-2610529634{position:relative;padding-bottom:3.5vw;}.bioHeading.jsx-2610529634:before{content:'';position:absolute;width:14vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:768px){.bioHeading.jsx-2610529634{padding-bottom:46px;}.bioHeading.jsx-2610529634:before{width:calc(((100vw - 60px) / 4) - 12px);min-width:180px;}}@media only screen and (max-width:500px){.bioHeading.jsx-2610529634{padding-bottom:25px;}.bioHeading.jsx-2610529634:before{width:calc(50% - 16px);min-width:180px;}}.socials-wrap.jsx-2610529634{margin-top:1.5vw;font-size:calc(12px + 0.25vw);}@media only screen and (max-width:768px){.socials-wrap.jsx-2610529634{margin-top:20px;}}"));
 };
 
-exports.BioHeading = BioHeading;
+exports.BioHeader = BioHeader;
 
-var Heading1 = function Heading1(_ref2) {
-  var children = _ref2.children,
-      style = _ref2.style;
+var SocialLink = function SocialLink(_ref2) {
+  var linkData = _ref2.linkData;
+  var linkPrefix = {
+    insta: 'https://www.instagram.com/',
+    linkedin: 'https://www.linkedin.com/in/'
+  };
+  var linkDisplay = {
+    insta: 'Instagram',
+    linkedin: 'LinkedIn'
+  };
+
+  var getIcon = function getIcon(social) {
+    switch (social) {
+      case 'insta':
+        return _react["default"].createElement(_Icons.InstagramIcon, {
+          style: {
+            width: '100%',
+            height: '100%',
+            marginRight: '0.7vw'
+          }
+        });
+
+      case 'linkedin':
+        return _react["default"].createElement(_Icons.LinkedInIcon, {
+          style: {
+            width: '100%',
+            height: '100%',
+            marginRight: '0.7vw'
+          }
+        });
+
+      default:
+        return '';
+    }
+  };
+
+  return _react["default"].createElement("div", {
+    style: {
+      display: 'inline-block'
+    },
+    className: "jsx-608077487" + " " + 'social-link'
+  }, _react["default"].createElement("div", {
+    className: "jsx-608077487" + " " + 'social-icon'
+  }, getIcon(linkData.social)), _react["default"].createElement("a", {
+    href: "".concat(linkPrefix[linkData.social]).concat(linkData.handle),
+    target: "_blank",
+    style: {
+      display: 'inline-block'
+    },
+    className: "jsx-608077487" + " " + 'social-anchor'
+  }, _react["default"].createElement("span", {
+    className: "jsx-608077487" + " " + 'social-outlet'
+  }, linkDisplay[linkData.social])), _react["default"].createElement(_style["default"], {
+    id: "608077487"
+  }, ".social-link.jsx-608077487{margin-left:1.56vw;}.social-link.jsx-608077487:first-child{margin-left:0;}.social-icon.jsx-608077487{position:relative;display:inline-block;width:1.25vw;height:1.25vw;min-height:16px;min-width:16px;margin-right:0.7vw;}.social-anchor.jsx-608077487{line-height:1;padding-bottom:0px;margin:auto;top:50%;-webkit-transform:translateY(-26%);-ms-transform:translateY(-26%);transform:translateY(-26%);}.social-outlet.jsx-608077487{font-family:Atlas Grotesk;font-style:normal;font-weight:500;-webkit-letter-spacing:0.22px;-moz-letter-spacing:0.22px;-ms-letter-spacing:0.22px;letter-spacing:0.22px;color:#333333;}@media only screen and (max-width:768px){.social-icon.jsx-608077487{width:16px;height:16px;margin-right:8px;}}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-608077487{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-608077487{font-size:5.4vw;}.socials-wrap.jsx-608077487{margin-top:24px;}}"));
+};
+
+exports.SocialLink = SocialLink;
+
+var Heading1 = function Heading1(_ref3) {
+  var children = _ref3.children,
+      style = _ref3.style,
+      hideStroke = _ref3.hideStroke;
   return _react["default"].createElement("h1", {
     style: style,
-    className: "jsx-895223534" + " " + 'headingOne'
+    className: "jsx-1695960141" + " " + "headingOne ".concat(hideStroke ? '' : 'withStroke')
   }, children, _react["default"].createElement(_style["default"], {
-    id: "895223534"
-  }, ".headingOne.jsx-895223534{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-895223534 .clientName.jsx-895223534{display:block;color:#7F7F7F;}.headingOne.jsx-895223534:before{content:'';position:absolute;width:24.56vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:500px){.headingOne.jsx-895223534{font-size:12vw !important;padding-bottom:35px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(50% - 16px) !important;}}@media only screen and (max-width:769px){.headingOne.jsx-895223534{font-size:40px !important;padding-bottom:41px !important;margin-bottom:28px !important;}.headingOne.jsx-895223534:before{width:calc(((100vw - 60px) / 4) - 12px) !important;}}"));
+    id: "1695960141"
+  }, ".headingOne.jsx-1695960141{position:relative;font-family:'Noe Display';font-weight:bold;font-size:3.52vw;line-height:0.97;-webkit-letter-spacing:0.3px;-moz-letter-spacing:0.3px;-ms-letter-spacing:0.3px;letter-spacing:0.3px;padding-bottom:51px;margin:0 0 35px 0;color:#000;}.headingOne.jsx-1695960141 .clientName.jsx-1695960141{display:block;color:#7F7F7F;}.headingOne.withStroke.jsx-1695960141:before{content:'';position:absolute;width:24.56vw;max-width:33%;min-width:180px;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:769px){.headingOne.jsx-1695960141{font-size:40px;padding-bottom:41px;margin-bottom:28px;}.headingOne.withStroke.jsx-1695960141:before{width:calc(((100vw - 60px) / 4) - 12px);}}@media only screen and (max-width:500px){.headingOne.jsx-1695960141{font-size:12vw;padding-bottom:35px;margin-bottom:28px;}.headingOne.withStroke.jsx-1695960141:before{width:calc(50% - 16px);}}"));
 };
 
 exports.Heading1 = Heading1;
 
-var Heading2 = function Heading2(_ref3) {
-  var children = _ref3.children,
-      style = _ref3.style,
-      className = _ref3.className;
+var Heading2 = function Heading2(_ref4) {
+  var children = _ref4.children,
+      style = _ref4.style,
+      className = _ref4.className;
   return _react["default"].createElement("h2", {
     style: Object.assign({
       fontSize: _typography.fontSizeHeading2 / 1280 * 100 + 'vw',
@@ -61,29 +143,28 @@ var Heading2 = function Heading2(_ref3) {
 
 exports.Heading2 = Heading2;
 
-var Heading3 = function Heading3(_ref4) {
-  var children = _ref4.children,
-      style = _ref4.style,
-      className = _ref4.className;
+var Heading3 = function Heading3(_ref5) {
+  var children = _ref5.children,
+      style = _ref5.style,
+      className = _ref5.className;
   return _react["default"].createElement("h3", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      marginTop: 0,
       marginBottom: 0
     }, style),
-    className: "jsx-3263637809" + " " + "heading3 ".concat(className)
+    className: "jsx-3331702303" + " " + "heading3 ".concat(className)
   }, children, _react["default"].createElement(_style["default"], {
-    id: "3263637809"
-  }, ".heading3.jsx-3263637809{font-size:2.03vw;line-height:1;}@media only screen and (max-width:768px){.heading3.jsx-3263637809{font-size:19px;line-height:22px;}}"));
+    id: "3331702303"
+  }, ".heading3.jsx-3331702303{margin-top:0.7vw;font-size:1.56vw;line-height:1;}@media only screen and (max-width:768px){.heading3.jsx-3331702303{margin-top:9px;font-size:20px;line-height:24px;}}"));
 };
 
 exports.Heading3 = Heading3;
 
-var Heading4 = function Heading4(_ref5) {
-  var children = _ref5.children,
-      style = _ref5.style,
-      className = _ref5.className;
+var Heading4 = function Heading4(_ref6) {
+  var children = _ref6.children,
+      style = _ref6.style,
+      className = _ref6.className;
   return _react["default"].createElement("h4", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
@@ -99,10 +180,10 @@ var Heading4 = function Heading4(_ref5) {
 
 exports.Heading4 = Heading4;
 
-var SubHead = function SubHead(_ref6) {
-  var children = _ref6.children,
-      style = _ref6.style,
-      className = _ref6.className;
+var SubHead = function SubHead(_ref7) {
+  var children = _ref7.children,
+      style = _ref7.style,
+      className = _ref7.className;
   return _react["default"].createElement("h4", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk',
@@ -119,10 +200,17 @@ var SubHead = function SubHead(_ref6) {
 
 exports.SubHead = SubHead;
 
+<<<<<<< HEAD
 var WiredType = function WiredType(_ref7) {
   var children = _ref7.children,
       style = _ref7.style,
       className = _ref7.className;
+=======
+var WiredType = function WiredType(_ref8) {
+  var children = _ref8.children,
+      style = _ref8.style,
+      className = _ref8.className;
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Atlas Grotesk'
@@ -135,10 +223,17 @@ var WiredType = function WiredType(_ref7) {
 
 exports.WiredType = WiredType;
 
+<<<<<<< HEAD
 var InquiryText = function InquiryText(_ref8) {
   var children = _ref8.children,
       style = _ref8.style,
       className = _ref8.className;
+=======
+var InquiryText = function InquiryText(_ref9) {
+  var children = _ref9.children,
+      style = _ref9.style,
+      className = _ref9.className;
+>>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Noe Text'
@@ -151,10 +246,10 @@ var InquiryText = function InquiryText(_ref8) {
 
 exports.InquiryText = InquiryText;
 
-var QuoteAttribution = function QuoteAttribution(_ref9) {
-  var children = _ref9.children,
-      style = _ref9.style,
-      className = _ref9.className;
+var QuoteAttribution = function QuoteAttribution(_ref10) {
+  var children = _ref10.children,
+      style = _ref10.style,
+      className = _ref10.className;
   return _react["default"].createElement("span", {
     style: Object.assign({
       fontFamily: 'Institut'
@@ -166,35 +261,6 @@ var QuoteAttribution = function QuoteAttribution(_ref9) {
 };
 
 exports.QuoteAttribution = QuoteAttribution;
-
-var BioHeader = function BioHeader(_ref10) {
-  var personName = _ref10.personName,
-      personTitle = _ref10.personTitle,
-      insta = _ref10.insta;
-  return _react["default"].createElement(BioHeading, {
-    style: {
-      paddingBottom: '2.5vw'
-    }
-  }, personName, _react["default"].createElement("br", null), _react["default"].createElement("span", {
-    style: {
-      fontFamily: 'Atlas Grotesk',
-      display: 'inline-block',
-      lineHeight: 1,
-      whiteSpace: 'nowrap'
-    },
-    className: "bioPersonTitle"
-  }, personTitle), insta ? _react["default"].createElement("a", {
-    href: "https://www.instagram.com/".concat(insta),
-    target: "_blank",
-    className: "noGreen"
-  }, _react["default"].createElement(_Icons.BioIcon, {
-    style: {
-      marginLeft: '16px'
-    }
-  })) : '', _react["default"].createElement("style", null, "\n      .bioPersonTitle {\n        font-size: 1.48vw;\n      }\n      @media only screen and (max-width: 1024px) {\n        .bioPersonTitle{\n          font-size: 1.95vw;\n        }\n      }\n      @media only screen and (max-width: 500px) {\n        .bioPersonTitle{\n          font-size: 5.4vw;\n        }\n      }\n      "));
-};
-
-exports.BioHeader = BioHeader;
 
 var Caption = function Caption(_ref11) {
   var classAdd = _ref11.classAdd,

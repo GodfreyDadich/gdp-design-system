@@ -3,17 +3,19 @@ import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './Slid
 import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
-import { isMobile } from 'react-device-detect'
+import { isMobile, isMobileOnly, isTablet } from 'react-device-detect'
 const RevealCarousel = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [teaseState, setTeaseState] = useState('')
   const [hoverPause, setHoverPause] = useState(false)
+  const [currentCapIndex, setCurrentCapIndex] = useState(0)
+  const [captionMargin, setCaptionMargin] = useState('0')
   const [clickedLeftArrow, setClickedLeftArrow] = useState(false)
   const [clickedRightArrow, setClickedRightArrow] = useState(false)
-  const [currentCapIndex, setCurrentCapIndex] = useState(0)
   const carouselElem = useRef(null)
-  
+
   useEffect(() => {
+    setCaptionMargin(isMobileOnly ? '0 24px' : isTablet ? '0 30px' : '0 42px')
     if (isMobile) {
       return
     } else {
@@ -23,6 +25,7 @@ const RevealCarousel = props => {
       killListeners()
     }
   }, [])
+
   const killListeners = () => {
     if (isMobile) {
       return
@@ -30,48 +33,48 @@ const RevealCarousel = props => {
       carouselElem.current.removeEventListener('keydown', handleKeyDown)
     }
   }
-  
-const goToSlide = (slideIndex) => {
-  setCurrentIndex(slideIndex)
-  setTeaseState('')
-  setHoverPause(true)
-  
-  setTimeout(() => {
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex)
+    setTeaseState('')
+    setHoverPause(true)
+
+    setTimeout(() => {
       setClickedRightArrow(false)
       setClickedLeftArrow(false)
       setCurrentCapIndex(slideIndex)
       setHoverPause(false)
-  }, 680)
-}
-const goToPrevSlide = () => {
-  setClickedLeftArrow(true)
-  const prevSlide = currentIndex === 0 ? props.images.length -1 : currentIndex - 1
-  goToSlide(prevSlide)
-}
-const goToNextSlide = () => {
-  setClickedRightArrow(true)
-  const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
-  goToSlide(nextSlide)
-}
-const handleKeyDown = (e) => {
-  if (e.keyCode === 39) {
-    goToNextSlide()
+    }, 200)
   }
-  if (e.keyCode === 37) {
-    goToPrevSlide()
+  const goToPrevSlide = () => {
+    setClickedLeftArrow(true)
+    const prevSlide = currentIndex === 0 ? props.images.length - 1 : currentIndex - 1
+    goToSlide(prevSlide)
   }
-}
-const hoverTeasePrev = () => {
-  setTeaseState(hoverPause ? '' : 'tease-prev' )
-}
-const hoverTeaseNext = () => {
-  setTeaseState(hoverPause ? '' : 'tease-next')
-}
-const hoverTeaseReset = () => {
-  setTeaseState('')
-}
-  
-const getCarouselStyle = index => {
+  const goToNextSlide = () => {
+    setClickedRightArrow(true)
+    const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
+    goToSlide(nextSlide)
+  }
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 39) {
+      goToNextSlide()
+    }
+    if (e.keyCode === 37) {
+      goToPrevSlide()
+    }
+  }
+  const hoverTeasePrev = () => {
+    setTeaseState(hoverPause ? '' : 'tease-prev')
+  }
+  const hoverTeaseNext = () => {
+    setTeaseState(hoverPause ? '' : 'tease-next')
+  }
+  const hoverTeaseReset = () => {
+    setTeaseState('')
+  }
+
+  const getCarouselStyle = index => {
     const active = currentIndex
     const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.images.length - 1
     const next = currentIndex + 1 <= props.images.length - 1 ? currentIndex + 1 : 0
@@ -107,93 +110,91 @@ const getCarouselStyle = index => {
     }
   }
   return <div>
-      <figure
-        ref={carouselElem}
+    <figure
+      ref={carouselElem}
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%'
+      }}
+      className={`carouselWrapper ${props.fullBleed ? ' full-bleed' : ''}${props.caption && props.caption.length > 0 ? ' withCaption' : ''}`}>
+      <div
         style={{
           position: 'relative',
+          height: '100%',
           width: '100%',
-          height: '100%'
+          overflow: 'hidden',
+          touchAction: 'pan-y',
+          userSelect: 'none',
+          paddingTop: getPaddingTop(props.aspectRatio)
         }}
-        className={`carouselWrapper ${props.fullBleed ? ' full-bleed' : ''}${props.caption && props.caption.length > 0 ? ' withCaption' : ''}`}>
+        className={`carousel__container ${teaseState}`}>
+        {isMobile ?
+          <RevealLeftArrow
+            clickAction={goToPrevSlide}
+            over={hoverTeasePrev}
+            out={hoverTeaseReset}
+          />
+          :
+          <LeftArrow
+            clickAction={goToPrevSlide}
+            over={hoverTeasePrev}
+            out={hoverTeaseReset}
+          />}
+        {isMobile ?
+          <RevealRightArrow
+            clickAction={goToNextSlide}
+            over={hoverTeaseNext}
+            out={hoverTeaseReset}
+          />
+          :
+          <RightArrow
+            clickAction={goToNextSlide}
+            over={hoverTeaseNext}
+            out={hoverTeaseReset}
+          />
+        }
         <div
           style={{
-            position: 'relative',
-            height: '100%',
+            position: props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+            top: '0',
+            left: '0',
             width: '100%',
-            overflow: 'hidden',
-            touchAction: 'pan-y',
-            userSelect: 'none',
-            paddingTop: getPaddingTop(props.aspectRatio)
+            height: '100%',
+            transition: 'transform .75s ease, box-shadow .3s ease'
           }}
-          className={`carousel__container ${teaseState}`}>
-          {isMobile ?
-            <RevealLeftArrow
-              clickedArrow={clickedLeftArrow}
-              clickAction={goToPrevSlide}
-              over={hoverTeasePrev}
-              out={hoverTeaseReset}
-            />
-            :
-            <LeftArrow
-              clickAction={goToPrevSlide}
-              over={hoverTeasePrev}
-              out={hoverTeaseReset}
-            />}
-          {isMobile ?
-            <RevealRightArrow
-              clickedArrow={clickedRightArrow}
-              clickAction={goToNextSlide}
-              over={hoverTeaseNext}
-              out={hoverTeaseReset}
-            />
-            :
-            <RightArrow
-              clickAction={goToNextSlide}
-              over={hoverTeaseNext}
-              out={hoverTeaseReset}
-            />
+          className='carousel__images-container'>
+          {
+            props.images.map((image, i) => (
+              <div
+                key={`carouselImage${i}`}
+                style={Object.assign({
+                  display: 'none',
+                  height: '100%',
+                  width: '100%',
+                  position: 'absolute',
+                  top: 0,
+                  overflow: 'hidden',
+                  zIndex: '3'
+                }, getCarouselStyle(i))}>
+                <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
+              </div>
+            ))
           }
-          <div
-            style={{
-              position: props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
-              top: '0',
-              left: '0',
-              width: '100%',
-              height: '100%',
-              transition: 'transform .75s ease, box-shadow .3s ease'
-            }}
-            className='carousel__images-container'>
-            {
-              props.images.map((image, i) => (
-                <div
-                  key={`carouselImage${i}`}
-                  style={Object.assign({
-                    display: 'none',
-                    height: '100%',
-                    width: '100%',
-                    position: 'absolute',
-                    top: 0,
-                    overflow: 'hidden',
-                    zIndex: '3'
-                  }, getCarouselStyle(i))}>
-                  <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
-                </div>
-              ))
-            }
-          </div>
         </div>
-        {props.captionsArray ?
-          <div style={{ height: '60px' }}>
-            <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
-              <span style={{
-                opacity: clickedLeftArrow || clickedRightArrow ? 0 : 1,
-                transition: 'opacity .4s ease-in-out'
-              }}>{props.captionsArray[currentCapIndex]}</span>
-            </Caption>
-          </div>
-          :
-          props.caption && props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{props.caption}</Caption> : ''}
-      </figure>
-    </div>
-  }
+      </div>
+      {props.captionsArray ?
+        <div style={{ height: isMobile ? '11vw' : '2vw', margin: captionMargin }}>
+          <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
+            <span style={{
+              opacity: clickedLeftArrow || clickedRightArrow ? 0 : 1,
+              transition: 'opacity .2s ease-in-out'
+            }}>{props.captionsArray[currentCapIndex]}</span>
+          </Caption>
+        </div>
+        :
+        props.caption && props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{props.caption}</Caption> : ''}
+    </figure>
+  </div>
+}
 export default RevealCarousel

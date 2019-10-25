@@ -26,7 +26,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const evenGridStyles = {
     flexGrow: images.length,
     justifyContent: 'space-between',
-    margin: '15px',
+    margin: mobile && removeGrayBackground ? '0' : '15px',
     width: `calc(${colWidth}% - 50px)`,
     cursor: carousel === 'yes' ? 'pointer' : 'default'
   }
@@ -71,7 +71,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             }
           </CircularCarousel>
           : <div className='mobile-flat'>
-            <div className='mobile-grid-container' style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)' }}>
+            <div className='mobile-grid-container' style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)', padding: removeGrayBackground ? '0' : '15px'  }}>
               <div style={evenGridStyles}>
                 <Image
                   aspectRatio={thumbAspect || 'noAspect'}
@@ -207,7 +207,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         flex-direction: row;
         flex-wrap: wrap;
         display:flex;
-        padding: 15px;
       }
       .grid-image:hover {
         filter: brightness(70%);

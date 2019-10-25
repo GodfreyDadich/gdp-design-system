@@ -1,71 +1,156 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
-import { BioIcon } from './Icons'
+import { InstagramIcon, LinkedInIcon } from './Icons'
 
 import {
-  fontSizeSuper, lineHeightSuper,
   fontSizeHeading2
 } from "../styles/typography";
 
-export const BioHeading = ({ children, style }) =>
-  <h1
-    style={style}
-    className='bioHeading' >
-    {children}
+export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
+  <div className='bioHeading' style={style}>
+    <Heading1
+      hideStroke
+      style={{
+        margin: 0,
+        paddingBottom: 0
+      }}
+    >{personName}</Heading1>
+    <Heading3
+      style={{
+        whiteSpace: 'nowrap'
+      }}
+      className='bioPersonTitle'
+    >{personTitle}</Heading3>
+    <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} >
+      {socialsArray && socialsArray.length > 0 ? socialsArray.map((item, i) => <SocialLink linkData={item} key={`socialLink-${i}`} />) : ''}
+    </div>
     <style jsx>{`
-    .bioHeading {
-      position: relative;
-      font-family: 'Noe Display';
-      font-weight: bold;
-      font-size: 3.52vw; 
-      line-height: 0.97;
-      letter-spacing: 0.3px;
-      padding-bottom: 51px;
-      margin: 0 0 20px 0;
-      color: #000;
+      .bioHeading {
+        position: relative;
+        padding-bottom: 3.5vw;
+        margin-bottom: 35px;
 
-      .clientName {
-        display: block;
-        color: #7F7F7F; 
+        &:before {
+          content: '';
+          position: absolute;
+          width: 14vw;
+          max-width: 33%;
+          height: 7px;
+          background-color: #000;
+          bottom: 0;
+          left: 0;
+        }
+        @media only screen and (max-width: 768px) {
+          padding-bottom: 46px; 
+          margin-bottom: 28px;
+          
+          &:before {
+            width: calc(((100vw - 60px) / 4) - 12px);
+            min-width: 180px;
+          }
+        }             
+        @media only screen and (max-width: 500px) {
+          padding-bottom: 25px;
+          &:before {
+            width: calc(50% - 16px);
+            min-width: 180px;
+          }
+        }         
       }
+      .socials-wrap {
+        margin-top: 1.5vw;
+        font-size: calc(12px + 0.25vw);
+        @media only screen and (max-width: 768px) {
+          margin-top: 20px;
+        }
+      }
+    `}</style>
+  </div>
 
-      &:before {
-        content: '';
-        position: absolute;
-        width: 24.56vw;
-        max-width: 33%;
-        height: 7px;
-        background-color: #000;
-        bottom: 15px;
-        left: 0;
+export const SocialLink = ({ linkData }) => {
+  const linkPrefix = {
+    insta: 'https://www.instagram.com/',
+    linkedin: 'https://www.linkedin.com/in/'
+  }
+  const linkDisplay = {
+    insta: 'Instagram',
+    linkedin: 'LinkedIn'
+  }
+  const getIcon = social => {
+    switch (social) {
+      case 'insta':
+        return <InstagramIcon style={{ width: '100%', height: '100%', marginRight: '0.7vw' }} />
+      case 'linkedin':
+        return <LinkedInIcon style={{ width: '100%', height: '100%', marginRight: '0.7vw' }} />
+      default:
+        return ''
+    }
+  }
+  return <div style={{ display: 'inline-block' }} className='social-link'>
+    <div className='social-icon'>{getIcon(linkData.social)}</div>
+    <a className='social-anchor' href={`${linkPrefix[linkData.social]}${linkData.handle}`} target='_blank' style={{ display: 'inline-block' }}>
+      <span className='social-outlet'>{linkDisplay[linkData.social]}</span>
+    </a>
+    <style jsx>{`
+      .social-link {
+        margin-left: 1.56vw;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      .social-icon {
+        position: relative;
+        display: inline-block;
+        width: 1.25vw;
+        height: 1.25vw;
+        min-height: 16px;
+        min-width: 16px;
+        margin-right: 0.7vw;
+      }
+      .social-anchor {
+        line-height: 1;
+        padding-bottom: 0px;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-26%);
+      }
+      .social-outlet {
+        font-family: Atlas Grotesk;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.22px;
+        color: #333333; 
+      }
+      @media only screen and (max-width: 768px) {
+        .social-icon {
+          width: 16px;
+          height: 16px;
+          margin-right: 8px;
+        }        
+      }
+      
+      @media only screen and (max-width: 1024px) {
+        .bioPersonTitle{
+          font-size: 1.95vw;
+        }
       }
       @media only screen and (max-width: 500px) {
-        font-size: 12vw !important;
-        padding-bottom: 35px !important;
-        margin-bottom: 28px !important;
-
-        &:before {
-          width: calc(50% - 16px) !important;
+        .bioPersonTitle{
+          font-size: 5.4vw;
         }
-      }  
-      @media only screen and (max-width: 769px) {
-        font-size: 40px !important;
-        padding-bottom: 41px !important;
-        margin-bottom: 28px !important;
-
-        &:before {
-          width: calc(((100vw - 60px) / 4) - 12px) !important;
+        .socials-wrap {
+          margin-top: 24px;
         }
-      }             
-    }
-  `}</style>
-  </h1>
+      }
+      `}</style>
+  </div>
+}
 
-export const Heading1 = ({ children, style }) =>
+export const Heading1 = ({ children, style, hideStroke}) =>
   <h1
     style={style}
-    className='headingOne' >
+    className={`headingOne ${hideStroke ? '' : 'withStroke'}`} >
     {children}
     <style jsx>{`
       .headingOne {
@@ -84,34 +169,35 @@ export const Heading1 = ({ children, style }) =>
           color: #7F7F7F; 
         }
 
-        &:before {
+        &.withStroke:before {
           content: '';
           position: absolute;
           width: 24.56vw;
           max-width: 33%;
+          min-width: 180px;
           height: 7px;
           background-color: #000;
           bottom: 0;
           left: 0;
         }
-        @media only screen and (max-width: 500px) {
-          font-size: 12vw !important;
-          padding-bottom: 35px !important;
-          margin-bottom: 28px !important;
-
-          &:before {
-            width: calc(50% - 16px) !important;
-          }
-        }  
         @media only screen and (max-width: 769px) {
-          font-size: 40px !important;
-          padding-bottom: 41px !important;
-          margin-bottom: 28px !important;
+          font-size: 40px;
+          padding-bottom: 41px;
+          margin-bottom: 28px;
 
-          &:before {
-            width: calc(((100vw - 60px) / 4) - 12px) !important;
+          &.withStroke:before {
+            width: calc(((100vw - 60px) / 4) - 12px);
           }
         }             
+        @media only screen and (max-width: 500px) {
+          font-size: 12vw;
+          padding-bottom: 35px;
+          margin-bottom: 28px;
+
+          &.withStroke:before {
+            width: calc(50% - 16px);
+          }
+        }  
       }
     `}</style>
   </h1>
@@ -133,7 +219,6 @@ export const Heading3 = ({ children, style, className }) =>
     style={Object.assign({
       fontFamily: 'Atlas Grotesk',
       fontWeight: 'bold',
-      marginTop: 0,
       marginBottom: 0
     }, style)}
     className={`heading3 ${className}`}
@@ -141,12 +226,14 @@ export const Heading3 = ({ children, style, className }) =>
     {children}
     <style jsx>{`
       .heading3 {
-        font-size: 2.03vw;
+        margin-top: 0.7vw;
+        font-size: 1.56vw;
         line-height: 1;    
 
         @media only screen and (max-width: 768px) {
-          font-size: 19px;
-          line-height: 22px;
+          margin-top: 9px;
+          font-size: 20px;
+          line-height: 24px;
         }  
       }    
     `}</style>
@@ -269,43 +356,6 @@ export const QuoteAttribution = ({ children, style, className }) =>
     `}</style>
   </span>
 
-export const BioHeader = ({ personName, personTitle, insta }) =>
-  <BioHeading
-    style={{
-      paddingBottom: '2.5vw'
-    }}
-  >
-    {personName}
-    <br />
-    <span
-      style={{
-        fontFamily: 'Atlas Grotesk',
-        display: 'inline-block',
-        lineHeight: 1,
-        whiteSpace: 'nowrap'
-      }}
-      className='bioPersonTitle'
-    >{personTitle}</span>
-    { insta
-      ? <a href={`https://www.instagram.com/${insta}`} target='_blank' className='noGreen'><BioIcon style={{ marginLeft: '16px' }} /></a>
-      : ''
-    }
-    <style>{`
-      .bioPersonTitle {
-        font-size: 1.48vw;
-      }
-      @media only screen and (max-width: 1024px) {
-        .bioPersonTitle{
-          font-size: 1.95vw;
-        }
-      }
-      @media only screen and (max-width: 500px) {
-        .bioPersonTitle{
-          font-size: 5.4vw;
-        }
-      }
-      `}</style>
-  </BioHeading>
 
 export const Caption = ({ classAdd, children }) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >

@@ -10,6 +10,7 @@ import {
   defaultCaption,
   captionsArray,  
   imageGallery2,
+  imageGallery3,
   galleries,
   aspectRatios,
   countIndicator,
@@ -51,7 +52,7 @@ export const ImageSlider = () =>
 
 export const ImageRevealCarousel = () =>
   <RevealCarousel
-    images={imageGallery2}
+    images={imageGallery3}
     countIndicator={select('Count Indicator', countIndicator, 'dots')}
     containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
