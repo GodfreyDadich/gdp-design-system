@@ -62,7 +62,7 @@ exports.ImageSlider = ImageSlider;
 
 var ImageRevealCarousel = function ImageRevealCarousel() {
   return _react["default"].createElement(_RevealCarousel["default"], {
-    images: _defaults.imageGallery2,
+    images: _defaults.imageGallery3,
     countIndicator: (0, _addonKnobs.select)('Count Indicator', _defaults.countIndicator, 'dots'),
     containerAspect: (0, _addonKnobs.select)('Container Aspect Ratio', _defaults.aspectRatios, 'sixteen'),
     aspectRatio: (0, _addonKnobs.select)('Aspect Ratio', _defaults.aspectRatios, 'sixteen'),

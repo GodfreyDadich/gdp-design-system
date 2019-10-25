@@ -49,6 +49,16 @@ var RevealCarousel = function RevealCarousel(props) {
       captionMargin = _useState10[0],
       setCaptionMargin = _useState10[1];
 
+  var _useState11 = (0, _react.useState)(false),
+      _useState12 = (0, _slicedToArray2["default"])(_useState11, 2),
+      clickedLeftArrow = _useState12[0],
+      setClickedLeftArrow = _useState12[1];
+
+  var _useState13 = (0, _react.useState)(false),
+      _useState14 = (0, _slicedToArray2["default"])(_useState13, 2),
+      clickedRightArrow = _useState14[0],
+      setClickedRightArrow = _useState14[1];
+
   var carouselElem = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     setCaptionMargin(_reactDeviceDetect.isMobileOnly ? '0 24px' : _reactDeviceDetect.isTablet ? '0 30px' : '0 42px');
@@ -76,18 +86,22 @@ var RevealCarousel = function RevealCarousel(props) {
     setCurrentIndex(slideIndex);
     setTeaseState('');
     setHoverPause(true);
-    setCurrentCapIndex(slideIndex);
     setTimeout(function () {
+      setClickedRightArrow(false);
+      setClickedLeftArrow(false);
+      setCurrentCapIndex(slideIndex);
       setHoverPause(false);
-    }, 1000);
+    }, 200);
   };
 
   var goToPrevSlide = function goToPrevSlide() {
+    setClickedLeftArrow(true);
     var prevSlide = currentIndex === 0 ? props.images.length - 1 : currentIndex - 1;
     goToSlide(prevSlide);
   };
 
   var goToNextSlide = function goToNextSlide() {
+    setClickedRightArrow(true);
     var nextSlide = currentIndex === props.images.length - 1 ? 0 : currentIndex + 1;
     goToSlide(nextSlide);
   };
@@ -223,7 +237,12 @@ var RevealCarousel = function RevealCarousel(props) {
     }
   }, _react["default"].createElement(_Type.Caption, {
     classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
-  }, _react["default"].createElement("span", null, props.captionsArray[currentCapIndex]))) : props.caption && props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
+  }, _react["default"].createElement("span", {
+    style: {
+      opacity: clickedLeftArrow || clickedRightArrow ? 0 : 1,
+      transition: 'opacity .2s ease-in-out'
+    }
+  }, props.captionsArray[currentCapIndex]))) : props.caption && props.caption.length > 0 ? _react["default"].createElement(_Type.Caption, {
     classAdd: "col-6 skip-3 col-6-tab skip-1-tab"
   }, props.caption) : ''));
 };
