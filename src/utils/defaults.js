@@ -5,13 +5,10 @@ export const defaultCta = 'CTA Tk'
 export const defaultCopyBlock = 'Copy Tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim.'
 export const defaultCaption = 'Caption tk ipsem lorem dolor elis malesada congue. Maect as sed imperet ex, egetejku uismod enim. Donec vivra ut ibh. Culpa ulmco eiusmod uterif dolor ipsem lorem dol onsecteur mis moguet fila.'
 export const captionsArray = [
-  'caption1 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption2 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption3 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption4 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption5 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption6 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd',
-  'caption7 fjkfkjdhg dhkgjhfjsdhjhkdg kdghjgfdsjh fgjhdgf jhksd'
+  'Caption 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  'Caption 2 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  'Caption 3 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  'Caption 4 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 ]
 export const breadCrumbData = [
   {
@@ -55,8 +52,10 @@ export const imageGallery2 = [
   'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2Nqemx3em1haDAxZWswaW5qc3lla2cxamwtMjMxMnN3LWpqaW50ZXJ2aWV3LWxvLXIyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjoxMDI0fX19'
 ]
 export const imageGallery3 = [
-  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn4w00au0injsf6wzl76-05-1316wiwkopen001.full.jpg',
-  'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn2m00at0injl51tmrkf-07-1316wismopen001.full.jpg'
+  'http://gdp-site.s3.amazonaws.com/attachments/ck25derrd04q80irsh0p69vgh-01.full.png',
+  'http://gdp-site.s3.amazonaws.com/attachments/ck25derrd04he0io21rpdsthu-02.full.png',
+  'http://gdp-site.s3.amazonaws.com/attachments/ck25derra04q70irsz2ynw1ua-03.full.png',
+  'http://gdp-site.s3.amazonaws.com/attachments/ck25dert004q90irs14b8rbdt-04.full.png'
 ]
 export const galleries = [
   {
