@@ -28,7 +28,7 @@ var BioHeader = function BioHeader(_ref) {
       style = _ref.style;
   return _react["default"].createElement("div", {
     style: style,
-    className: "jsx-1969536642" + " " + 'bioHeading'
+    className: "jsx-1024001945" + " " + 'bioHeading'
   }, _react["default"].createElement(Heading1, {
     hideStroke: true,
     style: {
@@ -41,15 +41,15 @@ var BioHeader = function BioHeader(_ref) {
     },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
-    className: "jsx-1969536642" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
+    className: "jsx-1024001945" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
   }, socialsArray && socialsArray.length > 0 ? socialsArray.map(function (item, i) {
     return _react["default"].createElement(SocialLink, {
       linkData: item,
       key: "socialLink-".concat(i)
     });
   }) : ''), _react["default"].createElement(_style["default"], {
-    id: "1969536642"
-  }, ".bioHeading.jsx-1969536642{position:relative;padding-bottom:3.5vw;margin-bottom:35px;}.bioHeading.jsx-1969536642:before{content:'';position:absolute;width:14vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:768px){.bioHeading.jsx-1969536642{padding-bottom:46px;margin-bottom:28px;}.bioHeading.jsx-1969536642:before{width:calc(((100vw - 60px) / 4) - 12px);min-width:180px;}}@media only screen and (max-width:500px){.bioHeading.jsx-1969536642{padding-bottom:25px;}.bioHeading.jsx-1969536642:before{width:calc(50% - 16px);min-width:180px;}}.socials-wrap.jsx-1969536642{margin-top:1.5vw;font-size:calc(12px + 0.25vw);}@media only screen and (max-width:768px){.socials-wrap.jsx-1969536642{margin-top:20px;}}"));
+    id: "1024001945"
+  }, ".bioHeading.jsx-1024001945{position:relative;padding-bottom:51px;margin-bottom:35px;}.bioHeading.jsx-1024001945:before{content:'';position:absolute;width:14vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:768px){.bioHeading.jsx-1024001945{padding-bottom:53px;margin-bottom:28px;}.bioHeading.jsx-1024001945:before{width:calc(((100vw - 60px) / 4) - 12px);min-width:180px;}}@media only screen and (max-width:500px){.bioHeading.jsx-1024001945{padding-bottom:32px;}.bioHeading.jsx-1024001945:before{width:calc(50% - 16px);min-width:180px;}}.socials-wrap.jsx-1024001945{margin-top:1.5vw;font-size:calc(12px + 0.25vw);}@media only screen and (max-width:768px){.socials-wrap.jsx-1024001945{margin-top:20px;}}"));
 };
 
 exports.BioHeader = BioHeader;
