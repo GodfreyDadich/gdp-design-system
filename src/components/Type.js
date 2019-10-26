@@ -28,7 +28,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
     <style jsx>{`
       .bioHeading {
         position: relative;
-        padding-bottom: 3.5vw;
+        padding-bottom: 51px;
         margin-bottom: 35px;
 
         &:before {
@@ -42,7 +42,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
           left: 0;
         }
         @media only screen and (max-width: 768px) {
-          padding-bottom: 46px; 
+          padding-bottom: 53px; 
           margin-bottom: 28px;
           
           &:before {
@@ -51,7 +51,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
           }
         }             
         @media only screen and (max-width: 500px) {
-          padding-bottom: 25px;
+          padding-bottom: 32px;
           &:before {
             width: calc(50% - 16px);
             min-width: 180px;
