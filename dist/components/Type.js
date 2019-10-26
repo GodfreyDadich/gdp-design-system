@@ -94,21 +94,21 @@ var SocialLink = function SocialLink(_ref2) {
     style: {
       display: 'inline-block'
     },
-    className: "jsx-608077487" + " " + 'social-link'
+    className: "jsx-1465132947" + " " + 'social-link'
   }, _react["default"].createElement("div", {
-    className: "jsx-608077487" + " " + 'social-icon'
+    className: "jsx-1465132947" + " " + 'social-icon'
   }, getIcon(linkData.social)), _react["default"].createElement("a", {
     href: "".concat(linkPrefix[linkData.social]).concat(linkData.handle),
     target: "_blank",
     style: {
       display: 'inline-block'
     },
-    className: "jsx-608077487" + " " + 'social-anchor'
+    className: "jsx-1465132947" + " " + 'social-anchor'
   }, _react["default"].createElement("span", {
-    className: "jsx-608077487" + " " + 'social-outlet'
+    className: "jsx-1465132947" + " " + 'social-outlet'
   }, linkDisplay[linkData.social])), _react["default"].createElement(_style["default"], {
-    id: "608077487"
-  }, ".social-link.jsx-608077487{margin-left:1.56vw;}.social-link.jsx-608077487:first-child{margin-left:0;}.social-icon.jsx-608077487{position:relative;display:inline-block;width:1.25vw;height:1.25vw;min-height:16px;min-width:16px;margin-right:0.7vw;}.social-anchor.jsx-608077487{line-height:1;padding-bottom:0px;margin:auto;top:50%;-webkit-transform:translateY(-26%);-ms-transform:translateY(-26%);transform:translateY(-26%);}.social-outlet.jsx-608077487{font-family:Atlas Grotesk;font-style:normal;font-weight:500;-webkit-letter-spacing:0.22px;-moz-letter-spacing:0.22px;-ms-letter-spacing:0.22px;letter-spacing:0.22px;color:#333333;}@media only screen and (max-width:768px){.social-icon.jsx-608077487{width:16px;height:16px;margin-right:8px;}}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-608077487{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-608077487{font-size:5.4vw;}.socials-wrap.jsx-608077487{margin-top:24px;}}"));
+    id: "1465132947"
+  }, ".social-link.jsx-1465132947{margin-left:calc(20px + .56vw);}.social-link.jsx-1465132947:first-child{margin-left:0;}.social-icon.jsx-1465132947{position:relative;display:inline-block;width:1.25vw;height:1.25vw;min-height:16px;min-width:16px;margin-right:0.7vw;}.social-anchor.jsx-1465132947{line-height:1;padding-bottom:0px;margin:auto;-webkit-transform:translateY(-0.25vw);-ms-transform:translateY(-0.25vw);transform:translateY(-0.25vw);}.social-outlet.jsx-1465132947{font-family:Atlas Grotesk;font-style:normal;font-weight:500;-webkit-letter-spacing:0.22px;-moz-letter-spacing:0.22px;-ms-letter-spacing:0.22px;letter-spacing:0.22px;color:#333333;}@media only screen and (max-width:768px){.social-icon.jsx-1465132947{width:16px;height:16px;margin-right:8px;}}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-1465132947{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-1465132947{font-size:5.4vw;}.socials-wrap.jsx-1465132947{margin-top:24px;}.social-anchor.jsx-1465132947{-webkit-transform:translateY(-0.75vw);-ms-transform:translateY(-0.75vw);transform:translateY(-0.75vw);}}"));
 };
 
 exports.SocialLink = SocialLink;
