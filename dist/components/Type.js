@@ -36,9 +36,6 @@ var BioHeader = function BioHeader(_ref) {
       paddingBottom: 0
     }
   }, personName), _react["default"].createElement(Heading3, {
-    style: {
-      whiteSpace: 'nowrap'
-    },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
     className: "jsx-1024001945" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
