@@ -17,9 +17,6 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
       }}
     >{personName}</Heading1>
     <Heading3
-      style={{
-        whiteSpace: 'nowrap'
-      }}
       className='bioPersonTitle'
     >{personTitle}</Heading3>
     <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} >
@@ -28,7 +25,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
     <style jsx>{`
       .bioHeading {
         position: relative;
-        padding-bottom: 3.5vw;
+        padding-bottom: 51px;
         margin-bottom: 35px;
 
         &:before {
@@ -42,7 +39,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
           left: 0;
         }
         @media only screen and (max-width: 768px) {
-          padding-bottom: 46px; 
+          padding-bottom: 53px; 
           margin-bottom: 28px;
           
           &:before {
@@ -51,7 +48,7 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
           }
         }             
         @media only screen and (max-width: 500px) {
-          padding-bottom: 25px;
+          padding-bottom: 32px;
           &:before {
             width: calc(50% - 16px);
             min-width: 180px;
@@ -94,7 +91,7 @@ export const SocialLink = ({ linkData }) => {
     </a>
     <style jsx>{`
       .social-link {
-        margin-left: 1.56vw;
+        margin-left: calc(20px + .56vw);
         &:first-child {
           margin-left: 0;
         }
@@ -112,8 +109,7 @@ export const SocialLink = ({ linkData }) => {
         line-height: 1;
         padding-bottom: 0px;
         margin: auto;
-        top: 50%;
-        transform: translateY(-26%);
+        transform: translateY(-0.25vw);
       }
       .social-outlet {
         font-family: Atlas Grotesk;
@@ -141,6 +137,9 @@ export const SocialLink = ({ linkData }) => {
         }
         .socials-wrap {
           margin-top: 24px;
+        }
+        .social-anchor {
+          transform: translateY(-.75vw);
         }
       }
       `}</style>

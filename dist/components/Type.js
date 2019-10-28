@@ -28,7 +28,7 @@ var BioHeader = function BioHeader(_ref) {
       style = _ref.style;
   return _react["default"].createElement("div", {
     style: style,
-    className: "jsx-2610529634" + " " + 'bioHeading'
+    className: "jsx-1024001945" + " " + 'bioHeading'
   }, _react["default"].createElement(Heading1, {
     hideStroke: true,
     style: {
@@ -36,20 +36,17 @@ var BioHeader = function BioHeader(_ref) {
       paddingBottom: 0
     }
   }, personName), _react["default"].createElement(Heading3, {
-    style: {
-      whiteSpace: 'nowrap'
-    },
     className: "bioPersonTitle"
   }, personTitle), _react["default"].createElement("div", {
-    className: "jsx-2610529634" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
+    className: "jsx-1024001945" + " " + "".concat(socialsArray.length > 0 ? 'socials-wrap' : '')
   }, socialsArray && socialsArray.length > 0 ? socialsArray.map(function (item, i) {
     return _react["default"].createElement(SocialLink, {
       linkData: item,
       key: "socialLink-".concat(i)
     });
   }) : ''), _react["default"].createElement(_style["default"], {
-    id: "2610529634"
-  }, ".bioHeading.jsx-2610529634{position:relative;padding-bottom:3.5vw;}.bioHeading.jsx-2610529634:before{content:'';position:absolute;width:14vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:768px){.bioHeading.jsx-2610529634{padding-bottom:46px;}.bioHeading.jsx-2610529634:before{width:calc(((100vw - 60px) / 4) - 12px);min-width:180px;}}@media only screen and (max-width:500px){.bioHeading.jsx-2610529634{padding-bottom:25px;}.bioHeading.jsx-2610529634:before{width:calc(50% - 16px);min-width:180px;}}.socials-wrap.jsx-2610529634{margin-top:1.5vw;font-size:calc(12px + 0.25vw);}@media only screen and (max-width:768px){.socials-wrap.jsx-2610529634{margin-top:20px;}}"));
+    id: "1024001945"
+  }, ".bioHeading.jsx-1024001945{position:relative;padding-bottom:51px;margin-bottom:35px;}.bioHeading.jsx-1024001945:before{content:'';position:absolute;width:14vw;max-width:33%;height:7px;background-color:#000;bottom:0;left:0;}@media only screen and (max-width:768px){.bioHeading.jsx-1024001945{padding-bottom:53px;margin-bottom:28px;}.bioHeading.jsx-1024001945:before{width:calc(((100vw - 60px) / 4) - 12px);min-width:180px;}}@media only screen and (max-width:500px){.bioHeading.jsx-1024001945{padding-bottom:32px;}.bioHeading.jsx-1024001945:before{width:calc(50% - 16px);min-width:180px;}}.socials-wrap.jsx-1024001945{margin-top:1.5vw;font-size:calc(12px + 0.25vw);}@media only screen and (max-width:768px){.socials-wrap.jsx-1024001945{margin-top:20px;}}"));
 };
 
 exports.BioHeader = BioHeader;
@@ -94,21 +91,21 @@ var SocialLink = function SocialLink(_ref2) {
     style: {
       display: 'inline-block'
     },
-    className: "jsx-608077487" + " " + 'social-link'
+    className: "jsx-1465132947" + " " + 'social-link'
   }, _react["default"].createElement("div", {
-    className: "jsx-608077487" + " " + 'social-icon'
+    className: "jsx-1465132947" + " " + 'social-icon'
   }, getIcon(linkData.social)), _react["default"].createElement("a", {
     href: "".concat(linkPrefix[linkData.social]).concat(linkData.handle),
     target: "_blank",
     style: {
       display: 'inline-block'
     },
-    className: "jsx-608077487" + " " + 'social-anchor'
+    className: "jsx-1465132947" + " " + 'social-anchor'
   }, _react["default"].createElement("span", {
-    className: "jsx-608077487" + " " + 'social-outlet'
+    className: "jsx-1465132947" + " " + 'social-outlet'
   }, linkDisplay[linkData.social])), _react["default"].createElement(_style["default"], {
-    id: "608077487"
-  }, ".social-link.jsx-608077487{margin-left:1.56vw;}.social-link.jsx-608077487:first-child{margin-left:0;}.social-icon.jsx-608077487{position:relative;display:inline-block;width:1.25vw;height:1.25vw;min-height:16px;min-width:16px;margin-right:0.7vw;}.social-anchor.jsx-608077487{line-height:1;padding-bottom:0px;margin:auto;top:50%;-webkit-transform:translateY(-26%);-ms-transform:translateY(-26%);transform:translateY(-26%);}.social-outlet.jsx-608077487{font-family:Atlas Grotesk;font-style:normal;font-weight:500;-webkit-letter-spacing:0.22px;-moz-letter-spacing:0.22px;-ms-letter-spacing:0.22px;letter-spacing:0.22px;color:#333333;}@media only screen and (max-width:768px){.social-icon.jsx-608077487{width:16px;height:16px;margin-right:8px;}}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-608077487{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-608077487{font-size:5.4vw;}.socials-wrap.jsx-608077487{margin-top:24px;}}"));
+    id: "1465132947"
+  }, ".social-link.jsx-1465132947{margin-left:calc(20px + .56vw);}.social-link.jsx-1465132947:first-child{margin-left:0;}.social-icon.jsx-1465132947{position:relative;display:inline-block;width:1.25vw;height:1.25vw;min-height:16px;min-width:16px;margin-right:0.7vw;}.social-anchor.jsx-1465132947{line-height:1;padding-bottom:0px;margin:auto;-webkit-transform:translateY(-0.25vw);-ms-transform:translateY(-0.25vw);transform:translateY(-0.25vw);}.social-outlet.jsx-1465132947{font-family:Atlas Grotesk;font-style:normal;font-weight:500;-webkit-letter-spacing:0.22px;-moz-letter-spacing:0.22px;-ms-letter-spacing:0.22px;letter-spacing:0.22px;color:#333333;}@media only screen and (max-width:768px){.social-icon.jsx-1465132947{width:16px;height:16px;margin-right:8px;}}@media only screen and (max-width:1024px){.bioPersonTitle.jsx-1465132947{font-size:1.95vw;}}@media only screen and (max-width:500px){.bioPersonTitle.jsx-1465132947{font-size:5.4vw;}.socials-wrap.jsx-1465132947{margin-top:24px;}.social-anchor.jsx-1465132947{-webkit-transform:translateY(-0.75vw);-ms-transform:translateY(-0.75vw);transform:translateY(-0.75vw);}}"));
 };
 
 exports.SocialLink = SocialLink;
