@@ -17,9 +17,6 @@ export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
       }}
     >{personName}</Heading1>
     <Heading3
-      style={{
-        whiteSpace: 'nowrap'
-      }}
       className='bioPersonTitle'
     >{personTitle}</Heading3>
     <div className={`${socialsArray.length > 0 ? 'socials-wrap' : ''}`} >
