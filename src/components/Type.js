@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import ConditionalLink from './ConditionalLink'
 import { InstagramIcon, LinkedInIcon } from './Icons'
 
 import {
   fontSizeHeading2
-} from "../styles/typography";
+} from '../styles/typography'
 
 export const BioHeader = ({ personName, personTitle, socialsArray, style }) =>
   <div className='bioHeading' style={style}>
@@ -512,22 +512,38 @@ export const LeftCarving = ({ children }) =>
     <div id='leftCarving__border' />
     {children}
     <style jsx>{`
-     .leftCarving {
+    .leftCarving {
       font-family: Atlas Grotesk;
       font-style: normal;
       font-weight: bold;
-      font-size: 1.8vw;
-      line-height: 2.1vw;
-      padding-top: 11px;
+      font-size: 1.9vw;
+      line-height: 2.4vw;
+      padding-top: 12.5px;
       padding-bottom: 4.5px;
       letter-spacing: -0.25px;
       color: #333;
       float: left;
       max-width: 50%;
-      margin: .9vw -14vw .7vw 3vw;
+      margin: 1.2vw -14vw .7vw 3vw;
       transform: translateX(-16vw);
-      border-top: 5px solid #000;
+      border-top: 6.5px solid #000;
+      @media screen and (min-width: 1600px) {
+        margin: .8vw -14.5vw .7vw 3vw;
+        max-width: 42%;
+        font-size: 30px;
+        line-height: 35.5px;
+        }
+      @media only screen and (max-width: 500px) {
+        display: block!important;
+        max-width: 100%;
+        float: none;
+        font-size: 22px;
+        line-height: 25.5px;
+        text-align: left;
+        margin: 5px;
+        transform: translateX(0);
       }
+    }
 
   `}</style>
   </figure>
@@ -535,8 +551,7 @@ export const LeftCarving = ({ children }) =>
 export const SidebarQuote = ({ children }) =>
   <div className='sidebarquote'>
     <div className='sidebarquote__content'>
-      <div id='sidebarquote__content__border'>
-      </div>
+      <div id='sidebarquote__content__border' />
       {children}
     </div>
     <style jsx>{`
