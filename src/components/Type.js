@@ -275,13 +275,18 @@ export const SubHead = ({ children, style, className }) =>
   >
     {children}
     <style jsx>{`
-    .subhead {
-      font-family: 'Atlas Grotesk';
-      font-size: 20px;
-      margin-bottom: 0;
-      line-height: 1.29px;
-      letter-spacing: -0.18px;          
-    }
+      .subhead {
+        font-family: 'Atlas Grotesk';
+        font-weight: 900;
+        font-size: 20px;
+        margin-bottom: 0;
+        line-height: 1.29;
+        letter-spacing: -0.18px;          
+        color: #7F7F7F;
+        @media only screen and (max-width: 500px) {
+          font-size: 19px;
+        }  
+      }
     `}</style>
   </h4>
 
@@ -317,15 +322,16 @@ export const InquiryText = ({ children, style, className }) =>
   >
     {children}
     <style jsx>{`
-        .inquiryText {
-          font-style: italic;
-          color: #333;
-          font-weight: 400;
-          display: block;
-          font-size: 19px;
-          line-height: 22px;
-          letter-spacing: -0.1px;
-        } 
+      .inquiryText {
+        font-family: 'Noe Text';
+        font-style: italic;
+        color: #333;
+        font-weight: 400;
+        display: inline-block;
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: -0.1px;
+      } 
     `}</style>
   </span>
 

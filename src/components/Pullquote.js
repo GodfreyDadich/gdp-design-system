@@ -80,19 +80,37 @@ const Pullquote = ({ classAdd, pqOptions, children }) => {
               >
                 {children}
                 <style jsx>{`
-        .pullQuote {
-            font-family: 'Atlas Grotesk';
-            font-weight: bold;
-            font-size: 2.34vw;
-            line-height: 1.06;         
-            letter-spacing: -0.3px;
-            text-align: center;
-            margin-bottom: 89px;
-            
-            @media only screen and (max-width: 768px) {
-                font-size: 3.34vw;
-              }             
-          }
+      .pullQuote {
+        font-family: 'Atlas Grotesk';
+        font-weight: bold;
+        font-size: 2.34vw;
+        line-height: 1.06;         
+        letter-spacing: -0.3px;
+        text-align: center;
+        margin-bottom: 89px;
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 3.34vw;
+        }
+        
+        p {
+          margin: 0;
+        }
+        .wiredtype {
+          font-size: 2.34vw;
+        }
+        
+        .attribution {
+          display: inline-block;
+          font-family: 'Institut';
+          text-transform: uppercase;
+          color: #6d6a60;
+          font-size: 14px;
+          line-height: 2.34vw;
+          letter-spacing: 2px;
+          font-weight: normal;   
+        }
+      }
           `}</style>
               </div>
             }
