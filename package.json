@@ -1,6 +1,6 @@
 {
   "name": "gdp-design-system",
-  "version": "1.2.7-3",
+  "version": "1.2.7-uncomp-0",
   "private": true,
   "main": "src/index.js",
   "dependencies": {
