@@ -10,9 +10,7 @@ Please run each time a new module or feature is added.
 ### `npm run deploy-storybook`
 
 ## Build tag
-Build code
-### `npm run buildit`
-Then ```git add``` and ```git commit``` your changes.
-Afterwards, iterate version and build tag
+```git add``` and ```git commit``` your changes.
+Iterate version and build tag
 ### `npm run release`
 Don't forget to push your tag if you want to use it in an application
