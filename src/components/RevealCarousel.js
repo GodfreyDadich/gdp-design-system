@@ -89,69 +89,71 @@ const RevealCarousel = props => {
         width: '100%',
         height: '100%'
       }}
-      className={`carouselWrapper ${props.fullBleed ? ' full-bleed' : ''}${props.caption && props.caption.length > 0 ? ' withCaption' : ''}`}>
-      <div
-        style={{
-          position: 'relative',
-          height: '100%',
-          width: '100%',
-          overflow: 'hidden',
-          touchAction: 'pan-y',
-          userSelect: 'none',
-          paddingTop: paddingTop
-        }}
-        className={`carousel__container ${teaseState}`}>
-        {isMobile
-          ? <RevealLeftArrow
-            clickAction={hoverPause ? null : goToPrevSlide}
-            over={hoverTeasePrev}
-            out={hoverTeaseReset}
-          />
-          : <LeftArrow
-            clickAction={goToPrevSlide}
-            over={hoverTeasePrev}
-            out={hoverTeaseReset}
-            style={{
-              left: hoverPause ? '-100%' : 0,
-              width: '50%'
-            }}
-          />}
-        {isMobile
-          ? <RevealRightArrow
-            clickAction={hoverPause ? null : goToNextSlide}
-            over={hoverTeaseNext}
-            out={hoverTeaseReset}
-          />
-          : <RightArrow
-            clickAction={goToNextSlide}
-            over={hoverTeaseNext}
-            out={hoverTeaseReset}
-            style={{
-              right: hoverPause ? '-100%' : 0,
-              width: '50%'
-            }}
-          />
-        }
+      className={`carouselWrapper ${props.caption && props.caption.length > 0 ? ' withCaption' : ''}`}>
+      <div className={`${props.fullBleed ? 'full-bleed' : ''}`}>
         <div
           style={{
-            position: props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
-            top: '0',
-            left: '0',
-            width: '100%',
+            position: 'relative',
             height: '100%',
-            transition: 'transform .75s ease, box-shadow .3s ease'
+            width: '100%',
+            overflow: 'hidden',
+            touchAction: 'pan-y',
+            userSelect: 'none',
+            paddingTop: paddingTop
           }}
-          className={`carousel__images-container`}>
-          {
-            props.images.map((image, i) => (
-              <div
-                className={`carouselImage ${getCarouselImageClass(i)}`}
-                key={`carouselImage${i}`}
-              >
-                <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
-              </div>
-            ))
+          className={`carousel__container ${teaseState}`}>
+          {isMobile
+            ? <RevealLeftArrow
+              clickAction={hoverPause ? null : goToPrevSlide}
+              over={hoverTeasePrev}
+              out={hoverTeaseReset}
+            />
+            : <LeftArrow
+              clickAction={goToPrevSlide}
+              over={hoverTeasePrev}
+              out={hoverTeaseReset}
+              style={{
+                left: hoverPause ? '-100%' : 0,
+                width: '50%'
+              }}
+            />}
+          {isMobile
+            ? <RevealRightArrow
+              clickAction={hoverPause ? null : goToNextSlide}
+              over={hoverTeaseNext}
+              out={hoverTeaseReset}
+            />
+            : <RightArrow
+              clickAction={goToNextSlide}
+              over={hoverTeaseNext}
+              out={hoverTeaseReset}
+              style={{
+                right: hoverPause ? '-100%' : 0,
+                width: '50%'
+              }}
+            />
           }
+          <div
+            style={{
+              position: props.aspectRatio === 'noAspect' ? 'relative' : 'absolute',
+              top: '0',
+              left: '0',
+              width: '100%',
+              height: '100%',
+              transition: 'transform .75s ease, box-shadow .3s ease'
+            }}
+            className={`carousel__images-container`}>
+            {
+              props.images.map((image, i) => (
+                <div
+                  className={`carouselImage ${getCarouselImageClass(i)}`}
+                  key={`carouselImage${i}`}
+                >
+                  <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
       {props.captionsArray ?
