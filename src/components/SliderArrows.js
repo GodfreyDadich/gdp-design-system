@@ -8,7 +8,7 @@ export const RightArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{
+      style={Object.assign({
         position: 'absolute',
         top: '0',
         right: '-31.4%',
@@ -18,7 +18,7 @@ export const RightArrow = props => {
         zIndex: '101',
         cursor: 'pointer',
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
-      }}>
+      }, props.style)}>
       <i className='fa fa-arrow-right fa-2x' aria-hidden='true' />
     </div>
   )
@@ -36,7 +36,7 @@ export const LeftArrow = props => {
       onMouseEnter={props.over}
       onMouseMove={props.over}
       onMouseLeave={props.out}
-      style={{
+      style={Object.assign({
         position: 'absolute',
         top: '0',
         left: '-31.4%',
@@ -46,7 +46,7 @@ export const LeftArrow = props => {
         zIndex: '101',
         cursor: 'pointer',
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
-      }}>
+      }, props.style)}>
       <i className='fa fa-arrow-left fa-2x' aria-hidden='true' />
     </div>
   )
