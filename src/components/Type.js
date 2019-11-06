@@ -397,14 +397,22 @@ export const CardTitle = ({ classAdd, children }) =>
         font-weight: bold;
         letter-spacing: -0.2px;
         line-height: 22px;
-        margin: 23px 0 0;
+        margin: 16px 0 0;
+
+        @media only screen and (max-width: 768px) {
+          font-size: 16px;
+          letter-spacing: 0.1px;
+          line-height: 20px;
+          margin: 15px 0 0;
+        }
 
         @media only screen and (max-width: 500px) {
           font-size: 12px;
           letter-spacing: 0.2px;
           line-height: 16px;
           margin: 15px 0 0;
-        }  
+        } 
+          
       }    
     `}</style>
   </h4>
@@ -425,11 +433,17 @@ export const CardSubTitle = ({ classAdd, children }) =>
         margin: 0;
         color: rgb(127,127,127);
 
+        @media only screen and (max-width: 768px) {
+          font-size: 16px;
+          letter-spacing: 0.1px;
+          line-height: 20px;
+        }
+
         @media only screen and (max-width: 500px) {
           font-size: 12px;
           letter-spacing: 0.2px;
           line-height: 16px;
-        }  
+        }
       }    
     `}</style>
   </h5>
