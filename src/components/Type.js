@@ -397,7 +397,7 @@ export const CardTitle = ({ classAdd, children }) =>
         font-weight: bold;
         letter-spacing: -0.2px;
         line-height: 22px;
-        margin: 23px 0 0;
+        margin: 16px 0 0;
 
         @media only screen and (max-width: 768px) {
           font-size: 16px;
