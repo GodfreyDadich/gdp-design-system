@@ -98,5 +98,5 @@ export const ImageGridGallery = () =>
 export const DynamicLogoGrid = () =>
   <DynamicGrid
     logos={clientLogos}
-    classAdd='col-8'
+    classAdd='skip-2 col-8 skip-1-tab col-6-tab'
   />
