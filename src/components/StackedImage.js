@@ -25,7 +25,7 @@ export default class StackedImage extends Component {
             }}
             className={`imagesWrapper ${this.props.fullBleed ? ' full-bleed' : ''}${this.props.caption && this.props.caption.length > 0 ? ' withCaption' : ''}`}>
             {this.props.images.map((img, index) => {
-              return <figure
+              return <div
                 className={`itemWrap ${(index === this.props.images.length - 1) ? 'withCaption' : ''}`}
                 key={`image${index}`}
               >
@@ -38,7 +38,7 @@ export default class StackedImage extends Component {
                   visibilityOverride
                   caption={(index === this.props.images.length - 1) ? this.props.caption : ''}
                 />
-              </figure>
+              </div>
             })}
           </div>
           :
@@ -53,14 +53,15 @@ export default class StackedImage extends Component {
                 height: '100%'
               }}>
               {this.props.images.map((img, index) => {
-                return <figure
+                return <div
                   className='imageWrapDesktop'
                   key={`image${index}`}
                   style={{
                     position: 'relative',
                     display: 'inline-block',
                     width: '100%',
-                    height: '100%'
+                    height: '100%',
+                    marginTop: 0
                   }}>
                   <Image
                     key={`img-${index}`}
@@ -69,13 +70,13 @@ export default class StackedImage extends Component {
                     imgSource={img}
                     visibilityOverride
                   />
-                </figure>
+                </div>
               })}
             </div>
             {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-1 col-6-tab skip-0-tab'>{this.props.caption}</Caption> : ''}
           </div>
         }
-        <style>
+        <style jsx>
           {`
           .imageWrapDesktop {
             margin-left: 2vw;
