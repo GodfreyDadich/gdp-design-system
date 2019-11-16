@@ -60,8 +60,7 @@ export default class StackedImage extends Component {
                     position: 'relative',
                     display: 'inline-block',
                     width: '100%',
-                    height: '100%',
-                    marginTop: 0
+                    height: '100%'
                   }}>
                   <Image
                     key={`img-${index}`}
