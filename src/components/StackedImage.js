@@ -14,7 +14,7 @@ export default class StackedImage extends Component {
 
   render() {
     return (
-      <div className={this.props.classAdd} style={{ verticalAlign: 'top'}}>
+      <div className={this.props.classAdd} >
         {isMobile ?
           <div
             style={{
