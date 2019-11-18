@@ -14,7 +14,7 @@ export default class StackedImage extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.classAdd} style={{ verticalAlign: 'top'}}>
         {isMobile ?
           <div
             style={{
@@ -33,9 +33,7 @@ export default class StackedImage extends Component {
                   stackedImage
                   key={`img-${index}`}
                   aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
-                  skipIntro
                   imgSource={img}
-                  visibilityOverride
                   caption={(index === this.props.images.length - 1) ? this.props.caption : ''}
                 />
               </div>
@@ -65,9 +63,7 @@ export default class StackedImage extends Component {
                   <Image
                     key={`img-${index}`}
                     aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
-                    skipIntro
                     imgSource={img}
-                    visibilityOverride
                   />
                 </div>
               })}
