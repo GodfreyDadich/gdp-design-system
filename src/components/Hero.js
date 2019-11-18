@@ -52,6 +52,10 @@ class Hero extends React.Component {
       type
     } = this.state
 
+    const {
+      loop
+    } = this.props
+
     return (<div className='hero'>
       {(() => {
         switch (type) {
@@ -73,7 +77,7 @@ class Hero extends React.Component {
               controls={false}
               autoplay
               skipIntro
-              loop
+              loop={loop}
               vidSource={source}
               thumb={thumb}
               loader
