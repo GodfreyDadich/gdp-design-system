@@ -30,6 +30,7 @@ const RevealCarousel = props => {
   }
 
   const goToSlide = (slideIndex) => {
+    if (hoverPause) { return }
     setCurrentIndex(slideIndex)
     setHoverPause(true)
 
