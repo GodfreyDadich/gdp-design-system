@@ -6,9 +6,10 @@ import RevealCarousel from '../components/RevealCarousel'
 import CircularCarousel from '../components/CircularCarousel'
 import Museum from '../components/Museum'
 import GridGallery from '../components/GridGallery'
+import DynamicGrid from '../components/DynamicGrid'
 import {
   defaultCaption,
-  captionsArray,  
+  captionsArray,
   imageGallery2,
   imageGallery3,
   galleries,
@@ -17,7 +18,8 @@ import {
   addDropShadow,
   viewMode,
   isCarousel,
-  defaultSubTitle
+  defaultSubTitle,
+  clientLogos
 } from '../utils/defaults'
 
 export default {
@@ -91,4 +93,10 @@ export const ImageGridGallery = () =>
     caption={text('Caption', defaultCaption)}
     thumbAspect={select('Image Aspect Ratio', aspectRatios, 'sixteen')}
     containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
+  />
+
+export const DynamicLogoGrid = () =>
+  <DynamicGrid
+    logos={clientLogos}
+    classAdd='skip-2 col-8 skip-1-tab col-6-tab'
   />

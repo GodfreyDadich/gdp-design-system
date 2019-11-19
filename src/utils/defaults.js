@@ -132,6 +132,89 @@ export const galleries = [
   }
 ]
 
+export const clientLogos = [
+  {
+    name: '9/11 Memorial & Museum',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg'
+  },
+  {
+    name: 'ACLU',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85thhe009u0po3j57p9bb5-gdp-aclu-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'Adyen',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4htk006a0il92oat1kk9-gdp-adyen-grid-logos-03.svg'
+  },
+  {
+    name: 'Apple',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85thde009t0po3s82bxt2q-gdp-apple-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'AWS',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85thdd009s0po3fmyub56b-gdp-aws-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'C3.ai',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnv26m100h50il9g4x800xr-gdp-c3-grid-logos-02-01.svg'
+  },
+  {
+    name: 'Disney',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4huj006b0il9oww6bb7r-gdp-disney-grid-logos-18.svg'
+  },
+  {
+    name: 'Dolby',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4huk006c0il9eql3s8wt-gdp-dolby-grid-logos-05.svg'
+  },
+  {
+    name: 'Facebook',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy4qqlez01ck0poccd06y9nk-gdp-facebook-grid-logos-19.svg'
+  },
+  {
+    name: 'IBM',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85thhe009v0po354p1f0ew-gdp-ibm-grid-logos-sized-01.svg'
+  },
+  {
+    name: 'Lululemon',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxw0smjf01en0il95921s2z0-gdp-lulu-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'Lyft',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85thd5008s0prroxdhmyfn-gdp-lyft-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'National Geographic',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4htl003n0it8p604jadv-gdp-natgeo-grid-logos-12.svg'
+  },
+  {
+    name: 'Netflix',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4hyk006e0il9elb5q3bg-gdp-netflix-grid-logos-08.svg'
+  },
+  {
+    name: 'Nielsen',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjyg3ef8600fl0inzwrglemby-gdp-nielsen-grid-logos-01.svg'
+  },
+  {
+    name: 'Nike',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjy85tjf500aw0po30jhft9os-gdp-nike-grid-logos-resized-01.svg'
+  },
+  {
+    name: 'The Obama Foundation',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4hua003r0it85m9aq5qo-gdp-obama-grid-logos-07.svg'
+  },
+  {
+    name: 'Palo Alto Networks',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxw7kiar01lo0it8muv2u8r4-gdp-paloalto-grid-logos-14-edited6.svg'
+  },
+  {
+    name: 'Symantec',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxuy6chf01900it8n6tborw4-gdp-symantec-grid-logos-grey-01.svg'
+  },
+  {
+    name: 'WIRED',
+    img: 'https://d11b794nw2x0wi.cloudfront.net/attachments/cjxnl4hvi003s0it8fsct845q-gdp-wired-grid-logos-02.svg'
+  }
+]
+
 /* Static Images */
 export const image1 = 'https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
 export const image2 = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
