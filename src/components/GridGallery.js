@@ -210,7 +210,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       }
       .grid-image:hover {
         opacity: .8;
-        transition: .25;
+        transition: .25s;
       }
       .modal {
         position: fixed;
