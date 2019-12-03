@@ -93,6 +93,7 @@ export const ImageGridGallery = () =>
     caption={text('Caption', defaultCaption)}
     thumbAspect={select('Image Aspect Ratio', aspectRatios, 'sixteen')}
     containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
+    removeMobileGrayBackground={boolean('Remove Gray Background on Mobile', true)}
   />
 
 export const DynamicLogoGrid = () =>

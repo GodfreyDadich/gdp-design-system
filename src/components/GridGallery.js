@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 import ConditionalClass from './ConditionalClass'
 import PropTypes from 'prop-types'
 
-const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
+const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, removeMobileGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const [appliedImages, setAppliedImages] = useState(images)
@@ -56,7 +56,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
       {mobile
         ? appliedImages.length > 1
-          ? <CircularCarousel gridGallery countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+          ? <CircularCarousel gridGallery removeMobileGrayBackground={removeMobileGrayBackground} mobile={mobile} countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
             {
               appliedImages.map((image, index) =>
                 <div style={mobileStyles} key={`${escape(image)}-${index}`}>
