@@ -63,6 +63,19 @@ const SimpleGallery = ({ images, view, index }) => {
     }
   }, [currentIndex])
 
+  const progressStyle = {
+    position: 'absolute',
+    top: '-4px',
+    left: '0',
+    height: '4px',
+    width: `${100 / images.length * (currentIndex + 1)}%`,
+    backgroundColor: '#48FF00',
+    transition: '.5s'
+  }
+  const footerStyle = {
+    bottom: `0px`
+  }
+
   return <div className='slider'>
     <div className='slider-wrapper'
       style={{
@@ -122,6 +135,10 @@ const SimpleGallery = ({ images, view, index }) => {
         right: '-10%'
       }}
     />
+    <footer className='consumptions-footer' style={footerStyle}>
+      <div style={progressStyle} />
+      <a href='/contact' className='footer-link'>Get in Touch</a>
+    </footer>
     <style jsx>{`
     .slider {
       position: absolute;
@@ -130,6 +147,37 @@ const SimpleGallery = ({ images, view, index }) => {
       margin: 0 10%;
       top: 50%;
       transform: translateY(-50%);    
+    }
+    .consumptions-footer {
+      position: absolute;
+      width: 121%;
+      bottom: -47px;
+      text-align: right;
+      padding: 11px 42px;
+      margin-top: 10px;
+      background-color: #fff;
+      border-top: 4px solid #eeeeee;
+      z-index: 99998; 
+      transition: bottom .5s;
+      margin-left: -13%;
+
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+        padding: 6px 19px;
+      }
+    }
+    .footer-link {
+      font-family: 'Atlas Grotesk';
+      font-weight: 900;        
+      font-size: 14px;
+      letter-spacing: -0.3px;
+      padding-bottom: 2px;
+
+      @media only screen and (max-width: 500px) {
+        font-size: 9px;
+        box-shadow: inset 0 -2px 0 #06ff02;
+        padding-bottom: 0;
+      }            
     }
   `}</style>
   </div>
