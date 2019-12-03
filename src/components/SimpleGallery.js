@@ -150,7 +150,7 @@ const SimpleGallery = ({ images, view, index }) => {
     }
     .consumptions-footer {
       position: absolute;
-      width: 121%;
+      width: 121.5%;
       bottom: -47px;
       text-align: right;
       padding: 11px 42px;
@@ -162,7 +162,7 @@ const SimpleGallery = ({ images, view, index }) => {
       margin-left: -13%;
 
       @media only screen and (max-width: 500px) {
-        width: 100%;
+        width: 118%;
         padding: 6px 19px;
       }
     }
