@@ -243,7 +243,8 @@ export default class CircularCarousel extends Component {
             touchAction: 'pan-y',
             userSelect: 'none',
             paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
-            background: isMobile && removeMobileGrayBackground ? 'transparent' : 'rgb(242,242,242)'
+            background: isMobile && removeMobileGrayBackground ? 'transparent' : 'rgb(242,242,242)',
+            marginTop: isMobile && removeMobileGrayBackground ? '-45px' : '0'
           }}
           className={`carousel__container ${this.state.teaseState}`}>
           <LeftArrow
