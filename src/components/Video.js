@@ -60,8 +60,10 @@ class Video extends React.Component {
   }
 
   videoReady ({ player }) { // pauses the player on load if autoplay isn't set to true
-    this.pause()
-    player.player.stop()
+    if (!this.state.autoplay) {
+      this.pause()
+      player.player.stop()
+    }
     this.setState({
       player: player.player,
       coverVisible: this.state.hoverPlay,
