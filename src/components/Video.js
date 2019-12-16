@@ -122,7 +122,7 @@ class Video extends React.Component {
     const {
       vidSource,
       classAdd,
-      controls,
+      controls = true,
       autoplay,
       loop,
       config,
