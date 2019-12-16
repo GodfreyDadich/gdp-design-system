@@ -131,6 +131,7 @@ class Video extends React.Component {
       sideBar,
       style,
       regPlay,
+      playsinline,
       active,
       mouseOverAction,
       mouseOutAction,
@@ -190,7 +191,7 @@ class Video extends React.Component {
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}
                       onEnded={this.videoOnEnd}
-                      playsinline={autoplay}
+                      playsinline={playsinline}
                     />
                   }
                 </div>

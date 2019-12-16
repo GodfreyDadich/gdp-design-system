@@ -82,6 +82,7 @@ class Hero extends React.Component {
               thumb={thumb}
               loader
               muted
+              playsinline
               config={{
                 vimeo: {
                   playerOptions: {
