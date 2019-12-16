@@ -181,6 +181,7 @@ class Video extends React.Component {
                       volume={autoplay ? 0 : 1}
                       muted={muted}
                       loop={loop}
+                      autoplay={autoplay}
                       controls={controls}
                       width='100%'
                       height='100%'
@@ -189,6 +190,7 @@ class Video extends React.Component {
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}
                       onEnded={this.videoOnEnd}
+                      playsinline={autoplay}
                     />
                   }
                 </div>
