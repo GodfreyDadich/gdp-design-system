@@ -60,8 +60,10 @@ class Video extends React.Component {
   }
 
   videoReady ({ player }) { // pauses the player on load if autoplay isn't set to true
-    this.pause()
-    player.player.stop()
+    if (!this.state.autoplay) {
+      this.pause()
+      player.player.stop()
+    }
     this.setState({
       player: player.player,
       coverVisible: this.state.hoverPlay,
@@ -120,7 +122,7 @@ class Video extends React.Component {
     const {
       vidSource,
       classAdd,
-      controls,
+      controls = true,
       autoplay,
       loop,
       config,
@@ -131,6 +133,7 @@ class Video extends React.Component {
       sideBar,
       style,
       regPlay,
+      playsinline,
       active,
       mouseOverAction,
       mouseOutAction,
@@ -181,6 +184,7 @@ class Video extends React.Component {
                       volume={autoplay ? 0 : 1}
                       muted={muted}
                       loop={loop}
+                      autoplay={autoplay}
                       controls={controls}
                       width='100%'
                       height='100%'
@@ -189,6 +193,7 @@ class Video extends React.Component {
                       onReady={this.videoReady}
                       onPlay={this.videoOnPlay}
                       onEnded={this.videoOnEnd}
+                      playsinline={playsinline}
                     />
                   }
                 </div>

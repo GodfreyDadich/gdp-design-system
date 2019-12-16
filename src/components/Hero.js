@@ -81,13 +81,16 @@ class Hero extends React.Component {
               vidSource={source}
               thumb={thumb}
               loader
+              muted
+              playsinline
               config={{
                 vimeo: {
                   playerOptions: {
                     background: 1,
                     transparent: 0,
                     muted: 1,
-                    autoplay: 1
+                    autoplay: 1,
+                    playsinline: 1
                   },
                   preload: false
                 }

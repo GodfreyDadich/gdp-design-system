@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.3-3"></a>
+## [1.3.3-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.3-2...v1.3.3-3) (2019-12-16)
+
+
+
+<a name="1.3.3-2"></a>
+## [1.3.3-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.3-1...v1.3.3-2) (2019-12-16)
+
+
+
+<a name="1.3.3-1"></a>
+## [1.3.3-1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.3-0...v1.3.3-1) (2019-12-16)
+
+
+
+<a name="1.3.3-0"></a>
+## [1.3.3-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.2...v1.3.3-0) (2019-12-16)
+
+
+
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.1...v1.3.2) (2019-12-03)
+
+
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.1-9...v1.3.1) (2019-12-03)
+
+
 <a name="1.3.6"></a>
 ## [1.3.6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.5...v1.3.6) (2019-12-11)
 
@@ -159,7 +188,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.0...v1.2.1) (2019-09-26)
-=======
+
 <a name="1.2.5-comp-b"></a>
 ## [1.2.5-comp-b](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.5-comp-a...v1.2.5-comp-b) (2019-10-25)
 
@@ -217,13 +246,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.2.5-3"></a>
 ## [1.2.5-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.5-2...v1.2.5-3) (2019-10-23)
->>>>>>> 3356892f350e67831aee16b2f9027480af4259fb
+
 
 
 
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.1...v1.2.2) (2019-09-26)
-=======
+
+
 <a name="1.2.5-2"></a>
 ## [1.2.5-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.5-1...v1.2.5-2) (2019-10-14)
 
@@ -251,16 +281,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.1...v1.2.2) (2019-10-04)
->>>>>>> 8b75f8aea5288de0eefb8b88b3d9febc86787768
 
 
 
 <a name="1.2.1"></a>
-<<<<<<< HEAD
-## [1.2.1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.0...v1.2.1) (2019-09-26)
-=======
 ## [1.2.1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.2.0...v1.2.1) (2019-10-04)
->>>>>>> 8b75f8aea5288de0eefb8b88b3d9febc86787768
 
 
 
