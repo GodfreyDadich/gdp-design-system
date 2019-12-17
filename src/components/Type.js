@@ -391,7 +391,7 @@ export const CardTitle = ({ classAdd, children }) =>
     <style jsx>{`
       .cardTitle {
         position: relative;
-        display: block;
+        display: inline;
         font-family: 'Atlas Grotesk';
         font-size: 19px;
         font-weight: bold;
