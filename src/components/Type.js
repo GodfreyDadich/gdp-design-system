@@ -390,13 +390,13 @@ export const CardTitle = ({ classAdd, children }) =>
   >{children}
     <style jsx>{`
       .cardTitle {
+        font-weight: 900;
+        line-height: 1.29;
+        letter-spacing: .23px;
         position: relative;
         display: inline;
         font-family: 'Atlas Grotesk';
         font-size: 19px;
-        font-weight: bold;
-        letter-spacing: -0.2px;
-        line-height: 22px;
         margin: 16px 0 0;
 
         @media only screen and (max-width: 768px) {
@@ -407,12 +407,11 @@ export const CardTitle = ({ classAdd, children }) =>
         }
 
         @media only screen and (max-width: 500px) {
-          font-size: 12px;
+          font-size: 19px;
           letter-spacing: 0.2px;
           line-height: 16px;
           margin: 15px 0 0;
         } 
-          
       }    
     `}</style>
   </h4>
@@ -427,10 +426,10 @@ export const CardSubTitle = ({ classAdd, children }) =>
         display: block;
         font-family: 'Atlas Grotesk';
         font-size: 19px;
-        font-weight: 500;
-        letter-spacing: -0.2px;
-        line-height: 22px;
-        margin: 0;
+        font-weight: 700;
+        letter-spacing: -0.23px;
+        line-height: 1.29;
+        margin: 5px 0 0;
         color: rgb(127,127,127);
 
         @media only screen and (max-width: 768px) {
@@ -440,9 +439,9 @@ export const CardSubTitle = ({ classAdd, children }) =>
         }
 
         @media only screen and (max-width: 500px) {
-          font-size: 12px;
-          letter-spacing: 0.2px;
-          line-height: 16px;
+          font-size: 19px;
+          letter-spacing: 0.15px;
+          line-height: 1;
         }
       }    
     `}</style>

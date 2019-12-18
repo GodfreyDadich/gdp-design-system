@@ -15,6 +15,7 @@ const CardText = props =>
         vertical-align: top;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(49% - 12px)' : '100%'};
         margin-left: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? '24px' : '0'};
+        margin-top: 8px;
       }
       `}</style>
   </div>
