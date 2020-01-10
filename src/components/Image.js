@@ -25,7 +25,7 @@ class Image extends React.Component {
 
     return (
       <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-        <TrackVisibility partialVisibility className={classAdd}>
+        <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }}>
           <ImageWrap {...this.props} >
             <ConditionalLink linkUrl={linkUrl}>
               {isMobile && altAsset ? <img className='wrappedImage' alt={imageTitle} src={altAsset} /> : <img className='wrappedImage' alt={imageTitle} src={imgSource} />}
