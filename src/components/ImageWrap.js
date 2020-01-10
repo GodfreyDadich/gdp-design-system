@@ -36,8 +36,7 @@ class ImageWrap extends React.Component {
           paddingTop: paddingRef[aspectRatio],
           opacity: showImage ? 1 : 0,
           top: showImage || skipIntro ? '0px' : '15px',
-          transition: 'opacity 0.5s, top 0.5s',
-          transitionDelay: '1s'
+          transition: 'opacity 0.5s ease 1s, top 0.5s ease 1s, transform 0.3s ease-in-out 0s'
         }}
       >
         { showImage ? React.cloneElement(children) : ''}
