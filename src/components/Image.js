@@ -19,7 +19,8 @@ const Image = (props) => {
     aspectRatio,
     classAdd,
     stackedImage,
-    style
+    style,
+    visibilityOverride
   } = props
 
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -29,11 +30,12 @@ const Image = (props) => {
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-      <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }} once>
+      <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }} once >
         {({ isVisible }) => {
-          const imageSrc = isVisible ? (isMobile && altAsset) ? altAsset : imgSource : ''
+          const imageIsVisible = isVisible || visibilityOverride
+          const imageSrc = imageIsVisible ? (isMobile && altAsset) ? altAsset : imgSource : ''
           return (
-            <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={isVisible} >
+            <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={imageIsVisible} >
               <ConditionalLink linkUrl={linkUrl}>
                 <img className='wrappedImage' alt={imageTitle} src={imageSrc} onLoad={handleImageLoaded} />
                 {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}

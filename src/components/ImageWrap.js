@@ -15,11 +15,12 @@ class ImageWrap extends React.Component {
 
   render () {
     const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, imageIsVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
-    const showImage = visibilityOverride ? true : imageLoaded && imageIsVisible
+    const showImage = visibilityOverride || imageIsVisible
+    
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
-          backgroundImage: `${aspectRatio !== 'noAspect' && showImage ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
+          backgroundImage: `${aspectRatio !== 'noAspect' && imageLoaded ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
           backgroundSize: backgroundSize || 'cover',
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
@@ -29,12 +30,12 @@ class ImageWrap extends React.Component {
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
           paddingTop: paddingRef[aspectRatio],
-          opacity: showImage ? 1 : 0,
-          top: showImage || skipIntro ? '0px' : '15px',
+          opacity: imageLoaded ? 1 : 0,
+          top: imageLoaded || skipIntro ? '0px' : '15px',
           transition: 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
         }}
       >
-        { (imageIsVisible || visibilityOverride) ? React.cloneElement(children) : ''}
+        { showImage ? React.cloneElement(children) : ''}
       </div>
     )
   }
