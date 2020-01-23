@@ -9,18 +9,13 @@ const paddingRef = {
 }
 
 class ImageWrap extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      isVisible: false
-    }
+  shouldComponentUpdate (nextProps) {
+    return Boolean(nextProps.isVisible || nextProps.imageLoaded)
   }
-  shouldComponentUpdate (nextProps, nextState) {
-    return Boolean(nextProps.isVisible)
-  }
+
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
-    const showImage = visibilityOverride ? true : isVisible
+    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, isVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
+    const showImage = visibilityOverride ? true : imageLoaded && isVisible
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
@@ -36,10 +31,10 @@ class ImageWrap extends React.Component {
           paddingTop: paddingRef[aspectRatio],
           opacity: showImage ? 1 : 0,
           top: showImage || skipIntro ? '0px' : '15px',
-          transition: 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
+          transition: 'opacity 0.3s ease 0s, top 0.3s ease 0s, transform 0.3s ease-in-out 0s'
         }}
       >
-        { showImage ? React.cloneElement(children) : ''}
+        { isVisible ? React.cloneElement(children) : ''}
       </div>
     )
   }
