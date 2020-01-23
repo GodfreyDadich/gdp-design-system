@@ -33,7 +33,7 @@ const Image = (props) => {
         {({ isVisible }) => {
           const imageSrc = isVisible ? (isMobile && altAsset) ? altAsset : imgSource : ''
           return (
-            <ImageWrap {...props} imageLoaded={imageLoaded} isVisible={isVisible} >
+            <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={isVisible} >
               <ConditionalLink linkUrl={linkUrl}>
                 <img className='wrappedImage' alt={imageTitle} src={imageSrc} onLoad={handleImageLoaded} />
                 {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
