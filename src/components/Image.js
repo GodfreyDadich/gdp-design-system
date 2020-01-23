@@ -29,7 +29,7 @@ const Image = (props) => {
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-      <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }}>
+      <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }} once>
         {({ isVisible }) => {
           const imageSrc = isVisible ? (isMobile && altAsset) ? altAsset : imgSource : ''
           return (
