@@ -9,14 +9,27 @@ const paddingRef = {
 }
 
 class ImageWrap extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      loadImage: false
+    }
+  }
+
   shouldComponentUpdate (nextProps) {
+    if (nextProps.imageIsVisible && !this.state.loadImage) {
+      this.setState({
+        loadImage: true
+      })
+    }
     return Boolean(nextProps.imageIsVisible || nextProps.imageLoaded)
   }
 
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, imageIsVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
-    const showImage = visibilityOverride || imageIsVisible
-    
+    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
+    const { loadImage } = this.state
+    const showImage = visibilityOverride || loadImage
+
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
