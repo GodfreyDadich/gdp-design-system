@@ -34,7 +34,7 @@ class ImageWrap extends React.Component {
           transition: 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
         }}
       >
-        { isVisible ? React.cloneElement(children) : ''}
+        { (isVisible || visibilityOverride) ? React.cloneElement(children) : ''}
       </div>
     )
   }
