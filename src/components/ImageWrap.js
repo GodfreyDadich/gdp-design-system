@@ -12,19 +12,28 @@ class ImageWrap extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isVisible: false
+      loadImage: false
     }
   }
-  shouldComponentUpdate (nextProps, nextState) {
-    return Boolean(nextProps.isVisible)
+
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.imageIsVisible && !this.state.loadImage) {
+      this.setState({
+        loadImage: true
+      })
+    }
+    return Boolean(nextProps.imageIsVisible || nextProps.imageLoaded)
   }
+
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, isVisible, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
-    const showImage = visibilityOverride ? true : isVisible
+    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, visibilityOverride, skipIntro, altAsset, backgroundSize } = this.props
+    const { loadImage } = this.state
+    const showImage = visibilityOverride || loadImage
+
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
-          backgroundImage: `${aspectRatio !== 'noAspect' && showImage ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
+          backgroundImage: `${aspectRatio !== 'noAspect' && imageLoaded ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
           backgroundSize: backgroundSize || 'cover',
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
@@ -34,9 +43,9 @@ class ImageWrap extends React.Component {
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
           paddingTop: paddingRef[aspectRatio],
-          opacity: showImage ? 1 : 0,
-          top: showImage || skipIntro ? '0px' : '15px',
-          transition: 'opacity 0.5s ease 1s, top 0.5s ease 1s, transform 0.3s ease-in-out 0s'
+          opacity: imageLoaded ? 1 : 0,
+          top: imageLoaded || skipIntro ? '0px' : '15px',
+          transition: 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
         }}
       >
         { showImage ? React.cloneElement(children) : ''}
