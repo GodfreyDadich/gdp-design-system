@@ -12,9 +12,11 @@ import PropTypes from 'prop-types'
 const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, removeMobileGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
+  const [galleryThumbs, setGalleryThumbs] = useState([])
   const [appliedImages, setAppliedImages] = useState(images)
   const [mobile, setMobile] = useState(false)
   const colWidth = 100 / columns
+  const rowLength = 5
 
   useEffect(() => {
     setMobile(isMobile)
@@ -22,6 +24,10 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       setAppliedImages(altAsset)
     }
   }, [modalView])
+
+  useEffect(() => {
+    setGalleryThumbs(prepData(thumbs))
+  }, [])
 
   const evenGridStyles = {
     flexGrow: images.length,
@@ -44,6 +50,19 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   const displayGallery = (index) => {
     setModalView(true)
     setImageIndex(index)
+  }
+
+  const prepData = (thumbs) => {
+    if (mixedOr) {
+      const rowCount = Math.ceil(thumbs.length / rowLength)
+      let newThumberArray = []
+      for ( var i=0; i < rowCount; i++) {
+        newThumberArray.push(thumbs.splice(0,rowLength))
+      }
+      return newThumberArray
+    } else {
+      return thumbs
+    }
   }
 
   return <div>
@@ -90,23 +109,31 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 <span className='expand__copy'>CLICK IMAGE TO EXPAND</span></div>
                 : ''}
               {
-                thumbs.map((image, index) =>
-                  mixedOr
-                    ? <TrackVisibility
-                      partialVisibility
-                      once
-                      className={`${carousel === 'yes' ? 'grid-image' : ''}`}
-                      style={mixedOrStyles} key={`galleryThumb-${index}`}
-                    >
-                      {({ isVisible }) =>
-                        <img
-                          className='moasic-image'
-                          onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
-                          src={isVisible ? image : ''}
-                        />
+                mixedOr
+                  ? galleryThumbs.map((row, index) =>
+                    <div className='mosaic-row' key={`mosaic-row-${index}`}>
+                      {
+                        row.map((image, imgIndex) =>
+                        <TrackVisibility
+                          partialVisibility
+                          once
+                          className={`${carousel === 'yes' ? 'mosaic-image' : ''}`}
+                          key={`mosaicThumb-${index}`} >
+                          {({ isVisible }) =>
+                            <img
+                              className='mosaic-thumb'
+                              onClick={e => { if (carousel === 'yes') { displayGallery((index * rowLength) + imgIndex) } }}
+                              src={isVisible ? image : ''}
+                            />
+                          }
+                        </TrackVisibility>
+                        )
                       }
-                    </TrackVisibility>
-                    : <div
+                    </div>
+                  )
+
+                  : galleryThumbs.map((image, index) =>
+                    <div
                       className={`${carousel === 'yes' ? 'grid-image' : ''}`}
                       onClick={e => { if (carousel === 'yes') { displayGallery(index) } }}
                       style={evenGridStyles}
@@ -117,7 +144,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                         skipIntro
                       />
                     </div>
-                )
+                  )
               }
               {modalView ?
                 <Modal
@@ -166,25 +193,27 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         position: relative;
         transform: translateY(-50%);
       }
-      .moasic-image {
-        display: inline-block;
-        position: relative;
-        height: 9.4vw;
+      .mosaic-row {
+        display: flex;
+        padding-top: 1.1vw;
+      }
+      .mosaic-row:first-child {
+        padding-top: 0;
+      }      
+      .mosaic-image {
+        height: 9.5vw;
         width: auto;
+        margin: 0 0 0 auto;
+      }
+      .mosaic-image:first-child {
+        margin-left: 0;
+      }
+      .mosaic-thumb {
+        height: 100%;
       }
       .image-wrapper {
         margin: auto;
-        width: 80vw;
-      }
-      @media only screen and (max-width: 1025px) {
-        .image-wrapper {
-          width: 60vw;
-        }
-      }
-      @media only screen and (max-width: 500px) {
-        .image-wrapper {
-          width: 57vw;
-        }
+        width: 100%;
       }
       .grid-container {
         display:block;
@@ -234,7 +263,6 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
   </div>
 }
 
-
 GridGallery.propTypes = {
   cardTitle: PropTypes.string,
   cardSubtitle: PropTypes.string,
@@ -254,6 +282,5 @@ GridGallery.defaultProps = {
   aspectRatio: 'standard',
   fullBleed: false
 }
-
 
 export default GridGallery
