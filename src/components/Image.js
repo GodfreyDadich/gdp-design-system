@@ -24,6 +24,7 @@ const Image = (props) => {
   } = props
 
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageInView, setImageInView] = useState(false)
 
   const handleImageLoaded = () => {
     setImageLoaded(true)
@@ -32,7 +33,10 @@ const Image = (props) => {
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }} >
         {({ isVisible }) => {
-          const imageIsVisible = isVisible || visibilityOverride
+          if (isVisible) {
+            setImageInView(true)
+          }
+          const imageIsVisible = imageInView || visibilityOverride
           const imageSrc = imageIsVisible ? (isMobile && altAsset) ? altAsset : imgSource : ''
           return (
             <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={imageIsVisible} >
