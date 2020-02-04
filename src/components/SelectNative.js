@@ -20,7 +20,7 @@ const SelectNative = ({
 </div>
   <select className='styledSelect' disabled={disabled}>
     {options.map( (option,index) => 
-        <option key={option+index}>{option}</option> 
+        <option value={option.option} key={option.option+index}>{option.display}</option> 
     )}
   </select>
   <style jsx>{`
@@ -70,6 +70,10 @@ const SelectNative = ({
 
         div {
           display:none;
+        }
+
+        .${selectIcon}{
+          display:block;
         }
 
         .triangle {
