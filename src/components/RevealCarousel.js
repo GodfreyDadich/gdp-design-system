@@ -113,8 +113,8 @@ const RevealCarousel = props => {
               clickAction={goToPrevSlide}
               over={hoverTeasePrev}
               out={hoverTeaseReset}
+              disabled={hoverPause}
               style={{
-                left: hoverPause ? '-100%' : 0,
                 width: '50%'
               }}
             />}
@@ -128,8 +128,8 @@ const RevealCarousel = props => {
               clickAction={goToNextSlide}
               over={hoverTeaseNext}
               out={hoverTeaseReset}
+              disabled={hoverPause}
               style={{
-                right: hoverPause ? '-100%' : 0,
                 width: '50%'
               }}
             />
