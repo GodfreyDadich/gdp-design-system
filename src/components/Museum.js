@@ -135,7 +135,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
         padding: 6vw;
       }
       .grid-image:hover {
-        filter: brightness(70%);
+        opacity: .8;
+        transition: .25s;
       }
       .modal {
         position: fixed;
