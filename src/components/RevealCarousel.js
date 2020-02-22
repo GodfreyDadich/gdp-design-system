@@ -116,7 +116,7 @@ const RevealCarousel = props => {
               out={hoverTeaseReset}
               disabled={hoverPause}
               style={{
-                width: '85%'
+                width: '80%'
               }}
             />}
           {isMobile
@@ -132,7 +132,7 @@ const RevealCarousel = props => {
               out={hoverTeaseReset}
               disabled={hoverPause}
               style={{
-                width: '85%'
+                width: '80%'
               }}
             />
           }
