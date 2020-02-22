@@ -16,7 +16,7 @@ export const RightArrow = props => {
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',
-        cursor: "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%2020h64M45%201l19%2019-19%2019%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto",
+        cursor: props.lightMode ? "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%2020h64M45%201l19%2019-19%2019%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto" : "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%2020h64M45%201l19%2019-19%2019%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto",
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }, props.style)}>
       <i className='fa fa-arrow-right fa-2x' aria-hidden='true' />
@@ -44,7 +44,7 @@ export const LeftArrow = props => {
         height: '100%',
         overflow: 'hidden',
         zIndex: '101',
-        cursor: "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M66%2020H2m19%2019L2%2020%2021%201%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto",
+        cursor: props.lightMode ? "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M66%2020H2m19%2019L2%2020%2021%201%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto" : "url('data:image/svg+xml,%3Csvg%20width%3D%2266%22%20height%3D%2240%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M66%2020H2m19%2019L2%2020%2021%201%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/svg%3E'), auto",
         WebkitTapHighlightColor: 'rgba(0,0,0,0)'
       }, props.style)}>
       <i className='fa fa-arrow-left fa-2x' aria-hidden='true' />

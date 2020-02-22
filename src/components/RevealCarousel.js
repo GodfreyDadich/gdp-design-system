@@ -110,12 +110,13 @@ const RevealCarousel = props => {
               out={hoverTeaseReset}
             />
             : <LeftArrow
+              lightMode={props.lightMode}
               clickAction={goToPrevSlide}
               over={hoverTeasePrev}
               out={hoverTeaseReset}
               disabled={hoverPause}
               style={{
-                width: '50%'
+                width: '85%'
               }}
             />}
           {isMobile
@@ -125,12 +126,13 @@ const RevealCarousel = props => {
               out={hoverTeaseReset}
             />
             : <RightArrow
+              lightMode={props.lightMode}
               clickAction={goToNextSlide}
               over={hoverTeaseNext}
               out={hoverTeaseReset}
               disabled={hoverPause}
               style={{
-                width: '50%'
+                width: '85%'
               }}
             />
           }
