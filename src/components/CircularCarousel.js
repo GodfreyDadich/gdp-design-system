@@ -248,11 +248,13 @@ export default class CircularCarousel extends Component {
           }}
           className={`carousel__container ${this.state.teaseState}`}>
           <LeftArrow
+            lightMode={this.props.lightMode}
             clickAction={this.goToPrevSlide}
             over={this.hoverTeasePrev}
             out={this.hoverTeaseReset}
           />
           <RightArrow
+            lightMode={this.props.lightMode}
             clickAction={this.goToNextSlide}
             over={this.hoverTeaseNext}
             out={this.hoverTeaseReset}
