@@ -4,11 +4,18 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.3.15-0"></a>
 ## [1.3.15-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.11...v1.3.15-0) (2020-02-27)
+<a name="1.3.13"></a>
+## [1.3.13](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.12...v1.3.13) (2020-02-22)
+
+
+
+<a name="1.3.12"></a>
+## [1.3.12](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.10...v1.3.12) (2020-02-21)
 
 
 
 <a name="1.3.11"></a>
-## [1.3.11](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.10...v1.3.11) (2020-02-27)
+## [1.3.11](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.10...v1.3.11) (2020-02-21)
 
 
 
