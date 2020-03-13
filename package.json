@@ -21,7 +21,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -s ./public -p 9009",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -s ./public",
     "release": "standard-version",
     "deploy-storybook": "storybook-to-ghpages",
     "build-docs": "build-storybook --docs",
