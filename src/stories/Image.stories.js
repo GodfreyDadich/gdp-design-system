@@ -1,9 +1,10 @@
 import React from 'react'
 import { text, boolean, select } from '@storybook/addon-knobs'
 import Image from '../components/Image'
-// import ImageWithZoom from '../components/ImageWithZoom'
 import Device from '../components/Device'
 import StackedImage from '../components/StackedImage'
+import ImageDepthMap from '../components/ImageDepthMap'
+
 import {
   defaultCaption,
   aspectRatios,
@@ -106,4 +107,12 @@ export const ImagesStacked = () =>
     images={imageGallery}
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
+  />
+
+export const DepthMap = () =>
+  <ImageDepthMap
+    originalImg={'/img/ball.jpg'}
+    depthImg={'/img/ball-map.jpg'}
+    verticalThreshold={25}
+    horizontalThreshold={15}
   />

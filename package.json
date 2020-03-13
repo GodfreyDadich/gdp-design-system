@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "dependencies": {
     "color": "^3.1.2",
+    "glslify-loader": "^2.0.0",
+    "gyronorm": "^2.0.6",
     "prop-types": "^15.7.2",
+    "raw-loader": "^4.0.0",
     "react-medium-image-zoom": "^3.1.1",
     "react-player": "^1.14.2",
     "react-scripts": "1.1.4",
@@ -17,11 +20,12 @@
     "buildit": "babel src -d dist",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -s ./public -p 9009",
     "build-storybook": "build-storybook -s public",
     "release": "standard-version",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-docs": "build-storybook --docs"
+    "build-docs": "build-storybook --docs",
+    "secure": "start-storybook -s ./public -p 9009 --https --ssl-cert localhost.crt --ssl-key localhost.key"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
