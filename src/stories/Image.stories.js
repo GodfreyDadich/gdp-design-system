@@ -111,8 +111,8 @@ export const ImagesStacked = () =>
 
 export const DepthMap = () =>
   <ImageDepthMap
-    originalImg={'/img/ball.jpg'}
-    depthImg={'/img/ball-map.jpg'}
+    originalImg={'/ball.jpg'}
+    depthImg={'/ball-map.jpg'}
     verticalThreshold={25}
     horizontalThreshold={15}
   />
