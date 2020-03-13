@@ -51,17 +51,19 @@ const Sketch = ({ container, imageOriginal, imageDepth, vth, hth, useGravity, mu
 
   useEffect(() => {
     if (isMobile) {
-      if (typeof DeviceMotionEvent.requestPermission === 'function') {
-        container.addEventListener('touchstart', getPermission)
-      } else {
-        window.addEventListener('devicemotion', deviceMove)
-      }
+      // if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      //   container.addEventListener('touchstart', getPermission)
+      // } else {
+      //   window.addEventListener('devicemotion', deviceMove)
+      // }
+      window.addEventListener('touchmove', touchMove)
     } else {
       window.addEventListener('mousemove', mouseMove)
     }
     return () => {
       if (isMobile) {
-        window.removeEventListener('devicemotion', deviceMove)
+        // window.removeEventListener('devicemotion', deviceMove)
+        window.removeEventListener('touchmove', touchMove)
       } else {
         window.removeEventListener('mousemove', mouseMove)
       }
@@ -198,10 +200,19 @@ const Sketch = ({ container, imageOriginal, imageDepth, vth, hth, useGravity, mu
   }
 
   const mouseMove = e => {
+    console.log(e)
     const halfX = windowWidth / 2
     const halfY = windowHeight / 2
     mouseTargetX = (halfX - e.clientX) / halfX
     mouseTargetY = (halfY - e.clientY) / halfY
+  }
+
+  const touchMove = e => {
+    console.log(e)
+    const halfX = windowWidth / 2
+    const halfY = windowHeight / 2
+    mouseTargetX = (halfX - e.layerX) / halfX
+    mouseTargetY = (halfY - e.layerY) / halfY
   }
 
   const render = () => {
