@@ -3,7 +3,7 @@ import { text, boolean, select } from '@storybook/addon-knobs'
 import Image from '../components/Image'
 import Device from '../components/Device'
 import StackedImage from '../components/StackedImage'
-import ImageDepthMap from '../components/ImageDepthMap'
+import ImageDepthMap from 'react-depth-map'
 
 import {
   defaultCaption,
@@ -110,9 +110,11 @@ export const ImagesStacked = () =>
   />
 
 export const DepthMap = () =>
-  <ImageDepthMap
-    originalImg={'./ball.jpg'}
-    depthImg={'./ball-map.jpg'}
-    verticalThreshold={25}
-    horizontalThreshold={15}
-  />
+  <div style={{ width: '80%', margin: '0 auto' }} >
+    <ImageDepthMap
+      originalImg={'./ball.jpg'}
+      depthImg={'./ball-map.jpg'}
+      verticalThreshold={25}
+      horizontalThreshold={15}
+    />
+  </div>

@@ -20,15 +20,6 @@ const ImageDepthMap = ({ originalImg, depthImg, verticalThreshold, horizontalThr
         useGravity
         multiplier={3}
       />}
-
-      <style jsx>{`
-      .image-DepthMap {
-        position: relative;
-        width: 80%;
-        height: 100%;
-        margin: 0 auto;
-      }
-      `}</style>
     </div>
   )
 }
