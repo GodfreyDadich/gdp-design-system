@@ -2,6 +2,7 @@ import React from 'react'
 import Image from './Image'
 import Video from './Video'
 import supportsWebP from 'supports-webp'
+import Lottie from 'react-lottie'
 // import PropTypes from 'prop-types'
 
 class Hero extends React.Component {
@@ -11,7 +12,6 @@ class Hero extends React.Component {
       zoomClass: '',
       heroReady: false,
       imgSource: '',
-      source: props.source,
       title: props.title,
       thumb: props.thumb,
       type: props.type
@@ -44,15 +44,15 @@ class Hero extends React.Component {
   }
   render () {
     const {
-      source,
       title,
       thumb,
       heroReady,
       imgSource,
       type
     } = this.state
-
+    
     const {
+      source,
       loop
     } = this.props
 
@@ -63,7 +63,7 @@ class Hero extends React.Component {
             return <Image
               imageTitle={title}
               aspectRatio='sixteen'
-              fullBleed='true'
+              fullBleed
               verticalAlign='center'
               skipIntro
               horizontalAlign='center'
@@ -73,9 +73,9 @@ class Hero extends React.Component {
             return <Video
               videoTitle={title}
               aspectRatio='sixteen'
-              fullBleed='true'
+              fullBleed
               controls={false}
-              autoplay
+              autoPlay
               skipIntro
               loop={loop}
               vidSource={source}
@@ -94,6 +94,14 @@ class Hero extends React.Component {
                   },
                   preload: false
                 }
+              }}
+            />
+          case 'lottie':
+            return <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: source
               }}
             />
           default:
