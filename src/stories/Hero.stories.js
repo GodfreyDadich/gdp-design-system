@@ -32,6 +32,7 @@ export const WithLottie = () =>
   <Hero
     type='lottie'
     source={animationData.default}
+    loop
   />
 
 export const DipticHero = () =>

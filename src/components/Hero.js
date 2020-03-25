@@ -99,7 +99,7 @@ class Hero extends React.Component {
           case 'lottie':
             return <Lottie
               options={{
-                loop: true,
+                loop: loop,
                 autoplay: true,
                 animationData: source
               }}
