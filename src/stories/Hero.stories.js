@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import SideBySide from '../components/SideBySide'
 import Layered from '../components/Layered'
 import Inset from '../components/Inset'
+import * as animationData from '../lib/arrayHeader.json'
 import {
   image1,
   image3,
@@ -25,6 +26,13 @@ export const WithVideo = () =>
     type='video'
     source={video1}
     thumb={image3}
+  />
+
+export const WithLottie = () =>
+  <Hero
+    type='lottie'
+    source={animationData.default}
+    loop
   />
 
 export const DipticHero = () =>
