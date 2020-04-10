@@ -81,7 +81,7 @@ class ImageWithZoom extends React.Component {
             </div>
             : ''}          
         </ImageWrap>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 col-6-tab'>{caption}</Caption> : ''}
         <style jsx>{`
           figure {
             position: relative;

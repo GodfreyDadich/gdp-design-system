@@ -23,7 +23,7 @@ const Device = ({ deviceColor, classAdd, caption, children, active }) =>
       zIndex: '21',
       backgroundColor: '#000'
     }}>{React.cloneElement(children, { active })}</div>
-    {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+    {caption && caption.length > 0 ? <Caption classAdd='col-6 col-6-tab'>{caption}</Caption> : ''}
     <div style={{
       position: 'absolute',
       top: '0',

@@ -98,7 +98,7 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
             : ''
           }
         </div>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd='col-6 col-6-tab'>{caption}</Caption> : ''}
       </div>
     }
     <style>{`

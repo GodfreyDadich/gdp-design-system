@@ -161,7 +161,7 @@ const RevealCarousel = props => {
       </div>
       {props.captionsArray ?
         <div style={{ height: isMobile ? '11vw' : '2vw', margin: captionMargin }}>
-          <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>
+          <Caption classAdd='col-6 col-6-tab'>
             <span style={{
               opacity: hoverPause ? 0 : 1,
               transition: 'opacity .2s ease-in-out'
@@ -169,7 +169,7 @@ const RevealCarousel = props => {
           </Caption>
         </div>
         : props.caption && props.caption.length > 0
-          ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{props.caption}</Caption> : ''}
+          ? <Caption classAdd='col-6 col-6-tab'>{props.caption}</Caption> : ''}
     </figure>
     <style jsx>{`
       .carouselImage {

@@ -30,7 +30,7 @@ export default class StackedImage extends Component {
                 </div>
               })}
             </div>
-            {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-1 col-6-tab skip-0-tab'>{this.props.caption}</Caption> : ''}
+            {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 col-6-tab'>{this.props.caption}</Caption> : ''}
     
         <style jsx>
           {`

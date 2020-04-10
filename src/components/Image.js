@@ -52,7 +52,7 @@ const Image = (props) => {
         }}
       </TrackVisibility>
 
-      {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 skip-1 col-6-tab skip-0-tab' : 'col-6 skip-3 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
+      {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
       <style jsx>{`
         figure {
           position: relative;

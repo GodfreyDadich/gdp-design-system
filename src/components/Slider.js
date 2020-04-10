@@ -103,7 +103,7 @@ export default class Slider extends Component {
           <LeftArrow clickAction={this.goToPrevSlide} lightMode={this.props.lightMode} />
           <RightArrow clickAction={this.goToNextSlide} lightMode={this.props.lightMode} />
         </div>
-        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{this.props.caption}</Caption> : ''}
+        {this.props.caption && this.props.caption.length > 0 ? <Caption classAdd='col-6 col-6-tab'>{this.props.caption}</Caption> : ''}
         <style jsx>{`
         .slider {
           position: absolute;

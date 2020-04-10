@@ -99,7 +99,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                 />
               </div>
             </div>
-            {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-1-tab' }`}>{caption}</Caption> : ''}
+            {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 col-6-tab' : 'col-6 col-6-tab' }`}>{caption}</Caption> : ''}
           </div>
         : <div>
           <div className={mixedOr ? 'grid-container' : removeGrayBackground ? 'columns-grid-container-transparent' : 'columns-grid-container'} style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)' }}>
@@ -155,7 +155,7 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               }
             </ConditionalClass>
           </div>
-          {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 skip-2 col-6-tab skip-1-tab' : 'col-6 skip-2 col-6-tab skip-1-tab' }`}>{caption}</Caption> : ''}
+          {caption && caption.length > 0 ? <Caption classAdd={`${removeGrayBackground ? 'col-8 col-6-tab' : 'col-6 col-6-tab' }`}>{caption}</Caption> : ''}
         </div>
       }
     </div>
