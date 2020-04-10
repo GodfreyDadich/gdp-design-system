@@ -375,6 +375,8 @@ export const Caption = ({ classAdd, children }) =>
         line-height: 16px;
         letter-spacing: 0.2px;
         margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
         
         @media only screen and (max-width: 500px) {

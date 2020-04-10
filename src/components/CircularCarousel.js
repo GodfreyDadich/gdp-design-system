@@ -303,7 +303,7 @@ export default class CircularCarousel extends Component {
             : countIndicator === 'dots'
               ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
         </div>
-        {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 skip-2 col-6-tab skip-0-tab' : 'col-6 skip-2 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
+        {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
       </div>
     )
   }
