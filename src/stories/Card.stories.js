@@ -33,7 +33,7 @@ export const DefaultCard = () =>
       imgSource={imgSixteenNine}
       verticalAlign={select('Vertical Align', verticalAligns, 'center')}
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
-      horizontalRule={boolean('Horizontal Rule', true)}
+      classAdd='withBorder-top'
     />
   </div>
 

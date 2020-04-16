@@ -11,7 +11,6 @@ const imagePropsObject = props => {
 
 const Card = props => (
   <div className={props.classAdd} style={props.style} >
-    {!!(props.horizontalRule === true) && <hr className='cardRule' />}
     {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
     <div className='cardMedia'>
       <Image {...imagePropsObject(props)} />
@@ -22,8 +21,9 @@ const Card = props => (
         display: inline-block;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
       }
-      .cardRule {
-        margin-bottom: 25px;
+      .withBorder-top {
+        border-top: 1px black solid;
+        padding-top: 25px;
       }
     `}</style>
   </div>
@@ -41,9 +41,7 @@ Card.propTypes = {
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
-  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  horizontalRule: PropTypes.bool,
-  wideImage: PropTypes.bool
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
 }
 
 Card.defaultProps = {
