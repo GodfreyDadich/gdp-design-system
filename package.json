@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "buildit": "babel src -d dist",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject ",
     "storybook": "start-storybook -s ./public -p 9009",
     "build-storybook": "build-storybook -s ./public",
     "release": "standard-version",
