@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.17-3"></a>
+## [1.3.17-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.16...v1.3.17-3) (2020-04-29)
+
+
+
 <a name="1.3.17-2"></a>
 ## [1.3.17-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.16...v1.3.17-2) (2020-04-29)
 
