@@ -43,22 +43,15 @@ const Video = (props) => {
     thumb
   } = props
 
-  const [playing, setPlaying] = useState(autoplay || false)
+  const [playing, setPlaying] = useState(false)
   const [player, setPlayer] = useState(undefined)
   const [coverVisible, setCoverVisible] = useState(true)
   const [isLoading, setIsLoading] = useState(loader)
   const [playerReady, setPlayerReady] = useState(false)
-  const [isMobile, setIsMobile] = useState(true)
-  const [isMobileOnly, setIsMobileOnly] = useState(true)
+  const [isMobileDevice, setIsMobileDevice] = useState(true)
+  const [isMobileDeviceOnly, setIsMobileDeviceOnly] = useState(true)
   const [videoThumb, setVideoThumb] = useState('')
-
-  const play = () => {
-    setPlaying(true)
-    if (player) {
-      player.callPlayer('setCurrentTime', 0)
-      player.callPlayer('setLoop', true)
-    }
-  }
+  const [loadVideo, setLoadVideo] = useState(false)
 
   const pause = () => {
     setPlaying(false)
@@ -74,10 +67,12 @@ const Video = (props) => {
     }
 
     setPlayer(player.player)
-    setCoverVisible(hoverPlay)
     setIsLoading(isLoading ? autoplay : false)
     setPlayerReady(true)
-    setPlaying(autoplay)
+    setTimeout(() => {
+      setCoverVisible(hoverPlay || loadActive ? !active : false)
+      setPlaying(autoplay)
+    }, 1500)
   }
 
   const videoOnPlay = () => {
@@ -93,31 +88,28 @@ const Video = (props) => {
     }
   }
 
-  const translateThumbUrl = (thumbUrl, isMobileOnly) => {
+  const translateThumbUrl = (thumbUrl, isMobileDeviceOnly) => {
     const ext = supportsWebP ? 'webp' : 'jpg'
     const vidID = thumbUrl.split('video/')[1].split('_')[0]
-    const imgParams = isMobileOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
+    const imgParams = isMobileDeviceOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
     return `https://i.vimeocdn.com/video/${vidID}.${ext}?${imgParams}`
   }
 
   useEffect(() => {
-    setIsMobile(isMobile)
-    setIsMobileOnly(isMobileOnly)
+    setIsMobileDevice(isMobile)
+    setIsMobileDeviceOnly(isMobileOnly)
     if (thumb.length > 0) {
-      setVideoThumb(translateThumbUrl(thumb, isMobileOnly))
+      setVideoThumb(translateThumbUrl(thumb, isMobileDeviceOnly))
     }
   }, [])
 
   useEffect(() => {
-    if (active && !playing) {
-      setPlaying(true)
-      play()
-    } else if (active && playing) {
+    setPlaying(active)
+    setCoverVisible(!active)
+    if (!active) {
       if (player) {
         player.stop()
       }
-      setPlaying(false)
-      setCoverVisible(true)
     }
   }, [active])
 
@@ -128,55 +120,62 @@ const Video = (props) => {
       style={style}
       className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
     >
-      <TrackVisibility once partialVisibility className={classAdd}>
-        {({ isVisible }) =>
-          <div
-            style={{
-              position: 'relative',
-              top: isVisible || skipIntro ? '0px' : '15px',
-              opacity: isVisible || loadActive ? '1' : '0',
-              transition: 'opacity 0.5s, top 0.5s',
-              transitionDelay: '0.75s'
-            }}
-          >
-            <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`} style={aspectRatio === 'custom' ? { paddingTop: customPadding } : {}}>
-              <div>
-                <div
-                  ref='videoCover'
-                  className='videoCover'
-                  style={{
-                    backgroundImage: `url(${videoThumb})`,
-                    backgroundPosition: `${isVisible && !isLoading ? 'center center' : '100vw 100vw'}`,
-                    backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
-                    display: coverVisible ? 'inline-block' : 'none'
-                  }}>
-                  { isLoading ? <Loader /> : '' } </div>
-                { isMobile && (regPlay || hoverPlay) ? ''
-                  : <ReactPlayer
-                    url={autoplay ? vidSource : isVisible || loadActive ? vidSource : ''}
-                    playing={playing}
-                    volume={autoplay ? 0 : 1}
-                    muted={muted}
-                    loop={loop}
-                    autoplay={autoplay}
-                    controls={controls}
-                    width='100%'
-                    height='100%'
-                    style={vidStyle}
-                    config={config}
-                    onReady={videoReady}
-                    onPlay={videoOnPlay}
-                    onEnded={videoOnEnd}
-                    playsinline={playsinline}
-                  />
-                }
+      <TrackVisibility partialVisibility className={classAdd}>
+        {({ isVisible }) => {
+          if (isVisible) {
+            setLoadVideo(true)
+          }
+          return (
+            <div
+              style={{
+                position: 'relative',
+                top: loadVideo || skipIntro ? '0px' : '15px',
+                opacity: loadVideo || skipIntro ? '1' : '0',
+                transition: 'opacity 0.5s, top 0.5s',
+                transitionDelay: '0.75s'
+              }}
+            >
+              <div className={`vidWrap ${aspectRatio}${active ? ' active' : ''}`} style={aspectRatio === 'custom' ? { paddingTop: customPadding } : {}}>
+                <div>
+                  <div
+                    ref='videoCover'
+                    className='videoCover'
+                    style={{
+                      backgroundImage: `url(${videoThumb})`,
+                      backgroundPosition: `${loadVideo && !isLoading ? 'center center' : '100vw 100vw'}`,
+                      backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
+                      display: coverVisible ? 'inline-block' : 'none',
+                      opacity: playerReady && (hoverPlay || loadActive ? active : true) ? 0 : 100,
+                      transition: 'opacity 0.5s',
+                      transitionDelay: '0.75s'
+                    }}>
+                    { isLoading ? <Loader /> : '' } </div>
+                  { isMobileDevice && (regPlay || hoverPlay) ? ''
+                    : <ReactPlayer
+                      url={autoplay ? vidSource : loadVideo || loadActive ? vidSource : ''}
+                      playing={playing && isVisible}
+                      volume={autoplay ? 0 : 1}
+                      muted={muted}
+                      loop={loop}
+                      controls={controls}
+                      width='100%'
+                      height='100%'
+                      style={vidStyle}
+                      config={config}
+                      onReady={videoReady}
+                      onPlay={videoOnPlay}
+                      onEnded={videoOnEnd}
+                      playsinline={playsinline}
+                    />
+                  }
+                </div>
               </div>
+              {sideBar
+                ? <SideBar sideBar={sideBar} loadVideo />
+                : ''}
             </div>
-            {sideBar
-              ? <SideBar sideBar={sideBar} isVisible />
-              : ''}
-          </div>
-        }
+          )
+        }}
       </TrackVisibility>
       {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
       <style jsx>{`
