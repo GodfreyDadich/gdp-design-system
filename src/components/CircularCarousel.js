@@ -227,12 +227,14 @@ export default class CircularCarousel extends Component {
     } = this.state
 
     return (
+      <>
       <div
-        style={Object.assign({}, {
+        style={{
           position: 'relative',
           overflow: 'visible'
-        })}
-        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+        }}
+        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+        {/* className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}> */}
         <div
           ref={elem => { this.carouselElem = elem }}
           style={{
@@ -303,8 +305,9 @@ export default class CircularCarousel extends Component {
             : countIndicator === 'dots'
               ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
         </div>
-        {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 skip-2 col-6-tab skip-0-tab' : 'col-6 skip-2 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
       </div>
+        {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 skip-3 col-6-tab skip-0-tab' : 'col-6 skip-3 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
+      </>
     )
   }
 }

@@ -121,7 +121,6 @@ export const VideoCarousel = () =>
         fullBleed={false}
         volume={0}
         loadActive
-        active
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         onEnd={videoEnded}
@@ -132,7 +131,6 @@ export const VideoCarousel = () =>
         fullBleed={false}
         volume={0}
         loadActive
-        active={false}
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         onEnd={videoEnded}
@@ -143,7 +141,6 @@ export const VideoCarousel = () =>
         fullBleed={false}
         volume={0}
         loadActive
-        active={false}
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         onEnd={videoEnded}
@@ -154,7 +151,6 @@ export const VideoCarousel = () =>
         fullBleed={false}
         volume={0}
         loadActive
-        active={false}
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
         onEnd={videoEnded}
