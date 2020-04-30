@@ -228,83 +228,84 @@ export default class CircularCarousel extends Component {
 
     return (
       <>
-      <div
-        style={Object.assign({}, {
-          position: 'relative',
-          overflow: 'visible'
-        })}
-        className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
         <div
-          ref={elem => { this.carouselElem = elem }}
           style={{
             position: 'relative',
-            height: '100%',
-            width: '100%',
-            overflow: 'visible',
-            touchAction: 'pan-y',
-            userSelect: 'none',
-            paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
-            background: isMobile && removeMobileGrayBackground ? 'transparent' : 'rgb(242,242,242)',
-            marginTop: isMobile && removeMobileGrayBackground ? '-45px' : '0'
+            overflow: 'visible'
           }}
-          className={`carousel__container ${this.state.teaseState}`}>
-          <LeftArrow
-            lightMode={this.props.lightMode}
-            clickAction={this.goToPrevSlide}
-            over={this.hoverTeasePrev}
-            out={this.hoverTeaseReset}
-          />
-          <RightArrow
-            lightMode={this.props.lightMode}
-            clickAction={this.goToNextSlide}
-            over={this.hoverTeaseNext}
-            out={this.hoverTeaseReset}
-          />
+          className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
+          {/* className={`carouselWrapper ${fullBleed ? ' full-bleed' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}> */}
           <div
+            ref={elem => { this.carouselElem = elem }}
             style={{
-              position: 'absolute',
-              top: '0',
-              left: '0',
-              width: '100%',
+              position: 'relative',
               height: '100%',
-              transition: 'transform .3s ease, box-shadow .3s ease'
+              width: '100%',
+              overflow: 'visible',
+              touchAction: 'pan-y',
+              userSelect: 'none',
+              paddingTop: isMobile && altRatio ? getPaddingTop(altRatio) : getPaddingTop(aspectRatio),
+              background: isMobile && removeMobileGrayBackground ? 'transparent' : 'rgb(242,242,242)',
+              marginTop: isMobile && removeMobileGrayBackground ? '-45px' : '0'
             }}
-            className='carousel__images-container'>
-            {
-              children.map((child, i) => (
-                <div
-                  key={`carouselImage${i}`}
-                  style={Object.assign({
-                    boxShadow: shadow === 'yes' ? '0px 4px 25px rgba(0, 0, 0, 0.4)' : '',
-                    display: 'block',
-                    verticalAlign: 'middle',
-                    position: 'absolute',
-                    transform: 'translateX(-50%) translateY(-50%) scale(1.1)',
-                    transition: 'transform 0.75s',
-                    zIndex: '3',
-                    top: '50%',
-                    left: '50%',
-                    width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
-                    maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
-                    height: 'auto'
-                  }, this.getCarouselStyle(i))}>
-                  {visibleArray.includes(i)
-                    ? React.cloneElement(child, {
-                      active: (this.state.currentIndex === i),
-                      visibilityOverride: true
-                    })
-                    : <Fragment />}
-                </div>
-              ))
-            }
+            className={`carousel__container ${this.state.teaseState}`}>
+            <LeftArrow
+              lightMode={this.props.lightMode}
+              clickAction={this.goToPrevSlide}
+              over={this.hoverTeasePrev}
+              out={this.hoverTeaseReset}
+            />
+            <RightArrow
+              lightMode={this.props.lightMode}
+              clickAction={this.goToNextSlide}
+              over={this.hoverTeaseNext}
+              out={this.hoverTeaseReset}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                transition: 'transform .3s ease, box-shadow .3s ease'
+              }}
+              className='carousel__images-container'>
+              {
+                children.map((child, i) => (
+                  <div
+                    key={`carouselImage${i}`}
+                    style={Object.assign({
+                      boxShadow: shadow === 'yes' ? '0px 4px 25px rgba(0, 0, 0, 0.4)' : '',
+                      display: 'block',
+                      verticalAlign: 'middle',
+                      position: 'absolute',
+                      transform: 'translateX(-50%) translateY(-50%) scale(1.1)',
+                      transition: 'transform 0.75s',
+                      zIndex: '3',
+                      top: '50%',
+                      left: '50%',
+                      width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
+                      maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
+                      height: 'auto'
+                    }, this.getCarouselStyle(i))}>
+                    {visibleArray.includes(i)
+                      ? React.cloneElement(child, {
+                        active: (this.state.currentIndex === i),
+                        visibilityOverride: true
+                      })
+                      : <Fragment />}
+                  </div>
+                ))
+              }
 
+            </div>
+            {isMobile ? countIndicator === 'counter' ?
+              <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} />
+              : countIndicator === 'dots'
+                ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
           </div>
-          {isMobile ? countIndicator === 'counter' ?
-            <CountIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} />
-            : countIndicator === 'dots'
-              ? <DotIndicator currentIndex={this.state.currentIndex} imageAspect={imageAspect || aspectRatio} children={children} /> : '' : ''}
         </div>
-      </div>
         {caption && caption.length > 0 ? <Caption classAdd={`${gridGallery ? 'col-6 skip-3 col-6-tab skip-0-tab' : 'col-6 skip-3 col-6-tab skip-1-tab'}`}>{caption}</Caption> : ''}
       </>
     )
