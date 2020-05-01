@@ -121,7 +121,7 @@ const Video = (props) => {
     >
       <TrackVisibility partialVisibility className={classAdd}>
         {({ isVisible }) => {
-          if (isVisible) {
+          if (isVisible || autoplay) {
             setLoadVideo(true)
           }
           return (
