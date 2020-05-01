@@ -34,6 +34,7 @@ export const VideoEmbedAutoplay = () =>
       fullBleed={false}
       autoplay
       volume={0}
+      playsinline
       loop
       vidSource='https://vimeo.com/299777569'
       thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
@@ -123,7 +124,6 @@ export const VideoCarousel = () =>
         loadActive
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-        onEnd={videoEnded}
       />
       <Video
         title=''
@@ -133,7 +133,6 @@ export const VideoCarousel = () =>
         loadActive
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-        onEnd={videoEnded}
       />
       <Video
         title=''
@@ -143,7 +142,6 @@ export const VideoCarousel = () =>
         loadActive
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-        onEnd={videoEnded}
       />
       <Video
         title=''
@@ -153,7 +151,6 @@ export const VideoCarousel = () =>
         loadActive
         vidSource='https://vimeo.com/299777569'
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
-        onEnd={videoEnded}
       />
     </CircularCarousel>
   </div>

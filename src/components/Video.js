@@ -30,7 +30,6 @@ const Video = (props) => {
     caption,
     sideBar,
     style,
-    regPlay,
     playsinline,
     active,
     mouseOverAction,
@@ -143,16 +142,16 @@ const Video = (props) => {
                     style={{
                       backgroundImage: `url(${videoThumb})`,
                       backgroundPosition: `${loadVideo && !isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
+                      backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: coverVisible ? 'inline-block' : 'none',
                       opacity: playerReady && (hoverPlay || loadActive ? active : true) ? 0 : 100,
                       transition: 'opacity 0.5s',
                       transitionDelay: '0.75s'
                     }}>
                     { isLoading ? <Loader /> : '' } </div>
-                  { isMobileDevice && (regPlay || hoverPlay) ? ''
+                  { isMobileDevice && hoverPlay ? ''
                     : <ReactPlayer
-                      url={autoplay ? vidSource : loadVideo || loadActive ? vidSource : ''}
+                      url={loadVideo || skipIntro ? vidSource : ''}
                       playing={playing && isVisible}
                       volume={autoplay ? 0 : 1}
                       muted={muted}
