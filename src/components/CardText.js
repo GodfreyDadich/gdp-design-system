@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const CardText = props =>
   <div className='cardText'>
     {!!props.cardTitle && <CardTitle>{props.cardTitle}</CardTitle>}
-    {!!props.cardSubTitle && <CardSubTitle>{props.cardSubTitle}</CardSubTitle>}
+    {!!props.cardSubTitle && <CardSubTitle classAdd={props.cardSubtitleClass}>{props.cardSubTitle}</CardSubTitle>}
     {!!props.cardContent && <CardContent>{props.cardContent}</CardContent>}
     {!!props.linkText && <a className='cardText__link' href={props.linkUrl}>{props.linkText}</a>}
 

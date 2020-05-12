@@ -433,6 +433,16 @@ export const CardSubTitle = ({ classAdd, children }) =>
         margin: 0;
         color: rgb(127,127,127);
 
+        &.homepageSubtitle {
+          font-family: Atlas Grotesk;
+          font-style: normal;
+          font-weight: 100;
+          font-size: 18px;
+          line-height: 20px;
+          letter-spacing: -0.18px;
+          color: #7F7F7F;
+        }
+
         @media only screen and (max-width: 768px) {
           font-size: 16px;
           letter-spacing: 0.1px;

@@ -34,6 +34,7 @@ export const DefaultCard = () =>
       verticalAlign={select('Vertical Align', verticalAligns, 'center')}
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
       classAdd='withBorder-top'
+      cardSubtitleClass='homepageSubtitle'
     />
   </div>
 

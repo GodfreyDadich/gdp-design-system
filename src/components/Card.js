@@ -41,7 +41,8 @@ Card.propTypes = {
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
-  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right'])
+  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
+  widesetImage: PropTypes.bool
 }
 
 Card.defaultProps = {
