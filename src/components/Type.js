@@ -433,7 +433,7 @@ export const CardSubTitle = ({ classAdd, children }) =>
         margin: 0;
         color: rgb(127,127,127);
 
-        &.homepageSubtitle {
+        &.${classAdd} {
           font-family: Atlas Grotesk;
           font-style: normal;
           font-weight: 100;
