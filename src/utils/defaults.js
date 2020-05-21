@@ -37,7 +37,7 @@ export const viewMode = ['lightMode', 'darkMode']
 export const isCarousel = ['yes', 'no']
 
 /* Media */
-export const imgSixteenNine = 'http://gdp-site.s3.amazonaws.com/attachments/ck90eb2fh0p010pp3typtet72-screen-shot-2020-04-14-at-1-58-03-pm.full.png'
+export const imgSixteenNine = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
 export const imageGallery = [
   'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvn6e00av0injox68giu4-06-1316wieaopen002.full.jpg',
   'http://gdp-site.s3.amazonaws.com/attachments/cjzlzvmzs004y0ipgfjyriq15-03-1316wicxopen001.full.jpg'
