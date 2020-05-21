@@ -1,23 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Triptych = props => (
-  <div className='imageLinkMosaic'>
-    {props.imgArray.map((images, i) =>
-      <div>
-        <div className="whoWeAre" style={{ backgroundImage: `url(${images.image1})` }}>
-          <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
-        </div>
+const Triptych = props => {
+  const [imagesIndex, setImagesIndex] = useState(0)
 
-        <div className="whatWeDo" style={{ backgroundImage: `url(${images.image2})` }}>
-          <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
-        </div>
+  useEffect(() => {
+    setTimeout(() => {
+      if (imagesIndex < 4) {
+        setImagesIndex(imagesIndex + 1)
+      } else {
+        setImagesIndex(0)
+      }
+    }, 3000)
+  }, [imagesIndex]);
 
-        <div className="whatWeMake" style={{ backgroundImage: `url(${images.image3})` }}>
-          <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
-        </div>
-      </div>
-    )}
+  return <div className='imageLinkMosaic'>
+    <div className="whoWeAre" style={{ backgroundImage: `url(${props.imgArray[imagesIndex].image1})` }}>
+      <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
+    </div>
+
+    <div className="whatWeDo" style={{ backgroundImage: `url(${props.imgArray[imagesIndex].image2})` }}>
+      <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
+    </div>
+
+    <div className="whatWeMake" style={{ backgroundImage: `url(${props.imgArray[imagesIndex].image3})` }}>
+      <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
+    </div>
     <style jsx>{`
       .imageLinkMosaic {
         position: relative;
@@ -97,7 +105,7 @@ const Triptych = props => (
       }
     `}</style>
   </div>
-)
+}
 
 Triptych.propTypes = {
   linkText: PropTypes.string,
