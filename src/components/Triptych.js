@@ -1,27 +1,23 @@
 import React from 'react'
-import Image from './Image'
-import CardText from './CardText'
 import PropTypes from 'prop-types'
-
-const imagePropsObject = props => {
-  const newObj = Object.assign({}, props)
-  delete newObj.classAdd
-  return newObj
-}
 
 const Triptych = props => (
   <div className='imageLinkMosaic'>
-    <div className="whoWeAre">
-      <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#'className='mosaicLink'>Link</a></div>
-    </div>
+    {props.imgArray.map((images, i) =>
+      <div>
+        <div className="whoWeAre" style={{ backgroundImage: `url(${images.image1})` }}>
+          <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
+        </div>
 
-    <div className="whatWeDo">
-      <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#'className='mosaicLink'>Link</a></div>
-    </div>
+        <div className="whatWeDo" style={{ backgroundImage: `url(${images.image2})` }}>
+          <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
+        </div>
 
-    <div className="whatWeMake">
-      <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#'className='mosaicLink'>Link</a></div>
-    </div>
+        <div className="whatWeMake" style={{ backgroundImage: `url(${images.image3})` }}>
+          <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
+        </div>
+      </div>
+    )}
     <style jsx>{`
       .imageLinkMosaic {
         position: relative;
@@ -89,35 +85,25 @@ const Triptych = props => (
       .whatWeDo {
         top: 0;
         left: 50%;
-        background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjoq2zocw00093rawmcegsts4-ny-image.full.jpg');
+        // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjoq2zocw00093rawmcegsts4-ny-image.full.jpg');
         height: 50%;
       }
 
       .whatWeMake {
         top: 50%;
         left: 50%;
-        background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tat7z0006dqawl3mvh2g3-godfreydadichpartners0533copy-2x.full.jpg');
+        // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tat7z0006dqawl3mvh2g3-godfreydadichpartners0533copy-2x.full.jpg');
         height: 50%;
       }
-    
     `}</style>
   </div>
 )
 
 Triptych.propTypes = {
-  cardTitle: PropTypes.string,
-  cardSubtitle: PropTypes.string,
-  cardContent: PropTypes.string,
   linkText: PropTypes.string,
   linkURL: PropTypes.string,
-  mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
-  imageTitle: PropTypes.string,
   aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
-  fullBleed: PropTypes.bool,
-  imgSource: PropTypes.string,
-  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
-  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  widesetImage: PropTypes.bool
+  imgArray: PropTypes.array,
 }
 
 Triptych.defaultProps = {

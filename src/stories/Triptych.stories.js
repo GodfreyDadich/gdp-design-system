@@ -2,15 +2,7 @@ import React from 'react'
 import { text, boolean, select } from '@storybook/addon-knobs'
 import Triptych from '../components/Triptych'
 import {
-  defaultTitle,
-  defaultSubTitle,
-  defaultCopyBlock,
-  defaultCta,
-  imgSixteenNine,
-  verticalAligns,
-  horizontalAligns,
-  aspectRatios,
-  contentOrientations
+  imgArray
 } from '../utils/defaults'
 
 export default {
@@ -20,7 +12,12 @@ export default {
 
 export const DefaultTriptych = () =>
   <div style={{ width: '50%', margin: '50px auto' }}>
-    <Triptych/>
+    <Triptych
+      linkText=''
+      linkURL=''
+      aspectRatio='none'
+      imgArray={imgArray}
+    />
   </div>
 
 DefaultTriptych.story = {
