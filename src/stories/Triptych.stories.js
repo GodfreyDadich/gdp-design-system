@@ -15,7 +15,7 @@ export const DefaultTriptych = () =>
     <Triptych
       linkText=''
       linkURL=''
-      aspectRatio='none'
+      aspectRatio='noAspect'
       imgArray={imgArray}
     />
   </div>
