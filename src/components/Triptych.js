@@ -11,36 +11,21 @@ const Triptych = props => {
   useEffect(() => {
     let triptychInterval
     triptychInterval = setTimeout(iterateTriptychImg, 3000)
-
-    // setTimeout(() => {
-    //   if (imagesIndex < 4) {
-    //     setImagesIndex(imagesIndex + 1)
-    //   } else {
-    //     setImagesIndex(0)
-    //   }
-    // }, 3000)
-  }, [imagesIndex]);
+  }, [triptychOneState]);
 
   const iterateTriptychImg = () => {
-    let slides = document.getElementsByClassName('triptychImage')
-    let triptychImage = document.querySelector('.triptychImage.active')
     console.log(imagesIndex)
     let featuredGroup
+    
     if (imagesIndex < props.imgArray.length - 1) {
       featuredGroup = imagesIndex + 1
-
-      // setActiveGroup(props.imgArray[imagesIndex + 1])
-      // setNextGroup(props.imgArray[imagesIndex + 2])
-
     } else {
       featuredGroup = 0
-      // setActiveGroup(props.imgArray[0])
-      // setNextGroup(props.imgArray[1])
     }
+
     setImagesIndex(featuredGroup)
 
     if (triptychOneState === 'active') {
-      // set next data
       setNextGroup(props.imgArray[featuredGroup])
       setTriptychTwoState('next visible')
       setTriptychOneState('next')
@@ -55,14 +40,6 @@ const Triptych = props => {
         setTriptychOneState('active')
       }, 1000)
     }
-
-    // active = index (visible)
-    // next = index + 1 (hidden)
-
-    // if (triptychImage) {
-    //   triptychImage.classList.remove('active')
-    //   slides[imagesIndex].classList.add('active')
-    // }
   }
 
   return <div>
