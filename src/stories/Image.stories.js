@@ -3,6 +3,7 @@ import { text, boolean, select } from '@storybook/addon-knobs'
 import Image from '../components/Image'
 import Device from '../components/Device'
 import StackedImage from '../components/StackedImage'
+import Slideshow from '../components/Slideshow'
 import ImageDepthMap from 'react-depth-map'
 
 import {
@@ -116,5 +117,15 @@ export const DepthMap = () =>
       depthImg={'./ball-map.jpg'}
       verticalThreshold={25}
       horizontalThreshold={15}
+    />
+  </div>
+
+export const DefaultSlideshow = () =>
+  <div style={{ width: '50%', margin: '50px auto' }}>
+    <Slideshow
+      linkText=''
+      linkURL=''
+      aspectRatio='noAspect'
+      images={imageGallery2}
     />
   </div>
