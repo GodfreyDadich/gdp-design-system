@@ -38,7 +38,6 @@ class ImageWrap extends React.Component {
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
           backgroundRepeat: 'no-repeat',
-          position: 'relative',
           height: 'auto',
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
