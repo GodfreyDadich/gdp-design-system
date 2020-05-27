@@ -33,7 +33,7 @@ Card.propTypes = {
   linkURL: PropTypes.string,
   mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   imageTitle: PropTypes.string,
-  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect', 'doubleWide']),
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),

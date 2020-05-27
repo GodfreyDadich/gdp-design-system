@@ -5,7 +5,8 @@ const paddingRef = {
   sixteen: '56.25%',
   standard: '75%',
   cropped: '41.67%',
-  square: '100%'
+  square: '100%',
+  doubleWide: 'calc( 50% - 12px )'
 }
 
 class ImageWrap extends React.Component {
