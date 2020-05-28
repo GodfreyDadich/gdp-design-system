@@ -12,7 +12,7 @@ const imagePropsObject = props => {
 const Card = props => (
   <div className={props.classAdd} style={props.style} >
     {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-    <div className='cardMedia'>
+    <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundSize: '50%', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundColor: '#F2F2F2' } : {}}>
       <Image {...imagePropsObject(props)} />
     </div>
     {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}

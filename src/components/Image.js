@@ -20,14 +20,20 @@ const Image = (props) => {
     classAdd,
     stackedImage,
     style,
-    visibilityOverride
+    visibilityOverride,
+    index,
+    logoSVG
   } = props
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
 
   const handleImageLoaded = () => {
-    setImageLoaded(true)
+    logoSVG ?
+      setTimeout(() => {
+        setImageLoaded(true)
+      }, 250 * index) :
+      setImageLoaded(true)
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
@@ -67,7 +73,7 @@ const Image = (props) => {
           height: auto;
           opacity: 0;
           ${aspectRatio === 'noAspect'
-      ? `position: relative;
+          ? `position: relative;
           width: 100%;
           opacity: 1;
           ` : ''}            
