@@ -35,6 +35,9 @@ export const DefaultCard = () =>
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
       classAdd='withBorder-top'
       cardSubtitleClass='homepageSubtitle'
+      hoverCard
+      bgColor={'orange'}
+      hoverSVG={'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg'}
     />
   </div>
 

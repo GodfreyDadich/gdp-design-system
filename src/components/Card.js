@@ -11,13 +11,18 @@ const imagePropsObject = props => {
 
 const Card = props => (
   <div className={props.classAdd} style={props.style} >
-    {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-    <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundSize: '50%', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundColor: '#F2F2F2' } : {}}>
-      <Image {...imagePropsObject(props)} />
+    <div className={`${props.hoverCard ? 'hoverCard' : ''}`}>
+      {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
+      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundSize: '50%', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundColor: '#F2F2F2' } : {}}>
+        <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor }}>
+        </div>
+        <Image {...imagePropsObject(props)} />
+      </div>
+      {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
     </div>
-    {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
     <style jsx>{`
       .cardMedia {
+        position: relative;
         display: inline-block;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
       }
@@ -25,7 +30,23 @@ const Card = props => (
         border-top: 1px black solid;
         padding-top: 25px;
       }
-    `}</style>
+      .hoverCard:hover .overlay {
+        height: 100%;
+      }
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0%;
+        width: 100%;
+        z-index: 999;
+        transition: .5s ease;
+        background-size: 50%;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      `}</style>
   </div>
 )
 
