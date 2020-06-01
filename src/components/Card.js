@@ -63,7 +63,11 @@ Card.propTypes = {
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
   horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  widesetImage: PropTypes.bool
+  classAdd: PropTypes.string,
+  cardSubtitleClass: PropTypes.string,
+  hoverCard: PropTypes.bool,
+  bgColor: PropTypes.string,
+  hoverSVG: PropTypes.string
 }
 
 Card.defaultProps = {
