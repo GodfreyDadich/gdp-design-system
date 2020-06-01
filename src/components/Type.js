@@ -417,9 +417,9 @@ export const CardTitle = ({ classAdd, children }) =>
     `}</style>
   </h4>
 
-export const CardSubTitle = ({ classAdd, children }) =>
+export const CardSubTitle = ({ classAdd, styleObj, children }) =>
   <h5
-    className={`cardSubtitle ${classAdd}`}
+    className={`cardSubtitle ${classAdd}`} style={styleObj}
   >{children}
     <style jsx>{`
       .cardSubtitle {
@@ -432,16 +432,6 @@ export const CardSubTitle = ({ classAdd, children }) =>
         line-height: 22px;
         margin: 0;
         color: rgb(127,127,127);
-
-        &.${classAdd} {
-          font-family: Atlas Grotesk;
-          font-style: normal;
-          font-weight: 100;
-          font-size: 18px;
-          line-height: 20px;
-          letter-spacing: -0.18px;
-          color: #7F7F7F;
-        }
 
         @media only screen and (max-width: 768px) {
           font-size: 16px;

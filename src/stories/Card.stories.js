@@ -38,6 +38,15 @@ export const DefaultCard = () =>
       hoverCard
       bgColor={'orange'}
       hoverSVG={'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg'}
+      styleObj={{
+        fontFamily: 'Atlas Grotesk',
+        fontStyle: 'normal',
+        fontWeight: '100',
+        fontSize: '18px',
+        lineHeight: '20px',
+        letterSpacing: '-0.18px',
+        color: '#7F7F7F'
+      }}
     />
   </div>
 
