@@ -75,7 +75,7 @@ class Hero extends React.Component {
               aspectRatio='sixteen'
               fullBleed
               controls={false}
-              autoPlay
+              autoplay
               skipIntro
               loop={loop}
               vidSource={source}

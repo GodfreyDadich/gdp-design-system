@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
@@ -16,151 +16,120 @@ const vidStyle = {
   border: 'none'
 }
 
-class Video extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      playing: props.autoplay || false,
-      player: undefined,
-      vidSource: '',
-      hoverPlay: props.hoverPlay || false,
-      autoplay: props.autoplay || false,
-      coverVisible: true,
-      isLoading: props.loader,
-      active: props.active || false,
-      playerReady: false,
-      isMobile: true,
-      isMobileOnly: true,
-      thumb: '',
-      mouseIgnore: (this.props.config && this.props.config.vimeo.playerOptions.background === 1)
+const Video = (props) => {
+  const {
+    vidSource,
+    classAdd,
+    controls = true,
+    autoplay,
+    loop,
+    config,
+    hoverPlay,
+    skipIntro,
+    loadActive,
+    caption,
+    sideBar,
+    style,
+    playsinline,
+    active,
+    mouseOverAction,
+    mouseOutAction,
+    muted = true,
+    aspectRatio = 'sixteen',
+    customPadding = '0',
+    onEnd,
+    loader,
+    thumb
+  } = props
+
+  const [playing, setPlaying] = useState(false)
+  const [player, setPlayer] = useState(undefined)
+  const [coverVisible, setCoverVisible] = useState(true)
+  const [isLoading, setIsLoading] = useState(loader)
+  const [playerReady, setPlayerReady] = useState(false)
+  const [isMobileDevice, setIsMobileDevice] = useState(true)
+  const [isMobileDeviceOnly, setIsMobileDeviceOnly] = useState(true)
+  const [videoThumb, setVideoThumb] = useState('')
+  const [loadVideo, setLoadVideo] = useState(false)
+
+  const pause = () => {
+    setPlaying(false)
+    if (player) {
+      player.stop()
     }
-    this.play = this.play.bind(this)
-    this.pause = this.pause.bind(this)
-    this.videoReady = this.videoReady.bind(this)
-    this.videoOnPlay = this.videoOnPlay.bind(this)
-    this.videoOnEnd = this.videoOnEnd.bind(this)
   }
 
-  play () {
-    this.setState({
-      playing: true
-    })
-    if (this.state.player) {
-      this.state.player.callPlayer('setCurrentTime', 0)
-      this.state.player.callPlayer('setLoop', true)
-    }
-  }
-  pause () {
-    this.setState({
-      playing: false
-    })
-    if (this.state.player) {
-      this.state.player.stop()
-    }
-  }
-
-  videoReady ({ player }) { // pauses the player on load if autoplay isn't set to true
-    if (!this.state.autoplay) {
-      this.pause()
+  const videoReady = ({ player }) => { // pauses the player on load if autoplay isn't set to true
+    if (!autoplay) {
+      pause()
       player.player.stop()
     }
-    this.setState({
-      player: player.player,
-      coverVisible: this.state.hoverPlay,
-      isLoading: this.state.isLoading ? this.state.autoplay : false,
-      playerReady: true,
-      playing: this.state.autoplay
-    })
+
+    setPlayer(player.player)
+    setIsLoading(isLoading ? autoplay : false)
+    setPlayerReady(true)
+    setTimeout(() => {
+      setCoverVisible(hoverPlay || loadActive ? !active : false)
+      setPlaying(autoplay)
+    }, 1500)
   }
-  videoOnPlay () {
-    if (!this.state.hoverPlay) {
-      this.setState({
-        coverVisible: false,
-        isLoading: false
-      })
-    }
-  }
-  videoOnEnd () {
-    if (typeof this.props.onEnd === 'function') {
-      this.props.onEnd()
+
+  const videoOnPlay = () => {
+    if (!hoverPlay) {
+      setCoverVisible(false)
+      setIsLoading(false)
     }
   }
 
-  componentDidMount () {
-    this.setState({
-      isMobile: isMobile,
-      isMobileOnly: isMobileOnly,
-      thumb: this.translateThumbUrl(this.props.thumb, isMobileOnly)
-    })
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.active && !this.state.playing) {
-      this.setState({
-        playing: true
-      })
-      this.play()
-    } else if (!nextProps.active && this.state.playing) {
-      if (this.state.player) {
-        this.state.player.stop()
-      }
-      this.setState({
-        playing: false,
-        coverVisible: true
-      })
+  const videoOnEnd = () => {
+    if (typeof onEnd === 'function') {
+      onEnd()
     }
   }
 
-  translateThumbUrl (thumbUrl, isMobileOnly) {
+  const translateThumbUrl = (thumbUrl, isMobileDeviceOnly) => {
     const ext = supportsWebP ? 'webp' : 'jpg'
     const vidID = thumbUrl.split('video/')[1].split('_')[0]
-    const imgParams = isMobileOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
+    const imgParams = isMobileDeviceOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
     return `https://i.vimeocdn.com/video/${vidID}.${ext}?${imgParams}`
   }
 
-  render () {
-    const {
-      vidSource,
-      classAdd,
-      controls = true,
-      autoplay,
-      loop,
-      config,
-      hoverPlay,
-      skipIntro,
-      loadActive,
-      caption,
-      sideBar,
-      style,
-      regPlay,
-      playsinline,
-      active,
-      mouseOverAction,
-      mouseOutAction,
-      muted = true,
-      aspectRatio = 'sixteen',
-      customPadding = '0'
-    } = this.props
-    const {
-      playing,
-      playerReady,
-      thumb
-    } = this.state
+  useEffect(() => {
+    setIsMobileDevice(isMobile)
+    setIsMobileDeviceOnly(isMobileOnly)
+    if (thumb.length > 0) {
+      setVideoThumb(translateThumbUrl(thumb, isMobileDeviceOnly))
+    }
+  }, [])
 
-    return (
-      <div
-        onMouseEnter={mouseOverAction}
-        onMouseLeave={mouseOutAction}
-        style={style}
-        className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
-      >
-        <TrackVisibility once partialVisibility className={classAdd}>
-          {({ isVisible }) =>
+  useEffect(() => {
+    setPlaying(active)
+    setCoverVisible(!active)
+    if (!active) {
+      if (player) {
+        player.stop()
+      }
+    }
+  }, [active])
+
+  return (
+    <div
+      onMouseEnter={mouseOverAction}
+      onMouseLeave={mouseOutAction}
+      style={style}
+      className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
+    >
+      <TrackVisibility partialVisibility className={classAdd}>
+        {({ isVisible }) => {
+          if (isVisible || autoplay || hoverPlay) {
+            setLoadVideo(true)
+          }
+          return (
             <div
               style={{
                 position: 'relative',
-                top: isVisible || skipIntro ? '0px' : '15px',
-                opacity: isVisible || loadActive ? '1' : '0',
+                top: loadVideo || skipIntro ? '0px' : '15px',
+                opacity: loadVideo || skipIntro ? '1' : '0',
                 transition: 'opacity 0.5s, top 0.5s',
                 transitionDelay: '0.75s'
               }}
@@ -171,96 +140,97 @@ class Video extends React.Component {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${thumb})`,
-                      backgroundPosition: `${isVisible && !this.state.isLoading ? 'center center' : '100vw 100vw'}`,
-                      backgroundColor: hoverPlay || regPlay ? 'transparent' : '#000',
-                      display: this.state.coverVisible ? 'inline-block' : 'none'
+                      backgroundImage: `url(${videoThumb})`,
+                      backgroundPosition: `${loadVideo && !isLoading ? 'center center' : '100vw 100vw'}`,
+                      backgroundColor: hoverPlay ? 'transparent' : '#000',
+                      display: coverVisible ? 'inline-block' : 'none',
+                      opacity: playerReady && (hoverPlay || loadActive ? active : true) ? 0 : 100,
+                      transition: 'opacity 0.5s',
+                      transitionDelay: '0.75s'
                     }}>
-                    { this.state.isLoading ? <Loader /> : '' } </div>
-                  { this.state.isMobile && (regPlay || hoverPlay) ? ''
+                    { isLoading ? <Loader /> : '' } </div>
+                  { isMobileDevice && hoverPlay ? ''
                     : <ReactPlayer
-                      url={autoplay ? vidSource : isVisible || loadActive ? vidSource : ''}
-                      playing={playing}
+                      url={loadVideo || skipIntro ? vidSource : ''}
+                      playing={playing && isVisible}
                       volume={autoplay ? 0 : 1}
                       muted={muted}
                       loop={loop}
-                      autoplay={autoplay}
                       controls={controls}
                       width='100%'
                       height='100%'
                       style={vidStyle}
                       config={config}
-                      onReady={this.videoReady}
-                      onPlay={this.videoOnPlay}
-                      onEnded={this.videoOnEnd}
+                      onReady={videoReady}
+                      onPlay={videoOnPlay}
+                      onEnded={videoOnEnd}
                       playsinline={playsinline}
                     />
                   }
                 </div>
               </div>
               {sideBar
-                ? <SideBar sideBar={sideBar} isVisible />
+                ? <SideBar sideBar={sideBar} loadVideo />
                 : ''}
             </div>
+          )
+        }}
+      </TrackVisibility>
+      {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
+      <style jsx>{`
+          .video {
+            position: relative;
           }
-        </TrackVisibility>
-        {caption && caption.length > 0 ? <Caption classAdd='col-6 skip-3 col-6-tab skip-1-tab'>{caption}</Caption> : ''}
-        <style jsx>{`
-            .video {
-              position: relative;
+          .vidWrap {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: auto;
+            &.sixteen {
+              padding-top: 56.25%;
             }
-            .vidWrap {
-              position: relative;
-              width: 100%;
-              overflow: hidden;
-              height: auto;
-
-              &.sixteen {
-                padding-top: 56.25%;
-              }
-              &.standard {
-                padding-top: 75%;
-              }
-              &.cropped {
-                padding-top: 41.67%;
-              }
-              &.cinema {
-                padding-top: 46.89%;
-              }
-              &.square {
-                padding-top: 100%;
-              }
+            &.standard {
+              padding-top: 75%;
             }
-            .wrappedVideo,
-            .videoCover {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              z-index: 15;
-            }      
-            .videoCover {
-              opacity: 1;
-              z-index: 20;
-              background-size: cover;
-              background-repeat: no-repeat;
-              transition: opacity 0s;
-              transition-delay: 0s;
+            &.cropped {
+              padding-top: 41.67%;
             }
-            .hoverVid.playerReady {
-              .vidWrap.active {
-                .videoCover {
-                  opacity: 0;
-                  transition: opacity 0.2s;
-                  transition-delay: 0.15s;
-                }
+            &.cinema {
+              padding-top: 46.89%;
+            }
+            &.square {
+              padding-top: 100%;
+            }
+          }
+          .wrappedVideo,
+          .videoCover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 15;
+          }      
+          .videoCover {
+            opacity: 1;
+            z-index: 20;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: opacity 0s;
+            transition-delay: 0s;
+          }
+          .hoverVid.playerReady {
+            .vidWrap.active {
+              .videoCover {
+                opacity: 0;
+                transition: opacity 0.2s;
+                transition-delay: 0.15s;
               }
             }
-            `}</style>
-      </div>
-    )
-  }
+          }
+          `}</style>
+    </div>
+  )
 }
 
 export default Video
