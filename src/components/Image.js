@@ -37,7 +37,7 @@ const Image = (props) => {
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-      <TrackVisibility partialVisibility className={classAdd} style={{ overflow: 'hidden' }} >
+      <TrackVisibility partialVisibility className={classAdd} style={imgHover ? { position: 'relative', overflow: 'visible' } : { overflow: 'hidden' }} >
         {({ isVisible }) => {
           if (isVisible) {
             setImageInView(true)

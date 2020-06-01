@@ -1,49 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Video from './Video'
 
-class HoverVideo extends React.Component {
-  constructor (props) {
-    super(props)
+const HoverVideo = (props) => {
+  const [hover, setHover] = useState(false)
 
-    this.state = {
-      hover: props.autoplay
-    }
-
-    this.hoverOver = this.hoverOver.bind(this)
-    this.hoverOut = this.hoverOut.bind(this)
-  }
-
-  hoverOver () {
-    this.setState({ hover: true })
-  }
-  hoverOut () {
-    this.setState({ hover: false })
-  }
-
-  render () {
-    return (
-      <Video
-        {...this.props}
-        hoverPlay
-        playing={false}
-        autoplay={this.props.autoplay || false}
-        active={this.state.hover}
-        mouseOverAction={this.hoverOver}
-        mouseOutAction={this.hoverOut}
-        classAdd={this.props.classAdd ? ' ' + this.props.classAdd : ''}
-        config={{
-          vimeo: {
-            playerOptions: {
-              background: 1,
-              autopause: !this.props.autoplay || true,
-              autoplay: this.props.autoplay || false
-            },
-            preload: false
-          }
-        }}
-      />
-    )
-  }
+  return (
+    <Video
+      {...props}
+      hoverPlay
+      loop
+      active={hover}
+      mouseOverAction={() => { setHover(true) }}
+      mouseOutAction={() => { setHover(false) }}
+      classAdd={props.classAdd ? ' ' + props.classAdd : ''}
+      config={{
+        vimeo: {
+          playerOptions: {
+            controls: 0
+          },
+          preload: false
+        }
+      }}
+    />
+  )
 }
 
 export default HoverVideo
