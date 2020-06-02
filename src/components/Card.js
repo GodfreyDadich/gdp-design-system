@@ -26,6 +26,7 @@ const Card = props => (
       .cardMedia {
         position: relative;
         display: inline-block;
+        overflow: hidden;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
         background-size: 50%;
         background-position: center center;
@@ -36,17 +37,16 @@ const Card = props => (
         padding-top: 25px;
       }
       .hoverCard:hover .overlay {
-        height: 100%;
+        top: 0;
       }
       .overlay {
         position: absolute;
-        bottom: 0;
+        top: 100%;
         left: 0;
-        right: 0;
-        height: 0%;
+        height: 100%;
         width: 100%;
         z-index: 999;
-        transition: .25s ease;
+        transition: top .2s ease-out;
         background-size: 50%;
         background-position: center center;
         background-repeat: no-repeat;

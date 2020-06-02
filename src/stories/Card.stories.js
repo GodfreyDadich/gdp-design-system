@@ -36,7 +36,7 @@ export const DefaultCard = () =>
       classAdd='withBorder-top'
       cardSubtitleClass='homepageSubtitle'
       bgColor={color('bgColor', 'orange')}
-      hoverSVG={text('Hover SVG Path', 'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg')}
+      hoverSVG={text('Hover SVG Path', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NrM2YwdGJ1MjAzb3kwaW83ZnJtaW9wODctd29ydGgtbG9nby13aGl0ZS5wbmcifQ==')}
       logoSVG={text('Logo SVG Path', 'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg')}
     />
   </div>
