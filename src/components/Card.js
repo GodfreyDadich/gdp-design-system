@@ -26,6 +26,7 @@ const Card = props => (
               vidSource={props.videoSource}
               thumb={props.imgSource}
               aspectRatio={props.aspectRatio}
+              customPadding={props.customPadding || 0}
             />
             : <Image {...imagePropsObject(props)} /> }
         </div>

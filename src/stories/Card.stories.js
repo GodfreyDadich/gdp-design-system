@@ -52,14 +52,16 @@ export const HoverCard = () =>
       linkUrl={text('Link Url', '')}
       mediaOrientation={select('Media Orientation', contentOrientations, 'top')}
       imageTitle={text('Image Title/Alt', 'test')}
-      aspectRatio={select('Aspect Ratio', aspectRatios, 'standard')}
+      aspectRatio={select('Aspect Ratio', aspectRatios, 'custom')}
       fullBleed={boolean('fullBleed', false)}
       imgSource={imgSixteenNine}
-      verticalAlign={select('Vertical Align', verticalAligns, 'center')}
+      verticalAlign={select('Vertical Align', verticalAligns, 'bottom ')}
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
       classAdd='withBorder-top'
+      customPadding={text('Custom Padding ( only for custom aspect ratio )', '120%')}
       cardSubtitleClass='homepageSubtitle'
       bgColor={color('bgColor', 'orange')}
+      backgroundSize='contain'
       hoverSVG={text('Hover SVG Path', 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NrM2YwdGJ1MjAzb3kwaW83ZnJtaW9wODctd29ydGgtbG9nby13aGl0ZS5wbmcifQ==')}
     />
   </div>

@@ -26,7 +26,7 @@ export const breadCrumbData = [
 ]
 
 /* Options */
-export const aspectRatios = ['sixteen', 'standard', 'square', 'cropped', 'noAspect']
+export const aspectRatios = ['sixteen', 'standard', 'square', 'cropped', 'noAspect', 'doubleWide', 'custom']
 export const verticalAligns = ['top', 'center', 'bottom']
 export const horizontalAligns = ['left', 'center', 'right']
 export const contentOrientations = ['top', 'left', 'right', 'bottom']

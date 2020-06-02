@@ -201,6 +201,9 @@ const Video = (props) => {
             &.square {
               padding-top: 100%;
             }
+            &.doubleWide {
+              padding-top: calc( 50% - 12px );
+            }              
           }
           .wrappedVideo,
           .videoCover {

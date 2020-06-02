@@ -1,18 +1,20 @@
 import React from 'react'
 import { isMobile } from 'react-device-detect';
 
-const paddingRef = {
-  sixteen: '56.25%',
-  standard: '75%',
-  cropped: '41.67%',
-  square: '100%'
-}
-
 class ImageWrap extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       loadImage: false
+    }
+
+    this.paddingRef = {
+      sixteen: '56.25%',
+      standard: '75%',
+      cropped: '41.67%',
+      square: '100%',
+      doubleWide: 'calc( 50% - 12px )',
+      custom: props.customPadding
     }
   }
 
@@ -41,7 +43,7 @@ class ImageWrap extends React.Component {
           height: 'auto',
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
-          paddingTop: paddingRef[aspectRatio],
+          paddingTop: this.paddingRef[aspectRatio],
           opacity: imageLoaded ? 1 : 0,
           top: imageLoaded || skipIntro ? '0px' : '15px',
           transition: 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
