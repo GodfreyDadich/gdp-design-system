@@ -23,8 +23,8 @@ const Card = props => (
           }
           { props.videoSource
             ? <HoverVideo
-              vidSource='https://player.vimeo.com/video/324374859'
-              thumb='https://i.vimeocdn.com/video/767777887'
+              vidSource={props.videoSource}
+              thumb={props.imgSource}
               aspectRatio={props.aspectRatio}
             />
             : <Image {...imagePropsObject(props)} /> }
