@@ -13,7 +13,7 @@ const Card = props => (
   <div className={props.classAdd} style={props.style} >
     <div className={`${props.hoverCard ? 'hoverCard' : ''}`}>
       {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundSize: '50%', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundColor: '#F2F2F2' } : {}}>
+      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})` } : {}}>
         <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor }}>
         </div>
         <Image {...imagePropsObject(props)} />
@@ -24,6 +24,10 @@ const Card = props => (
       .cardMedia {
         position: relative;
         display: inline-block;
+        background-size: 50%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: #F2F2F2;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
       }
       .withBorder-top {
