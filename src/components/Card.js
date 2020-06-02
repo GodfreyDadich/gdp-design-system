@@ -11,11 +11,13 @@ const imagePropsObject = props => {
 
 const Card = props => (
   <div className={props.classAdd} style={props.style} >
-    <div className={`${props.hoverCard ? 'hoverCard' : ''}`}>
+    <div className={`${props.hoverSVG ? 'hoverCard' : ''}`}>
       {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundSize: '50%', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundColor: '#F2F2F2' } : {}}>
-        <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor }}>
-        </div>
+      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundColor: '#F2F2F2' } : {}}>
+        { props.hoverSVG
+          ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
+          : ''
+        }
         <Image {...imagePropsObject(props)} />
       </div>
       {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
@@ -25,6 +27,9 @@ const Card = props => (
         position: relative;
         display: inline-block;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
+        background-size: 50%;
+        background-position: center center;
+        background-repeat: no-repeat; 
       }
       .withBorder-top {
         border-top: 1px black solid;
@@ -41,7 +46,7 @@ const Card = props => (
         height: 0%;
         width: 100%;
         z-index: 999;
-        transition: .5s ease;
+        transition: .25s ease;
         background-size: 50%;
         background-position: center center;
         background-repeat: no-repeat;
