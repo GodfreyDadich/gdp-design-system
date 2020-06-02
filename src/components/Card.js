@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from './Image'
 import CardText from './CardText'
+import HoverVideo from './HoverVideo'
 import ConditionalLink from './ConditionalLink'
 import PropTypes from 'prop-types'
 
@@ -20,7 +21,13 @@ const Card = props => (
             ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
             : ''
           }
-          <Image {...imagePropsObject(props)} />
+          { props.videoSource
+            ? <HoverVideo
+              vidSource='https://player.vimeo.com/video/324374859'
+              thumb='https://i.vimeocdn.com/video/767777887'
+              aspectRatio={props.aspectRatio}
+            />
+            : <Image {...imagePropsObject(props)} /> }
         </div>
         {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
       </div>
