@@ -1,5 +1,5 @@
 import React from 'react'
-import { text, boolean, select } from '@storybook/addon-knobs'
+import { text, boolean, select, color } from '@storybook/addon-knobs'
 import Card from '../components/Card'
 import {
   defaultTitle,
@@ -33,6 +33,11 @@ export const DefaultCard = () =>
       imgSource={imgSixteenNine}
       verticalAlign={select('Vertical Align', verticalAligns, 'center')}
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
+      classAdd='withBorder-top'
+      cardSubtitleClass='homepageSubtitle'
+      bgColor={color('bgColor', 'orange')}
+      hoverSVG={text('Hover SVG Path', 'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg')}
+      logoSVG={text('Logo SVG Path', 'http://gdp-site.s3.amazonaws.com/attachments/cjxnjkveg00094pawpoffwyik-gdp-911-grid-logos-11.svg')}
     />
   </div>
 

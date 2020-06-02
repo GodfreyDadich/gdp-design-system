@@ -146,7 +146,7 @@ export const SocialLink = ({ linkData }) => {
   </div>
 }
 
-export const Heading1 = ({ children, style, hideStroke}) =>
+export const Heading1 = ({ children, style, hideStroke }) =>
   <h1
     style={style}
     className={`headingOne ${hideStroke ? '' : 'withStroke'}`} >
@@ -400,16 +400,10 @@ export const CardTitle = ({ classAdd, children }) =>
         margin: 16px 0 0;
 
         @media only screen and (max-width: 768px) {
-          font-size: 16px;
-          letter-spacing: 0.1px;
-          line-height: 20px;
           margin: 15px 0 0;
         }
 
         @media only screen and (max-width: 500px) {
-          font-size: 12px;
-          letter-spacing: 0.2px;
-          line-height: 16px;
           margin: 15px 0 0;
         } 
           
@@ -432,25 +426,25 @@ export const CardSubTitle = ({ classAdd, children }) =>
         line-height: 22px;
         margin: 0;
         color: rgb(127,127,127);
-
-        @media only screen and (max-width: 768px) {
-          font-size: 16px;
-          letter-spacing: 0.1px;
-          line-height: 20px;
-        }
-
-        @media only screen and (max-width: 500px) {
-          font-size: 12px;
-          letter-spacing: 0.2px;
-          line-height: 16px;
-        }
       }    
     `}</style>
   </h5>
 
 export const CardContent = ({ classAdd, children }) =>
-  <p
-    className={classAdd}>{children}</p>
+  <div
+    className={`cardContent ${classAdd}`}>{children}
+    <style jsx>{`
+      .cardContent {
+        font-family: Atlas Grotesk;
+        font-style: normal;
+        font-weight: 100;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.18px;
+        color: #7F7F7F
+      }
+    `}</style>
+  </div>
 
 export const SideBar = ({ sideBar, isVisible }) =>
   <TrackVisibility once partialVisibility
