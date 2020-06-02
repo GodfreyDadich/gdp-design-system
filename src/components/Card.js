@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from './Image'
 import CardText from './CardText'
+import ConditionalLink from './ConditionalLink'
 import PropTypes from 'prop-types'
 
 const imagePropsObject = props => {
@@ -11,17 +12,19 @@ const imagePropsObject = props => {
 
 const Card = props => (
   <div className={props.classAdd} style={props.style} >
-    <div className={`${props.hoverSVG ? 'hoverCard' : ''}`}>
-      {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-      <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundColor: '#F2F2F2' } : {}}>
-        { props.hoverSVG
-          ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
-          : ''
-        }
-        <Image {...imagePropsObject(props)} />
+    <ConditionalLink linkUrl={props.linkUrl}>
+      <div className={`${props.hoverSVG ? 'hoverCard' : ''}`}>
+        {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
+        <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundColor: '#F2F2F2' } : {}}>
+          { props.hoverSVG
+            ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
+            : ''
+          }
+          <Image {...imagePropsObject(props)} />
+        </div>
+        {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
       </div>
-      {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
-    </div>
+    </ConditionalLink>
     <style jsx>{`
       .cardMedia {
         position: relative;
