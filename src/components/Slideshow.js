@@ -5,15 +5,16 @@ import moment from 'moment-timezone/builds/moment-timezone-with-data'
 
 const Slideshow = props => {
   const [imagesArr, setImagesArr] = useState([])
+  const [timeStamp, setTimeStamp] = useState(moment().tz("America/Los_Angeles").format('hh:mm a'))
+  const [transitionEvent, setTransitionEvent] = useState('')
 
 
   const [activeIndex, setActiveIndex] = useState(0)
 
   let testData = [{ begin: '09:00 AM', end: '12:00 PM' }, { begin: '12:00 PM', end: '05:00 PM' }, { begin: '05:22 PM', end: '10:00 PM' }]
-  console.log(moment().tz("America/Los_Angeles").format('hh:mm a z'))
 
   useEffect(() => {
-    let currentPST = moment().tz("America/Los_Angeles").format('hh:mm A')
+    let currentPST = moment().tz("America/Los_Angeles").format('hh A')
     setImagesArr(props.images)
 
     let slideshowInterval
@@ -104,25 +105,21 @@ const Slideshow = props => {
               imgSource={image}
               skipIntro
               visibilityOverride
-              
             />
           </div>
         ))
       }
+      <div className={`timeStamp ${transitionEvent}`}>GDP HQ | {timeStamp} PACIFIC TIME</div>
     </div>
     <style jsx>{`
       .slider-wrapper {
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
+        overflow: visible;
         position: relative;
         left: 0;
         object-fit: cover;
         object-position: center;
-        // opacity: 0;
         position: absolute;
         top: 0;
-        // z-index: 1;
       }
       .heroImage {
         position: absolute;
@@ -131,6 +128,17 @@ const Slideshow = props => {
       }
       .heroImage.active {
         opacity: 1;
+      }
+      .timeStamp {
+        position: absolute;
+        font-family: Institut;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        z-index: 99;
+        color: white;
+        bottom: 20px;
+        right: 20px;
       }
     `}</style>
   </div>
