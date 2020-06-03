@@ -7,35 +7,27 @@ const Slideshow = props => {
   const [imagesArr, setImagesArr] = useState([])
   const [timeStamp, setTimeStamp] = useState(moment().tz("America/Los_Angeles").format('hh:mm a'))
   const [transitionEvent, setTransitionEvent] = useState('')
-
-
   const [activeIndex, setActiveIndex] = useState(0)
 
-  let testData = [{ begin: '09:00 AM', end: '12:00 PM' }, { begin: '12:00 PM', end: '05:00 PM' }, { begin: '05:22 PM', end: '10:00 PM' }]
+  let testData = [{ begin: '09:00 AM', end: '12:00 PM' }, { begin: '12:00 PM', end: '05:00 PM' }, { begin: '11:00 PM', end: '10:00 PM' }]
 
   useEffect(() => {
-    let currentPST = moment().tz("America/Los_Angeles").format('hh A')
     setImagesArr(props.images)
 
     let slideshowInterval
-    slideshowInterval = setTimeout(iterateSlideshowImg, 1000)
+    slideshowInterval = setTimeout(iterateSlideshowImg, 3000)
 
-    // if ((activeIndex + 1) <= props.images.length - 1) {
-    //   setActiveIndex(activeIndex + 1)
-    // } else {
-    //   setActiveIndex(0)
-    // }
-    // if the image time is set to the current time 
 
-    console.log('1111', currentPST)
-    console.log('2222', testData[2].begin)
+    var dataConvertedMilitary = convertTime12to24(testData[2].begin)
+    var currentTimeConvertedMilitary = moment().tz("America/Los_Angeles").format('HH:mm a z')
 
-    if (testData[2].begin === currentPST) {
-      console.log('hello!!')
+    if (dataConvertedMilitary.substring(0, 2) === currentTimeConvertedMilitary.substring(0, 2)) {
+      console.log('hours match')
+      setTransitionEvent('active')
+      setTimeout(() => {
+        setTransitionEvent('')}, 2000)
+      // iterateSlideshowImg()
     }
-
-    console.log('!!!', convertTime12to24(testData[0].begin))
-
   }, [activeIndex])
 
 
@@ -139,6 +131,14 @@ const Slideshow = props => {
         color: white;
         bottom: 20px;
         right: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: transform 1s opacity .2s ease;
+      }
+      .timeStamp.active {
+        transform: translateY(0px);
+        opacity: 1;
+        transition: transform 1s opacity .2s ease;
       }
     `}</style>
   </div>
