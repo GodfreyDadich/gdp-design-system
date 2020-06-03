@@ -179,7 +179,7 @@ const Triptych = props => {
       }
 
       .whatWeDo {
-        transition-delay: .5s;
+        transition-delay: .35s;
         top: 0;
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjoq2zocw00093rawmcegsts4-ny-image.full.jpg');
@@ -187,7 +187,7 @@ const Triptych = props => {
       }
 
       .whatWeMake {
-        transition-delay: 1s;
+        transition-delay: .7s;
         top: 50%;
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tat7z0006dqawl3mvh2g3-godfreydadichpartners0533copy-2x.full.jpg');
