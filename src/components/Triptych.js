@@ -9,12 +9,11 @@ const Triptych = props => {
   const [triptychTwoState, setTriptychTwoState] = useState('next')
 
   useEffect(() => {
-    let triptychInterval
-    triptychInterval = setTimeout(iterateTriptychImg, 3000)
-  }, [triptychOneState]);
+    const pause = triptychOneState === 'next visible' ? 50 : 8000
+    setTimeout(iterateTriptychImg, pause)
+  }, [triptychOneState])
 
   const iterateTriptychImg = () => {
-    console.log(imagesIndex)
     let featuredGroup
     
     if (imagesIndex < props.imgArray.length - 1) {
@@ -23,9 +22,9 @@ const Triptych = props => {
       featuredGroup = 0
     }
 
-    setImagesIndex(featuredGroup)
 
     if (triptychOneState === 'active') {
+      setImagesIndex(featuredGroup)
       setNextGroup(props.imgArray[featuredGroup])
       setTriptychTwoState('next visible')
       setTriptychOneState('next')
@@ -33,6 +32,7 @@ const Triptych = props => {
         setTriptychTwoState('active')
       }, 1000)
     } else if (triptychOneState === 'next') {
+      setImagesIndex(featuredGroup)
       setActiveGroup(props.imgArray[featuredGroup])
       setTriptychOneState('next visible')
       setTriptychTwoState('next')
@@ -42,7 +42,7 @@ const Triptych = props => {
     }
   }
 
-  return <div>
+  return <div className='imageLinkMosaicWrapper'>
     {/* visible */}
     <div className={`imageLinkMosaic ${triptychOneState}`}>
       <div className={`whoWeAre triptychImage`}>
@@ -79,11 +79,15 @@ const Triptych = props => {
       </div>
     </div>
     <style jsx>{`
-      .imageLinkMosaic {
-        position: absolute;
+
+      .imageLinkMosaicWrapper {
+        position: relative;
         width: 100%;
         height: 0;
         padding-top: 65%;
+      }
+      .imageLinkMosaic {
+        width: 100%;
         transition: opacity .5s;
         opacity: 1;
         
@@ -156,7 +160,7 @@ const Triptych = props => {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        transition: opacity .5s;
+        transition: opacity .75s;
         & > img {
           position: absolute;
           top: 0;
@@ -175,7 +179,7 @@ const Triptych = props => {
       }
 
       .whatWeDo {
-        transition-delay: .2s;
+        transition-delay: .5s;
         top: 0;
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjoq2zocw00093rawmcegsts4-ny-image.full.jpg');
@@ -183,7 +187,7 @@ const Triptych = props => {
       }
 
       .whatWeMake {
-        transition-delay: .4s;
+        transition-delay: 1s;
         top: 50%;
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tat7z0006dqawl3mvh2g3-godfreydadichpartners0533copy-2x.full.jpg');

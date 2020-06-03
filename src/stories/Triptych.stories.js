@@ -11,7 +11,7 @@ export default {
 }
 
 export const DefaultTriptych = () =>
-  <div style={{ width: '50%', margin: '50px auto' }}>
+  <div style={{ width: '75%', margin: '50px auto' }}>
     <Triptych
       linkText=''
       linkURL=''
