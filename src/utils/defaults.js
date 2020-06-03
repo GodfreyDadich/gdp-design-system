@@ -215,6 +215,34 @@ export const clientLogos = [
   }
 ]
 
+export const imgArray = [
+  {
+    image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcbg0dz40il1uwq42q6o-triptych-02a.full.jpg',
+    image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb9s0dyz0il1o4u300lt-triptych-02b.full.jpg',
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz10il1krs22btp-triptych-02c.full.jpg'
+  },
+  {
+    image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zc2q0djx0iocj66sfbfk-triptych-01a.full.jpg',
+    image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb50dz30il17anazres-triptych-01b.full.jpg',
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb8s0djw0iocgklqb6vc-triptych-03b.full.jpg'
+  },
+  {
+    image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zc3u0djy0ioc95cjxohg-triptych-04a.full.jpg',
+    image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb8w0dyy0il1ffag0rzv-triptych-01c.full.jpg',
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz10il1krs22btp-triptych-02c.full.jpg'
+  },
+  {
+    image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz20il1q8udp7co-triptych-03a.full.jpg',
+    image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah6gxaa0ecz0il1v34i53dr-triptych-04c.full.jpg',
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah6gvov0ect0il16e7f7d7r-triptych-05b.full.jpg'
+  },
+  {
+    image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah6gy8n0dwp0iocouhleuqk-triptych-06a.full.jpg',
+    image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah6gvoy0ecu0il1i8y63gyt-triptych-07c.full.jpg',
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zc9s0dz00il1dv9nfcjf-triptych-03c.full.jpg'
+  }
+]
+
 /* Static Images */
 export const image1 = 'https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
 export const image2 = 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
