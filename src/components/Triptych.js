@@ -8,55 +8,92 @@ const Triptych = props => {
   const [triptychOneState, setTriptychOneState] = useState('active')
   const [triptychTwoState, setTriptychTwoState] = useState('next')
 
+  var loadOne = 0
+  var loadTwo = 0
+
   useEffect(() => {
-    const pause = triptychOneState === 'next visible' ? 50 : 8000
-    setTimeout(iterateTriptychImg, pause)
+    const pause = 8000
+    let timer
+    if (triptychOneState !== 'next visible') {
+      timer = setTimeout(() => {
+        setImagesIndex(prevIndex => {
+          if ((prevIndex + 1) >= props.imgArray.length) {
+            return 0
+          } else {
+            return prevIndex + 1
+          }
+        })
+        iterateTriptychImg()
+      }, pause)
+    }
+    return () => clearTimeout(timer)
   }, [triptychOneState])
 
   const iterateTriptychImg = () => {
-    let featuredGroup
-    
-    if (imagesIndex < props.imgArray.length - 1) {
-      featuredGroup = imagesIndex + 1
-    } else {
-      featuredGroup = 0
-    }
-
-
     if (triptychOneState === 'active') {
-      setImagesIndex(featuredGroup)
-      setNextGroup(props.imgArray[featuredGroup])
-      setTriptychTwoState('next visible')
-      setTriptychOneState('next')
-      setTimeout(() => {
-        setTriptychTwoState('active')
-      }, 1000)
+      setTwoActive()
     } else if (triptychOneState === 'next') {
-      setImagesIndex(featuredGroup)
-      setActiveGroup(props.imgArray[featuredGroup])
+      setOneActive()
+    }
+  }
+
+  const setOneActive = () => {
+    if (loadOne === 3) {
+      loadOne = 0
       setTriptychOneState('next visible')
       setTriptychTwoState('next')
       setTimeout(() => {
         setTriptychOneState('active')
-      }, 1000)
+        // set next images now
+        setNextGroup(props.imgArray[imagesIndex])
+      }, 1500)
+    } else {
+      setTimeout(() => {
+        setOneActive()
+      }, 100)
     }
+  }
+
+  const setTwoActive = () => {
+    if (loadTwo === 3) {
+      loadTwo = 0
+      setTriptychTwoState('next visible')
+      setTriptychOneState('next')
+      setTimeout(() => {
+        setTriptychTwoState('active')
+        setActiveGroup(props.imgArray[imagesIndex])
+        // set active images now
+      }, 1500)
+    } else {
+      setTimeout(() => {
+        setTwoActive()
+      }, 100)
+    }
+  }
+
+  const setOneLoaded = (img) => {
+    loadOne++
+  }
+
+  const setTwoLoaded = (img) => {
+    loadTwo++
   }
 
   return <div className='imageLinkMosaicWrapper'>
     {/* visible */}
     <div className={`imageLinkMosaic ${triptychOneState}`}>
       <div className={`whoWeAre triptychImage`}>
-        <img src={activeGroup.image1} />
+        <img src={activeGroup.image1} onLoad={setOneLoaded(activeGroup.image1)} />
         <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
       <div className={`whatWeDo triptychImage`}>
-        <img src={activeGroup.image2} />
+        <img src={activeGroup.image2} onLoad={setOneLoaded(activeGroup.image2)} />
         <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
       <div className={`whatWeMake triptychImage`}>
-        <img src={activeGroup.image3} />
+        <img src={activeGroup.image3} onLoad={setOneLoaded(activeGroup.image3)} />
         <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
     </div>
@@ -64,17 +101,17 @@ const Triptych = props => {
     <div className={`imageLinkMosaic ${triptychTwoState}`}>
 
       <div className={`whoWeAre triptychImage`}>
-        <img src={nextGroup.image1} />
+        <img src={nextGroup.image1} onLoad={setTwoLoaded(nextGroup.image1)} />
         <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
       <div className={`whatWeDo triptychImage`}>
-        <img src={nextGroup.image2} />
+        <img src={nextGroup.image2} onLoad={setTwoLoaded(nextGroup.image2)} />
         <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
       <div className={`whatWeMake triptychImage`}>
-        <img src={nextGroup.image3} />
+        <img src={nextGroup.image3} onLoad={setTwoLoaded(nextGroup.image3)} />
         <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
     </div>
@@ -88,7 +125,7 @@ const Triptych = props => {
       }
       .imageLinkMosaic {
         width: 100%;
-        transition: opacity .5s;
+        transition: opacity .75s;
         opacity: 1;
         
         &.next {
