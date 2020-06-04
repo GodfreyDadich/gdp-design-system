@@ -12,7 +12,7 @@ const Triptych = props => {
   var loadTwo = 0
 
   useEffect(() => {
-    const pause = 8000
+    const pause = 5000
     let timer
     if (triptychOneState !== 'next visible') {
       timer = setTimeout(() => {
@@ -82,38 +82,46 @@ const Triptych = props => {
   return <div className='imageLinkMosaicWrapper'>
     {/* visible */}
     <div className={`imageLinkMosaic ${triptychOneState}`}>
-      <div className={`whoWeAre triptychImage`}>
+      <div className={`noGreen whoWeAre triptychImage`} style={{ backgroundImage: `url(${activeGroup.image1})` }}>
         <img src={activeGroup.image1} onLoad={setOneLoaded(activeGroup.image1)} />
-        <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
-      <div className={`whatWeDo triptychImage`}>
+      <div className={`noGreen whatWeDo triptychImage`} style={{ backgroundImage: `url(${activeGroup.image2})` }}>
         <img src={activeGroup.image2} onLoad={setOneLoaded(activeGroup.image2)} />
-        <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
-      <div className={`whatWeMake triptychImage`}>
+      <div className={`noGreen whatWeMake triptychImage`} style={{ backgroundImage: `url(${activeGroup.image3})` }}>
         <img src={activeGroup.image3} onLoad={setOneLoaded(activeGroup.image3)} />
-        <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
     </div>
     {/* hidden */}
     <div className={`imageLinkMosaic ${triptychTwoState}`}>
 
-      <div className={`whoWeAre triptychImage`}>
+      <div className={`noGreen whoWeAre triptychImage`} style={{ backgroundImage: `url(${nextGroup.image1})` }}>
         <img src={nextGroup.image1} onLoad={setTwoLoaded(nextGroup.image1)} />
-        <div className='linkGroup1'><div className='linkCta'>Who we are</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
-      <div className={`whatWeDo triptychImage`}>
+      <div className={`noGreen whatWeDo triptychImage`} style={{ backgroundImage: `url(${nextGroup.image2})` }}>
         <img src={nextGroup.image2} onLoad={setTwoLoaded(nextGroup.image2)} />
-        <div className='linkGroup2'><div className='linkCta'>What we do</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
 
-      <div className={`whatWeMake triptychImage`}>
+      <div className={`noGreen whatWeMake triptychImage`} style={{ backgroundImage: `url(${nextGroup.image3})` }}>
         <img src={nextGroup.image3} onLoad={setTwoLoaded(nextGroup.image3)} />
-        <div className='linkGroup2'><div className='linkCta'>What we make</div><a href='#' className='mosaicLink'>Link</a></div>
       </div>
+    </div>
+
+    <div className={`imageLinkMosaic links`}>
+      <a href={props.linkOne.url} className={`noGreen whoWeAre triptychImage`}>
+        <div className='linkCta'>{props.linkOne.text}</div>
+      </a>
+
+      <a href={props.linkTwo.url} className={`noGreen whatWeDo triptychImage`}>
+        <div className='linkCta'>{props.linkTwo.text}</div>
+      </a>
+
+      <a href={props.linkThree.url} className={`noGreen whatWeMake triptychImage`}>
+        <div className='linkCta'>{props.linkThree.text}</div>
+      </a>
     </div>
     <style jsx>{`
 
@@ -122,76 +130,59 @@ const Triptych = props => {
         width: 100%;
         height: 0;
         padding-top: 65%;
+
+
+        @media only screen and (max-width: 500px) {
+          height: auto;
+          padding-top: 360%;
+        }
       }
       .imageLinkMosaic {
         width: 100%;
         transition: opacity .75s;
         opacity: 1;
         
+        &.links {
+          z-index: 15;
+        }
         &.next {
-          z-index: 11;
-          .whatWeDo, 
-          .whatWeMake, 
-          .whoWeAre {
+          z-index: 10;
+
+          .triptychImage {
             opacity: 0;
           }
 
           &.visible {
-            .whatWeDo, 
-            .whatWeMake, 
-            .whoWeAre {
+            .triptychImage {
               opacity: 1;
             }
           }
         }
         &.active {
-          z-index: 10;
+          z-index: 11;
         }
       }
-      .linkGroup1 {
-        top: 92%;
-        left: 40px;
-        width: 800px;
-        height: auto;
-        position: relative;
-      }
-
-      .linkGroup2 {
-        top: 85%;
-        left: 40px;
-        width: 800px;
-        height: auto;
-        position: relative;
-      }
       .linkCta {
+        position: absolute;
+        bottom: 36px;
+        left: 36px;
         display: inline-block;
         font-family: Atlas Grotesk;
         font-style: normal;
         font-weight: bold;
         font-size: 24px;
-        line-height: 24px;
         letter-spacing: -0.144px;
         color: #FFFFFF;
-        margin-right: 32px;
+
+        text-decoration: none;
+        background-image: linear-gradient(to top,#06ff02,#06ff02);
+        background-position: 100% 100%;
+        background-size: 100% 25%;
+        background-repeat: no-repeat;
+        transition: background-size .15s ease-out;
+        outline: none;
       }
-      .mosaicLink {
-        display: inline-block;
-        font-family: Atlas Grotesk;
-        font-style: normal;
-        font-weight: 900;
-        font-size: 14px;
-        line-height: 12px;
-        letter-spacing: -0.291667px;
-        color: #FFFFFF;
-      }
-      .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-      }
-      .whoWeAre,
-      .whatWeDo,
-      .whatWeMake {
+      .triptychImage {
         position: absolute;
         width: 50%;
         background-size: cover;
@@ -204,7 +195,21 @@ const Triptych = props => {
           left: 0;
           width: 100%;
           height: 100%;
+          opacity: 0;
 
+        }
+
+        &:hover {
+          .linkCta{
+            background-size: 100% 100%;
+          }
+        }
+
+
+        @media only screen and (max-width: 500px) {
+          width: 100%;
+          height: 0 !important;  
+          padding-top: 130%;
         }
       }
       .whoWeAre {
@@ -213,6 +218,7 @@ const Triptych = props => {
         left: 0;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tge3u001ddqawfm59db2d-chair-2x-1.full.jpg');
         height: 100%;
+        
       }
 
       .whatWeDo {
@@ -221,6 +227,11 @@ const Triptych = props => {
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjoq2zocw00093rawmcegsts4-ny-image.full.jpg');
         height: 50%;
+
+        @media only screen and (max-width: 500px) {
+          left: 0;
+          top: 36%;
+        }
       }
 
       .whatWeMake {
@@ -229,6 +240,11 @@ const Triptych = props => {
         left: 50%;
         // background-image: url('http://gdp-site.s3.amazonaws.com/attachments/cjp1tat7z0006dqawl3mvh2g3-godfreydadichpartners0533copy-2x.full.jpg');
         height: 50%;
+
+        @media only screen and (max-width: 500px) {
+          left: 0;
+          top: 72%;
+        }
       }
     `}</style>
   </div>
@@ -238,7 +254,7 @@ Triptych.propTypes = {
   linkText: PropTypes.string,
   linkURL: PropTypes.string,
   aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
-  imgArray: PropTypes.array,
+  imgArray: PropTypes.array
 }
 
 Triptych.defaultProps = {

@@ -17,6 +17,9 @@ export const DefaultTriptych = () =>
       linkURL=''
       aspectRatio='noAspect'
       imgArray={imgArray}
+      linkOne={{ text: 'Why we do it', url: '/' }}
+      linkTwo={{ text: 'Who we are', url: '/staff' }}
+      linkThree={{ text: 'What we make', url: '/work' }}
     />
   </div>
 
