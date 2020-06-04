@@ -125,7 +125,7 @@ export const DefaultSlideshow = () =>
     <Slideshow
       linkText=''
       linkURL=''
-      aspectRatio='noAspect'
+      aspectRatio='standard'
       images={imageGallery2}
     />
   </div>
