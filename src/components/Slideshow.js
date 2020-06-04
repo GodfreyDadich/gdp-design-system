@@ -7,6 +7,8 @@ import TrackVisibility from 'react-on-screen'
 const Slideshow = props => {
   const [imagesArr, setImagesArr] = useState([])
   const [timeStamp, setTimeStamp] = useState(moment().tz("America/Los_Angeles").format('hh:mm a'))
+  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(moment().tz("America/Los_Angeles").format('HH:mm:ss'))
+
   const [transitionEvent, setTransitionEvent] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
   const [currentImage, setCurrentImage] = useState('')
@@ -24,23 +26,29 @@ const Slideshow = props => {
     // loop and check if > / < begin and end time
     // current time needs to be greater than the start time  and less than end time
 
-    var dataConvertedMilitary = convertTime12to24(testData[1].begin)
-    var currentTimeConvertedMilitary = moment().tz("America/Los_Angeles").format('HH:mm a z')
+    // var dataConvertedMilitary = convertTime12to24(testData[1].begin)
+    // var currentTimeConvertedMilitary = moment().tz("America/Los_Angeles").format('HH:mm:ss')
+    // console.log(currentTimeConvertedMilitary)
 
-    if (dataConvertedMilitary.substring(0, 2) === currentTimeConvertedMilitary.substring(0, 2)) {
-      console.log('hours match')
-      // setTransitionEvent('active')
-      // setTimeout(() => {
-      //   setTransitionEvent('')
-      // }, 2000)
-      // iterateSlideshowImg()
+    // if (dataConvertedMilitary.substring(0, 2) === currentTimeConvertedMilitary.substring(0, 2)) {
+    //   console.log('hours match')
+    //   // setTransitionEvent('active')
+    //   // setTimeout(() => {
+    //   //   setTransitionEvent('')
+    //   // }, 2000)
+    //   // iterateSlideshowImg()
 
-    }
+    // }
   }, [activeIndex])
 
   useEffect(() => {
-    // get current west coast time
 
+    // "timeStart": "09:00:00",
+    // "timeEnd": "12:00:00",
+    console.log('---===', currentTimeConvertedMilitary)
+
+    // get current west coast time
+    const found = props.images.find(elem => currentTimeConvertedMilitary > elem.timeStart && currentTimeConvertedMilitary < elem.timeEnd);
     // setCurrentImage(props.images[1])
     setPrevImage(props.images[0])
     setTimeout(() => {
@@ -160,13 +168,14 @@ const Slideshow = props => {
       .timeStamp {
         position: absolute;
         font-family: Institut;
-        font-size: 28px;
+        font-size: 15px;
+        line-height: 20px;
         font-weight: 600;
-        letter-spacing: 0.2px;
+        letter-spacing: 2px;
         z-index: 99;
         color: #FFF;
-        bottom: 20px;
-        right: 20px;
+        bottom: 26px;
+        right: 40px;
         transform: translateY(20px);
         opacity: 0;
       }
