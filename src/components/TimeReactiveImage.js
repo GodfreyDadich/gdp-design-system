@@ -11,19 +11,22 @@ const TimeReactiveImage = props => {
   const [transitionEvent, setTransitionEvent] = useState('')
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
+  const [initialized, setInitialized] = useState(false)
+  const [showCurrent, setShowCurrent] = useState(false)
 
   const initTRI = () => {
+    setInitialized(true)
     setImagesArr(props.images)
     const found = imagesArr.find(elem => currentTimeConvertedMilitary > elem.timeStart && currentTimeConvertedMilitary < elem.timeEnd)
     const prevIndex = imagesArr.indexOf(found) === 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
     setPrevImage(imagesArr[prevIndex].image)
+    setCurrentImage(found.image)
     setTimeout(() => {
-      setCurrentImage(found.image)
+      setShowCurrent(true)
       setTransitionEvent('active')
-
       setTimeout(() => {
         setTransitionEvent('')
-      }, 3000)
+      }, 6000)
     }, 3000)
   }
 
@@ -31,14 +34,14 @@ const TimeReactiveImage = props => {
     setTimeStamp(moment().tz("America/Los_Angeles").format('hh:mm a'))
   }
 
-  return <TrackVisibility partialVisibility once>
+  return <TrackVisibility partialVisibility once >
     {({ isVisible }) => {
-      if (isVisible) {
+      if (isVisible && !initialized) {
         updateTime()
         initTRI()
       }
       return (
-        <div className={`${props.aspectRatio}`} style={{ position: 'relative', width: '100%' }}>
+        <div className={`${props.aspectRatio} timedImageContainer`}>
           <div
             style={{
               position: 'absolute',
@@ -46,15 +49,13 @@ const TimeReactiveImage = props => {
               zIndex: 2,
               height: '100%',
               width: '100%',
-              transition: 'opacity 0.75s',
-              opacity: currentImage ? 1 : 0
+              transition: 'opacity 3s 1s',
+              opacity: showCurrent ? 1 : 0
             }}
           >
             <Image
-              aspectRatio={`${props.aspectRatio}`}
               imgSource={currentImage}
-              skipIntro
-              visibilityOverride
+              {...props}
             />
           </div>
           <div
@@ -66,32 +67,19 @@ const TimeReactiveImage = props => {
               width: '100%'
             }}>
             <Image
-              aspectRatio={`${props.aspectRatio}`}
               imgSource={prevImage}
-              skipIntro
-              visibilityOverride
+              {...props}
             />
           </div>
 
           <div className={`timeStamp ${transitionEvent}`}>GDP HQ | {timeStamp} PACIFIC TIME</div>
 
           <style jsx>{`
-      .slider-wrapper {
-        overflow: visible;
+      .timedImageContainer {
         position: relative;
-        left: 0;
-        object-fit: cover;
-        object-position: center;
-        position: absolute;
-        top: 0;
-      }
-      .heroImage {
-        position: absolute;
-        opacity: 0;
-        transition: opacity .75s ease-in;
-      }
-      .heroImage.active {
-        opacity: 1;
+        width: 100%;
+        height: 0; 
+        overflow: hidden;
       }
       .timeStamp {
         position: absolute;
@@ -102,17 +90,12 @@ const TimeReactiveImage = props => {
         letter-spacing: 2px;
         z-index: 99;
         color: #FFF;
-        bottom: 26px;
+        bottom: -50px;
         right: 40px;
-        transform: translateY(20px);
-        opacity: 0;
-        transition: transform .5s 1s, opacity .5s 1s ease-in-out;
-
+        transition: bottom 1s 2s ease-in-out;
       }
       .timeStamp.active {
-        transform: translateY(0px);
-        opacity: 1;
-        transition: transform .5s 1s, opacity .5s 1s ease-in-out;
+        bottom: 26px;
       }
       .sixteen {
         padding-top: 56.25%;
