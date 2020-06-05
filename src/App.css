@@ -59,3 +59,19 @@ p {
   line-height: 22px;
   letter-spacing: -0.1px;
 }
+
+.sixteen {
+  padding-top: 56.25%;
+}
+.standard {
+  padding-top: 75%;
+}
+.cropped {
+  padding-top: 41.67%;
+}
+.cinema {
+  padding-top: 46.89%;
+}
+.square {
+  padding-top: 100%;
+}
