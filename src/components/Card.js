@@ -26,8 +26,8 @@ const Card = props => (
               vidSource={props.videoSource}
               thumb={props.imgSource}
               aspectRatio={props.aspectRatio}
-              skipIntro
               customPadding={props.customPadding || 0}
+              loadIndex={props.loadIndex}
             />
             : <Image {...imagePropsObject(props)} /> }
         </div>
@@ -63,6 +63,7 @@ const Card = props => (
         background-position: center center;
         background-repeat: no-repeat;
       }
+
       .hoverFade {
         opacity: 1;
         transition: opacity .2s;
