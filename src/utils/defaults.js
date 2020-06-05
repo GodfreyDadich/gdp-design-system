@@ -222,3 +222,20 @@ export const image3 = 'https://i.vimeocdn.com/video/738220216_1000.jpg'
 
 /* Static Videos */
 export const video1 = 'https://vimeo.com/299978304'
+
+export const testData = [
+  {
+    timeStart: '09:00:00',
+    timeEnd: '12:00:00',
+    image: 'https://d3q6cdqcttrgvi.cloudfront.net/eyJidWNrZXQiOiJnZHAtc2l0ZSIsImtleSI6ImF0dGFjaG1lbnRzL2NqemtxeHhjZjAwaDI5dmI0djRlZGpoOGYtMjMwN2h3LW9wZW5lci1sby1yMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlLCJ3aWR0aCI6MTAyNH19fQ=='
+  },
+  {
+    timeStart: '12:00:00',
+    timeEnd: '18:00:00',
+    image: 'https://media.wired.com/photos/593256d2edfced5820d0fb9d/master/w_1025,c_limit/20140514-AMAZON-PHOENIX-0110edit.jpg'
+  },
+  {
+    timeStart: '18:00:00',
+    timeEnd: '24:00:00',
+    image: 'https://i.vimeocdn.com/video/738220216_1000.jpg'
+  }]

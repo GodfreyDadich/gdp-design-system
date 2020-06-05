@@ -14,6 +14,7 @@ import {
   sidebarLocations,
   imgSixteenNine,
   imageGallery,
+  testData,
   imageGallery2
 } from '../utils/defaults'
 
@@ -126,6 +127,6 @@ export const DefaultSlideshow = () =>
       linkText=''
       linkURL=''
       aspectRatio='standard'
-      images={imageGallery2}
+      images={testData}
     />
   </div>
