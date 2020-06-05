@@ -21,7 +21,7 @@ const Image = (props) => {
     stackedImage,
     style,
     visibilityOverride,
-    index,
+    loadIndex,
     logoSVG
   } = props
 
@@ -32,7 +32,7 @@ const Image = (props) => {
     logoSVG ?
       setTimeout(() => {
         setImageLoaded(true)
-      }, 250 * index) :
+      }, 250 * loadIndex) :
       setImageLoaded(true)
   }
   return (

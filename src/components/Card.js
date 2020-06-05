@@ -26,6 +26,7 @@ const Card = props => (
               vidSource={props.videoSource}
               thumb={props.imgSource}
               aspectRatio={props.aspectRatio}
+              skipIntro
               customPadding={props.customPadding || 0}
             />
             : <Image {...imagePropsObject(props)} /> }
@@ -45,7 +46,7 @@ const Card = props => (
       }
       .withBorder-top {
         border-top: 1px black solid;
-        padding-top: 25px;
+        padding-top: 24px;
       }
       .hoverCard:hover .overlay {
         top: 0;
@@ -61,6 +62,13 @@ const Card = props => (
         background-size: 50%;
         background-position: center center;
         background-repeat: no-repeat;
+      }
+      .hoverFade {
+        opacity: 1;
+        transition: opacity .2s;
+        &:hover {
+          opacity: 0.7;
+        }
       }
       `}</style>
   </div>
