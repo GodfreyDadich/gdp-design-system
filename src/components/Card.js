@@ -40,7 +40,7 @@ const Card = props => (
         display: inline-block;
         overflow: hidden;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
-        background-size: 50%;
+        background-size: 50% 50%;
         background-position: center center;
         background-repeat: no-repeat; 
       }

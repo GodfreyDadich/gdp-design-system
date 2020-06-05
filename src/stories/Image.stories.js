@@ -3,7 +3,7 @@ import { text, boolean, select } from '@storybook/addon-knobs'
 import Image from '../components/Image'
 import Device from '../components/Device'
 import StackedImage from '../components/StackedImage'
-import Slideshow from '../components/Slideshow'
+import TimeReactiveImage from '../components/TimeReactiveImage'
 import ImageDepthMap from 'react-depth-map'
 
 import {
@@ -121,9 +121,9 @@ export const DepthMap = () =>
     />
   </div>
 
-export const DefaultSlideshow = () =>
+export const TimeRelatedImage = () =>
   <div style={{ width: '50%', margin: '50px auto' }}>
-    <Slideshow
+    <TimeReactiveImage
       linkText=''
       linkURL=''
       aspectRatio='standard'

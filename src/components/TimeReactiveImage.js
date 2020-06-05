@@ -4,8 +4,7 @@ import Image from './Image'
 import moment from 'moment-timezone/builds/moment-timezone-with-data'
 import TrackVisibility from 'react-on-screen'
 
-const Slideshow = props => {
-  console.log(props.images)
+const TimeReactiveImage = props => {
   const [imagesArr, setImagesArr] = useState(props.images)
   const [timeStamp, setTimeStamp] = useState(moment().tz("America/Los_Angeles").format('hh:mm a'))
   const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(moment().tz("America/Los_Angeles").format('HH:mm:ss'))
@@ -13,7 +12,7 @@ const Slideshow = props => {
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
 
-  useEffect(() => {
+  const initTRI = () => {
     setImagesArr(props.images)
     const found = imagesArr.find(elem => currentTimeConvertedMilitary > elem.timeStart && currentTimeConvertedMilitary < elem.timeEnd)
     const prevIndex = imagesArr.indexOf(found) === 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
@@ -26,7 +25,7 @@ const Slideshow = props => {
         setTransitionEvent('')
       }, 3000)
     }, 3000)
-  }, [])
+  }
 
   const updateTime = () => {
     setTimeStamp(moment().tz("America/Los_Angeles").format('hh:mm a'))
@@ -34,7 +33,10 @@ const Slideshow = props => {
 
   return <TrackVisibility partialVisibility once>
     {({ isVisible }) => {
-      updateTime()
+      if (isVisible) {
+        updateTime()
+        initTRI()
+      }
       return (
         <div className={`${props.aspectRatio}`} style={{ position: 'relative', width: '100%' }}>
           <div
@@ -135,14 +137,14 @@ const Slideshow = props => {
 
 }
 
-Slideshow.propTypes = {
+TimeReactiveImage.propTypes = {
   linkText: PropTypes.string,
   linkURL: PropTypes.string,
   aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
   imgArray: PropTypes.array,
 }
 
-Slideshow.defaultProps = {
+TimeReactiveImage.defaultProps = {
   fullBleed: false
 }
-export default Slideshow
+export default TimeReactiveImage
