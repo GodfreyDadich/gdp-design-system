@@ -224,12 +224,18 @@ export const imgArray = [
   {
     image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zc2q0djx0iocj66sfbfk-triptych-01a.full.jpg',
     image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb50dz30il17anazres-triptych-01b.full.jpg',
-    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb8s0djw0iocgklqb6vc-triptych-03b.full.jpg'
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb8s0djw0iocgklqb6vc-triptych-03b.full.jpg',
+    hide: "yes",
+    hideTimeStart: "16:00:00",
+    hideTimeEnd: "18:00:00"
   },
   {
     image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zc3u0djy0ioc95cjxohg-triptych-04a.full.jpg',
     image2: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zb8w0dyy0il1ffag0rzv-triptych-01c.full.jpg',
-    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz10il1krs22btp-triptych-02c.full.jpg'
+    image3: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz10il1krs22btp-triptych-02c.full.jpg',
+    hide: "yes",
+    hideTimeStart: "16:00:00",
+    hideTimeEnd: "05:00:00"
   },
   {
     image1: 'http://gdp-site.s3.amazonaws.com/attachments/ckah4zcb00dz20il1q8udp7co-triptych-03a.full.jpg',
