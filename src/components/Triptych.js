@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment-timezone/builds/moment-timezone-with-data'
 import PropTypes from 'prop-types'
 
 const Triptych = props => {
+  const currTime = moment().tz("America/Los_Angeles").format('HH:mm:ss')
+  const filteredImages = props.imgArray.filter(img => {
+    if (img.hide === 'yes') {
+
+      if (img.hideTimeEnd > img.hideTimeStart) {
+        return currTime < img.hideTimeStart || currTime > img.hideTimeEnd
+      } else {
+        return currTime > img.hideTimeEnd && currTime < img.hideTimeStart
+      }
+    } else {
+      return img
+    }
+  })
   const [imagesIndex, setImagesIndex] = useState(0)
-  const [activeGroup, setActiveGroup] = useState(props.imgArray[0])
-  const [nextGroup, setNextGroup] = useState(props.imgArray[1])
+  const [activeGroup, setActiveGroup] = useState(filteredImages[0])
+  const [nextGroup, setNextGroup] = useState(filteredImages[1])
   const [triptychOneState, setTriptychOneState] = useState('active')
   const [triptychTwoState, setTriptychTwoState] = useState('next')
 
@@ -17,7 +31,7 @@ const Triptych = props => {
     if (triptychOneState !== 'next visible') {
       timer = setTimeout(() => {
         setImagesIndex(prevIndex => {
-          if ((prevIndex + 1) >= props.imgArray.length) {
+          if ((prevIndex + 1) >= filteredImages.length) {
             return 0
           } else {
             return prevIndex + 1
@@ -45,7 +59,7 @@ const Triptych = props => {
       setTimeout(() => {
         setTriptychOneState('active')
         // set next images now
-        setNextGroup(props.imgArray[imagesIndex])
+        setNextGroup(filteredImages[imagesIndex])
       }, 1500)
     } else {
       setTimeout(() => {
@@ -61,7 +75,7 @@ const Triptych = props => {
       setTriptychOneState('next')
       setTimeout(() => {
         setTriptychTwoState('active')
-        setActiveGroup(props.imgArray[imagesIndex])
+        setActiveGroup(filteredImages[imagesIndex])
         // set active images now
       }, 1500)
     } else {
