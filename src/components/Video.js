@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/vimeo'
 import { Caption, SideBar } from './Type'
 import TrackVisibility from 'react-on-screen'
 import Loader from './Loader'

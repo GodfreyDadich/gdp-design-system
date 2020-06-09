@@ -2,7 +2,8 @@ import React from 'react'
 import Image from './Image'
 import Video from './Video'
 import supportsWebP from 'supports-webp'
-import { Lottie } from '@alfonmga/react-lottie-light-ts'
+// import Lottie from 'react-lottie'
+import { Lottie } from '@crello/react-lottie'
 // import PropTypes from 'prop-types'
 
 class Hero extends React.Component {
