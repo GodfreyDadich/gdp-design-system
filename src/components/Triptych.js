@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import moment from 'moment-timezone/builds/moment-timezone-with-data'
 import PropTypes from 'prop-types'
 
 const Triptych = props => {
