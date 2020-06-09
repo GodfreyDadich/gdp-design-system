@@ -6,6 +6,16 @@ import Loader from './Loader'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import supportsWebP from 'supports-webp'
 
+const vidStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'transparent',
+  border: 'none'
+}
+
 const Video = (props) => {
   const {
     vidSource,
@@ -29,8 +39,8 @@ const Video = (props) => {
     customPadding = '0',
     onEnd,
     loader,
-    thumb,
-    loadIndex
+    altAsset,
+    thumb
   } = props
 
   const [playing, setPlaying] = useState(false)
@@ -42,17 +52,6 @@ const Video = (props) => {
   const [isMobileDeviceOnly, setIsMobileDeviceOnly] = useState(true)
   const [videoThumb, setVideoThumb] = useState('')
   const [loadVideo, setLoadVideo] = useState(false)
-
-  const vidStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'transparent',
-    border: 'none',
-    pointerEvents: hoverPlay ? 'none' : ''
-  }
 
   const pause = () => {
     setPlaying(false)
@@ -90,19 +89,18 @@ const Video = (props) => {
   }
 
   const translateThumbUrl = (thumbUrl, isMobileDeviceOnly) => {
-    if (thumbUrl.indexOf('vimeo') > 0) {
-      const ext = supportsWebP ? 'webp' : 'jpg'
-      const vidID = thumbUrl.split('video/')[1].split('_')[0]
-      const imgParams = isMobileDeviceOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
-      return `https://i.vimeocdn.com/video/${vidID}.${ext}?${imgParams}`
-    } else {
-      return thumbUrl
-    }
+    const ext = supportsWebP ? 'webp' : 'jpg'
+    const vidID = thumbUrl.split('video/')[1].split('_')[0]
+    const imgParams = isMobileDeviceOnly ? 'mw=400&q=70' : 'mw=2800&q=70'
+    return `https://i.vimeocdn.com/video/${vidID}.${ext}?${imgParams}`
   }
 
   useEffect(() => {
     setIsMobileDevice(isMobile)
     setIsMobileDeviceOnly(isMobileOnly)
+    if (thumb.length > 0) {
+      setVideoThumb(translateThumbUrl(thumb, isMobileDeviceOnly))
+    }
   }, [])
 
   useEffect(() => {
@@ -124,11 +122,7 @@ const Video = (props) => {
     >
       <TrackVisibility partialVisibility className={classAdd}>
         {({ isVisible }) => {
-          if (isVisible || autoplay || (hoverPlay && !loadIndex)) {
-            loadIndex ?
-            setTimeout(() => {
-              setLoadVideo(true)
-            }, 50 * loadIndex) :
+          if (isVisible || autoplay || hoverPlay) {
             setLoadVideo(true)
           }
           return (
@@ -147,7 +141,7 @@ const Video = (props) => {
                     ref='videoCover'
                     className='videoCover'
                     style={{
-                      backgroundImage: `url(${thumb && translateThumbUrl(thumb, isMobileDeviceOnly)})`,
+                      backgroundImage: `url(${videoThumb})`,
                       backgroundPosition: `${loadVideo && !isLoading ? 'center center' : '100vw 100vw'}`,
                       backgroundColor: hoverPlay ? 'transparent' : '#000',
                       display: coverVisible ? 'inline-block' : 'none',
@@ -158,7 +152,7 @@ const Video = (props) => {
                     { isLoading ? <Loader /> : '' } </div>
                   { isMobileDevice && hoverPlay ? ''
                     : <ReactPlayer
-                      url={loadVideo || skipIntro ? vidSource : ''}
+                      url={loadVideo || skipIntro ? vidSource : isMobile && altAsset ? altAsset : ''}
                       playing={playing && isVisible}
                       volume={autoplay ? 0 : 1}
                       muted={muted}
@@ -208,9 +202,6 @@ const Video = (props) => {
             &.square {
               padding-top: 100%;
             }
-            &.doubleWide {
-              padding-top: calc( 50% - 12px );
-            }              
           }
           .wrappedVideo,
           .videoCover {
