@@ -27,7 +27,7 @@ const TimeReactiveImage = props => {
       setTimeout(() => {
         setTransitionEvent('')
       }, 6000)
-    }, 2000)
+    }, 1000)
   }
 
   const updateTime = () => {

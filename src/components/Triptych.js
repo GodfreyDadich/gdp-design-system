@@ -145,10 +145,6 @@ const Triptych = props => {
         height: 0;
         padding-top: 65%;
 
-        @media only screen and (max-width: 1024px) {
-          padding-top: 108%;
-        }
-        
         @media only screen and (max-width: 500px) {
           height: auto;
           padding-top: 360%;
