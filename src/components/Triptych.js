@@ -3,7 +3,9 @@ import moment from 'moment-timezone/builds/moment-timezone-with-data'
 import PropTypes from 'prop-types'
 
 const Triptych = props => {
-  const currTime = moment().tz("America/Los_Angeles").format('HH:mm:ss')
+  const offset = -7;
+  const currTime = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
+
   const filteredImages = props.imgArray.filter(img => {
     if (img.hide === 'yes') {
 
