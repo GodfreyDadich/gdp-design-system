@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Image from './Image'
-import moment from 'moment-timezone/builds/moment-timezone-with-data'
 import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
+  const offset = -7;
+  const time = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
+
+  const getFormattedTime = function (fourDigitTime) {
+    var hours24 = parseInt(fourDigitTime.substring(0, 2))
+    var hours = ((hours24 + 11) % 12) + 1
+    var amPm = hours24 > 11 ? 'PM' : 'AM'
+    var minutes = fourDigitTime.substring(2)
+
+    return hours + ':' + minutes + ' ' + amPm
+  }
+
+  const formattedTime = getFormattedTime(time.split(':').join(""))
+
   const [imagesArr, setImagesArr] = useState(props.images)
-  const [timeStamp, setTimeStamp] = useState(moment().tz("America/Los_Angeles").format('hh:mm a'))
-  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(moment().tz("America/Los_Angeles").format('HH:mm:ss'))
+  const [timeStamp, setTimeStamp] = useState(formattedTime)
+  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(time)
   const [transitionEvent, setTransitionEvent] = useState('')
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
@@ -31,7 +44,7 @@ const TimeReactiveImage = props => {
   }
 
   const updateTime = () => {
-    setTimeStamp(moment().tz("America/Los_Angeles").format('hh:mm a'))
+    setTimeStamp(formattedTime)
   }
 
   return <TrackVisibility partialVisibility once >
