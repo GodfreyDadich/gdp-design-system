@@ -91,11 +91,9 @@ export const DeviceVideo = () =>
         loop
         skipIntro
         config={{
-          vimeo: {
-            playerOptions: {
-              background: 1,
-              transparent: 0
-            }
+          playerOptions: {
+            background: 1,
+            transparent: 0
           }
         }}
         thumb='https://i.vimeocdn.com/video/737702480_1000.jpg'
