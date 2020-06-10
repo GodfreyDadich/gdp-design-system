@@ -94,13 +94,13 @@ const TimeReactiveImage = props => {
         height: 0; 
         overflow: hidden;
       }
-      .timeStamp {
+      .timeStamp {       
         position: absolute;
         font-family: Institut;
-        font-size: 15px;
-        line-height: 20px;
-        font-weight: 600;
-        letter-spacing: 2px;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: normal;
+        letter-spacing: 1.60417px;
         z-index: 99;
         color: #FFF;
         bottom: -50px;
