@@ -29,7 +29,8 @@ const Video = (props) => {
     onEnd,
     loader,
     thumb,
-    loadIndex
+    loadIndex,
+    loadIndicator
   } = props
   const [playing, setPlaying] = useState(false)
   const [player, setPlayer] = useState(undefined)
@@ -64,6 +65,9 @@ const Video = (props) => {
     setPlayer(player.player)
     setIsLoading(isLoading ? autoplay : false)
     setPlayerReady(true)
+    if (loadIndicator) {
+      loadIndicator(true)
+    }
     setTimeout(() => {
       setCoverVisible(hoverPlay || loadActive ? !active : false)
       setPlaying(autoplay)
