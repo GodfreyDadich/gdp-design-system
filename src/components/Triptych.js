@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 
 const Triptych = props => {
   const offset = -7;
-  const currTime = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
 
   const filteredImages = props.imgArray.filter(img => {
     if (img.hide === 'yes') {
-
-      if (img.hideTimeEnd > img.hideTimeStart) {
-        return currTime < img.hideTimeStart || currTime > img.hideTimeEnd
+      const currTime = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1].split(':')[0]
+      const hideStart = Number(img.hideTimeStart.split(':')[0])
+      const hideEnd = Number(img.hideTimeEnd.split(':')[0])
+      if (hideEnd > hideStart) {
+        return currTime < hideStart || currTime > hideEnd
       } else {
-        return currTime > img.hideTimeEnd && currTime < img.hideTimeStart
+        return currTime > hideEnd && currTime < hideStart
       }
     } else {
       return img
@@ -27,6 +28,7 @@ const Triptych = props => {
   var loadTwo = 0
 
   useEffect(() => {
+    if( props.init ) {
     const pause = 5000
     let timer
     if (triptychOneState !== 'next visible') {
@@ -42,7 +44,8 @@ const Triptych = props => {
       }, pause)
     }
     return () => clearTimeout(timer)
-  }, [triptychOneState])
+  }
+  }, [triptychOneState, props.init])
 
   const iterateTriptychImg = () => {
     if (triptychOneState === 'active') {

@@ -5,22 +5,20 @@ import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
   const offset = -7;
-  const time = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
+  const getTime = () => new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
 
   const getFormattedTime = function (fourDigitTime) {
     var hours24 = parseInt(fourDigitTime.substring(0, 2))
     var hours = ((hours24 + 11) % 12) + 1
     var amPm = hours24 > 11 ? 'PM' : 'AM'
     var minutes = fourDigitTime.substring(2)
-
     return hours + ':' + minutes + ' ' + amPm
   }
 
-  const formattedTime = getFormattedTime(time.split(':').join(""))
 
   const [imagesArr, setImagesArr] = useState(props.images)
-  const [timeStamp, setTimeStamp] = useState(formattedTime)
-  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(time)
+  const [timeStamp, setTimeStamp] = useState('')
+  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(getTime())
   const [transitionEvent, setTransitionEvent] = useState('')
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
@@ -29,9 +27,20 @@ const TimeReactiveImage = props => {
 
   const initTRI = () => {
     setInitialized(true)
+    updateTime()
     setImagesArr(props.images)
-    const found = imagesArr.find(elem => currentTimeConvertedMilitary > elem.timeStart && currentTimeConvertedMilitary < elem.timeEnd)
-    const prevIndex = imagesArr.indexOf(found) === 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
+
+    const found = imagesArr.find(elem => {
+      const startTime = Number(elem.timeStart.split(':')[0])
+      const endTime = Number(elem.timeEnd.split(':')[0])
+      const currentTime = Number(currentTimeConvertedMilitary.split(':')[0])
+      if( startTime > endTime) {
+        return currentTime < startTime || currentTime > endTime
+      } else {
+        return currentTime > startTime && currentTime < endTime
+      }
+    })
+    const prevIndex = imagesArr.indexOf(found) <= 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
     setPrevImage(imagesArr[prevIndex].image)
     setCurrentImage(found.image)
     setTimeout(() => {
@@ -44,13 +53,12 @@ const TimeReactiveImage = props => {
   }
 
   const updateTime = () => {
-    setTimeStamp(formattedTime)
+    setTimeStamp(getFormattedTime(getTime().split(':').join("")))
   }
 
   return <TrackVisibility partialVisibility once >
     {({ isVisible }) => {
       if (isVisible && !initialized) {
-        updateTime()
         initTRI()
       }
       return (
