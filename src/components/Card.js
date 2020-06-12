@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from './Image'
 import CardText from './CardText'
 import HoverVideo from './HoverVideo'
@@ -11,36 +11,42 @@ const imagePropsObject = props => {
   return newObj
 }
 
-const Card = props => (
-  <div className={props.classAdd} style={props.style} >
-    <ConditionalLink linkUrl={props.linkUrl}>
-      <div className={`${props.hoverSVG ? 'hoverCard' : ''}`}>
-        {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
-        <div className='cardMedia' style={props.logoSVG ? { backgroundImage: `url(${props.logoSVG})`, backgroundColor: '#F2F2F2' } : {}}>
-          { props.hoverSVG
-            ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
-            : ''
-          }
-          { props.videoSource
-            ? <HoverVideo
-              vidSource={props.videoSource}
-              thumb={props.imgSource}
-              aspectRatio={props.aspectRatio}
-              customPadding={props.customPadding || 0}
-              loadIndex={props.loadIndex}
-            />
-            : <Image {...imagePropsObject(props)} /> }
+const Card = props => {
+  const [mediaLoaded, setMediaLoaded] = useState(false)
+
+  return (
+    <div className={props.classAdd} style={props.style} >
+      <ConditionalLink linkUrl={props.linkUrl}>
+        <div className={`${props.hoverSVG ? 'hoverCard' : ''}`}>
+          {!!(props.mediaOrientation === 'bottom' || props.mediaOrientation === 'right') && <CardText {...props} />}
+          <div className='cardMedia' style={props.logoSVG && !mediaLoaded ? { backgroundImage: `url(${props.logoSVG})`, backgroundColor: '#FAFAFA' } : {}}>
+            {props.hoverSVG
+              ? <div className='overlay' style={{ backgroundImage: `url(${props.hoverSVG})`, backgroundColor: props.bgColor || 'orange' }} />
+              : ''
+            }
+            {props.videoSource
+              ? <HoverVideo
+                vidSource={props.videoSource}
+                thumb={props.imgSource}
+                aspectRatio={props.aspectRatio}
+                customPadding={props.customPadding || 0}
+                loadIndex={props.loadIndex}
+                loadIndicator={setMediaLoaded}
+              />
+              : <Image {...imagePropsObject(props)}
+                loadIndicator={setMediaLoaded}
+              />}
+          </div>
+          {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
         </div>
-        {!!(props.mediaOrientation === 'top' || props.mediaOrientation === 'left') && <CardText {...props} />}
-      </div>
-    </ConditionalLink>
-    <style jsx>{`
+      </ConditionalLink>
+      <style jsx>{`
       .cardMedia {
         position: relative;
         display: inline-block;
         overflow: hidden;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(50% - 12px)' : '100%'};
-        background-size: 50% 50%;
+        background-size: auto 35.46% contain;
         background-position: center center;
         background-repeat: no-repeat; 
       }
@@ -63,7 +69,7 @@ const Card = props => (
         background-position: center center;
         background-repeat: no-repeat;
       }
-
+      
       .hoverFade {
         opacity: 1;
         transition: opacity .2s;
@@ -72,8 +78,9 @@ const Card = props => (
         }
       }
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Card.propTypes = {
   cardTitle: PropTypes.string,

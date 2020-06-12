@@ -88,44 +88,44 @@ const TimeReactiveImage = props => {
           <div className={`timeStamp ${transitionEvent}`}>GDP HQ | {timeStamp} PACIFIC TIME</div>
 
           <style jsx>{`
-      .timedImageContainer {
-        position: relative;
-        width: 100%;
-        height: 0; 
-        overflow: hidden;
-      }
-      .timeStamp {       
-        position: absolute;
-        font-family: Institut;
-        font-size: 10px;
-        line-height: 12px;
-        font-weight: normal;
-        letter-spacing: 1.60417px;
-        z-index: 99;
-        color: #FFF;
-        bottom: -50px;
-        right: 40px;
-        transition: bottom 1s 2s ease-in-out;
-      }
-      .timeStamp.active {
-        bottom: 26px;
-      }
-      .sixteen {
-        padding-top: 56.25%;
-      }
-      .standard {
-        padding-top: 75%;
-      }
-      .cropped {
-        padding-top: 41.67%;
-      }
-      .cinema {
-        padding-top: 46.89%;
-      }
-      .square {
-        padding-top: 100%;
-      }
-    `}</style>
+            .timedImageContainer {
+              position: relative;
+              width: 100%;
+              height: 0; 
+              overflow: hidden;
+            }
+            .timeStamp {       
+              position: absolute;
+              font-family: Institut;
+              font-size: 10px;
+              line-height: 12px;
+              font-weight: normal;
+              letter-spacing: 1.60417px;
+              z-index: 99;
+              color: #FFF;
+              bottom: -50px;
+              right: 40px;
+              transition: bottom 1s 2s ease-in-out;
+            }
+            .timeStamp.active {
+              bottom: 26px;
+            }
+            .sixteen {
+              padding-top: 56.25%;
+            }
+            .standard {
+              padding-top: 75%;
+            }
+            .cropped {
+              padding-top: 41.67%;
+            }
+            .cinema {
+              padding-top: 46.89%;
+            }
+            .square {
+              padding-top: 100%;
+            }
+          `}</style>
         </div>
       )
     }}
