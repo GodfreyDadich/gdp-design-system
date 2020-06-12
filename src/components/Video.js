@@ -66,7 +66,9 @@ const Video = (props) => {
     setIsLoading(isLoading ? autoplay : false)
     setPlayerReady(true)
     if (loadIndicator) {
-      loadIndicator(true)
+      setTimeout(() => {
+        loadIndicator(true)
+      }, 500)      
     }
     setTimeout(() => {
       setCoverVisible(hoverPlay || loadActive ? !active : false)

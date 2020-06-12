@@ -34,7 +34,9 @@ const Image = (props) => {
       setTimeout(() => {
         setImageLoaded(true)
         if (loadIndicator) {
-          loadIndicator(true)
+          setTimeout(() => {
+            loadIndicator(true)
+          }, 500)
         }
       }, 250 * loadIndex) :
       setImageLoaded(true)
