@@ -30,7 +30,7 @@ const Image = (props) => {
   const [imageInView, setImageInView] = useState(false)
 
   const handleImageLoaded = () => {
-    logoSVG ?
+    if(logoSVG) {
       setTimeout(() => {
         setImageLoaded(true)
         if (loadIndicator) {
@@ -38,8 +38,13 @@ const Image = (props) => {
             loadIndicator(true)
           }, 1000)
         }
-      }, 250 * loadIndex) :
+      }, 250 * loadIndex)
+    } else {
       setImageLoaded(true)
+      if (loadIndicator) {
+        loadIndicator(true)
+      }
+    }
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>

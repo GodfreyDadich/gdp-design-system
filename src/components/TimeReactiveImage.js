@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Image from './Image'
 import TrackVisibility from 'react-on-screen'
@@ -24,6 +24,7 @@ const TimeReactiveImage = props => {
   const [prevImage, setPrevImage] = useState('')
   const [initialized, setInitialized] = useState(false)
   const [showCurrent, setShowCurrent] = useState(false)
+  const [imageOneLoaded, setImageOneLoaded] = useState(false)
 
   const initTRI = () => {
     setInitialized(true)
@@ -44,14 +45,19 @@ const TimeReactiveImage = props => {
     const prevIndex = imagesArr.indexOf(found) <= 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
     setPrevImage(imagesArr[prevIndex].image)
     setCurrentImage(found.image)
-    setTimeout(() => {
-      setShowCurrent(true)
-      setTransitionEvent('active')
-      setTimeout(() => {
-        setTransitionEvent('')
-      }, 6000)
-    }, 1000)
   }
+
+  useEffect(()=> {
+    if(imageOneLoaded) {    
+      setTimeout(() => {
+        setShowCurrent(true)
+        setTransitionEvent('active')
+        setTimeout(() => {
+          setTransitionEvent('')
+        }, 6000)
+      }, 1000)
+    }
+  }, [imageOneLoaded])
 
   const updateTime = () => {
     setTimeStamp(getFormattedTime(getTime().split(':').join("")))
@@ -90,6 +96,8 @@ const TimeReactiveImage = props => {
             }}>
             <Image
               imgSource={prevImage}
+              loadIndicator={setImageOneLoaded}
+              slowIntro
               {...props}
             />
           </div>
