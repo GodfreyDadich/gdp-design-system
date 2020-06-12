@@ -12,13 +12,14 @@ const Triptych = props => {
       if (hideEnd > hideStart) {
         return currTime < hideStart || currTime > hideEnd
       } else {
-        return currTime > hideEnd && currTime < hideStart
+        return currTime >= hideEnd && currTime < hideStart
       }
     } else {
       return img
     }
   })
-  const [imagesIndex, setImagesIndex] = useState(0)
+
+  const [imagesIndex, setImagesIndex] = useState(2)
   const [activeGroup, setActiveGroup] = useState(filteredImages[0])
   const [nextGroup, setNextGroup] = useState(filteredImages[1])
   const [triptychOneState, setTriptychOneState] = useState('active')
@@ -28,7 +29,6 @@ const Triptych = props => {
   var loadTwo = 0
 
   useEffect(() => {
-    if( props.init ) {
     const pause = 5000
     let timer
     if (triptychOneState !== 'next visible') {
@@ -44,8 +44,7 @@ const Triptych = props => {
       }, pause)
     }
     return () => clearTimeout(timer)
-  }
-  }, [triptychOneState, props.init])
+  }, [triptychOneState])
 
   const iterateTriptychImg = () => {
     if (triptychOneState === 'active') {

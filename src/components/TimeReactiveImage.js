@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Image from './Image'
 import TrackVisibility from 'react-on-screen'
@@ -37,9 +37,10 @@ const TimeReactiveImage = props => {
       if( startTime > endTime) {
         return currentTime < startTime || currentTime > endTime
       } else {
-        return currentTime > startTime && currentTime < endTime
+        return currentTime >= startTime && currentTime < endTime
       }
     })
+
     const prevIndex = imagesArr.indexOf(found) <= 0 ? imagesArr.length - 1 : imagesArr.indexOf(found) - 1
     setPrevImage(imagesArr[prevIndex].image)
     setCurrentImage(found.image)
