@@ -22,7 +22,8 @@ const Image = (props) => {
     style,
     visibilityOverride,
     loadIndex,
-    logoSVG
+    logoSVG,
+    loadIndicator
   } = props
 
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -32,6 +33,9 @@ const Image = (props) => {
     logoSVG ?
       setTimeout(() => {
         setImageLoaded(true)
+        if (loadIndicator) {
+          loadIndicator(true)
+        }
       }, 250 * loadIndex) :
       setImageLoaded(true)
   }
