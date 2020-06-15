@@ -50,7 +50,7 @@ export const ImageSlider = () =>
     images={imageGallery2}
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
-    lightMode={true}
+    lightMode
   />
 
 export const ImageRevealCarousel = () =>

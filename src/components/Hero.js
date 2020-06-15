@@ -84,16 +84,14 @@ class Hero extends React.Component {
               muted
               playsinline
               config={{
-                vimeo: {
-                  playerOptions: {
-                    background: 1,
-                    transparent: 0,
-                    muted: 1,
-                    autoplay: 1,
-                    playsinline: 1
-                  },
-                  preload: false
-                }
+                playerOptions: {
+                  background: 1,
+                  transparent: 0,
+                  muted: 1,
+                  autoplay: 1,
+                  playsinline: 1
+                },
+                preload: false
               }}
             />
           case 'lottie':

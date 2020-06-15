@@ -2,6 +2,141 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.24"></a>
+## [1.3.24](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.23...v1.3.24) (2020-06-12)
+
+
+
+<a name="1.3.23"></a>
+## [1.3.23](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.22...v1.3.23) (2020-06-12)
+
+
+
+<a name="1.3.22"></a>
+## [1.3.22](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.21...v1.3.22) (2020-06-12)
+
+
+
+<a name="1.3.21"></a>
+## [1.3.21](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.20...v1.3.21) (2020-06-12)
+
+
+
+<a name="1.3.20"></a>
+## [1.3.20](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19...v1.3.20) (2020-06-12)
+
+
+
+<a name="1.3.19"></a>
+## [1.3.19](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-20...v1.3.19) (2020-06-12)
+
+
+
+<a name="1.3.19-20"></a>
+## [1.3.19-20](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-19...v1.3.19-20) (2020-06-12)
+
+
+
+<a name="1.3.19-19"></a>
+## [1.3.19-19](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-18...v1.3.19-19) (2020-06-11)
+
+
+
+<a name="1.3.19-18"></a>
+## [1.3.19-18](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-17...v1.3.19-18) (2020-06-09)
+
+
+
+<a name="1.3.19-17"></a>
+## [1.3.19-17](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-16...v1.3.19-17) (2020-06-09)
+
+
+
+<a name="1.3.19-16"></a>
+## [1.3.19-16](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-15...v1.3.19-16) (2020-06-09)
+
+
+
+<a name="1.3.19-15"></a>
+## [1.3.19-15](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-14...v1.3.19-15) (2020-06-09)
+
+
+
+<a name="1.3.19-14"></a>
+## [1.3.19-14](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-13...v1.3.19-14) (2020-06-09)
+
+
+
+<a name="1.3.19-13"></a>
+## [1.3.19-13](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-12...v1.3.19-13) (2020-06-09)
+
+
+
+<a name="1.3.19-12"></a>
+## [1.3.19-12](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-11...v1.3.19-12) (2020-06-08)
+
+
+
+<a name="1.3.19-11"></a>
+## [1.3.19-11](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-10...v1.3.19-11) (2020-06-08)
+
+
+
+<a name="1.3.19-10"></a>
+## [1.3.19-10](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-9...v1.3.19-10) (2020-06-05)
+
+
+
+<a name="1.3.19-9"></a>
+## [1.3.19-9](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-8...v1.3.19-9) (2020-06-05)
+
+
+
+<a name="1.3.19-8"></a>
+## [1.3.19-8](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-7...v1.3.19-8) (2020-06-05)
+
+
+
+<a name="1.3.19-7"></a>
+## [1.3.19-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-6...v1.3.19-7) (2020-06-05)
+
+
+
+<a name="1.3.19-6"></a>
+## [1.3.19-6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-5...v1.3.19-6) (2020-06-04)
+
+
+
+<a name="1.3.19-5"></a>
+## [1.3.19-5](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-4...v1.3.19-5) (2020-06-03)
+
+
+
+<a name="1.3.19-4"></a>
+## [1.3.19-4](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-3...v1.3.19-4) (2020-06-03)
+
+
+
+<a name="1.3.19-3"></a>
+## [1.3.19-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-2...v1.3.19-3) (2020-06-03)
+
+
+
+<a name="1.3.19-2"></a>
+## [1.3.19-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-1...v1.3.19-2) (2020-06-02)
+
+
+
+<a name="1.3.19-1"></a>
+## [1.3.19-1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.19-0...v1.3.19-1) (2020-06-02)
+
+
+
+<a name="1.3.19-0"></a>
+## [1.3.19-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.17-12...v1.3.19-0) (2020-06-02)
+
+
+
 <a name="1.3.17-12"></a>
 ## [1.3.17-12](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.17-9...v1.3.17-12) (2020-05-28)
 

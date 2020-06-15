@@ -14,12 +14,10 @@ const HoverVideo = (props) => {
       mouseOutAction={() => { setHover(false) }}
       classAdd={props.classAdd ? ' ' + props.classAdd : ''}
       config={{
-        vimeo: {
-          playerOptions: {
-            controls: 0
-          },
-          preload: false
-        }
+        playerOptions: {
+          controls: 0
+        },
+        preload: false
       }}
     />
   )

@@ -21,19 +21,30 @@ const Image = (props) => {
     stackedImage,
     style,
     visibilityOverride,
-    index,
-    logoSVG
+    loadIndex,
+    logoSVG,
+    loadIndicator
   } = props
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
 
   const handleImageLoaded = () => {
-    logoSVG ?
+    if(logoSVG) {
       setTimeout(() => {
         setImageLoaded(true)
-      }, 250 * index) :
+        if (loadIndicator) {
+          setTimeout(() => {
+            loadIndicator(true)
+          }, 1000)
+        }
+      }, 250 * loadIndex)
+    } else {
       setImageLoaded(true)
+      if (loadIndicator) {
+        loadIndicator(true)
+      }
+    }
   }
   return (
     <figure style={style} className={`${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
@@ -111,7 +122,7 @@ const Image = (props) => {
 Image.propTypes = {
   linkUrl: PropTypes.string,
   imageTitle: PropTypes.string,
-  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect']),
+  aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect', 'doubleWide', 'custom']),
   fullBleed: PropTypes.bool,
   imgSource: PropTypes.string,
   verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
