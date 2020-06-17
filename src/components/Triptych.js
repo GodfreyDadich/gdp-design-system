@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
-  const offset = -7;
-
+const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
+  const offset = -7
   const filteredImages = imgArray.filter(img => {
     if (img.hide === 'yes') {
       const currTime = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1].split(':')[0]
@@ -18,7 +17,6 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
       return img
     }
   })
-
 
   const [imagesIndex, setImagesIndex] = useState(2)
   const [activeGroup, setActiveGroup] = useState([])
@@ -159,7 +157,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
 
         @media only screen and (max-width: 500px) {
           height: auto;
-          padding-top: 360%;
+          padding-top: 390.3%;
         }
       }
       .imageLinkMosaic {
@@ -255,7 +253,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
 
         @media only screen and (max-width: 500px) {
           left: 0;
-          top: 36%;
+          top: 33.3%;
         }
       }
 
@@ -268,7 +266,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
 
         @media only screen and (max-width: 500px) {
           left: 0;
-          top: 72%;
+          top: 66.65%;
         }
       }
     `}</style>
