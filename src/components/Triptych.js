@@ -157,7 +157,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
 
         @media only screen and (max-width: 500px) {
           height: auto;
-          padding-top: 390.3%;
+          padding-top: 390vw;
         }
       }
       .imageLinkMosaic {
@@ -253,7 +253,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
 
         @media only screen and (max-width: 500px) {
           left: 0;
-          top: 33.3%;
+          top: 130vw;
         }
       }
 
@@ -266,7 +266,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
 
         @media only screen and (max-width: 500px) {
           left: 0;
-          top: 66.65%;
+          top: 260vw;
         }
       }
     `}</style>
