@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Triptych = props => {
+const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init}) => {
   const offset = -7;
 
-  const filteredImages = props.imgArray.filter(img => {
+  const filteredImages = imgArray.filter(img => {
     if (img.hide === 'yes') {
       const currTime = new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1].split(':')[0]
       const hideStart = Number(img.hideTimeStart.split(':')[0])
@@ -19,10 +19,11 @@ const Triptych = props => {
     }
   })
 
+
   const [imagesIndex, setImagesIndex] = useState(2)
-  const [activeGroup, setActiveGroup] = useState(filteredImages[0])
-  const [nextGroup, setNextGroup] = useState(filteredImages[1])
-  const [triptychOneState, setTriptychOneState] = useState('active')
+  const [activeGroup, setActiveGroup] = useState([])
+  const [nextGroup, setNextGroup] = useState([])
+  const [triptychOneState, setTriptychOneState] = useState('')
   const [triptychTwoState, setTriptychTwoState] = useState('next')
 
   var loadOne = 0
@@ -31,7 +32,7 @@ const Triptych = props => {
   useEffect(() => {
     const pause = 5000
     let timer
-    if (triptychOneState !== 'next visible') {
+    if (triptychOneState !== 'next visible' && init) {
       timer = setTimeout(() => {
         setImagesIndex(prevIndex => {
           if ((prevIndex + 1) >= filteredImages.length) {
@@ -45,6 +46,14 @@ const Triptych = props => {
     }
     return () => clearTimeout(timer)
   }, [triptychOneState])
+
+  useEffect(() => {
+    if (init) {
+      setActiveGroup(filteredImages[0])
+      setNextGroup(filteredImages[1])
+      setTriptychOneState('active')
+    }
+  }, [init])
 
   const iterateTriptychImg = () => {
     if (triptychOneState === 'active') {
@@ -128,16 +137,16 @@ const Triptych = props => {
     </div>
 
     <div className={`imageLinkMosaic links`}>
-      <a href={props.linkOne.url} className={`noGreen whoWeAre triptychImage`}>
-        <div className='linkCta'>{props.linkOne.text}</div>
+      <a href={linkOne.url} className={`noGreen whoWeAre triptychImage`}>
+        <div className='linkCta'>{linkOne.text}</div>
       </a>
 
-      <a href={props.linkTwo.url} className={`noGreen whatWeDo triptychImage`}>
-        <div className='linkCta'>{props.linkTwo.text}</div>
+      <a href={linkTwo.url} className={`noGreen whatWeDo triptychImage`}>
+        <div className='linkCta'>{linkTwo.text}</div>
       </a>
 
-      <a href={props.linkThree.url} className={`noGreen whatWeMake triptychImage`}>
-        <div className='linkCta'>{props.linkThree.text}</div>
+      <a href={linkThree.url} className={`noGreen whatWeMake triptychImage`}>
+        <div className='linkCta'>{linkThree.text}</div>
       </a>
     </div>
     <style jsx>{`
