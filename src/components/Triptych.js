@@ -21,7 +21,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
   const [imagesIndex, setImagesIndex] = useState(2)
   const [activeGroup, setActiveGroup] = useState([])
   const [nextGroup, setNextGroup] = useState([])
-  const [triptychOneState, setTriptychOneState] = useState('')
+  const [triptychOneState, setTriptychOneState] = useState('next')
   const [triptychTwoState, setTriptychTwoState] = useState('next')
 
   var loadOne = 0
@@ -219,7 +219,6 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
           width: 100%;
           height: 100%;
           opacity: 0;
-
         }
 
         &:hover {
