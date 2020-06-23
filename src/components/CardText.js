@@ -11,6 +11,7 @@ const CardText = props =>
 
     <style jsx>{` 
       .cardText {
+        position: relative;
         display: inline-block;
         vertical-align: top;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(49% - 12px)' : '100%'};
