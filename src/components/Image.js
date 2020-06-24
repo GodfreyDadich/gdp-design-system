@@ -127,6 +127,7 @@ const Image = (props) => {
             top: 0;
             opacity: 0;
             z-index: 10;
+            background: #fff;
           } 
         }
       `}</style>

@@ -114,9 +114,9 @@ const Video = (props) => {
       onMouseEnter={mouseOverAction}
       onMouseLeave={mouseOutAction}
       style={style}
-      className={`video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
+      className={`${classAdd} video${hoverPlay ? ' hoverVid' : ''}${playerReady ? ' playerReady' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}
     >
-      <TrackVisibility partialVisibility className={classAdd}>
+      <TrackVisibility partialVisibility>
         {({ isVisible }) => {
           if (isVisible || autoplay || (hoverPlay && !loadIndex)) {
             loadIndex ?
