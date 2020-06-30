@@ -11,6 +11,7 @@ const CardText = props =>
 
     <style jsx>{` 
       .cardText {
+        position: relative;
         display: inline-block;
         vertical-align: top;
         width: ${props.mediaOrientation === 'left' || props.mediaOrientation === 'right' ? 'calc(49% - 12px)' : '100%'};
@@ -20,9 +21,18 @@ const CardText = props =>
   </div>
 
 CardText.propTypes = {
-  cardTitle: PropTypes.string,
-  cardSubtitle: PropTypes.string,
-  cardContent: PropTypes.string,
+  cardTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  cardSubtitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  cardContent: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
   linkText: PropTypes.string,
   linkURL: PropTypes.string
 }

@@ -7,15 +7,6 @@ class ImageWrap extends React.Component {
     this.state = {
       loadImage: false
     }
-
-    this.paddingRef = {
-      sixteen: '56.25%',
-      standard: '75%',
-      cropped: '41.67%',
-      square: '100%',
-      doubleWide: 'calc( 50% - 12px )',
-      custom: props.customPadding
-    }
   }
 
   shouldComponentUpdate (nextProps) {
@@ -35,18 +26,20 @@ class ImageWrap extends React.Component {
     return (
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
-          backgroundImage: `${aspectRatio !== 'noAspect' && imageLoaded ? `url('${isMobile && altAsset ? altAsset : imgSource}')` : ''}`,
+          position: 'absolute',
+          backgroundImage: `${imageLoaded && `url('${isMobile && altAsset ? altAsset : imgSource}')`}`,
           backgroundSize: backgroundSize || 'cover',
           backgroundPositionX: horizontalAlign,
           backgroundPositionY: verticalAlign,
           backgroundRepeat: 'no-repeat',
-          height: 'auto',
+          height: '100%',
+          width: '100%',
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
-          paddingTop: this.paddingRef[aspectRatio],
           opacity: imageLoaded ? 1 : 0,
           top: imageLoaded || skipIntro ? '0px' : '15px',
-          transition: slowIntro ? 'opacity 1s ease, top 1s ease, transform 1s ease-in-out' : 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s'
+          transition: slowIntro ? 'opacity 1s ease, top 1s ease, transform 1s ease-in-out' : 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s',
+          boxSizing: 'border-box'
         }}
       >
         { showImage ? React.cloneElement(children) : ''}

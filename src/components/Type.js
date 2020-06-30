@@ -362,7 +362,7 @@ export const QuoteAttribution = ({ children, style, className }) =>
   </span>
 
 
-export const Caption = ({ classAdd, children }) =>
+export const Caption = ({ classAdd, children}) =>
   <figcaption className={`captionText${classAdd ? ' ' + classAdd : ''}`} >
     {children}
     <style jsx>{`
@@ -376,6 +376,8 @@ export const Caption = ({ classAdd, children }) =>
         letter-spacing: 0.2px;
         margin-top: 25px;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
         
         @media only screen and (max-width: 500px) {
           margin-top: 15px;
