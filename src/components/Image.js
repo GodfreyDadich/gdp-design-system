@@ -59,7 +59,7 @@ const Image = (props) => {
   }
   return (
     <figure style={style} className={`${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
-      <TrackVisibility 
+      <TrackVisibility
         partialVisibility
         // className={classAdd}
         style={{
@@ -70,7 +70,7 @@ const Image = (props) => {
           boxSizing: 'border-box'
         }} >
         {({ isVisible }) => {
-          if (isVisible) {
+          if (isVisible && !imageInView) {
             setImageInView(true)
           }
           const imageIsVisible = imageInView || visibilityOverride
@@ -85,9 +85,8 @@ const Image = (props) => {
                   : ''}
               </ConditionalLink>
             </ImageWrap>
-            
-            )
-          }}
+          )
+        }}
       </TrackVisibility>
       {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
 

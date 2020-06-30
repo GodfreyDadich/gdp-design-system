@@ -21,9 +21,18 @@ const CardText = props =>
   </div>
 
 CardText.propTypes = {
-  cardTitle: PropTypes.string,
-  cardSubtitle: PropTypes.string,
-  cardContent: PropTypes.string,
+  cardTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  cardSubtitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  cardContent: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
   linkText: PropTypes.string,
   linkURL: PropTypes.string
 }

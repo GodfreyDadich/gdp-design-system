@@ -8,12 +8,12 @@ import PropTypes from 'prop-types'
 const imagePropsObject = props => {
   const newObj = Object.assign({}, props)
   delete newObj.classAdd
+  delete newObj.linkUrl
   return newObj
 }
 
 const Card = props => {
   const [mediaLoaded, setMediaLoaded] = useState(false)
-
   return (
     <div className={props.classAdd} style={props.style} >
       <ConditionalLink linkUrl={props.linkUrl}>
@@ -83,11 +83,6 @@ const Card = props => {
 }
 
 Card.propTypes = {
-  cardTitle: PropTypes.string,
-  cardSubtitle: PropTypes.string,
-  cardContent: PropTypes.string,
-  linkText: PropTypes.string,
-  linkURL: PropTypes.string,
   mediaOrientation: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   imageTitle: PropTypes.string,
   aspectRatio: PropTypes.oneOf(['sixteen', 'standard', 'square', 'cropped', 'noAspect', 'doubleWide', 'custom']),
