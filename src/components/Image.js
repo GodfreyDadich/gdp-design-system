@@ -32,6 +32,7 @@ const Image = (props) => {
     cropped: '41.67%',
     square: '100%',
     doubleWide: 'calc( 50% - 12px )',
+    cover: '133%',
     custom: props.customPadding
   }
 
