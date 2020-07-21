@@ -286,8 +286,10 @@ export default class CircularCarousel extends Component {
                       top: '50%',
                       left: '50%',
                       width: imageAspect && imageAspect === 'noAspect' ? 'auto' : '75%',
-                      maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'auto',
-                      height: 'auto'
+                      maxHeight: imageAspect && imageAspect === 'noAspect' ? '80%' : 'none',
+                      height: 'auto',
+                      minWidth: imageAspect && imageAspect === 'noAspect' ? '60%' : 'none',
+                      maxWidth: imageAspect && imageAspect === 'noAspect' ? '80%' : 'none'
                     }, this.getCarouselStyle(i))}>
                     {visibleArray.includes(i)
                       ? React.cloneElement(child, {
