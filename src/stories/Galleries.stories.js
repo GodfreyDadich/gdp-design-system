@@ -89,7 +89,7 @@ export const ImageGridGallery = () =>
       thumbs={imageGallery2}
       countIndicator={select('Count Indicator', countIndicator, 'dots')}
       view={select('View Mode', viewMode, 'lightMode')}
-      carousel={select('carousel', isCarousel, 'no')}
+      carousel={select('carousel', isCarousel, 'yes')}
       columns={number('Columns', 3)}
       headingCaption={text('Heading Caption', defaultSubTitle)}
       caption={text('Caption', defaultCaption)}

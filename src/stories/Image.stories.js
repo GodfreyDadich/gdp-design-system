@@ -111,7 +111,7 @@ export const ImagesStacked = () =>
     caption={text('Caption', defaultCaption)}
   />
 
-export const DepthMap = () =>
+export const DepthMapOnMouseMove = () =>
   <div style={{ width: '80%', margin: '0 auto' }} >
     <ImageDepthMap
       originalImg={'./ball.jpg'}
@@ -121,6 +121,20 @@ export const DepthMap = () =>
     />
   </div>
 
+export const DepthMapOnScroll = () =>
+  <div style={{ width: '80%', margin: '0 auto' }} >
+    <div style={{ height: '1000px', width: '50px', display: 'block' }} />
+    <ImageDepthMap
+      originalImg={'./ball.jpg'}
+      depthImg={'./ball-map.jpg'}
+      verticalThreshold={25}
+      horizontalThreshold={15}
+      respondTo={`scrollOnBoth`}
+      reverseMotion={boolean('reverseMotion', false)}
+    />
+    <div style={{ height: '1000px', width: '50px', display: 'block' }} />
+  </div>
+
 export const TimeRelatedImage = () =>
   <div style={{ width: '50%', margin: '50px auto' }}>
     <TimeReactiveImage
@@ -128,5 +142,7 @@ export const TimeRelatedImage = () =>
       linkURL=''
       aspectRatio='standard'
       images={testData}
+      reverseMotion={boolean('reverseMotion', false)}
     />
   </div>
+  
