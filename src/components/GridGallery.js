@@ -75,7 +75,15 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
       className={`${caption && caption.length > 0 ? ' withCaption' : ''}${classAdd ? ` ${classAdd}` : ''}`}>
       {mobile
         ? appliedImages.length > 1
-          ? <CircularCarousel gridGallery removeMobileGrayBackground={removeMobileGrayBackground} mobile={mobile} countIndicator={countIndicator} caption={caption} imageAspect={thumbAspect} aspectRatio={containerAspect}>
+          ? <CircularCarousel
+            gridGallery
+            removeMobileGrayBackground={removeMobileGrayBackground}
+            mobile={mobile}
+            countIndicator={countIndicator}
+            caption={caption}
+            imageAspect={thumbAspect}
+            aspectRatio={containerAspect}
+          >
             {
               appliedImages.map((image, index) =>
                 <div style={mobileStyles} key={`${escape(image)}-${index}`}>
@@ -114,19 +122,19 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                     <div className='mosaic-row' key={`mosaic-row-${index}`}>
                       {
                         row.map((image, imgIndex) =>
-                        <TrackVisibility
-                          partialVisibility
-                          once
-                          className={`${carousel === 'yes' ? 'mosaic-image' : ''}`}
-                          key={`mosaicThumb-${index}`} >
-                          {({ isVisible }) =>
-                            <img
-                              className='mosaic-thumb'
-                              onClick={e => { if (carousel === 'yes') { displayGallery((index * rowLength) + imgIndex) } }}
-                              src={isVisible ? image : ''}
-                            />
-                          }
-                        </TrackVisibility>
+                          <TrackVisibility
+                            partialVisibility
+                            once
+                            className={`${carousel === 'yes' ? 'mosaic-image' : ''}`}
+                            key={`mosaicThumb-${imgIndex}`} >
+                            {({ isVisible }) =>
+                              <img
+                                className='mosaic-thumb'
+                                onClick={e => { if (carousel === 'yes') { displayGallery((index * rowLength) + imgIndex) } }}
+                                src={isVisible ? image : ''}
+                              />
+                            }
+                          </TrackVisibility>
                         )
                       }
                     </div>
