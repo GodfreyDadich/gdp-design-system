@@ -212,6 +212,12 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
         height: 9.5vw;
         width: auto;
         margin: 0 0 0 auto;
+        opacity: 1;
+        transition: .25s;
+        cursor: pointer;
+      }
+      .mosaic-image:hover {
+        opacity: 0.8;
       }
       .mosaic-image:first-child {
         margin-left: 0;
