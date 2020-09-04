@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { AltRightArrow, AltLeftArrow } from './SliderArrows'
+import React, { useState, useEffect } from 'react'
+import { RightArrow, LeftArrow } from './SliderArrows'
 import { isMobile } from 'react-device-detect'
 
 const SimpleGallery = ({ images, view, index }) => {
@@ -102,7 +102,8 @@ const SimpleGallery = ({ images, view, index }) => {
               style={{
                 top: '50%',
                 left: '50%',
-                height: '100%',
+                maxHeight: '100%',
+                maxWidth: 'calc(100% - 40px)',
                 transform: 'translateX(-50%) translateY(-50%)',
                 display: 'inline-block',
                 verticalAlign: 'middle',
@@ -119,20 +120,20 @@ const SimpleGallery = ({ images, view, index }) => {
         ))
       }
     </div>
-    <AltLeftArrow
+    <LeftArrow
       clickAction={goToPrevSlide}
       view={view}
       style={{
-        width: '10%',
-        left: '-10%'
+        width: '80%'
       }}
     />
-    <AltRightArrow
+    <RightArrow
       clickAction={goToNextSlide}
       view={view}
       style={{
-        width: '10%',
-        right: '-10%'
+        width: '80%',
+        height: 'calc(100% - 60px)',
+        top: '60px'
       }}
     />
     <footer className='consumptions-footer' style={footerStyle}>
