@@ -196,6 +196,7 @@ const Triptych = ({imgArray, linkOne, linkTwo, linkThree, init=true}) => {
         font-size: 24px;
         letter-spacing: -0.144px;
         color: #FFFFFF;
+        text-shadow: 0px 0px 36px #333;
 
         text-decoration: none;
         background-image: linear-gradient(to top,#06ff02,#06ff02);
