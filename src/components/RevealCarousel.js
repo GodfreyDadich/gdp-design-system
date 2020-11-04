@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './SliderArrows'
-import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile, isMobileOnly, isTablet } from 'react-device-detect'
@@ -40,11 +39,11 @@ const RevealCarousel = props => {
     }, 750)
   }
   const goToPrevSlide = () => {
-    const prevSlide = currentIndex === 0 ? props.images.length - 1 : currentIndex - 1
+    const prevSlide = currentIndex === 0 ? props.children.length - 1 : currentIndex - 1
     goToSlide(prevSlide)
   }
   const goToNextSlide = () => {
-    const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
+    const nextSlide = (currentIndex === props.children.length - 1) ? 0 : currentIndex + 1
     goToSlide(nextSlide)
   }
   const handleKeyDown = (e) => {
@@ -67,8 +66,8 @@ const RevealCarousel = props => {
 
   const getCarouselImageClass = imgIndex => {
     const active = currentIndex
-    const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.images.length - 1
-    const next = currentIndex + 1 <= props.images.length - 1 ? currentIndex + 1 : 0
+    const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.children.length - 1
+    const next = currentIndex + 1 <= props.children.length - 1 ? currentIndex + 1 : 0
 
     switch (imgIndex) {
       case active:
@@ -147,12 +146,13 @@ const RevealCarousel = props => {
             }}
             className={`carousel__images-container`}>
             {
-              props.images.map((image, i) => (
+              props.children.map((child, i) => (
                 <div
                   className={`carouselImage ${getCarouselImageClass(i)}`}
-                  key={`carouselImage${i}`}
-                >
-                  <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
+                  key={`carouselImage${i}`}>
+                  {React.cloneElement(child, {
+                    active: (currentIndex === i)
+                  })}
                 </div>
               ))
             }
