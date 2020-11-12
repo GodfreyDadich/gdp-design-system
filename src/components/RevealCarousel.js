@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './SliderArrows'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
@@ -9,6 +9,7 @@ const RevealCarousel = props => {
   const [hoverPause, setHoverPause] = useState(false)
   const [currentCapIndex, setCurrentCapIndex] = useState(0)
   const [captionMargin, setCaptionMargin] = useState('0')
+  const [visibleArray, setVisibleArray] = useState([0, 1, 2, props.children.length - 1, props.children.length - 2])
   const carouselElem = useRef(null)
   const paddingTop = getPaddingTop(props.aspectRatio)
 
@@ -41,10 +42,12 @@ const RevealCarousel = props => {
   const goToPrevSlide = () => {
     const prevSlide = currentIndex === 0 ? props.children.length - 1 : currentIndex - 1
     goToSlide(prevSlide)
+    updateVisible(prevSlide)
   }
   const goToNextSlide = () => {
     const nextSlide = (currentIndex === props.children.length - 1) ? 0 : currentIndex + 1
     goToSlide(nextSlide)
+    updateVisible(nextSlide)
   }
   const handleKeyDown = (e) => {
     if (e.keyCode === 39) {
@@ -62,6 +65,16 @@ const RevealCarousel = props => {
   }
   const hoverTeaseReset = () => {
     setTeaseState('')
+  }
+
+  const updateVisible = (currIndex) => {
+    const total = props.children.length - 1
+    let visibleArray = [currIndex]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+    setVisibleArray(visibleArray)
   }
 
   const getCarouselImageClass = imgIndex => {
@@ -150,9 +163,11 @@ const RevealCarousel = props => {
                 <div
                   className={`carouselImage ${getCarouselImageClass(i)}`}
                   key={`carouselImage${i}`}>
-                  {React.cloneElement(child, {
-                    active: (currentIndex === i)
-                  })}
+                  {visibleArray.includes(i)
+                    ? React.cloneElement(child, {
+                      active: (currentIndex === i)
+                    })
+                    : <Fragment />}
                 </div>
               ))
             }
