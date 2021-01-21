@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { RevealRightArrow, RevealLeftArrow, LeftArrow, RightArrow } from './SliderArrows'
-import Slide from './Slide'
 import { Caption } from './Type'
 import { getPaddingTop } from '../utils/aspectRatio'
 import { isMobile, isMobileOnly, isTablet } from 'react-device-detect'
@@ -10,6 +9,7 @@ const RevealCarousel = props => {
   const [hoverPause, setHoverPause] = useState(false)
   const [currentCapIndex, setCurrentCapIndex] = useState(0)
   const [captionMargin, setCaptionMargin] = useState('0')
+  const [visibleArray, setVisibleArray] = useState([0, 1, 2, props.children.length - 1, props.children.length - 2])
   const carouselElem = useRef(null)
   const paddingTop = getPaddingTop(props.aspectRatio)
 
@@ -40,12 +40,14 @@ const RevealCarousel = props => {
     }, 750)
   }
   const goToPrevSlide = () => {
-    const prevSlide = currentIndex === 0 ? props.images.length - 1 : currentIndex - 1
+    const prevSlide = currentIndex === 0 ? props.children.length - 1 : currentIndex - 1
     goToSlide(prevSlide)
+    updateVisible(prevSlide)
   }
   const goToNextSlide = () => {
-    const nextSlide = (currentIndex === props.images.length - 1) ? 0 : currentIndex + 1
+    const nextSlide = (currentIndex === props.children.length - 1) ? 0 : currentIndex + 1
     goToSlide(nextSlide)
+    updateVisible(nextSlide)
   }
   const handleKeyDown = (e) => {
     if (e.keyCode === 39) {
@@ -65,10 +67,20 @@ const RevealCarousel = props => {
     setTeaseState('')
   }
 
+  const updateVisible = (currIndex) => {
+    const total = props.children.length - 1
+    let visibleArray = [currIndex]
+    visibleArray.push(visibleArray[0] === total ? 0 : visibleArray[0] + 1)
+    visibleArray.push(visibleArray[1] === total ? 0 : visibleArray[1] + 1)
+    visibleArray.push(visibleArray[0] === 0 ? total : visibleArray[0] - 1)
+    visibleArray.push(visibleArray[visibleArray.length - 1] === 0 ? total : visibleArray[visibleArray.length - 1] - 1)
+    setVisibleArray(visibleArray)
+  }
+
   const getCarouselImageClass = imgIndex => {
     const active = currentIndex
-    const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.images.length - 1
-    const next = currentIndex + 1 <= props.images.length - 1 ? currentIndex + 1 : 0
+    const prev = currentIndex - 1 >= 0 ? currentIndex - 1 : props.children.length - 1
+    const next = currentIndex + 1 <= props.children.length - 1 ? currentIndex + 1 : 0
 
     switch (imgIndex) {
       case active:
@@ -147,12 +159,15 @@ const RevealCarousel = props => {
             }}
             className={`carousel__images-container`}>
             {
-              props.images.map((image, i) => (
+              props.children.map((child, i) => (
                 <div
                   className={`carouselImage ${getCarouselImageClass(i)}`}
-                  key={`carouselImage${i}`}
-                >
-                  <Slide key={i} image={image} classAdd='carousel__image-wrapper' renderImage={props.aspectRatio === 'noAspect'} />
+                  key={`carouselImage${i}`}>
+                  {visibleArray.includes(i)
+                    ? React.cloneElement(child, {
+                      active: (currentIndex === i)
+                    })
+                    : <Fragment />}
                 </div>
               ))
             }

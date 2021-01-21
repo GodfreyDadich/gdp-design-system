@@ -58,6 +58,15 @@ export const imageGallery3 = [
   'http://gdp-site.s3.amazonaws.com/attachments/ck25derra04q70irsz2ynw1ua-03.full.png',
   'http://gdp-site.s3.amazonaws.com/attachments/ck25dert004q90irs14b8rbdt-04.full.png'
 ]
+
+export const videoGallery = [
+  'https://vimeo.com/469886224/216136ff00',
+  'https://vimeo.com/299978304',
+  'https://vimeo.com/434467246/b285a663a2',
+  'https://vimeo.com/441083980/60ff0ed160',
+  'https://vimeo.com/445705599/abdae055b0'
+]
+
 export const galleries = [
   {
     name: '',

@@ -1,6 +1,7 @@
 import React from 'react'
 import { text, boolean, select, number } from '@storybook/addon-knobs'
 import Image from '../components/Image'
+import Video from '../components/Video'
 import Slider from '../components/Slider'
 import RevealCarousel from '../components/RevealCarousel'
 import CircularCarousel from '../components/CircularCarousel'
@@ -12,6 +13,7 @@ import {
   captionsArray,
   imageGallery2,
   imageGallery3,
+  videoGallery,
   galleries,
   aspectRatios,
   countIndicator,
@@ -55,13 +57,31 @@ export const ImageSlider = () =>
 
 export const ImageRevealCarousel = () =>
   <RevealCarousel
-    images={imageGallery3}
     countIndicator={select('Count Indicator', countIndicator, 'dots')}
     containerAspect={select('Container Aspect Ratio', aspectRatios, 'sixteen')}
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     caption={text('Caption', defaultCaption)}
     captionsArray={captionsArray}
-  />
+  >
+  {videoGallery.map((img, index) => {
+    return <Video
+    title=''
+    key={`vid-${index}`}
+    aspectRatio='sixteen'
+    vidSource={img}
+    autoplay
+    loop
+    skipIntro
+    config={{
+      playerOptions: {
+        background: 1,
+        controls: 0,
+        transparent: 0
+      }
+    }}
+    />
+  })}
+  </RevealCarousel>
 
 export const ImageMuseumView = () =>
   <Museum
