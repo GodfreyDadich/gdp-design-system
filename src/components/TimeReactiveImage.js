@@ -6,7 +6,7 @@ import TrackVisibility from 'react-on-screen'
 const TimeReactiveImage = props => {
   const getTime = () => {
     const date = new Date()
-    return date.toLocaleTimeString('en-US', { timeZone: 'PST', hour: 'numeric', minute: '2-digit' })
+    return date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' })
   }
 
   const getFormattedTime = function (fourDigitTime) {
