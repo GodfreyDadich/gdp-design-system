@@ -4,28 +4,24 @@ import Image from './Image'
 import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
+
   const getTime = () => {
     const date = new Date()
     return date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' })
   }
-
-  const getFormattedTime = function (fourDigitTime) {
-    var hours24 = parseInt(fourDigitTime.substring(0, 2))
-    var hours = ((hours24 + 11) % 12) + 1
-    var minutes = fourDigitTime.substring(2)
-    return hours + ':' + minutes
+  const getMilitaryTime = () => {
+    const date = new Date()
+    return date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit', hour12: false })
   }
-
-
   const [imagesArr, setImagesArr] = useState(props.images)
   const [timeStamp, setTimeStamp] = useState('')
-  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(getTime())
   const [transitionEvent, setTransitionEvent] = useState('')
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
   const [initialized, setInitialized] = useState(false)
   const [showCurrent, setShowCurrent] = useState(false)
   const [imageOneLoaded, setImageOneLoaded] = useState(false)
+  const currentTimeConvertedMilitary = getMilitaryTime()
 
   const initTRI = () => {
     setInitialized(true)
@@ -61,7 +57,7 @@ const TimeReactiveImage = props => {
   }, [imageOneLoaded])
 
   const updateTime = () => {
-    setTimeStamp(getFormattedTime(getTime().split(':').join("")))
+    setTimeStamp(getTime())
   }
 
   return <TrackVisibility partialVisibility once >
