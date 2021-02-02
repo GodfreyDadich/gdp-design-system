@@ -4,19 +4,16 @@ import Image from './Image'
 import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
-
-  const jan = new Date(new Date().getFullYear(), 0, 1)
-  const jul = new Date(new Date().getFullYear(), 6, 1)
-  const offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) / -60
-
-  const getTime = () => new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
+  const getTime = () => {
+    const date = new Date()
+    return date.toLocaleTimeString('en-US', { timeZone: 'PST', hour: 'numeric', minute: '2-digit' })
+  }
 
   const getFormattedTime = function (fourDigitTime) {
     var hours24 = parseInt(fourDigitTime.substring(0, 2))
     var hours = ((hours24 + 11) % 12) + 1
-    var amPm = hours24 > 11 ? 'PM' : 'AM'
     var minutes = fourDigitTime.substring(2)
-    return hours + ':' + minutes + ' ' + amPm
+    return hours + ':' + minutes
   }
 
 
