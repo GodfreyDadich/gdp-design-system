@@ -4,7 +4,11 @@ import Image from './Image'
 import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
-  const offset = -7;
+
+    const jan = new Date(new Date().getFullYear(), 0, 1)
+    const jul = new Date(new Date().getFullYear(), 6, 1)
+    const offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) / -60
+
   const getTime = () => new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
 
   const getFormattedTime = function (fourDigitTime) {
@@ -119,7 +123,7 @@ const TimeReactiveImage = props => {
               font-weight: normal;
               letter-spacing: 1.60417px;
               z-index: 99;
-              color: #FFF;
+              color: black;
               bottom: -50px;
               right: 40px;
               transition: bottom 1s 2s ease-in-out;
