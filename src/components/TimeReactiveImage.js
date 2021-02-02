@@ -4,27 +4,24 @@ import Image from './Image'
 import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
-  const offset = -7;
-  const getTime = () => new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
 
-  const getFormattedTime = function (fourDigitTime) {
-    var hours24 = parseInt(fourDigitTime.substring(0, 2))
-    var hours = ((hours24 + 11) % 12) + 1
-    var amPm = hours24 > 11 ? 'PM' : 'AM'
-    var minutes = fourDigitTime.substring(2)
-    return hours + ':' + minutes + ' ' + amPm
+  const getTime = () => {
+    const date = new Date()
+    return date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' })
   }
-
-
+  const getMilitaryTime = () => {
+    const date = new Date()
+    return date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit', hour12: false })
+  }
   const [imagesArr, setImagesArr] = useState(props.images)
   const [timeStamp, setTimeStamp] = useState('')
-  const [currentTimeConvertedMilitary, setcurrentTimeConvertedMilitary] = useState(getTime())
   const [transitionEvent, setTransitionEvent] = useState('')
   const [currentImage, setCurrentImage] = useState('')
   const [prevImage, setPrevImage] = useState('')
   const [initialized, setInitialized] = useState(false)
   const [showCurrent, setShowCurrent] = useState(false)
   const [imageOneLoaded, setImageOneLoaded] = useState(false)
+  const currentTimeConvertedMilitary = getMilitaryTime()
 
   const initTRI = () => {
     setInitialized(true)
@@ -35,7 +32,7 @@ const TimeReactiveImage = props => {
       const startTime = Number(elem.timeStart.split(':')[0])
       const endTime = Number(elem.timeEnd.split(':')[0])
       const currentTime = Number(currentTimeConvertedMilitary.split(':')[0])
-      if( startTime > endTime) {
+      if (startTime > endTime) {
         return currentTime < startTime || currentTime > endTime
       } else {
         return currentTime >= startTime && currentTime < endTime
@@ -47,8 +44,8 @@ const TimeReactiveImage = props => {
     setCurrentImage(found.image)
   }
 
-  useEffect(()=> {
-    if(imageOneLoaded) {    
+  useEffect(() => {
+    if (imageOneLoaded) {
       setTimeout(() => {
         setShowCurrent(true)
         setTransitionEvent('active')
@@ -60,7 +57,7 @@ const TimeReactiveImage = props => {
   }, [imageOneLoaded])
 
   const updateTime = () => {
-    setTimeStamp(getFormattedTime(getTime().split(':').join("")))
+    setTimeStamp(getTime())
   }
 
   return <TrackVisibility partialVisibility once >
