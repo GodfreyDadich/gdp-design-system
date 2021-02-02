@@ -123,7 +123,7 @@ const TimeReactiveImage = props => {
               font-weight: normal;
               letter-spacing: 1.60417px;
               z-index: 99;
-              color: black;
+              color: #FFF;
               bottom: -50px;
               right: 40px;
               transition: bottom 1s 2s ease-in-out;
