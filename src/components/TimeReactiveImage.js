@@ -5,9 +5,9 @@ import TrackVisibility from 'react-on-screen'
 
 const TimeReactiveImage = props => {
 
-    const jan = new Date(new Date().getFullYear(), 0, 1)
-    const jul = new Date(new Date().getFullYear(), 6, 1)
-    const offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) / -60
+  const jan = new Date(new Date().getFullYear(), 0, 1)
+  const jul = new Date(new Date().getFullYear(), 6, 1)
+  const offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) / -60
 
   const getTime = () => new Date(new Date().getTime() + offset * 3600 * 1000).toISOString().split(':', 2).join(':').split('T')[1]
 
@@ -39,7 +39,7 @@ const TimeReactiveImage = props => {
       const startTime = Number(elem.timeStart.split(':')[0])
       const endTime = Number(elem.timeEnd.split(':')[0])
       const currentTime = Number(currentTimeConvertedMilitary.split(':')[0])
-      if( startTime > endTime) {
+      if (startTime > endTime) {
         return currentTime < startTime || currentTime > endTime
       } else {
         return currentTime >= startTime && currentTime < endTime
@@ -51,8 +51,8 @@ const TimeReactiveImage = props => {
     setCurrentImage(found.image)
   }
 
-  useEffect(()=> {
-    if(imageOneLoaded) {    
+  useEffect(() => {
+    if (imageOneLoaded) {
       setTimeout(() => {
         setShowCurrent(true)
         setTransitionEvent('active')
