@@ -9,6 +9,8 @@ import PropTypes from 'prop-types'
 // d36aj1cv2i74vd
 const Image = (props) => {
   const {
+    width,
+    height,
     imageTitle,
     altAsset,
     imgSource,
@@ -38,10 +40,9 @@ const Image = (props) => {
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
-  const [imageAspect, setImageAspect] = useState(1)
+  const imageAspect = Number((height/width) * 100).toFixed(2) 
 
   const handleImageLoaded = e => {
-    setImageAspect(Number((e.target.naturalHeight/e.target.naturalWidth) * 100).toFixed(2))
     if(logoSVG) {
       setTimeout(() => {
         setImageLoaded(true)
