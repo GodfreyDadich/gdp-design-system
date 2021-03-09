@@ -53,9 +53,10 @@ class Hero extends React.Component {
     
     const {
       source,
-      loop
+      loop,
+      width,
+      height
     } = this.props
-
     return (<div className='hero'>
       {(() => {
         switch (type) {
@@ -66,6 +67,8 @@ class Hero extends React.Component {
               fullBleed
               verticalAlign='center'
               skipIntro
+              width={width}
+              height={height}
               horizontalAlign='center'
               imgSource={heroReady ? imgSource : ''}
               classAdd={this.state.zoomClass} />

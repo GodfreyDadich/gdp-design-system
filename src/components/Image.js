@@ -29,21 +29,22 @@ const Image = (props) => {
   } = props
 
   const paddingRef = {
-    sixteen: '56.25%',
-    standard: '75%',
-    cropped: '41.67%',
-    square: '100%',
-    doubleWide: 'calc( 50% - 12px )',
-    cover: '133%',
+    sixteen: 56.25,
+    standard: 75,
+    cropped: 41.67,
+    square: 100,
+    doubleWide: 50,
+    cover: 133,
     custom: props.customPadding
   }
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
-  const imageAspect = Number((height/width) * 100).toFixed(2) 
+  const imageAspect = Number((height / width) * 100).toFixed(2)
+  const wider = aspectRatio !== 'noAspect' && imageAspect > paddingRef[aspectRatio]
 
   const handleImageLoaded = e => {
-    if(logoSVG) {
+    if (logoSVG) {
       setTimeout(() => {
         setImageLoaded(true)
         if (loadIndicator) {
@@ -60,14 +61,13 @@ const Image = (props) => {
     }
   }
   return (
-    <figure style={style} className={`${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+    <figure style={{ position: 'relative', display: 'block', ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility
         partialVisibility
-        // className={classAdd}
         style={{
           overflow: 'visible',
           position: 'relative',
-          paddingTop: aspectRatio === 'noAspect' ? `${imageAspect}%` : paddingRef[aspectRatio],
+          paddingTop: aspectRatio === 'noAspect' ? `${imageAspect}%` : `${paddingRef[aspectRatio]}%`,
           minHeight: '100%',
           boxSizing: 'border-box'
         }} >
@@ -80,7 +80,9 @@ const Image = (props) => {
           return (
             <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={imageIsVisible} imageAspect={imageAspect} >
               <ConditionalLink linkUrl={linkUrl}>
-                <img className='wrappedImage' alt={imageTitle} src={imageSrc} onLoad={handleImageLoaded} />
+                <picture onLoad={handleImageLoaded} alt={imageTitle}>
+                  <img className='wrappedImage' src={imageSrc} />
+                </picture>
                 {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
                 {(sideBar && sideBar.text.length > 0)
                   ? <SideBar sideBar={sideBar} isVisible />
@@ -93,17 +95,13 @@ const Image = (props) => {
       {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
 
       <style jsx>{`
-        figure {
-          position: relative;
-          display: block;
-        }
         .wrappedImage {
           position: absolute;
-          top: 0;
-          left: 0;
-          min-width: 100%;
-          height: auto;
-          opacity: 0;         
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: ${wider ? 'auto' : '100%'};
+          width: ${wider ? '100%' : 'auto'};
         }
         
         .hoverWrap {
@@ -125,7 +123,9 @@ const Image = (props) => {
           }
           .wrappedImage.imageHover {
             position: absolute;
-            top: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             opacity: 0;
             z-index: 10;
             background: #fff;

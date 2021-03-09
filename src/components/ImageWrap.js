@@ -1,5 +1,4 @@
 import React from 'react'
-import { isMobile } from 'react-device-detect';
 
 class ImageWrap extends React.Component {
   constructor (props) {
@@ -19,7 +18,7 @@ class ImageWrap extends React.Component {
   }
 
   render () {
-    const { aspectRatio, fullBleed, children, imgSource, horizontalAlign, verticalAlign, sideBar, imageLoaded, visibilityOverride, skipIntro, altAsset, backgroundSize, slowIntro } = this.props
+    const { aspectRatio, fullBleed, children, sideBar, imageLoaded, visibilityOverride, skipIntro, slowIntro } = this.props
     const { loadImage } = this.state
     const showImage = visibilityOverride || loadImage
 
@@ -27,11 +26,6 @@ class ImageWrap extends React.Component {
       <div className={`imageWrap ${aspectRatio} ${fullBleed ? 'fullBleed' : ''}`}
         style={{
           position: 'absolute',
-          backgroundImage: `${imageLoaded && `url('${isMobile && altAsset ? altAsset : imgSource}')`}`,
-          backgroundSize: backgroundSize || 'cover',
-          backgroundPositionX: horizontalAlign,
-          backgroundPositionY: verticalAlign,
-          backgroundRepeat: 'no-repeat',
           height: '100%',
           width: '100%',
           lineHeight: '0',
