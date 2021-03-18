@@ -69,7 +69,6 @@ class Hero extends React.Component {
               skipIntro
               width={width}
               height={height}
-              horizontalAlign='center'
               imgSource={heroReady ? imgSource : ''}
               classAdd={this.state.zoomClass} />
           case 'video':

@@ -25,7 +25,9 @@ const Image = (props) => {
     visibilityOverride,
     loadIndex,
     logoSVG,
-    loadIndicator
+    loadIndicator,
+    verticalAlign,
+    horizontalAlign
   } = props
 
   const paddingRef = {
@@ -41,7 +43,7 @@ const Image = (props) => {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
   const imageAspect = Number((height / width) * 100).toFixed(2)
-  const wider = aspectRatio !== 'noAspect' && imageAspect > paddingRef[aspectRatio]
+  const wider = aspectRatio !== 'noAspect' && imageAspect >= paddingRef[aspectRatio]
 
   const handleImageLoaded = e => {
     if (logoSVG) {
@@ -60,6 +62,111 @@ const Image = (props) => {
       }
     }
   }
+
+  const getTop = vAlign => {
+    switch (vAlign) {
+      case 'bottom':
+        return 'auto'
+      case 'top':
+        return '0'
+      default:
+        return '50%'
+    }
+  }
+
+  const getBottom = vAlign => {
+    switch (vAlign) {
+      case 'bottom':
+        return '0'
+      case 'top':
+        return 'auto'
+      default:
+        return 'auto'
+    }
+  }
+
+  const getLeft = hAlign => {
+    switch (hAlign) {
+      case 'left':
+        return '0'
+      case 'right':
+        return 'auto'
+      default:
+        return '50%'
+    }
+  }
+
+  const getRight = hAlign => {
+    switch (hAlign) {
+      case 'right':
+        return '0'
+      case 'left':
+        return 'auto'
+      default:
+        return 'auto'
+    }
+  }
+
+  const getTX = hAlign => {
+    switch (hAlign) {
+      case 'right':
+        return '0'
+      case 'left':
+        return '0'
+      default:
+        return '-50%'
+    }
+  }
+
+  const getTY = vAlign => {
+    switch (vAlign) {
+      case 'top':
+        return '0'
+      case 'bottom':
+        return '0'
+      default:
+        return '-50%'
+    }
+  }
+
+  const getHeight = (wider, hAlign, vAlign) => {
+    switch (hAlign) {
+      case 'left':
+      case 'right':
+        return '100%'
+      case 'center':
+        return wider ? 'auto' : '100%'
+      default:
+        switch (vAlign) {
+          case 'top':
+          case 'bottom':
+          case 'center':
+            return 'auto'
+          default:
+            return wider ? '100%' : 'auto'
+        }
+    }
+  }
+
+  const getWidth = (wider, vAlign, hAlign) => {
+    switch (vAlign) {
+      case 'top':
+      case 'bottom':
+        return '100%'
+      case 'center':
+        return wider ? '100%' : 'auto'
+      default:
+        switch (hAlign) {
+          case 'left':
+          case 'right':
+          case 'center':
+            return 'auto'
+          default:
+            return wider ? 'auto' : '100%'
+        }
+    }
+  }
+
   return (
     <figure style={{ position: 'relative', display: 'block', ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility
@@ -97,11 +204,13 @@ const Image = (props) => {
       <style jsx>{`
         .wrappedImage {
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          height: ${wider ? 'auto' : '100%'};
-          width: ${wider ? '100%' : 'auto'};
+          top: ${verticalAlign ? getTop(verticalAlign) : '50%'};
+          left: ${horizontalAlign ? getLeft(horizontalAlign) : '50%'};
+          right: ${horizontalAlign ? getRight(horizontalAlign) : 'auto'};
+          bottom: ${verticalAlign ? getBottom(verticalAlign) : 'auto'};
+          transform: translate(${getTX(horizontalAlign)}, ${getTY(verticalAlign)});
+          height: ${getHeight(wider, horizontalAlign, verticalAlign)};
+          width: ${getWidth(wider, verticalAlign, horizontalAlign)};
         }
         
         .hoverWrap {
