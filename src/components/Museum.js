@@ -6,7 +6,7 @@ import Modal from './Modal'
 import { Caption } from './Type'
 import { isMobile } from 'react-device-detect'
 
-const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspect, view, caption, classAdd }) => {
+const Museum = ({ galleries, columns, width, height, thumbAspect, countIndicator, containerAspect, view, caption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageGallery, setImageGallery] = useState([])
   const [clickedIndex, setClickedIndex] = useState('')
@@ -57,6 +57,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
           galleries.map((gallery, index) =>
             <div style={mobileStyles} key={`galleryThumb-${index}`}>
               <Image
+                width={width}
+                height={height}
                 aspectRatio={thumbAspect || 'sixteen'}
                 imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                 skipIntro
@@ -80,6 +82,8 @@ const Museum = ({ galleries, columns, thumbAspect, countIndicator, containerAspe
                   style={thumbStyles}
                   key={`galleryThumb-${index}`}>
                   <Image
+                    width={width}
+                    height={height}
                     aspectRatio={thumbAspect || 'sixteen'}
                     imgSource={gallery.thumb.length > 0 ? gallery.thumb : gallery.images[0]}
                     skipIntro

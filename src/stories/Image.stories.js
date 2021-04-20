@@ -27,9 +27,11 @@ export const DefaultImage = () =>
   <Image
     altAsset={imgSixteenNine}
     imageTitle={text('Image Title/Alt', 'test')}
-    aspectRatio={select('Aspect Ratio', aspectRatios, 'square')}
+    aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
+    width={1024}
+    height={696}
     linkUrl={text('url', '')}
     verticalAlign={select('Vertical Align', verticalAligns, 'center')}
     horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
@@ -42,6 +44,8 @@ export const ImageWithCaption = () =>
     aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
+    width={1024}
+    height={696}
     linkUrl={text('url', '')}
     verticalAlign={select('Vertical Align', verticalAligns, 'center')}
     horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
@@ -61,6 +65,8 @@ export const ImageWithSidebar = () =>
     aspectRatio={select('Aspect Ratio', aspectRatios, 'noAspect')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
+    width={1024}
+    height={696}
     linkUrl={text('url', '')}
     verticalAlign={select('Vertical Align', verticalAligns, 'center')}
     horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
@@ -87,6 +93,8 @@ export const DeviceImage = () =>
       aspectRatio='standard'
       skipIntro
       imgSource={imgSixteenNine}
+      width={1024}
+      height={696}
       verticalAlign={select('Vertical Align', verticalAligns, 'center')}
       horizontalAlign={select('Horizontal Align', horizontalAligns, 'center')}
     />
@@ -98,6 +106,8 @@ export const ImageWithHover = () =>
     aspectRatio={select('Aspect Ratio', aspectRatios, 'sixteen')}
     fullBleed={boolean('fullBleed', false)}
     imgSource={imgSixteenNine}
+    width={1024}
+    height={696}
     imgHover={imageGallery2[1]}
     linkUrl={text('url', '')}
     verticalAlign={select('Vertical Align', verticalAligns, 'center')}

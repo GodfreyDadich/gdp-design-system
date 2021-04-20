@@ -9,6 +9,8 @@ import PropTypes from 'prop-types'
 // d36aj1cv2i74vd
 const Image = (props) => {
   const {
+    width,
+    height,
     imageTitle,
     altAsset,
     imgSource,
@@ -23,26 +25,28 @@ const Image = (props) => {
     visibilityOverride,
     loadIndex,
     logoSVG,
-    loadIndicator
+    loadIndicator,
+    verticalAlign,
+    horizontalAlign
   } = props
 
   const paddingRef = {
-    sixteen: '56.25%',
-    standard: '75%',
-    cropped: '41.67%',
-    square: '100%',
-    doubleWide: 'calc( 50% - 12px )',
-    cover: '133%',
+    sixteen: 56.25,
+    standard: 75,
+    cropped: 41.67,
+    square: 100,
+    doubleWide: 50,
+    cover: 133,
     custom: props.customPadding
   }
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageInView, setImageInView] = useState(false)
-  const [imageAspect, setImageAspect] = useState(1)
+  const imageAspect = Number((height / width) * 100).toFixed(2)
+  const wider = aspectRatio !== 'noAspect' && imageAspect >= paddingRef[aspectRatio]
 
   const handleImageLoaded = e => {
-    setImageAspect(Number((e.target.naturalHeight/e.target.naturalWidth) * 100).toFixed(2))
-    if(logoSVG) {
+    if (logoSVG) {
       setTimeout(() => {
         setImageLoaded(true)
         if (loadIndicator) {
@@ -58,15 +62,119 @@ const Image = (props) => {
       }
     }
   }
+
+  const getTop = vAlign => {
+    switch (vAlign) {
+      case 'bottom':
+        return 'auto'
+      case 'top':
+        return '0'
+      default:
+        return '50%'
+    }
+  }
+
+  const getBottom = vAlign => {
+    switch (vAlign) {
+      case 'bottom':
+        return '0'
+      case 'top':
+        return 'auto'
+      default:
+        return 'auto'
+    }
+  }
+
+  const getLeft = hAlign => {
+    switch (hAlign) {
+      case 'left':
+        return '0'
+      case 'right':
+        return 'auto'
+      default:
+        return '50%'
+    }
+  }
+
+  const getRight = hAlign => {
+    switch (hAlign) {
+      case 'right':
+        return '0'
+      case 'left':
+        return 'auto'
+      default:
+        return 'auto'
+    }
+  }
+
+  const getTX = hAlign => {
+    switch (hAlign) {
+      case 'right':
+        return '0'
+      case 'left':
+        return '0'
+      default:
+        return '-50%'
+    }
+  }
+
+  const getTY = vAlign => {
+    switch (vAlign) {
+      case 'top':
+        return '0'
+      case 'bottom':
+        return '0'
+      default:
+        return '-50%'
+    }
+  }
+
+  const getHeight = (wider, hAlign, vAlign) => {
+    switch (hAlign) {
+      case 'left':
+      case 'right':
+        return '100%'
+      case 'center':
+        return wider ? 'auto' : '100%'
+      default:
+        switch (vAlign) {
+          case 'top':
+          case 'bottom':
+          case 'center':
+            return 'auto'
+          default:
+            return wider ? '100%' : 'auto'
+        }
+    }
+  }
+
+  const getWidth = (wider, vAlign, hAlign) => {
+    switch (vAlign) {
+      case 'top':
+      case 'bottom':
+        return '100%'
+      case 'center':
+        return wider ? '100%' : 'auto'
+      default:
+        switch (hAlign) {
+          case 'left':
+          case 'right':
+          case 'center':
+            return 'auto'
+          default:
+            return wider ? 'auto' : '100%'
+        }
+    }
+  }
+
   return (
-    <figure style={style} className={`${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+    <figure style={{ position: 'relative', display: 'block', ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility
         partialVisibility
-        // className={classAdd}
         style={{
           overflow: 'visible',
           position: 'relative',
-          paddingTop: aspectRatio === 'noAspect' ? `${imageAspect}%` : paddingRef[aspectRatio],
+          paddingTop: aspectRatio === 'noAspect' ? `${imageAspect}%` : `${paddingRef[aspectRatio]}%`,
           minHeight: '100%',
           boxSizing: 'border-box'
         }} >
@@ -79,7 +187,9 @@ const Image = (props) => {
           return (
             <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={imageIsVisible} imageAspect={imageAspect} >
               <ConditionalLink linkUrl={linkUrl}>
-                <img className='wrappedImage' alt={imageTitle} src={imageSrc} onLoad={handleImageLoaded} />
+                <picture onLoad={handleImageLoaded} alt={imageTitle}>
+                  <img className='wrappedImage' src={imageSrc} />
+                </picture>
                 {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
                 {(sideBar && sideBar.text.length > 0)
                   ? <SideBar sideBar={sideBar} isVisible />
@@ -92,17 +202,15 @@ const Image = (props) => {
       {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
 
       <style jsx>{`
-        figure {
-          position: relative;
-          display: block;
-        }
         .wrappedImage {
           position: absolute;
-          top: 0;
-          left: 0;
-          min-width: 100%;
-          height: auto;
-          opacity: 0;         
+          top: ${verticalAlign ? getTop(verticalAlign) : '50%'};
+          left: ${horizontalAlign ? getLeft(horizontalAlign) : '50%'};
+          right: ${horizontalAlign ? getRight(horizontalAlign) : 'auto'};
+          bottom: ${verticalAlign ? getBottom(verticalAlign) : 'auto'};
+          transform: translate(${getTX(horizontalAlign)}, ${getTY(verticalAlign)});
+          height: ${getHeight(wider, horizontalAlign, verticalAlign)};
+          width: ${getWidth(wider, verticalAlign, horizontalAlign)};
         }
         
         .hoverWrap {
@@ -124,7 +232,9 @@ const Image = (props) => {
           }
           .wrappedImage.imageHover {
             position: absolute;
-            top: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             opacity: 0;
             z-index: 10;
             background: #fff;

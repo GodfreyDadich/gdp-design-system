@@ -6,9 +6,7 @@ import ConditionalLink from './ConditionalLink'
 import PropTypes from 'prop-types'
 
 const imagePropsObject = props => {
-  const newObj = Object.assign({}, props)
-  delete newObj.classAdd
-  delete newObj.linkUrl
+  const { classAdd, linkUrl, ...newObj } = props
   return newObj
 }
 
