@@ -30,7 +30,7 @@ class ImageWrap extends React.Component {
           width: '100%',
           lineHeight: '0',
           overflow: `${!sideBar ? 'hidden' : 'visible'}`,
-          opacity: imageLoaded ? 1 : 0,
+          opacity: imageLoaded || visibilityOverride ? 1 : 0,
           top: imageLoaded || skipIntro ? '0px' : '15px',
           transition: slowIntro ? 'opacity 1s ease, top 1s ease, transform 1s ease-in-out' : 'opacity 0.3s ease .3s, top 0.3s ease .3s, transform 0.3s ease-in-out 0s',
           boxSizing: 'border-box'
