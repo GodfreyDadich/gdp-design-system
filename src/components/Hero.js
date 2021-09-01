@@ -2,7 +2,7 @@ import React from 'react'
 import Image from './Image'
 import Video from './Video'
 import supportsWebP from 'supports-webp'
-import Lottie from 'react-lottie'
+import Lottie from 'react-lottie-player'
 // import PropTypes from 'prop-types'
 
 class Hero extends React.Component {
@@ -98,11 +98,9 @@ class Hero extends React.Component {
             />
           case 'lottie':
             return <Lottie
-              options={{
-                loop: loop,
-                autoplay: true,
-                animationData: source
-              }}
+              loop={loop}
+              play
+              animationData={source}
             />
           default:
             return null
