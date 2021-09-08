@@ -115,6 +115,7 @@ export default class Slider extends Component {
         .sliderWrap {
           position: relative;
           height: auto;
+          margin: 0;
           background-size: cover;
           background-repeat: no-repeat;
           transition: transform 0.5s;

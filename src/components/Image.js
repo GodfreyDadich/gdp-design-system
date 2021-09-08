@@ -168,7 +168,7 @@ const Image = (props) => {
   }
 
   return (
-    <figure style={{ position: 'relative', display: 'block', ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+    <figure style={{ position: 'relative', display: 'block', margin: 0,  ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility
         partialVisibility
         style={{
@@ -187,7 +187,7 @@ const Image = (props) => {
           return (
             <ImageWrap {...props} imageLoaded={imageLoaded} imageIsVisible={imageIsVisible} imageAspect={imageAspect} >
               <ConditionalLink linkUrl={linkUrl}>
-                <picture onLoad={handleImageLoaded} alt={imageTitle}>
+                <picture onLoad={handleImageLoaded} alt={imageTitle} className='wrappedPicture'>
                   <img className='wrappedImage' src={imageSrc} />
                 </picture>
                 {imgHover ? <img className='wrappedImage imageHover' alt={imageTitle} src={imgHover} /> : ''}
@@ -202,15 +202,14 @@ const Image = (props) => {
       {caption && caption.length > 0 ? <Caption classAdd={`${stackedImage ? 'col-6 col-6-tab' : 'col-6 col-6-tab'}`}>{caption}</Caption> : ''}
 
       <style jsx>{`
+        picture {
+          display: flex;
+        }
         .wrappedImage {
           position: absolute;
-          top: ${verticalAlign ? getTop(verticalAlign) : '50%'};
-          left: ${horizontalAlign ? getLeft(horizontalAlign) : '50%'};
-          right: ${horizontalAlign ? getRight(horizontalAlign) : 'auto'};
-          bottom: ${verticalAlign ? getBottom(verticalAlign) : 'auto'};
-          transform: translate(${getTX(horizontalAlign)}, ${getTY(verticalAlign)});
-          height: ${getHeight(wider, horizontalAlign, verticalAlign)};
-          width: ${getWidth(wider, verticalAlign, horizontalAlign)};
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
         }
         
         .hoverWrap {
