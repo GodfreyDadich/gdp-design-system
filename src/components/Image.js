@@ -168,7 +168,7 @@ const Image = (props) => {
   }
 
   return (
-    <figure style={{ position: 'relative', display: 'block', margin: 0,  ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
+    <figure style={{ position: 'relative', display: 'block', ...style }} className={`figure ${classAdd} ${imgHover ? 'hoverWrap' : ''}${caption && caption.length > 0 ? ' withCaption' : ''}`}>
       <TrackVisibility
         partialVisibility
         style={{
