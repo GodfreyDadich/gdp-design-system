@@ -23,6 +23,8 @@ export default class StackedImage extends Component {
                   key={`image${index}`}
                   >
                   <Image
+                    height={this.props.height}
+                    width={this.props.width}
                     key={`img-${index}`}
                     aspectRatio={this.props.aspectRatio ? this.props.aspectRatio : 'noAspect'}
                     imgSource={img}

@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.36-7](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-6...v1.3.36-7) (2021-09-08)
+
+### [1.3.36-6](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-5...v1.3.36-6) (2021-09-08)
+
+### [1.3.36-5](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-4...v1.3.36-5) (2021-09-08)
+
+### [1.3.36-4](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-3...v1.3.36-4) (2021-09-01)
+
+### [1.3.36-3](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-2...v1.3.36-3) (2021-09-01)
+
+### [1.3.36-2](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-1...v1.3.36-2) (2021-09-01)
+
+### [1.3.36-1](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.36-0...v1.3.36-1) (2021-04-20)
+
+### [1.3.36-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.34-0...v1.3.36-0) (2021-03-18)
+
+### [1.3.35](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.34-0...v1.3.35) (2021-03-10)
+
+### [1.3.34](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.34-0...v1.3.34) (2021-03-10)
+
+### [1.3.34-0](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.33...v1.3.34-0) (2021-03-09)
+
+### [1.3.33](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.31...v1.3.33) (2021-02-02)
+
+### [1.3.32](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.31...v1.3.32) (2021-02-02)
+
 ### [1.3.31](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.30...v1.3.31) (2021-02-02)
 
 ### [1.3.30](https://github.com/GodfreyDadich/gdp-design-system/compare/v1.3.28...v1.3.30) (2021-02-02)

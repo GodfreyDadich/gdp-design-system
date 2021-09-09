@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 import ConditionalClass from './ConditionalClass'
 import PropTypes from 'prop-types'
 
-const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, removeMobileGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
+const GridGallery = ({ thumbs, images, width, height, columns, countIndicator, thumbAspect, containerAspect, carousel, view, caption, removeGrayBackground, removeMobileGrayBackground, mixedOr, altAsset, headingCaption, classAdd }) => {
   const [modalView, setModalView] = useState(false)
   const [imageIndex, setImageIndex] = useState([])
   const [galleryThumbs, setGalleryThumbs] = useState([])
@@ -88,6 +88,8 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
               appliedImages.map((image, index) =>
                 <div style={mobileStyles} key={`${escape(image)}-${index}`}>
                   <Image
+                    width={width}
+                    height={height}
                     aspectRatio={thumbAspect}
                     imgSource={image}
                     skipIntro
@@ -101,6 +103,8 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
             <div className='mobile-grid-container' style={{ background: removeGrayBackground ? 'transparent' : 'rgb(242,242,242)', padding: removeGrayBackground ? '0' : '15px'  }}>
               <div style={evenGridStyles}>
                 <Image
+                  width={width}
+                  height={height}
                   aspectRatio={thumbAspect || 'noAspect'}
                   imgSource={appliedImages[0]}
                   skipIntro
@@ -150,6 +154,8 @@ const GridGallery = ({ thumbs, images, columns, countIndicator, thumbAspect, con
                         aspectRatio={thumbAspect || 'noAspect'}
                         imgSource={image}
                         skipIntro
+                        width={width}
+                        height={height}
                       />
                     </div>
                   )
