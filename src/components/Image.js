@@ -26,8 +26,8 @@ const Image = (props) => {
     loadIndex,
     logoSVG,
     loadIndicator,
-    verticalAlign,
-    horizontalAlign
+    imgContain,
+    imgAlign
   } = props
 
   const paddingRef = {
@@ -60,110 +60,6 @@ const Image = (props) => {
       if (loadIndicator) {
         loadIndicator(true)
       }
-    }
-  }
-
-  const getTop = vAlign => {
-    switch (vAlign) {
-      case 'bottom':
-        return 'auto'
-      case 'top':
-        return '0'
-      default:
-        return '50%'
-    }
-  }
-
-  const getBottom = vAlign => {
-    switch (vAlign) {
-      case 'bottom':
-        return '0'
-      case 'top':
-        return 'auto'
-      default:
-        return 'auto'
-    }
-  }
-
-  const getLeft = hAlign => {
-    switch (hAlign) {
-      case 'left':
-        return '0'
-      case 'right':
-        return 'auto'
-      default:
-        return '50%'
-    }
-  }
-
-  const getRight = hAlign => {
-    switch (hAlign) {
-      case 'right':
-        return '0'
-      case 'left':
-        return 'auto'
-      default:
-        return 'auto'
-    }
-  }
-
-  const getTX = hAlign => {
-    switch (hAlign) {
-      case 'right':
-        return '0'
-      case 'left':
-        return '0'
-      default:
-        return '-50%'
-    }
-  }
-
-  const getTY = vAlign => {
-    switch (vAlign) {
-      case 'top':
-        return '0'
-      case 'bottom':
-        return '0'
-      default:
-        return '-50%'
-    }
-  }
-
-  const getHeight = (wider, hAlign, vAlign) => {
-    switch (hAlign) {
-      case 'left':
-      case 'right':
-        return '100%'
-      case 'center':
-        return wider ? 'auto' : '100%'
-      default:
-        switch (vAlign) {
-          case 'top':
-          case 'bottom':
-          case 'center':
-            return 'auto'
-          default:
-            return wider ? '100%' : 'auto'
-        }
-    }
-  }
-
-  const getWidth = (wider, vAlign, hAlign) => {
-    switch (vAlign) {
-      case 'top':
-      case 'bottom':
-        return '100%'
-      case 'center':
-        return wider ? '100%' : 'auto'
-      default:
-        switch (hAlign) {
-          case 'left':
-          case 'right':
-          case 'center':
-            return 'auto'
-          default:
-            return wider ? 'auto' : '100%'
-        }
     }
   }
 
@@ -210,7 +106,8 @@ const Image = (props) => {
           top: 0;
           height: 100%;
           width: 100%;
-          object-fit: cover;
+          object-fit: ${imgContain ? 'contain' : 'cover'};
+          object-position: ${imgAlign || 'initial'};
         }
         
         .hoverWrap {
