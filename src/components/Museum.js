@@ -45,6 +45,11 @@ const Museum = ({ galleries, columns, width, height, thumbAspect, countIndicator
     setModalView(true)
   }
 
+  const onModalClose = () => {
+    setClickedIndex('')
+    setModalView(false)
+  }
+
   return <div
     style={Object.assign({}, {
       position: 'relative',
@@ -96,7 +101,9 @@ const Museum = ({ galleries, columns, width, height, thumbAspect, countIndicator
           {modalView
             ? <Modal
               view={view}
-              modalVisible={modalView}>
+              modalVisible={modalView}
+              onModalClose={onModalClose}
+            >
               <SimpleGallery images={imageGallery} view={view} index={clickedIndex} />
             </Modal>
             : ''
