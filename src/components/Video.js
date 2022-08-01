@@ -149,25 +149,23 @@ const Video = (props) => {
                       transition: 'opacity 0.5s',
                       transitionDelay: '0.75s'
                     }}>
-                    { isLoading ? <Loader /> : '' } </div>
-                  { isMobileDevice && hoverPlay ? ''
-                    : <ReactPlayer
-                      url={loadVideo || skipIntro ? vidSource : ''}
-                      playing={playing && isVisible}
-                      volume={autoplay ? 0 : 1}
-                      muted={muted}
-                      loop={loop}
-                      controls={controls}
-                      width='100%'
-                      height='100%'
-                      style={vidStyle}
-                      config={config}
-                      onReady={videoReady}
-                      onPlay={videoOnPlay}
-                      onEnded={videoOnEnd}
-                      playsinline={playsinline}
-                    />
-                  }
+                  { isLoading ? <Loader /> : '' } </div>
+                  <ReactPlayer
+                    url={loadVideo || skipIntro ? vidSource : ''}
+                    playing={playing && isVisible}
+                    volume={autoplay ? 0 : 1}
+                    muted={muted}
+                    loop={loop}
+                    controls={controls}
+                    width='100%'
+                    height='100%'
+                    style={vidStyle}
+                    config={config}
+                    onReady={videoReady}
+                    onPlay={videoOnPlay}
+                    onEnded={videoOnEnd}
+                    playsinline={playsinline}
+                  />
                 </div>
               </div>
               {sideBar
