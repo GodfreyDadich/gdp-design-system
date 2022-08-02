@@ -31,6 +31,7 @@ class Modal extends React.Component {
     this.setState({
       modalVisible: false
     })
+    if (this.props.onModalClose) this.props.onModalClose()
     document.body.style.overflow = 'auto'
   }
 
